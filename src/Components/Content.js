@@ -4,7 +4,7 @@ function Content() {
 
   return (
     <div className='content-container'>
-      Conent
+      This is just a simple content
     </div>
   )
 
