@@ -1,0 +1,10 @@
+{
+  "site_info": {
+    "title": "Visual Webdevelopment"
+  },
+   "categories": [
+     {"id":  0, "title": "DOCS", "items":  ["DownLoad", "See right now"]},
+     {"id":  1, "title": "Our project", "items":  ["Goal", "throw a message"]},
+     {"id":  1, "title": "About us", "items": null}
+   ]
+}

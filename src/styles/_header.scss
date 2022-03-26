@@ -1,0 +1,48 @@
+.header-container {
+    border: 2px solid red;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    background-color: $header-background-color;
+    color: $header-color;
+    padding: 10px 0;
+    height: $header-height;
+
+    .content-container {
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .menu {
+        display: flex;
+        justify-content: center;
+        gap: 35px;
+
+        .menu-item {
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            align-items: center;
+
+            &:hover {
+                .popup-menu {
+                    visibility: visible;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+.popup-menu {
+    margin-top: 25px;
+    z-index: 101;
+    background-color: gray;
+    top: 0;
+    color: black;
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+}

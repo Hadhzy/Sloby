@@ -1,0 +1,27 @@
+@import "variables";
+@import "header";
+@import "content";
+@import "footer";
+html {
+    height: 100%;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body {
+      font-family: 'Poppins', serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+  .App{
+    min-height: 100vh;
+  }
+  }
+  
