@@ -77,7 +77,10 @@ function Header() {
 
   return (
     <div className='header-container'>
-      <HeaderMenu />
+      <div className="menu-container">
+        <HeaderMenu />
+      </div>
+
       <div className='button-wrapper'>
         <button className='button'>Sign up</button>
         <button className='button'>Create Account</button>

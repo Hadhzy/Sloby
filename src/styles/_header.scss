@@ -1,28 +1,33 @@
 .header-container {
-    border-radius: 1em;
-    position: fixed;
-    z-index: 100;
-    width: 100%;
-    background-color: $header-background-color;
-    color: $header-color;
-    padding: 10px 0;
-    height: $header-height;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    margin: 10px;
     filter: drop-shadow(0 7px 5px rgba(0, 0, 0, 0.3));
-
-    .menu {
+    border-radius: 1em;
+    z-index: 100;
+    width: auto;
+    height: $header-height;
+    background-color: $header-background-color;
+    padding: 10px 0;
+    .menu-container{
         display: flex;
-        justify-content: center;
-        gap: 35px;
-        width: 70%;
         align-items: center;
+
+        .menu{
+
+            display: flex;
+
+            gap: 35px;
+            width: 100%;
             .menu-item {
+
+                font-weight: bold;
+
                 cursor: pointer;
                 position: relative;
                 display: flex;
                 align-items: center;
-    
+
                 &:hover {
                     transform: scale(1.1);
                     transition: 250ms ease-in-out;
@@ -33,27 +38,30 @@
                     }
                 }
             }
-        
+
     }
+    }
+
     .popup-menu {
         margin-top: 25px;
         z-index: 101;
-        background-color: black;
-        color: white;
-        border: 0.5px solid #555;
+        background-color: $button-hover-color;
+        color: black;
+        border: 2px solid #285383;
         border-radius: .5em;
         padding: 3px 8px;
         top: 0;
         position: absolute;
         visibility: hidden;
         opacity: 0;
-        box-shadow: 5px 5px 5px 3px black;
+        box-shadow: 2px 2px 2px 1px #7ab3e7;
 
         .popup-items {
-            color: rgb(179, 179, 179);
+            color: black;
             display: flex;
             flex-direction: column;
             width: max-content;
+            font-weight: initial;
             &:hover {
                 transition: 250ms;
                 color: white;
@@ -62,9 +70,7 @@
     }
 
     .button-wrapper {
-        display: flex;
-        justify-content: space-around;
-                
+        filter: drop-shadow(0 7px 5px rgba(0, 0, 0, 0.22));
         .button {
             margin-left: 15px;
             font-family: "Poppins", sans-serif;
@@ -103,7 +109,7 @@
         
         
             &:hover {
-                background-color: hsl(200, 100%, 50%);
+                background-color: $button-hover-color;
                 color: white;
                 transform: translateY(-5px);
                 filter: drop-shadow(0 5px 4px rgba(0, 0, 0, 0.3));
