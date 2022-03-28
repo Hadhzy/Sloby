@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown"
 import axios from "axios"
 import { Link } from "react-router-dom"
+import MenuIcon from "@material-ui/icons/Menu"
 
 function HeaderMenuItem({ item_data }) {
   return (
@@ -19,8 +20,7 @@ function HeaderMenuItem({ item_data }) {
           ))}
         </div>
       )}
-      
-    </div> 
+    </div>
   )
 }
 
@@ -35,34 +35,31 @@ function HeaderMenu() {
   }, [])
 
   return (
-<div className='menu'>
-
-  {menu_list.map((item_data) => {
-         return <HeaderMenuItem key={item_data.id} item_data={item_data} />
-        })}
-
-</div>
+    <div className='menu'>
+      {menu_list.map((item_data) => {
+        return <HeaderMenuItem key={item_data.id} item_data={item_data} />
+      })}
+    </div>
   )
 }
 
 function Settings() {
-    const [theme, setTheme] = useState("Light")
+  const [theme, setTheme] = useState("Light")
 
-    const handleThemeSwitcher = () => {
-        if(theme === "Light") {
-            setTheme("Dark")
-        } else {
-            setTheme("Light")
-        }
+  const handleThemeSwitcher = () => {
+    if (theme === "Light") {
+      setTheme("Dark")
+    } else {
+      setTheme("Light")
     }
+  }
 
-    return (
-        <div className="icon">
-            <button onClick={handleThemeSwitcher} className="button">{theme} theme</button>
-        </div> 
-    )
+  return (
+    <div className='icon'>
+      <MenuIcon />
+    </div>
+  )
 }
-
 
 function Header() {
   const [site_info, set_site_info] = useState([])
@@ -79,17 +76,17 @@ function Header() {
   }, [])
 
   return (
-<div className='header-container'>
-        <HeaderMenu />
-  <div className="button-wrapper">
-    <button className="button">Sign up</button>
-    <button className="button">Create Account</button>
-  </div>
+    <div className='header-container'>
+      <HeaderMenu />
+      <div className='button-wrapper'>
+        <button className='button'>Sign up</button>
+        <button className='button'>Create Account</button>
+      </div>
 
-  <div className="settings-section">
-    <Settings />
-  </div>   
-</div>
+      <div className='button-wrapper'>
+        <Settings />
+      </div>
+    </div>
   )
 }
 
