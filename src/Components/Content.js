@@ -4,7 +4,10 @@ function Content() {
 
   return (
     <div className='content-container'>
-      This is just a simple content!?
+        <div className="main-text">
+            This is just a simple content!?
+        </div>
+
     </div>
   )
 
