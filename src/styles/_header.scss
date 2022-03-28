@@ -1,5 +1,5 @@
 .header-container {
-    border: 2px solid red;
+    border-radius: 1em;
     position: fixed;
     z-index: 100;
     width: 100%;
@@ -7,42 +7,111 @@
     color: $header-color;
     padding: 10px 0;
     height: $header-height;
-
-    .content-container {
-        display: flex;
-        height: 100%;
-        flex-direction: column;
-        justify-content: space-between;
-    }
+    display: flex;
+    justify-content: center;
+    filter: drop-shadow(0 7px 5px rgba(0, 0, 0, 0.3));
 
     .menu {
         display: flex;
         justify-content: center;
         gap: 35px;
-
-        .menu-item {
-            cursor: pointer;
-            position: relative;
-            display: flex;
-            align-items: center;
-
-            &:hover {
-                .popup-menu {
-                    visibility: visible;
-                    opacity: 1;
+        width: 70%;
+         display: flex;
+         align-items: center;
+            .menu-item {
+                cursor: pointer;
+                position: relative;
+                display: flex;
+                align-items: center;
+    
+                &:hover {
+                    transform: scale(1.1);
+                    transition: 250ms ease-in-out;
+                    .popup-menu {
+                        visibility: visible;
+                        opacity: 1;
+                        transition: 250ms ease-in-out;
+                    }
                 }
+            }
+        
+    }
+    .popup-menu {
+        margin-top: 25px;
+        z-index: 101;
+        background-color: black;
+        color: white;
+        border: 0.5px solid #555;
+        border-radius: .5em;
+        padding: 3px 8px;
+        top: 0;
+        position: absolute;
+        visibility: hidden;
+        opacity: 0;
+        box-shadow: 5px 5px 5px 3px black;
+
+        .popup-items {
+            color: rgb(179, 179, 179);
+            display: flex;
+            flex-direction: column;
+            width: max-content;
+            &:hover {
+                transition: 250ms;
+                color: white;
             }
         }
     }
+
+    .button-wrapper {
+        display: flex;
+        justify-content: space-around;
+                
+        .button {
+            margin-left: 15px;
+            font-family: "Poppins", sans-serif;
+            font-size: 16px;
+            background: black; 
+            color: white;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+            border-radius: .5em;
+            transition: 270ms ease-in-out;
+        
+        
+            &:hover {
+                background-color: hsl(200, 100%, 50%);
+                color: white;
+                transform: translateY(-5px);
+                filter: drop-shadow(0 5px 4px rgba(0, 0, 0, 0.3));
+
+            }
+        }
+    }
+
+    .settings-section {
+        .button {
+            margin-left: 15px;
+            font-family: "Poppins", sans-serif;
+            font-size: 16px;
+            background: black; 
+            color: white;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+            border-radius: .5em;
+            transition: 270ms ease-in-out;
+        
+        
+            &:hover {
+                background-color: hsl(200, 100%, 50%);
+                color: white;
+                transform: translateY(-5px);
+                filter: drop-shadow(0 5px 4px rgba(0, 0, 0, 0.3));
+
+            }
+        }
+    }
+
 }
 
-.popup-menu {
-    margin-top: 25px;
-    z-index: 101;
-    background-color: gray;
-    top: 0;
-    color: black;
-    position: absolute;
-    visibility: hidden;
-    opacity: 0;
-}
