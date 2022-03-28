@@ -43,23 +43,6 @@ function HeaderMenu() {
   )
 }
 
-function Settings() {
-  const [theme, setTheme] = useState("Light")
-
-  const handleThemeSwitcher = () => {
-    if (theme === "Light") {
-      setTheme("Dark")
-    } else {
-      setTheme("Light")
-    }
-  }
-
-  return (
-    <div className='icon'>
-      <MenuIcon />
-    </div>
-  )
-}
 
 function Header() {
   const [site_info, set_site_info] = useState([])
@@ -75,6 +58,8 @@ function Header() {
     fetch_site_info()
   }, [])
 
+
+
   return (
     <div className='header-container'>
       <HeaderMenu />
@@ -83,9 +68,51 @@ function Header() {
         <button className='button'>Create Account</button>
       </div>
 
-      <div className='button-wrapper'>
-        <Settings />
+      <div>
+        <SideBar />
       </div>
+    </div>
+  )
+}
+
+function SideBarContent() {
+  const [contentVisibility, setContentVisibility] = useState({settingsSectionVisibility: false, test1Visibility: false, test2Visibility: false,})
+
+  const handleChange = (e) => {
+    //newValue has some issue that i have to fix
+    //switch statement would be cleaner
+    //Destructuring, spread rest op
+  if(e.target.id.matches("settingsSectionVisibility")) {
+    const newValue = !contentVisibility.settingsSectionVisibility
+    console.log(newValue)
+    setContentVisibility({newValue})
+  }
+}
+
+  return (
+      <div className="sidebar-content-container">
+           <ul>
+             <li className="settings-section">
+                <button onClick={handleChange}>Settings</button>
+               {contentVisibility.settingsSectionVisibility && <div id="settingsSectionVisibility">settings-item</div>}
+             </li>
+              <li className="test-section">
+                <button>Test</button>
+                {contentVisibility.test1Visibility && <div id="test1Visibility">settings-item</div>}
+             </li>
+           </ul>
+      </div>
+  )
+}
+
+function SideBar() {
+  const [sidebar, setSideBar] = useState(false)
+
+
+  return (
+    <div className="sidebar-container">
+       <MenuIcon onClick={() => setSideBar(!sidebar)}/>
+      {sidebar && <SideBarContent />}
     </div>
   )
 }
