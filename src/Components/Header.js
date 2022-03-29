@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react"
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown"
 import axios from "axios"
@@ -64,16 +63,19 @@ function Header() {
 
   return (
     <div className='header-container'>
-      <div className="menu-container">
-        <HeaderMenu />
-      </div>
+       <div className="navigation">
+            <div className="menu-container">
+                <HeaderMenu />
+          </div>
 
       <div className='button-wrapper'>
         <button className='button'>Sign up</button>
         <button className='button'>Create Account</button>
       </div>
+       </div>
 
-      <div>
+
+      <div className="base-sidebar-container">
         <SideBar />
       </div>
     </div>
@@ -131,6 +133,7 @@ function SideBarContent() {
 
 function SideBar() {
   const [sidebar, setSideBar] = useState(false)
+
 
 
   return (
