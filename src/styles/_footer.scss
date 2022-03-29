@@ -1,8 +1,104 @@
 .footer-container {
+
+    display: grid;
+    grid-template-columns: repeat(4, auto);
     border: 5px solid black;
-    background-color: green;
+    background-color: rgba(0, 0, 0, 0.93);
     position: sticky;
     top: 100vh;
     width: auto;
-    height: 60px
+    height: $footer-container-height;
+
+    .footer-items{
+        user-select: none;
+        .footer-input{
+            margin-top: 10px;
+            .footer-icons{
+                margin-top: 10px;
+                margin-left: 15px;
+                display: flex;
+                gap: 40px;
+                font-size: 30px;
+                .footer-icon{
+                    color: $footer-icon-color;
+                    &:hover{
+                        cursor: pointer;
+                        color: $blue-hover-color;
+                        transition: 0.5s;
+                    }
+                }
+            }
+        }
+
+        .footer-input-style{
+            margin-left: 10px;
+            font-size: 15px;
+            color: $footer-text-color;
+            padding-left: 10px;
+            width: $footer-input-width;
+            height: $footer-input-height;
+            background-color: #ffffff;
+            border-top-left-radius: $lite-border;
+            border-bottom-left-radius: $lite-border;
+            border: 0;
+            font-weight: $footer-lite-text-weight;
+          &::placeholder{
+
+             font-size: 15px;
+              color: $footer-text-color;
+            }
+                &:focus{
+                outline-style: none;
+                box-shadow: none;
+                border-color: transparent;}
+            }
+
+        .footer-button-style{
+            height: $footer-button-height;
+            border: 0;
+            width: $footer-button-width;
+            background-color: $blue-hover-color;
+            margin-left: 10px;
+            font-weight: $footer-lite-text-weight;
+            border-top-right-radius: $lite-border;
+            border-bottom-right-radius: $lite-border;
+            &:hover{
+            cursor: pointer;
+            background-color: $footer-button-color;
+            transition: 0.4s;
+        }
+        }
+    }
+
+    .footer-text{
+        color: $blue-hover-color;
+        font-size: $footer-text-size;
+        font-weight: $footer-text-weight;
+        margin: 10px;
+        &.footer-title{
+            font-weight: bold;
+            font-size: 16px;
+        }
+    }
+
+    .footer-links{
+        text-decoration: none;
+        color: $blue-hover-color;
+        &:hover{
+            color: white;
+            cursor: pointer;
+        }
+    }
+
+    .footer-bellow{
+        display: flex;
+        position: absolute;
+        bottom: 0;
+        margin-bottom: 10px;
+        .footer-bellow-content{
+            margin: 10px;
+            color: $blue-hover-color;
+        }
+    }
+
 }
