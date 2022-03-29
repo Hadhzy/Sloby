@@ -1,8 +1,10 @@
+
 import React, { useState, useEffect } from "react"
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown"
 import axios from "axios"
 import { Link } from "react-router-dom"
 import MenuIcon from "@material-ui/icons/Menu"
+import { SideBarData } from "./SidebarData"
 
 function HeaderMenuItem({ item_data }) {
   return (
@@ -77,34 +79,53 @@ function Header() {
     </div>
   )
 }
+ 
+function SidebarSubMenu({item}) {
+  const [subNav, setSubNav] = useState(false)
 
-function SideBarContent() {
-  const [contentVisibility, setContentVisibility] = useState({settingsSectionVisibility: false, test1Visibility: false, test2Visibility: false,})
-
-  const handleChange = (e) => {
-    //newValue has some issue that i have to fix
-    //switch statement would be cleaner
-    //Destructuring, spread rest op
-  if(e.target.id.matches("settingsSectionVisibility")) {
-    const newValue = !contentVisibility.settingsSectionVisibility
-    console.log(newValue)
-    setContentVisibility({newValue})
+  const showSubNavCategories = () => {
+    setSubNav(!subNav)
   }
-}
 
   return (
-      <div className="sidebar-content-container">
+    <>
+    <div>
+      {item.icon}
+      <button onClick={item.subCategory && showSubNavCategories}>{item.name}</button>
+    </div>
+    <div>
+      {
+      item.subCategory && subNav
+      ? item.openedIcon
+      : item.subCategory
+      ? item.closedIcon
+      :null
+      }
+    </div>
+    <div>
+      {
+        subNav && item.subCategory.map((item, index) => {
+          return (
+          <div key={index}>{item.title}</div>
+          )
+        })
+      }
+    </div> 
+    </>
+  )
+}
+
+function SideBarContent() {
+ 
+
+ return (
+      <>
            <ul>
-             <li className="settings-section">
-                <button onClick={handleChange}>Settings</button>
-               {contentVisibility.settingsSectionVisibility && <div id="settingsSectionVisibility">settings-item</div>}
-             </li>
-              <li className="test-section">
-                <button>Test</button>
-                {contentVisibility.test1Visibility && <div id="test1Visibility">settings-item</div>}
-             </li>
+            {SideBarData.map((item, index) => {
+               return <SidebarSubMenu item={item} key={index} /> 
+            })}
            </ul>
-      </div>
+      </>
   )
 }
 
