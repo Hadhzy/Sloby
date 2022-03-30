@@ -75,7 +75,7 @@ function Header() {
        </div>
 
 
-      <div className="base-sidebar-container">
+      <div className="base-sidebar-icon">
         <SideBar />
       </div>
     </div>
