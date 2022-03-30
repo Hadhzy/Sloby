@@ -10,11 +10,11 @@
     height: $header-height;
     background-color: $header-background-color;
     padding: 10px 0;
-    .base-sidebar-container{
+    .base-sidebar-icon{
         width: 50px;
 
         position: absolute;
-        right: 0;
+        right: 7px;
 
     }
     .navigation{
@@ -86,50 +86,6 @@
 
     .button-wrapper {
         filter: drop-shadow(0 7px 5px rgba(0, 0, 0, 0.22));
-        .button {
-            margin-left: 15px;
-            font-family: "Poppins", sans-serif;
-            font-size: 16px;
-            background: black; 
-            color: white;
-            border: none;
-            padding: 5px;
-            cursor: pointer;
-            border-radius: .5em;
-            transition: 270ms ease-in-out;
-        
-        
-            &:hover {
-                background-color: hsl(200, 100%, 50%);
-                color: white;
-                transform: translateY(-5px);
-                filter: drop-shadow(0 5px 4px rgba(0, 0, 0, 0.3));
-
-            }
-        }
-    }
-
-    .settings-section {
-        .button {
-            margin-left: 15px;
-            font-size: 16px;
-            background: black; 
-            color: white;
-            border: none;
-            padding: 5px;
-            cursor: pointer;
-            border-radius: .5em;
-            transition: 270ms ease-in-out;
-        
-        
-            &:hover {
-                background-color: $blue-hover-color;
-                color: white;
-                transform: translateY(-5px);
-                filter: drop-shadow(0 5px 4px rgba(0, 0, 0, 0.3));
-
-            }
-        }
     }
 
 }
@@ -138,15 +94,12 @@
     display: flex;
     flex-direction: column;
     width: max-content;
-    border: 2px solid red;
+
     height: max-content;
 
     .menu-icon {
         font-size: 2rem;
     }
 
-    .sidebar-optional-container {
-        font-size: $header-sidebar-font-size;
-    }
 }
 
