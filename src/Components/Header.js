@@ -90,12 +90,9 @@ function SidebarSubMenu({item}) {
   }
 
   return (
-    <>
-    <div>
+    <div className="sidebar-optional-container">
       {item.icon}
-      <button onClick={item.subCategory && showSubNavCategories}>{item.name}</button>
-    </div>
-    <div>
+      <button onClick={item.subCategory && showSubNavCategories}>{item.name}</button> 
       {
       item.subCategory && subNav
       ? item.openedIcon
@@ -103,7 +100,6 @@ function SidebarSubMenu({item}) {
       ? item.closedIcon
       :null
       }
-    </div>
     <div>
       {
         subNav && item.subCategory.map((item, index) => {
@@ -113,12 +109,11 @@ function SidebarSubMenu({item}) {
         })
       }
     </div> 
-    </>
+    </div>
   )
 }
 
 function SideBarContent() {
- 
 
  return (
       <>
@@ -138,7 +133,7 @@ function SideBar() {
 
   return (
     <div className="sidebar-container">
-       <MenuIcon onClick={() => setSideBar(!sidebar)}/>
+       <MenuIcon className="menu-icon" onClick={() => setSideBar(!sidebar)}/>
       {sidebar && <SideBarContent />}
     </div>
   )

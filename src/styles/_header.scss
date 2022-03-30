@@ -134,3 +134,19 @@
 
 }
 
+.sidebar-container {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    border: 2px solid red;
+    height: max-content;
+
+    .menu-icon {
+        font-size: 2rem;
+    }
+
+    .sidebar-optional-container {
+        font-size: $header-sidebar-font-size;
+    }
+}
+
