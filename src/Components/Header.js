@@ -81,7 +81,7 @@ function Header() {
     </div>
   )
 }
- 
+
 function SidebarSubMenu({item}) {
   const [subNav, setSubNav] = useState(false)
 
@@ -90,9 +90,9 @@ function SidebarSubMenu({item}) {
   }
 
   return (
-    <div className="sidebar-optional-container">
+    <div className="sidebar-submenus-container">
       {item.icon}
-      <button onClick={item.subCategory && showSubNavCategories}>{item.name}</button> 
+      <Link to="/" className="sidebar-submenus" onClick={item.subCategory && showSubNavCategories}>{item.name}</Link>
       {
       item.subCategory && subNav
       ? item.openedIcon
@@ -100,7 +100,8 @@ function SidebarSubMenu({item}) {
       ? item.closedIcon
       :null
       }
-    <div>
+
+    <div className="sidebar-submenus-container">
       {
         subNav && item.subCategory.map((item, index) => {
           return (
@@ -108,7 +109,7 @@ function SidebarSubMenu({item}) {
           )
         })
       }
-    </div> 
+    </div>
     </div>
   )
 }
@@ -119,7 +120,7 @@ function SideBarContent() {
       <>
            <ul>
             {SideBarData.map((item, index) => {
-               return <SidebarSubMenu item={item} key={index} /> 
+               return <SidebarSubMenu item={item} key={index} />
             })}
            </ul>
       </>
@@ -127,11 +128,9 @@ function SideBarContent() {
 }
 
 function SideBar() {
-  const [sidebar, setSideBar] = useState(false)
+    const [sidebar, setSideBar] = useState(false)
 
-
-
-  return (
+    return (
     <div className="sidebar-container">
        <MenuIcon className="menu-icon" onClick={() => setSideBar(!sidebar)}/>
       {sidebar && <SideBarContent />}
