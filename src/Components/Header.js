@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react"
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown"
 import axios from "axios"
-import { Link } from "react-router-dom"
 import MenuIcon from "@material-ui/icons/Menu"
 import { SideBarData } from "./SidebarData"
+import {motion} from "framer-motion";
+
 
 function HeaderMenuItem({ item_data }) {
   return (
@@ -64,14 +65,29 @@ function Header() {
   return (
     <div className='header-container'>
        <div className="navigation">
-            <div className="menu-container">
-                <HeaderMenu />
-          </div>
+            <motion.div
+                transition={{delay: 1, duration: 1.5}}
+                initial={{x:100, opacity: 0}}
+                animate={{x: 0, opacity:1, scale: 1.1, rotateZ: 360}} className="menu-container">
 
-      <div className='button-wrapper'>
-        <button className='button'>Sign up</button>
-        <button className='button'>Create Account</button>
-      </div>
+                <HeaderMenu />
+          </motion.div>
+
+      <motion.div className='button-wrapper'
+      initial={{y: -150}}
+      animate={{y: 0}}
+      transition={{delay: 1, duration: 0.2,  type: "spring", stiffness: 400}}
+      >
+        <motion.button className='button'
+        whileHover={{scale: 1.1}}
+        >Sign up
+        </motion.button>
+
+        <motion.button className='button'
+        whileHover={{scale: 1.1}}
+        >Create Account
+        </motion.button>
+      </motion.div>
        </div>
 
 
