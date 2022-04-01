@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react"
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown"
 import axios from "axios"
 import MenuIcon from "@material-ui/icons/Menu"
-import { SideBarData } from "./SidebarData"
-import {motion} from "framer-motion";
-
+import { motion } from "framer-motion"
+import { Link } from "react-router-dom"
+import { Menu, MenuItem, Button } from "@material-ui/core"
+import MoreVertIcon from "@material-ui/icons/MoreVert"
 
 function HeaderMenuItem({ item_data }) {
   return (
@@ -45,9 +46,10 @@ function HeaderMenu() {
   )
 }
 
-
 function Header() {
   const [site_info, set_site_info] = useState([])
+
+ 
 
   const fetch_site_info = () => {
     axios({
@@ -60,98 +62,76 @@ function Header() {
     fetch_site_info()
   }, [])
 
-
-
   return (
     <div className='header-container'>
-       <div className="navigation">
-            <motion.div
-                transition={{delay: 1, duration: 1.5}}
-                initial={{x:100, opacity: 0}}
-                animate={{x: 0, opacity:1, scale: 1.1, rotateZ: 360}} className="menu-container">
+      <div className='navigation'>
+        <motion.div
+          transition={{ delay: 1, duration: 1.5 }}
+          initial={{ x: 100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1, scale: 1.1, rotateZ: 360 }}
+          className='menu-container'
+        >
+          <HeaderMenu />
+        </motion.div>
 
-                <HeaderMenu />
-          </motion.div>
+        <motion.div
+          className='button-wrapper'
+          initial={{ y: -150 }}
+          animate={{ y: 0 }}
+          transition={{
+            delay: 1,
+            duration: 0.2,
+            type: "spring",
+            stiffness: 400,
+          }}
+        >
+          <motion.button className='button' whileHover={{ scale: 1.1 }}>
+            Sign up
+          </motion.button>
 
-      <motion.div className='button-wrapper'
-      initial={{y: -150}}
-      animate={{y: 0}}
-      transition={{delay: 1, duration: 0.2,  type: "spring", stiffness: 400}}
-      >
-        <motion.button className='button'
-        whileHover={{scale: 1.1}}
-        >Sign up
-        </motion.button>
+          <motion.button className='button' whileHover={{ scale: 1.1 }}>
+            Create Account
+          </motion.button>
+        </motion.div>
+      </div>
 
-        <motion.button className='button'
-        whileHover={{scale: 1.1}}
-        >Create Account
-        </motion.button>
-      </motion.div>
-       </div>
-
-
-      <div className="base-sidebar-icon">
-        <SideBar />
+      <div className='base-sidebar-icon'>
+       <Sidebar />
       </div>
     </div>
   )
 }
 
-function SidebarSubMenu({item}) {
-  const [subNav, setSubNav] = useState(false)
 
-  const showSubNavCategories = () => {
-    setSubNav(!subNav)
-  }
+function Sidebar() {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
-    <div className="sidebar-submenus-container">
-      {item.icon}
-      <Link to="/" className="sidebar-submenus" onClick={item.subCategory && showSubNavCategories}>{item.name}</Link>
-      {
-      item.subCategory && subNav
-      ? item.openedIcon
-      : item.subCategory
-      ? item.closedIcon
-      :null
-      }
-
-    <div className="sidebar-submenus-container">
-      {
-        subNav && item.subCategory.map((item, index) => {
-          return (
-          <div key={index}>{item.title}</div>
-          )
-        })
-      }
+    <div>
+      <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+        <MoreVertIcon />
+      </Button>
+      <Menu
+        id="simple-menu"
+        anchorEl={anchorEl}
+        keepMounted
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+      >
+        <MenuItem onClick={handleClose}>Profile</MenuItem>
+        <MenuItem onClick={handleClose}>My account</MenuItem>
+        <MenuItem onClick={handleClose}>Logout</MenuItem>
+      </Menu>
     </div>
-    </div>
-  )
-}
-
-function SideBarContent() {
-
- return (
-      <>
-           <ul>
-            {SideBarData.map((item, index) => {
-               return <SidebarSubMenu item={item} key={index} />
-            })}
-           </ul>
-      </>
-  )
-}
-
-function SideBar() {
-    const [sidebar, setSideBar] = useState(false)
-
-    return (
-    <div className="sidebar-container">
-       <MenuIcon className="menu-icon" onClick={() => setSideBar(!sidebar)}/>
-      {sidebar && <SideBarContent />}
-    </div>
-  )
+  );
 }
 
 export default Header

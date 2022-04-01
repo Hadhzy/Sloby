@@ -53,8 +53,8 @@
             }
 
     }
-    }
-    }
+  }
+}
 
 
     .popup-menu {
@@ -90,41 +90,4 @@
 
 }
 
-.sidebar-container {
-    display: flex;
-    flex-direction: column;
-    width: max-content;
-    border: 2px solid white;
-    z-index: 2;
-
-    .sidebar-submenus-container {
-        filter: drop-shadow(0 7px 5px rgba(0, 0, 0, 0.22));
-        background-color: white;
-        color: black;
-        padding: 5px 1px;
-        &:hover {
-            z-index: -1;
-        }
-        .sidebar-submenus{
-            text-decoration: none;
-            color: black;
-            &:hover {
-                transition: 250ms ease-in-out;
-                text-shadow: 0 0 3px black;
-            }
-        }
-    }
-
-
-    .menu-icon {
-        font-size: 2rem;
-        cursor: pointer;
-
-        &:hover {
-            transition: 250ms ease-in-out;
-            transform: scale(1.1);
-        }
-    }
-
-}
 
