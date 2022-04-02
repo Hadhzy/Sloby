@@ -4,7 +4,6 @@ const useStyles = makeStyles((theme) => ({
   container: {
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(8, 0, 6),
-    border: "2px solid red",
   },
   icon: {
     marginRight: "20px",

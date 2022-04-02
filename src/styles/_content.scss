@@ -1,4 +1,21 @@
 .content-container{
   display: flex;
   justify-content: center;
+  align-items: center;
+  
+  .hero-section-container {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .hero-section-item {
+      display: flex;
+    }
+  }
+
+  img {
+    width: 500px; 
+    height: 500px;
+  }
 }

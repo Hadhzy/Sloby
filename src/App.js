@@ -11,6 +11,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Header />} />
         </Routes>
+        <Content />
         <Footer />
       </div>
     </BrowserRouter>
