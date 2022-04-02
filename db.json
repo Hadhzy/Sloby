@@ -6,5 +6,15 @@
      {"id":  0, "title": "DOCS", "items":  ["DownLoad", "See right now"]},
      {"id":  1, "title": "Our project", "items":  ["Goal", "throw a message"]},
      {"id":  1, "title": "About us", "items": null}
-   ]
+   ],
+   "settings-menu": [
+     {"id": 1, "title": "User Settings", "category": "User Settings"},
+     {"id": 2, "title": "Editor Settings", "category": "Editor Settings"},
+     {"id": 3, "title": "General Settings", "category": "General Settings"}
+    ],
+    "settings": [
+      {"id":  1, "title": "Change Theme", "description": "Click here to change the site theme", "category": "general", "type": "button"},
+      {"id": 2, "title": "General Settings", "description": "This is a test", "category": "editor", "type": "button"}
+    ]
+    
 }

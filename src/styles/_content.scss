@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid black;
   
   .hero-section-container {
     width: 80%;
@@ -11,12 +10,16 @@
     align-items: center;
 
     .hero-section-item {
+      img {
+        width: 500px; 
+        height: 500px;
+        transform: translate(0, 50px);
+        user-select: none; 
+      }
+
       display: flex;
     }
   }
 
-  img {
-    width: 500px; 
-    height: 500px;
-  }
+  
 }

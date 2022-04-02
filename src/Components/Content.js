@@ -1,6 +1,6 @@
 import React from "react"
 import Image from "../icons/Image.png"
-import {Typography} from "@material-ui/core"
+import { Typography } from "@material-ui/core"
 import IntroductionSection from "./IntroductionSection"
 
 function Content() {
@@ -9,8 +9,7 @@ function Content() {
       <div className='hero-section-container'>
         <IntroductionSection />
         <div className='hero-section-item'>
-          <img src={Image} alt="Image"/>
-            <div>Changes</div>
+          <img src={Image} alt='Image' />
         </div>
       </div>
     </div>
