@@ -36,7 +36,7 @@ function IntroductionSection() {
           <div className={classes.buttons}>
             <Grid container spacing={2}>
               <Grid item>
-                <button className='button'>Get Started</button>
+                <button className='button'>Get Starteds</button>
               </Grid>
               <Grid item>
                 <button className='button'>Read Our DOCS</button>

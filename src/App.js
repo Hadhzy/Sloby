@@ -7,6 +7,7 @@ import Settings from "./Components/SubComponents/Settings"
 import Register from "./Components/SubComponents/Register"
 import User from "./Components/SubComponents/User"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+
 function App() {
   return (
     <BrowserRouter>

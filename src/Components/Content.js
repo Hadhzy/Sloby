@@ -10,6 +10,7 @@ function Content() {
         <IntroductionSection />
         <div className='hero-section-item'>
           <img src={Image} alt="Image"/>
+            <div>Changes</div>
         </div>
       </div>
     </div>
