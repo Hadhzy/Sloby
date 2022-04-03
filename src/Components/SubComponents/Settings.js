@@ -1,3 +1,4 @@
+
 import React from "react"
 import { useRef, useState, useEffect } from "react"
 import axios from "axios"
@@ -6,8 +7,8 @@ import {Link} from "react-router-dom";
 function Settings(props) {
   const [settingsMenu, setSettingsMenu] = useState([])
   const [settings, setSettings] = useState([])
-  const [categoryTitleVis, setCategoryTitleVis] = useState([{name: "User Settings", visibility: false }, {name: "General Settings", visibility: false}, {name: "Editor Settings", visibility: false}])
   const [categoryTitleChange, setCategoryTitleChange] = useState("")
+  const [visibility, setVisibility] = useState(false)
 
   const fetch_settings = () => {
     axios({
@@ -28,6 +29,11 @@ function Settings(props) {
     fetch_settings_category();
   }, [])
 
+  function DisplayMenuButtons({ title, category, }) {
+    return (
+      title
+    )
+  }
 
   
 
@@ -39,8 +45,8 @@ function Settings(props) {
         {settingsMenu.map((category_data) => {
           const { title, id, category } = category_data
           return (
-            <button key={id} id={category} className="settings-category-element button" onClick={() => {
-              setCategoryTitleChange(category)
+            <button key={id} id={category} className="settings-category-element button" onClick={(e) => {
+             setVisibility(!visibility)
             }}>
               {title}
             </button>
@@ -49,12 +55,13 @@ function Settings(props) {
       </div>
       <div className="filtered-items-container">
         {settingsMenu.map(settings_data => {
+          const {title, category} = settings_data
           if(settings_data.category === "User Settings") {
-            displaySettings(category)
+            
           }
           return (
           <div className="filtered-items-option">
-            <h1>{categoryTitleChange}</h1>
+            <h1>{visibility && <DisplayMenuButtons title={title} category={category}/>}</h1>
           </div>
           )
         })}
@@ -75,7 +82,4 @@ function Settings(props) {
     </div>
   )
 }
-
-
-
 export default Settings
