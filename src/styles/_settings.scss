@@ -24,8 +24,20 @@
         margin-top: 15px;
         padding: 10px;
         display: flex;
-        flex-wrap: wrap;
-        gap: 35px;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+
+        input {
+            background: white;
+            border: 0.5px solid $blue-hover-color;
+            margin-left: 15px;
+            color: black;
+            font-size: $medium-font-size;
+            padding: 0.25rem 0.5rem;
+            border-radius:  0.25rem;
+            user-select: none;
+        }
     }
 
     .filtered-items-container {
@@ -40,7 +52,6 @@
         margin-top: 25px;
 
         .filtered-items {
-            border: 2px solid green;
             width: inherit;
             display: flex;
             align-items: center;
@@ -55,5 +66,15 @@
             padding: 10px;
             font-size: $large-font-size;
         }
+    }
+    .modal {
+        background-color: white;
+        padding: 20px;
+        filter: drop-shadow(0 10px 6px rgba(0, 0, 0, 0.22));
+        margin-bottom: 15px;
+        border-radius: 20px;
+        border-top: 5px solid #52ae30;
+        color: #52ae30;
+        display: flex;
     }
 }

@@ -3,14 +3,16 @@ import "./styles/main.scss"
 import Header from "./Components/Header"
 import Footer from "./Components/Footer"
 import Content from "./Components/Content"
-import Settings from "./Components/SubComponents/Settings"
+import Settings from "./Components/SubComponents/Settings/Settings"
 import Register from "./Components/SubComponents/Register"
 import User from "./Components/SubComponents/User"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { SettingsDataProvider } from "./Components/Context/Settings"
 
 function App() {
-  return (
+  return (   
     <BrowserRouter>
+    <SettingsDataProvider>
       <div className='App'>
         <Header />
         <Routes>
@@ -24,6 +26,7 @@ function App() {
 
         <Footer />
       </div>
+        </SettingsDataProvider>
     </BrowserRouter>
   )
 }

@@ -14,8 +14,7 @@
      {"id": 3, "title": "General Settings", "category": "General Settings"}
     ],
     "settings": [
-      {"id":  1, "title": "Change Theme", "description": "Click here to change the site theme", "category": "general", "type": "button"},
-      {"id": 2, "title": "General Settings", "description": "This is a test", "category": "editor", "type": "button"}
+      {"id":  1, "title": "Change Theme", "description": "Click here to change the site theme", "category": "general", "type": "button"}
     ]
     
 }
