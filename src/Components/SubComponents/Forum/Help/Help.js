@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 import Modal from "./Modal"
 //reducer function
 import { reducer } from "./reducer"
-import { SettingsDataContext } from "../../Context/Settings"
+import { SettingsDataContext } from "../../../Context/Settings"
 
 const defaultState = {
   settings: [],
@@ -16,7 +16,7 @@ const defaultState = {
   // settingsType: "",
 }
 
-function Settings(props) {
+function Help(props) {
   const [visibility, setVisibility] = useState(false)
   const [settingsTitle, setSettingsTitle] = useState("")
   const [settingsDesc, setSettingsDesc] = useState("")
@@ -50,7 +50,7 @@ function Settings(props) {
           <Modal closeModal={closeModal} modalContent={state.modalContent} />
         </>
       )}
-      <h1 className='title'>Settings</h1>
+      <h1 className='title'>Help</h1>
       <div className='underline'></div>
       <div className='filter-container'>
         <div className='add-item-container'>
@@ -98,4 +98,4 @@ function Settings(props) {
     </div>
   )
 }
-export default Settings
+export default Help
