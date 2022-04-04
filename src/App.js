@@ -17,6 +17,7 @@ function App() {
         <Header />
         <Routes>
           <Route path='/' element={<Content />} />
+          <Route path="/categories/:category/:subcategory"/>
           <Route path='settings' element={<Settings />} />
           <Route path='user' element={<User />}>
             <Route path='register' element={<Register />} />
