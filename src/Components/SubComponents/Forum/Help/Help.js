@@ -6,6 +6,7 @@ import Modal from "./Modal"
 //reducer function
 import { reducer } from "./reducer"
 import { SettingsDataContext } from "../../../Context/Settings"
+import QuestionItem from "./QuestionItem"
 
 const defaultState = {
   settings: [],
@@ -22,12 +23,12 @@ function Help(props) {
   const [settingsDesc, setSettingsDesc] = useState("")
   const [state, dispatch] = useReducer(reducer, defaultState)
   const { settings, settingsMenu } = useContext(SettingsDataContext)
-  
+
   const handleSubmit = (e) => {
     e.preventDefault()
     if (settingsTitle && settingsDesc) {
       const newItem = {
-        id: new Date().getTime().toString,
+        id: Date.now(),
         settingsTitle,
         settingsDesc,
       }
@@ -79,18 +80,11 @@ function Help(props) {
         {state.settings.map((setting) => {
           return (
             <div className='filtered-items'>
-              <div>
-                <h2>{setting.settingsTitle}</h2>
-                <p>{setting.settingsDesc}</p>
-                <button
-                  className='button'
-                  onClick={() =>
-                    dispatch({ type: "REMOVE_ITEM", payload: setting.id })
-                  }
-                >
-                  remove
-                </button>
-              </div>
+              <QuestionItem
+                key={setting.id}
+                setting={setting}
+                dispatch={dispatch}
+              />
             </div>
           )
         })}
