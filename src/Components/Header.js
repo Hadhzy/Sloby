@@ -10,7 +10,8 @@ import MoreVertIcon from "@material-ui/icons/MoreVert"
 
 function HeaderMenuItem({ item_data }) {
   return (
-    <div className='menu-item'>
+     <Link to={`categories/${item_data.title}`} className='menu-item off-link-dec'>
+
       {item_data.title.toUpperCase()}
 
       {item_data.items && <KeyboardArrowDownIcon />}
@@ -19,12 +20,14 @@ function HeaderMenuItem({ item_data }) {
         <div className='popup-menu'>
           {item_data.items.map((i) => (
             <a key={i} className='popup-items'>
-              {i}
+              <Link to={`/categories/${item_data.title}/${i}`} className="popup-items off-link-dec">{i}</Link>
             </a>
           ))}
         </div>
       )}
-    </div>
+
+     </Link>
+
   )
 }
 
