@@ -5,36 +5,35 @@ import { Link } from "react-router-dom"
 import Modal from "./Modal"
 //reducer function
 import { reducer } from "./reducer"
-import { SettingsDataContext } from "../../../Context/Settings"
+import { SettingsDataContext } from "../../../Context/Forum"
 import QuestionItem from "./QuestionItem"
 
 const defaultState = {
-  settings: [],
+  questions: [],
   isModalOpen: false,
   modalContent: "",
-  settingsTitle: "",
-  settingsDesc: "",
+  forumTitle: "",
+  forumDesc: "",
   // settingsType: "",
 }
 
-function Help(props) {
-  const [visibility, setVisibility] = useState(false)
-  const [settingsTitle, setSettingsTitle] = useState("")
-  const [settingsDesc, setSettingsDesc] = useState("")
+function Forum(props) {
+  const [forumTitle, setForumTitle] = useState("")
+  const [forumDesc, setForumDesc] = useState("")
   const [state, dispatch] = useReducer(reducer, defaultState)
   const { settings, settingsMenu } = useContext(SettingsDataContext)
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (settingsTitle && settingsDesc) {
+    if (forumTitle && forumDesc) {
       const newItem = {
         id: Date.now(),
-        settingsTitle,
-        settingsDesc,
+        forumTitle,
+        forumDesc,
       }
       dispatch({ type: "ADD_ITEM", payload: newItem })
-      setSettingsTitle("")
-      setSettingsDesc("")
+      setForumTitle("")
+      setForumDesc("")
     } else {
       dispatch({ type: "NO_VALUE" })
     }
@@ -45,7 +44,7 @@ function Help(props) {
   }
 
   return (
-    <div className='settings-container content-base'>
+    <div className='forum-container content-base'>
       {state.isModalOpen && (
         <>
           <Modal closeModal={closeModal} modalContent={state.modalContent} />
@@ -56,18 +55,18 @@ function Help(props) {
       <div className='filter-container'>
         <div className='add-item-container'>
           <form onSubmit={handleSubmit} className='form'>
-            <div>
+            <div className="input-container">
               <input
                 type='text'
-                value={settingsTitle}
-                onChange={(e) => setSettingsTitle(e.target.value)}
-                placeholder='add the settings title'
+                value={forumTitle}
+                onChange={(e) => setForumTitle(e.target.value)}
+                placeholder='add the question title'
               />
               <input
                 type='text'
-                value={settingsDesc}
-                onChange={(e) => setSettingsDesc(e.target.value)}
-                placeholder='add the description'
+                value={forumDesc}
+                onChange={(e) => setForumDesc(e.target.value)}
+                placeholder='add the question description'
               />
               <button className='button' type='submit'>
                 add
@@ -77,12 +76,12 @@ function Help(props) {
         </div>
       </div>
       <div className='filtered-items-container'>
-        {state.settings.map((setting) => {
+        {state.questions.map((question_item) => {
           return (
             <div className='filtered-items'>
               <QuestionItem
-                key={setting.id}
-                setting={setting}
+                key={question_item.id}
+                question_item={question_item}
                 dispatch={dispatch}
               />
             </div>
@@ -92,4 +91,4 @@ function Help(props) {
     </div>
   )
 }
-export default Help
+export default Forum

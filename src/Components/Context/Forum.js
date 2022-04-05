@@ -4,33 +4,33 @@ import axios from "axios"
 export const SettingsDataContext = createContext(true)
 
 export const SettingsDataProvider = (props) => {
-  const [settingsMenu, setSettingsMenu] = useState([])
-  const [settings, setSettings] = useState([])
+  const [forumMenu, setForumMenu] = useState([])
+  const [forum, setForum] = useState([])
 
-  const fetch_settings = () => {
+  const fetch_forum = () => {
     axios({
       method: "get",
       url: `${process.env.REACT_APP_API_URL}/settings`,
-    }).then((res) => setSettings(res.data))
+    }).then((res) => setForum(res.data))
   }
 
-  const fetch_settings_category = () => {
+  const fetch_forum_category = () => {
     axios({
       method: "get",
       url: `${process.env.REACT_APP_API_URL}/settings-menu`,
-    }).then((res) => setSettingsMenu(res.data))
+    }).then((res) => setForumMenu(res.data))
   }
 
   useEffect(() => {
-    fetch_settings()
-    fetch_settings_category()
+    fetch_forum()
+    fetch_forum_category()
   }, [])
 
   return (
     <SettingsDataContext.Provider
       value={{
-        settings: settings,
-        settingsMenu: settingsMenu,
+        forum: forum,
+        forumMenu: forumMenu,
       }}
     >
       {props.children}

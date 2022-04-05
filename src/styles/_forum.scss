@@ -1,4 +1,4 @@
-.settings-container {
+.forum-container {
     width: 100%;
     margin: 0 auto;
     display: flex;
@@ -27,6 +27,8 @@
         width: 100%;
         justify-content: center;
         align-items: center;
+        border: 2px solid red;
+        
 
         input {
             background: white;
@@ -47,11 +49,11 @@
         align-items: center;
         width: 100%;
         border-radius: 15px;
-        box-shadow: 2px 2px 2px 1px black;
-        border: 0.5px solid black;
         margin-top: 25px;
 
         .filtered-items {
+            box-shadow: 2px 2px 2px 1px black;
+            border: 0.5px solid black;
             width: inherit;
             display: flex;
             align-items: center;

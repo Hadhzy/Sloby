@@ -1,9 +1,9 @@
 export const reducer = (state, action) => {
   if (action.type === "ADD_ITEM") {
-    const newSettings = [...state.settings, action.payload]
+    const newSettings = [...state.questions, action.payload]
     return {
       ...state,
-      settings: newSettings,
+      questions: newSettings,
       isModalOpen: true,
       modalContent: "Item added to the list",
     }
@@ -15,9 +15,9 @@ export const reducer = (state, action) => {
     return { ...state, isModalOpen: true, modalContent: "Please enter a value" }
   }
   if (action.type === "REMOVE_ITEM") {
-    const newSettings = state.settings.filter(
-      (setting) => setting.id !== action.payload
+    const newQuestions = state.questions.filter(
+      (question) => question.id !== action.payload
     )
-    return { ...state, settings: newSettings }
+    return { ...state, questions: newQuestions }
   }
 }
