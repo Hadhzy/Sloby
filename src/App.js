@@ -3,9 +3,7 @@ import "./styles/main.scss"
 import Header from "./Components/Header"
 import Footer from "./Components/Footer"
 import Content from "./Components/Content"
-import Forum from "./Components/SubComponents/Help/Forum/Forum"
-import Register from "./Components/SubComponents/Register"
-import User from "./Components/SubComponents/User"
+import Help from "./Components/SubComponents/Help/Help"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { SettingsDataProvider } from "./Components/Context/Forum"
 
@@ -18,11 +16,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Content />} />
           <Route path="/categories/:category/:subcategory"/>
-          <Route path="categories/help" element={<Forum />}/>
-          <Route path='user' element={<User />}>
-            <Route path='register' element={<Register />} />
-            <Route path='login' />
-          </Route>
+          <Route path="categories/Help/*" element={<Help/>}/>
         </Routes>
 
         <Footer />
