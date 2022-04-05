@@ -12,6 +12,7 @@ const defaultState = {
   questions: [],
   isModalOpen: false,
   modalContent: "",
+  modalType: "",
   forumTitle: "",
   forumDesc: "",
   // settingsType: "",
@@ -45,17 +46,33 @@ function Forum(props) {
 
   return (
     <div className='forum-container content-base'>
-      {state.isModalOpen && (
-        <>
-          <Modal closeModal={closeModal} modalContent={state.modalContent} />
-        </>
+      {state.isModalOpen && state.modalType === "add-item" && (
+        <Modal
+          modalContent={state.modalContent}
+          closeModal={closeModal}
+          modalType={state.modalType}
+        />
+      )}
+      {state.isModalOpen && state.modalType === "no-value" && (
+        <Modal
+          modalContent={state.modalContent}
+          closeModal={closeModal}
+          modalType={state.modalType}
+        />
+      )}
+      {state.isModalOpen && state.modalType === "item-removed" && (
+        <Modal
+          modalContent={state.modalContent}
+          closeModal={closeModal}
+          modalType={state.modalType}
+        />
       )}
       <h1 className='title'>Help</h1>
       <div className='underline'></div>
       <div className='filter-container'>
         <div className='add-item-container'>
           <form onSubmit={handleSubmit} className='form'>
-            <div className="input-container">
+            <div className='input-container'>
               <input
                 type='text'
                 value={forumTitle}
@@ -67,6 +84,7 @@ function Forum(props) {
                 value={forumDesc}
                 onChange={(e) => setForumDesc(e.target.value)}
                 placeholder='add the question description'
+                className='textarea'
               />
               <button className='button' type='submit'>
                 add

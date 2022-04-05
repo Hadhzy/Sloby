@@ -6,22 +6,24 @@ import Content from "./Components/Content"
 import Help from "./Components/SubComponents/Help/Help"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { SettingsDataProvider } from "./Components/Context/Forum"
+import User from "./Components/SubComponents/User"
 
 function App() {
-  return (   
+  return (
     <BrowserRouter>
-    <SettingsDataProvider>
-      <div className='App'>
-        <Header />
-        <Routes>
-          <Route path='/' element={<Content />} />
-          <Route path="/categories/:category/:subcategory"/>
-          <Route path="categories/Help/*" element={<Help/>}/>
-        </Routes>
+      <SettingsDataProvider>
+        <div className='App'>
+          <Header />
+          <Routes>
+            <Route path='/' element={<Content />} />
+            <Route path='/user' element={<User />} />
+            <Route path='/categories/:category/:subcategory' />
+            <Route path='categories/Help/*' element={<Help />} />
+          </Routes>
 
-        <Footer />
-      </div>
-        </SettingsDataProvider>
+          <Footer />
+        </div>
+      </SettingsDataProvider>
     </BrowserRouter>
   )
 }

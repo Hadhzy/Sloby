@@ -1,6 +1,11 @@
 .content-base{
   max-width: $max-content-width;
   margin: 0 auto;
+
+
+  .red {
+    color: red;  
+  }
 }
 .button {
             margin-left: 15px;
@@ -8,12 +13,11 @@
             background: black;
             color: white;
             border: none;
-            padding: 5px;
             cursor: pointer;
             border-radius: .5em;
             transition: 270ms ease-in-out;
-
-
+            padding: 6px;
+            
             &:hover {
                 background-color: $blue-hover-color;
                 color: white;
