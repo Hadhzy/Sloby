@@ -10,7 +10,7 @@ import MoreVertIcon from "@material-ui/icons/MoreVert"
 
 function HeaderMenuItem({ item_data }) {
   return (
-     <Link to={`categories/${item_data.title}`} className='menu-item off-link-dec'>
+     <Link to={`categories/${item_data.url}`} className='menu-item off-link-dec'>
 
       {item_data.title.toUpperCase()}
 
