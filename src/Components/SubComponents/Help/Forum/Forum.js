@@ -67,12 +67,12 @@ function Forum(props) {
           modalType={state.modalType}
         />
       )}
+    <div className="help-system-container">
       <h1 className='title'>Help</h1>
       <div className='underline'></div>
-      <div className='filter-container'>
-        <div className='add-item-container'>
-          <form onSubmit={handleSubmit} className='form'>
-            <div className='input-container'>
+      <div className="create-question-container">
+        <div className="form-container">
+            <form onSubmit={handleSubmit}>
               <input
                 type='text'
                 value={forumTitle}
@@ -89,14 +89,15 @@ function Forum(props) {
               <button className='button' type='submit'>
                 add
               </button>
-            </div>
-          </form>
+            </form>
         </div>
       </div>
-      <div className='filtered-items-container'>
-        {state.questions.map((question_item) => {
+        <h1 className="title-questions">Your Questions</h1>
+      <div className="underline"></div>
+        <div className="questions-container">
+             {state.questions.map((question_item) => {
           return (
-            <div className='filtered-items'>
+            <div>
               <QuestionItem
                 key={question_item.id}
                 question_item={question_item}
@@ -105,8 +106,9 @@ function Forum(props) {
             </div>
           )
         })}
-      </div>
+        </div>
     </div>
+ </div>
   )
 }
 export default Forum
