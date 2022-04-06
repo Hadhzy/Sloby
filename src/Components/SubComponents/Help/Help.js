@@ -1,9 +1,8 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import {Routes, Route } from "react-router-dom"
 import Forum from "./Forum/Forum"
 function Help(props) {
     return (
-
         <div className="content-base">
             <Routes>
                 <Route path="/" element={<p>Test2</p>}/>
