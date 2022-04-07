@@ -57,9 +57,7 @@
             }
 
             .inputs{
-                 .input {
-                     &.textarea {
-                         ::-webkit-scrollbar {
+              ::-webkit-scrollbar {
                              width: 10px;
                          }
 
@@ -74,7 +72,8 @@
                          ::-webkit-scrollbar-thumb:hover {
                              background: #3e9cd9;
                          }
-                     }
+                 .input {
+
                         font-family:inherit;
                         background: white;
                         border: 1px solid #d5d7d9;
