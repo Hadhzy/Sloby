@@ -8,15 +8,15 @@
     border-radius: 15px;
     background-color: white;
     font-size: 16px;
-    border: 2px solid black;
+
 
     .help-system-container {
-        border: 2px solid green;
         width: 90%;
         display: flex;
         flex-direction: column;
         align-items: center;
         transition: 250ms ease-in-out;
+
         .title {
             font-weight: bold;
             font-size: $large-font-size;
@@ -25,9 +25,13 @@
         .underline {
             width: 5rem;
             height: 0.25rem;
-            background: #d5d7d9;
+            background: $blue-hover-color;
             margin-left: auto;
             margin-right: auto;
+            margin-bottom: 10px;
+            &.bigger-line{
+                width: 18rem;
+            }
         }
 
 
@@ -35,15 +39,16 @@
         margin-top: 15px;
         padding: 10px;
         display: flex;
-        justify-content: center;
 
         .form-container {
-            display: flex;
+
+            position: relative;
+            filter: drop-shadow(0 7px 5px rgba(0, 0, 0, 0.3));
             margin-top: 15px;
             padding: 10px;
             border: 1px solid #d5d7d9;
             border-radius: .5rem;
-            position: relative;
+
             width: $form-container-width;
 
             &:hover {
@@ -51,26 +56,51 @@
                 border: 1px solid $blue-hover-color;
             }
 
-            input {
-                background: white;
-                border: 1px solid #d5d7d9;
-                margin-left: 15px;
-                color: black;
-                font-size: $medium-font-size;
-                padding: 0.25rem 0.5rem;
-                border-radius: 0.25rem;
-                user-select: none;
-                display: flex;
-                flex-direction: column;
-                margin-bottom: 25px;
-                width: $input-width;
+            .inputs{
+                 .input {
+                     &.textarea {
+                         ::-webkit-scrollbar {
+                             width: 10px;
+                         }
 
+                         ::-webkit-scrollbar-track {
+                             background: rgb(21, 21, 21);
+                         }
+
+                         ::-webkit-scrollbar-thumb {
+                             background: $blue-hover-color;
+                         }
+
+                         ::-webkit-scrollbar-thumb:hover {
+                             background: #3e9cd9;
+                         }
+                     }
+                        font-family:inherit;
+                        background: white;
+                        border: 1px solid #d5d7d9;
+                        margin-left: 15px;
+                        color: black;
+                        font-size: $medium-font-size;
+                        padding: 0.25rem 0.5rem;
+                        border-radius: 0.25rem;
+                        overflow-wrap: break-word;
+                        overflow-y: scroll;
+                        user-select: none;
+                        margin-bottom: 25px;
+                        width: $input-width;
+                        font-weight: bold;
+                 &::placeholder{
+                     font-size:15px;
+
+                 }
                 &:focus {
-                    outline-style: none;
-                    transition: 250ms ease-in-out;
-                    border-color: $blue-hover-color;
-                    box-shadow: 2px 2px 2px 1px $blue-hover-color;
+                        outline-style: none;
+                        transition: 250ms ease-in-out;
+                        border-color: $blue-hover-color;
+                        box-shadow: 2px 2px 2px 1px $blue-hover-color;
                 }
+            }
+
             }
         }
     }
@@ -78,22 +108,24 @@
         .title-questions {
             font-weight: bold;
             font-size: $large-font-size;
-            margin-top: 150px;
+            margin-top: 25px;
+
         }
      .questions-container {
 
          .question-item {
+
             display: flex;
             justify-content: space-between;
             border: 2px solid #d5d7d9;
             border-radius: 5px;
-            margin-top: 20px;
+            margin-bottom: 10px;
             width: $question-item-width;
             transition: 250ms ease-in-out;
 
               &:hover {
              transition: 250ms ease-in-out;
-            box-shadow: 2px 2px 2px 1px #141414;
+              box-shadow: 2px 2px 2px 1px #141414;
             transform: translateY(-5px);
          }
              .question-title-and-desc {
@@ -109,9 +141,10 @@
 
                  }
                  .question-description {
+                    height: 70px;
                     padding: 5px 2px;
-                     overflow-wrap: break-word;
-                     overflow-y: scroll;
+                    overflow-wrap: break-word;
+                    overflow-y: scroll;
                  }
              }
          }
@@ -121,6 +154,7 @@
 
 
     .modal-add-item-container {
+        display: flex;
         background-color: white;
         padding: 20px;
         filter: drop-shadow(0 10px 6px rgba(0, 0, 0, 0.22));
@@ -128,7 +162,7 @@
         border-radius: 20px;
         border-top: 5px solid #52ae30;
         color: #52ae30;
-        display: flex;
+
     }
 
     .modal-no-value-container {

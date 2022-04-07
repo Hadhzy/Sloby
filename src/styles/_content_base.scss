@@ -27,6 +27,26 @@
             }
         }
 
+.bbutton{
+
+            margin-left: 15px;
+            font-size: 16px;
+            background: $blue-hover-color;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: .5em;
+            transition: 270ms ease-in-out;
+            padding: 6px;
+
+            &:hover {
+                background-color: #0c46c7;
+                color: white;
+                transform: translateY(-5px);
+                filter: drop-shadow(0 5px 4px rgba(0, 0, 0, 0.5));
+
+            }
+}
 .off-link-dec {
   text-decoration: none;
   color: black;

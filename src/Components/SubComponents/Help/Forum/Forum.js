@@ -73,27 +73,28 @@ function Forum(props) {
       <div className="create-question-container">
         <div className="form-container">
             <form onSubmit={handleSubmit}>
-              <input
-                type='text'
-                value={forumTitle}
-                onChange={(e) => setForumTitle(e.target.value)}
-                placeholder='add the question title'
+              <div className="inputs">
+                  <input className="input"
+
+                  value={forumTitle}
+                  onChange={(e) => setForumTitle(e.target.value)}
+                  placeholder='add the question title'
               />
-              <input
-                type='text'
-                value={forumDesc}
-                onChange={(e) => setForumDesc(e.target.value)}
-                placeholder='add the question description'
-                className='textarea'
+              <textarea className="input textarea"
+                  value={forumDesc}
+                  onChange={(e) => setForumDesc(e.target.value)}
+                  placeholder='add the question description'
+
               />
-              <button className='button' type='submit'>
+              </div>
+              <button className='bbutton' type='submit'>
                 add
               </button>
             </form>
         </div>
       </div>
         <h1 className="title-questions">Your Questions</h1>
-      <div className="underline"></div>
+      <div className="underline bigger-line"></div>
         <div className="questions-container">
              {state.questions.map((question_item) => {
           return (
