@@ -73,7 +73,7 @@
                              background: #3e9cd9;
                          }
                  .input {
-
+                        resize: vertical;
                         font-family:inherit;
                         background: white;
                         border: 1px solid #d5d7d9;
@@ -87,6 +87,7 @@
                         user-select: none;
                         margin-bottom: 25px;
                         width: $input-width;
+                        max-width: calc(#{$form-container-width} - 15px*2.5);
                         font-weight: bold;
                  &::placeholder{
                      font-size:15px;
