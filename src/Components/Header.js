@@ -94,7 +94,7 @@ function Header() {
           </motion.button>
 
           <motion.button className='button' whileHover={{ scale: 1.1 }}>
-            Create Account
+            Create Your Account
           </motion.button>
         </motion.div>
       </div>

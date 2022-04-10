@@ -12,10 +12,14 @@
     padding: 10px 0;
     .base-sidebar-icon{
         width: 50px;
-
+        cursor: pointer;
         position: absolute;
-        right: 7px;
+        right: 17px;
 
+        &:hover {
+            transform: scale(1.1);
+            transition: 250ms ease-in-out;
+        }
     }
     .navigation{
 
