@@ -1,4 +1,6 @@
 import React, { useState } from "react"
+import { Typography, Button, Container, Grid } from "@material-ui/core"
+
 
 function Security({ dispatch, question_item }) {
   const [visible, setVisible] = useState(true)
@@ -10,18 +12,42 @@ function Security({ dispatch, question_item }) {
 
   function SecurityContent() {
     return (
-      <div className='security-popup-container'>
+      <div className='security-container'>
+        <div className="security-popup-container">
+
           <div className='security-question'>
-            Are you sure that you are want to add that item?
+              <Container maxWidth="sm">
+                <Typography
+                  variant="h3"
+                  align="center"
+                  color="textPrimary"
+                  gutterBottom
+                >
+                  Security
+                </Typography>
+                <Typography
+                  variant="h5"
+                  align="center"
+                  color="textSecondary"
+                  paragraph
+                >
+                  Are you sure, that you are want to save that item?
+                </Typography>
+              </Container>
+            <hr/>
           </div>
-          <hr />
-          <div className='security-button-wrapper'>
-            <button onClick={() => setVisible(false)}>Yes, i am</button>
-            <button onClick={() => {dispatch({type: "REMOVE_ITEM", payload: question_item.id}) && setVisible(false) }}>No, i am not</button>
-          </div>
-        </div>
+           <Grid container spacing={2} className="security-button-wrapper">
+              <Grid item>
+                <Button variant="contained" color="primary" onClick={() => setVisible(false)}>Yes, i am</Button>
+              </Grid>
+              <Grid item>
+                <Button variant="contained" color="primary" onClick={() => {dispatch({type: "REMOVE_ITEM", payload: question_item.id}) && setVisible(false) }}>No, i am not</Button>
+              </Grid>
+            </Grid>
+      </div>
+    </div>
     )
-    }
+  }
 }
 
   

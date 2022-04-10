@@ -69,7 +69,7 @@ function Forum(props) {
         />
       )}
       <div className='help-system-container'>
-        <h1 className='title'>Help</h1>
+        <h1 className='title'>Forum</h1>
         <div className='underline'></div>
       
         <div className='create-question-container'>

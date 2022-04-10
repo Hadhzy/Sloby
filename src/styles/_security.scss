@@ -1,7 +1,7 @@
-.security-popup-container {
+.security-container {
     position: fixed;
     z-index: 200;
-    background-color: rgba(255,255,255, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
     top: 0;
     left: 0;
     right: 0;
@@ -9,4 +9,25 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    .security-popup-container {
+        background-color: white;
+        padding: 20px;
+        border-radius: $popup-border-radius;
+        filter: drop-shadow(0 7px 5px rgba(0, 0, 0, 0.22));
+        width: 500px;
+        height: 300px;
+
+        .security-question {
+            margin-bottom: 20px;
+        }
+        .security-button-wrapper {
+            display: flex;
+            justify-content: center;
+
+            button {
+               margin: 0 16px;
+            }
+        }
+    }
 }
