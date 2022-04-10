@@ -20,7 +20,7 @@ function HeaderMenuItem({ item_data }) {
         <div className='popup-menu'>
           {item_data.items.map((i) => (
             <a key={i} className='popup-items'>
-              <Link to={`/categories/${item_data.title}/${i}`} className="popup-items off-link-dec">{i}</Link>
+              <Link to={`/categories/${item_data.url}/${i.toLowerCase()}`} className="popup-items off-link-dec">{i}</Link>
             </a>
           ))}
         </div>

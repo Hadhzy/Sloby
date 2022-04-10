@@ -51,3 +51,21 @@
   text-decoration: none;
   color: black;
 }
+
+.underline {
+    width: 5rem;
+    height: 0.25rem;
+    background: $blue-hover-color;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    &.bigger-line{
+        width: 18rem;
+    }
+}
+.bold-text{
+  font-weight: bold;
+}
+.user-select-none{
+  user-select: none;
+}
