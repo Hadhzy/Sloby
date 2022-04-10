@@ -9,7 +9,7 @@ export default function QuestionItem({ question_item, dispatch }) {
         <p className="question-description">{question_item.forumDesc}</p>
       </div>
       <div className="question-item-events">
-          <DeleteIcon className="icon" onClick={() => dispatch({ type: "REMOVE_ITEM", payload: question_item.id })}/>
+          <DeleteIcon className="icon" color="primary" onClick={() => dispatch({ type: "REMOVE_ITEM", payload: question_item.id })}/>
       </div>
     </div>
   )
