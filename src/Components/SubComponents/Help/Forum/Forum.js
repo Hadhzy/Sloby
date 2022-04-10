@@ -13,7 +13,7 @@ const defaultState = {
   isModalOpen: false,
   modalContent: "",
   modalType: "",
-  security: false,
+  security: true,
   forumTitle: "",
   forumDesc: "",
   // settingsType: "",
@@ -25,7 +25,7 @@ function Forum(props) {
   const [state, dispatch] = useReducer(reducer, defaultState)
   const { settings, settingsMenu } = useContext(SettingsDataContext)
 
-  const handleSubmit = (e) => {
+ const handleSubmit = (e) => {
     e.preventDefault()
     if (forumTitle && forumDesc) {
       const newItem = {
@@ -46,6 +46,14 @@ function Forum(props) {
   }
 
   return (
+  <div>
+    {state.security && state.questions.map((question_item) => {
+      return(
+          <div>
+            {<Security dispatch={dispatch} question_item={question_item}/>}
+          </div>
+      )
+    })}
     <div className='forum-container content-base'>
       {state.isModalOpen && state.modalType === "add-item" && (
         <Modal
@@ -102,9 +110,6 @@ function Forum(props) {
             return (  
               <div>
                 <div>
-                  {state.security && <Security question_item={question_item} dispatch={dispatch}/>}
-                </div> 
-                <div>
                 <QuestionItem
                   key={question_item.id}
                   question_item={question_item}
@@ -117,6 +122,7 @@ function Forum(props) {
         </div>
       </div>
     </div>
+ </div>
   )
 }
 export default Forum

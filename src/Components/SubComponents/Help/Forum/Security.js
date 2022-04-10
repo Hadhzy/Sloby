@@ -1,19 +1,23 @@
 import React, { useState } from "react"
 import { Typography, Button, Container, Grid } from "@material-ui/core"
-
+import {motion} from "framer-motion"
 
 function Security({ dispatch, question_item }) {
   const [visible, setVisible] = useState(true)
   return (
     <div>
-      {visible && <SecurityContent />}
+        {visible && <SecurityContent />}
     </div>
   )
 
   function SecurityContent() {
     return (
       <div className='security-container'>
-        <div className="security-popup-container">
+        <motion.div className="security-popup-container"
+            initial={{opacity:0}}
+            animate={{opacity:1}}
+            translation={{duration:0.8}}
+        >
 
           <div className='security-question'>
               <Container maxWidth="sm">
@@ -31,20 +35,20 @@ function Security({ dispatch, question_item }) {
                   color="textSecondary"
                   paragraph
                 >
-                  Are you sure, that you are want to save that item?
+                  Are you sure, that you are want to save that question?
                 </Typography>
               </Container>
             <hr/>
           </div>
            <Grid container spacing={2} className="security-button-wrapper">
               <Grid item>
-                <Button variant="contained" color="primary" onClick={() => setVisible(false)}>Yes, i am</Button>
+                <Button variant="contained" color="primary" onClick={() => dispatch({type: "SECURITY_MODAL"}) && setVisible(false)}>Yes, i am</Button>
               </Grid>
               <Grid item>
-                <Button variant="contained" color="primary" onClick={() => {dispatch({type: "REMOVE_ITEM", payload: question_item.id}) && setVisible(false) }}>No, i am not</Button>
+                <Button variant="contained" color="primary" onClick={() => {dispatch({type: "DISCARD_ITEM", payload: question_item.id}) && setVisible(false) }}>No, i am not</Button>
               </Grid>
             </Grid>
-      </div>
+      </motion.div>
     </div>
     )
   }

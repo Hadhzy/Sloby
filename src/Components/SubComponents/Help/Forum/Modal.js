@@ -1,13 +1,11 @@
 import React, { useEffect } from "react"
 import CheckCircleRoundedIcon from "@material-ui/icons/CheckCircleRounded"
 import ErrorIcons from "@material-ui/icons/Error"
-import AnnouncementIcon from "@material-ui/icons/Announcement"
+
 const Modal = ({ modalContent, closeModal, modalType }) => {
   useEffect(() => {
-    setTimeout(() => {
-      closeModal()
-    }, 3000)
-  })
+    setTimeout(() => closeModal(), 3000)
+  },)
   return (
     <div>
       {modalType === "add-item" && (
