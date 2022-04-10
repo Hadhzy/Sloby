@@ -13,7 +13,8 @@ function Security({ dispatch, question_item }) {
   function SecurityContent() {
     return (
       <div className='security-container'>
-        <div className="security-popup-container">
+        <div className="security-popup-container"
+        >
 
           <div className='security-question'>
               <Container maxWidth="sm">
