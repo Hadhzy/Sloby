@@ -1,8 +1,7 @@
 import React from "react"
 import { useReducer, useState, useEffect, useContext } from "react"
-import axios from "axios"
-import { Link } from "react-router-dom"
 import Modal from "./Modal"
+import {motion} from "framer-motion"
 //reducer function
 import { reducer } from "./reducer"
 import { SettingsDataContext } from "../../../Context/Forum"
@@ -18,6 +17,22 @@ const defaultState = {
   forumDesc: "",
   // settingsType: "",
 }
+const containerVariants={
+  init:{
+    y: -700,
+
+  },
+  animate:{
+    y:0,
+    transition: {
+      delay: 1,
+      duration: 0.2,
+      type: "spring",
+      stiffness: 400,
+    }
+  }
+}
+
 
 function Forum(props) {
   const [forumTitle, setForumTitle] = useState("")
@@ -77,8 +92,15 @@ function Forum(props) {
         />
       )}
       <div className='help-system-container'>
-        <h1 className='title'>Forum</h1>
-        <div className='underline'></div>
+        <motion.h1 className='title'
+        variants={containerVariants}
+        initial="init"
+        animate="animate">Forum</motion.h1>
+
+        <motion.div className='underline'
+        variants={containerVariants}
+        initial="init"
+        animate="animate"></motion.div>
       
         <div className='create-question-container'>
           <div className='form-container'>
@@ -103,8 +125,17 @@ function Forum(props) {
             </form>
           </div>
         </div>
-        <h1 className='title-questions'>Your Questions</h1>
-        <div className='underline bigger-line'></div>
+        <motion.h1 className='title-questions'
+        variants={containerVariants}
+        initial="init"
+        animate="animate">Your Questions</motion.h1>
+
+        <motion.div className='underline bigger-line'
+         variants={containerVariants}
+        initial="init"
+        animate="animate"
+        ></motion.div>
+
         <div className='questions-container'>
           {state.questions.map((question_item) => {
             return (  
