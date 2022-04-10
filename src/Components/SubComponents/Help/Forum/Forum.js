@@ -33,7 +33,6 @@ const containerVariants={
   }
 }
 
-
 function Forum(props) {
   const [forumTitle, setForumTitle] = useState("")
   const [forumDesc, setForumDesc] = useState("")
