@@ -15,12 +15,16 @@ function Content() {
             type: "spring"
           }}
     >
-      <div className='hero-section-container'>
+      <motion.div className='hero-section-container'
+      initial={{x: -500}}
+      animate={{x: 0}}
+      transition={{delay: 1, duration:0.8}}
+      >
         <IntroductionSection />
         <div className='hero-section-item'>
           <img src={Image} alt='Image' />
         </div>
-      </div>
+      </motion.div>
     </motion.div>
   )
 }
