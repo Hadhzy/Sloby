@@ -7,6 +7,7 @@ export const reducer = (state, action) => {
       isModalOpen: true,
       modalContent: "Item added to the list",
       modalType: "add-item",
+      security: true,
     }
   }
   if (action.type === "CLOSE_MODAL") {
@@ -29,7 +30,7 @@ export const reducer = (state, action) => {
       questions: newQuestions,
       isModalOpen: true,
       modalType: "item-removed",
-      modalContent: "Warning! You have delete the item",
+      modalContent: "You successfully, removed that item",
     }
   }
 }

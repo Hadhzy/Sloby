@@ -23,9 +23,9 @@ const Modal = ({ modalContent, closeModal, modalType }) => {
         </div>
       )}
       {modalType === "item-removed" && (
-        <div className='modal-item-removed'>
+        <div className='modal-add-item-container'>
           <p>{modalContent}</p>
-          <AnnouncementIcon />
+          <CheckCircleRoundedIcon />
         </div>
       )}
     </div>

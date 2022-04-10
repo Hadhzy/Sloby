@@ -7,12 +7,13 @@ import Modal from "./Modal"
 import { reducer } from "./reducer"
 import { SettingsDataContext } from "../../../Context/Forum"
 import QuestionItem from "./QuestionItem"
-
+import Security from "./Security"
 const defaultState = {
   questions: [],
   isModalOpen: false,
   modalContent: "",
   modalType: "",
+  security: false,
   forumTitle: "",
   forumDesc: "",
   // settingsType: "",
@@ -67,49 +68,55 @@ function Forum(props) {
           modalType={state.modalType}
         />
       )}
-    <div className="help-system-container">
-      <h1 className='title'>Help</h1>
-      <div className='underline'></div>
-      <div className="create-question-container">
-        <div className="form-container">
+      <div className='help-system-container'>
+        <h1 className='title'>Help</h1>
+        <div className='underline'></div>
+      
+        <div className='create-question-container'>
+          <div className='form-container'>
             <form onSubmit={handleSubmit}>
-              <div className="inputs">
-                  <input className="input"
-
+              <div className='inputs'>
+                <input
+                  className='input'
                   value={forumTitle}
                   onChange={(e) => setForumTitle(e.target.value)}
                   placeholder='add the question title'
-              />
-              <textarea className="input textarea"
+                />
+                <textarea
+                  className='input textarea'
                   value={forumDesc}
                   onChange={(e) => setForumDesc(e.target.value)}
                   placeholder='add the question description'
-
-              />
+                />
               </div>
               <button className='bbutton' type='submit'>
                 add
               </button>
             </form>
+          </div>
+        </div>
+        <h1 className='title-questions'>Your Questions</h1>
+        <div className='underline bigger-line'></div>
+        <div className='questions-container'>
+          {state.questions.map((question_item) => {
+            return (  
+              <div>
+                <div>
+                  {state.security && <Security question_item={question_item} dispatch={dispatch}/>}
+                </div> 
+                <div>
+                <QuestionItem
+                  key={question_item.id}
+                  question_item={question_item}
+                  dispatch={dispatch}
+                />
+                </div>   
+              </div>
+            )
+          })}
         </div>
       </div>
-        <h1 className="title-questions">Your Questions</h1>
-      <div className="underline bigger-line"></div>
-        <div className="questions-container">
-             {state.questions.map((question_item) => {
-          return (
-            <div>
-              <QuestionItem
-                key={question_item.id}
-                question_item={question_item}
-                dispatch={dispatch}
-              />
-            </div>
-          )
-        })}
-        </div>
     </div>
- </div>
   )
 }
 export default Forum

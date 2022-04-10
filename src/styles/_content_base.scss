@@ -51,3 +51,12 @@
   text-decoration: none;
   color: black;
 }
+.icon {
+  cursor: pointer;
+  transition: 250ms ease-in-out;
+  &:hover {
+    transition: 250ms ease-in-out;
+    transform: scale(1.1);
+  }
+}
+

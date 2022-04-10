@@ -125,7 +125,7 @@
               &:hover {
              transition: 250ms ease-in-out;
               box-shadow: 2px 2px 2px 1px #141414;
-            transform: translateY(-5px);
+            transform: translateY(-1px);
          }
              .question-title-and-desc {
                  padding: 5px;
@@ -145,6 +145,11 @@
                     overflow-wrap: break-word;
                     overflow-y: scroll;
                  }
+
+
+                  .delete-icon {
+                    cursor: pointer;
+                  }
              }
          }
      }
@@ -175,14 +180,4 @@
         display: flex;
     }
 
-    .modal-item-removed {
-        background-color: white;
-        padding: 20px;
-        filter: drop-shadow(0 10px 6px rgba(0, 0, 0, 0.22));
-        margin-bottom: 15px;
-        border-radius: 20px;
-        border-top: 5px solid #ffc107;
-        color: #ffc107;
-        display: flex;
-    }
 }
