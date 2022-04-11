@@ -4,7 +4,6 @@ import Modal from "./Modal"
 import {motion} from "framer-motion"
 //reducer function
 import { reducer } from "./reducer"
-import { SettingsDataContext } from "../../../Context/Forum"
 import QuestionItem from "./QuestionItem"
 import Security from "./Security"
 const defaultState = {
@@ -37,8 +36,6 @@ function Forum(props) {
   const [forumTitle, setForumTitle] = useState("")
   const [forumDesc, setForumDesc] = useState("")
   const [state, dispatch] = useReducer(reducer, defaultState)
-  const { settings, settingsMenu } = useContext(SettingsDataContext)
-
  const handleSubmit = (e) => {
     e.preventDefault()
     if (forumTitle && forumDesc) {
