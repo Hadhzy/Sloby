@@ -138,7 +138,7 @@ function Forum(props) {
             initial='init'
             animate='animate'
           >
-            Your Questions
+            Your Questionss
           </motion.h1>
 
           <motion.div
