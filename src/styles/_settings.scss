@@ -1,0 +1,18 @@
+.settings-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .title{
+    font-weight: bold;
+    font-size: 20px;
+  }
+  .options{
+    display: flex;
+    flex-direction: column;
+    align-self:  flex-start;
+    .settings-item{
+      color: red;
+    }
+  }
+}

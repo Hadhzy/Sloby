@@ -7,9 +7,10 @@ import Help from "./Components/SubComponents/Help/Help"
 import AboutUs from "./Components/SubComponents/AboutUs/AboutUs"
 import Docs from "./Components/SubComponents/Docs/Docs"
 import OurProject from "./Components/SubComponents/OurProject/OurProject"
+import Settings from "./Components/SubComponents/Settings/Settings"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import { SettingsDataProvider } from "./Components/Context/Forum"
 import User from "./Components/SubComponents/User"
+import {SettingsDataContext, SettingsDataProvider} from "./Components/Context/SettingsContext";
 
 function App() {
   return (
@@ -26,11 +27,13 @@ function App() {
             <Route path='categories/about-us/*' element={<AboutUs />} />
             <Route path='categories/docs/*' element={<Docs/>} />
             <Route path='categories/our-project/*' element={<OurProject />} />
+            <Route path='settings' element={<Settings/>} />
           </Routes>
 
           <Footer />
         </div>
       </SettingsDataProvider>
+
     </BrowserRouter>
   )
 }
