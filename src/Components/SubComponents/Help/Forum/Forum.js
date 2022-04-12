@@ -98,7 +98,7 @@ function Forum(props) {
             animate='animate'
           >
             Forum
-          </motion.h1>
+          </motion.h1>-
 
           <motion.div
             className='underline'

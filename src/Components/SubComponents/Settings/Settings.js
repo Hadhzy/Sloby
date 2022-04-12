@@ -7,16 +7,13 @@ import CardMedia from "@mui/material/CardMedia"
 import CardContent from "@mui/material/CardContent"
 import CardActions from "@mui/material/CardActions"
 import Collapse from "@mui/material/Collapse"
-import Avatar from "@mui/material/Avatar"
 import IconButton from "@mui/material/IconButton"
 import Typography from "@mui/material/Typography"
-import { red } from "@mui/material/colors"
-import FavoriteIcon from "@material-ui/icons/Favorite"
-import ShareIcon from "@material-ui/icons/Share"
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
 import MoreVertIcon from "@material-ui/icons/MoreVert"
 import { ThemeContext } from "../../Context/ThemeContext"
-
+import Switch from '@mui/material/Switch';
+import FormControlLabel from '@mui/material/FormControlLabel';
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props
   return <IconButton {...other} />
@@ -59,9 +56,7 @@ function Settings(props) {
                 <CardContent>
                   <Typography>
                     {setting.description}
-                    <button onClick={switchTheme}>
-                      click to change the theme
-                    </button>
+
                   </Typography>
                 </CardContent>
                 <CardActions disableSpacing>
@@ -71,7 +66,18 @@ function Settings(props) {
                   {/*<IconButton aria-lebel="share">*/}
                   {/*    <ShareIcon/>*/}
                   {/*</IconButton>*/}
-                  Our Icons system
+                  {
+                    setting.type === "switch" && (
+                        <FormControlLabel control={
+                           <Switch checked={theme === "light"? false : true} onChange={switchTheme}>
+                          click to change the theme
+                        </Switch>
+                        } label={`${theme} theme`}>
+
+                        </FormControlLabel>)
+
+                  }
+
                   <ExpandMore
                     expand={expanded}
                     onClick={handleExpandClick}

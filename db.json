@@ -14,7 +14,8 @@
       "subheader": "Simple darkmode1",
       "description": "lorem10",
       "content_title": "Test2",
-      "long_description": "lorem10"
+      "long_description": "lorem10",
+      "type": "switch"
     },
     {"id":  1,
       "title": "Test",
