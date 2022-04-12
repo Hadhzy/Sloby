@@ -10,10 +10,18 @@
    ],
   "settings-menu": [
     {"id":  0,
-      "title": "Dark mode"
+      "title": "Dark mode",
+      "subheader": "Simple darkmode1",
+      "description": "lorem10",
+      "content_title": "Test2",
+      "long_description": "lorem10"
     },
     {"id":  1,
-      "title": "Test"},
+      "title": "Test",
+     "subheader": "Simple darkmode",
+     "description": "lorem10",
+     "content_title": "Test2",
+      "long_description": "lorem10"},
     {"id":  2},
     {"id":  3}
   ]

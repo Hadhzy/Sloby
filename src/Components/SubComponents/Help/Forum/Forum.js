@@ -4,7 +4,6 @@ import Modal from "./Modal"
 import { motion } from "framer-motion"
 //reducer function
 import { reducer } from "./reducer"
-import { SettingsDataContext } from "../../../Context/Forum"
 import QuestionItem from "./QuestionItem"
 import Security from "./Security"
 import useLocalStorage from "use-local-storage"
@@ -38,7 +37,6 @@ function Forum(props) {
   const [forumTitle, setForumTitle] = useLocalStorage("forumTitle", "")
   const [forumDesc, setForumDesc] = useLocalStorage("forumDesc", "")
   const [state, dispatch] = useReducer(reducer, defaultState)
-  const { settings, settingsMenu } = useContext(SettingsDataContext)
 
   const handleSubmit = (e) => {
     e.preventDefault()

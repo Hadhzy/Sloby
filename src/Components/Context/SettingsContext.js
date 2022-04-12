@@ -4,21 +4,21 @@ import axios from "axios"
 export const SettingsDataContext = createContext(true)
 
 export const SettingsDataProvider = (props) => {
-    const [title, set_title] = useState([])
+    const [settings, set_settings] = useState([])
 
 
-    const fetch_title = () =>{
+    const fetch_settings = () =>{
         axios({
             method: "get",
             url: `${process.env.REACT_APP_API_URL}/settings-menu`
-        }).then(res => set_title(res.data))
+        }).then(res => set_settings(res.data))
     }
     useEffect(() =>{
-        fetch_title()
+        fetch_settings()
     }, [])
 
     return <SettingsDataContext.Provider value={{
-        setting_title: title
+        settings: settings
     }}>
         {props.children}
     </SettingsDataContext.Provider>
