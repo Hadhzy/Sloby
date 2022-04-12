@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown"
 import axios from "axios"
 import MenuIcon from "@material-ui/icons/Menu"
@@ -6,11 +6,14 @@ import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
 import { Menu, MenuItem, Button } from "@material-ui/core"
 import MoreVertIcon from "@material-ui/icons/MoreVert"
+  import { ThemeContext } from "./Context/ThemeContext"
 
 function HeaderMenuItem({ item_data }) {
   return (
     <Link to={`categories/${item_data.url}`} className='menu-item off-link-dec'>
+      <div className="header-menu-items">
       {item_data.title.toUpperCase()}
+      </div>
 
       {item_data.items && <KeyboardArrowDownIcon />}
 
@@ -55,6 +58,7 @@ function HeaderMenu() {
 
 function Header() {
   const [site_info, set_site_info] = useState([])
+  const {switchTheme, theme} = useContext(ThemeContext)
 
   const fetch_site_info = () => {
     axios({
@@ -68,7 +72,7 @@ function Header() {
   }, [])
 
   return (
-    <div className='header-container'>
+    <div className='header-container' data_theme={theme}>
       <div className='navigation'>
         <motion.div
           transition={{ delay: 1, duration: 1.5 }}

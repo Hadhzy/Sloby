@@ -14,17 +14,45 @@ html {
 }
 
 [data_theme="dark"] {
-    background-color: #191919;
+    background-color: rgba(0, 0, 0, 0.97);
     color: white;
     transition: 250ms ease-in-out;
-    
-    .header-container {
-        border: 1px solid skyblue; 
+    //settings
+    .MuiSvgIcon-root {
+      color: white;
     }
 
-    .settings-item {
-        border: 1px solid red;
+    .setting-item {
+      background-color: #191919;
+      color: rgba(255, 255, 255, 0.9);
+      border-radius: 16px;
     }
+    //setting-end
+
+    //header
+  .button {
+    background-color: #191919;
+    color: white;
+    border: 0.5px solid white;
+  }
+
+  .header-menu-items {
+    color: rgba(255, 255, 255, 0.90)
+  }
+  .popup-menu {
+    background-color: #191919;
+
+    .popup-items {
+      color: white;
+      transition: 250ms ease-in-out;
+
+      &:hover {
+        transition: 250ms ease-in-out;
+        transform: scale(1.02);
+      }
+    }
+  }
+  //header-end
 }
 
 *{
@@ -44,5 +72,5 @@ body {
   .App{
     min-height: 100vh;
   }
-  }
+}
   
