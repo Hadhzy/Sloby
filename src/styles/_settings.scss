@@ -1,18 +1,31 @@
 .settings-container{
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
   .title{
     font-weight: bold;
     font-size: 20px;
   }
   .options{
-    display: flex;
-    flex-direction: column;
-    align-self:  flex-start;
+
+    margin-left: 10%;
+    align-self: flex-start;
+
     .settings-item{
       color: red;
+
+      .setting-item{
+         margin-bottom: 30px;
+        .card-header{
+
+          .MuiTypography-root{
+            color: $blue-hover-color;
+          }
+          .MuiTypography-root.MuiTypography-body1{
+            color: green;
+          }
+        }
+      }
     }
   }
 }
