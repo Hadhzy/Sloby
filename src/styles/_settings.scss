@@ -11,11 +11,18 @@
     margin-left: 10%;
     align-self: flex-start;
 
-    .settings-item{
-      color: red;
+    .settings-item{      
 
       .setting-item{
          margin-bottom: 30px;
+         filter: drop-shadow(2px 7px 5px rgba(0, 0, 0, 0.22));
+         transition: 250ms ease-in-out;
+         
+         &:hover {
+           transform: scale(1.01);
+           transition: 250ms ease-in-out;
+         }
+
         .card-header{
 
           .MuiTypography-root{

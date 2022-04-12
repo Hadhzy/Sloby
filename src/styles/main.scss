@@ -13,25 +13,19 @@ html {
     height: 100%;
 }
 
+[data_theme="dark"] {
+    background-color: #191919;
+    color: white;
+    transition: 250ms ease-in-out;
+    
+    .header-container {
+        border: 1px solid skyblue; 
+    }
 
-//::-webkit-scrollbar {
-//  width: 10px;
-//}
-//
-//
-//::-webkit-scrollbar-track {
-//  background: rgb(21, 21, 21);
-//}
-//
-//
-//::-webkit-scrollbar-thumb {
-//  background: $blue-hover-color;
-//}
-//
-//
-//::-webkit-scrollbar-thumb:hover {
-//  background: #3e9cd9;
-//}
+    .settings-item {
+        border: 1px solid red;
+    }
+}
 
 *{
     margin: 0;
