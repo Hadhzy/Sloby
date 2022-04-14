@@ -1,12 +1,14 @@
 .header-container {
     display: flex;
     position: relative;
+    margin-bottom: 25px;
+    margin-left: 10px;
 
-    margin: 10px;
+    transform: translateY(10px);
     filter: drop-shadow(0 7px 5px rgba(0, 0, 0, 0.3));
     border-radius: 1em;
     z-index: 100;
-    width: 98%;
+    width: 97%;
     height: $header-height;
     background-color: $header-background-color;
     padding: 10px 0;

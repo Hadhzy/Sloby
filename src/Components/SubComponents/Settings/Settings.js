@@ -36,72 +36,75 @@ function Settings(props) {
   const { settings } = useContext(SettingsDataContext)
   const { theme, switchTheme } = useContext(ThemeContext)
   return (
-    <div className='settings-container' data_theme={theme}>
-      <div className='title'>Settings</div>
-      <div className='underline'></div>
-      <div className='options'>
-        <div className='settings-item'>
-          {settings.map((setting) => (
-            <div>
-              <Card className='setting-item' sx={{ width: 1000 }}>
-                <CardHeader
-                  className='card-header'
-                  action={
-                    <IconButton aria-label='settings'>
-                      <MoreVertIcon />
-                    </IconButton>
-                  }
-                  title={setting.title}
-                  subheader={setting.subheader}
-                />
-                <CardContent>
-                  <Typography>
-                    {setting.description}
-
-                  </Typography>
-                </CardContent>
-                <CardActions disableSpacing>
-                  {/*<IconButton aria-label="add to favorites">*/}
-                  {/*    <FavoriteIcon/>*/}
-                  {/*</IconButton>*/}
-                  {/*<IconButton aria-lebel="share">*/}
-                  {/*    <ShareIcon/>*/}
-                  {/*</IconButton>*/}
-                  {
-                    setting.type === "switch" && (
-                        <FormControlLabel control={
-                           <Switch checked={theme === "light"? false : true} onChange={switchTheme}>
-                          click to change the theme
-                        </Switch>
-                        } label={`${theme} theme`}>
-
-                        </FormControlLabel>)
-
-                  }
-
-                  <ExpandMore
-                    expand={expanded}
-                    onClick={handleExpandClick}
-                    aria-expanded={expanded}
-                    aria-label='show more'
-                  >
-                    <ExpandMoreIcon />
-                  </ExpandMore>
-                </CardActions>
-                <Collapse in={expanded} timeout='auto' unmountOnExit>
+      <div data_theme={theme}>
+          <div className='settings-container' >
+        <div className='title'>Settings</div>
+        <div className='underline'></div>
+        <div className='options'>
+          <div className='settings-item'>
+            {settings.map((setting) => (
+              <div>
+                <Card className='setting-item' sx={{ width: 1000 }}>
+                  <CardHeader
+                    className='card-header'
+                    action={
+                      <IconButton aria-label='settings'>
+                        <MoreVertIcon />
+                      </IconButton>
+                    }
+                    title={setting.title}
+                    subheader={setting.subheader}
+                  />
                   <CardContent>
-                    <Typography paragraph>{setting.content_title}</Typography>
-                    <Typography paragraph>
-                      {setting.long_description}
+                    <Typography>
+                      {setting.description}
+
                     </Typography>
                   </CardContent>
-                </Collapse>
-              </Card>
-            </div>
-          ))}
+                  <CardActions disableSpacing>
+                    {/*<IconButton aria-label="add to favorites">*/}
+                    {/*    <FavoriteIcon/>*/}
+                    {/*</IconButton>*/}
+                    {/*<IconButton aria-lebel="share">*/}
+                    {/*    <ShareIcon/>*/}
+                    {/*</IconButton>*/}
+                    {
+                      setting.type === "switch" && (
+                          <FormControlLabel control={
+                             <Switch checked={theme === "light"? false : true} onChange={switchTheme}>
+                            click to change the theme
+                          </Switch>
+                          } label={`${theme} theme`}>
+
+                          </FormControlLabel>)
+
+                    }
+
+                    <ExpandMore
+                      expand={expanded}
+                      onClick={handleExpandClick}
+                      aria-expanded={expanded}
+                      aria-label='show more'
+                    >
+                      <ExpandMoreIcon />
+                    </ExpandMore>
+                  </CardActions>
+                  <Collapse in={expanded} timeout='auto' unmountOnExit>
+                    <CardContent>
+                      <Typography paragraph>{setting.content_title}</Typography>
+                      <Typography paragraph>
+                        {setting.long_description}
+                      </Typography>
+                    </CardContent>
+                  </Collapse>
+                </Card>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+      </div>
+
   )
 }
 
