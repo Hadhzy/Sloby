@@ -2,11 +2,13 @@ import React from "react"
 import ReactDOM from "react-dom"
 import App from "./App"
 import reportWebVitals from "./reportWebVitals"
-
+import {ThemeContextProvider} from "./Components/Context/ThemeContext"
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+        <ThemeContextProvider>
+         <React.StrictMode>
+        <App />
+    </React.StrictMode>
+    </ThemeContextProvider>,
   document.getElementById("root")
 )
 

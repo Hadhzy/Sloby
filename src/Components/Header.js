@@ -6,7 +6,8 @@ import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
 import { Menu, MenuItem, Button } from "@material-ui/core"
 import MoreVertIcon from "@material-ui/icons/MoreVert"
-  import { ThemeContext } from "./Context/ThemeContext"
+import {ThemeContext} from "./Context/ThemeContext";
+
 
 function HeaderMenuItem({ item_data }) {
   return (
@@ -58,8 +59,7 @@ function HeaderMenu() {
 
 function Header() {
   const [site_info, set_site_info] = useState([])
-  const {switchTheme, theme} = useContext(ThemeContext)
-
+  const {theme} = useContext(ThemeContext)
   const fetch_site_info = () => {
     axios({
       method: "get",
@@ -72,42 +72,45 @@ function Header() {
   }, [])
 
   return (
-    <div className='header-container' data_theme={theme}>
-      <div className='navigation'>
-        <motion.div
-          transition={{ delay: 1, duration: 1.5 }}
-          initial={{ x: 100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1, scale: 1.1, rotateZ: 360 }}
-          className='menu-container'
-        >
-          <HeaderMenu />
-        </motion.div>
+    <div data_theme={theme}>
+        <div className='header-container' >
+          <div className='navigation'>
+            <motion.div
+              transition={{ delay: 1, duration: 1.5 }}
+              initial={{ x: 100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1, scale: 1.1, rotateZ: 360 }}
+              className='menu-container'
+            >
+              <HeaderMenu />
+            </motion.div>
 
-        <motion.div
-          className='button-wrapper'
-          initial={{ y: -150 }}
-          animate={{ y: 0 }}
-          transition={{
-            delay: 1,
-            duration: 0.2,
-            type: "spring",
-            stiffness: 400,
-          }}
-        >
-          <motion.button className='button' whileHover={{ scale: 1.1 }}>
-            Sign up
-          </motion.button>
+            <motion.div
+              className='button-wrapper'
+              initial={{ y: -150 }}
+              animate={{ y: 0 }}
+              transition={{
+                delay: 1,
+                duration: 0.2,
+                type: "spring",
+                stiffness: 400,
+              }}
+            >
+              <motion.button className='button' whileHover={{ scale: 1.1 }}>
+                Sign up
+              </motion.button>
 
-          <motion.button className='button' whileHover={{ scale: 1.1 }}>
-            Create Your Account
-          </motion.button>
-        </motion.div>
-      </div>
+              <motion.button className='button' whileHover={{ scale: 1.1 }}>
+                Create Your Account
+              </motion.button>
+            </motion.div>
+          </div>
 
-      <div className='base-sidebar-icon'>
-        <Sidebar />
-      </div>
+          <div className='base-sidebar-icon'>
+            <Sidebar />
+          </div>
+        </div>
     </div>
+
   )
 }
 

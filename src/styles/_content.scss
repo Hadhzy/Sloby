@@ -2,7 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
+  margin: 10px;
+  border-radius: 8px;
   .hero-section-container {
     width: 80%;
     display: flex;
@@ -10,10 +11,11 @@
     align-items: center;
 
     .hero-section-item {
+      height: max-content;
+      padding: 10px;
       img {
-        width: 500px; 
-        height: 500px;
-        transform: translate(0, 50px);
+        width: 490px;
+        height: 490px;
         user-select: none; 
       }
 

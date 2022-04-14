@@ -14,8 +14,18 @@ html {
 }
 
 [data_theme="dark"] {
-    background-color: rgba(0, 0, 0, 0.97);
-    color: white;
+  .content-container{
+      background-color: $black_theme_background_content;
+    }
+    .header-container{
+      background-color: $black_theme_background_content;
+    }
+    .settings-container{
+      background-color: rgba(0, 0, 0, 0.97);
+    }
+   .App{
+     background-color: rgba(0, 0, 0, 0.92);
+   }
     transition: 250ms ease-in-out;
     //settings
     .MuiSvgIcon-root {
