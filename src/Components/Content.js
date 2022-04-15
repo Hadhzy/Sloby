@@ -8,6 +8,7 @@ function Content() {
   const {switchTheme, theme} = useContext(ThemeContext)
   return (
       <div data_theme={theme}>
+        <div className="theme-case-content">
           <motion.div className='content-container'
             initial={{ opacity:0}}
                   animate={{ opacity: 1 }}
@@ -28,6 +29,7 @@ function Content() {
                 </div>
               </motion.div>
             </motion.div>
+          </div>
       </div>
 
   )

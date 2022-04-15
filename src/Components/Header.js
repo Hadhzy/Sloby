@@ -73,6 +73,7 @@ function Header() {
 
   return (
     <div data_theme={theme}>
+      <div className="theme-case-header">
         <div className='header-container' >
           <div className='navigation'>
             <motion.div
@@ -109,6 +110,7 @@ function Header() {
             <Sidebar />
           </div>
         </div>
+      </div>
     </div>
 
   )

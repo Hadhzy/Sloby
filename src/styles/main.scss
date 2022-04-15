@@ -17,15 +17,25 @@ html {
     .content-container{
       background-color: $black_theme_background_content;
     }
-    .header-container{
-      background-color: $black_theme_background_content;
+  .header-container{
+    background-color: $black_theme_background_header;
+    margin-top: 10px;
     }
-    .settings-container{
-      background-color: rgba(0, 0, 0, 0.97);
-    }
-  .App{
-    background-color: rgba(0,0,0,0.84)
+  .theme-case-header {
+    background-color: black;
+    border: 0.1px solid black;
   }
+
+  .theme-case-content {
+      border: 1px solid black;
+      background-color: black;
+      height: 750px;
+  }
+
+    .settings-container{
+      background-color: $settings-container-background-color;
+    }
+
 
 
   .introduction-section{
