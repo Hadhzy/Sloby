@@ -1,8 +1,6 @@
 .footer-container {
-
     display: grid;
     grid-template-columns: repeat(4, auto);
-
     background-color: $footer-background-color;
     position: sticky;
     top: 100vh;
