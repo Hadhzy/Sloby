@@ -11,7 +11,6 @@ function Help(props) {
                 <Route path="email" element={<p>email</p>}/>
                 <Route path="community" element={<p>community</p>}/>
             </Routes>
-
         </div>
     );
 }
