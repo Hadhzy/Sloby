@@ -15,7 +15,7 @@ function IntroductionSection() {
             color='textPrimary'
             gutterBottom
           >
-            Visual Webdevelopment
+            Visual Web-development
           </Typography>
           <Typography
             variant='h5'
