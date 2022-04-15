@@ -1,20 +1,14 @@
-import React from "react"
+import React, {useContext} from "react"
 import useStyles from "./styles"
 import { Typography, Button, Container, Grid } from "@material-ui/core"
-import { PhotoCamera } from "@material-ui/icons"
 import { createTheme, ThemeProvider } from "@material-ui/core/styles"
-
+import {ThemeContext} from "../Components/Context/ThemeContext"
 function IntroductionSection() {
-  const theme = createTheme({
-    typography: {
-      fontFamily: ["Poppins"],
-    },
-  })
-  const classes = useStyles()
+  const {theme} = useContext(ThemeContext)
   return (
-    <ThemeProvider theme={theme}>
-      <div className={classes.container}>
-        <Container maxWidth='sm'>
+      <div data_theme={theme}>
+        <div className="introduction-section">
+        <Container maxWidth='sm' className="section-color">
           <Typography
             variant='h2'
             align='center'
@@ -33,7 +27,7 @@ function IntroductionSection() {
             your skills this is the best choice to you our program is teachs
             webdevelopment
           </Typography>
-          <div className={classes.buttons}>
+          <div>
             <Grid container spacing={2}>
               <Grid item>
                 <button className='button'>Get Starteds</button>
@@ -45,7 +39,9 @@ function IntroductionSection() {
           </div>
         </Container>
       </div>
-    </ThemeProvider>
+      </div>
+
+
   )
 }
 

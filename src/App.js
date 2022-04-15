@@ -25,7 +25,7 @@ function App() {
     <BrowserRouter>
       <ThemeContextProvider>
         <SettingsDataProvider>
-            <div data_theme={theme}>
+
                <div className='App'>
                 <Header/>
                 <Routes>
@@ -42,7 +42,6 @@ function App() {
 
                 <Footer />
           </div>
-            </div>
 
         </SettingsDataProvider>
       </ThemeContextProvider>
