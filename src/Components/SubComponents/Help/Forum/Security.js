@@ -24,16 +24,16 @@ function Security({ dispatch, question_item }) {
                 <Typography
                   variant="h3"
                   align="center"
-                  color="textPrimary"
                   gutterBottom
+                  color="textPrimary"
                 >
                   Security
                 </Typography>
                 <Typography
                   variant="h5"
                   align="center"
-                  color="textSecondary"
                   paragraph
+                  color="textSecondary"
                 >
                   Are you sure, that you are want to save that question?
                 </Typography>
@@ -42,10 +42,10 @@ function Security({ dispatch, question_item }) {
           </div>
            <Grid container spacing={2} className="security-button-wrapper">
               <Grid item>
-                <Button variant="contained" color="primary" onClick={() => dispatch({type: "SECURITY_MODAL"}) && setVisible(false)}>Yes, i am</Button>
+                <button className="button" onClick={() => dispatch({type: "SECURITY_MODAL"}) && setVisible(false)}>Yes, i am</button>
               </Grid>
               <Grid item>
-                <Button variant="contained" color="primary" onClick={() => {dispatch({type: "DISCARD_ITEM", payload: question_item.id}) && setVisible(false) }}>No, i am not</Button>
+                  <button className="button" onClick={() => {dispatch({type: "DISCARD_ITEM", payload: question_item.id}) && setVisible(false)}}>No, i am not</button>
               </Grid>
             </Grid>
       </motion.div>

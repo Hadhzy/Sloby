@@ -7,6 +7,7 @@ import { reducer } from "./reducer"
 import QuestionItem from "./QuestionItem"
 import Security from "./Security"
 import useLocalStorage from "use-local-storage"
+import { ThemeContext } from "../../../Context/ThemeContext"
 
 const defaultState = {
   questions: [],
@@ -37,6 +38,7 @@ function Forum(props) {
   const [forumTitle, setForumTitle] = useLocalStorage("forumTitle", "")
   const [forumDesc, setForumDesc] = useLocalStorage("forumDesc", "")
   const [state, dispatch] = useReducer(reducer, defaultState)
+  const { theme } = useContext(ThemeContext)
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -59,107 +61,109 @@ function Forum(props) {
   }
 
   return (
-    <div>
-      {state.security &&
-        state.questions.map((question_item) => {
-          return (
-            <div>
-              {<Security dispatch={dispatch} question_item={question_item} />}
-            </div>
-          )
-        })}
-      <div className='forum-container content-base'>
-        {state.isModalOpen && state.modalType === "add-item" && (
-          <Modal
-            modalContent={state.modalContent}
-            closeModal={closeModal}
-            modalType={state.modalType}
-          />
-        )}
-        {state.isModalOpen && state.modalType === "no-value" && (
-          <Modal
-            modalContent={state.modalContent}
-            closeModal={closeModal}
-            modalType={state.modalType}
-          />
-        )}
-        {state.isModalOpen && state.modalType === "item-removed" && (
-          <Modal
-            modalContent={state.modalContent}
-            closeModal={closeModal}
-            modalType={state.modalType}
-          />
-        )}
-        <div className='help-system-container'>
-          <motion.h1
-            className='title'
-            variants={containerVariants}
-            initial='init'
-            animate='animate'
-          >
-            Forum
-          </motion.h1>-
+    <div data_theme={theme}>
+      <div className='theme-case-forum'>
+        {state.security &&
+          state.questions.map((question_item) => {
+            return (
+              <div>
+                {<Security dispatch={dispatch} question_item={question_item} />}
+              </div>
+            )
+          })}
+        <div className='forum-container content-base'>
+          {state.isModalOpen && state.modalType === "add-item" && (
+            <Modal
+              modalContent={state.modalContent}
+              closeModal={closeModal}
+              modalType={state.modalType}
+            />
+          )}
+          {state.isModalOpen && state.modalType === "no-value" && (
+            <Modal
+              modalContent={state.modalContent}
+              closeModal={closeModal}
+              modalType={state.modalType}
+            />
+          )}
+          {state.isModalOpen && state.modalType === "item-removed" && (
+            <Modal
+              modalContent={state.modalContent}
+              closeModal={closeModal}
+              modalType={state.modalType}
+            />
+          )}
+          <div className='help-system-container'>
+            <motion.h1
+              className='title'
+              variants={containerVariants}
+              initial='init'
+              animate='animate'
+            >
+              Forum
+            </motion.h1>
 
-          <motion.div
-            className='underline'
-            variants={containerVariants}
-            initial='init'
-            animate='animate'
-          ></motion.div>
+            <motion.div
+              className='underline'
+              variants={containerVariants}
+              initial='init'
+              animate='animate'
+            ></motion.div>
 
-          <div className='create-question-container'>
-            <div className='form-container'>
-              <form onSubmit={handleSubmit}>
-                <div className='inputs'>
-                  <input
-                    className='input'
-                    value={forumTitle}
-                    onChange={(e) => setForumTitle(e.target.value)}
-                    placeholder='add the question title'
-                  />
-                  <textarea
-                    className='input textarea'
-                    value={forumDesc}
-                    onChange={(e) => setForumDesc(e.target.value)}
-                    placeholder='add the question description'
-                  />
-                </div>
-                <button className='bbutton' type='submit'>
-                  add
-                </button>
-              </form>
-            </div>
-          </div>
-          <motion.h1
-            className='title-questions'
-            variants={containerVariants}
-            initial='init'
-            animate='animate'
-          >
-            Your Questionss
-          </motion.h1>
-
-          <motion.div
-            className='underline bigger-line'
-            variants={containerVariants}
-            initial='init'
-            animate='animate'
-          ></motion.div>
-
-          <div className='questions-container'>
-            {state.questions.map((question_item) => {
-              return (
-                <div>
-                  <div>
-                    <QuestionItem
-                      key={question_item.id}
-                      question_item={question_item}
-                      dispatch={dispatch}
+            <div className='create-question-container'>
+              <div className='form-container'>
+                <form onSubmit={handleSubmit}>
+                  <div className='inputs'>
+                    <input
+                      className='input'
+                      value={forumTitle}
+                      onChange={(e) => setForumTitle(e.target.value)}
+                      placeholder='add the question title'
+                    />
+                    <textarea
+                      className='input textarea'
+                      value={forumDesc}
+                      onChange={(e) => setForumDesc(e.target.value)}
+                      placeholder='add the question description'
                     />
                   </div>
-                </div>
-              )
-            })}
+                  <button className='bbutton' type='submit'>
+                    add
+                  </button>
+                </form>
+              </div>
+            </div>
+            <motion.h1
+              className='title-questions'
+              variants={containerVariants}
+              initial='init'
+              animate='animate'
+            >
+              Your Questionss
+            </motion.h1>
+
+            <motion.div
+              className='underline bigger-line'
+              variants={containerVariants}
+              initial='init'
+              animate='animate'
+            ></motion.div>
+
+            <div className='questions-container'>
+              {state.questions.map((question_item) => {
+                return (
+                  <div>
+                    <div>
+                      <QuestionItem
+                        key={question_item.id}
+                        question_item={question_item}
+                        dispatch={dispatch}
+                      />
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
           </div>
         </div>
       </div>

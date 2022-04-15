@@ -32,11 +32,34 @@ html {
       height: 750px;
   }
 
+  .security-popup-container {
+    background-color: $settings-container-background-color;
+
+    .MuiTypography-colorTextPrimary {
+      color: white;
+    }
+    .MuiTypography-colorTextSecondary {
+      color: white;
+    }
+  }
+
+  .theme-case-forum {
+    background-color: $black_theme_background_header;
+    .forum-container {
+      background-color: $settings-container-background-color;
+      color: white;
+
+      .input {
+        background: black !important;
+        color: white !important;
+      }
+    }
+  }
+
     .settings-container{
       background-color: $settings-container-background-color;
+      color: white;
     }
-
-
 
   .introduction-section{
 
@@ -96,7 +119,6 @@ html {
 
 body {
       font-family: 'Poppins', serif;
-      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
