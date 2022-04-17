@@ -10,6 +10,8 @@ import OurProject from "./Components/SubComponents/OurProject/OurProject"
 import Settings from "./Components/SubComponents/Settings/Settings"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import User from "./Components/SubComponents/User"
+import RegisterPage from "./Components/Users/RegisterPage"
+import LoginPage from "./Components/Users/LoginPage"
 import {
   SettingsDataContext,
   SettingsDataProvider,
@@ -38,6 +40,8 @@ function App() {
                   <Route path='categories/docs/*' element={<Docs />} />
                   <Route path='categories/our-project/*' element={<OurProject />} />
                   <Route path='settings' element={<Settings />} />
+                  <Route path='users/register' element={<RegisterPage/>} />
+                  <Route path='users/login' element={<LoginPage/>} />
                 </Routes>
 
                 <Footer />

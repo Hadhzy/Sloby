@@ -6,7 +6,7 @@ import PeopleIcon from '@material-ui/icons/People';
 
 function HelpContent(props) {
     return (
-        <div className="help-container">
+        <div className="help-container content-base">
             <div className="title">
                 Help
             </div>

@@ -71,7 +71,7 @@ function Forum(props) {
               </div>
             )
           })}
-        <div className='forum-container content-base'>
+        <div className='forum-container'>
           {state.isModalOpen && state.modalType === "add-item" && (
             <Modal
               modalContent={state.modalContent}
