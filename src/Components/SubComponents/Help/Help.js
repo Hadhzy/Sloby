@@ -4,7 +4,7 @@ import Forum from "./Forum/Forum"
 import HelpContent from "./SubComponents/HelpContent"
 function Help(props) {
     return (
-        <div className="content-base">
+        <div>
             <Routes>
                 <Route path="/" element={<HelpContent/>}/>
                 <Route path="forum" element={<Forum/>}/>

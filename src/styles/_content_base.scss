@@ -1,6 +1,10 @@
 .content-base{
-
-
+    max-width: $max-content-width;
+    margin: 0 auto;
+    &.off-content-base{
+      margin: 0;
+      max-width: none;
+    }
   .red {
     color: red;  
   }
@@ -48,6 +52,9 @@
 .off-link-dec {
   text-decoration: none;
   color: black;
+  &.white{
+    color: white;
+  }
 }
 .icon {
   cursor: pointer;

@@ -48,6 +48,9 @@ html {
   .theme-case-forum {
     background-color: $black_theme_background_header;
     .forum-container {
+      .content-base{
+        max-width: none;
+      }
       background-color: $settings-container-background-color;
       color: white;
 
