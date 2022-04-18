@@ -97,3 +97,32 @@
     border: 0.2px solid rgba(0,0,0,0.1);
     border-radius: 3px;
   }
+
+.input-base{
+          resize: vertical;
+          font-family:inherit;
+          background: white;
+          border: 1px solid #d5d7d9;
+          margin-left: 15px;
+          color: black;
+          font-size: $medium-font-size;
+          padding: 0.25rem 0.5rem;
+          border-radius: 0.25rem;
+          overflow-wrap: break-word;
+          overflow-y: scroll;
+          user-select: none;
+          margin-bottom: 25px;
+          width: $input-width;
+          max-width: calc(#{$form-container-width} - 15px*2.5);
+          font-weight: bold;
+   &::placeholder{
+       font-size:15px;
+
+   }
+  &:focus {
+          outline-style: none;
+          transition: 250ms ease-in-out;
+          border-color: $blue-hover-color;
+          box-shadow: 2px 2px 2px 1px $blue-hover-color;
+  }
+}

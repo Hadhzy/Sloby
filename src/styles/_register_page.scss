@@ -1,0 +1,15 @@
+.register-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .form-container{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    align-items: center;
+    .error-message{
+      color: red;
+      font-weight: bold;
+    }
+  }
+}
