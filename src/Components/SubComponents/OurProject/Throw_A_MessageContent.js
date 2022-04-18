@@ -11,7 +11,7 @@ function Throw_A_MessageContent(props) {
     <div data_theme={theme}>
       <div className='throw-message-container'>
         <div className='title-base'>Throw message</div>
-        <div className='underline bigger-line'></div>
+        <div className="underline bigger-line"></div>
         <br />
         <Join />
       </div>
