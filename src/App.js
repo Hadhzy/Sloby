@@ -12,6 +12,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import User from "./Components/SubComponents/User"
 import RegisterPage from "./Components/Users/RegisterPage"
 import LoginPage from "./Components/Users/LoginPage"
+import Chat from "./Components/SubComponents/Chat/client/Chat"
 import {
   SettingsDataContext,
   SettingsDataProvider,
@@ -40,9 +41,13 @@ function App() {
                   <Route path='categories/docs/*' element={<Docs />} />
                   <Route path='categories/our-project/*' element={<OurProject />} />
                   <Route path='settings' element={<Settings />} />
+
                   <Route path='users/register' element={<RegisterPage />} />
                   <Route path='users/login' element={<LoginPage />} />
                   <Route path='users/verified-registration-email' element={<p>Registration email</p>} />
+                  <Route path="chat" element={<Chat />} />
+              
+                 
 
                 </Routes>
 

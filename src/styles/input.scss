@@ -1,0 +1,23 @@
+
+.form {
+    display: flex;
+  }
+  
+  .input {
+    border: none;
+    border-radius: 0;
+    padding: 5%;
+    width: 80%;
+    font-size: 1.2em;
+  }
+  
+  
+  .send-button {
+    color: #fff !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #2979FF;
+    border: none;
+    width: 20%;
+    cursor: pointer;
+  }

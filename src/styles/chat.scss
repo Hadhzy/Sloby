@@ -1,0 +1,30 @@
+
+.outer-container {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    background-color: black;
+  }
+  
+  .container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #1A1A1D;
+    border-radius: 8px;
+    height: 45%;
+    width: 35%;
+
+    .input-wrapper {
+        display: flex;
+        justify-content: center;
+        
+    }
+    .bigger-input {
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+  }  
+

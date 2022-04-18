@@ -8,7 +8,7 @@ function AboutUsContent(props) {
             </div>
             <div className="underline bigger-line"></div>
             <div className="subtitle-base">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, sunt.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, sunte elemente.
             </div>
         </div>
     );

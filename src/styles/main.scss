@@ -11,6 +11,14 @@
 @import "about_us.scss";
 @import "our_project.scss";
 @import "register_page";
+@import "chat.scss";
+@import "join.scss";
+@import "infobar.scss";
+@import "input.scss";
+@import "message.scss";
+@import "messages.scss";
+@import "roomdata.scss";
+
 html {
     height: 100%;
 }
@@ -26,6 +34,14 @@ html {
   .theme-case-header {
     background-color: black;
     border: 0.1px solid black;
+  }
+
+  .throw-message-container {
+    background-color: black;
+    color: white;
+    .join-container {
+      background-color: $black_theme_background_header;
+    }
   }
 
   .theme-case-content {
