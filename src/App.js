@@ -12,6 +12,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import User from "./Components/SubComponents/User"
 import RegisterPage from "./Components/Users/RegisterPage"
 import LoginPage from "./Components/Users/LoginPage"
+import Chat from "./Components/SubComponents/Chat/client/Chat"
 import {
   SettingsDataContext,
   SettingsDataProvider,
@@ -42,6 +43,7 @@ function App() {
                   <Route path='settings' element={<Settings />} />
                   <Route path='users/register' element={<RegisterPage/>} />
                   <Route path='users/login' element={<LoginPage/>} />
+                  <Route path="chat" element={<Chat />} />
                 </Routes>
 
                 <Footer />
