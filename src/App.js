@@ -40,8 +40,10 @@ function App() {
                   <Route path='categories/docs/*' element={<Docs />} />
                   <Route path='categories/our-project/*' element={<OurProject />} />
                   <Route path='settings' element={<Settings />} />
-                  <Route path='users/register' element={<RegisterPage/>} />
-                  <Route path='users/login' element={<LoginPage/>} />
+                  <Route path='users/register' element={<RegisterPage />} />
+                  <Route path='users/login' element={<LoginPage />} />
+                  <Route path='users/verified-registration-email' element={<p>Registration email</p>} />
+
                 </Routes>
 
                 <Footer />
