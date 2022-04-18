@@ -1,12 +1,16 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {useState} from "react";
 import {Link, useNavigate} from "react-router-dom"
+import {ThemeContext} from "../Context/ThemeContext";
+
 function RegisterPage(props) {
     const [email, set_email] = useState("")
     const [password1, set_password1] = useState("")
     const [password2, set_password2] = useState("")
     const [error, set_error] = useState(null)
     const [waiting, set_waiting] = useState(false)
+
+    const {theme} = useContext(ThemeContext)
 
     const navigate = useNavigate()
 
@@ -33,10 +37,10 @@ function RegisterPage(props) {
         navigate("/users/verified-registration-email")
     }
     return (
-        <div className="content-base">
+        <div data_theme={theme}>
             <div className="register-container">
-                <form className="form-container">
-                <h3> CREATE ACCOUNT</h3>
+                <form className="form-container-base">
+                <h3 className="login-title"> CREATE ACCOUNT</h3>
                 <div className="underline bigger-line"></div>
 
                 <input className="input-base" type="email" placeholder="Email" value={email} onChange={e => set_email(e.target.value)}/>
@@ -55,7 +59,7 @@ function RegisterPage(props) {
                         <button  className="bbutton" onClick={handle_button_clicked}>CREATE</button>
                 }
                 <br/>
-                <small>or <Link to="/">Return to site</Link></small>
+                <small className="login-title">or <Link className="off-link-dec action-hover" to="/">Return to site</Link></small>
             </form>
             </div>
 

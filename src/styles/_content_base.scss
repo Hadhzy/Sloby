@@ -52,8 +52,14 @@
 .off-link-dec {
   text-decoration: none;
   color: black;
+
   &.white{
     color: white;
+  }
+  &.action-hover{
+    &:hover{
+      text-decoration: underline;
+    }
   }
 }
 .icon {
@@ -126,3 +132,13 @@
           box-shadow: 2px 2px 2px 1px $blue-hover-color;
   }
 }
+.form-container-base{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    align-items: center;
+    .error-message{
+      color: red;
+      font-weight: bold;
+    }
+  }
