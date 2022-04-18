@@ -97,11 +97,11 @@ function Header() {
               }}
             >
               <motion.button className='button' whileHover={{ scale: 1.1 }}>
-                Sign up
+                 <Link className="off-link-dec white" to="users/login">Login</Link>
               </motion.button>
 
               <motion.button className='button' whileHover={{ scale: 1.1 }}>
-                Create Your Account
+                <Link className="off-link-dec white" to="users/register">Create Your Account</Link>
               </motion.button>
             </motion.div>
           </div>
