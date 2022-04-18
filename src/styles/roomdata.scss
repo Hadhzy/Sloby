@@ -1,0 +1,36 @@
+.room-data-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 100px;
+    color: white;
+    height: 60%;
+    justify-content: space-between;
+
+    
+}
+
+.title {
+    margin-bottom: 0px;
+    color: white !important;
+}
+
+.active-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50%;
+    color: white !important;
+    
+    img {
+        padding-left: 10px;
+    }
+
+    .active-item {
+        color: white !important;
+    }
+}
+
+.active-item {
+    display: flex;
+    align-items: center;
+}
+
