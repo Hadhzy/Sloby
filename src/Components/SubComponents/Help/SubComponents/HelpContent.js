@@ -1,19 +1,21 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { Link } from "react-router-dom"
 import EmailIcon from '@material-ui/icons/Email';
 import ForumIcon from '@material-ui/icons/Forum';
 import PeopleIcon from '@material-ui/icons/People';
-
+import {ThemeContext} from "../../../Context/ThemeContext";
 function HelpContent(props) {
+    const {theme} = useContext(ThemeContext)
     return (
-        <div className="help-container content-base">
-            <div className="title">
+        <div data_theme={theme}>
+           <div className="help-container">
+            <div className="title-base">
                 Help
             </div>
 
             <div className="underline"></div>
 
-            <div className="subtitle">
+            <div className="subtitle-base">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, amet atque beatae blanditiis consectetur cumque deleniti dicta dolorem ea et fugiat harum id magnam minima modi mollitia nihil omnis quibusdam quidem reiciendis sequi suscipit tempore ullam veritatis voluptas voluptate voluptatibus? Alias blanditiis corporis, distinctio ducimus eius expedita facilis labore veniam.
             </div>
 
@@ -41,6 +43,8 @@ function HelpContent(props) {
             </div>
 
         </div>
+        </div>
+
     );
 }
 

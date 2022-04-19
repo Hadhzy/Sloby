@@ -3,10 +3,10 @@
     "title": "Visual Webdevelopment"
   },
    "categories": [
-     {"id":  0, "url": "docs","title": "DOCS", "items":  ["DownLoad", "See right now"]},
+     {"id":  0, "url": "docs","title": "DOCS", "items":  ["See right now"]},
      {"id":  2,"url":"our-project", "title": "Our Project", "items":  ["Goal", "throw a message"]},
      {"id":  3, "url":"about-us","title": "About Us", "items": null},
-     {"id":  4, "url": "help","title": "Help", "items": ["Forum", "Email", "Community"]}
+     {"id":  4, "url": "help","title": "Help", "items": ["Forum","Community"]}
    ],
   "settings-menu": [
     {"id":  0,

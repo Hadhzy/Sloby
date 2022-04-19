@@ -1,17 +1,14 @@
 .help-container{
   display: flex;
-  justify-content: center;
+
   align-items: center;
   flex-direction: column;
-  .title{
-    font-size: 30px;
-    font-weight: bold;
 
-  }
   .subtitle{
     padding: 3px;
     border: 0.2px solid rgba(0,0,0,0.1);
     border-radius: 3px;
+    margin: 10px;
   }
   .options{
     margin-top: 70px;
