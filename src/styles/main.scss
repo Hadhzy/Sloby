@@ -19,10 +19,8 @@
 @import "messages.scss";
 @import "roomdata.scss";
 @import "login_page.scss";
+@import "docs.scss";
 
-html {
-    height: 100%;
-}
 
 [data_theme="dark"] {
     .content-container{
@@ -38,7 +36,7 @@ html {
   }
   .register-container{
     background-color: black;
-    height: 590px;
+    height: 80vh;
     .off-link-dec{
       color: white;
     }
@@ -49,9 +47,36 @@ html {
       background-color: $black_theme_background_header;
     }
   }
+  .help-container{
+    background-color: black;
+    height: 80vh;
+    .subtitle-base{
+      color: white;
+      border: 0.2px solid white;
+    }
+    .options{
+      .bold-text{
+        color: white;
+      }
+    }
+    .title-base{
+      color: white;
+    }
+  }
+  .about-us-container{
+    background-color: black;
+    height: 80vh;
+    .title-base{
+      color: white;
+    }
+    .subtitle-base{
+      color: white;
+      border:  0.2px solid white;
+    }
+  }
   .login-container{
     background-color: black;
-    height: 590px;
+    height: 80vh;
       .off-link-dec{
       color: white;
     }
@@ -169,6 +194,7 @@ body {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      height: 100vh;
 
   .App{
     min-height: 100vh;
