@@ -5,8 +5,8 @@ import AboutUsContent from "./AboutUsContent"
 function AboutUs(props) {
     const {theme} = useContext(ThemeContext)
     return (
-      <div className="about-us-container" data_theme={theme}>
-        <div className="content-base">
+      <div>
+        <div data_theme={theme}>
             <Routes>
                 <Route path="/" element={<AboutUsContent/>}/>
             </Routes>
