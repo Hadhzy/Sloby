@@ -21,9 +21,9 @@ import {
   ThemeContext,
   ThemeContextProvider,
 } from "./Components/Context/ThemeContext"
+import ForOwners from "./Components/SubComponents/Chat/client/ForOwners"
 
 function App() {
-  const {theme} = useContext(ThemeContext)
   return (
     <BrowserRouter>
       <ThemeContextProvider>
@@ -46,6 +46,7 @@ function App() {
                   <Route path='users/login' element={<LoginPage />} />
                   <Route path='users/verified-registration-email' element={<p>Registration email</p>} />
                   <Route path="chat" element={<Chat />} />
+                  <Route path="system" element={<ForOwners />} />
               
                  
 

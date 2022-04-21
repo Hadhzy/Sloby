@@ -5,7 +5,11 @@
     height: 100vh;
     background-color: black;
   }
-  
+
+  .item-wrapper {
+    display: flex;
+  }
+
   .container {
     margin-top: 20px;
     display: flex;

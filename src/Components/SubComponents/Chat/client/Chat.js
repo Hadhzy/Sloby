@@ -1,9 +1,11 @@
+
 import React, { useState, useEffect } from "react"
 import queryString from "query-string"
 import io from "socket.io-client"
 import InfoBar from "./InfoBar"
 import Input from "./Input"
 import Messages from "./Messages"
+import NewConversation from "./NewConversation"
 import RoomData from "./RoomData"
 let socket
 
@@ -54,8 +56,9 @@ const Chat = ({ location }) => {
 
   return (
     <div className='outer-container'>
+          <NewConversation  name={name} room={room}/>
       <div className='container'>
-        <InfoBar room={room} />
+          <InfoBar room={room} />
         <Messages messages={messages} name={name} />
         <Input
           message={message}

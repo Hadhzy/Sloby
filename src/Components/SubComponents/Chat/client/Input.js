@@ -5,7 +5,7 @@ const Input = ({ message, sendMessage, setMessage }) => (
     <input
       type='text'
       value={message}
-      className='input'
+      className='input-input'
       placeholder='Write here...'
       onChange={(e) => setMessage(e.target.value)}
       onKeyPress={(event) =>
