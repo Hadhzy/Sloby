@@ -22,12 +22,42 @@
 @import "docs.scss";
 @import "new_conversation_modal";
 @import "new_conversation_modal";
+@import "community.scss";
 
 
 [data_theme="dark"] {
     .content-container{
       background-color: $black_theme_background_content;
     }
+
+  .documentation-container {
+    background-color: black;
+    height: calc(100vh - $footer-container-height);
+    color: white;
+
+    .subtitle-base {
+      border: 1px solid white;
+    }
+  }
+  .community-container {
+    background-color: black;
+    height: calc(100vh - $footer-container-height);
+    color: white;
+
+    .subtitle-base {
+      border: 2px solid white;
+    }
+  }
+
+  .goal-content-container {
+    background-color: black;
+    color: white;
+    height: calc(100vh - $footer-container-height);
+    .subtitle-base {
+      border: 2px solid white;
+    }
+  }
+
   .header-container{
     background-color: $black_theme_background_header;
     margin-top: 10px;
@@ -38,20 +68,23 @@
   }
   .register-container{
     background-color: black;
-    height: 80vh;
+    height: calc(100vh - $footer-container-height);
     .off-link-dec{
       color: white;
     }
      .login-title{
       color:white;
     }
+
+
+
     .form-container-base{
       background-color: $black_theme_background_header;
     }
   }
   .help-container{
     background-color: black;
-    height: 80vh;
+    height: calc(100vh - $footer-container-height);
     .subtitle-base{
       color: white;
       border: 0.2px solid white;
@@ -78,7 +111,7 @@
   }
   .login-container{
     background-color: black;
-    height: 80vh;
+    height: calc(100vh - $footer-container-height);
       .off-link-dec{
       color: white;
     }
@@ -115,8 +148,8 @@
   }
 
   .theme-case-forum {
-    background-color: $black_theme_background_header;
     .forum-container {
+      height: calc(100vh - $footer-container-height);
       .content-base{
         max-width: none;
       }

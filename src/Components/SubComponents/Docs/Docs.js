@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Routes, Route, Navigate} from "react-router-dom"
 import Documentation from "./Documentation";
+import {ThemeContext} from "../../Context/ThemeContext"
+
 function Docs(props) {
+    const {theme} = useContext(ThemeContext)
     return (
-        <div className="content-base">
+        <div data_theme={theme}>
             <Routes>
                 <Route path="/" element={<Navigate to="see-right-now"/>}/>
                 <Route path="download" element={<p>Download</p>}/>

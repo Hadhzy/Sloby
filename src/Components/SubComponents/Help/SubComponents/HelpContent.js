@@ -16,7 +16,7 @@ function HelpContent(props) {
             <div className="underline"></div>
 
             <div className="subtitle-base">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, amet atque beatae blanditiis consectetur cumque deleniti dicta dolorem ea et fugiat harum id magnam minima modi mollitia nihil omnis quibusdam quidem reiciendis sequi suscipit tempore ullam veritatis voluptas voluptate voluptatibus? Alias blanditiis corporis, distinctio ducimus eius expedita facilis labore veniam.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi dignissimos dolore ex, explicabo fuga iusto minus nostrum reiciendis rerum sint!
             </div>
 
             <div className="options">
