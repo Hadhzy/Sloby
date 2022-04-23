@@ -4,22 +4,56 @@ import EmailIcon from '@material-ui/icons/Email';
 import ForumIcon from '@material-ui/icons/Forum';
 import PeopleIcon from '@material-ui/icons/People';
 import {ThemeContext} from "../../../Context/ThemeContext";
+import { motion } from "framer-motion"
+
+const containerVariants = {
+init: {
+y: -700,
+},
+animate: {
+y: 0,
+transition: {
+  delay: 1,
+  duration: 0.2,
+  type: "spring",
+  stiffness: 400,
+},
+},
+}
+
+
 function HelpContent(props) {
     const {theme} = useContext(ThemeContext)
     return (
         <div data_theme={theme}>
            <div className="help-container">
-            <div className="title-base">
+            <motion.div
+                variants={containerVariants}
+                initial='init'
+                animate='animate'
+                className="title-base">
                 Help
-            </div>
+            </motion.div>
 
-            <div className="underline"></div>
+            <motion.div
+                variants={containerVariants}
+                initial='init'
+                animate='animate'
+                className="underline"></motion.div>
 
-            <div className="subtitle-base">
+            <motion.div
+               variants={containerVariants}
+                initial='init'
+                animate='animate'
+                className="subtitle-base">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi dignissimos dolore ex, explicabo fuga iusto minus nostrum reiciendis rerum sint!
-            </div>
+            </motion.div>
 
-            <div className="options">
+            <motion.div
+               variants={containerVariants}
+                initial='init'
+                animate='animate'
+                className="options">
                 <div>
                     <Link to="forum" className="off-link-dec">
                     <ForumIcon className="icons" color="secondary"/>
@@ -40,7 +74,7 @@ function HelpContent(props) {
                         <div className="bold-text user-select-none">Community</div>
                     </Link>
                 </div>
-            </div>
+            </motion.div>
 
         </div>
         </div>

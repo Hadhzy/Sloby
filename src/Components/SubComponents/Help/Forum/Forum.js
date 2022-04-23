@@ -110,7 +110,11 @@ function Forum(props) {
               animate='animate'
             ></motion.div>
 
-            <div className='create-question-container'>
+            <motion.div
+                variants={containerVariants}
+                initial='init'
+                animate='animate'
+                className='create-question-container'>
               <div className='form-container'>
                 <form onSubmit={handleSubmit}>
                   <div className='inputs'>
@@ -132,7 +136,7 @@ function Forum(props) {
                   </button>
                 </form>
               </div>
-            </div>
+            </motion.div>
             <motion.h1
               className='title-questions'
               variants={containerVariants}
