@@ -1,7 +1,7 @@
 
 .outer-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     height: 100vh;
     background-color: black;
   }
@@ -19,6 +19,7 @@
     border-radius: 8px;
     height: 45%;
     width: 35%;
+
 
     .input-wrapper {
         display: flex;
