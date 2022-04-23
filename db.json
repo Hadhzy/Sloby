@@ -1,13 +1,32 @@
 {
   "site_info": {
-    "title": "Visual Webdevelopment"
+    "title": "Visual Webdevelopment",
+    "sub_title": "If you are a beginner with web development or you want to improve your skills this is the best choice for you our program is teaching web development",
+    "button_title_docs" : "Read Our Docs",
+    "button_title_get_started": "Get Started",
+    "img": "https://i.ibb.co/m95kxYY/Image.png"
   },
-   "categories": [
+
+  "categories": [
      {"id":  0, "url": "docs","title": "DOCS", "items":  ["See right now"]},
      {"id":  2,"url":"our-project", "title": "Our Project", "items":  ["Goal", "throw a message"]},
      {"id":  3, "url":"about-us","title": "About Us", "items": null},
-     {"id":  4, "url": "help","title": "Help", "items": ["Forum","Community"]}
+     {"id":  4, "url": "help","title": "Help", "items": ["Forum","Community"],
+       "_comment": "Header categories"
+     }
    ],
+  "categories-accounts": [
+    {
+      "id": 0, "login_title": "Login", "register_title": "Create Your Account",
+      "_comment": "Header accounts"
+    }
+  ],
+  "settings-menu-titles": [
+    {
+      "id": 0, "item_1": "Settings", "item_2": "My Account", "item_3": "Logout",
+      "_comment": "Header settings menu titles"
+    }
+  ],
   "settings-menu": [
     {"id":  0,
       "title": "Dark mode",
@@ -25,4 +44,8 @@
       "long_description": "lorem10"},
     {"id": 2}
   ]
+
+
+
+
 }
