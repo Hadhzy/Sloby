@@ -2,252 +2,254 @@
   "site_info": {
     "title": "Visual Webdevelopment",
     "sub_title": "If you are a beginner with web development or you want to improve your skills this is the best choice for you our program is teaching web development",
-    "button_title_docs" : "Read Our Docs",
+    "button_title_docs": "Read Our Docs",
     "button_title_get_started": "Get Started",
     "img": "https://i.ibb.co/m95kxYY/Image.png"
   },
 
-  "inputs-type-text": [
-    {
-      "type": "text"
-    }
-  ],
-
-  "inputs-type-email": [
-    {
-      "type": "email"
-    }
-  ],
-
-  "buttons-type-submit": [
-    {
-      "type": "submit"
-    }
-  ],
-
   "categories": [
-     {"id":  0, "url": "docs","title": "DOCS", "items":  ["See right now"]},
-     {"id":  2,"url":"our-project", "title": "Our Project", "items":  ["Goal", "throw a message"]},
-     {"id":  3, "url":"about-us","title": "About Us", "items": null},
-     {"id":  4, "url": "help","title": "Help", "items": ["Forum","Community"],
-       "_comment": "Header categories"
-     }
-   ],
+    {
+      "id": 0,
+      "url": "docs",
+      "title": "DOCS",
+      "items": [
+        "See right now"
+      ]
+    },
+    {
+      "id": 2,
+      "url": "our-project",
+      "title": "Our Project",
+      "items": [
+        "Goal",
+        "throw a message"
+      ]
+    },
+    {
+      "id": 3,
+      "url": "about-us",
+      "title": "About Us",
+      "items": null
+    },
+    {
+      "id": 4,
+      "url": "help",
+      "title": "Help",
+      "items": [
+        "Forum",
+        "Community"
+      ],
+      "_comment": "Header categories"
+    }
+  ],
   "categories-accounts": [
-    {"id": 5, "login_title": "Login", "register_title": "Create Your Account", "_comment": "Header accounts"}
+    {
+      "id": 0,
+      "login_title": "Login",
+      "register_title": "Create Your Account",
+      "_comment": "Header accounts"
+    }
   ],
   "settings-menu-titles": [
-    {"id": 6, "item_1": "Settings", "item_2": "My Account", "item_3": "Logout", "_comment": "Header settings menu titles"}
-  ],
-
-
-
-  "footer-text-links": [
-    {"id": 7, "link": "contact@homeid.com"},
-    {"id": 8, "link": "www.homeid.com"}
-  ],
-
-  "footer-bellow-content": [
-    {"id": 9, "title": "Terms of Use"},
-    {"id": 10, "title": "Privacy Policy"}
-  ],
-
-  "footer-text-footer-title": [
-    {"id": 11, "footer_title": "Popular Searches"},
-    {"id": 12, "footer_title": "Quick links"},
-    {"id": 13, "footer_title": "Sign Up for Our Newsletter"}
-  ],
-
-  "footer-text-footer-links": [
-    {"id": 14, "footer-link": "Apartment for Rent"},
-    {"id": 15, "footer-link": "Apartment Low to hide"},
-    {"id": 16, "footer-link": "Offices for Buy"},
-    {"id": 17, "footer-link": "Offices for Rent"},
-    {"id": 18, "footer-link": "Privacy Policy"},
-    {"id": 19, "footer-link": "Contact Support"},
-    {"id": 20, "footer-link": "Careers"}
-  ],
-
-  "footer-text": [
-    {"id": 21, "text": "Lorem ipsum dolor sit amet, consecte tur cing elit.Suspe ndisse suscipit sagittis"}
-  ],
-
-  "footer-input-placeholder": [
-    {"id": 22, "placeholder": "Your email"}
-  ],
-
-  "footer-button-text": [
-    {"id": 23,"text": "Subscribe"}
-  ],
-
-  "footer-icons": [
-    {"id": 24, "className": "fab fa-twitter"},
-    {"id": 25, "className": "fab fa-facebook-f"},
-    {"id": 26, "className": "fab fa-skype"},
-    {"id": 27, "className": "fab fa-linkedin-in"}
-  ],
-
-  "users-login-page-login-title": [
-    {"id": 28, "title": "Login"}
-  ],
-
-  "users-login-page-link-text": [
     {
-      "id": 29, "text": "Forgot your password?"}
+      "id": 1,
+      "item_1": "Settings",
+      "item_2": "My Account",
+      "item_3": "Logout",
+      "_comment": "Header settings menu titles"
+    }
+  ],
+  "footer": [
+    {
+      "id": 0,
+      "title": "contact@homeid.com",
+      "items": [
+        "www.homeid.com"
+      ],
+      "optional": [
+        "Terms of use",
+        "Privacy Policy"
+      ],
+      "input": false,
+      "icons": false,
+      "copyright": null
+    },
+    {
+      "id": 1,
+      "title": "Popular Searches",
+      "items": [
+        "Apartment for Rent",
+        "Apartment Low to hide",
+        "Offices for Buy",
+        "Offices for Rent"
+      ],
+      "input": false,
+      "icons": false,
+      "copyright": null,
+      "optional": []
+    },
+    {
+      "id": 2,
+      "title": "Quick links",
+      "items": [
+        "Terms of Use",
+        "Privacy Policy",
+        "Contact Support",
+        "Careers"
+      ],
+      "optional": [],
+      "input": false,
+      "icons": false,
+      "copyright": null
+    },
+    {
+      "id": 3,
+      "title": "Sign Up for Our Newsletter",
+      "items": [
+        "Lorem ipsum dolor sit amet, consecte tur cing elit.Suspe ndisse suscipit sagittis"
+      ],
+      "optional": [],
+      "input": true,
+      "icons": false,
+      "copyright": "2020 homeID. All Rights Reserved"
+    }
+  ],
+  "introduction-section": [
+    {
+      "id": 0,
+      "title": "Visual Web development",
+      "description": "If you are a beginner with webdevelopment or you want to improve skills this is the best choice to you our program is teachs webdevelopment",
+      "button_1": "Get Starteds",
+      "button_2": "Read Our DOCS"
+    }
+  ],
+  "users": [
+    {
+      "id": 0,
+      "title": "Login",
+      "optional-waiting": false,
+      "forgot-password": "Forgot your password?",
+      "button-title": "LOGIN",
+      "small-tag": "Return to Site"
+    },
+    {
+      "id": 1,
+      "title": "CREATE ACCOUNT",
+      "optional-waiting": "Waiting...",
+      "forgot-password": false,
+      "button-title": "CREATE",
+      "small-tag": "Return to Site"
+    }
+  ],
+  "sub-components-docs-about-us-goal-throw-a-message-community-our-project-content": {
+    "about-us": [
+      {
+        "id": 0,
+        "title": "AboutUs",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, sunte elemente."
+      }
+    ],
+
+    "docs": [
+      {
+        "id": 1,
+        "title": "Docs",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aspernatur atque ea esse, id ipsam iusto necessitatibus possimus sunt. Numquam."
+      }
+    ],
+
+    "goal": [
+      {
+        "id": 2,
+        "title": "Goal",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aspernatur atque ea esse, id ipsam iusto necessitatibus possimus sunt. Numquam."
+      }
+    ],
+
+    "throw-message": [
+      {
+        "id": 3,
+        "title": "Throw Message",
+        "description": null
+      }
+    ],
+
+    "community": [
+      {
+        "id": 4,
+        "title": "Community",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aspernatur atque ea esse, id ipsam iusto necessitatibus possimus sunt. Numquam."
+      }
+    ],
+
+    "our-project": [
+      {
+        "id": 5,
+        "title": "OurProject",
+        "description": null
+      }
+    ]
+  },
+
+
+
+  "sub-components-help-forum-forum-and-security": [
+    {
+      "id": 0,
+      "input_1_placeholder": "add the question title",
+      "input_2_placeholder": "add the question description",
+      "button": "add",
+      "questions": "Your Questions",
+      "security_title": "Security",
+      "security_description": "Are you sure, that you are want to save that question?",
+      "security_option_1": "Yes, i am",
+      "security_option_2": "No i am not"
+    }
   ],
 
-  "users-login-page-button": [
-    {"id": 30, "text": "LOGIN"}
+  "sub-components-help-sub-components-help-content": {
+
+    "base-info": [
+      {"id": 0, "title": "Help"}
+    ],
+
+    "forum": [
+      {"id": 1, "title": "Forum", "path": "forum"}
+    ],
+
+    "email": [
+      {"id": 1, "title": "Email", "path": "email"}
+    ],
+
+    "community": [
+      {"id": 1, "title": "Community", "path": "community"}
+    ]
+},
+
+"chat": {
+  "conversation-item": [
+    {"id": 0, "link_text": "Click here to Switch"}
   ],
 
-  "users-login-page-site-link": [
-    {"id": 31, "text": "Return to site"}
+  "input": [
+    {"id": 1, "button": "Send"}
   ],
 
-  "users-register-page-title": [
-    {"id": 32, "title": "CREATE YOUR ACCOUNT"}
+  "join": [
+    {"id": 2, "title": "Join", "button": "Sign in"}
   ],
 
-  "users-register-page-waiting": [
-    {"id": 33, "text": "Waiting..."}
+  "new-conversation": [
+    {"id": 3, "button": "new conversation", "modal_button_1": "Create", "modal_button_2": "Cancel", "modal-title": "Conversations"}
   ],
 
-  "users-register-page-button": [
-    {"id": 34, "text": "CREATE"}
-  ],
-
-  "sub-components-about-us-content": [
-    {"id": 35, "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, sunte elemente."}
-  ],
-
-  "sub-components-about-us-title": [
-    {"id": 36, "title": "About us"}
-  ],
-
-  "sub-components-chat-client-conversation-item-link": [
-    {"id": 37, "text": "Click here to Switch"}
-  ],
-
-  "sub-components-chat-client-input-button": [
-    {"id": 38, "text": "Send"}
-  ],
-
-  "sub-components-chat-client-join-heading": [
-    {"id": 39, "title": "Join"}
-  ],
-
-  "sub-components-chat-client-join-button": [
-    {"id": 40, "text": "Sign in"}
-  ],
-
-  "sub-components-chat-client-new-conversation-buttons": [
-    {"id": 41, "text": "Create"},
-    {"id": 42, "text": "Cancel"}
-  ],
-
-  "sub-components-chat-client-new-conversation-title": [
-    {"id": 43, "title": "conversation"}
-  ],
-
-  "sub-components-chat-client-room-data-title": [
-    {"id": 44, "title": "People currently chatting"}
-  ],
-
-  "sub-components-chat-client-documentation-title": [
-    {"id": 45, "title": "Docs"}
-  ],
-
-  "sub-components-chat-client-documentation-description": [
-    {"id": 46, "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aspernatur atque ea esse, id ipsam iusto necessitatibus possimus sunt. Numquam."}
-  ],
-
-  "sub-components-help-forum-title": [
-    {"id": 47, "title": "Forum"}
-  ],
-
-  "sub-components-help-forum-button": [
-    {"id": 48, "text": "add"}
-  ],
-
-  "sub-components-help-forum-q-title": [
-    {"id": 49, "title": "Your Questionss"}
-  ],
-
-  "sub-components-help-forum-security-title": [
-    {"id": 50, "title": "Security"}
-  ],
-
-  "sub-components-help-forum-security-description": [
-    {"id": 51, "text": " Are you sure, that you are want to save that question?"}
-  ],
-
-  "sub-components-help-forum-security-options-yes": [
-    {"id": 52, "text": "Yes, i am"}
-  ],
-
-  "sub-components-help-forum-security-options-no": [
-    {"id": 53, "text": "No, i am not"}
-  ],
-
-  "sub-components-help-sub-components-help-content-title": [
-    {"id": 54, "title": "Help"}
-  ],
-
-  "sub-components-help-sub-components-help-content-description": [
-    {"id": 55, "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi dignissimos dolore ex, explicabo fuga iusto minus nostrum reiciendis rerum sint!"}
-  ],
-
-  "sub-components-help-sub-components-help-content-forum-title": [
-    {"id": 56, "title": "Forum"}
-  ],
-
-  "sub-components-help-sub-components-help-content-email-title": [
-    {"id": 57, "title": "Email"}
-  ],
-
-  "sub-components-help-sub-components-help-content-community-title": [
-    {"id": 58, "title": "Community"}
-  ],
-
-  "sub-components-help-community-title": [
-    {"id": 59, "title": "Community"}
-  ],
-
-  "sub-components-help-community-description": [
-    {"id": 59, "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum facilis hic laborum, magni minus nam ullam? Animi nisi rem totam?"}
-  ],
-
-  "sub-components-help-help-email": [
-    {"id": 60, "text": "email"}
-  ],
-
-  "sub-components-our-project-goal-content-title": [
-    {"id": 61, "title": "Goal"}
-  ],
-
-  "sub-components-our-project-goal-content-description": [
-    {"id": 62, "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum facilis hic laborum, magni minus nam ullam? Animi nisi rem totam?"}
-  ],
-
-  "sub-components-our-project-our-project": [
-    {"_comment": "Nothing yet"}
-  ],
-
-  "sub-components-our-project-our-project-content-title": [
-    {"id": 64, "title": "OurProject"}
-  ],
-
-  "sub-components-our-project-throw-a-message-content-title": [
-    {"id": 65, "title": "Throw message"}
-  ],
-
-  "sub-components-settings-settings-title": [
-    {"id": 66, "title": "settings"}
-  ],
+  "room-data": [
+    {"id": 4, "title": "People currently chatting"}
+  ]
+},
 
 
-
-  "sub-components-settings-settings-menu": [
+  "settings-menu": [
     {"id":  67,
       "title": "Dark mode",
       "subheader": "Simple darkmode1",

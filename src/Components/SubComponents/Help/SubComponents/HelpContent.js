@@ -46,7 +46,6 @@ function HelpContent(props) {
                 initial='init'
                 animate='animate'
                 className="subtitle-base">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi dignissimos dolore ex, explicabo fuga iusto minus nostrum reiciendis rerum sint!
             </motion.div>
 
             <motion.div
