@@ -5,6 +5,8 @@ import ForumIcon from '@material-ui/icons/Forum';
 import PeopleIcon from '@material-ui/icons/People';
 import {ThemeContext} from "../../../Context/ThemeContext";
 import { motion } from "framer-motion"
+import {ContentContext} from "../../../Context/ContentContext";
+import  {FontAwesomeIcon}  from '@fortawesome/react-fontawesome';
 
 const containerVariants = {
 init: {
@@ -24,6 +26,7 @@ transition: {
 
 function HelpContent(props) {
     const {theme} = useContext(ThemeContext)
+    const {help_content} = useContext(ContentContext)
     return (
         <div data_theme={theme}>
            <div className="help-container">
@@ -32,7 +35,7 @@ function HelpContent(props) {
                 initial='init'
                 animate='animate'
                 className="title-base">
-                Help
+                {help_content.base_info.title}
             </motion.div>
 
             <motion.div
@@ -46,6 +49,7 @@ function HelpContent(props) {
                 initial='init'
                 animate='animate'
                 className="subtitle-base">
+                {help_content.base_info.description}
             </motion.div>
 
             <motion.div
@@ -53,26 +57,28 @@ function HelpContent(props) {
                 initial='init'
                 animate='animate'
                 className="options">
+               {help_content.infos.map(item => (
                 <div>
-                    <Link to="forum" className="off-link-dec">
+                    <Link to={item.path} className="off-link-dec">
                     <ForumIcon className="icons" color="secondary"/>
-                    <div className="bold-text user-select-none">Forum</div>
+                    <div className="bold-text user-select-none">{item.title}</div>
                     </Link>
                 </div>
+               ))}
 
-                <div>
+                {/* <div>
                     <Link to="email" className="off-link-dec">
                     <EmailIcon className="icons" color="secondary"/>
-                    <div className="bold-text user-select-none">Email</div>
+                    // <div className="bold-text user-select-none">Email</div>
                     </Link>
                 </div>
 
                 <div>
                     <Link to="community" className="off-link-dec">
-                        <PeopleIcon  className="icons" color="secondary"/>
+                        <FontAwesomeIcon icon="fa-solid fa-envelope" />
                         <div className="bold-text user-select-none">Community</div>
                     </Link>
-                </div>
+                </div> */}
             </motion.div>
 
         </div>

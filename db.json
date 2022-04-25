@@ -1,5 +1,5 @@
 {
-  "site_info": {
+  "site-info": {
     "title": "Visual Webdevelopment",
     "sub_title": "If you are a beginner with web development or you want to improve your skills this is the best choice for you our program is teaching web development",
     "button_title_docs": "Read Our Docs",
@@ -42,23 +42,20 @@
       "_comment": "Header categories"
     }
   ],
-  "categories-accounts": [
-    {
+  "categories-accounts": {
       "id": 0,
       "login_title": "Login",
       "register_title": "Create Your Account",
       "_comment": "Header accounts"
-    }
-  ],
-  "settings-menu-titles": [
-    {
+  },
+
+  "settings-menu-titles": {
       "id": 1,
       "item_1": "Settings",
       "item_2": "My Account",
       "item_3": "Logout",
       "_comment": "Header settings menu titles"
-    }
-  ],
+    },
   "footer": [
     {
       "id": 0,
@@ -114,33 +111,25 @@
       "copyright": "2020 homeID. All Rights Reserved"
     }
   ],
-  "introduction-section": [
-    {
-      "id": 0,
-      "title": "Visual Web development",
-      "description": "If you are a beginner with webdevelopment or you want to improve skills this is the best choice to you our program is teachs webdevelopment",
-      "button_1": "Get Starteds",
-      "button_2": "Read Our DOCS"
-    }
-  ],
-  "users": [
+
+  "users-login": 
     {
       "id": 0,
       "title": "Login",
       "optional-waiting": false,
-      "forgot-password": "Forgot your password?",
-      "button-title": "LOGIN",
-      "small-tag": "Return to Site"
+      "forgot_password": "Forgot your password?",
+      "small_tag": "Return to Site"
     },
-    {
+    
+    "users-create-account":{
       "id": 1,
       "title": "CREATE ACCOUNT",
-      "optional-waiting": "Waiting...",
-      "forgot-password": false,
-      "button-title": "CREATE",
-      "small-tag": "Return to Site"
-    }
-  ],
+      "optional_waiting": "Waiting...",
+      "forgot_password": false,
+      "button_title": "CREATE",
+      "small_tag": "Return to Site"
+    },
+  
   "sub-components-docs-about-us-goal-throw-a-message-community-our-project-content": {
     "about-us": [
       {
@@ -193,8 +182,7 @@
 
 
 
-  "sub-components-help-forum-forum-and-security": [
-    {
+  "sub-components-help-forum-forum-and-security": {
       "id": 0,
       "input_1_placeholder": "add the question title",
       "input_2_placeholder": "add the question description",
@@ -205,24 +193,19 @@
       "security_option_1": "Yes, i am",
       "security_option_2": "No i am not"
     }
-  ],
+  ,
 
   "sub-components-help-sub-components-help-content": {
 
-    "base-info": [
-      {"id": 0, "title": "Help"}
-    ],
+    "base_info": {
+      "id": 0, 
+      "title": "Help",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+    },
 
-    "forum": [
-      {"id": 1, "title": "Forum", "path": "forum"}
-    ],
-
-    "email": [
-      {"id": 1, "title": "Email", "path": "email"}
-    ],
-
-    "community": [
-      {"id": 1, "title": "Community", "path": "community"}
+    "infos": [
+      {"id": 1, "title": "Forum", "path": "forum"},
+      {"id": 3, "title": "Community", "path": "community"}
     ]
 },
 
@@ -250,7 +233,7 @@
 
 
   "settings-menu": [
-    {"id":  67,
+    {"id":  0,
       "title": "Dark mode",
       "subheader": "Simple darkmode1",
       "description": "Click the here to toggle the different themes",
@@ -258,12 +241,12 @@
       "long_description": "lorem10",
       "type": "switch"
     },
-    {"id":  68,
+    {"id":  1,
       "title": "Test",
      "subheader": "Simple darkmode",
      "description": "lorem10",
      "content_title": "Test2",
       "long_description": "lorem10"},
-    {"id": 69}
+    {"id": 2}
   ]
 }

@@ -8,7 +8,7 @@ import { Link } from "react-router-dom"
 import { Menu, MenuItem, Button } from "@material-ui/core"
 import MoreVertIcon from "@material-ui/icons/MoreVert"
 import {ThemeContext} from "./Context/ThemeContext";
-
+import {ContentContext} from "./Context/ContentContext"
 
 function HeaderMenuItem({ item_data }) {
   return (
@@ -61,6 +61,8 @@ function HeaderMenu() {
 function Header() {
   const [site_info, set_site_info] = useState([])
   const {theme} = useContext(ThemeContext)
+  const {categories_accounts} = useContext(ContentContext)
+
   const fetch_site_info = () => {
     axios({
       method: "get",
@@ -98,11 +100,11 @@ function Header() {
               }}
             >
               <motion.button className='button' whileHover={{ scale: 1.1 }}>
-                 <Link className="off-link-dec white" to="users/login">Login</Link>
+                 <Link className="off-link-dec white" to="users/login">{categories_accounts.login_title}</Link>
               </motion.button>
 
               <motion.button className='button' whileHover={{ scale: 1.1 }}>
-                <Link className="off-link-dec white" to="users/register">Create Your Account</Link>
+                <Link className="off-link-dec white" to="users/register">{categories_accounts.register_title}</Link>
               </motion.button>
             </motion.div>
           </div>
@@ -119,6 +121,7 @@ function Header() {
 
 function Sidebar() {
   const [anchorEl, setAnchorEl] = useState(null)
+  const {settings_menu_titles} = useContext(ContentContext)
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget)
@@ -146,11 +149,11 @@ function Sidebar() {
       >
         <MenuItem onClick={handleClose}>
           <Link className='off-link-dec' to='settings'>
-            Settings
+            {settings_menu_titles.item_1}
           </Link>
         </MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem onClick={handleClose}>{settings_menu_titles.item_2}</MenuItem>
+        <MenuItem onClick={handleClose}>{settings_menu_titles.item_3}</MenuItem>
       </Menu>
     </div>
   )

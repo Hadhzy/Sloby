@@ -9,8 +9,7 @@ function Help(props) {
             <Routes>
                 <Route path="/" element={<HelpContent/>}/>
                 <Route path="forum" element={<Forum/>}/>
-                <Route path="email" element={<p>email</p>}/>
-                <Route path="community" element={<Community />}/>
+                <Route path="community" element={<Community />}/> 
             </Routes>
         </div>
     );

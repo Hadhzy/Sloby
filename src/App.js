@@ -14,18 +14,17 @@ import RegisterPage from "./Components/Users/RegisterPage"
 import LoginPage from "./Components/Users/LoginPage"
 import Chat from "./Components/SubComponents/Chat/client/Chat"
 import {
-  SettingsDataContext,
   SettingsDataProvider,
 } from "./Components/Context/SettingsContext"
 import {
-  ThemeContext,
   ThemeContextProvider,
 } from "./Components/Context/ThemeContext"
 import ForOwners from "./Components/SubComponents/Chat/client/ForOwners"
-
+import {ContentContextProvider} from "./Components/Context/ContentContext"
 function App() {
   return (
     <BrowserRouter>
+      <ContentContextProvider>
       <ThemeContextProvider>
         <SettingsDataProvider>
 
@@ -57,6 +56,7 @@ function App() {
 
         </SettingsDataProvider>
       </ThemeContextProvider>
+      </ContentContextProvider>
     </BrowserRouter>
   )
 }

@@ -1,9 +1,13 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import { Typography, Button, Container, Grid } from "@material-ui/core"
 import { motion } from "framer-motion"
+import { ContentContext } from "../../../Context/ContentContext"
+
 
 function Security({ dispatch, question_item }) {
   const [visible, setVisible] = useState(true)
+  const {forum_and_security} = useContext(ContentContext)
+
   return <div>{visible && <SecurityContent />}</div>
 
   function SecurityContent() {
@@ -23,7 +27,7 @@ function Security({ dispatch, question_item }) {
                 gutterBottom
                 color='textPrimary'
               >
-                Security
+                {forum_and_security.security_title}
               </Typography>
               <Typography
                 variant='h5'
@@ -31,7 +35,7 @@ function Security({ dispatch, question_item }) {
                 paragraph
                 color='textSecondary'
               >
-                Are you sure, that you are want to save that question?
+                {forum_and_security.security_description}
               </Typography>
             </Container>
             <hr />
@@ -44,7 +48,7 @@ function Security({ dispatch, question_item }) {
                   dispatch({ type: "SECURITY_MODAL" }) && setVisible(false)
                 }
               >
-                Yes, i am
+                {forum_and_security.security_option_1}
               </button>
             </Grid>
             <Grid item>
@@ -57,7 +61,7 @@ function Security({ dispatch, question_item }) {
                   }) && setVisible(false)
                 }}
               >
-                No, i am not
+                {forum_and_security.security_option_2}
               </button>
             </Grid>
           </Grid>

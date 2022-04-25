@@ -8,6 +8,7 @@ import QuestionItem from "./QuestionItem"
 import Security from "./Security"
 import useLocalStorage from "use-local-storage"
 import { ThemeContext } from "../../../Context/ThemeContext"
+import { ContentContext } from "../../../Context/ContentContext"
 
 const defaultState = {
   questions: [],
@@ -39,6 +40,7 @@ function Forum(props) {
   const [forumDesc, setForumDesc] = useLocalStorage("forumDesc", "")
   const [state, dispatch] = useReducer(reducer, defaultState)
   const { theme } = useContext(ThemeContext)
+  const {forum_and_security} = useContext(ContentContext)
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -104,7 +106,7 @@ function Forum(props) {
             </motion.h1>
 
             <motion.div
-              className='underline'
+              className='underline bigger-line'
               variants={containerVariants}
               initial='init'
               animate='animate'
@@ -122,17 +124,17 @@ function Forum(props) {
                       className='input'
                       value={forumTitle}
                       onChange={(e) => setForumTitle(e.target.value)}
-                      placeholder='add the question title'
+                      placeholder={forum_and_security.input_1_placeholder}
                     />
                     <textarea
                       className='input textarea'
                       value={forumDesc}
                       onChange={(e) => setForumDesc(e.target.value)}
-                      placeholder='add the question description'
+                      placeholder={forum_and_security.input_2_placeholder}
                     />
                   </div>
                   <button className='bbutton' type='submit'>
-                    add
+                    {forum_and_security.button}
                   </button>
                 </form>
               </div>
@@ -143,7 +145,7 @@ function Forum(props) {
               initial='init'
               animate='animate'
             >
-              Your Questionss
+              {forum_and_security.questions}
             </motion.h1>
 
             <motion.div

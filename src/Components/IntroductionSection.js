@@ -3,8 +3,10 @@ import useStyles from "./styles"
 import { Typography, Button, Container, Grid } from "@material-ui/core"
 import { createTheme, ThemeProvider } from "@material-ui/core/styles"
 import {ThemeContext} from "../Components/Context/ThemeContext"
+import {ContentContext} from "../Components/Context/ContentContext"
 function IntroductionSection() {
   const {theme} = useContext(ThemeContext)
+  const {site_info} = useContext(ContentContext)
   return (
       <div data_theme={theme}>
         <div className="introduction-section">
@@ -15,7 +17,7 @@ function IntroductionSection() {
             color='textPrimary'
             gutterBottom
           >
-            Visual Web development
+            {site_info.title}
           </Typography>
           <Typography
             variant='h5'
@@ -23,17 +25,15 @@ function IntroductionSection() {
             color='textSecondary'
             paragraph
           >
-            If you are a beginner with webdevelopment or you want to improve
-            your skills this is the best choice to you our program is teachs
-            webdevelopment
+           {site_info.sub_title}
           </Typography>
           <div>
             <Grid container spacing={2}>
               <Grid item>
-                <button className='button'>Get Starteds</button>
+                <button className='button'>{site_info.button_title_get_started}</button>
               </Grid>
               <Grid item>
-                <button className='button'>Read Our DOCS</button>
+                <button className='button'>{site_info.button_title_docs}</button>
               </Grid>
             </Grid>
           </div>

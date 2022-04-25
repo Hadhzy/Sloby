@@ -4,8 +4,11 @@ import { Typography } from "@material-ui/core"
 import {motion} from  "framer-motion"
 import IntroductionSection from "./IntroductionSection"
 import {ThemeContext} from "./Context/ThemeContext"
+import {ContentContext} from "../Components/Context/ContentContext"
+
 function Content() {
   const {switchTheme, theme} = useContext(ThemeContext)
+  const {site_info} = useContext(ContentContext)
   return (
       <div data_theme={theme}>
         <div className="theme-case-content">
@@ -25,7 +28,7 @@ function Content() {
               >
                 <IntroductionSection />
                 <div className='hero-section-item'>
-                  <img src={Image} alt='Image' />
+                  <img src={site_info.img} alt='Image' />
                 </div>
               </motion.div>
             </motion.div>
