@@ -1,10 +1,9 @@
-import React, {useState, useReducer} from "react"
-import {Link} from "react-router-dom";
-import useLocalStorage from "use-local-storage"
-import {Button, CssBaseline, AppBar, Toolbar, Typography, Dialog, DialogTitle, DialogContent, DialogContentText, TextField, DialogActions} from "@material-ui/core"
+import React, {useState, useReducer, useContext} from "react"
+import {Button} from "@material-ui/core"
 import {reducer} from "./reducer"
 import AddIcon from "@material-ui/icons/Add"
 import ConversationItem from "./ConversationItem"
+import {ContentContext} from "../../../Context/ContentContext";
 
 const defaultState = {
     conversations: [],
@@ -17,7 +16,7 @@ const defaultState = {
 
 const NewConversation = () => {
     const [show, setShow] = useState(false)
-    
+    const {chat} = useContext(ContentContext)
 
     const handleClick = () => {
         setShow(!show)
@@ -32,7 +31,7 @@ const NewConversation = () => {
         <div className="new-conversation-container">
             <Button variant="contained" color="primary" onClick={handleClick}>
                 <AddIcon />
-                new conversation
+                {chat.new_conversation.button}
             </Button>
             <Modal />
         </div>
@@ -80,13 +79,13 @@ const NewConversation = () => {
                     placeholder='RoomId'
                     />
             </div>
-            <button className="bbutton" type="submit">Create</button>
-            <button className="bbutton">Cancel</button>
+            <button className="bbutton" type="submit">{chat.new_conversation.modal_button_1}</button>
+            <button className="bbutton">{chat.new_conversation.modal_button_2}</button>
         </form>
     </div>
     <br />
    <div className="conversations">
-        <div className="title-base">Conversations</div>
+        <div className="title-base">{chat.new_conversation.modal_title}</div>
         <div className="underline bigger-line"></div>
         <div className="conversation-item">
             {

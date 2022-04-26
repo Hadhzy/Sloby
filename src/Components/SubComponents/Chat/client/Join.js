@@ -1,11 +1,12 @@
 
 import React, { useState, useEffect, useContext } from "react"
 import { Link } from "react-router-dom"
-import { ThemeContext } from "../../../Context/ThemeContext"
+import { ContentContext } from "../../../Context/ContentContext"
 
 const Join = () => {
   const [name, setName] = useState("")
   const [room, setRoom] = useState("")
+  const {chat} = useContext(ContentContext)
 
   let isTheUserAnAdmin = false
   
@@ -16,7 +17,7 @@ const Join = () => {
   return (
     <div className='join-container'>
       <div className='join-inner-container'>
-        <h1 className='heading'>Join</h1>
+        <h1 className='heading'>{chat.join.title}</h1>
         <div>
           <input
             value={name}
@@ -43,7 +44,7 @@ const Join = () => {
           to={`/chat?name=${name}&room=${room}`}
           >
           <button className='bbutton mt-20' type='submit'>
-            Sign in
+            {chat.join.button}
           </button>
           </Link>
         </div>

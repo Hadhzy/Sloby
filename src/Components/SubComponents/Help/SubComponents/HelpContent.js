@@ -6,7 +6,7 @@ import PeopleIcon from '@material-ui/icons/People';
 import {ThemeContext} from "../../../Context/ThemeContext";
 import { motion } from "framer-motion"
 import {ContentContext} from "../../../Context/ContentContext";
-import  {FontAwesomeIcon}  from '@fortawesome/react-fontawesome';
+ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const containerVariants = {
 init: {
@@ -60,25 +60,11 @@ function HelpContent(props) {
                {help_content.infos.map(item => (
                 <div>
                     <Link to={item.path} className="off-link-dec">
-                    <ForumIcon className="icons" color="secondary"/>
-                    <div className="bold-text user-select-none">{item.title}</div>
+                       <i className={item.icon}></i>
+                    <div className="bold-text user-select-none help-text">{item.title}</div>
                     </Link>
                 </div>
                ))}
-
-                {/* <div>
-                    <Link to="email" className="off-link-dec">
-                    <EmailIcon className="icons" color="secondary"/>
-                    // <div className="bold-text user-select-none">Email</div>
-                    </Link>
-                </div>
-
-                <div>
-                    <Link to="community" className="off-link-dec">
-                        <FontAwesomeIcon icon="fa-solid fa-envelope" />
-                        <div className="bold-text user-select-none">Community</div>
-                    </Link>
-                </div> */}
             </motion.div>
 
         </div>
