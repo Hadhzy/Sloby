@@ -52,7 +52,10 @@
 .off-link-dec {
   text-decoration: none;
   color: black;
-
+  .help-icon{
+    color: white;
+    font-size: 30px;
+  }
   &.white{
     color: white;
   }
@@ -90,6 +93,9 @@
 }
 .bold-text{
   font-weight: bold;
+  &.help-text{
+    font-size: 30px;
+  }
 }
 .user-select-none{
   user-select: none;

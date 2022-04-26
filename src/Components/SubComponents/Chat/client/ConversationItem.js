@@ -1,10 +1,12 @@
-import React from "react"
+import React, {useContext} from "react"
 import {Link} from "react-router-dom";
 import useLocalStorage from "use-local-storage"
 import {useNavigate} from "react-router-dom";
+import {ContentContext} from "../../../Context/ContentContext";
 
 function ConversationItem({state, dispatch, conversation_item}) {
     const navigate = useNavigate();
+    const {chat} = useContext(ContentContext)
     const handleClick = () => {
         navigate(`/chat?name=${conversation_item.name}&room=${conversation_item.room}`)
     }
@@ -19,7 +21,7 @@ function ConversationItem({state, dispatch, conversation_item}) {
             <div className="infos">
                 <h5 className="conversation-title">{conversation_item.name}</h5>
             </div>
-            <Link onClick={handleClick} to={`/chat?name=${conversation_item.name}&room=${conversation_item.room}`}>Click here To switch</Link>
+            <Link onClick={handleClick} to={`/chat?name=${conversation_item.name}&room=${conversation_item.room}`}>{chat.conversation_item.link_text}</Link>
         </div>
     )
 }

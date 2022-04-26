@@ -204,31 +204,31 @@
     },
 
     "infos": [
-      {"id": 1, "title": "Forum", "path": "forum"},
-      {"id": 3, "title": "Community", "path": "community"}
+      {"id": 1, "title": "Forum", "path": "forum", "icon":"fa-solid fa-comments help-icon"},
+      {"id": 3, "title": "Community", "path": "community", "icon":"fa-solid fa-people-group help-icon"}
     ]
 },
 
 "chat": {
-  "conversation-item": [
-    {"id": 0, "link_text": "Click here to Switch"}
-  ],
+  "conversation_item": {
+    "id": 0, "link_text": "Click here to Switch"
+  },
 
-  "input": [
+  "input":
     {"id": 1, "button": "Send"}
-  ],
+  ,
 
-  "join": [
+  "join":
     {"id": 2, "title": "Join", "button": "Sign in"}
-  ],
+  ,
 
-  "new-conversation": [
-    {"id": 3, "button": "new conversation", "modal_button_1": "Create", "modal_button_2": "Cancel", "modal-title": "Conversations"}
-  ],
+  "new_conversation":
+    {"id": 3, "button": "new conversation", "modal_button_1": "Create", "modal_button_2": "Cancel", "modal_title": "Conversations"}
+  ,
 
-  "room-data": [
+  "room_data":
     {"id": 4, "title": "People currently chatting"}
-  ]
+
 },
 
 
