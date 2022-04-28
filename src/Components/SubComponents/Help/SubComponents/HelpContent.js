@@ -59,10 +59,12 @@ function HelpContent(props) {
                 className="options">
                {help_content.infos.map(item => (
                 <div>
-                    <Link to={item.path} className="off-link-dec">
-                       <i className={item.icon}></i>
-                    <div className="bold-text user-select-none help-text">{item.title}</div>
-                    </Link>
+                    <motion.div className="help-content" whileHover={{ scale: 1.1 }}>
+                        <Link to={item.path} className="off-link-dec">
+                        <i className={item.icon}></i>
+                        <div className="bold-text user-select-none help-text">{item.title}</div>
+                        </Link>
+                    </motion.div>
                 </div>
                ))}
             </motion.div>

@@ -12,14 +12,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import User from "./Components/SubComponents/User"
 import RegisterPage from "./Components/Users/RegisterPage"
 import LoginPage from "./Components/Users/LoginPage"
-import Chat from "./Components/SubComponents/Chat/client/Chat"
 import {
   SettingsDataProvider,
 } from "./Components/Context/SettingsContext"
 import {
   ThemeContextProvider,
 } from "./Components/Context/ThemeContext"
-import ForOwners from "./Components/SubComponents/Chat/client/ForOwners"
 import {ContentContextProvider} from "./Components/Context/ContentContext"
 function App() {
   return (
@@ -44,11 +42,7 @@ function App() {
                   <Route path='users/register' element={<RegisterPage />} />
                   <Route path='users/login' element={<LoginPage />} />
                   <Route path='users/verified-registration-email' element={<p>Registration email</p>} />
-                  <Route path="chat" element={<Chat />} />
-                  <Route path="system" element={<ForOwners />} />
-              
-                 
-
+    
                 </Routes>
 
                 <Footer />

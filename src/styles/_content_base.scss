@@ -53,7 +53,9 @@
   text-decoration: none;
   color: black;
   .help-icon{
-    color: white;
+    display: flex;
+    justify-content: center;
+    color: black;
     font-size: 30px;
   }
   &.white{

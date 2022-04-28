@@ -11,16 +11,8 @@
 @import "about_us.scss";
 @import "our_project.scss";
 @import "register_page";
-@import "chat.scss";
-@import "join.scss";
-@import "infobar.scss";
-@import "input.scss";
-@import "message.scss";
-@import "messages.scss";
-@import "roomdata.scss";
 @import "login_page.scss";
 @import "docs.scss";
-@import "new_conversation.scss";
 @import "community.scss";
 
 
@@ -46,6 +38,10 @@
     .subtitle-base {
       border: 2px solid white;
     }
+  }
+
+  .help-icon {
+    color: white;
   }
 
   .goal-content-container {
@@ -91,12 +87,18 @@
     .options{
       .bold-text{
         color: white;
+        display: flex;
+        justify-content: center;
       }
     }
     .title-base{
       color: white;
     }
+    .help-content {
+      background-color: #191919;
+    }
   }
+
   .about-us-container{
     background-color: black;
     height: 80vh;
