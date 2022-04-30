@@ -16,21 +16,21 @@ export const ContentContextProvider = (props) => {
     const fetch_site_info = () =>{
         axios({
             method: "get",
-            url: `${process.env.REACT_APP_API_URL}/site-info`
+            url: `${process.env.REACT_APP_API_URL}/api/site-info/`
         }).then(res => set_site_info(res.data))
     }
 
     const fetch_categories_accounts = () =>{
         axios({
             method: "get",
-            url: `${process.env.REACT_APP_API_URL}/categories-accounts`
+            url: `${process.env.REACT_APP_API_URL}/api/categories-accounts/`
         }).then(res => set_categories_accounts(res.data))
     }
 
     const fetch_settings_menu_titles = () =>{
         axios({
             method: "get",
-            url: `${process.env.REACT_APP_API_URL}/settings-menu-titles`
+            url: `${process.env.REACT_APP_API_URL}/api/settings-menu-titles/`
         }).then(res => set_settings_menu_titles(res.data))
     }
 
