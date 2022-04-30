@@ -12,6 +12,7 @@ export const ContentContextProvider = (props) => {
     const [forum_and_security, set_forum_and_security] = useState([])
     const [help_content, set_help_content] = useState([])
     const [chat, set_chat] = useState([])
+    const [footer, set_footer] = useState([])
 
     const fetch_site_info = () =>{
         axios({
@@ -69,6 +70,13 @@ export const ContentContextProvider = (props) => {
         }).then(res => set_chat(res.data))
     }
 
+    const fetch_footer = () =>{
+        axios({
+            method: "get",
+            url: `${process.env.REACT_APP_API_URL}/footer`
+        }).then(res => set_footer(res.data))
+    }
+
 
     
 
@@ -82,6 +90,7 @@ export const ContentContextProvider = (props) => {
         fetch_help_forum_security()
         fetch_help_content()
         fetch_chat()
+        fetch_footer()
     }, [])
 
     
@@ -95,7 +104,8 @@ export const ContentContextProvider = (props) => {
                 users_create_account: users_create_account,
                 forum_and_security: forum_and_security,
                 help_content: help_content,
-                chat: chat
+                chat: chat,
+                footer: footer
                 }}>
                     {props.children}
                 </ContentContext.Provider>

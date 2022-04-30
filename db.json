@@ -59,6 +59,8 @@
     {
       "id": 0,
       "title": "contact@homeid.com",
+      "placeholder":"",
+      "text": true,
       "items": [
         "www.homeid.com"
       ],
@@ -67,12 +69,15 @@
         "Privacy Policy"
       ],
       "input": false,
-      "icons": false,
-      "copyright": null
+      "icons": [],
+      "copyright": null,
+      "news_letter_description": "",
+      "button": ""
     },
     {
       "id": 1,
       "title": "Popular Searches",
+      "placeholder":"",
       "items": [
         "Apartment for Rent",
         "Apartment Low to hide",
@@ -80,9 +85,12 @@
         "Offices for Rent"
       ],
       "input": false,
-      "icons": false,
+      "icons": [],
+      "text": false,
+      "news_letter_description": "",
       "copyright": null,
-      "optional": []
+      "optional": [],
+      "button": ""
     },
     {
       "id": 2,
@@ -93,20 +101,26 @@
         "Contact Support",
         "Careers"
       ],
+      "placeholder":"",
       "optional": [],
       "input": false,
-      "icons": false,
-      "copyright": null
+      "icons": [],
+      "text": false,
+      "news_letter_description": "",
+      "copyright": null,
+      "button": ""
     },
     {
       "id": 3,
       "title": "Sign Up for Our Newsletter",
-      "items": [
-        "Lorem ipsum dolor sit amet, consecte tur cing elit.Suspe ndisse suscipit sagittis"
-      ],
+      "news_letter_description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."  ,    
       "optional": [],
       "input": true,
-      "icons": false,
+      "placeholder":"Your Email",
+      "button": "Send",
+      "icons": ["fab fa-twitter", "fab fa-facebook-f", "fab fa-skype", "fab fa-linkedin-in"],
+      "text": true,
+      "items" : [], 
       "copyright": "2020 homeID. All Rights Reserved"
     }
   ],

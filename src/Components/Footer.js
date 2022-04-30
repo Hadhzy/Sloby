@@ -1,63 +1,47 @@
-import React from "react"
+import React, {useContext} from "react"
+import {ContentContext} from "./Context/ContentContext"
 
 function Footer() {
+  const {footer} = useContext(ContentContext)
   return <div className='footer-container'>
-
-      <div className="footer-items content-base">
-
-        <div className="footer-text">
-          contact@homeid.com
-        </div>
-
-         <div className="footer-text">
-          www.homeid.com
-        </div>
-        <div className="footer-bellow">
-          <div className="footer-bellow-content">
-            Terms of Use
-          </div>
-           <div className="footer-bellow-content">
-              Privacy Policy
-          </div>
-        </div>
-      </div>
-
-       <div className="footer-items content-base">
-          <div className="footer-text footer-title">Popular Searches</div>
-           <div className="footer-text footer-links">Apartment for Rent</div>
-           <div className="footer-text footer-links">Apartment Low to hide</div>
-           <div className="footer-text footer-links">Offices for Buy</div>
-           <div className="footer-text footer-links">Offices for Rent</div>
-      </div>
-
-       <div className="footer-items content-base">
-           <div className="footer-text footer-title">Quick links</div>
-            <div className="footer-links footer-text">Terms of Use</div>
-            <div className="footer-text footer-links">Privacy Policy</div>
-            <div className="footer-text footer-links">Contact Support</div>
-            <div className="footer-text footer-links">Careers</div>
-      </div>
-
-        <div className="footer-items content-base">
-            <div className="footer-text footer-title"> Sign Up for Our Newsletter</div>
-            <div className="footer-text ">Lorem ipsum dolor sit amet, consecte tur cing elit.<br/>
-                Suspe ndisse suscipit sagittis
+    {footer.map(footer_item => (
+          <div className="footer-items content-base" key={footer_item.id}>
+              <div className="footer-text footer-title">{footer_item.title}</div>
+            <div>
+              {footer_item.items.map((item) => {
+              return(
+                <div className="footer-text footer-links">{item}</div>
+              )
+            })}
             </div>
-            <div className="footer-input">
-                 <input className="footer-input-style" placeholder="Your email" type="text"/>
-                <button className="footer-button-style">Subscribe</button>
-                <div className="footer-bellow-content footer-icons">
-                    <div className="footer-icon"><i className="fab fa-twitter"></i></div>
-                    <div className="footer-icon"><i className="fab fa-facebook-f"></i></div>
-                    <div className="footer-icon"><i className="fab fa-skype"></i></div>
-                    <div className="footer-icon"><i className="fab fa-linkedin-in"></i></div>
-                </div>
+              <div className="footer-text">{footer_item.news_letter_description}</div>
+
+              {footer_item.input && footer_item.icons && <OptionalInput footer_item={footer_item}/>}
+             <div className="footer-bellow">{footer_item.optional && footer_item.optional.map(item => {
+               return (
+                   <div className="footer-bellow-content">{item}</div>
+               )
+             })}
             </div>
-      </div>
-
-
-
+          </div>
+        ))}
   </div>
+
+  function OptionalInput({footer_item}) {
+    return(
+      <div className="footer-input">
+         <input className="footer-input-style" placeholder={footer_item.placeholder} type="text"/>
+         <button className="footer-button-style">{footer_item.button}</button>
+         <div className="footer-bellow-content footer-icons">
+           {footer_item.icons.map(icon => {
+             return (
+               <div className="footer-icon"><i className={icon}></i></div>
+             )
+           })}
+         </div>
+      </div>
+    )
+  }
 }
 
 export default Footer
