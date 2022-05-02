@@ -45,7 +45,7 @@ function HeaderMenu() {
   useEffect(() => {
     axios({
       method: "get",
-      url: `${process.env.REACT_APP_API_URL}/categories`,
+      url: `${process.env.REACT_APP_API_URL}/api/categories/`,
     }).then((res) => set_menu_list(res.data))
   }, [])
 
