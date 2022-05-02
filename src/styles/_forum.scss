@@ -2,24 +2,36 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    background-color: rgba(242, 242, 242, 1);
     align-items: center;
-    background-color: white;
     font-size: 16px;
-
     height: 800px;
     flex: 1;
     .help-system-container {
         width: 800px;
         display: flex;
         flex-direction: column;
-        align-items: center;
         transition: 250ms ease-in-out;
+        width: 72%;
         height: inherit;
-        .title {
-            font-weight: bold;
-            font-size: $large-font-size;
-        }
+        background-color: white;
+        border-radius: 16px;
+        margin-bottom: 20px;
+        margin-top: 10px;
+       
+        .ask-for-help {
+            padding: 5px;
+            filter: drop-shadow(0 7px 5px rgba(0, 0, 0, 0.3));
+            display: flex;
 
+            .section-line {
+                height: 1px;
+                width: 100%;
+                background-color: #d5d7d9;
+            }
+            
+        }
+        
         .underline {
             width: 5rem;
             height: 0.25rem;
@@ -32,81 +44,19 @@
             }
         }
 
+        
+
 
     .create-question-container {
         margin-top: 15px;
         padding: 10px;
         display: flex;
-
-        .form-container {
-
-            position: relative;
-            filter: drop-shadow(0 7px 5px rgba(0, 0, 0, 0.3));
-            margin-top: 15px;
-            padding: 10px;
-            border: 1px solid #d5d7d9;
-            border-radius: .5rem;
-
-
-            &:hover {
-                transition: 250ms ease-in-out;
-                border: 1px solid $blue-hover-color;
-            }
-
-            .inputs{
-              ::-webkit-scrollbar {
-                             width: 10px;
-                         }
-
-                         ::-webkit-scrollbar-track {
-                             background: rgb(21, 21, 21);
-                         }
-
-                         ::-webkit-scrollbar-thumb {
-                             background: $blue-hover-color;
-                         }
-
-                         ::-webkit-scrollbar-thumb:hover {
-                             background: #3e9cd9;
-                         }
-                 .input {
-                        resize: vertical;
-                        font-family:inherit;
-                        background: white;
-                        border: 1px solid #d5d7d9;
-                        margin-left: 15px;
-                        color: black;
-                        font-size: $medium-font-size;
-                        padding: 0.25rem 0.5rem;
-                        border-radius: 0.25rem;
-                        overflow-wrap: break-word;
-                        overflow-y: scroll;
-                        user-select: none;
-                        margin-bottom: 25px;
-                        width: $input-width;
-                        max-width: calc(#{$form-container-width} - 15px*2.5);
-                        font-weight: bold;
-                 &::placeholder{
-                     font-size:15px;
-
-                 }
-                &:focus {
-                        outline-style: none;
-                        transition: 250ms ease-in-out;
-                        border-color: $blue-hover-color;
-                        box-shadow: 2px 2px 2px 1px $blue-hover-color;
-                }
-            }
-
-            }
-        }
     }
-    //question item
+
         .title-questions {
-            font-weight: bold;
+            font-weight: lighter;
             font-size: $large-font-size;
             margin-top: 25px;
-
         }
      .questions-container {
 

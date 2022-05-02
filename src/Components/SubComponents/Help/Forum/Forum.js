@@ -5,17 +5,16 @@ import { motion } from "framer-motion"
 //reducer function
 import { reducer } from "./reducer"
 import QuestionItem from "./QuestionItem"
-import Security from "./Security"
 import useLocalStorage from "use-local-storage"
 import { ThemeContext } from "../../../Context/ThemeContext"
 import { ContentContext } from "../../../Context/ContentContext"
+import {Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField} from "@material-ui/core"
 
 const defaultState = {
   questions: [],
   isModalOpen: false,
   modalContent: "",
   modalType: "",
-  security: true,
   forumTitle: "",
   forumDesc: "",
   // settingsType: "",
@@ -41,6 +40,7 @@ function Forum(props) {
   const [state, dispatch] = useReducer(reducer, defaultState)
   const { theme } = useContext(ThemeContext)
   const {forum_and_security} = useContext(ContentContext)
+  const [createQuestion, setCreateQuestion] =  useState(false) 
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -69,7 +69,7 @@ function Forum(props) {
           state.questions.map((question_item) => {
             return (
               <div>
-                {<Security dispatch={dispatch} question_item={question_item} />}
+                {<Createquestion dispatch={dispatch} question_item={question_item} />}
               </div>
             )
           })}
@@ -96,65 +96,14 @@ function Forum(props) {
             />
           )}
           <div className='help-system-container'>
-            <motion.h1
-              className='title'
-              variants={containerVariants}
-              initial='init'
-              animate='animate'
-            >
-              Forum
-            </motion.h1>
-
-            <motion.div
-              className='underline bigger-line'
-              variants={containerVariants}
-              initial='init'
-              animate='animate'
-            ></motion.div>
-
-            <motion.div
-                variants={containerVariants}
-                initial='init'
-                animate='animate'
-                className='create-question-container'>
-              <div className='form-container'>
-                <form onSubmit={handleSubmit}>
-                  <div className='inputs'>
-                    <input
-                      className='input'
-                      value={forumTitle}
-                      onChange={(e) => setForumTitle(e.target.value)}
-                      placeholder={forum_and_security.input_1_placeholder}
-                    />
-                    <textarea
-                      className='input textarea'
-                      value={forumDesc}
-                      onChange={(e) => setForumDesc(e.target.value)}
-                      placeholder={forum_and_security.input_2_placeholder}
-                    />
-                  </div>
-                  <button className='bbutton' type='submit'>
-                    {forum_and_security.button}
-                  </button>
-                </form>
-              </div>
-            </motion.div>
-            <motion.h1
-              className='title-questions'
-              variants={containerVariants}
-              initial='init'
-              animate='animate'
-            >
-              {forum_and_security.questions}
-            </motion.h1>
-
-            <motion.div
-              className='underline bigger-line'
-              variants={containerVariants}
-              initial='init'
-              animate='animate'
-            ></motion.div>
-
+            <div className="ask-for-help">
+              <motion.div variants={containerVariants} initial='init' animate='animate' className="options">
+                <button className='bbutton' onClick={() => setCreateQuestion(true)}>Create your question</button>
+                <button className='button'>filter questions</button> 
+              </motion.div>
+            </div>
+            <div className="section-line"></div>
+            {createQuestion && <Createquestion />}
             <div className='questions-container'>
               {state.questions.map((question_item) => {
                 return (
@@ -174,6 +123,45 @@ function Forum(props) {
         </div>
       </div>
     </div>
-  )
+  )          
+  
+  function Createquestion() {
+    const handleClose = () => {
+      setCreateQuestion(false)
+    }
+    return (
+<div className="create-question-container">
+  <Dialog open={createQuestion} onClose={handleClose} className="create-question-container">
+    <DialogTitle>Create a question</DialogTitle>
+
+        <DialogContent>
+          <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            label="Email Address"
+            type="email"
+            fullWidth
+            variant="outlined"
+          />
+          <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            label="Email Address"
+            type="email"
+            fullWidth
+            variant="outlined"
+          />
+        </DialogContent>
+      <DialogActions>
+        <Button onClick={handleClose}>Cancel</Button>
+        <Button onClick={handleClose}>Subscribe</Button>
+      </DialogActions>
+  </Dialog>
+</div>
+    )
+  }             
+
 }
 export default Forum
