@@ -15,8 +15,8 @@ function Footer() {
             })}
             </div>
               <div className="footer-text">{footer_item.news_letter_description}</div>
-
               {footer_item.input && footer_item.icons && <OptionalInput footer_item={footer_item}/>}
+
              <div className="footer-bellow">{footer_item.optional && footer_item.optional.map(item => {
                return (
                    <div className="footer-bellow-content">{item}</div>
