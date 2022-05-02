@@ -38,42 +38,42 @@ export const ContentContextProvider = (props) => {
     const fetch_users_login = () =>{
         axios({
             method: "get",
-            url: `${process.env.REACT_APP_API_URL}/users-login`
+            url: `${process.env.REACT_APP_API_URL}/api/users-login/`
         }).then(res => set_users_login(res.data))
     }
 
     const fetch_users_create_account = () =>{
         axios({
             method: "get",
-            url: `${process.env.REACT_APP_API_URL}/users-create-account`
+            url: `${process.env.REACT_APP_API_URL}/api/users-create-account/`
         }).then(res => set_users_create_account(res.data))
     }
 
     const fetch_help_forum_security = () =>{
         axios({
             method: "get",
-            url: `${process.env.REACT_APP_API_URL}/sub-components-help-forum-forum-and-security`
+            url: `${process.env.REACT_APP_API_URL}/api/sub-components-help-forum-forum-and-security/`
         }).then(res => set_forum_and_security(res.data))
     }
 
     const fetch_help_content = () =>{
         axios({
             method: "get",
-            url: `${process.env.REACT_APP_API_URL}/sub-components-help-sub-components-help-content`
+            url: `${process.env.REACT_APP_API_URL}/api/sub-components-help-sub-components-help-content/`
         }).then(res => set_help_content(res.data))
     }
 
     const fetch_chat = () =>{
         axios({
             method: "get",
-            url: `${process.env.REACT_APP_API_URL}/chat`
+            url: `${process.env.REACT_APP_API_URL}/api/chat/`
         }).then(res => set_chat(res.data))
     }
 
     const fetch_footer = () =>{
         axios({
             method: "get",
-            url: `${process.env.REACT_APP_API_URL}/footer`
+            url: `${process.env.REACT_APP_API_URL}/api/footer/`
         }).then(res => set_footer(res.data))
     }
 
