@@ -1,5 +1,6 @@
 import React, {useContext} from 'react';
 import { motion } from "framer-motion"
+import { ContentContext } from '../../Context/ContentContext';
 
 const containerVariants = {
 init: {
@@ -16,13 +17,14 @@ transition: {
 },
 }
 function Documentation(props) {
+    const {social_content} = useContext(ContentContext)
     return (
         <div className="documentation-container">
             <motion.div
                 variants={containerVariants}
                 initial='init'
                 animate='animate'
-                className="title-base">Docs</motion.div>
+                className="title-base">{social_content.docs.title}</motion.div>
             <motion.div
                 variants={containerVariants}
                 initial='init'
@@ -34,7 +36,7 @@ function Documentation(props) {
                 initial='init'
                 animate='animate'
                 className="subtitle-base">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aspernatur atque ea esse, id ipsam iusto necessitatibus possimus sunt. Numquam.
+                {social_content.docs.description}    
             </motion.div>
         </div>
     );

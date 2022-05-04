@@ -23,13 +23,9 @@
             padding: 5px;
             filter: drop-shadow(0 7px 5px rgba(0, 0, 0, 0.3));
             display: flex;
-
-            .section-line {
-                height: 1px;
-                width: 100%;
-                background-color: #d5d7d9;
-            }
-            
+            justify-content: center;
+            background: white;
+            border-radius: 16px;
         }
         
         .underline {
@@ -128,4 +124,38 @@
         display: flex;
     }
 
+}
+
+.container {
+    position: fixed;
+    z-index: 200;
+    background-color: rgba(0,0,0, 0.6);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+    .details {
+        width: 70%;
+        height: 70%;
+        background-color: white;
+        padding: 10px;
+        border-radius: 11px;
+        display: flex;
+        flex-direction: column;
+        
+        .MuiSvgIcon-root {
+            color: black;
+        }
+
+        .inputs {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+        }
+    }
 }

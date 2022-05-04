@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { motion } from "framer-motion"
+import {ContentContext} from "../../Context/ContentContext"
 
 const containerVariants = {
 init: {
@@ -16,6 +17,8 @@ transition: {
 },
 }
 function AboutUsContent(props) {
+    const {social_content} = useContext(ContentContext)
+   
     return (
         <div className="about-us-container">
             <motion.div
@@ -23,7 +26,7 @@ function AboutUsContent(props) {
                 initial='init'
                 animate='animate'
                 className="title-base">
-                AboutUs
+                {social_content.about_us.title}
             </motion.div>
             <motion.div
                 variants={containerVariants}
@@ -35,7 +38,7 @@ function AboutUsContent(props) {
                 initial='init'
                 animate='animate'
                 className="subtitle-base">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, sunte elemente.
+                {social_content.about_us.description}    
             </motion.div>
         </div>
     );

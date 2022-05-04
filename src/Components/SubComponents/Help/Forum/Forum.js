@@ -9,6 +9,7 @@ import useLocalStorage from "use-local-storage"
 import { ThemeContext } from "../../../Context/ThemeContext"
 import { ContentContext } from "../../../Context/ContentContext"
 import {Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField} from "@material-ui/core"
+import CloseIcon from "@material-ui/icons/Close"
 
 const defaultState = {
   questions: [],
@@ -99,10 +100,9 @@ function Forum(props) {
             <div className="ask-for-help">
               <motion.div variants={containerVariants} initial='init' animate='animate' className="options">
                 <button className='bbutton' onClick={() => setCreateQuestion(true)}>Create your question</button>
-                <button className='button'>filter questions</button> 
+                <button className='button'>filter questions</button>
               </motion.div>
             </div>
-            <div className="section-line"></div>
             {createQuestion && <Createquestion />}
             <div className='questions-container'>
               {state.questions.map((question_item) => {
@@ -126,40 +126,16 @@ function Forum(props) {
   )          
   
   function Createquestion() {
-    const handleClose = () => {
-      setCreateQuestion(false)
-    }
     return (
-<div className="create-question-container">
-  <Dialog open={createQuestion} onClose={handleClose} className="create-question-container">
-    <DialogTitle>Create a question</DialogTitle>
-
-        <DialogContent>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Email Address"
-            type="email"
-            fullWidth
-            variant="outlined"
-          />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Email Address"
-            type="email"
-            fullWidth
-            variant="outlined"
-          />
-        </DialogContent>
-      <DialogActions>
-        <Button onClick={handleClose}>Cancel</Button>
-        <Button onClick={handleClose}>Subscribe</Button>
-      </DialogActions>
-  </Dialog>
-</div>
+    <div className="container">
+        <div className="details">
+            <CloseIcon onClick={() => setCreateQuestion(false)}/>
+            <div className="inputs">
+              <input className="input-base" type="email" placeholder="UserName" />
+              <input className="input-base" type="email" placeholder="UserName" />
+            </div>
+          </div>
+      </div>
     )
   }             
 

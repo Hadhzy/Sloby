@@ -1,6 +1,8 @@
 import React, {useContext} from 'react';
 import {ThemeContext} from "../../Context/ThemeContext"
 import { motion } from "framer-motion"
+import {ContentContext} from "../../Context/ContentContext"
+
 
 const containerVariants = {
 init: {
@@ -18,6 +20,7 @@ transition: {
 }
 function Community(props) {
     const {theme} = useContext(ThemeContext)
+    const {social_content} = useContext(ContentContext)
     return (
       <div data_theme={theme}>
         <div className="community-container">
@@ -26,7 +29,7 @@ function Community(props) {
                 initial='init'
                 animate='animate'
                 className="title-base">
-                  Community
+                  {social_content.community.title}
              </motion.div>
             <motion.div
                 variants={containerVariants}
@@ -38,7 +41,7 @@ function Community(props) {
                 initial='init'
                 animate='animate'
                 className="subtitle-base">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum facilis hic laborum, magni minus nam ullam? Animi nisi rem totam?
+                {social_content.community.description}
             </motion.div>
           </div>
         </div>

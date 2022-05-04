@@ -13,6 +13,7 @@ export const ContentContextProvider = (props) => {
     const [help_content, set_help_content] = useState([])
     const [chat, set_chat] = useState([])
     const [footer, set_footer] = useState([])
+    const [social_content, set_social_content] = useState([])
 
     const fetch_site_info = () =>{
         axios({
@@ -77,6 +78,12 @@ export const ContentContextProvider = (props) => {
         }).then(res => set_footer(res.data))
     }
 
+    const fetch_social_content = () =>{
+        axios({
+            method: "get", 
+            url: `${process.env.REACT_APP_API_URL}/api/social-content/`
+        }).then(res => set_social_content(res.data))
+    }
 
     
 
@@ -91,6 +98,7 @@ export const ContentContextProvider = (props) => {
         fetch_help_content()
         fetch_chat()
         fetch_footer()
+        fetch_social_content()
     }, [])
 
     
@@ -105,7 +113,8 @@ export const ContentContextProvider = (props) => {
                 forum_and_security: forum_and_security,
                 help_content: help_content,
                 chat: chat,
-                footer: footer
+                footer: footer,
+                social_content: social_content 
                 }}>
                     {props.children}
                 </ContentContext.Provider>

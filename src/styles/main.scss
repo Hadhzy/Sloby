@@ -158,6 +158,26 @@
       .content-base{
         max-width: none;
       }
+
+      .help-system-container {
+        background-color: $black_theme_background_header;
+      }
+
+      .ask-for-help {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+      }
+
+      .MuiSvgIcon-root {
+        color: white;
+        cursor: pointer;
+      }
+
+      .details {
+        background-color:#0f0f0f;
+        box-shadow: 1px 1px 20px #0792ff;
+      }
+
       background-color: $settings-container-background-color;
       color: white;
 

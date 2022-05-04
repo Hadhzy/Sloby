@@ -140,56 +140,41 @@
     },
   
   "sub-components-docs-about-us-goal-throw-a-message-community-our-project-content": {
-    "about-us": [
-      {
+    "about_us": {
         "id": 0,
         "title": "AboutUs",
         "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, sunte elemente."
-      }
-    ],
+      },
 
-    "docs": [
-      {
+    "docs": {
         "id": 1,
         "title": "Docs",
         "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aspernatur atque ea esse, id ipsam iusto necessitatibus possimus sunt. Numquam."
-      }
-    ],
+      },
 
-    "goal": [
-      {
+    "goal": {
         "id": 2,
         "title": "Goal",
         "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aspernatur atque ea esse, id ipsam iusto necessitatibus possimus sunt. Numquam."
-      }
-    ],
+      },
 
-    "throw-message": [
-      {
+    "throw_message": {
         "id": 3,
         "title": "Throw Message",
         "description": null
-      }
-    ],
-
-    "community": [
-      {
+      },
+    "community": {
         "id": 4,
         "title": "Community",
         "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aspernatur atque ea esse, id ipsam iusto necessitatibus possimus sunt. Numquam."
-      }
-    ],
+      },
 
-    "our-project": [
-      {
+    "our-project":  {
         "id": 5,
         "title": "OurProject",
         "description": null
       }
-    ]
-  },
-
-
+    },
 
   "sub-components-help-forum-forum-and-security": {
       "id": 0,
