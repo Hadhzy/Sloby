@@ -152,10 +152,41 @@
             color: black;
         }
 
+        .category-selector {
+            width: 400px;
+            height: 37px;
+            display: flex;
+            justify-content:space-between;
+            align-items: center;
+            background-color: $black_theme_background_header;
+            border-radius: 0.25rem;
+            border: 1px solid #d5d7d9;
+
+            .paragraph {
+                color: #d5d7d9;
+            }
+
+            .selector {
+                background-color: $blue-hover-color;
+            }
+        }
+
+        .MuiSelect-select.MuiSelect-select {
+            width: 130px;
+            color: #d5d7d9;
+        }
+        .MuiInputLabel-animated {
+            color: #d5d7d9;
+        }
+
         .inputs {
             display: flex;
             justify-content: center;
             gap: 50px;
+
+            .select-option {
+                background-color: $black_theme_background_header;
+            }
         }
     }
 }

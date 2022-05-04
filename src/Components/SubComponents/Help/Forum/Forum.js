@@ -8,7 +8,7 @@ import QuestionItem from "./QuestionItem"
 import useLocalStorage from "use-local-storage"
 import { ThemeContext } from "../../../Context/ThemeContext"
 import { ContentContext } from "../../../Context/ContentContext"
-import {Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField} from "@material-ui/core"
+import {Button, Menu, MenuItem, Select, InputLabel} from "@material-ui/core"
 import CloseIcon from "@material-ui/icons/Close"
 
 const defaultState = {
@@ -132,12 +132,36 @@ function Forum(props) {
             <CloseIcon onClick={() => setCreateQuestion(false)}/>
             <div className="inputs">
               <input className="input-base" type="email" placeholder="UserName" />
-              <input className="input-base" type="email" placeholder="UserName" />
+              <SelectCategory />           
             </div>
           </div>
       </div>
     )
   }             
+
+  function SelectCategory() {
+    const [category, setCategory] = useState("")
+
+    
+
+    const handleChange = (e) =>{
+      setCategory(e.target.value)
+    }
+
+    return(
+    <div className="category-selector">
+      <p className="paragraph">Select the question category</p>
+      <Select 
+        value={category}
+        onChange={handleChange}
+      >
+      <MenuItem value="test1">Test1</MenuItem>
+      <MenuItem value="test2">Test2</MenuItem>
+      <MenuItem value="test3">Test3</MenuItem>        
+      </Select>
+    </div>
+    )
+  }
 
 }
 export default Forum

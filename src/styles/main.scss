@@ -176,6 +176,11 @@
       .details {
         background-color:#0f0f0f;
         box-shadow: 1px 1px 20px #0792ff;
+
+        .input-base {
+          background-color: $black_theme_background_header;
+          color: white;
+        }
       }
 
       background-color: $settings-container-background-color;
