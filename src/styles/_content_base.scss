@@ -9,6 +9,26 @@
     color: red;  
   }
 }
+.upload-button {
+  font-size: 16px;
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: .5em;
+  transition: 250ms ease-in-out;
+  padding: 6px;
+  border: 1px solid white;
+  font-family: inherit;
+
+  &:hover {
+      transition: 250ms ease-in-out;
+      background: white;
+      color: black;
+      border-color: black;
+  }
+}
+
 .button {
             margin-left: 15px;
             font-size: 16px;
@@ -19,6 +39,7 @@
             border-radius: .5em;
             transition: 270ms ease-in-out;
             padding: 6px;
+            font-family: inherit;
             
             &:hover {
                 background-color: $blue-hover-color;
@@ -40,6 +61,7 @@
             border-radius: .5em;
             transition: 270ms ease-in-out;
             padding: 6px;
+            font-family: inherit;
 
             &:hover {
                 background-color: #0c46c7;
@@ -117,7 +139,6 @@
           resize: vertical;
           font-family:inherit;
           background: white;
-          border: 1px solid #d5d7d9;
           margin-left: 15px;
           color: black;
           font-size: $medium-font-size;

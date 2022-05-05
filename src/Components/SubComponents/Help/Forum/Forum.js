@@ -10,6 +10,7 @@ import { ThemeContext } from "../../../Context/ThemeContext"
 import { ContentContext } from "../../../Context/ContentContext"
 import {Button, Menu, MenuItem, Select, InputLabel} from "@material-ui/core"
 import CloseIcon from "@material-ui/icons/Close"
+import UploadFileOutlinedIcon from '@material-ui/icons/CloudUploadOutlined';
 
 const defaultState = {
   questions: [],
@@ -125,18 +126,29 @@ function Forum(props) {
     </div>
   )          
   
-  function Createquestion() {
+  function Createquestion(e) {
+
+    document.addEventListener("keydown", (e) => {
+      if(e.key === "Escape") {
+        setCreateQuestion(false)
+      }
+
+    })
+
     return (
     <div className="container">
-        <div className="details">
+        <div className="details"> 
             <CloseIcon onClick={() => setCreateQuestion(false)}/>
             <div className="inputs">
               <input className="input-base" type="email" placeholder="UserName" />
-              <SelectCategory />           
+              <SelectCategory />   
             </div>
+            <UploadImages />
+            <MessageContainer />
           </div>
       </div>
-    )
+    ) 
+
   }             
 
   function SelectCategory() {
@@ -150,7 +162,7 @@ function Forum(props) {
 
     return(
     <div className="category-selector">
-      <p className="paragraph">Select the question category</p>
+      <p className="paragraph">Select the question category: </p>
       <Select 
         value={category}
         onChange={handleChange}
@@ -159,7 +171,32 @@ function Forum(props) {
       <MenuItem value="test2">Test2</MenuItem>
       <MenuItem value="test3">Test3</MenuItem>        
       </Select>
+      <br />
     </div>
+    )
+  }
+
+  function MessageContainer() {
+    return(
+    <div>
+      <div className="message-container">
+        <textarea placeholder="your message..." className="textarea"></textarea>
+      </div>
+      <div className="submit-button-container">
+        <button className='upload-button'>Submit</button>  
+      </div>
+    </div>
+    )
+  }
+
+  function UploadImages() {
+    return(
+      <div className="upload-image-container">
+          <div className="upload-container">
+              <UploadFileOutlinedIcon className="icon"/>
+              <button className='upload-button'>Upload the files</button>
+          </div>
+      </div>
     )
   }
 
