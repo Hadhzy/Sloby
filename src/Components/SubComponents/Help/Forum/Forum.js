@@ -1,4 +1,4 @@
-import React from "react"
+import React, {Component} from "react"
 import { useReducer, useState, useEffect, useContext } from "react"
 import Modal from "./Modal"
 import { motion } from "framer-motion"
@@ -10,7 +10,7 @@ import { ThemeContext } from "../../../Context/ThemeContext"
 import { ContentContext } from "../../../Context/ContentContext"
 import {Button, Menu, MenuItem, Select, InputLabel} from "@material-ui/core"
 import CloseIcon from "@material-ui/icons/Close"
-import UploadFileOutlinedIcon from '@material-ui/icons/CloudUploadOutlined';
+import UploadImages from "./UploadImages"
 
 const defaultState = {
   questions: [],
@@ -36,6 +36,7 @@ const containerVariants = {
   },
 }
 
+
 function Forum(props) {
   const [forumTitle, setForumTitle] = useLocalStorage("forumTitle", "")
   const [forumDesc, setForumDesc] = useLocalStorage("forumDesc", "")
@@ -43,6 +44,7 @@ function Forum(props) {
   const { theme } = useContext(ThemeContext)
   const {forum_and_security} = useContext(ContentContext)
   const [createQuestion, setCreateQuestion] =  useState(false) 
+
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -104,7 +106,7 @@ function Forum(props) {
                 <button className='button'>filter questions</button>
               </motion.div>
             </div>
-            {createQuestion && <Createquestion />}
+            <div> {createQuestion && <Createquestion />}</div>
             <div className='questions-container'>
               {state.questions.map((question_item) => {
                 return (
@@ -127,6 +129,8 @@ function Forum(props) {
   )          
   
   function Createquestion(e) {
+    const [username, setUsername] = useState("")
+
 
     document.addEventListener("keydown", (e) => {
       if(e.key === "Escape") {
@@ -140,7 +144,7 @@ function Forum(props) {
         <div className="details"> 
             <CloseIcon onClick={() => setCreateQuestion(false)}/>
             <div className="inputs">
-              <input className="input-base" type="email" placeholder="UserName" />
+              <input className="input-base" type="email" value={username} placeholder="UserName" onChange={e => setUsername(e.target.value)}/>
               <SelectCategory />   
             </div>
             <UploadImages />
@@ -153,34 +157,31 @@ function Forum(props) {
 
   function SelectCategory() {
     const [category, setCategory] = useState("")
-
     
-
-    const handleChange = (e) =>{
-      setCategory(e.target.value)
-    }
-
+    console.log(category)
+    
     return(
-    <div className="category-selector">
+      <div className="category-selector">
       <p className="paragraph">Select the question category: </p>
       <Select 
         value={category}
-        onChange={handleChange}
-      >
-      <MenuItem value="test1">Test1</MenuItem>
-      <MenuItem value="test2">Test2</MenuItem>
-      <MenuItem value="test3">Test3</MenuItem>        
+        onChange={e => setCategory(e.target.value)}
+        >
+      <MenuItem value="Test1">Test1</MenuItem>
+      <MenuItem value="Test2">Test2</MenuItem>
+      <MenuItem value="Test3">Test3</MenuItem>        
       </Select>
       <br />
     </div>
     )
   }
-
+  
   function MessageContainer() {
+    const [message, setMessage] = useState("")
     return(
     <div>
       <div className="message-container">
-        <textarea placeholder="your message..." className="textarea"></textarea>
+        <textarea placeholder="your message..." className="textarea" value={message} onChange={e => setMessage(e.target.value)}></textarea>
       </div>
       <div className="submit-button-container">
         <button className='upload-button'>Submit</button>  
@@ -189,16 +190,7 @@ function Forum(props) {
     )
   }
 
-  function UploadImages() {
-    return(
-      <div className="upload-image-container">
-          <div className="upload-container">
-              <UploadFileOutlinedIcon className="icon"/>
-              <button className='upload-button'>Upload the files</button>
-          </div>
-      </div>
-    )
-  }
+  
 
 }
 export default Forum
