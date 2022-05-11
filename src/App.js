@@ -4,13 +4,14 @@ import Header from "./Components/Header"
 import Footer from "./Components/Footer"
 import Content from "./Components/Content"
 import Help from "./Components/SubComponents/Help/Help"
+import Settings from "./Components/SubComponents/Settings/Settings"
 import AboutUs from "./Components/SubComponents/AboutUs/AboutUs"
 import Docs from "./Components/SubComponents/Docs/Docs"
 import OurProject from "./Components/SubComponents/OurProject/OurProject"
-import Settings from "./Components/SubComponents/Settings/Settings"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import User from "./Components/SubComponents/User"
 import RegisterPage from "./Components/Users/RegisterPage"
+import {UserContextProvider} from "./Components/Context/UserContext"
 import LoginPage from "./Components/Users/LoginPage"
 import {
   SettingsDataProvider,
@@ -19,13 +20,14 @@ import {
   ThemeContextProvider,
 } from "./Components/Context/ThemeContext"
 import {ContentContextProvider} from "./Components/Context/ContentContext"
+
 function App() {
   return (
-    <BrowserRouter>
-      <ContentContextProvider>
+  <BrowserRouter>
+    <UserContextProvider>
+    <ContentContextProvider>
       <ThemeContextProvider>
         <SettingsDataProvider>
-
                <div className='App'>
                 <Header/>
                 <Routes>
@@ -51,7 +53,8 @@ function App() {
         </SettingsDataProvider>
       </ThemeContextProvider>
       </ContentContextProvider>
-    </BrowserRouter>
+    </UserContextProvider>
+  </BrowserRouter>
   )
 }
 export default App

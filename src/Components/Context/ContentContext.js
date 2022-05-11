@@ -3,6 +3,8 @@ import axios from "axios";
 
 export const ContentContext = createContext(true)
 
+
+
 export const ContentContextProvider = (props) => {
     const [site_info, set_site_info] = useState([])
     const [categories_accounts, set_categories_accounts] = useState([])

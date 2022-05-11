@@ -12,17 +12,26 @@ import {ContentContext} from "./Context/ContentContext"
 
 function HeaderMenuItem({ item_data }) {
   return (
-    <Link to={`categories/${item_data.url}`} className='menu-item off-link-dec'>
+    <div className='menu-item off-link-dec'>
+      <Link to={`categories/${item_data.url}`}></Link>
       <div className="header-menu-items">
       {item_data.title.toUpperCase()}
       </div>
 
       {item_data.items && <KeyboardArrowDownIcon />}
 
+    <Popup item_data={item_data}/>
+    
+    </div>
+  )
+
+  function Popup({item_data}) {
+    return(
+    <>
       {item_data.items && (
         <div className='popup-menu'>
           {item_data.items.map((i) => (
-            <a key={i} className='popup-items'>
+            <div key={i} className='popup-items'>
               <Link
                 to={`/categories/${item_data.url}/${i
                   .toLowerCase()
@@ -31,12 +40,13 @@ function HeaderMenuItem({ item_data }) {
               >
                 {i}
               </Link>
-            </a>
+            </div>
           ))}
         </div>
       )}
-    </Link>
-  )
+  </>  
+    )
+  }
 }
 
 function HeaderMenu() {
@@ -59,20 +69,8 @@ function HeaderMenu() {
 }
 
 function Header() {
-  const [site_info, set_site_info] = useState([])
   const {theme} = useContext(ThemeContext)
   const {categories_accounts} = useContext(ContentContext)
-
-  const fetch_site_info = () => {
-    axios({
-      method: "get",
-      url: `${process.env.REACT_APP_API_URL}/site_info`,
-    }).then((res) => set_site_info(res.data))
-  }
-
-  useEffect(() => {
-    fetch_site_info()
-  }, [])
 
   return (
     <div data_theme={theme}>

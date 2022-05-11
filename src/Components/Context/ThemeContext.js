@@ -4,7 +4,7 @@ import useLocalStorage from "use-local-storage"
 export const ThemeContext = createContext(true)
 
 export const ThemeContextProvider = (props) => {
-  const [theme, setTheme] = useLocalStorage("theme" ? "dark" : "light", "")
+  const [theme, setTheme] = useLocalStorage("theme", "theme" ? "dark" : "light")
 
   const switchTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light"

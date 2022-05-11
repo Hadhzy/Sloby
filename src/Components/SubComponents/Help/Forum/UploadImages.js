@@ -2,9 +2,9 @@ import React, {Component} from "react"
 import UploadFileOutlinedIcon from '@material-ui/icons/CloudUploadOutlined';
 
 class UploadImages extends Component {
-    fileSelectedHandler = event => {
-        console.log(event.target.files[0])
-    }
+  fileSelectedHandler(e) {
+    console.log(e.target.files[0])
+  }
     
     render() {
         return(

@@ -1,18 +1,24 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, useRef} from 'react';
 import {Link,useNavigate} from "react-router-dom";
 import {ThemeContext} from "../Context/ThemeContext";
 import {ContentContext} from "../Context/ContentContext"
+import {UserContext} from "../Context/UserContext"
+
 function LoginPage(props) {
     const [email, set_email] = useState("")
     const [password, set_password] = useState("")
     const {theme} = useContext(ThemeContext)
     const {users_login} = useContext(ContentContext)
+    const {log_in_user} = useContext(UserContext)
 
-     const navigate = useNavigate()
-
+    
+    const navigate = useNavigate()
+    
     const handle_login = async (e) => {
         e.preventDefault()
         if(email.length === 0 || password.length === 0) return
+        await log_in_user(email, password)
+        
 
         navigate("/user")
     }
