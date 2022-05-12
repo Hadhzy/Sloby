@@ -137,16 +137,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    
     .details {
-        width: 70%;
-        height: 70%;
+        width: 80%;
+        height: 80%;
         background-color: white;
         padding: 10px;
         border-radius: 11px;
         display: flex;
         flex-direction: column;
+        overflow: scroll;   
+        position: fixed;
+        border: 1px solid green;
+
         
         .MuiSvgIcon-root {
             color: black;
@@ -256,7 +258,8 @@
             .upload-container {
                 border: 1px solid #767676;
                 padding: 20px;
-                width: 800px;
+                width: 900px;
+                height: 150px;
                 display: flex;
                 flex-direction: column;
                 display: flex;

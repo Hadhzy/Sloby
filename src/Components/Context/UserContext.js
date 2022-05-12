@@ -32,12 +32,26 @@ export const UserContextProvider = (props) => {
     }
   }
 
+  const log_out_user = async () => {
+    try  {
+      const config = {
+        headers: { authorization: `token ${token}` }
+      }
+
+       await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/logout/`, config)
+
+    } catch (error) {
+      console.log(error) 
+    }
+  }
+
 
 
   return (
     <UserContext.Provider
       value={{
-        log_in_user: log_in_user
+        log_in_user: log_in_user,
+        log_out_user: log_out_user
       }}
     >
       {props.children}
