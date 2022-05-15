@@ -72,6 +72,10 @@
             }
 }
 .off-link-dec {
+
+  &.log-out-icon{
+    color: $blue-hover-color;
+  }
   text-decoration: none;
   color: black;
   .help-icon{
