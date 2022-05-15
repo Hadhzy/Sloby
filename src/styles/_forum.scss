@@ -159,6 +159,10 @@
             justify-content: center;
         }
 
+        .close-icon {
+            position: fixed;
+        }
+
         .category-selector {
             width: 400px;
             height: 37px;
@@ -221,8 +225,8 @@
             justify-content: center;
             align-items: center;
             .textarea {
-                width: 50%;
-                height: 150px;
+                width: 60%;
+                height: 200px;
                 padding: 12px 20px;
                 border-radius: 4px;
                 background-color: $black_theme_background_header;
@@ -262,10 +266,12 @@
                 height: 150px;
                 display: flex;
                 flex-direction: column;
+                justify-content: space-around;
                 display: flex;
                 align-items: center;
                 border-style: dashed;
                 border-radius: 5px;
+                cursor: pointer;
 
                 &:hover {
                     outline-style: none;
@@ -274,29 +280,14 @@
                     box-shadow: 2px 2px 2px 1px $blue-hover-color;
                 }
 
-                input[type=file]::-webkit-file-upload-button {
-                    font-size: 12px;
-                    background: black;
-                    color: white;
-                    border: none;
-                    cursor: pointer;
-                    border-radius: .5em;
-                    transition: 250ms ease-in-out;
-                    padding: 6px;
-                    border: 1px solid white;
-                    font-family: inherit;
-                  
-                    &:hover {
-                        transition: 250ms ease-in-out;
-                        background: white;
-                        color: black;
-                        border-color: black;
-                    }
+                .description {
+                    color: #767676;
                 }
 
-                input[type=file] {
-                    cursor: pointer;
+                .image-icon {
+                    font-size: $large-font-size;
                 }
+
                 img {
                     margin-bottom: 15px;
                     width: 50px;
@@ -312,3 +303,5 @@
         }
     }
 }
+
+

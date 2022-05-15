@@ -142,13 +142,13 @@ function Forum(props) {
     return (
     <div className="container">
         <div className="details"> 
-            <CloseIcon onClick={() => setCreateQuestion(false)}/>
+            <CloseIcon onClick={() => setCreateQuestion(false)} className="close-icon"/>
             <div className="inputs">
               <input className="input-base" type="email" value={username} placeholder="UserName" onChange={e => setUsername(e.target.value)}/>
               <SelectCategory />   
             </div>
             <UploadImages />
-            <MessageContainer />
+             <MessageContainer /> 
           </div>
       </div>
     ) 

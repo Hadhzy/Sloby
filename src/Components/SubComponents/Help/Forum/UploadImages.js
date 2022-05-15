@@ -1,23 +1,41 @@
-import React, {Component} from "react"
-import UploadFileOutlinedIcon from '@material-ui/icons/CloudUploadOutlined';
+import React, {Component, useState, useCallback} from "react"
+import {useDropzone} from 'react-dropzone'
 
-class UploadImages extends Component {
-  fileSelectedHandler(e) {
-    console.log(e.target.files[0])
-  }
-    
-    render() {
-        return(
-        <div className="upload-image-container">
-          <div className="upload-container">
-              <UploadFileOutlinedIcon className="icon"/>
-              <div className="file-upload">
-                <input type="file" id="fileUpload" onChange={this.fileSelectedHandler}/>
-              </div>
-          </div>
+function UploadImages() {
+  const [files, setFiles] = useState([])
+  const [fileNames, setFileNames] = useState([])
+
+  const onDrop = useCallback(acceptedFiles => {
+    setFiles(acceptedFiles)
+    setFileNames(acceptedFiles.map(file => file.name))
+  }, [])
+  const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
+
+  return(
+    <div className="upload-image-container" {...getRootProps()}>
+      <div className="upload-container">
+        
+        <span className="image-icon">{isDragActive ? "📂" : "📁"}</span>
+        <p className="description">Drag'n'drop images, or click to select files</p>
+
+        <AcceptedFiles />
       </div>
-      )
-    }
+    </div>
+  )
+
+  function AcceptedFiles() {
+     return(
+      <div className="accepted-files-container">
+      {fileNames.map(file => {
+        return(
+          <div key={file}>
+            {file}
+          </div>
+        )
+      })}
+      </div>
+     )
   }
+}
 
 export default UploadImages
