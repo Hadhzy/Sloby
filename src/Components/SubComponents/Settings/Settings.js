@@ -14,6 +14,8 @@ import MoreVertIcon from "@material-ui/icons/MoreVert"
 import { ThemeContext } from "../../Context/ThemeContext"
 import Switch from '@mui/material/Switch';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import ShareIcon from "@material-ui/icons/Share";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props
@@ -27,13 +29,16 @@ const ExpandMore = styled((props) => {
 }))
 
 function Settings(props) {
-  const [expanded, setExpanded] = useState(false)
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded)
+  const { settings } = useContext(SettingsDataContext)
+  const [expanded, setExpanded] = useState(new Array(settings.length).fill(true))
+  console.log(expanded)
+  const handleOnchange  = (position) => {
+     const updatedCheckedState = expanded.map((item, index) => index === position ? !item : item)
+      setExpanded(updatedCheckedState)
   }
 
-  const { settings } = useContext(SettingsDataContext)
+
+
   const { theme, switchTheme } = useContext(ThemeContext)
   return (
       <div data_theme={theme}>
@@ -62,12 +67,12 @@ function Settings(props) {
                     </Typography>
                   </CardContent>
                   <CardActions disableSpacing>
-                    {/*<IconButton aria-label="add to favorites">*/}
-                    {/*    <FavoriteIcon/>*/}
-                    {/*</IconButton>*/}
-                    {/*<IconButton aria-lebel="share">*/}
-                    {/*    <ShareIcon/>*/}
-                    {/*</IconButton>*/}
+                    <IconButton aria-label="add to favorites">
+                        <FavoriteIcon/>
+                    </IconButton>
+                    <IconButton aria-lebel="share">
+                        <ShareIcon/>
+                    </IconButton>
                     {
                       setting.type === "switch" && (
                           <FormControlLabel control={
@@ -82,7 +87,7 @@ function Settings(props) {
 
                     <ExpandMore
                       expand={expanded}
-                      onClick={handleExpandClick}
+                      onClick={() => handleOnchange(index)}
                       aria-expanded={expanded}
                       aria-label='show more'
                     >

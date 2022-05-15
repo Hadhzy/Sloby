@@ -102,11 +102,11 @@ function Header() {
                 {
                     logged_in?
                         <div className="log-out-container">
-                            <Link to="/user">
+                            <Link className="off-link-dec log-out-icon" to="/user" >
                                 <i className="fa-solid fa-user"></i>
                             </Link>
 
-                            <button onClick={log_out_user}>
+                            <button onClick={log_out_user} className="bbutton">
                                 Log out
                             </button>
                         </div>
