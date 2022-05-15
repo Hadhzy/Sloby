@@ -9,6 +9,7 @@ import { Menu, MenuItem, Button } from "@material-ui/core"
 import MoreVertIcon from "@material-ui/icons/MoreVert"
 import {ThemeContext} from "./Context/ThemeContext";
 import {ContentContext} from "./Context/ContentContext"
+import {UserContext} from "./Context/UserContext";
 
 function HeaderMenuItem({ item_data }) {
   return (
@@ -71,6 +72,7 @@ function HeaderMenu() {
 function Header() {
   const {theme} = useContext(ThemeContext)
   const {categories_accounts} = useContext(ContentContext)
+  const {logged_in, log_out_user} = useContext(UserContext)
 
   return (
     <div data_theme={theme}>
@@ -97,13 +99,31 @@ function Header() {
                 stiffness: 400,
               }}
             >
-              <motion.button className='button' whileHover={{ scale: 1.1 }}>
-                 <Link className="off-link-dec white" to="users/login">{categories_accounts.login_title}</Link>
-              </motion.button>
+                {
+                    logged_in?
+                        <div className="log-out-container">
+                            <Link to="/user">
+                                <i className="fa-solid fa-user"></i>
+                            </Link>
 
-              <motion.button className='button' whileHover={{ scale: 1.1 }}>
-                <Link className="off-link-dec white" to="users/register">{categories_accounts.register_title}</Link>
-              </motion.button>
+                            <button onClick={log_out_user}>
+                                Log out
+                            </button>
+                        </div>
+                        :
+                        <div>
+                            <motion.button className='button' whileHover={{ scale: 1.1 }}>
+                                <Link className="off-link-dec white" to="users/login">{categories_accounts.login_title}</Link>
+                             </motion.button>
+                            <motion.button className='button' whileHover={{ scale: 1.1 }}>
+                                <Link className="off-link-dec white" to="users/register">{categories_accounts.register_title}</Link>
+                            </motion.button>
+                        </div>
+
+                }
+
+
+
             </motion.div>
           </div>
 
