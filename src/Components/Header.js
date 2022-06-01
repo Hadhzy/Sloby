@@ -1,8 +1,6 @@
-
 import React, { useState, useEffect, useContext } from "react"
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown"
 import axios from "axios"
-import MenuIcon from "@material-ui/icons/Menu"
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
 import { Menu, MenuItem, Button } from "@material-ui/core"
@@ -13,16 +11,18 @@ import {UserContext} from "./Context/UserContext";
 
 function HeaderMenuItem({ item_data }) {
   return (
-    <div className='menu-item off-link-dec'>
-      <Link to={`categories/${item_data.url}`}></Link>
-      <div className="header-menu-items">
-      {item_data.title.toUpperCase()}
-      </div>
+    <div className='menu-item'>
+      <Link className="off-link-dec" to={`categories/${item_data.menu_url}`}>
+            <div className="header-menu-items">
+        {item_data.title.toUpperCase()}
+        </div>
+      </Link>
+
 
       {item_data.items && <KeyboardArrowDownIcon />}
 
     <Popup item_data={item_data}/>
-    
+
     </div>
   )
 
@@ -34,7 +34,7 @@ function HeaderMenuItem({ item_data }) {
           {item_data.items.map((i) => (
             <div key={i} className='popup-items'>
               <Link
-                to={`/categories/${item_data.url}/${i
+                to={`/categories/${item_data.menu_url}/${i
                   .toLowerCase()
                   .replaceAll(" ", "-")}`}
                 className='popup-items off-link-dec'
