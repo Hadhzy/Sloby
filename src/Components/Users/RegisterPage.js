@@ -3,12 +3,16 @@ import {useState} from "react";
 import {Link, useNavigate} from "react-router-dom"
 import {ThemeContext} from "../Context/ThemeContext";
 import {ContentContext} from "../Context/ContentContext"
+import {UserContext} from "../Context/UserContext";
 function RegisterPage(props) {
+    const {register_user} = useContext(UserContext)
     const [email, set_email] = useState("")
     const [password1, set_password1] = useState("")
     const [password2, set_password2] = useState("")
     const [error, set_error] = useState(null)
     const [waiting, set_waiting] = useState(false)
+
+
 
     const {theme} = useContext(ThemeContext)
     const {users_create_account} = useContext(ContentContext)
@@ -34,7 +38,12 @@ function RegisterPage(props) {
             return
         }
        set_waiting(true)
+        let result = await register_user(email, password1)
 
+        set_waiting(false)
+        if(!result){
+            set_error("Something went wrong")
+        }
         navigate("/users/verified-registration-email")
     }
     return (
@@ -55,7 +64,7 @@ function RegisterPage(props) {
                 <br/>
                 {
                     waiting?
-                        <div>{users_create_account.optional_waiting}</div>
+                        <div className="waiting-color" >{users_create_account.optional_waiting}</div>
                         :
                         <button  className="bbutton" onClick={handle_button_clicked}>{users_create_account.button_title}</button>
                 }

@@ -9,7 +9,7 @@ import AboutUs from "./Components/SubComponents/AboutUs/AboutUs"
 import Docs from "./Components/SubComponents/Docs/Docs"
 import OurProject from "./Components/SubComponents/OurProject/OurProject"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import User from "./Components/SubComponents/User"
+import Profile from "./Components/SubComponents/User"
 import RegisterPage from "./Components/Users/RegisterPage"
 import {UserContextProvider} from "./Components/Context/UserContext"
 import LoginPage from "./Components/Users/LoginPage"
@@ -20,6 +20,7 @@ import {
   ThemeContextProvider,
 } from "./Components/Context/ThemeContext"
 import {ContentContextProvider} from "./Components/Context/ContentContext"
+import RegistrationEmailSentPage from "./Components/Users/RegistrationEmailSentPage";
 
 function App() {
   return (
@@ -32,7 +33,7 @@ function App() {
                 <Header/>
                 <Routes>
                   <Route path='/' element={<Content />} />
-                  <Route path='/user' element={<User />} />
+                  <Route path='/user/profile' element={<Profile />} />
                   <Route path='/categories/:category/:subcategory' />
 
                   <Route path='categories/help/*' element={<Help />} />
@@ -43,8 +44,8 @@ function App() {
 
                   <Route path='users/register' element={<RegisterPage />} />
                   <Route path='users/login' element={<LoginPage />} />
-                  <Route path='users/verified-registration-email' element={<p>Registration email</p>} />
-    
+                  <Route path='users/verified-registration-email' element={<RegistrationEmailSentPage/>} />
+
                 </Routes>
 
                 <Footer />

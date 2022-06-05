@@ -59,6 +59,24 @@ export const UserContextProvider = (props) => {
     }
   }
 
+  const register_user = async (email, password) => {
+    try{
+      const result = await axios({
+        method: "post",
+        url: `${process.env.REACT_APP_API_URL}/api/auth/registration/`,
+        data: {
+          email: email,
+          password1: password,
+          password2: password,
+        }
+      })
+      return result.status === 201
+    }catch (err){
+      return false
+    }
+  }
+
+
   useEffect( () => {
     check_token()
   }, [])
@@ -68,6 +86,7 @@ export const UserContextProvider = (props) => {
       value={{
         log_in_user: log_in_user,
         log_out_user: log_out_user,
+        register_user: register_user,
         logged_in: logged_in
       }}
     >
