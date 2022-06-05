@@ -20,7 +20,7 @@ function LoginPage(props) {
         await log_in_user(email, password)
         
 
-        navigate("/user")
+        navigate("/user/profile")
     }
     return (
         <div data_theme={theme}>

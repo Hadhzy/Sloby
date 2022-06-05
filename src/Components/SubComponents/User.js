@@ -1,14 +1,12 @@
 import React from "react"
 import { Link, Outlet } from "react-router-dom"
-function User(props) {
+function Profile(props) {
   return (
-    <div>
-      <div className='content-base'>
-        User
-        <Outlet />
-      </div>
+    <div className="profile-container content-base">
+        <h1 className="title-base">Profile</h1>
+        <hr/>
     </div>
   )
 }
 
-export default User
+export default Profile;

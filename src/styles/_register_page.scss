@@ -1,7 +1,9 @@
 .register-container{
   display: flex;
   justify-content: center;
-
+  .waiting-color{
+    color: red;
+  }
   .form-container-base{
     box-shadow: 5px 5px 10px #d3d3d3;
     height: max-content;
