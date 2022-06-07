@@ -1,3 +1,16 @@
 .profile-container{
-
+  .profile-information{
+    margin-top: 20px;
+    display: flex;
+    width: 85%;
+    justify-content: space-between;
+    .name-container{
+      display: flex;
+      flex-direction: column;
+  }
+  .other-information{
+     display: flex;
+    flex-direction: column;
+  }
+  }
 }

@@ -9,6 +9,8 @@ export const UserContextProvider = (props) => {
   const [token, set_token] = useState(null)
   const [cookies, setCookie, removeCookie] = useCookies()
 
+  const [first_name, set_first_name] = useState("")
+
   const DAYS_TO_SECONDS = 86400
 
     const secondsCalculator = (days) => {
@@ -76,11 +78,26 @@ export const UserContextProvider = (props) => {
     }
   }
 
-
+  const fetch_profile = () => {
+    axios({
+      method: "get",
+      url: `${API_URL}/api/users/profile/`,
+      headers: {
+        authorization: `token ${token}`
+      }
+    }).then(res=>{
+      let profile_data = res.data.profile
+    })
+  }
   useEffect( () => {
     check_token()
   }, [])
 
+  useEffect(() =>{
+    if(logged_in){
+
+    }
+  })
   return (
     <UserContext.Provider
       value={{
