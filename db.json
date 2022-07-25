@@ -203,28 +203,6 @@
     ]
 },
 
-"chat": {
-  "conversation_item": {
-    "id": 0, "link_text": "Click here to Switch"
-  },
-
-  "input":
-    {"id": 1, "button": "Send"}
-  ,
-
-  "join":
-    {"id": 2, "title": "Join", "button": "Sign in"}
-  ,
-
-  "new_conversation":
-    {"id": 3, "button": "new conversation", "modal_button_1": "Create", "modal_button_2": "Cancel", "modal_title": "Conversations"}
-  ,
-
-  "room_data":
-    {"id": 4, "title": "People currently chatting"}
-
-},
-
 
   "settings-menu": [
     {"id":  0,
@@ -242,5 +220,9 @@
      "content_title": "Test2",
       "long_description": "lorem10"},
     {"id": 2}
-  ]
+  ],
+
+  "test": ["Home", "About", "Test", "SettingsContext"]
 }
+
+

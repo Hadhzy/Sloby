@@ -10,7 +10,7 @@ export const SettingsDataProvider = (props) => {
     const fetch_settings = () =>{
         axios({
             method: "get",
-            url: `${process.env.REACT_APP_API_URL}/api/settings-menu/`
+            url: `${process.env.REACT_APP_API_URL}settings-menu/`
         }).then(res => set_settings(res.data))
     }
     useEffect(() =>{

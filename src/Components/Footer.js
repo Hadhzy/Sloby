@@ -1,10 +1,15 @@
-import React, {useContext} from "react"
+import React, {useContext, useState, useEffect} from "react"
 import {ContentContext} from "./Context/ContentContext"
+import axios from "axios"
+
 
 function Footer() {
   const {footer} = useContext(ContentContext)
+
+
+
   return <div className='footer-container'>
-    {footer.map(footer_item => (
+        {footer.map(footer_item => (
           <div className="footer-items content-base" key={footer_item.id}>
               <div className="footer-text footer-title">{footer_item.title}</div>
             <div>

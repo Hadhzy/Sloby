@@ -10,6 +10,8 @@ import {ContentContext} from "./Context/ContentContext"
 import {UserContext} from "./Context/UserContext";
 
 function HeaderMenuItem({ item_data }) {
+
+  
   return (
     <div className='menu-item'>
       <Link className="off-link-dec" to={`categories/${item_data.menu_url}`}>
@@ -56,7 +58,7 @@ function HeaderMenu() {
   useEffect(() => {
     axios({
       method: "get",
-      url: `${process.env.REACT_APP_API_URL}/api/categories/`,
+      url: `${process.env.REACT_APP_API_URL}categories/`,
     }).then((res) => set_menu_list(res.data))
   }, [])
 

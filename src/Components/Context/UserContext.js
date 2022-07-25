@@ -81,7 +81,7 @@ export const UserContextProvider = (props) => {
   const fetch_profile = () => {
     axios({
       method: "get",
-      url: `${API_URL}/api/users/profile/`,
+      url: `${process.env.REACT_APP_API_URL}/api/users/profile/`,
       headers: {
         authorization: `token ${token}`
       }
