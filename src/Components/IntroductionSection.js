@@ -4,9 +4,16 @@ import { Typography, Button, Container, Grid } from "@material-ui/core"
 import { createTheme, ThemeProvider } from "@material-ui/core/styles"
 import {ThemeContext} from "../Components/Context/ThemeContext"
 import {ContentContext} from "../Components/Context/ContentContext"
+import {Link} from "react-router-dom"
+
+
 function IntroductionSection() {
   const {theme} = useContext(ThemeContext)
   const {site_info} = useContext(ContentContext)
+
+  
+  
+
   return (
       <div data_theme={theme}>
         <div className="introduction-section">
@@ -30,7 +37,9 @@ function IntroductionSection() {
           <div>
             <Grid container spacing={2}>
               <Grid item>
-                <button className='button'>{site_info.button_title_get_started}</button>
+                <Link to="/editor/project-viewer">
+                  <button className='button'>{site_info.button_title_get_started}</button>
+                </Link>
               </Grid>
               <Grid item>
                 <button className='button'>{site_info.button_title_docs}</button>

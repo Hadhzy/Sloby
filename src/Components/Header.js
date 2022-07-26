@@ -8,8 +8,13 @@ import MoreVertIcon from "@material-ui/icons/MoreVert"
 import {ThemeContext} from "./Context/ThemeContext";
 import {ContentContext} from "./Context/ContentContext"
 import {UserContext} from "./Context/UserContext";
+import { useLocation } from 'react-router-dom';
+
 
 function HeaderMenuItem({ item_data }) {
+
+
+  
 
   
   return (
@@ -76,10 +81,14 @@ function Header() {
   const {categories_accounts} = useContext(ContentContext)
   const {logged_in, log_out_user} = useContext(UserContext)
 
+  let currentUrl = useLocation()
+
+
   return (
     <div data_theme={theme}>
-      <div className="theme-case-header">
+      <div className={`${currentUrl.pathname === "/editor/project-viewer" && "display-none" || currentUrl.pathname !== "editor/project-viewer" && "theme-case-header"} `}>
         <div className='header-container' >
+          {console.log(currentUrl.pathname)}
           <div className='navigation'>
             <motion.div
               transition={{ delay: 1, duration: 1.5 }}

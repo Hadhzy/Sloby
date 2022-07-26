@@ -1,0 +1,80 @@
+.project-handler-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    .menu-bar-container {
+        height: 100%;
+        width: 20%;
+        background-color: #101012;
+        color: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 0 10px 5px rgba(168, 168, 168, 0.15);
+        z-index: 10;
+        
+
+        .menu-items {
+            display: flex;
+            margin-top: 40px;
+            justify-content:  center;
+            font-size: 18px;
+
+            a {
+                color: #696d7c;
+                padding: 10px;
+
+                &:hover {
+                    background-color: #1c5bf8;
+                    border-radius: 16px;
+                    transition: 250ms ease-in-out;
+                    color: white;
+                }
+            }
+        }
+
+
+        .icon {
+            .arrow-icon {
+                margin-left: 15px;
+                margin-top: 15px;
+                font-size: 52px;
+                padding: 10px;
+                border-radius: 50%;
+                background: #1c5bf8;
+            }
+        }
+            
+    }
+
+    .titles {
+        text-align: center;
+        padding-bottom: 15px;
+        background-color: black;
+        color: white;
+        font-size: 21px;
+        font-weight: bold;
+        z-index: 11;
+
+        span {
+            font-style: italic;
+            font-size: 22px;
+            color:#1c5bf8;
+        }
+    }
+
+    .display-flex {
+        display: flex;
+        height: 100%;
+    }
+
+
+    .project-creator-container {
+        border: 2px solid black;
+        width: 80%;
+        background-color: $settings-container-background-color;
+    }
+
+}
+
+
+
+
