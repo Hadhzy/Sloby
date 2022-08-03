@@ -222,7 +222,11 @@
     {"id": 2}
   ],
 
-  "test": ["Home", "About", "Test", "SettingsContext"]
+  "sidebar-menu-items": [
+    {"id": 0, "title": "Account", "path": "#"},
+    {"id": 1, "title": "Account", "path": "#"},
+    {"id": 2, "title": "Account", "path": "#"}
+  ]
 }
 
 

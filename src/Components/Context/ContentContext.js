@@ -16,6 +16,7 @@ export const ContentContextProvider = (props) => {
     const [chat, set_chat] = useState([])
     const [footer, set_footer] = useState([])
     const [social_content, set_social_content] = useState([])
+    const [menu_bar_items, set_menu_bar_items] = useState([])
 
     const fetch_site_info = () =>{
         axios({
@@ -80,6 +81,13 @@ export const ContentContextProvider = (props) => {
         }).then(res => set_social_content(res.data))
     }
 
+    const fetch_menu_bar_items = () =>{
+        axios({
+            method: "get", 
+            url: `${process.env.REACT_APP_API_URL}sidebar-menu-items/`
+        }).then(res => set_menu_bar_items(res.data))
+    }
+
     
 
     
@@ -93,6 +101,7 @@ export const ContentContextProvider = (props) => {
         fetch_help_content()
         fetch_footer()
         fetch_social_content()
+        fetch_menu_bar_items()
     }, [])
 
     
@@ -107,7 +116,8 @@ export const ContentContextProvider = (props) => {
                 forum_and_security: forum_and_security,
                 help_content: help_content,
                 footer: footer,
-                social_content: social_content 
+                social_content: social_content,
+                menu_bar_items: menu_bar_items 
                 }}>
                     {props.children}
                 </ContentContext.Provider>

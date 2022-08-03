@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: column;
 
+
     .menu-bar-container {
         height: 100%;
         width: 20%;
@@ -27,6 +28,7 @@
                     border-radius: 16px;
                     transition: 250ms ease-in-out;
                     color: white;
+                    box-shadow: 1px 1px 20px #1c5bf8;
                 }
             }
         }
@@ -40,25 +42,38 @@
                 padding: 10px;
                 border-radius: 50%;
                 background: #1c5bf8;
+
+                &:hover {
+                    box-shadow: 1px 1px 20px #1c5bf8;
+                }
             }
         }
             
     }
 
-    .titles {
-        text-align: center;
-        padding-bottom: 15px;
-        background-color: black;
-        color: white;
-        font-size: 21px;
-        font-weight: bold;
-        z-index: 11;
+    .image-container {
+        height: 100%;
 
-        span {
-            font-style: italic;
-            font-size: 22px;
-            color:#1c5bf8;
+        .text-container {
+            border: 1px solid red;
+            width: 50%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+            span {
+                font-size: 55PX;
+                text-align: center;
+            }
         }
+
+        .illustration-container {
+            border: 1px solid blue;
+        }
+
+       
     }
 
     .display-flex {
@@ -68,13 +83,255 @@
 
 
     .project-creator-container {
-        border: 2px solid black;
         width: 80%;
         background-color: $settings-container-background-color;
+        display: flex;
+        gap: 200px;
+
+        .project-creator-template {
+            border: 1px solid #1c5bf8;
+            width: 200px;
+            height: 200px;
+            margin-left: 50px;
+            margin-top: 30px;
+            border-radius: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #1c5bf8;
+            cursor: pointer;
+            transition: 550ms ease-in-out;
+
+
+            &:hover {
+                box-shadow: 2px 2px 5px #1c5bf8;
+
+                .inner-content {
+                    font-size: 18px;
+                }
+            }
+
+            .inner-content {
+                text-align: center;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 15px;
+                transition: 250ms ease-in-out;
+
+
+                .description {
+                    font-style: italic;
+                    font-weight: bold;
+                }
+
+                .MuiSvgIcon-root {
+                    font-size: 50px;
+                }
+            }
+
+
+
+        }
+        
     }
 
+    .popup-container {
+        position: fixed;
+        z-index: 200;
+        background-color: #000000a6;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content:  center;
+        align-items: center;
+        .popup-content {
+            background-color: #060606;
+            width: 800px;
+            height: 800px;
+            border-radius: 20px;
+            border: 0.5px solid rgba(255, 255, 255, 0.1);
+            filter: blur(0);
+            box-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);
+            .upbar-container {
+                display: flex;
+                justify-content: flex-end;
+                .title {
+                    font-size: 25px;
+                    text-align: center;
+                    color: #1c5bf8;
+                    font-weight: bold;
+                    font-style: oblique;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    width: 65%;
+                }
+                .icon-container {
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    width: 5%;
+                    .close-icon {
+                        color: white;
+                        cursor: pointer;
+                    }
+                }
+            }
+                
+        
+            
+            .inputs {
+                height: 65%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: 100px;
+
+                .input-content {
+                    display: flex;
+                    flex-direction: column;
+                    margin-top: -90px;
+                    width: 60%;
+                    padding: 15px;
+                    gap: 10px;
+                    color: rgba(255, 255, 255, 0.8);
+                    font-weight: bold;
+                    font-size: 19px;
+                    width: 90%;
+
+                    
+                    .errors {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        .error-icon {
+                            color: #ea7476;
+                            margin-left: 15px;
+                        }
+
+                        .error-message {
+                            font-weight: lighter;
+                            font-size: 15px;
+                            color: #ea7476;
+                            font-style: italic;
+                        }
+        
+                    }
+
+                    
+    
+
+                }
+
+                .input {
+                    font-size: 16px;
+                    border-radius: 10px;
+                    background: black;
+                    padding: 10px;
+                    color: white;
+                    border: 3px solid rgba(255, 255, 255, 0.1);
+                    outline: none;
+                    transition: all 0.2s ease-in-out;
+
+                    &:hover {
+                        border-color: #7199ff;
+                    }
+
+                    &:focus {
+                        border-color: #1c5bf8;
+                        box-shadow: 2px 2px 5px #1c5bf8;
+                    }
+
+                    
+
+                }
+
+                 
+                .textarea {
+                    resize: none;
+                    height: 100px;
+
+                    font-size: 16px;
+                    border-radius: 10px;
+                    background: black;
+                    padding: 10px;
+                    color: white;
+                    border: 3px solid rgba(255, 255, 255, 0.1);
+                    outline: none;
+                    transition: all 0.2s ease-in-out;
+
+                    &:hover {
+                        border-color: #7199ff;
+                    }
+
+                    &:focus {
+                        border-color: #1c5bf8;
+                        box-shadow: 2px 2px 5px #1c5bf8;
+                    }
+
+                }
+            }
+            .for-the-button {
+                display: flex;
+                justify-content: center;
+                padding: 10px;
+                .blue-button {
+                    font-size: 19px;
+                    width: 85%;
+                    height: 45px;
+                    border: none;
+                    background: #1c5bf8;
+                    color: white;
+                    border-radius: 18px;
+                    transition: 250ms ease-in-out;
+                    cursor: pointer;
+
+                    &:hover {
+                        transform: translateY(-10px);
+                        font-size: 21px;
+                        box-shadow: 1px 1px 5px #1c5bf8;
+                    }
+                }
+            }
+        }
+    }
+
+    
+    .error-input {
+        font-size: 16px;
+        border-radius: 10px;
+        background: black;
+        padding: 10px;
+        color: white;
+        border: 2px solid #ea7476;
+        outline: none;
+        transition: all 0.2s ease-in-out;
+        resize: none;
+
+        
+    }
+
+    
 }
 
-
-
+.main-parent {
+    border: 1px solid blue;
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    .notification-alert-container {
+        border: 1px solid red;
+        width: 100%;
+    }
+}
 
