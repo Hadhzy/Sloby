@@ -19,7 +19,7 @@ function HeaderMenuItem({ item_data }) {
   
   return (
     <div className='menu-item'>
-      <Link className="off-link-dec" to={`categories/${item_data.menu_url}`}>
+      <Link className="off-link-dec" to={`categories/${item_data.url}`}>
             <div className="header-menu-items">
         {item_data.title.toUpperCase()}
         </div>
@@ -41,7 +41,7 @@ function HeaderMenuItem({ item_data }) {
           {item_data.items.map((i) => (
             <div key={i} className='popup-items'>
               <Link
-                to={`/categories/${item_data.menu_url}/${i
+                to={`/categories/${item_data.url}/${i
                   .toLowerCase()
                   .replaceAll(" ", "-")}`}
                 className='popup-items off-link-dec'

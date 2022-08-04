@@ -77,7 +77,7 @@ export const ContentContextProvider = (props) => {
     const fetch_social_content = () =>{
         axios({
             method: "get", 
-            url: `${process.env.REACT_APP_API_URL}social-content/`
+            url: `${process.env.REACT_APP_API_URL}sub-components-docs-about-us-goal-throw-a-message-community-our-project-content/`
         }).then(res => set_social_content(res.data))
     }
 
