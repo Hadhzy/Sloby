@@ -83,6 +83,7 @@ function Header() {
 
   let currentUrl = useLocation()
 
+  console.log(currentUrl.pathname)
 
   return (
     <div data_theme={theme}>

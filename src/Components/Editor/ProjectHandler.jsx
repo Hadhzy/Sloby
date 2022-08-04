@@ -213,7 +213,7 @@ function ProjectHandler() {
 
 
   return (
-    <div className="project-handler-container blur">
+    <div className="project-handler-container">
         {/* <ImageContainer /> */}
        <div className='display-flex'>
           <SideMenuBar />

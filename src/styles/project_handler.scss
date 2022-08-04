@@ -3,7 +3,6 @@
     display: flex;
     flex-direction: column;
 
-
     .menu-bar-container {
         height: 100%;
         width: 20%;
@@ -151,8 +150,8 @@
         align-items: center;
         .popup-content {
             background-color: #060606;
-            width: 800px;
-            height: 800px;
+            width: 65%;
+            height: 900px;
             border-radius: 20px;
             border: 0.5px solid rgba(255, 255, 255, 0.1);
             filter: blur(0);
