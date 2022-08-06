@@ -3,14 +3,24 @@
     display: flex;
     flex-direction: column;
 
+    .upsection-container {
+        display: flex;
+        height: 50px;
+        background: #060606;
+    }
+
+
+
+
     .menu-bar-container {
         height: 100%;
         width: 20%;
-        background-color: #101012;
+        background-color: rgba(0, 0, 0, 0.96);
         color: rgba(255, 255, 255, 0.8);
-        box-shadow: 0 0 10px 5px rgba(168, 168, 168, 0.15);
         z-index: 10;
+        border-right: 3px solid rgba(255, 255, 255, 0.1);
         
+
 
         .menu-items {
             display: flex;
@@ -23,12 +33,12 @@
                 padding: 10px;
 
                 &:hover {
-                    background-color: #1c5bf8;
+                    background: #1c5bf8;
                     border-radius: 16px;
                     transition: 250ms ease-in-out;
                     color: white;
                     box-shadow: 1px 1px 20px #1c5bf8;
-                }
+                }   
             }
         }
 
@@ -50,31 +60,6 @@
             
     }
 
-    .image-container {
-        height: 100%;
-
-        .text-container {
-            border: 1px solid red;
-            width: 50%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-
-            span {
-                font-size: 55PX;
-                text-align: center;
-            }
-        }
-
-        .illustration-container {
-            border: 1px solid blue;
-        }
-
-       
-    }
-
     .display-flex {
         display: flex;
         height: 100%;
@@ -82,7 +67,7 @@
 
 
     .project-creator-container {
-        width: 80%;
+        width: 100%;
         background-color: $settings-container-background-color;
         display: flex;
         gap: 200px;

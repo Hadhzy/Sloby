@@ -43,17 +43,7 @@ function ProjectHandler() {
         )
     }
     
-    const ImageContainer = () => {
-        return(
-            <div className='image-container'>
-                <div className='text-container'>
-                    <span>Welcome! In here you can  <strong>Create</strong>  or <strong>Pick</strong>  a Project</span>
-                </div>
-                <div className="illustration-container">
-                </div>
-            </div>
-        )
-    }
+    
 
     const [notification, setNotification] = useState(false)
     
@@ -150,6 +140,7 @@ function ProjectHandler() {
 
         
 
+
         render() {
             return (
                 <form className='popup-container' onSubmit={this.handleSubmit}>
@@ -208,13 +199,25 @@ function ProjectHandler() {
         }
     }    
         
-    
-    
+
+
+    const UpSection = () => {
+        return(
+            <div className='upsection-container'>
+                <div className='project-title'>
+                    Projects
+                </div>
+                <div className='search-bar'>
+                    Search bar
+                </div>
+            </div>
+        )
+    }
 
 
   return (
     <div className="project-handler-container">
-        {/* <ImageContainer /> */}
+          <UpSection />  
        <div className='display-flex'>
           <SideMenuBar />
           <ProjectCreator />  
