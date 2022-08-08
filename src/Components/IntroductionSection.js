@@ -37,7 +37,7 @@ function IntroductionSection() {
           <div>
             <Grid container spacing={2}>
               <Grid item>
-                <Link to="/editor/project-viewer">
+                <Link to="/editor/dashboard">
                   <button className='button'>{site_info.button_title_get_started}</button>
                 </Link>
               </Grid>

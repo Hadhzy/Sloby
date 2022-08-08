@@ -87,7 +87,7 @@ function Header() {
 
   return (
     <div data_theme={theme}>
-      <div className={`${currentUrl.pathname === "/editor/project-viewer" && "display-none" || currentUrl.pathname !== "editor/project-viewer" && "theme-case-header"} `}>
+      <div className={`${currentUrl.pathname === "/editor/dashboard" && "display-none" || currentUrl.pathname !== "editor/project-viewer" && "theme-case-header"} `}>
         <div className='header-container' >
           {console.log(currentUrl.pathname)}
           <div className='navigation'>

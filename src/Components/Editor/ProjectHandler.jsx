@@ -13,6 +13,8 @@ import AlertTitle from '@mui/material/AlertTitle';
 import Stack from '@mui/material/Stack';
 import "react-toastify/dist/ReactToastify.css"
 import { toast, ToastContainer } from 'react-toastify'
+import CreateNewFolderIcon from "@material-ui/icons/CreateNewFolder"
+import SearchIcon from "@material-ui/icons/Search"
 
 
 function ProjectHandler() {
@@ -47,18 +49,10 @@ function ProjectHandler() {
 
     const [notification, setNotification] = useState(false)
     
-    const ProjectCreator = () => {
+    const Projects = () => {
         return(
             <div className='project-creator-container'>
-                <div className='project-creator-template' onClick={() => setPopup(true)}>
-                    <div className="inner-content">
-                        <AddCircleIcon />
-                        <div className='description'> 
-                            New Project                    
-                        </div>
-                    </div>
-                </div>
-                {notification && <NotificationAlert />}
+                
             </div>
         )
     }
@@ -203,14 +197,22 @@ function ProjectHandler() {
 
     const UpSection = () => {
         return(
+        <div className="main-div">
             <div className='upsection-container'>
                 <div className='project-title'>
                     Projects
                 </div>
                 <div className='search-bar'>
-                    Search bar
+                    <SearchIcon className='search-icon'/> 
+                    <input type="text" className='search-input' placeholder="search for anything..."/>
+                </div>
+                <div className='handler-buttons'>
+                    <button className="button-base new-project" onClick={() => setPopup(true)}> <AddCircleIcon className="circle-icon"/> New Project</button>
+                    <button className="button-base new-folder"> <CreateNewFolderIcon className='cirlce-icon'/> New Folder</button>
                 </div>
             </div>
+            {notification && <NotificationAlert />}
+        </div>
         )
     }
 
@@ -220,7 +222,7 @@ function ProjectHandler() {
           <UpSection />  
        <div className='display-flex'>
           <SideMenuBar />
-          <ProjectCreator />  
+          <Projects />  
           {popup && <Popup />}
        </div>
     </div>
