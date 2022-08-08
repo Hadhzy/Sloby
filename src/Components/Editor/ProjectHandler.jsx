@@ -200,7 +200,7 @@ function ProjectHandler() {
         <div className="main-div">
             <div className='upsection-container'>
                 <div className='project-title'>
-                    Projects
+                    Projectssssss
                 </div>
                 <div className='search-bar'>
                     <SearchIcon className='search-icon'/> 
