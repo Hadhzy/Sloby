@@ -1,14 +1,15 @@
 import React, {useContext, useState, useEffect} from "react"
 import {ContentContext} from "./Context/ContentContext"
 import axios from "axios"
+import { useLocation } from "react-router-dom"
 
 
 function Footer() {
   const {footer} = useContext(ContentContext)
+  let currentUrl = useLocation()
 
 
-
-  return <div className='footer-container'>
+  return <div className={`${currentUrl.pathname === "/editor/dashboard" && "display-none" || currentUrl.pathname !== "/editor/dashboard" && "footer-container"}`}>
         {footer.map(footer_item => (
           <div className="footer-items content-base" key={footer_item.id}>
               <div className="footer-text footer-title">{footer_item.title}</div>

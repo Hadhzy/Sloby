@@ -203,12 +203,16 @@ function ProjectHandler() {
                     Projects
                 </div>
                 <div className='search-bar'>
-                    <SearchIcon className='search-icon'/> 
                     <input type="text" className='search-input' placeholder="search for anything..."/>
+                     <div className="search-icon-container">
+                     <img src="https://i.ibb.co/74mkvm1/icons8-search-48.png" alt="" className='icon' />
+                     <button>Search</button>
+                    </div>   
+
                 </div>
                 <div className='handler-buttons'>
-                    <button className="button-base new-project" onClick={() => setPopup(true)}> <AddCircleIcon className="circle-icon"/> New Project</button>
-                    <button className="button-base new-folder"> <CreateNewFolderIcon className='cirlce-icon'/> New Folder</button>
+                    <button className="button-base new-project" onClick={() => setPopup(true)}> <img src="https://i.ibb.co/cYbZ0Fv/icons8-web-design-48.png" alt="icons8-web-design-48" className='icon'></img> New Project</button>
+                    <button className="button-base new-folder"> <img src="https://i.ibb.co/RYZbbws/icons8-add-folder-48.png" alt="" className='icon'/> New Folder</button>
                 </div>
             </div>
             {notification && <NotificationAlert />}
