@@ -8,7 +8,7 @@
         .upsection-container {
 
             display: flex;
-            height: 70px;
+            height: 80px;
             background: #060606;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
@@ -29,42 +29,58 @@
                 display: flex;
                 width: 50%;
                 justify-content: center;
-                width: 500px;
+                width: 657px;
                 display: flex;
                 align-items: center;
                 border-radius: 10px;
                 transition: 350ms ease-in-out;
 
+                
                 &:hover {
-                    width: 510px;
+                    box-shadow: 1px 1px 20px rgba(255, 255, 255, 0.1);
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                }
+
+                &:focus {
+                    border: 1px solid rgba(255, 255, 255, 0.1);
                 }
 
 
                 .search-icon-container {
                     background-color: #141414;
-                    height: 39px;
+                    height: 53px;
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    border: 1px solid rgba(255, 255, 255, 0.1);
-                    border-left: none;
-                    border-radius: 0px 10px 10px 0px;
+                    border-right: none;
+                    border-radius: 10px 0px 0px 10px;
+                    padding: 10px;
+
+                    
+
                 }
+
+
+
+
 
 
                 .search-input {
                     border: none;
                     font-size: 14px;
-                    border-radius: 10px 0px 0px 10px ;
                     background: #141414;
                     padding: 8px;
                     color: white;
-                    border: 1px solid rgba(255, 255, 255, 0.1);
                     outline: none;
-                    border-right: none;
+                    border-left: none;
                     transition: all 0.2s ease-in-out;
                     width: 100%;
-                    height: 100%;
+                    height: 53px;
+                    border-right: none;
+                    border-radius: 0px 10px 10px 0px;
+                    
+            
+                    
                 }
             }
 

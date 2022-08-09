@@ -15,6 +15,7 @@ import "react-toastify/dist/ReactToastify.css"
 import { toast, ToastContainer } from 'react-toastify'
 import CreateNewFolderIcon from "@material-ui/icons/CreateNewFolder"
 import SearchIcon from "@material-ui/icons/Search"
+import { motion } from "framer-motion"
 
 
 function ProjectHandler() {
@@ -203,12 +204,11 @@ function ProjectHandler() {
                     Projects
                 </div>
                 <div className='search-bar'>
-                    <input type="text" className='search-input' placeholder="search for anything..."/>
-                     <div className="search-icon-container">
-                     <img src="https://i.ibb.co/74mkvm1/icons8-search-48.png" alt="" className='icon' />
-                     <button>Search</button>
-                    </div>   
-
+                    <div className="search-icon-container">
+                        <img src="https://i.ibb.co/74mkvm1/icons8-search-48.png" alt="" className='icon' />
+                    </div>
+                    <input type="text" className='search-input' placeholder="Find your Projects & Folders..."/>
+                  
                 </div>
                 <div className='handler-buttons'>
                     <button className="button-base new-project" onClick={() => setPopup(true)}> <img src="https://i.ibb.co/cYbZ0Fv/icons8-web-design-48.png" alt="icons8-web-design-48" className='icon'></img> New Project</button>
