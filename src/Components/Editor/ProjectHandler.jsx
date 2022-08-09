@@ -204,7 +204,10 @@ function ProjectHandler() {
                 </div>
                 <div className='search-bar'>
                     <input type="text" className='search-input' placeholder="search for anything..."/>
-                    <img src="https://i.ibb.co/74mkvm1/icons8-search-48.png" alt="" className='icon' />
+                     <div className="search-icon-container">
+                     <img src="https://i.ibb.co/74mkvm1/icons8-search-48.png" alt="" className='icon' />
+                     <button>Search</button>
+                    </div>   
 
                 </div>
                 <div className='handler-buttons'>
