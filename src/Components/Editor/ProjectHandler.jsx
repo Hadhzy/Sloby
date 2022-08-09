@@ -196,12 +196,14 @@ function ProjectHandler() {
         
 
 
+    
+
     const UpSection = () => {
         return(
         <div className="main-div">
             <div className='upsection-container'>
                 <div className='project-title'>
-                    Projects
+                {/* <img src="https://cdn.discordapp.com/attachments/753660501996863488/1006549172780023898/unknown.png" alt="" className='bigger-icon'/> */}
                 </div>
                 <div className='search-bar'>
                     <div className="search-icon-container">
