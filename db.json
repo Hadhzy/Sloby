@@ -230,8 +230,8 @@
 
 
   "projects-testin-for-search": [
-    {"id": 0, "name": "My Best Mobile App", "description": "Here is my best mobile app"},
-    {"id": 1, "name": "React Application", "description": "This is my react application to build up"}
+    {"id": 0, "name": "My Best Mobile App", "description": "Here is my best mobile app", "type": "project"},
+    {"id": 1, "name": "React Application", "description": "This is my react application to build up", "type": "folder"}
   ]
 
 }

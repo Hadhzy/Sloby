@@ -6,7 +6,7 @@ import {ContentContext} from "../../Context/ContentContext"
 import AddCircleIcon from "@material-ui/icons/AddCircle"
 import CloseIcon from "@material-ui/icons/Close"
 import {TextField} from "@material-ui/core"
-import { faSmile } from '@fortawesome/free-solid-svg-icons'
+import { faSmile, faThList } from '@fortawesome/free-solid-svg-icons'
 import ErrorIcon from "@material-ui/icons/Error"
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
@@ -16,6 +16,8 @@ import { toast, ToastContainer } from 'react-toastify'
 import CreateNewFolderIcon from "@material-ui/icons/CreateNewFolder"
 import SearchIcon from "@material-ui/icons/Search"
 import { motion } from "framer-motion"
+import SearchBar from "./SearchBar"
+import SearchResults from "./SearchResults"
 
 
 
@@ -59,7 +61,7 @@ function ProjectHandler() {
                     {
                         projects.map((project) => {
                             return (
-                                <div className='project'>
+                                <div className='project' key={project.id}>
                                     <img src="https://i.ibb.co/cYbZ0Fv/icons8-web-design-48.png" alt="icons8-web-design-48" className='project-test-image'></img> 
                                     <div className='project-title'>
                                         {project.name}
@@ -212,6 +214,10 @@ function ProjectHandler() {
         }
     }    
 
+    
+
+
+
 
     const UpSection = () => {
 
@@ -226,18 +232,14 @@ function ProjectHandler() {
                         </Link>
                     </div>
                 </div>
-                <div className='search-bar'>
-                    <div className="search-icon-container">
-                        <img src="https://i.ibb.co/74mkvm1/icons8-search-48.png" alt="" className='icon' />
-                    </div>
-                    <input type="text" className='search-input' placeholder="Find your Projects & Folders..."/>
-                
-                </div>
+                  <SearchBar />  
                 <div className='handler-buttons'>
                     <button className="button-base new-project" onClick={() => setPopup(true)}> <img src="https://i.ibb.co/cYbZ0Fv/icons8-web-design-48.png" alt="icons8-web-design-48" className='icon'></img> New Project</button>
-                    <button className="button-base new-folder"> <img src="https://i.ibb.co/RYZbbws/icons8-add-folder-48.png" alt="" className='icon'/> New Folder</button>
+                    <button className="button-base new-folder">  New Folder</button>
                 </div>
             </div>
+            <SearchResults />  
+
         </div>
         )
     }
@@ -250,6 +252,7 @@ function ProjectHandler() {
   return (
     <div className="project-handler-container">
           <UpSection />  
+
        <div className='display-flex'>
           <SideMenuBar />
           <Projects />  
