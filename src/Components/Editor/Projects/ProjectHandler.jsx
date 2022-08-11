@@ -2,7 +2,7 @@
 import React, {useContext, useState, useEfffect, useEffect} from 'react'
 import  ArrowBackIosIcon  from '@material-ui/icons/ArrowBackIos'
 import { Link } from "react-router-dom"
-import {ContentContext} from "../Context/ContentContext"
+import {ContentContext} from "../../Context/ContentContext"
 import AddCircleIcon from "@material-ui/icons/AddCircle"
 import CloseIcon from "@material-ui/icons/Close"
 import {TextField} from "@material-ui/core"
@@ -18,6 +18,8 @@ import SearchIcon from "@material-ui/icons/Search"
 import { motion } from "framer-motion"
 
 
+
+
 function ProjectHandler() {
 
     const {menu_bar_items} = useContext(ContentContext)
@@ -26,11 +28,7 @@ function ProjectHandler() {
     const SideMenuBar = () => {
         return(
             <div className='menu-bar-container'>
-                <div className="icon">
-                    <Link to="/" className='white'>
-                        <ArrowBackIosIcon className="arrow-icon"/>
-                    </Link>
-                </div>
+                
                 {
                    menu_bar_items.map((item) => (
                     <div className='menu-items' key={item.id}>
@@ -51,9 +49,29 @@ function ProjectHandler() {
     const [notification, setNotification] = useState(false)
     
     const Projects = () => {
+        const {projects} = useContext(ContentContext)
+
+
         return(
             <div className='project-creator-container'>
-                
+                {notification && <NotificationAlert />}
+                <div className='projects-container'>
+                    {
+                        projects.map((project) => {
+                            return (
+                                <div className='project'>
+                                    <img src="https://i.ibb.co/cYbZ0Fv/icons8-web-design-48.png" alt="icons8-web-design-48" className='project-test-image'></img> 
+                                    <div className='project-title'>
+                                        {project.name}
+                                    </div>
+                                    <div className='description'>
+                                        {project.description}
+                                    </div>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
             </div>
         )
     }
@@ -129,7 +147,7 @@ function ProjectHandler() {
                 setPopup(false)
                 this.handleNotification()
 
-                //in here goes the post request after validation
+                //in here goes the post request after validation and then the other we will get the data and display it
             }
         }
 
@@ -193,34 +211,40 @@ function ProjectHandler() {
             )
         }
     }    
-        
 
-
-    
 
     const UpSection = () => {
+
+
         return(
         <div className="main-div">
             <div className='upsection-container'>
                 <div className='project-title'>
-                {/* <img src="https://cdn.discordapp.com/attachments/753660501996863488/1006549172780023898/unknown.png" alt="" className='bigger-icon'/> */}
+                    <div className="icon">
+                        <Link to="/" className='white'>
+                            <ArrowBackIosIcon className="arrow-icon"/>
+                        </Link>
+                    </div>
                 </div>
                 <div className='search-bar'>
                     <div className="search-icon-container">
                         <img src="https://i.ibb.co/74mkvm1/icons8-search-48.png" alt="" className='icon' />
                     </div>
                     <input type="text" className='search-input' placeholder="Find your Projects & Folders..."/>
-                  
+                
                 </div>
                 <div className='handler-buttons'>
                     <button className="button-base new-project" onClick={() => setPopup(true)}> <img src="https://i.ibb.co/cYbZ0Fv/icons8-web-design-48.png" alt="icons8-web-design-48" className='icon'></img> New Project</button>
                     <button className="button-base new-folder"> <img src="https://i.ibb.co/RYZbbws/icons8-add-folder-48.png" alt="" className='icon'/> New Folder</button>
                 </div>
             </div>
-            {notification && <NotificationAlert />}
         </div>
         )
     }
+
+    
+
+    
 
 
   return (

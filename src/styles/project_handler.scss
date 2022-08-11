@@ -32,6 +32,23 @@
                     width: 35px;
                     height: 35px;
                 }
+
+
+                .icon {
+                    display: flex;
+                    align-items: center;
+
+                    .arrow-icon {
+                        font-size: 52px;
+                        padding: 10px;
+                        border-radius: 50%;
+                        background: #1c5bf8;
+        
+                        &:hover {
+                            box-shadow: 1px 1px 20px #1c5bf8;
+                        }
+                    }
+                }
             }
 
 
@@ -52,6 +69,7 @@
 
                 &:focus {
                     border: 1px solid rgba(255, 255, 255, 0.1);
+                    box-shadow: 1px 1px 20px rgba(255, 255, 255, 0.1);
                 }
 
 
@@ -88,7 +106,6 @@
                     border-right: none;
                     border-radius: 0px 10px 10px 0px;
                     
-            
                     
                 }
             }
@@ -190,20 +207,7 @@
         }
 
 
-        .icon {
-            .arrow-icon {
-                margin-left: 15px;
-                margin-top: 15px;
-                font-size: 52px;
-                padding: 10px;
-                border-radius: 50%;
-                background: #1c5bf8;
-
-                &:hover {
-                    box-shadow: 1px 1px 20px #1c5bf8;
-                }
-            }
-        }
+        
             
     }
 
@@ -217,8 +221,24 @@
         width: 100%;
         background-color: $settings-container-background-color;
         display: flex;
-        gap: 200px;
         
+        .projects-container {
+            border: 1px solid red;
+            width: 100%;
+            display: flex;
+            gap: 200px;
+
+            .project {
+                width: 220px;
+                border: 1px solid blue;
+                height: 220px;
+                text-align: center;
+                margin-left: 50px;
+                margin-top: 20px;
+                border-radius: 10px;
+                background: #060606;
+            }
+        }
     }
 
     .popup-container {

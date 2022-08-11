@@ -17,6 +17,7 @@ export const ContentContextProvider = (props) => {
     const [footer, set_footer] = useState([])
     const [social_content, set_social_content] = useState([])
     const [menu_bar_items, set_menu_bar_items] = useState([])
+    const [projects, set_projects] = useState([])
 
     const fetch_site_info = () =>{
         axios({
@@ -88,6 +89,13 @@ export const ContentContextProvider = (props) => {
         }).then(res => set_menu_bar_items(res.data))
     }
 
+    const fetch_projects = () => {
+        axios({
+            method: "get", 
+            url:`${process.env.REACT_APP_API_URL}projects-testin-for-search/`
+        }).then(res => set_projects(res.data))
+    }
+
     
 
     
@@ -102,6 +110,7 @@ export const ContentContextProvider = (props) => {
         fetch_footer()
         fetch_social_content()
         fetch_menu_bar_items()
+        fetch_projects()
     }, [])
 
     
@@ -117,7 +126,8 @@ export const ContentContextProvider = (props) => {
                 help_content: help_content,
                 footer: footer,
                 social_content: social_content,
-                menu_bar_items: menu_bar_items 
+                menu_bar_items: menu_bar_items,
+                projects: projects, 
                 }}>
                     {props.children}
                 </ContentContext.Provider>
