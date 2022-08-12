@@ -235,10 +235,9 @@ function ProjectHandler() {
                   <SearchBar />  
                 <div className='handler-buttons'>
                     <button className="button-base new-project" onClick={() => setPopup(true)}> <img src="https://i.ibb.co/cYbZ0Fv/icons8-web-design-48.png" alt="icons8-web-design-48" className='icon'></img> New Project</button>
-                    <button className="button-base new-folder">  New Folder</button>
+                    <button className="button-base new-folder">  <img src="https://cdn.discordapp.com/attachments/753660501996863488/1006217245485174844/unknown.png" alt="" className="icon"/> New Folder</button>
                 </div>
             </div>
-            <SearchResults />  
 
         </div>
         )
