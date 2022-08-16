@@ -1,19 +1,27 @@
 import React, {useContext} from 'react'
 import {ContentContext} from "../../Context/ContentContext"
 import {motion} from "framer-motion"
+import { useState } from 'react'
 
-function SearchResults({ value }) {
-
+function SearchResults({ searchInput }) {
+    
     const {projects} = useContext(ContentContext)
+
+
 
     
 
-    const ResultProjects = ({project_data}) => {
+
+
+    const ResultProjects = ({ project_data }) => {
+    
+        
+        
         return(
             <motion.div
-                    
-                    key={project_data.id}
-                >
+            
+            key={project_data.id}
+            >
                     <div className='search-result-itself'>
                         <div className='search-result-title'>{project_data.name}</div>
                         <div className='search-result-type'>
@@ -21,24 +29,26 @@ function SearchResults({ value }) {
                         </div>   
                     </div>
                     
-                    <div className='project-underline'></div>
+                    <div className='project-underline'>
+
+                    </div>
             </motion.div>  
         )
     }
-
-
-    let searchResult = projects.filter(project_data => project_data.name.includes(value))
-
-
     
-        return (
+    
+    let searchResult = projects.filter(project_data => project_data.name.includes(searchInput))
+
+    return (
         <div className='position-container'>
         <div className='search-results-container'>
+            
             {
                 searchResult.map(project_data => {
                     return <ResultProjects project_data={project_data} key={project_data.id}/>
                 })            
             }
+
         </div>
     </div> 
   )

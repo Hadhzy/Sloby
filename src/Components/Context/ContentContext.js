@@ -19,7 +19,8 @@ export const ContentContextProvider = (props) => {
     const [menu_bar_items, set_menu_bar_items] = useState([])
     const [projects, set_projects] = useState([])
 
-    const fetch_site_info = () =>{
+
+    const fetch_site_info = () => {
         axios({
             method: "get",
             url: `${process.env.REACT_APP_API_URL}site-info/`

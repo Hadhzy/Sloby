@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useRef} from "react"
 import SearchResults from "./SearchResults"
 import {motion} from "framer-motion"
 
@@ -8,20 +8,22 @@ const searchBarInitialState = {
 }
 
 
+
 class SearchBar extends React.Component {
     state = searchBarInitialState
-
+    
     handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
         })
     }
-
+    
     handleClose = () => {
         this.setState(searchBarInitialState)
     }
-
-
+    
+    
+    
     render() {
         return(
         <div>
@@ -47,7 +49,7 @@ class SearchBar extends React.Component {
                  animate={{ scale: 1, opacity: 1}}              
                  transition={{duration: 0.5, type: "tween",}} 
                 >
-                    <SearchResults value={this.state.searchInput}/>
+                    <SearchResults searchInput={this.state.searchInput}/>
                 </motion.div>
              ) : null}
         </div>
