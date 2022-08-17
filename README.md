@@ -1,70 +1,11 @@
-# Getting Started with Create React App
+# Sloby
+The **next level** online editor the allows people to build their own websites without **no problem** .
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Our TECH Stack 
+> We use `React` for the frontend and `FastAPI` to the backend. Both are very powerful and flexible when it comes to full-stack. 
 
-## Available Scripts
+#### React: 
+> All of our editor and frontend logics is going to be done with `React`. **React** is a powerful javascript based frontend framework. React is very flexible and unique and perfect for us to performe a high quality user interface, with logics. And our editor logics is also going to be done with `React`. After all React is going to be the best choice for us when it comes to frontend logics. 
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+`If you are beginner` : Did you just start with **React** or **javascript**? Don't worry you still can work with us. You should have a basic understanding about react. I recommend start with a full-course `React` tutorial from freeCodeCamp, the video was created by John Smilga from Code Addict. You can acces the link here
+** link here ** : https://www.youtube.com/watch?v=4UZrsTqkcW4&t=2s Once you do that, you should create some projects of apply your knowledge somehow. There is "Part 2" react Video also from Johh Smilga, in there you can build 15 project with the knwoledge that you've got. **Link in here** :  *https://www.youtube.com/watch?v=a_7Z7C_JCyo&t=14458s*
