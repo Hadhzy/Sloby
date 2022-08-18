@@ -59,7 +59,7 @@ npm start
 ```
 pip install fastapi
 ```
-#### Run
+#### Run:
 *To serve the python websocket, use*
 > If you working with python package*
 ```
@@ -68,6 +68,6 @@ cd app/
 ```
  uvicorn main:app --reload
 ```
-> "main" is the python file name
-> "app" is the python instance
+##### *"main"* is the python file name
+##### *"app"* is the python instance
 
