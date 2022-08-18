@@ -70,4 +70,4 @@ cd app/
 ```
 ##### *"main"* is the python file name
 ##### *"app"* is the python instance
-
+##### The *"--reload"* paramter means *two threads* will be started, *one* with the server, *one to monitor* file changes—when a file change is *detected*, the thread with the server is *restarted*.
