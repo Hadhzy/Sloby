@@ -90,9 +90,14 @@ function Header() {
 
   return (
     <div data_theme={theme}>
-      <div className={`${currentUrl.pathname === "/editor/dashboard" && "display-none" || currentUrl.pathname !== "editor/project-viewer" && "theme-case-header"} `}>
+      <div className={`${currentUrl.pathname === "/editor/dashboard" && "display-none" || currentUrl.pathname !== "editor/dashboard" && "theme-case-header"} `}>
         <div className='header-container' >
           {console.log(currentUrl.pathname)}
+
+                 <Link to="/" className="off-link-dec home icon">
+                     Sloby
+                 </Link>
+
           <div className='navigation'>
             <motion.div
               transition={{ delay: 1, duration: 1.5 }}
