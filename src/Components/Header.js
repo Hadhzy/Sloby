@@ -84,9 +84,13 @@ function Header() {
   let currentUrl = useLocation()
 
 
+
+
   return (
     <div data_theme={theme}>
-      <div className={`${currentUrl.pathname === "/editor/dashboard" && "display-none" || currentUrl.pathname !== "editor/project-viewer" && "theme-case-header"} `}>
+      <div className=
+      {`${currentUrl.pathname === "/editor/dashboard" && "display-none" || currentUrl.pathname !== "/editor/dashboard" && "theme-case-header" }`}
+      >
         <div className='header-container' >
           <div className='navigation'>
             <motion.div

@@ -1,11 +1,14 @@
 import React, {useRef} from "react"
 import SearchResults from "./SearchResults"
 import {motion} from "framer-motion"
+import { faThList } from "@fortawesome/free-solid-svg-icons"
 
 
 const searchBarInitialState = {
-    searchInput: ""
+    searchInput: "",
+    isInputFocused: false,
 }
+
 
 
 
@@ -21,10 +24,14 @@ class SearchBar extends React.Component {
     handleClose = () => {
         this.setState(searchBarInitialState)
     }
+
     
     
-    
+
     render() {
+        
+       
+
         return(
         <div>
             <div className='search-bar'>
@@ -38,23 +45,28 @@ class SearchBar extends React.Component {
                 value={this.state.searchInput}
                 onChange={this.handleChange}
                 name="searchInput"
+                onFocus={() => this.setState({ isInputFocused: true})}
+                onKeyPress={(e) => e.key === " " && this.state.isInputFocused && this.state.searchInput === "" ? e.preventDefault() : e.stopPropagation()}
                 />
                 <div className='close-icon-container' >
                     <img src="https://cdn.discordapp.com/attachments/753660501996863488/1007181968129138738/icons8-close-48.png" alt="" className='icon close' onClick={this.handleClose} />
                 </div>
             </div>
-             {this.state.searchInput ? (
-                <motion.div
-                 initial={{ scale: 0, opacity: 0}}
-                 animate={{ scale: 1, opacity: 1}}              
-                 transition={{duration: 0.5, type: "tween",}} 
+            {
+                this.state.isInputFocused ? (
+                    <motion.div
+                    initial={{ opacity: 0, scale: 0}}
+                    animate={{ opacity: 1, scale: 1}}
+                    transition={{ duration: 0.2, delay: 0.1}}
                 >
                     <SearchResults searchInput={this.state.searchInput}/>
                 </motion.div>
-             ) : null}
+                ) : null
+            }
         </div>
         )
     }
 }
+
 
 export default SearchBar
