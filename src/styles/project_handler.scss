@@ -8,7 +8,7 @@
         .upsection-container {
 
             display: flex;
-            height: 70px;
+            height: 80px;
             background: #060606;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
@@ -17,67 +17,59 @@
 
             .project-title {
                 color: #3f51b5;
-                margin-left: 15px;
                 font-size: 20px;
                 font-weight: bold;
                 font-style: italic;
-                width: 245px;
-            }
-
-
-            .search-bar {
-                display: flex;
-                width: 50%;
-                justify-content: center;
-                width: 500px;
+                width: 16.65%;
+                height: 100%;
                 display: flex;
                 align-items: center;
-                border-radius: 10px;
-                transition: 350ms ease-in-out;
+                padding-left: 15px;
+                border-right: 2px solid rgba(255, 255, 255, 0.1);
 
-                &:hover {
-                    width: 510px;
+
+                .bigger-icon {
+                    width: 35px;
+                    height: 35px;
                 }
 
 
-                .search-icon-container {
-                    background-color: #141414;
-                    height: 39px;
+                .icon {
                     display: flex;
-                    justify-content: center;
                     align-items: center;
-                    border: 1px solid rgba(255, 255, 255, 0.1);
-                    border-left: none;
-                    border-radius: 0px 10px 10px 0px;
-                }
 
-
-                .search-input {
-                    border: none;
-                    font-size: 14px;
-                    border-radius: 10px 0px 0px 10px ;
-                    background: #141414;
-                    padding: 8px;
-                    color: white;
-                    border: 1px solid rgba(255, 255, 255, 0.1);
-                    outline: none;
-                    border-right: none;
-                    transition: all 0.2s ease-in-out;
-                    width: 100%;
-                    height: 100%;
+                    .arrow-icon {
+                        font-size: 52px;
+                        padding: 10px;
+                        border-radius: 50%;
+                        background: #1c5bf8;
+        
+                        &:hover {
+                            box-shadow: 1px 1px 20px #1c5bf8;
+                        }
+                    }
                 }
             }
+
+
+           
 
             .icon {
                 width: 28px;
                 height: 28px;
+                
+                &.close {
+                    margin-right: 10px;
+                }
             }
 
             .handler-buttons {
-                width: 15%;
+                width: 16%;
                 display: flex;
-                justify-content: space-between;
-                margin-right: 15px;
+                justify-content: space-around;
+                padding-right: 5px;
+                height: 70%;;                    
+                align-items: center;
 
                 button {
                     display: flex;
@@ -127,6 +119,10 @@
                 }
             }
         }
+
+        
+            
+
     }
 
 
@@ -163,20 +159,7 @@
         }
 
 
-        .icon {
-            .arrow-icon {
-                margin-left: 15px;
-                margin-top: 15px;
-                font-size: 52px;
-                padding: 10px;
-                border-radius: 50%;
-                background: #1c5bf8;
-
-                &:hover {
-                    box-shadow: 1px 1px 20px #1c5bf8;
-                }
-            }
-        }
+        
             
     }
 
@@ -190,56 +173,25 @@
         width: 100%;
         background-color: $settings-container-background-color;
         display: flex;
-        gap: 200px;
-
-        .project-creator-template {
-            border: 1px solid #1c5bf8;
-            width: 200px;
-            height: 200px;
-            margin-left: 50px;
-            margin-top: 30px;
-            border-radius: 16px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #1c5bf8;
-            cursor: pointer;
-            transition: 550ms ease-in-out;
-
-
-            &:hover {
-                box-shadow: 2px 2px 5px #1c5bf8;
-
-                .inner-content {
-                    font-size: 18px;
-                }
-            }
-
-            .inner-content {
-                text-align: center;
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 15px;
-                transition: 250ms ease-in-out;
-
-
-                .description {
-                    font-style: italic;
-                    font-weight: bold;
-                }
-
-                .MuiSvgIcon-root {
-                    font-size: 50px;
-                }
-            }
-
-
-
-        }
         
+        .projects-container {
+            border: 1px solid red;
+            width: 100%;
+            display: flex;
+            gap: 200px;
+            color: white;
+
+            .project {
+                width: 220px;
+                border: 1px solid blue;
+                height: 220px;
+                text-align: center;
+                margin-left: 50px;
+                margin-top: 20px;
+                border-radius: 10px;
+                background: #060606;
+            }
+        }
     }
 
     .popup-container {

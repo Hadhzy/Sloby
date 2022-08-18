@@ -226,7 +226,13 @@
     {"id": 0, "title": "Account", "path": "#"},
     {"id": 1, "title": "Account", "path": "#"},
     {"id": 2, "title": "Account", "path": "#"}
-  ]
-}
+  ],
 
+
+  "projects-testin-for-search": [
+    {"id": 0, "name": "My Best Mobile App", "description": "Here is my best mobile app", "type": "project"},
+    {"id": 1, "name": "React Application", "description": "This is my react application to build up", "type": "folder"}
+  ]
+
+}
 
