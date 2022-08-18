@@ -10,13 +10,16 @@ import {ContentContext} from "./Context/ContentContext"
 import {UserContext} from "./Context/UserContext";
 import { useLocation } from 'react-router-dom';
 
+function Logger(variable) {
+  console.log(variable)
+  console.log(typeof variable)
+  if (typeof variable == "string"){
+     console.log(variable.length)
+  }
+}
 
 function HeaderMenuItem({ item_data }) {
 
-
-  
-
-  
   return (
     <div className='menu-item'>
       <Link className="off-link-dec" to={`categories/${item_data.url}`}>
