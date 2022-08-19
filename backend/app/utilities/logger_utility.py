@@ -3,4 +3,4 @@ from logging.handlers import RotatingFileHandler
 
 
 def setup_logger():
-    pass
+    print("This is just a simple logger function, because we need to debug code, we are not superheros")
