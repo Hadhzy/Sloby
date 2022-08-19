@@ -10,13 +10,16 @@ import {ContentContext} from "./Context/ContentContext"
 import {UserContext} from "./Context/UserContext";
 import { useLocation } from 'react-router-dom';
 
+function Logger(variable) {
+  console.log(variable)
+  console.log(typeof variable)
+  if (typeof variable == "string"){
+     console.log(variable.length)
+  }
+}
 
 function HeaderMenuItem({ item_data }) {
 
-
-  
-
-  
   return (
     <div className='menu-item'>
       <Link className="off-link-dec" to={`categories/${item_data.url}`}>
@@ -88,10 +91,15 @@ function Header() {
 
   return (
     <div data_theme={theme}>
-      <div className=
-      {`${currentUrl.pathname === "/editor/dashboard" && "display-none" || currentUrl.pathname !== "/editor/dashboard" && "theme-case-header" }`}
-      >
+
+      <div className={`${currentUrl.pathname === "/editor/dashboard" && "display-none" || currentUrl.pathname !== "editor/dashboard" && "theme-case-header"} `}>
         <div className='header-container' >
+          {console.log(currentUrl.pathname)}
+
+                 <Link to="/" className="off-link-dec home icon">
+                     Sloby
+                 </Link>
+
           <div className='navigation'>
             <motion.div
               transition={{ delay: 1, duration: 1.5 }}

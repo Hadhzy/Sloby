@@ -22,7 +22,8 @@ import {
 } from "./Components/Context/ThemeContext"
 import {ContentContextProvider} from "./Components/Context/ContentContext"
 import RegistrationEmailSentPage from "./Components/Users/RegistrationEmailSentPage";
-import ProjectHandler from "./Components/Editor/Projects/ProjectHandler"
+import ProjectHandler from "./Components/Editor/ProjectHandler"
+import AdminPage from "./Components/Admin/AdminPage"
 
 function App() {
   return (
@@ -48,7 +49,7 @@ function App() {
                   <Route path='users/login' element={<LoginPage />} />
                   <Route path='users/verified-registration-email' element={<RegistrationEmailSentPage/>} />
                   <Route path="/editor/dashboard" element={<ProjectHandler />} />
-
+                  <Route path="/admin" element={<AdminPage/>}/>
                 </Routes>
 
                 <Footer />
