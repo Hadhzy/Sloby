@@ -22,7 +22,7 @@ import {
 } from "./Components/Context/ThemeContext"
 import {ContentContextProvider} from "./Components/Context/ContentContext"
 import RegistrationEmailSentPage from "./Components/Users/RegistrationEmailSentPage";
-import ProjectHandler from "./Components/Editor/ProjectHandler"
+import ProjectHandler from "./Components/Editor/Projects/ProjectHandler"
 import AdminPage from "./Components/Admin/AdminPage"
 
 function App() {
