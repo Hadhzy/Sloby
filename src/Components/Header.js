@@ -86,10 +86,12 @@ function Header() {
 
   let currentUrl = useLocation()
 
-  console.log(currentUrl.pathname)
+
+
 
   return (
     <div data_theme={theme}>
+
       <div className={`${currentUrl.pathname === "/editor/dashboard" && "display-none" || currentUrl.pathname !== "editor/dashboard" && "theme-case-header"} `}>
         <div className='header-container' >
           {console.log(currentUrl.pathname)}
