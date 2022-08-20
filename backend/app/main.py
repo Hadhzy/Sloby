@@ -1,13 +1,19 @@
 import sys
-
+import json
 from fastapi import Depends, FastAPI, Response, status, HTTPException, Depends, WebSocket
 from fastapi_utils.cbv import cbv
 from fastapi_utils.inferring_router import InferringRouter
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
+
+from utilities.logger_utility import Logger
+from utilities.exceptions import WrongException
 from serve import Serve
 import models
 from sqlalchemy.orm import Session
+
+logger = Logger()
+logger = logger.get_logger()
 
 
 def get_x():
@@ -64,5 +70,13 @@ class Sloby:
         return {"data": "data1"}
 
     @router.websocket("/ws")
-    def ws(self):
-        pass
+    async def ws(self, websocket: WebSocket):
+        """ Handle all requests from frontend"""
+        await websocket.accept()
+        while True:
+            try:
+                data = await websocket.receive_text()
+            except Exception as e:
+                logger.info(f"receive_text failed: {e}")
+                break
+            logger.debug(f"quiz-received-data: {data}")

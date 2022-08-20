@@ -3,9 +3,12 @@ from logging.handlers import RotatingFileHandler
 
 
 class Logger:
-
+    """
+        Simple logger class, after the instance just call the get_logger method
+    """
     def __init__(self):
-        self.get_logger()
+        self.setup_logger()
+        self.create_file()
 
     # noinspection PyMethodMayBeStatic
     def setup_logger(self):
@@ -26,6 +29,4 @@ class Logger:
         self.logger.addHandler(ch)
 
     def get_logger(self):
-        self.setup_logger()
-        self.create_file()
         return self.logger
