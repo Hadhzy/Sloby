@@ -24,10 +24,10 @@ class SearchBar extends React.Component {
     handleClose = () => {
         this.setState(searchBarInitialState)
     }
-
     
     
-
+    
+    
     render() {
         
        
@@ -48,8 +48,11 @@ class SearchBar extends React.Component {
                 onFocus={() => this.setState({ isInputFocused: true})}
                 onKeyPress={(e) => e.key === " " && this.state.isInputFocused && this.state.searchInput === "" ? e.preventDefault() : e.stopPropagation()}
                 />
-                <div className='close-icon-container' >
-                    <img src="https://cdn.discordapp.com/attachments/753660501996863488/1007181968129138738/icons8-close-48.png" alt="" className='icon close' onClick={this.handleClose} />
+                <div className='close-icon-container' id="closeIcon">
+                    <img src="https://cdn.discordapp.com/attachments/753660501996863488/1007181968129138738/icons8-close-48.png" alt="" className='icon close' 
+                    onClick={this.handleClose}
+
+                    />
                 </div>
             </div>
             {
