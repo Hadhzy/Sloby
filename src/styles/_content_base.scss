@@ -29,6 +29,11 @@
   }
 }
 
+.hide {
+  visibility: hidden;
+  display: none;
+}
+
 
 
 
@@ -103,6 +108,10 @@
       text-decoration: underline;
     }
   }
+
+  &.navigate {
+    color: #0c46c7;
+  }
 }
 
 .display-none {
@@ -116,6 +125,11 @@
   &:hover {
     transition: 250ms ease-in-out;
     transform: scale(1.1);
+  }
+
+  &.smaller {
+    width: 30px;
+    height: 30px;
   }
 }
 

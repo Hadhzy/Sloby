@@ -158,14 +158,11 @@ function ProjectHandler() {
 
         render() {
             return (
-                <form className='popup-container' onSubmit={this.handleSubmit}>
-                    <div className='popup-content'>
+            <form className='popup-container' onSubmit={this.handleSubmit}>
+                <div className='popup-content'>
                        <div className='upbar-container'>
-                        <div className='title'>
-                                Create Your Own Project
-                            </div> 
-                            <div className='icon-container'>
-                                    <CloseIcon className='close-icon' onClick={() => setPopup(false)}/>
+                            <div className='icon-container close'>
+                                <img src="https://cdn.discordapp.com/attachments/753660501996863488/1007181968129138738/icons8-close-48.png" alt="" onClick={() => setPopup(false)} className='icon close smaller' />
                             </div> 
                        </div>
                         <div className='inputs'>
@@ -207,9 +204,9 @@ function ProjectHandler() {
                         </div>
                         <div className='for-the-button'>
                             <button className="blue-button">Submit</button>
-                        </div>
                     </div>
-                </form>
+                </div>
+            </form>
             )
         }
     }    
