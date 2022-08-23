@@ -230,9 +230,6 @@
 
 
   "projects-testin-for-search": [
-    {"id": 0, "name": "My Best Mobile App", "description": "Here is my best mobile app", "type": "project", "last": false},
-    {"id": 1, "name": "Some namme PP", "description": "This is   application to build ", "type": "folder", "last": false},
-    {"id": 2, "name": "Nanas App", "description": "This is my react  to build up", "type": "project", "last": true}
   ]
 
 }

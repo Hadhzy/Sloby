@@ -13,7 +13,14 @@ function SearchResults({ searchInput, isInputFocused }) {
     
     const EmptyError = () => {
         return (
-            <div className='error-container'>Stupid fuck Learn type first :D</div>
+            <div className='error-container'>
+                <div className='text-container'>
+                    You may be <span>mistyped</span> something or you haven't create a <span>project</span> or a <span>folder</span>  yet         
+                </div>
+                <div className='icon-container'>
+                    <img src="https://cdn.discordapp.com/attachments/753660501996863488/1011163488166613063/icons8-nothing-found-96.png" alt="" className='big-icon'/>
+                </div>
+            </div>
         )
     }
 
@@ -52,10 +59,6 @@ function SearchResults({ searchInput, isInputFocused }) {
     const value = searchInput.toLowerCase()
     let searchResult = projects.filter(project_data => project_data.name.toLowerCase().includes(value))
     let projectsLast = projects.map(project_data => project_data.last)
-
-    document.addEventListener("click", (e) => {
-        console.log(e.target.id)
-    })
 
 
     return (

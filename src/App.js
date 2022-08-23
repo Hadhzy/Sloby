@@ -17,12 +17,11 @@ import LoginPage from "./Components/Users/LoginPage"
 import {
   SettingsDataProvider,
 } from "./Components/Context/SettingsContext"
-import {
-  ThemeContextProvider,
-} from "./Components/Context/ThemeContext"
 import {ContentContextProvider} from "./Components/Context/ContentContext"
 import RegistrationEmailSentPage from "./Components/Users/RegistrationEmailSentPage";
 import ProjectHandler from "./Components/Editor/Projects/ProjectHandler"
+import ProjectsCotnextProvider from "./Components/Context/ProjectsContext"
+import { ThemeContextProvider } from "./Components/Context/ThemeContext"
 
 function App() {
   return (
@@ -31,6 +30,8 @@ function App() {
     <ContentContextProvider>
       <ThemeContextProvider>
         <SettingsDataProvider>
+          <ProjectsCotnextProvider>
+
                <div className='App'>
                 <Header/>
                 <Routes>
@@ -53,7 +54,7 @@ function App() {
 
                 <Footer />
           </div>
-
+          </ProjectsCotnextProvider>
         </SettingsDataProvider>
       </ThemeContextProvider>
       </ContentContextProvider>
