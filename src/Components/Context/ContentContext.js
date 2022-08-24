@@ -18,6 +18,7 @@ export const ContentContextProvider = (props) => {
     const [social_content, set_social_content] = useState([])
     const [menu_bar_items, set_menu_bar_items] = useState([])
     const [projects, set_projects] = useState([])
+    const [settings, set_settings] = useState([])
 
 
     const fetch_site_info = () => {
@@ -97,6 +98,12 @@ export const ContentContextProvider = (props) => {
         }).then(res => set_projects(res.data))
     }
 
+    const fetch_settings = () =>{
+        axios({
+            method: "get",
+            url: `${process.env.REACT_APP_API_URL}settings-menu/`
+        }).then(res => set_settings(res.data))
+    }
     
 
     
@@ -112,6 +119,7 @@ export const ContentContextProvider = (props) => {
         fetch_social_content()
         fetch_menu_bar_items()
         fetch_projects()
+        fetch_settings()
     }, [])
 
     
@@ -129,6 +137,7 @@ export const ContentContextProvider = (props) => {
                 social_content: social_content,
                 menu_bar_items: menu_bar_items,
                 projects: projects, 
+                settings: settings,
                 }}>
                     {props.children}
                 </ContentContext.Provider>

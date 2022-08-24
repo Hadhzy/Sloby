@@ -2,12 +2,14 @@ import React, {useContext, useEffect} from "react"
 import { ProjectsContext } from "../../Context/ProjectsContext"
 import { toast, ToastContainer } from 'react-toastify'
 import ProjectsDetails from "./ProjectsDetails"
+import { ProjectsHandlerContext } from "../../Context/ProjectsHandlerContext"
 
 
 
-const ProjectsContainer = ({ notification }) => {
+const ProjectsContainer = () => {
     const {projects} = useContext(ProjectsContext)
-    
+    const { notification } = useContext(ProjectsHandlerContext)    
+
     const NotificationAlert = () => {
         useEffect(() => {
            toast.success("Success") 

@@ -14,14 +14,13 @@ import Profile from "./Components/SubComponents/User"
 import RegisterPage from "./Components/Users/RegisterPage"
 import {UserContextProvider} from "./Components/Context/UserContext"
 import LoginPage from "./Components/Users/LoginPage"
-import {
-  SettingsDataProvider,
-} from "./Components/Context/SettingsContext"
+
 import {ContentContextProvider} from "./Components/Context/ContentContext"
 import RegistrationEmailSentPage from "./Components/Users/RegistrationEmailSentPage";
-import ProjectHandler from "./Components/Editor/Projects/ProjectHandler"
+import ProjectHandler from "./Components/Editor/ProjectsSection/ProjectHandler"
 import ProjectsCotnextProvider from "./Components/Context/ProjectsContext"
 import { ThemeContextProvider } from "./Components/Context/ThemeContext"
+import {ProjectsHandlerContextProvider} from "./Components/Context/ProjectsHandlerContext"
 
 function App() {
   return (
@@ -29,9 +28,8 @@ function App() {
     <UserContextProvider>
     <ContentContextProvider>
       <ThemeContextProvider>
-        <SettingsDataProvider>
           <ProjectsCotnextProvider>
-
+            <ProjectsHandlerContextProvider>
                <div className='App'>
                 <Header/>
                 <Routes>
@@ -54,8 +52,8 @@ function App() {
 
                 <Footer />
           </div>
+          </ProjectsHandlerContextProvider>
           </ProjectsCotnextProvider>
-        </SettingsDataProvider>
       </ThemeContextProvider>
       </ContentContextProvider>
     </UserContextProvider>
