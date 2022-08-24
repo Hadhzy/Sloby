@@ -33,7 +33,7 @@ class SearchBar extends React.Component {
        
 
         return(
-        <div>
+        <div className="searchbar-container">
             <div className='search-bar'>
                 <div className="search-icon-container">
                     <img src="https://i.ibb.co/74mkvm1/icons8-search-48.png" alt="" className='icon' />

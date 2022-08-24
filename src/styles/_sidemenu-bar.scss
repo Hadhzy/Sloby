@@ -1,0 +1,30 @@
+.menu-bar-container {
+    height: 100;
+    width: 20%;
+    // background-color: $settings-container-background-color;
+    background: #0d0e0e;
+    // background: #212121;
+    z-index: 10;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    
+
+
+    .menu-items {
+        display: flex;
+        margin-top: 40px;
+        justify-content:  center;
+        font-size: 16px;
+
+        a {
+            color: white;
+            &:hover {
+                background: #1c5bf8;
+                border-radius: 16px;
+                transition: 250ms ease-in-out;
+                color: white;
+                box-shadow: 1px 1px 20px #1c5bf8;
+            }   
+        }
+    }
+        
+}

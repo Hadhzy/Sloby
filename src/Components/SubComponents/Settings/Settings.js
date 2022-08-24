@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react"
-import { SettingsDataContext } from "../../Context/SettingsContext"
 import { styled } from "@mui/material/styles"
 import Card from "@mui/material/Card"
 import CardHeader from "@mui/material/CardHeader"
@@ -16,6 +15,7 @@ import Switch from '@mui/material/Switch';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
+import { ContentContext } from "../../Context/ContentContext"
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props
@@ -29,7 +29,7 @@ const ExpandMore = styled((props) => {
 }))
 
 function Settings(props) {
-  const { settings } = useContext(SettingsDataContext)
+  const { settings } = useContext(ContentContext)
   const [expanded, setExpanded] = useState(new Array(settings.length).fill(true))
   console.log(expanded)
   const handleOnchange  = (position) => {
