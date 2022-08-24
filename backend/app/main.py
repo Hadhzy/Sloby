@@ -67,7 +67,9 @@ class Sloby:
     # noinspection PyMethodMayBeStatic
     @router.get("/test")
     def test(self):
-        return {"data": "data1"}
+        data = "test"
+
+        return {"data": data}
 
     @router.websocket("/ws")
     async def ws(self, websocket: WebSocket):
@@ -80,3 +82,6 @@ class Sloby:
                 logger.info(f"receive_text failed: {e}")
                 break
             logger.debug(f"quiz-received-data: {data}")
+
+
+app.include_router(router)

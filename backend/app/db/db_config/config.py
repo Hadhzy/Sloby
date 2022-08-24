@@ -2,6 +2,8 @@ import os
 from configparser import ConfigParser
 
 # https://stackoverflow.com/a/5137509
+from fastapi import params
+
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 
@@ -28,6 +30,7 @@ def config(filename='database.ini', section="postgresql") -> dict:
 
     if parser.has_section(section):  # if we defined a section in our ini file
         params = parser.items(section)  # Return a list of (name, value) tuples for each option in a section
+
         for key, value in params:  # get the value and a key from the params dict
             if value.lower() == "true":  # if we have  an item
                 value = True
@@ -42,5 +45,6 @@ def config(filename='database.ini', section="postgresql") -> dict:
 
 if __name__ == '__main__':
     c = config('database_remote.ini')  # get the dict
+
     for key, value in c.items():  # loop over it
         print(key, type(value), value)  # print the key, value and the value type
