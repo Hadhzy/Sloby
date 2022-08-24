@@ -13,6 +13,10 @@
     height: $header-height;
     background-color: $header-background-color;
     padding: 10px 0;
+    .home{
+        margin: 10px;
+        color: white;
+    }
     .base-sidebar-icon{
         width: 50px;
         cursor: pointer;
