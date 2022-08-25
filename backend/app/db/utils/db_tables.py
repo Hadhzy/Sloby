@@ -1,5 +1,5 @@
 
-create_user_data = '''
+CREATE_USER_DATA = '''
     CREATE TABLE USER_DATA(
         ID SERIAL PRIMARY KEY,
         GENDER TEXT NOT NULL,
@@ -8,7 +8,7 @@ create_user_data = '''
 '''
 
 
-create_post_data = '''
+CREATE_POST_DATA = '''
     CREATE TABLE POST_DATA(
         ID SERIAL PRIMARY KEY,
         POST TEXT NOT NULL,

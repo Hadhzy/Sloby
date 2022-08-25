@@ -17,7 +17,7 @@ logger = logger.get_logger()
 
 # db_tables
 
-from db.utils.db_tables import create_post_data, create_user_data
+from db.utils.db_tables import CREATE_POST_DATA, CREATE_USER_DATA
 
 
 def get_x():
@@ -55,8 +55,7 @@ app.add_middleware(CORSMiddleware,
                    allow_methods=['*'],
                    allow_headers=['*'])
 
-sloby_db = SlobyDB(tables=[{"user_data": create_user_data}, {"create_post": create_post_data}], show_tables=True,
-                   drop=["DROP TABLE IF EXISTS USER_DATA", "DROP TABLE IF EXISTS POST_DATA"])
+sloby_db = SlobyDB(tables=[{"USER_DATA": CREATE_USER_DATA}, {"POST_DATA": CREATE_POST_DATA}], show_tables=False)
 
 
 @cbv(router)  # Step 2: Create and decorate a class to hold the endpoints

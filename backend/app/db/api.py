@@ -1,11 +1,8 @@
 # standard library imports
 import logging
-import random
-from uuid import uuid4
-
 # third party imports
 from psycopg import Connection, connect, errors
-from psycopg.rows import class_row
+from typing import List
 
 # this project
 
@@ -41,7 +38,7 @@ class SlobyDB:
         if self.conf['should_initialize_database']:
             self.__initiate_database()
         if show_tables:
-            print(self.__get_tables())
+            logger.info(self._get_all_tables())
 
     def __conn_singleton(self) -> Connection:
         conn = ""
@@ -67,27 +64,44 @@ class SlobyDB:
         with self.__conn_singleton() as conn:
             logger.info("Connecting to DB")
             with conn.cursor() as cur:  # get the cursor
-                for dr in self.drop:
-                    cur.execute(dr)
-
                 for dict in self.tables:
+                    print(dict)
+                    exists = self.__exists_check(dict)
+                    print(exists)
                     for key, value in dict.items():
-                        cur.execute(value)
-                        logger.info(f"Added {key} table to DB.")
+                        if exists:
+                            logger.info(f"This table {key} already exists.")
+                        else:
+                            cur.execute(value)
+                            logger.info(f"Added {key} table to the DB.")
 
-    def __exists_check(self, table: list[str]) -> bool:
+    def __exists_check(self, table: dict[str, str]) -> bool:
         """
             Args:
-                table: list[str]: List, inside it a dict(key-> name of the table, value-> "table").
+                table: dict[str, str]:  Dict(key-> name of the table, value-> "table").
             Returns:
                 A Boolean, if it is exist true, if it is not then false.
         """
 
         with self.__conn_singleton() as conn:
             with conn.cursor() as cur:
-                pass
+                name = self.__get_table_name(table)
 
-    def __get_tables(self) -> None:
+                cur.execute("""
+                SELECT EXISTS(
+                SELECT FROM
+                    pg_tables
+                WHERE 
+                     schemaname = 'public' AND
+                     tablename = (%(name)s)
+                     )
+                    """, {"name": str(name).lower()}
+                        )
+                exists = cur.fetchone()
+                print(name, exists)
+                return exists[0]
+
+    def _get_all_tables(self) -> List:
         """
             Get all of the tables in the DB.
         """
@@ -99,7 +113,20 @@ class SlobyDB:
                     FROM
                     information_schema.tables
                 """)
-                cur.fetchall()
+                return cur.fetchall()
+
+    # noinspection PyMethodMayBeStatic
+    def __get_table_name(self, table: dict[str, str]) -> str:
+        """
+            ARGS:
+                table: dict[str, str]:dict(key-> name of the table, value-> "table").
+            RETURNS:
+                str: The Name of the table
+        """
+
+        for key, value in table.items():
+            return str(key)
+
     def drop_the_tables(self):
         pass
 
