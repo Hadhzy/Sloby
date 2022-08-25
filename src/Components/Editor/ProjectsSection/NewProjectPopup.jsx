@@ -1,16 +1,21 @@
 import React, {useContext} from "react";
 import ErrorIcon from "@material-ui/icons/Error"
 import { ProjectsHandlerContext } from "../../Context/ProjectsHandlerContext";
+import { ProjectsContext } from "../../Context/ProjectsContext";
+import { faThList } from "@fortawesome/free-solid-svg-icons";
 
 
 const initialState = {
     name: "",
     nameError: "",
+    description: "",
+    descriptionError: "",
 }
 
 
 function Popup() {
     const {setPopup, setNotification} = useContext(ProjectsHandlerContext)
+    const { dispatch } = useContext(ProjectsContext)
 
     class PopupContent extends React.Component {
         state = initialState
@@ -25,13 +30,18 @@ function Popup() {
     
         validateForm = () => {
             let nameError = ""
+            let descriptionError = ""
     
             if(this.state.name.split("").length <= 5) {
                 nameError = "Please enter a name that at least 6 characters long!"
             }
+
+            if(this.state.description.split("").length <= 12 ) {
+                descriptionError = "Please enter a description that at least 12 characters long!"
+            }
            
             if(nameError ) {
-                this.setState({ nameError, })
+                this.setState({ nameError, descriptionError })
                 return false
             }
     
@@ -52,13 +62,13 @@ function Popup() {
     
     
             if(isValid) {
-            
-    
+                dispatch({ type: 'ADD_PROJECT',  project: {
+                    name: this.state.name,
+                    description: this.state.description,
+                }})
+                
                 this.setState(initialState)
                 setPopup(false)
-                this.handleNotification()
-    
-               
             }
         }
     
@@ -70,13 +80,15 @@ function Popup() {
             <form className='popup-container' onSubmit={this.handleSubmit}>
                 <div className='popup-content'>
                        <div className='upbar-container'>
-                            <div className='icon-container close'>
-                                <img src="https://cdn.discordapp.com/attachments/753660501996863488/1007181968129138738/icons8-close-48.png" alt="" onClick={() => setPopup(false)} className='icon close smaller' />
-                            </div> 
+                          <div className='icon-container close'>
+                            <div className="title">Create Your Projects</div>
+                                <div className="image-container">
+                                    <img src="https://cdn.discordapp.com/attachments/753660501996863488/1007181968129138738/icons8-close-48.png" alt="" onClick={() => setPopup(false)} className='icon close smaller' />
+                                </div> 
+                          </div> 
                        </div>
                         <div className='inputs'>
                             <label className='input-content'>
-                                ProjectName
                                 <input 
                                 type="text"
                                 value={this.state.name}
@@ -85,15 +97,27 @@ function Popup() {
                                 className={`${this.state.nameError ? "error-input" : "input"}`}
                                 placeholder='give the project name...'
                                 />
-                               
-                                
+
                                 <div className="errors">
                                     <div className='error-message'>{this.state.nameError}</div>
                                     {this.state.nameError ? <ErrorIcon className="error-icon" /> : null}
                                 </div> 
-                        
                             </label>
-    
+
+                            <label className='input-content'>
+                                <textarea 
+                                type="text"
+                                value={this.state.description}
+                                name="description"
+                                onChange={this.handleChange}
+                                className={`${this.state.descriptionError ? "error-input" : "input textarea"}`}
+                                placeholder='give the project description...'
+                                />
+                                <div className="errors">
+                                    <div className='error-message'>{this.state.descriptionError}</div>
+                                    {this.state.descriptionError ? <ErrorIcon className="error-icon" /> : null}
+                                </div>
+                            </label>
                         </div>
                         <div className='for-the-button'>
                             <button className="blue-button">Submit</button>

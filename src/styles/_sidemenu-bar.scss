@@ -1,30 +1,66 @@
 .menu-bar-container {
     height: 100;
     width: 20%;
-    // background-color: $settings-container-background-color;
-    background: #0d0e0e;
-    // background: #212121;
+    background: $side-bar-backround;
     z-index: 10;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-    
+    box-shadow: 1px 1px 5px rgba(255, 255, 255, 0.1);     
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-
-    .menu-items {
+   .menu-bar-item {
+        margin-top: 50px;
         display: flex;
-        margin-top: 40px;
-        justify-content:  center;
-        font-size: 16px;
+        align-items: center;
+        gap: 10px;  
+        border-radius: 10px;
+        width: 95%;
+        padding: 5px;
+        transition: 250ms ease-in-out;
 
-        a {
-            color: white;
-            &:hover {
-                background: #1c5bf8;
-                border-radius: 16px;
-                transition: 250ms ease-in-out;
-                color: white;
-                box-shadow: 1px 1px 20px #1c5bf8;
-            }   
+        .menu-bar-title {
+            margin-left: 10px;
+            color: $side-bar-font-color;
+            font-weight: bold;
+            transition: 250ms ease-in-out;
         }
-    }
+
+        img {
+            margin-left: 10px;
+            width: 50px;
+            height: 50px;
+        }
+
+        &:hover {
+            background: #1c5bf8;
+            box-shadow: 1px 1px 20px #3f75ff;
+            cursor: pointer;
+            .menu-bar-title {
+                color: white;
+            }
+
+        }
+   }
         
 }
+
+.menu-bar-item-active {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;  
+    border-radius: 10px;
+    width: 95%;
+    padding: 5px;
+    transition: 250ms ease-in-out;
+    background: #1c5bf8;
+
+    .menu-bar-title-active {
+        margin-left: 10px;
+        color: white;
+        font-weight: bold;
+        transition: 250ms ease-in-out;
+    }
+
+}
+
