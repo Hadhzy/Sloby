@@ -1,0 +1,8 @@
+2022-08-25 09:34:54,333 - sloby.db - ERROR - db connect failed {'host': 'tai.db.elephantsql.com', 'dbname': 'ciqrsftx', 'user': 'ciqrsftx', 'password': 'qhqwls9u9JpK8FZ93amFfNTFEtm2SVD4M', 'should_initialize_database': True}
+Traceback (most recent call last):
+  File "D:\Sloby\sloby\backend\app\db\api.py", line 47, in __conn_singleton
+    conn = connect(
+  File "D:\Sloby\sloby\backend\venv\lib\site-packages\psycopg\connection.py", line 578, in connect
+    raise ex.with_traceback(None)
+psycopg.OperationalError: connection failed: FATAL:  password authentication failed for user "ciqrsftx"
+connection to server at "tai.db.elephantsql.com" (18.203.249.221), port 5432 failed: FATAL:  password authentication failed for user "ciqrsftx"

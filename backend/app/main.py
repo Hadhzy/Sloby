@@ -9,11 +9,15 @@ from fastapi.middleware.gzip import GZipMiddleware
 from utilities.logger_utility import Logger
 from utilities.exceptions import WrongException
 from serve import Serve
-import models
-from sqlalchemy.orm import Session
+
+from db.api import SlobyDB
 
 logger = Logger()
 logger = logger.get_logger()
+
+# db_tables
+
+from db.utils.db_tables import create_post_data, create_user_data
 
 
 def get_x():
@@ -50,6 +54,9 @@ app.add_middleware(CORSMiddleware,
                    allow_credentials=True,
                    allow_methods=['*'],
                    allow_headers=['*'])
+
+sloby_db = SlobyDB(tables=[{"user_data": create_user_data}, {"create_post": create_post_data}], show_tables=True,
+                   drop=["DROP TABLE IF EXISTS USER_DATA", "DROP TABLE IF EXISTS POST_DATA"])
 
 
 @cbv(router)  # Step 2: Create and decorate a class to hold the endpoints

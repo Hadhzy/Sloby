@@ -7,7 +7,7 @@ from fastapi import params
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 
-def config(filename='database.ini', section="postgresql") -> dict:
+def config(filename='database_remote.ini', section="postgresql") -> dict:
     """**Makes a dict out of string.**
     Taking info from database.ini to use for the database connection
     :param filename: A ini file containing info for connection in the same folder as this file
@@ -23,8 +23,7 @@ def config(filename='database.ini', section="postgresql") -> dict:
         parser.read(full_filename)  # read the database.ini file from the path
     else:
         dir_content = os.listdir(dir_path)  # get the content of the dir from the dir path
-        raise OSError(F'No {full_filename} found, copy one of the database_*.ini files to database.ini in{dir_path} '
-                      f'found {dir_content}')
+        raise OSError(f'No {full_filename} found, copy one of the database_*.ini files to database.ini in{dir_path} found {dir_content}')
 
     db = {}  # create an empty dict
 
