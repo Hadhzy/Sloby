@@ -1,11 +1,26 @@
 import React, {useContext, useState, useEfffect, useEffect} from 'react'
 import SearchBar from "./SearchBar"
 import SideMenuBar from './SideMenuBar'
-import ProjectsContainer from "./ProjectsContainer"
-import Popup from './Popup'
+import ProjectsList from "./ProjectsList"
+import NewProjectPopup from './NewProjectPopup'
 import {ProjectsHandlerContext} from '../../Context/ProjectsHandlerContext'
+import { toast, ToastContainer } from 'react-toastify'
 
 function ProjectHandler() {
+
+    const NotificationAlert = () => {
+        useEffect(() => {
+           toast.success("Success") 
+        }, [])
+
+
+        return (
+           <div className='notification-alert-container'>
+                <ToastContainer theme="dark" />
+           </div>
+        )
+
+    }
 
     const {popup, setPopup, notification, setNotification} = useContext(ProjectsHandlerContext)
 
@@ -20,7 +35,6 @@ function ProjectHandler() {
                         <img src="https://cdn.discordapp.com/attachments/753660501996863488/1011564091401314344/icons8-male-user-96.png" alt="" className='base-icon '/>
                         <div className="user-details">
                             gaborhadhazy
-                            gaborhadhazy@gmail.com
                         </div>    
                 </div>
                   <SearchBar />  
@@ -29,7 +43,6 @@ function ProjectHandler() {
                     <button className="button-base new-folder">  <img src="https://cdn.discordapp.com/attachments/753660501996863488/1006217245485174844/unknown.png" alt="" className="icon"/> New Folder</button>
                 </div>
             </div>
-
         </div>
         )
     }
@@ -43,8 +56,9 @@ return (
 
        <div className='display-flex'>
           <SideMenuBar />
-          <ProjectsContainer />  
-          {popup && <Popup />}
+          <ProjectsList />  
+          {popup && <NewProjectPopup />}
+          {notification && <NotificationAlert />}
        </div>
     </div>
   )

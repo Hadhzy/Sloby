@@ -13,11 +13,9 @@ export const ContentContextProvider = (props) => {
     const [users_create_account, set_users_create_account] = useState([])
     const [forum_and_security, set_forum_and_security] = useState([])
     const [help_content, set_help_content] = useState([])
-    const [chat, set_chat] = useState([])
     const [footer, set_footer] = useState([])
     const [social_content, set_social_content] = useState([])
     const [menu_bar_items, set_menu_bar_items] = useState([])
-    const [projects, set_projects] = useState([])
     const [settings, set_settings] = useState([])
 
 
@@ -91,13 +89,6 @@ export const ContentContextProvider = (props) => {
         }).then(res => set_menu_bar_items(res.data))
     }
 
-    const fetch_projects = () => {
-        axios({
-            method: "get", 
-            url:`${process.env.REACT_APP_API_URL}projects-testin-for-search/`
-        }).then(res => set_projects(res.data))
-    }
-
     const fetch_settings = () =>{
         axios({
             method: "get",
@@ -118,7 +109,6 @@ export const ContentContextProvider = (props) => {
         fetch_footer()
         fetch_social_content()
         fetch_menu_bar_items()
-        fetch_projects()
         fetch_settings()
     }, [])
 
@@ -136,7 +126,6 @@ export const ContentContextProvider = (props) => {
                 footer: footer,
                 social_content: social_content,
                 menu_bar_items: menu_bar_items,
-                projects: projects, 
                 settings: settings,
                 }}>
                     {props.children}

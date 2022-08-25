@@ -21,7 +21,7 @@ import RegistrationEmailSentPage from "./Components/Users/RegistrationEmailSentP
 import ProjectsCotnextProvider from "./Components/Context/ProjectsContext"
 import { ThemeContextProvider } from "./Components/Context/ThemeContext"
 import {ProjectsHandlerContextProvider} from "./Components/Context/ProjectsHandlerContext"
-import ProjectHandler from "./Components/Editor/ProjectHandler"
+import ProjectHandler from "./Components/Editor/ProjectsSection/ProjectHandler"
 import AdminPage from "./Components/Admin/AdminPage"
 
 function App() {
@@ -49,6 +49,7 @@ function App() {
                   <Route path='users/login' element={<LoginPage />} />
                   <Route path='users/verified-registration-email' element={<RegistrationEmailSentPage/>} />
                   <Route path="/editor/dashboard" element={<ProjectHandler />} />
+
                   <Route path="/admin" element={<AdminPage/>}/>
                 </Routes>
 

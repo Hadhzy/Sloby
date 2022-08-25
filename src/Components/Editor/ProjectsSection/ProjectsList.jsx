@@ -10,25 +10,12 @@ const ProjectsContainer = () => {
     const {projects} = useContext(ProjectsContext)
     const { notification } = useContext(ProjectsHandlerContext)    
 
-    const NotificationAlert = () => {
-        useEffect(() => {
-           toast.success("Success") 
-        }, [])
-
-
-        return (
-           <div className='notification-alert-container'>
-                <ToastContainer theme="dark" />
-           </div>
-        )
-
-    }
 
 
     const OptionalFreeTime = () => {
         return (
             <div className="optional-container">
-                {projects.length}
+                No Projects Hello FreeTime
             </div>
         )
     }
@@ -36,7 +23,6 @@ const ProjectsContainer = () => {
 
     return(
         <div className='project-creator-container'>
-            {notification && <NotificationAlert />}
                 {
                     projects.length ? (
                        <div className="projects-container">

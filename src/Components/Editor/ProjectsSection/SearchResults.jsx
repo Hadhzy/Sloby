@@ -3,9 +3,10 @@ import {ContentContext} from "../../Context/ContentContext"
 import {motion} from "framer-motion"
 import { useState } from 'react'
 import {Link} from "react-router-dom"
+import {ProjectsContext} from "../../Context/ProjectsContext"
 
 function SearchResults({ searchInput, isInputFocused }) {
-    const {projects} = useContext(ContentContext)
+    const {projects} = useContext(ProjectsContext)
     const [isEmpty, setIsEmpty] = useState(false)
 
 
