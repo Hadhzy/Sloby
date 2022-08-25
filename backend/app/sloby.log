@@ -6,3 +6,10 @@ Traceback (most recent call last):
     raise ex.with_traceback(None)
 psycopg.OperationalError: connection failed: FATAL:  password authentication failed for user "ciqrsftx"
 connection to server at "tai.db.elephantsql.com" (18.203.249.221), port 5432 failed: FATAL:  password authentication failed for user "ciqrsftx"
+2022-08-25 13:51:05,353 - sloby.db - INFO - Connecting to DB
+2022-08-25 13:51:05,665 - sloby.db - INFO - Added user_data table to DB.
+2022-08-25 13:51:56,935 - sloby.db - INFO - Connecting to DB
+2022-08-25 13:51:57,188 - sloby.db - INFO - Added user_data table to DB.
+2022-08-25 13:52:16,039 - sloby.db - INFO - Connecting to DB
+2022-08-25 13:52:16,332 - sloby.db - INFO - Added user_data table to DB.
+2022-08-25 13:52:16,397 - sloby.db - INFO - Added create_post table to DB.

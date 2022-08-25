@@ -62,7 +62,7 @@ class SlobyDB:
 
     def __initiate_database(self) -> None:
         """
-        Desc needed
+        Database initialization, add the tables or drop it.
         """
         with self.__conn_singleton() as conn:
             logger.info("Connecting to DB")
@@ -74,15 +74,23 @@ class SlobyDB:
                     for key, value in dict.items():
                         cur.execute(value)
                         logger.info(f"Added {key} table to DB.")
+
     def __exists_check(self, table: list[str]) -> bool:
         """
             Args:
-                table: list[str]: Return true if the table exists return false if the table does not exists.
+                table: list[str]: List, inside it a dict(key-> name of the table, value-> "table").
+            Returns:
+                A Boolean, if it is exist true, if it is not then false.
         """
+
         with self.__conn_singleton() as conn:
             with conn.cursor() as cur:
                 pass
+
     def __get_tables(self) -> None:
+        """
+            Get all of the tables in the DB.
+        """
         with self.__conn_singleton() as conn:
             with conn.cursor() as cur:
                 cur.execute("""
