@@ -49,7 +49,6 @@ function App() {
                   <Route path='users/login' element={<LoginPage />} />
                   <Route path='users/verified-registration-email' element={<RegistrationEmailSentPage/>} />
                   <Route path="/editor/dashboard" element={<ProjectHandler />} />
-
                   <Route path="/admin" element={<AdminPage/>}/>
                 </Routes>
 
