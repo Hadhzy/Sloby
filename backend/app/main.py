@@ -72,79 +72,72 @@ class Sloby:
 
     # noinspection PyMethodMayBeStatic
     @router.get("/site-info")
-    def test(self):
+    def site_info(self):
         data = "test"
-
         return {"data": data}
 
     @router.get("/categories")
-    def test(self):
+    def categories(self):
         data = "test"
 
         return {"data": data}
 
     @router.get("/categories-accounts")
-    def test(self):
+    def categories_accounts(self):
         data = "test"
 
         return {"data": data}
 
     @router.get("/settings-menu-titles")
-    def test(self):
+    def settings_menu_titles(self):
         data = "test"
 
         return {"data": data}
 
     @router.get("/footer")
-    def test(self):
+    def footer(self):
         data = "test"
 
         return {"data": data}
 
     @router.get("/users-login")
-    def test(self):
+    def users_login(self):
         data = "test"
 
         return {"data": data}
 
     @router.get("/users-create-account")
-    def test(self):
+    def users_create_account(self):
         data = "test"
 
         return {"data": data}
 
-    @router.get("sub-components-docs-about-us-goal-throw-a-message-community-our-project-content")
-    def test(self):
+    @router.get("/sub-components-docs-about-us-goal-throw-a-message-community-our-project-content")
+    def sub_components_docs_about_us_goal_throw_a_message_community_our_project_content(self):
         data = "test"
 
         return {"data": data}
 
-    @router.get("sub-components-help-forum-forum-and-security")
-    def test(self):
+    @router.get("/sub-components-help-forum-forum-and-security")
+    def sub_components_help_forum_forum_and_security(self):
         data = "test"
 
         return {"data": data}
 
-    @router.get("sub-components-help-sub-components-help-content")
-    def test(self):
+    @router.get("/sub-components-help-sub-components-help-content")
+    def sub_components_help_sub_components_help_content(self):
         data = "test"
 
         return {"data": data}
 
-    @router.get("settings-menu")
-    def test(self):
+    @router.get("/settings-menu")
+    def settings_menu(self):
         data = "test"
 
         return {"data": data}
 
-    @router.get("settings-menu")
-    def test(self):
-        data = "test"
-
-        return {"data": data}
-
-    @router.get("sidebar-menu-items")
-    def test(self):
+    @router.get("/sidebar-menu-items")
+    def sidebar_menu_items(self):
         data = "test"
 
         return {"data": data}
