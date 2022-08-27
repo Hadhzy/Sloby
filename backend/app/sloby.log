@@ -235,3 +235,9 @@ psycopg.OperationalError: connection failed: FATAL:  too many connections for ro
 2022-08-27 19:27:08,139 - sloby.db - INFO - Connecting to DB
 2022-08-27 19:27:08,567 - sloby.db - INFO - This table USER_DATA already exists.
 2022-08-27 19:27:09,018 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-27 19:30:02,461 - sloby.db - INFO - Connecting to DB
+2022-08-27 19:30:02,918 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-27 19:30:03,369 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-27 19:35:02,217 - sloby.db - INFO - Connecting to DB
+2022-08-27 19:35:02,692 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-27 19:35:03,180 - sloby.db - INFO - This table POST_DATA already exists.
