@@ -6,7 +6,7 @@ from typing import List
 
 # this project
 
-from app.db.db_config.config import config
+from .db_config.config import config
 
 logger = logging.getLogger("sloby.db")
 

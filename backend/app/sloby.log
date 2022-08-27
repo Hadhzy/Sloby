@@ -125,3 +125,49 @@ connection to server at "tai.db.elephantsql.com" (18.203.249.221), port 5432 fai
 2022-08-25 17:06:33,809 - sloby.db - INFO - Connecting to DB
 2022-08-25 17:06:34,301 - sloby.db - INFO - This table USER_DATA already exists.
 2022-08-25 17:06:34,885 - sloby.db - INFO - Added POST_DATA table to the DB.
+2022-08-26 10:10:25,331 - sloby.db - INFO - Connecting to DB
+2022-08-26 10:10:25,333 - sloby.db - INFO - Connecting to DB
+2022-08-26 10:10:25,335 - sloby.db - INFO - Connecting to DB
+2022-08-26 10:10:25,342 - sloby.db - INFO - Connecting to DB
+2022-08-26 10:10:25,362 - sloby.db - INFO - Connecting to DB
+2022-08-26 10:10:25,635 - sloby.db - ERROR - db connect failed {'host': 'tai.db.elephantsql.com', 'dbname': 'ciqrsftx', 'user': 'ciqrsftx', 'password': 'qhqwls9u9JpK8FZ93amFfNTFEtm2SV4M', 'should_initialize_database': True}
+Traceback (most recent call last):
+  File "D:\Sloby\sloby\backend\app\.\db\api.py", line 42, in __conn_singleton
+    self.conn = connect(
+  File "d:\sloby\sloby\backend\venv\lib\site-packages\psycopg\connection.py", line 578, in connect
+    raise ex.with_traceback(None)
+psycopg.OperationalError: connection failed: FATAL:  too many connections for role "ciqrsftx"
+2022-08-26 10:10:25,637 - sloby.db - ERROR - db connect failed {'host': 'tai.db.elephantsql.com', 'dbname': 'ciqrsftx', 'user': 'ciqrsftx', 'password': 'qhqwls9u9JpK8FZ93amFfNTFEtm2SV4M', 'should_initialize_database': True}
+Traceback (most recent call last):
+  File "D:\Sloby\sloby\backend\app\.\db\api.py", line 42, in __conn_singleton
+    self.conn = connect(
+  File "d:\sloby\sloby\backend\venv\lib\site-packages\psycopg\connection.py", line 578, in connect
+    raise ex.with_traceback(None)
+psycopg.OperationalError: connection failed: FATAL:  too many connections for role "ciqrsftx"
+2022-08-26 10:10:25,647 - sloby.db - ERROR - db connect failed {'host': 'tai.db.elephantsql.com', 'dbname': 'ciqrsftx', 'user': 'ciqrsftx', 'password': 'qhqwls9u9JpK8FZ93amFfNTFEtm2SV4M', 'should_initialize_database': True}
+Traceback (most recent call last):
+  File "D:\Sloby\sloby\backend\app\.\db\api.py", line 42, in __conn_singleton
+    self.conn = connect(
+  File "d:\sloby\sloby\backend\venv\lib\site-packages\psycopg\connection.py", line 578, in connect
+    raise ex.with_traceback(None)
+psycopg.OperationalError: connection failed: FATAL:  too many connections for role "ciqrsftx"
+2022-08-26 10:10:25,667 - sloby.db - ERROR - db connect failed {'host': 'tai.db.elephantsql.com', 'dbname': 'ciqrsftx', 'user': 'ciqrsftx', 'password': 'qhqwls9u9JpK8FZ93amFfNTFEtm2SV4M', 'should_initialize_database': True}
+Traceback (most recent call last):
+  File "D:\Sloby\sloby\backend\app\.\db\api.py", line 42, in __conn_singleton
+    self.conn = connect(
+  File "d:\sloby\sloby\backend\venv\lib\site-packages\psycopg\connection.py", line 578, in connect
+    raise ex.with_traceback(None)
+psycopg.OperationalError: connection failed: FATAL:  too many connections for role "ciqrsftx"
+2022-08-26 10:10:25,701 - sloby.db - ERROR - db connect failed {'host': 'tai.db.elephantsql.com', 'dbname': 'ciqrsftx', 'user': 'ciqrsftx', 'password': 'qhqwls9u9JpK8FZ93amFfNTFEtm2SV4M', 'should_initialize_database': True}
+Traceback (most recent call last):
+  File "D:\Sloby\sloby\backend\app\.\db\api.py", line 42, in __conn_singleton
+    self.conn = connect(
+  File "d:\sloby\sloby\backend\venv\lib\site-packages\psycopg\connection.py", line 578, in connect
+    raise ex.with_traceback(None)
+psycopg.OperationalError: connection failed: FATAL:  too many connections for role "ciqrsftx"
+2022-08-27 18:01:21,313 - sloby.db - INFO - Connecting to DB
+2022-08-27 18:01:21,835 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-27 18:01:22,313 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-27 18:02:05,928 - sloby.db - INFO - Connecting to DB
+2022-08-27 18:02:06,372 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-27 18:02:06,861 - sloby.db - INFO - This table POST_DATA already exists.
