@@ -171,3 +171,51 @@ psycopg.OperationalError: connection failed: FATAL:  too many connections for ro
 2022-08-27 18:02:05,928 - sloby.db - INFO - Connecting to DB
 2022-08-27 18:02:06,372 - sloby.db - INFO - This table USER_DATA already exists.
 2022-08-27 18:02:06,861 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-27 18:34:13,396 - sloby.db - INFO - Connecting to DB
+2022-08-27 18:34:13,841 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-27 18:34:14,280 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-27 18:35:12,016 - sloby.db - INFO - Connecting to DB
+2022-08-27 18:35:12,524 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-27 18:35:12,987 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-27 18:37:01,597 - sloby.db - INFO - Connecting to DB
+2022-08-27 18:37:02,087 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-27 18:37:02,579 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-27 18:37:17,165 - sloby.db - INFO - Connecting to DB
+2022-08-27 18:37:17,614 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-27 18:37:18,094 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-27 18:37:38,531 - sloby.db - INFO - Connecting to DB
+2022-08-27 18:37:38,969 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-27 18:37:39,452 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-27 18:39:42,868 - sloby.db - INFO - Connecting to DB
+2022-08-27 18:39:43,382 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-27 18:39:43,898 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-27 18:39:55,622 - sloby.db - INFO - Connecting to DB
+2022-08-27 18:39:56,123 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-27 18:39:56,606 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-27 18:40:18,770 - sloby.db - INFO - Connecting to DB
+2022-08-27 18:40:19,236 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-27 18:40:19,682 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-27 18:40:41,658 - sloby.db - INFO - Connecting to DB
+2022-08-27 18:40:42,103 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-27 18:40:42,593 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-27 18:40:53,380 - sloby.db - INFO - Connecting to DB
+2022-08-27 18:40:53,859 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-27 18:40:54,368 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-27 18:41:06,737 - sloby.db - INFO - Connecting to DB
+2022-08-27 18:41:07,175 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-27 18:41:07,664 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-27 18:41:26,186 - sloby.db - INFO - Connecting to DB
+2022-08-27 18:41:26,648 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-27 18:41:27,128 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-27 18:41:46,877 - sloby.db - INFO - Connecting to DB
+2022-08-27 18:41:47,374 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-27 18:41:47,833 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-27 18:42:07,593 - sloby.db - INFO - Connecting to DB
+2022-08-27 18:42:08,112 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-27 18:42:08,580 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-27 18:42:18,947 - sloby.db - INFO - Connecting to DB
+2022-08-27 18:42:19,378 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-27 18:42:19,873 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-27 18:42:34,160 - sloby.db - INFO - Connecting to DB
+2022-08-27 18:42:34,608 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-27 18:42:35,056 - sloby.db - INFO - This table POST_DATA already exists.

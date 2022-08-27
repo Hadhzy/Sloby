@@ -71,7 +71,79 @@ class Sloby:
         return sys.getsizeof(value)
 
     # noinspection PyMethodMayBeStatic
-    @router.get("/test")
+    @router.get("/site-info")
+    def test(self):
+        data = "test"
+
+        return {"data": data}
+
+    @router.get("/categories")
+    def test(self):
+        data = "test"
+
+        return {"data": data}
+
+    @router.get("/categories-accounts")
+    def test(self):
+        data = "test"
+
+        return {"data": data}
+
+    @router.get("/settings-menu-titles")
+    def test(self):
+        data = "test"
+
+        return {"data": data}
+
+    @router.get("/footer")
+    def test(self):
+        data = "test"
+
+        return {"data": data}
+
+    @router.get("/users-login")
+    def test(self):
+        data = "test"
+
+        return {"data": data}
+
+    @router.get("/users-create-account")
+    def test(self):
+        data = "test"
+
+        return {"data": data}
+
+    @router.get("sub-components-docs-about-us-goal-throw-a-message-community-our-project-content")
+    def test(self):
+        data = "test"
+
+        return {"data": data}
+
+    @router.get("sub-components-help-forum-forum-and-security")
+    def test(self):
+        data = "test"
+
+        return {"data": data}
+
+    @router.get("sub-components-help-sub-components-help-content")
+    def test(self):
+        data = "test"
+
+        return {"data": data}
+
+    @router.get("settings-menu")
+    def test(self):
+        data = "test"
+
+        return {"data": data}
+
+    @router.get("settings-menu")
+    def test(self):
+        data = "test"
+
+        return {"data": data}
+
+    @router.get("sidebar-menu-items")
     def test(self):
         data = "test"
 
