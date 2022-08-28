@@ -1,31 +1,59 @@
 from typing import List
 
+# this project
+from app.db.api import SlobyDB
 
-class Slorm:
+
+class Slorm(SlobyDB):
     """
         Simple ORM class, that can handle every SQL command.
+        SlobyDB child.
     """
     def __init__(self):
-       pass
+       super().__init__()
 
-    def select(self, table_name: str = "", statements: str = "") -> List[str]:
+    def select(self, table_name: str = "", condition: str = "") -> List[str]:
         """
         Args:
-            table_name("str"): Name of the table
-            statements: A simple sign(str) or a statements, it show what data do you need, it is works like a filter, if the filer behavior is appear in the tables, then you going to get them.
+            table_name("str"): Name of the table.
+            condition: A simple sign(str) or statements, shows what data you need, it works like a filter, if the filter behavior appears in the tables, then you going to get them.
         """
         pass
 
-    def insert(self):
-        pass
+    def insert(self, table_name: str = "", columns: List[str] = None, values: List[str] = None):
+        """
+        Args:
+            table_name: The table name that you want to insert something.
+            columns: These are the sql columns, where you can add something.
+            values: It should be the values of the table.
+        """
+        if columns is None:
+            columns = []
+        if values is None:
+            values = []
 
-    def update(self):
-        pass
+    def update(self, table_name: str = "", columns: List[str] | str = None, set_values: List[str] | str = None, condition: str = ""):
+        """
+            Args:
+                table_name: Name of the table where you want to update something.
+                columns: The columns that you want to modify.
+                set_values: The values that you want to add to the columns.
+                condition: A simple sign(str) or statements, shows what data you need, it works like a filter, if the filter behavior appears in the tables, then you going to get them.
+        """
 
-    def delete(self):
-        pass
+    def delete(self, table_name: str = "", condition: str = ""):
+        """
+            Args:
+                 table_name: Name of the table where you want to delete something.
+                 condition: A simple sign(str) or statements, shows what data you need, it works like a filter, if the filter behavior appears in the tables, then you going to get them.
+        """
 
-    def create_table(self):
+    def create_table(self,  tables: list[dict[str, str]]):
+        """
+            Args:
+                tables: A list with dictionaries, that contain the name of the table and the data of the table.
+        """
+
         pass
 
 
