@@ -142,6 +142,12 @@ class Sloby:
 
         return {"data": data}
 
+    @router.get("/test-select")
+    def sidebar_menu_items(self):
+        data = "test"
+
+        return {"data": data}
+
     @router.websocket("/ws")
     async def ws(self, websocket: WebSocket):
         """ Handle all requests from frontend"""

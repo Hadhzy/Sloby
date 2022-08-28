@@ -2,6 +2,7 @@ from typing import List
 
 # this project
 from app.db.api import SlobyDB
+from utilities.exceptions import SelectError
 
 
 class Slorm(SlobyDB):
@@ -13,12 +14,31 @@ class Slorm(SlobyDB):
        super().__init__()
 
     def select(self, table_name: str = "", condition: str = "") -> List[str]:
+
         """
         Args:
             table_name("str"): Name of the table.
             condition: A simple sign(str) or statements, shows what data you need, it works like a filter, if the filter behavior appears in the tables, then you going to get them.
         """
-        pass
+
+
+        command = """
+                    SELECT
+                    (%(condition)s)
+                    FROM (%(table_name)s)
+                    
+                   """, {"condition": condition, "table_name": table_name}
+
+        try:
+            with self.__conn_singleton() as conn:
+                with conn.cursor() as cur:
+
+                    cur.execute(str(command))
+
+                    selected_items = cur.fetchall()
+                    return selected_items
+        except:
+           raise SelectError(condition, table_name)
 
     def insert(self, table_name: str = "", columns: List[str] = None, values: List[str] = None):
         """
@@ -31,6 +51,11 @@ class Slorm(SlobyDB):
             columns = []
         if values is None:
             values = []
+
+        command = """
+            
+        
+                """
 
     def update(self, table_name: str = "", columns: List[str] | str = None, set_values: List[str] | str = None, condition: str = ""):
         """
