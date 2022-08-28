@@ -120,5 +120,8 @@ class SlobyDB:
         for key, value in table.items():
             return str(key)
 
+    def handle_slorm(self):
+        pass
+
 
 api = SlobyDB()
