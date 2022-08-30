@@ -20,19 +20,11 @@ class Slorm(SlobyDB):
             condition: A simple sign(str) or statements, shows what data you need, it works like a filter, if the filter behavior appears in the tables, then you going to get them.
         """
 
-
-        command = """
-                    SELECT
-                    (%(condition)s)
-                    FROM (%(table_name)s)
-                    
-                   """, {"condition": condition, "table_name": table_name}
-
         try:
             with self._conn_singleton() as conn:
                 with conn.cursor() as cur:
 
-                    cur.execute(str(command))
+                    cur.execute("""SELECT {0} FROM {1}""".format(condition, table_name))
 
                     selected_items = cur.fetchall()
                     return selected_items

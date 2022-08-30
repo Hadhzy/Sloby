@@ -148,7 +148,7 @@ class Sloby:
     def test_select(self):
         data = slorm.select("test_data", "*")
 
-        return {"data": "data"}
+        return {"data": data}
 
     @router.websocket("/ws")
     async def ws(self, websocket: WebSocket):
