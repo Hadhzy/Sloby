@@ -35,7 +35,7 @@ class SlobyDB:
         if show_tables:
             logger.info(self._get_all_tables())
 
-    def __conn_singleton(self) -> Connection:
+    def _conn_singleton(self) -> Connection:
         self.conn = ""
         conf = self.conf
         try:
@@ -56,7 +56,7 @@ class SlobyDB:
         """
         Database initialization, add the tables or drop it.
         """
-        with self.__conn_singleton() as conn:
+        with self._conn_singleton() as conn:
             logger.info("Connecting to DB")
             with conn.cursor() as cur:  # get the cursor
                 for dict in self.tables:
@@ -77,7 +77,7 @@ class SlobyDB:
                 A Boolean, if it is exist true, if it is not then false.
         """
 
-        with self.__conn_singleton() as conn:
+        with self._conn_singleton() as conn:
             with conn.cursor() as cur:
                 name = self.__get_table_name(table)
 
@@ -98,7 +98,7 @@ class SlobyDB:
         """
             Get all of the tables in the DB.
         """
-        with self.__conn_singleton() as conn:
+        with self._conn_singleton() as conn:
             with conn.cursor() as cur:
                 cur.execute("""
                     SELECT

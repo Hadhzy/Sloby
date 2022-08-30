@@ -29,7 +29,7 @@ class Slorm(SlobyDB):
                    """, {"condition": condition, "table_name": table_name}
 
         try:
-            with self.__conn_singleton() as conn:
+            with self._conn_singleton() as conn:
                 with conn.cursor() as cur:
 
                     cur.execute(str(command))
