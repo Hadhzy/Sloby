@@ -241,3 +241,57 @@ psycopg.OperationalError: connection failed: FATAL:  too many connections for ro
 2022-08-27 19:35:02,217 - sloby.db - INFO - Connecting to DB
 2022-08-27 19:35:02,692 - sloby.db - INFO - This table USER_DATA already exists.
 2022-08-27 19:35:03,180 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-28 18:50:03,548 - sloby.db - INFO - Connecting to DB
+2022-08-28 18:50:04,052 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-28 18:50:04,554 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-28 18:50:05,181 - sloby.db - INFO - Added TEST_DATA table to the DB.
+2022-08-30 14:32:16,748 - sloby.db - INFO - Connecting to DB
+2022-08-30 14:32:17,263 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-30 14:32:17,716 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-30 14:32:18,223 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-08-30 14:32:18,224 - sloby.db - INFO - Empty table fields!!!
+2022-08-30 14:32:18,524 - sloby.db - INFO - Connecting to DB
+2022-08-30 14:32:28,738 - sloby.db - INFO - Connecting to DB
+2022-08-30 14:32:29,189 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-30 14:32:29,699 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-30 14:32:30,211 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-08-30 14:32:30,212 - sloby.db - INFO - Empty table fields!!!
+2022-08-30 14:32:30,556 - sloby.db - INFO - Connecting to DB
+2022-08-30 14:34:00,056 - sloby.db - INFO - Connecting to DB
+2022-08-30 14:34:00,381 - sloby.db - INFO - Connecting to DB
+2022-08-30 14:34:00,522 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-30 14:34:00,873 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-30 14:34:00,982 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-30 14:34:01,370 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-30 14:34:01,471 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-08-30 14:34:01,471 - sloby.db - INFO - Empty table fields!!!
+2022-08-30 14:34:01,806 - sloby.db - INFO - Connecting to DB
+2022-08-30 14:34:01,836 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-08-30 14:34:01,837 - sloby.db - INFO - Empty table fields!!!
+2022-08-30 14:34:02,169 - sloby.db - INFO - Connecting to DB
+2022-08-30 14:35:08,211 - sloby.db - INFO - Connecting to DB
+2022-08-30 14:35:08,669 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-30 14:35:09,166 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-30 14:35:09,653 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-08-30 14:35:09,654 - sloby.db - INFO - Empty table fields!!!
+2022-08-30 14:35:10,011 - sloby.db - INFO - Connecting to DB
+2022-08-30 14:36:22,446 - sloby.db - INFO - Connecting to DB
+2022-08-30 14:36:22,554 - sloby.db - INFO - Connecting to DB
+2022-08-30 14:36:22,646 - sloby.db - INFO - Connecting to DB
+2022-08-30 14:36:22,913 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-30 14:36:22,960 - sloby.db - ERROR - db connect failed {'host': 'tai.db.elephantsql.com', 'dbname': 'ciqrsftx', 'user': 'ciqrsftx', 'password': 'qhqwls9u9JpK8FZ93amFfNTFEtm2SV4M', 'should_initialize_database': True}
+Traceback (most recent call last):
+  File "D:\Sloby\sloby\backend\.\SLORM\db\api.py", line 42, in __conn_singleton
+    self.conn = connect(
+  File "D:\Sloby\sloby\backend\venv\lib\site-packages\psycopg\connection.py", line 578, in connect
+    raise ex.with_traceback(None)
+psycopg.OperationalError: connection failed: FATAL:  too many connections for role "ciqrsftx"
+2022-08-30 14:36:23,007 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-30 14:36:23,409 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-30 14:36:23,470 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-30 14:36:23,907 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-08-30 14:36:23,908 - sloby.db - INFO - Empty table fields!!!
+2022-08-30 14:36:23,956 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-08-30 14:36:23,956 - sloby.db - INFO - Empty table fields!!!
+2022-08-30 14:36:24,205 - sloby.db - INFO - Connecting to DB
+2022-08-30 14:36:24,292 - sloby.db - INFO - Connecting to DB

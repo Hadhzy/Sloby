@@ -1,23 +1,24 @@
 import sys
-import json
-from fastapi import Depends, FastAPI, Response, status, HTTPException, Depends, WebSocket
+from fastapi import FastAPI, Depends, WebSocket
 from fastapi_utils.cbv import cbv
 from fastapi_utils.inferring_router import InferringRouter
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
 
 from utilities.logger_utility import Logger
-from utilities.exceptions import WrongException
-from serve import Serve
 
-from db.api import SlobyDB
+from SLORM.db.api import SlobyDB
 
 logger = Logger()
 logger = logger.get_logger()
 
+# this project
+from SLORM.slorm import Slorm
+
+
 # db_tables
 
-from db.utils.db_tables import CREATE_POST_DATA, CREATE_USER_DATA
+from SLORM.db.utils.db_tables import CREATE_POST_DATA, CREATE_USER_DATA, CREATE_TEST_DATA
 
 
 def get_x():
@@ -55,7 +56,8 @@ app.add_middleware(CORSMiddleware,
                    allow_methods=['*'],
                    allow_headers=['*'])
 
-sloby_db = SlobyDB(tables=[{"USER_DATA": CREATE_USER_DATA}, {"POST_DATA": CREATE_POST_DATA}], show_tables=False)
+sloby_db = SlobyDB(tables=[{"USER_DATA": CREATE_USER_DATA}, {"POST_DATA": CREATE_POST_DATA}, {"TEST_DATA": CREATE_TEST_DATA}], show_tables=False)
+slorm = Slorm()
 
 
 @cbv(router)  # Step 2: Create and decorate a class to hold the endpoints
@@ -143,10 +145,10 @@ class Sloby:
         return {"data": data}
 
     @router.get("/test-select")
-    def sidebar_menu_items(self):
-        data = "test"
+    def test_select(self):
+        data = slorm.select("test_data", "*")
 
-        return {"data": data}
+        return {"data": "data"}
 
     @router.websocket("/ws")
     async def ws(self, websocket: WebSocket):

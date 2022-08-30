@@ -1,8 +1,7 @@
-from typing import List
-
 # this project
-from app.db.api import SlobyDB
-from utilities.exceptions import SelectError
+from .db.api import SlobyDB
+from .utilities.exceptions import SelectError
+from typing import List
 
 
 class Slorm(SlobyDB):
