@@ -223,16 +223,11 @@
   ],
 
   "sidebar-menu-items": [
-    {"id": 0, "title": "Account", "path": "#"},
-    {"id": 1, "title": "Account", "path": "#"},
-    {"id": 2, "title": "Account", "path": "#"}
-  ],
-
-
-  "projects-testin-for-search": [
-    {"id": 0, "name": "My Best Mobile App", "description": "Here is my best mobile app", "type": "project"},
-    {"id": 1, "name": "React Application", "description": "This is my react application to build up", "type": "folder"}
+    {"id": 0, "title": "Back to Editor", "icon": "https://cdn.discordapp.com/attachments/753660501996863488/1012336172145582130/icons8-bring-forward-96.png", "path": "/editor/dashboard"},
+    {"id": 1, "title": "Home Page", "icon": "https://cdn.discordapp.com/attachments/753660501996863488/1012261417249947719/icons8-smart-home-automation-96.png", "path": "/"},
+    {"id": 1, "title": "Favorite Projects", "icon": "https://cdn.discordapp.com/attachments/753660501996863488/1012261672842448946/icons8-heart-96.png", "path": ""},
+    {"id": 2, "title": "News", "icon": "https://cdn.discordapp.com/attachments/753660501996863488/1012262004897095730/icons8-news-96.png", "path": ""},
+    {"id": 3, "title": "Your Progress", "icon": "https://cdn.discordapp.com/attachments/753660501996863488/1012262342291111976/icons8-account-96.png", "path": ""}
   ]
-
 }
 

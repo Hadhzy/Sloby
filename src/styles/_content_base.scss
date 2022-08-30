@@ -1,3 +1,13 @@
+.base-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.margin-left {
+  margin-left: 20px;
+}
+
+
 .content-base{
     max-width: $max-content-width;
     margin: 0 auto;
@@ -27,6 +37,11 @@
       color: black;
       border-color: black;
   }
+}
+
+.hide {
+  visibility: hidden;
+  display: none;
 }
 
 
@@ -103,6 +118,10 @@
       text-decoration: underline;
     }
   }
+
+  &.navigate {
+    color: #0c46c7;
+  }
 }
 
 .display-none {
@@ -117,6 +136,13 @@
     transition: 250ms ease-in-out;
     transform: scale(1.1);
   }
+
+  &.smaller {
+    width: 30px;
+    height: 30px;
+  }
+
+  
 }
 
 .underline {

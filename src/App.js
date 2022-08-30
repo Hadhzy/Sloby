@@ -14,15 +14,13 @@ import Profile from "./Components/SubComponents/User"
 import RegisterPage from "./Components/Users/RegisterPage"
 import {UserContextProvider} from "./Components/Context/UserContext"
 import LoginPage from "./Components/Users/LoginPage"
-import {
-  SettingsDataProvider,
-} from "./Components/Context/SettingsContext"
-import {
-  ThemeContextProvider,
-} from "./Components/Context/ThemeContext"
+
 import {ContentContextProvider} from "./Components/Context/ContentContext"
 import RegistrationEmailSentPage from "./Components/Users/RegistrationEmailSentPage";
-import ProjectHandler from "./Components/Editor/Projects/ProjectHandler"
+import ProjectsCotnextProvider from "./Components/Context/ProjectsContext"
+import { ThemeContextProvider } from "./Components/Context/ThemeContext"
+import {ProjectsHandlerContextProvider} from "./Components/Context/ProjectsHandlerContext"
+import ProjectHandler from "./Components/Editor/ProjectsSection/ProjectHandler"
 import AdminPage from "./Components/Admin/AdminPage"
 
 function App() {
@@ -31,7 +29,8 @@ function App() {
     <UserContextProvider>
     <ContentContextProvider>
       <ThemeContextProvider>
-        <SettingsDataProvider>
+          <ProjectsCotnextProvider>
+            <ProjectsHandlerContextProvider>
                <div className='App'>
                 <Header/>
                 <Routes>
@@ -49,13 +48,14 @@ function App() {
                   <Route path='users/login' element={<LoginPage />} />
                   <Route path='users/verified-registration-email' element={<RegistrationEmailSentPage/>} />
                   <Route path="/editor/dashboard" element={<ProjectHandler />} />
+
                   <Route path="/admin" element={<AdminPage/>}/>
                 </Routes>
 
                 <Footer />
           </div>
-
-        </SettingsDataProvider>
+          </ProjectsHandlerContextProvider>
+          </ProjectsCotnextProvider>
       </ThemeContextProvider>
       </ContentContextProvider>
     </UserContextProvider>

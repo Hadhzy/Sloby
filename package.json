@@ -34,6 +34,7 @@
     "sass": "^1.49.8",
     "socket.io-client": "^4.4.1",
     "use-local-storage": "^2.3.6",
+    "uuid": "^8.3.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -59,5 +60,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "jsdoc": "^3.6.11"
   }
 }
