@@ -1,6 +1,8 @@
 # this project
 from .db.api import SlobyDB
-from .utilities.exceptions import SelectError
+
+# errors
+from .utilities.exceptions import SelectError, InsertError, UpdateError, DeleteError
 from typing import List
 
 
@@ -12,7 +14,7 @@ class Slorm(SlobyDB):
     def __init__(self):
        super().__init__()
 
-    def select(self, table_name: str = "", condition: str = "") -> List[str]:
+    def select(self, table_name: str = "", condition: str = "") -> List:
 
         """
         Args:
@@ -43,10 +45,13 @@ class Slorm(SlobyDB):
         if values is None:
             values = []
 
-        command = """
-            
-        
-                """
+
+        try:
+            with self._conn_singleton() as conn:
+                with conn.cursor() as cur:
+                    cur.execute("""INSERT INTO {0} {1} VALUES {2}""".format(table_name, columns, values))
+        except:
+            raise InsertError(columns, values, table_name)
 
     def update(self, table_name: str = "", columns: List[str] | str = None, set_values: List[str] | str = None, condition: str = ""):
         """
@@ -57,12 +62,26 @@ class Slorm(SlobyDB):
                 condition: A simple sign(str) or statements, shows what data you need, it works like a filter, if the filter behavior appears in the tables, then you going to get them.
         """
 
+        try:
+            with self._conn_singleton() as conn:
+                with conn.cursor() as cur:
+                    cur.execute("""""")
+        except:
+            raise UpdateError(table_name, columns, set_values, condition)
+
     def delete(self, table_name: str = "", condition: str = ""):
         """
             Args:
                  table_name: Name of the table where you want to delete something.
                  condition: A simple sign(str) or statements, shows what data you need, it works like a filter, if the filter behavior appears in the tables, then you going to get them.
         """
+
+        try:
+            with self._conn_singleton() as conn:
+                with conn.cursor() as cur:
+                    cur.execute("""""")
+        except:
+            raise DeleteError(table_name, condition)
 
     def create_table(self,  tables: list[dict[str, str]]):
         """
@@ -71,6 +90,12 @@ class Slorm(SlobyDB):
         """
 
         pass
+
+
+
+
+
+
 
 
 
