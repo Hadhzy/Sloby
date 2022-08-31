@@ -17,7 +17,6 @@ import LoginPage from "./Components/Users/LoginPage"
 
 import {ContentContextProvider} from "./Components/Context/ContentContext"
 import RegistrationEmailSentPage from "./Components/Users/RegistrationEmailSentPage";
-
 import ProjectsCotnextProvider from "./Components/Context/ProjectsContext"
 import { ThemeContextProvider } from "./Components/Context/ThemeContext"
 import {ProjectsHandlerContextProvider} from "./Components/Context/ProjectsHandlerContext"
