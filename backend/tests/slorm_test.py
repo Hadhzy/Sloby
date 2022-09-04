@@ -1,5 +1,6 @@
-from app.SLORM.slorm import Slorm
+from SLORM import Slorm
 
 
 slorm = Slorm()
-slorm()
+
+

@@ -1,0 +1,60 @@
+
+CREATE_USER_DATA = '''
+    CREATE TABLE USER_DATA(
+        ID SERIAL PRIMARY KEY,
+        GENDER TEXT NOT NULL,
+        IDENT VARCHAR(100) NOT NULL
+    )
+'''
+
+
+CREATE_POST_DATA = '''
+    CREATE TABLE POST_DATA(
+        ID SERIAL PRIMARY KEY,
+        POST TEXT NOT NULL,
+        DESCRIPTION  TEXT NOT NULL,
+        TITLE  TEXT NOT NULL,
+        IDENT VARCHAR(100) NOT NULL
+    )
+'''
+
+
+CREATE_TEST_DATA = '''
+    CREATE TABLE TEST_DATA(
+        ID SERIAL PRIMARY KEY,
+        POST TEXT NOT NULL,
+        DESCRIPTION  TEXT NOT NULL,
+        TITLE  TEXT NOT NULL,
+        IDENT VARCHAR(100) NOT NULL
+    )
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
