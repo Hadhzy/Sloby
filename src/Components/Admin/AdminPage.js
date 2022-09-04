@@ -1,11 +1,8 @@
 import React from 'react';
+import SlobyTable from '../../libraries/slobyTable/SlobyTable';
 
 function AdminPage(props) {
-    return (
-        <div className="admin-page">
-            <h1>Test</h1>
-        </div>
-    );
+    return <SlobyTable />
 }
 
 export default AdminPage;

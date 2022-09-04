@@ -1,6 +1,14 @@
 import React, { createContext, useState } from "react"
 import useLocalStorage from "use-local-storage"
 
+/**
+ * This context is gonna determine that which is the current theme in our project
+ * @param {string} theme - This state is the currentTheme title. 
+ * @function switchTheme - This is gonna switch the theme based on the current theme, and return the opposite one. 
+*/
+
+
+
 export const ThemeContext = createContext(true)
 
 export const ThemeContextProvider = (props) => {
@@ -22,30 +30,3 @@ export const ThemeContextProvider = (props) => {
     </ThemeContext.Provider>
   )
 }
-
-
-
-// import React, {  createContext, Component } from "react"
-
-// export const ThemeContext = createContext()
-
-// class ThemeContextProvider extends Component {
-//   state = {
-//     isLightTheme: false,
-//     light: {  syntax: "#555", ui: "#ddd", bg: "#eee" }, 
-//     dark: {  syntax: "#ddd", ui: "#333", bg: "#555" },
-//   } 
-
-//   toggleTheme = () => {
-//     this.setState({ isLightTheme: !this.state.isLightTheme})
-//   }
-//   render() { 
-//     return (
-//       <ThemeContext.Provider value={{ ...this.state} }>
-//         {this.props.children}
-//       </ThemeContext.Provider>
-//     )
-//   }
-// }
- 
-// export default ThemeContextProvider;

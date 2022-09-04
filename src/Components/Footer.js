@@ -2,14 +2,16 @@ import React, {useContext, useState, useEffect} from "react"
 import {ContentContext} from "./Context/ContentContext"
 import axios from "axios"
 import { useLocation } from "react-router-dom"
+import PreventUrls from "../libraries/globalHelper/preventUrls"
 
 
 function Footer() {
   const {footer} = useContext(ContentContext)
   let currentUrl = useLocation()
+  let footerClassName = new PreventUrls({ className: "footer-container", urlToPreventFrom: ["/editor/dashboard", "/admin"], currentUrl: currentUrl })  
 
 
-  return <div className={`${currentUrl.pathname === "/editor/dashboard" && "display-none" || currentUrl.pathname !== "/editor/dashboard" && "footer-container"}`}>
+  return <div className={footerClassName.preventURL()}>
         {footer.map(footer_item => (
           <div className="footer-items content-base" key={footer_item.id}>
               <div className="footer-text footer-title">{footer_item.title}</div>

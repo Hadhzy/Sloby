@@ -47,6 +47,7 @@ export const UserContextProvider = (props) => {
     }
   }
 
+
   const log_out_user = async () => {
     try  {
       console.log("hi")

@@ -9,14 +9,9 @@ import {ThemeContext} from "./Context/ThemeContext";
 import {ContentContext} from "./Context/ContentContext"
 import {UserContext} from "./Context/UserContext";
 import { useLocation } from 'react-router-dom';
+import PreventUrls from "../libraries/globalHelper/preventUrls"
 
-function Logger(variable) {
-  console.log(variable)
-  console.log(typeof variable)
-  if (typeof variable == "string"){
-     console.log(variable.length)
-  }
-}
+
 
 function HeaderMenuItem({ item_data }) {
 
@@ -27,8 +22,6 @@ function HeaderMenuItem({ item_data }) {
         {item_data.title.toUpperCase()}
         </div>
       </Link>
-
-
       {item_data.items && <KeyboardArrowDownIcon />}
 
     <Popup item_data={item_data}/>
@@ -83,16 +76,14 @@ function Header() {
   const {theme} = useContext(ThemeContext)
   const {categories_accounts} = useContext(ContentContext)
   const {logged_in, log_out_user} = useContext(UserContext)
-
   let currentUrl = useLocation()
 
 
-
-
+  let headerClassName = new PreventUrls({ className: "theme-case-header", urlToPreventFrom: ["/editor/dashboard", "/admin"], currentUrl })
+  
   return (
     <div data_theme={theme}>
-
-      <div className={`${currentUrl.pathname === "/editor/dashboard" && "display-none" || currentUrl.pathname !== "editor/dashboard" && "theme-case-header"} `}>
+      <div className={headerClassName.preventURL()}>
         <div className='header-container' >
                  <Link to="/" className="off-link-dec home icon">
                      TomikaSlobyka
@@ -155,6 +146,7 @@ function Header() {
 
   )
 }
+
 
 function Sidebar() {
   const [anchorEl, setAnchorEl] = useState(null)

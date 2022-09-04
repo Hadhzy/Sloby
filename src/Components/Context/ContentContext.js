@@ -1,7 +1,13 @@
 import React, {createContext, useEffect, useState} from "react";
 import axios from "axios";
 
+/**
+ * This contenxt is all about datafetching 
+ */
+
+
 export const ContentContext = createContext(true)
+
 
 
 
