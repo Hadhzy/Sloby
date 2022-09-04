@@ -26,12 +26,6 @@ const SideMenuBar = () => {
                             {menu_bar_item.title}
                         </div>
                     </Link>
-                    // <div key={menu_bar_item.id} className={`menu-bar-item ${activeMenu === menu_bar_item.title ? "menu-bar-item-active" : ""}`} onClick={() => handleMenuItem(menu_bar_item.title)}>
-                    //         
-                    //         <Link to={menu_bar_item.path} className="off-link-dec" >
-                    //            
-                    //         </Link>
-                    // </div>
                 )
             })}
         </div>
