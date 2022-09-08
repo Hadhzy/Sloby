@@ -38,22 +38,22 @@ class Slorm(SlobyDB):
         except:
            raise SelectError(condition, table_name)
 
-    def insert(self, table_name: str = "", columns: List[str] = None, values: List[str] = None):
+    def insert(self, table_name: str = "", table_columns: List[str] = None, values: List[str] = None):
         """
         Args:
             table_name: The table name that you want to insert something.
-            columns: These are the sql columns, where you can add something.
+            table_columns: These are the sql columns, where you can add something.
             values: It should be the values of the table.
         """
 
-        columns = columns or []
+        table_columns = table_columns or []
         values = values or []
 
 
         try:
             with self._conn_singleton() as conn:
                 with conn.cursor() as cur:
-                    if slorm_detector.insert_check(table_name, columns, values):
+                    if slorm_detector.insert_check(table_name, table_columns, values):
                         # params = (table_name, ', '.join(columns), ", ".join(values))
                         # query = "INSERT INTO %s (%s) VALUES (%s)"
                         # cur.execute(query, params)
@@ -61,7 +61,7 @@ class Slorm(SlobyDB):
                         #     "INSERT INTO %s (%s) VALUES (%s)", (table_name, ', '.join(columns), ", ".join("%s" * len(values))))
                         cur.execute(
                             "INSERT INTO {0} ({1}) VALUES ({2})".format(
-                                table_name, ', '.join(columns), ", ".join(["%s"] * len(values))
+                                table_name, ', '.join(table_columns), ", ".join(["%s"] * len(values))
                             ),
                             values
                         )
@@ -69,11 +69,11 @@ class Slorm(SlobyDB):
 
         except:
             raise InsertError(table_name=table_name, columns=columns, values=values)
-    def update(self, table_name: str = "", columns: List[str] | str = None, set_values: List[str] | str = None, condition: str = ""):
+    def update(self, table_name: str = "", table_columns: List[str] | str = None, set_values: List[str] | str = None, condition: str = ""):
         """
             Args:
                 table_name: Name of the table where you want to update something.
-                columns: The columns that you want to modify.
+                table_columns: The columns that you want to modify.
                 set_values: The values that you want to add to the columns.
                 condition: A simple sign(str) or statements, shows what data you need, it works like a filter, if the filter behavior appears in the tables, then you going to get them.
         """
@@ -82,8 +82,11 @@ class Slorm(SlobyDB):
             with self._conn_singleton() as conn:
                 with conn.cursor() as cur:
                     pass
-                    # if slorm_
-                    # cur.execute("""UPDATE {table_name} SET WHERE {condition}}""".format(table_name=table_name, condition=condition))
+                    if slorm_detector.update_check(table_name, table_columns, set_values):
+                        columns_values = slorm_detector.build_update_columns_values_connection(table_columns, set_values)
+                        # cur.execute(""" UPDATE {0} SET {1} WHERE {2}""".format(table_name, columns, set_values))
+
+                        # cur.execute("""UPDATE {table_name} SET WHERE {condition}}""".format(table_name=table_name, condition=condition))
         except:
             raise UpdateError(table_name, columns, set_values, condition)
 
@@ -108,12 +111,6 @@ class Slorm(SlobyDB):
         """
 
         pass
-
-
-
-
-
-
 
 
 
