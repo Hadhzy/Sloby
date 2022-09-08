@@ -15,6 +15,8 @@ logger = logger.get_logger()
 # this project
 from SLORM.slorm import Slorm
 
+#third party packages
+from pprint import pprint, pformat
 
 # db_tables
 
@@ -144,9 +146,15 @@ class Sloby:
 
         return {"data": data}
 
-    @router.get("/test-select")
-    def test_select(self):
+    @router.get("/test-slorm")
+    def test_slorm_select(self):
         data = slorm.select("test_data", "*")
+
+        return {"data": data}
+
+    @router.post("/test-slorm")
+    def test_slorm_post(self):
+        data = slorm.insert(table_name="user_data", columns=["gender"], values=["test"])
 
         return {"data": data}
 

@@ -1,6 +1,7 @@
-from SLORM import Slorm
+from SLORM.slorm import Slorm
 
 
-slorm = Slorm()
+slorm_class = Slorm()
+
 
 

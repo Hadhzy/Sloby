@@ -60,26 +60,46 @@ class SlobyDB:
             logger.info("Connecting to DB")
             with conn.cursor() as cur:  # get the cursor
                 for dict in self.tables:
-                    exists = self.__exists_check(dict)
+                    exists = self._exists_check(dict) # get the list of the exists
 
                     for key, value in dict.items():
-                        if exists:
+                        if exists[0]:
                             logger.info(f"This table {key} already exists.")
                         else:
                             cur.execute(value)
                             logger.info(f"Added {key} table to the DB.")
 
-    def __exists_check(self, table: dict[str, str]) -> bool:
+
+
+    def _exists_check(self, table: dict[str, str] | str, column: str = "") -> list:
         """
             Args:
                 table: dict[str, str]:  Dict(key-> name of the table, value-> "table").
+                column: str : it should be the name of the column, that you want to check
             Returns:
-                A Boolean, if it is exist true, if it is not then false.
+                A List with the exists values.
+                exists[0] -> table
+                exists[1] -> column
         """
+
+        column_exists = None
 
         with self._conn_singleton() as conn:
             with conn.cursor() as cur:
-                name = self.__get_table_name(table)
+
+                #  check if the type is a dict
+                if type(table) is dict:
+                    name = self.__get_table_name(table)
+                # or str
+                else:
+                    name = table
+                    # check the column is a valid data
+
+                if column:
+                    cur.execute(""" SELECT * FROM information_schema.columns WHERE table_name = %(table_name)s and column_name = %(column_name)s """, {"table_name": table, "column_name": column})
+
+                    column_fetch = cur.fetchone()
+                    column_exists = column_fetch[0]
 
                 cur.execute("""
                 SELECT EXISTS(
@@ -91,8 +111,9 @@ class SlobyDB:
                      )
                     """, {"name": str(name).lower()}
                         )
-                exists = cur.fetchone()
-                return exists[0]
+                table_fetch = cur.fetchone()
+                table_exists = table_fetch[0]
+                return [table_exists, column_exists]
 
     def _get_all_tables(self) -> List:
         """

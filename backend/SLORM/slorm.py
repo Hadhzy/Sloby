@@ -1,9 +1,14 @@
 # this project
+from sqlalchemy.dialects.mssql.information_schema import columns
+
 from .db.api import SlobyDB
 
 # errors
 from .utilities.exceptions import SelectError, InsertError, UpdateError, DeleteError
 from typing import List
+from .utilities.slorm_detector import SlormDetector
+
+slorm_detector = SlormDetector()
 
 
 class Slorm(SlobyDB):
@@ -40,19 +45,30 @@ class Slorm(SlobyDB):
             columns: These are the sql columns, where you can add something.
             values: It should be the values of the table.
         """
-        if columns is None:
-            columns = []
-        if values is None:
-            values = []
+
+        columns = columns or []
+        values = values or []
 
 
         try:
             with self._conn_singleton() as conn:
                 with conn.cursor() as cur:
-                    cur.execute("""INSERT INTO {0} {1} VALUES {2}""".format(table_name, columns, values))
-        except:
-            raise InsertError(columns, values, table_name)
+                    if slorm_detector.insert_check(table_name, columns, values):
+                        # params = (table_name, ', '.join(columns), ", ".join(values))
+                        # query = "INSERT INTO %s (%s) VALUES (%s)"
+                        # cur.execute(query, params)
+                        # cur.execute(
+                        #     "INSERT INTO %s (%s) VALUES (%s)", (table_name, ', '.join(columns), ", ".join("%s" * len(values))))
+                        cur.execute(
+                            "INSERT INTO {0} ({1}) VALUES ({2})".format(
+                                table_name, ', '.join(columns), ", ".join(["%s"] * len(values))
+                            ),
+                            values
+                        )
 
+
+        except:
+            raise InsertError(table_name=table_name, columns=columns, values=values)
     def update(self, table_name: str = "", columns: List[str] | str = None, set_values: List[str] | str = None, condition: str = ""):
         """
             Args:
@@ -65,7 +81,9 @@ class Slorm(SlobyDB):
         try:
             with self._conn_singleton() as conn:
                 with conn.cursor() as cur:
-                    cur.execute("""""")
+                    pass
+                    # if slorm_
+                    # cur.execute("""UPDATE {table_name} SET WHERE {condition}}""".format(table_name=table_name, condition=condition))
         except:
             raise UpdateError(table_name, columns, set_values, condition)
 
