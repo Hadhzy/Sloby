@@ -9,6 +9,7 @@ export const projectReducers = (state, action) => {
             return [...state, {
                 name: action.project.name,
                 description: action.project.description,
+                type: action.project.type,
                 id: uuidv4()
             }]
         

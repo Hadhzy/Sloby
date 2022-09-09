@@ -22,6 +22,8 @@ import { ThemeContextProvider } from "./Components/Context/ThemeContext"
 import {ProjectsHandlerContextProvider} from "./Components/Context/ProjectsHandlerContext"
 import ProjectHandler from "./Components/Editor/ProjectsSection/ProjectHandler"
 import AdminPage from "./Components/Admin/AdminPage"
+import Error from "./globalPages/Error"
+import SideMenuBar from "./Components/Editor/ProjectsSection/SideMenuBar"
 
 function App() {
   return (
@@ -32,9 +34,9 @@ function App() {
           <ProjectsCotnextProvider>
             <ProjectsHandlerContextProvider>
                <div className='App'>
-                <Header/>
+                
                 <Routes>
-                  <Route path='/' element={<Content />} />
+                  <Route path="/" element={<Header/>} />
                   <Route path='/user/profile' element={<Profile />} />
                   <Route path='/categories/:category/:subcategory' />
 
@@ -43,15 +45,15 @@ function App() {
                   <Route path='categories/docs/*' element={<Docs />} />
                   <Route path='categories/our-project/*' element={<OurProject />} />
                   <Route path='settings' element={<Settings />} />
-
+                  <Route path='*' element={<Error />} />
                   <Route path='users/register' element={<RegisterPage />} />
                   <Route path='users/login' element={<LoginPage />} />
                   <Route path='users/verified-registration-email' element={<RegistrationEmailSentPage/>} />
-                  <Route path="/editor/dashboard" element={<ProjectHandler />} />
+                  <Route path="/editor/dashboard">
+                    <Route index element={<ProjectHandler />} />
+                  </Route>
                   <Route path="/admin" element={<AdminPage/>}/>
                 </Routes>
-
-                <Footer />
           </div>
           </ProjectsHandlerContextProvider>
           </ProjectsCotnextProvider>

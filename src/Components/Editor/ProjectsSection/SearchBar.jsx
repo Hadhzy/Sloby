@@ -10,8 +10,6 @@ const searchBarInitialState = {
 }
 
 
-
-
 class SearchBar extends React.Component {
     state = searchBarInitialState
     
@@ -30,8 +28,6 @@ class SearchBar extends React.Component {
     
     render() {
         
-       
-
         return(
         <div className="searchbar-container">
             <div className='search-bar'>
@@ -51,7 +47,6 @@ class SearchBar extends React.Component {
                 <div className='close-icon-container' id="closeIcon">
                     <img src="https://cdn.discordapp.com/attachments/753660501996863488/1007181968129138738/icons8-close-48.png" alt="" className='icon close' 
                     onClick={this.handleClose}
-
                     />
                 </div>
             </div>
@@ -60,7 +55,7 @@ class SearchBar extends React.Component {
                     <motion.div
                     initial={{ opacity: 0, scale: 0}}
                     animate={{ opacity: 1, scale: 1}}
-                    transition={{ duration: 0.2, delay: 0.1}}
+                    transition={{ duration: 0.3, delay: 0.2}}
                 >
                     <SearchResults searchInput={this.state.searchInput}/>
                 </motion.div>

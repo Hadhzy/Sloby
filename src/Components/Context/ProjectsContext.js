@@ -18,6 +18,8 @@ export const ProjectsContextProvider = (props) => {
         return localData ? JSON.parse(localData) : []
     })
 
+    console.log(projects)
+
     useEffect(() => {
         localStorage.setItem("projects", JSON.stringify(projects))
     }, [projects])

@@ -1,12 +1,10 @@
-.project-creator-container {
-    width: 100%;
+.project-renderer-container {
     // background: #0d0e0e;
     background-color: $settings-container-background-color;
     // background: #0f0f0f;
     display: flex;
-    
+    height: 100%;
     .projects-container {
-        width: 100%;
         display: flex;
         gap: 200px;
         color: white;

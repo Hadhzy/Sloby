@@ -7,7 +7,6 @@
   margin-left: 20px;
 }
 
-
 .content-base{
     max-width: $max-content-width;
     margin: 0 auto;
@@ -18,6 +17,17 @@
   .red {
     color: red;  
   }
+}
+
+.flex-direction {
+  display: flex;
+  flex-direction: column;
+  
+.project-list-container {
+  display: flex;
+  justify-content: flex-end;
+  border: 1px solid red;
+}
 }
 .upload-button {
   font-size: 16px;

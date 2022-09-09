@@ -3,6 +3,7 @@ import { ProjectsContext } from "../../Context/ProjectsContext"
 import { toast, ToastContainer } from 'react-toastify'
 import ProjectsDetails from "./ProjectsDetails"
 import { ProjectsHandlerContext } from "../../Context/ProjectsHandlerContext"
+import { Outlet } from "react-router-dom"
 
 
 
@@ -22,7 +23,7 @@ const ProjectsContainer = () => {
 
 
     return(
-        <div className='project-creator-container'>
+        <div className='project-renderer-container'>
                 {
                     projects.length ? (
                        <div className="projects-container">

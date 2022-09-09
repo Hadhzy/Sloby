@@ -65,14 +65,13 @@ function Popup() {
                 dispatch({ type: 'ADD_PROJECT',  project: {
                     name: this.state.name,
                     description: this.state.description,
+                    type: "project"
                 }})
-                
                 this.setState(initialState)
                 setPopup(false)
             }
         }
     
-        
     
     
         render() {
@@ -81,7 +80,7 @@ function Popup() {
                 <div className='popup-content'>
                        <div className='upbar-container'>
                           <div className='icon-container close'>
-                            <div className="title">Create Your Projects</div>
+                            <div className="title">Create Your Project</div>
                                 <div className="image-container">
                                     <img src="https://cdn.discordapp.com/attachments/753660501996863488/1007181968129138738/icons8-close-48.png" alt="" onClick={() => setPopup(false)} className='icon close smaller' />
                                 </div> 

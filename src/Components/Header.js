@@ -10,6 +10,8 @@ import {ContentContext} from "./Context/ContentContext"
 import {UserContext} from "./Context/UserContext";
 import { useLocation } from 'react-router-dom';
 import PreventUrls from "../libraries/globalHelper/preventUrls"
+import Content from "./Content"
+import Footer from "./Footer"
 
 
 
@@ -79,7 +81,7 @@ function Header() {
   let currentUrl = useLocation()
 
 
-  let headerClassName = new PreventUrls({ className: "theme-case-header", urlToPreventFrom: ["/editor/dashboard", "/admin"], currentUrl })
+  let headerClassName = new PreventUrls({ className: "theme-case-header", urlToPreventFrom: ["/editor/dashboard", "/admin",], currentUrl })
   
   return (
     <div data_theme={theme}>
@@ -131,9 +133,6 @@ function Header() {
                         </div>
 
                 }
-
-
-
             </motion.div>
           </div>
 
@@ -142,6 +141,8 @@ function Header() {
           </div>
         </div>
       </div>
+      <Content />
+      <Footer />  
     </div>
 
   )

@@ -1,14 +1,18 @@
 .main-div {
-    width: 100%;
-    .upsection-container {
+    display: flex;
+    .changeable-content {
+        display: flex;
+        flex-direction: column;
+    }
 
+    .upsection-container {
+        width: 80vw;
         display: flex;
         height: 80px;
         background: #060606;
         display: flex;
         align-items: center;
         justify-content: space-between;
-
         .project-title {
             font-size: 20px;
             font-weight: bold;
@@ -67,13 +71,13 @@
             }
         }
 
-        .handler-buttons {
-            width: 16%;
+        .handler-button {
+            width: 10%;
             display: flex;
             justify-content: space-around;
-            padding-right: 5px;
             height: 70%;;                    
             align-items: center;
+            margin-right: 15px;
 
             button {
                 display: flex;
@@ -86,38 +90,19 @@
                 cursor: pointer;
                 border-radius: 5px;
                 transition: 270ms ease-in-out;
-                padding: 8px;
+                padding: 10px;
                 font-family: inherit;
                 font-size: 14px;
             }
-
-
-           
-
-
 
             .new-project {
                 background: #1c5bf8;
                 color: white;
                 display: flex;
-                gap: 10px;
-                
+                gap: 8px;
 
                 &:hover {
                     box-shadow: 1px 1px 10px #1c5bf8;
-                    transform: translateY(-6px);
-                }
-            }
-            
-            .new-folder {
-                background: #b68800;
-                color: white;
-                display: flex;
-                gap: 10px;
-
-
-                &:hover {
-                    box-shadow: 1px 1px 10px #e6ac00;
                     transform: translateY(-6px);
                 }
             }

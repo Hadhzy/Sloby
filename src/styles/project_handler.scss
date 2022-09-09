@@ -1,11 +1,12 @@
 .project-handler-container {
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
-
+    height: 100vh;
+    position: relative;
     .display-flex {
         display: flex;
-        height: 100%;
+        border: 1px solid pink;
     }
     
     .error-input {
@@ -22,6 +23,7 @@
         
     }
 
-    
+    .projects-content {
+        border: 1px solid red;
+    }
 }
-
