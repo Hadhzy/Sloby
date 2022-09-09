@@ -3,12 +3,15 @@ from sqlalchemy.dialects.mssql.information_schema import columns
 
 from .db.api import SlobyDB
 
+# types
+from _types import TableName, TableColumns, SetValues, Condition, ShowTables
+
 # errors
 from .utilities.exceptions import SelectError, InsertError, UpdateError, DeleteError
 from typing import List
 from .utilities.slorm_detector import SlormDetector
 
-slorm_detector = SlormDetector()
+slorm_detector = SlormDetector(logger=True)
 
 
 class Slorm(SlobyDB):
@@ -19,7 +22,7 @@ class Slorm(SlobyDB):
     def __init__(self):
        super().__init__()
 
-    def select(self, table_name: str = "", condition: str = "") -> List:
+    def select(self, table_name: TableName = "", condition: Condition = "") -> List:
 
         """
         Args:
@@ -38,10 +41,10 @@ class Slorm(SlobyDB):
         except:
            raise SelectError(condition, table_name)
 
-    def insert(self, table_name: str = "", table_columns: List[str] = None, values: List[str] = None):
+    def insert(self, table_name: TableName = "", table_columns: TableColumns = None, values: SetValues = None):
         """
         Args:
-            table_name: The table name that you want to insert something.
+            table_name: The table(name) where you want to insert something. It also can be a dictionary, that you defined in the SlobyAPI constructor.
             table_columns: These are the sql columns, where you can add something.
             values: It should be the values of the table.
         """
@@ -69,7 +72,7 @@ class Slorm(SlobyDB):
 
         except:
             raise InsertError(table_name=table_name, columns=columns, values=values)
-    def update(self, table_name: str = "", table_columns: List[str] | str = None, set_values: List[str] | str = None, condition: str = ""):
+    def update(self, table_name: TableName = "", table_columns: TableColumns = None, set_values: SetValues = None, condition: Condition = ""):
         """
             Args:
                 table_name: Name of the table where you want to update something.
@@ -90,7 +93,7 @@ class Slorm(SlobyDB):
         except:
             raise UpdateError(table_name, columns, set_values, condition)
 
-    def delete(self, table_name: str = "", condition: str = ""):
+    def delete(self, table_name: TableName = "", condition: Condition = ""):
         """
             Args:
                  table_name: Name of the table where you want to delete something.
@@ -104,13 +107,10 @@ class Slorm(SlobyDB):
         except:
             raise DeleteError(table_name, condition)
 
-    def create_table(self,  tables: list[dict[str, str]]):
+    def create_table(self,  tables: TableName):
         """
             Args:
                 tables: A list with dictionaries, that contain the name of the table and the data of the table.
         """
 
         pass
-
-
-

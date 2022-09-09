@@ -154,7 +154,7 @@ class Sloby:
 
     @router.post("/test-slorm")
     def test_slorm_post(self):
-        data = slorm.insert(table_name="user_data", columns=["gender"], values=["test"])
+        data = slorm.insert(table_name="user_data", table_columns=["gender"], values=["test"])
 
         return {"data": data}
 

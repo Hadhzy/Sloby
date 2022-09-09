@@ -5,6 +5,7 @@ from psycopg import Connection, connect, errors
 from typing import List
 
 # this project
+from SLORM._types import TableName, TableColumns, SetValues, Condition, ShowTables
 
 from .db_config.config import config
 
@@ -12,7 +13,7 @@ logger = logging.getLogger("sloby.db")
 
 
 class SlobyDB:
-    def __init__(self, conf=None, tables: list[dict[str, str]] = None, show_tables: bool = False):
+    def __init__(self, conf=None, tables: TableName = None, show_tables: ShowTables = False):
         """Initialize database from config
         Args:
             tables list[dict[str, str]] = None: A list with dictionaries, that contain the name of the table and the data of the table.
@@ -71,7 +72,7 @@ class SlobyDB:
 
 
 
-    def _exists_check(self, table: dict[str, str] | str, column: str = "") -> list:
+    def _exists_check(self, table: TableName, column: TableColumns = "") -> list:
         """
             Args:
                 table: dict[str, str]:  Dict(key-> name of the table, value-> "table").
@@ -130,7 +131,7 @@ class SlobyDB:
                 return cur.fetchall()
 
     # noinspection PyMethodMayBeStatic
-    def __get_table_name(self, table: dict[str, str]) -> str:
+    def __get_table_name(self, table: TableName) -> str:
         """
             ARGS:
                 table: dict[str, str]:dict(key-> name of the table, value-> "table").
