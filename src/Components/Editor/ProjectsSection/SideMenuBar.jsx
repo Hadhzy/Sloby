@@ -25,14 +25,16 @@ const SideMenuBar = () => {
     const UserDataTag = () => {
         return (
             <div className="user-data-tag-container">
-               <div className="user-content">
-                     <div className="user-avatar">
-                        <img src="https://images.unsplash.com/photo-1594751543129-6701ad444259?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZGFyayUyMHByb2ZpbGV8ZW58MHx8MHx8&w=1000&q=80" alt="" className="user-icon"/>
-                    </div>
-                    <div className="user-name">
-                        gaborhadhazy
-                    </div>
-               </div>
+               <Link to="/" className="off-link-dec">
+                <div className="user-content">
+                            <div className="user-avatar">
+                                <img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/344/external-build-agile-flaticons-lineal-color-flat-icons.png" alt="" className="user-icon"/>
+                            </div>
+                        <div className="user-name">
+                            SlobyBuilder
+                        </div>
+                </div>
+               </Link>
             </div>
         )
     }
