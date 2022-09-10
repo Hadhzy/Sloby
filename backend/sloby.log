@@ -295,3 +295,901 @@ psycopg.OperationalError: connection failed: FATAL:  too many connections for ro
 2022-08-30 14:36:23,956 - sloby.db - INFO - Empty table fields!!!
 2022-08-30 14:36:24,205 - sloby.db - INFO - Connecting to DB
 2022-08-30 14:36:24,292 - sloby.db - INFO - Connecting to DB
+2022-08-30 14:37:03,079 - sloby.db - INFO - Connecting to DB
+2022-08-30 14:37:03,624 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-30 14:37:04,081 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-30 14:37:04,591 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-08-30 14:37:04,592 - sloby.db - INFO - Empty table fields!!!
+2022-08-30 14:37:04,951 - sloby.db - INFO - Connecting to DB
+2022-08-30 15:12:11,877 - sloby.db - INFO - Connecting to DB
+2022-08-30 15:12:12,370 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-30 15:12:12,882 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-30 15:12:13,354 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-08-30 15:12:13,354 - sloby.db - INFO - Empty table fields!!!
+2022-08-30 15:12:13,683 - sloby.db - INFO - Connecting to DB
+2022-08-30 15:14:46,904 - sloby.db - INFO - Connecting to DB
+2022-08-30 15:14:47,343 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-30 15:14:47,858 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-30 15:14:48,327 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-08-30 15:14:48,327 - sloby.db - INFO - Empty table fields!!!
+2022-08-30 15:14:48,657 - sloby.db - INFO - Connecting to DB
+2022-08-30 15:15:43,604 - sloby.db - INFO - Connecting to DB
+2022-08-30 15:15:44,081 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-30 15:15:44,599 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-30 15:15:45,060 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-08-30 15:15:45,060 - sloby.db - INFO - Empty table fields!!!
+2022-08-30 15:15:45,405 - sloby.db - INFO - Connecting to DB
+2022-08-30 15:16:54,397 - sloby.db - INFO - Connecting to DB
+2022-08-30 15:16:54,898 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-30 15:16:55,358 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-30 15:16:55,802 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-08-30 15:16:55,802 - sloby.db - INFO - Empty table fields!!!
+2022-08-30 15:16:56,129 - sloby.db - INFO - Connecting to DB
+2022-08-30 15:17:05,353 - sloby.db - INFO - Connecting to DB
+2022-08-30 15:17:34,057 - sloby.db - INFO - Connecting to DB
+2022-08-30 15:17:34,565 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-30 15:17:35,101 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-30 15:17:35,656 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-08-30 15:17:35,657 - sloby.db - INFO - Empty table fields!!!
+2022-08-30 15:17:35,986 - sloby.db - INFO - Connecting to DB
+2022-08-30 15:17:58,039 - sloby.db - INFO - Connecting to DB
+2022-08-30 15:17:58,584 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-30 15:17:59,071 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-30 15:17:59,571 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-08-30 15:17:59,572 - sloby.db - INFO - Empty table fields!!!
+2022-08-30 15:17:59,898 - sloby.db - INFO - Connecting to DB
+2022-08-30 15:18:07,424 - sloby.db - INFO - Connecting to DB
+2022-08-30 15:18:07,923 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-30 15:18:08,380 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-30 15:18:08,829 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-08-30 15:18:08,829 - sloby.db - INFO - Empty table fields!!!
+2022-08-30 15:18:09,155 - sloby.db - INFO - Connecting to DB
+2022-08-30 15:23:09,625 - sloby.db - INFO - Connecting to DB
+2022-08-30 15:23:10,067 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-30 15:23:10,502 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-30 15:23:10,969 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-08-30 15:23:10,970 - sloby.db - INFO - Empty table fields!!!
+2022-08-30 15:23:11,276 - sloby.db - INFO - Connecting to DB
+2022-08-30 15:41:52,096 - sloby.db - INFO - Connecting to DB
+2022-08-30 15:41:52,601 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-30 15:41:53,081 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-30 15:41:53,582 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-08-30 15:41:53,583 - sloby.db - INFO - Empty table fields!!!
+2022-08-30 15:41:53,886 - sloby.db - INFO - Connecting to DB
+2022-08-30 15:43:18,357 - sloby.db - INFO - Connecting to DB
+2022-08-30 15:43:18,846 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-30 15:43:19,296 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-30 15:43:19,785 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-08-30 15:43:19,786 - sloby.db - INFO - Empty table fields!!!
+2022-08-30 15:43:20,123 - sloby.db - INFO - Connecting to DB
+2022-08-30 15:51:13,061 - sloby.db - INFO - Connecting to DB
+2022-08-30 15:51:13,501 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-30 15:51:13,969 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-30 15:51:14,425 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-08-30 15:51:14,426 - sloby.db - INFO - Empty table fields!!!
+2022-08-30 15:51:14,745 - sloby.db - INFO - Connecting to DB
+2022-08-30 15:51:41,366 - sloby.db - INFO - Connecting to DB
+2022-08-30 15:51:41,816 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-30 15:51:42,283 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-30 15:51:42,797 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-08-30 15:51:42,798 - sloby.db - INFO - Empty table fields!!!
+2022-08-30 15:51:43,157 - sloby.db - INFO - Connecting to DB
+2022-08-30 16:01:58,037 - sloby.db - INFO - Connecting to DB
+2022-08-30 16:01:58,474 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-30 16:01:58,930 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-30 16:01:59,382 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-08-30 16:01:59,382 - sloby.db - INFO - Empty table fields!!!
+2022-08-30 16:01:59,690 - sloby.db - INFO - Connecting to DB
+2022-08-30 16:02:54,554 - sloby.db - INFO - Connecting to DB
+2022-08-30 16:02:55,039 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-30 16:02:55,496 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-30 16:02:55,937 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-08-30 16:02:55,937 - sloby.db - INFO - Empty table fields!!!
+2022-08-30 16:02:56,282 - sloby.db - INFO - Connecting to DB
+2022-08-30 16:04:42,465 - sloby.db - INFO - Connecting to DB
+2022-08-30 16:04:42,954 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-30 16:04:43,421 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-30 16:04:43,928 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-08-30 16:04:43,930 - sloby.db - INFO - Empty table fields!!!
+2022-08-30 16:04:44,277 - sloby.db - INFO - Connecting to DB
+2022-08-30 16:05:05,838 - sloby.db - INFO - Connecting to DB
+2022-08-30 16:05:06,351 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-30 16:05:06,868 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-30 16:05:07,366 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-08-30 16:05:07,366 - sloby.db - INFO - Empty table fields!!!
+2022-08-30 16:05:07,671 - sloby.db - INFO - Connecting to DB
+2022-08-30 16:05:13,422 - sloby.db - INFO - Connecting to DB
+2022-08-30 16:05:13,934 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-30 16:05:14,387 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-30 16:05:14,885 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-08-30 16:05:14,886 - sloby.db - INFO - Empty table fields!!!
+2022-08-30 16:05:15,195 - sloby.db - INFO - Connecting to DB
+2022-08-30 16:05:57,326 - sloby.db - INFO - Connecting to DB
+2022-08-30 16:05:57,679 - sloby.db - INFO - Connecting to DB
+2022-08-30 16:05:57,767 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-30 16:05:58,203 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-30 16:05:58,239 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-30 16:05:58,656 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-30 16:05:58,742 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-08-30 16:05:58,742 - sloby.db - INFO - Empty table fields!!!
+2022-08-30 16:05:59,059 - sloby.db - INFO - Connecting to DB
+2022-08-30 16:05:59,114 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-08-30 16:05:59,115 - sloby.db - INFO - Empty table fields!!!
+2022-08-30 16:05:59,443 - sloby.db - INFO - Connecting to DB
+2022-08-30 16:44:00,442 - sloby.db - INFO - Connecting to DB
+2022-08-30 16:44:00,484 - sloby.db - INFO - Connecting to DB
+2022-08-30 16:44:00,813 - sloby.db - ERROR - db connect failed {'host': 'tai.db.elephantsql.com', 'dbname': 'ciqrsftx', 'user': 'ciqrsftx', 'password': 'qhqwls9u9JpK8FZ93amFfNTFEtm2SV4M', 'should_initialize_database': True}
+Traceback (most recent call last):
+  File "D:\Sloby\sloby\backend\.\SLORM\db\api.py", line 42, in _conn_singleton
+    self.conn = connect(
+  File "D:\Sloby\sloby\backend\venv\lib\site-packages\psycopg\connection.py", line 578, in connect
+    raise ex.with_traceback(None)
+psycopg.OperationalError: connection failed: FATAL:  too many connections for role "ciqrsftx"
+2022-08-30 16:44:00,938 - sloby.db - INFO - This table USER_DATA already exists.
+2022-08-30 16:44:01,390 - sloby.db - INFO - This table POST_DATA already exists.
+2022-08-30 16:44:01,851 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-08-30 16:44:01,852 - sloby.db - INFO - Empty table fields!!!
+2022-08-30 16:44:02,148 - sloby.db - INFO - Connecting to DB
+2022-09-02 19:49:15,342 - sloby.db - INFO - Empty table fields!!!
+2022-09-02 19:49:15,664 - sloby.db - INFO - Connecting to DB
+2022-09-02 19:49:16,020 - sloby.db - INFO - Connecting to DB
+2022-09-02 19:49:16,593 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-02 19:49:17,058 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-02 19:49:17,539 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-02 19:49:17,540 - sloby.db - INFO - Empty table fields!!!
+2022-09-02 19:49:17,863 - sloby.db - INFO - Connecting to DB
+2022-09-02 19:52:33,902 - sloby.db - INFO - Empty table fields!!!
+2022-09-02 19:52:34,233 - sloby.db - INFO - Connecting to DB
+2022-09-02 19:52:34,566 - sloby.db - INFO - Connecting to DB
+2022-09-02 19:52:35,002 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-02 19:52:35,473 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-02 19:52:35,948 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-02 19:52:35,949 - sloby.db - INFO - Empty table fields!!!
+2022-09-02 19:52:36,247 - sloby.db - INFO - Connecting to DB
+2022-09-02 19:54:31,444 - sloby.db - INFO - Empty table fields!!!
+2022-09-02 19:54:31,777 - sloby.db - INFO - Connecting to DB
+2022-09-02 19:54:32,126 - sloby.db - INFO - Connecting to DB
+2022-09-02 19:54:32,592 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-02 19:54:33,111 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-02 19:54:33,582 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-02 19:54:33,583 - sloby.db - INFO - Empty table fields!!!
+2022-09-02 19:54:33,933 - sloby.db - INFO - Connecting to DB
+2022-09-02 19:55:11,914 - sloby.db - INFO - Empty table fields!!!
+2022-09-02 19:55:12,249 - sloby.db - INFO - Connecting to DB
+2022-09-02 19:55:12,570 - sloby.db - INFO - Connecting to DB
+2022-09-02 19:55:13,055 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-02 19:55:13,593 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-02 19:55:14,118 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-02 19:55:14,119 - sloby.db - INFO - Empty table fields!!!
+2022-09-02 19:55:14,430 - sloby.db - INFO - Connecting to DB
+2022-09-02 19:55:15,301 - sloby.db - INFO - Empty table fields!!!
+2022-09-02 19:55:15,624 - sloby.db - INFO - Connecting to DB
+2022-09-02 19:55:15,971 - sloby.db - INFO - Connecting to DB
+2022-09-02 19:55:16,436 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-02 19:55:16,916 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-02 19:55:17,383 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-02 19:55:17,384 - sloby.db - INFO - Empty table fields!!!
+2022-09-02 19:55:17,706 - sloby.db - INFO - Connecting to DB
+2022-09-02 19:59:50,484 - sloby.db - INFO - Empty table fields!!!
+2022-09-02 19:59:50,787 - sloby.db - INFO - Connecting to DB
+2022-09-02 19:59:51,106 - sloby.db - INFO - Connecting to DB
+2022-09-02 19:59:51,624 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-02 19:59:52,145 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-02 19:59:52,682 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-02 19:59:52,682 - sloby.db - INFO - Empty table fields!!!
+2022-09-02 19:59:53,018 - sloby.db - INFO - Connecting to DB
+2022-09-02 20:02:57,199 - sloby.db - INFO - Empty table fields!!!
+2022-09-02 20:02:57,516 - sloby.db - INFO - Connecting to DB
+2022-09-02 20:02:57,861 - sloby.db - INFO - Connecting to DB
+2022-09-02 20:02:58,384 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-02 20:02:58,851 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-02 20:02:59,376 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-02 20:02:59,376 - sloby.db - INFO - Empty table fields!!!
+2022-09-02 20:02:59,713 - sloby.db - INFO - Connecting to DB
+2022-09-02 20:03:38,781 - sloby.db - INFO - Empty table fields!!!
+2022-09-02 20:03:39,098 - sloby.db - INFO - Connecting to DB
+2022-09-02 20:03:39,416 - sloby.db - INFO - Connecting to DB
+2022-09-02 20:03:39,916 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-02 20:03:40,430 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-02 20:03:40,904 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-02 20:03:40,905 - sloby.db - INFO - Empty table fields!!!
+2022-09-02 20:03:41,215 - sloby.db - INFO - Connecting to DB
+2022-09-02 20:04:42,139 - sloby.db - INFO - Empty table fields!!!
+2022-09-02 20:04:42,515 - sloby.db - INFO - Connecting to DB
+2022-09-02 20:04:42,820 - sloby.db - INFO - Connecting to DB
+2022-09-02 20:04:43,307 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-02 20:04:43,774 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-02 20:04:44,245 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-02 20:04:44,246 - sloby.db - INFO - Empty table fields!!!
+2022-09-02 20:04:44,556 - sloby.db - INFO - Connecting to DB
+2022-09-02 20:13:48,696 - sloby.db - INFO - Empty table fields!!!
+2022-09-02 20:13:49,011 - sloby.db - INFO - Connecting to DB
+2022-09-02 20:13:49,340 - sloby.db - INFO - Connecting to DB
+2022-09-02 20:13:49,802 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-02 20:13:50,290 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-02 20:13:50,767 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-02 20:13:50,768 - sloby.db - INFO - Empty table fields!!!
+2022-09-02 20:13:51,093 - sloby.db - INFO - Connecting to DB
+2022-09-02 20:18:18,775 - sloby.db - INFO - Empty table fields!!!
+2022-09-02 20:18:19,088 - sloby.db - INFO - Connecting to DB
+2022-09-02 20:18:19,435 - sloby.db - INFO - Connecting to DB
+2022-09-02 20:18:19,943 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-02 20:18:20,402 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-02 20:18:20,896 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-02 20:18:20,897 - sloby.db - INFO - Empty table fields!!!
+2022-09-02 20:18:21,229 - sloby.db - INFO - Connecting to DB
+2022-09-02 20:20:44,657 - sloby.db - INFO - Empty table fields!!!
+2022-09-02 20:20:44,990 - sloby.db - INFO - Connecting to DB
+2022-09-02 20:20:45,336 - sloby.db - INFO - Connecting to DB
+2022-09-02 20:20:45,810 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-02 20:20:46,329 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-02 20:20:46,799 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-02 20:20:46,800 - sloby.db - INFO - Empty table fields!!!
+2022-09-02 20:20:47,138 - sloby.db - INFO - Connecting to DB
+2022-09-04 17:09:37,779 - sloby.db - INFO - Empty table fields!!!
+2022-09-04 17:09:38,108 - sloby.db - INFO - Connecting to DB
+2022-09-04 17:09:38,437 - sloby.db - INFO - Connecting to DB
+2022-09-04 17:09:38,863 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-04 17:09:39,378 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-04 17:09:39,834 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-04 17:09:39,835 - sloby.db - INFO - Empty table fields!!!
+2022-09-04 17:09:40,145 - sloby.db - INFO - Connecting to DB
+2022-09-04 17:10:38,119 - sloby.db - INFO - Empty table fields!!!
+2022-09-04 17:10:38,459 - sloby.db - INFO - Connecting to DB
+2022-09-04 17:10:38,764 - sloby.db - INFO - Connecting to DB
+2022-09-04 17:10:39,263 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-04 17:10:39,753 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-04 17:10:40,267 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-04 17:10:40,268 - sloby.db - INFO - Empty table fields!!!
+2022-09-04 17:10:40,590 - sloby.db - INFO - Connecting to DB
+2022-09-04 17:36:23,124 - sloby.db - INFO - Empty table fields!!!
+2022-09-04 17:36:23,434 - sloby.db - INFO - Connecting to DB
+2022-09-04 17:36:23,740 - sloby.db - INFO - Connecting to DB
+2022-09-04 17:36:24,241 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-04 17:36:24,740 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-04 17:36:25,215 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-04 17:36:25,216 - sloby.db - INFO - Empty table fields!!!
+2022-09-04 17:36:25,509 - sloby.db - INFO - Connecting to DB
+2022-09-04 17:41:39,564 - sloby.db - INFO - Empty table fields!!!
+2022-09-04 17:41:39,925 - sloby.db - INFO - Connecting to DB
+2022-09-04 17:41:40,264 - sloby.db - INFO - Connecting to DB
+2022-09-04 17:41:40,776 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-04 17:41:41,261 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-04 17:41:41,718 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-04 17:41:41,719 - sloby.db - INFO - Empty table fields!!!
+2022-09-04 17:41:42,034 - sloby.db - INFO - Connecting to DB
+2022-09-04 19:05:23,413 - sloby.db - INFO - Empty table fields!!!
+2022-09-04 19:05:23,749 - sloby.db - INFO - Connecting to DB
+2022-09-04 19:05:24,046 - sloby.db - INFO - Connecting to DB
+2022-09-04 19:05:24,536 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-04 19:05:24,989 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-04 19:05:25,425 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-04 19:05:25,425 - sloby.db - INFO - Empty table fields!!!
+2022-09-04 19:05:25,712 - sloby.db - INFO - Connecting to DB
+2022-09-07 17:24:09,695 - sloby.db - INFO - Empty table fields!!!
+2022-09-07 17:24:10,006 - sloby.db - INFO - Connecting to DB
+2022-09-07 17:24:10,325 - sloby.db - INFO - Connecting to DB
+2022-09-07 17:24:10,818 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-07 17:24:11,282 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-07 17:24:11,749 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-07 17:24:11,749 - sloby.db - INFO - Empty table fields!!!
+2022-09-07 17:24:12,074 - sloby.db - INFO - Connecting to DB
+2022-09-07 17:30:45,097 - sloby.db - INFO - Empty table fields!!!
+2022-09-07 17:30:45,403 - sloby.db - INFO - Connecting to DB
+2022-09-07 17:30:45,726 - sloby.db - INFO - Connecting to DB
+2022-09-07 17:30:46,180 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-07 17:30:46,665 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-07 17:30:47,118 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-07 17:30:47,119 - sloby.db - INFO - Empty table fields!!!
+2022-09-07 17:30:47,421 - sloby.db - INFO - Connecting to DB
+2022-09-07 17:31:25,084 - sloby.db - INFO - Empty table fields!!!
+2022-09-07 17:31:25,386 - sloby.db - INFO - Connecting to DB
+2022-09-07 17:31:25,700 - sloby.db - INFO - Connecting to DB
+2022-09-07 17:31:26,148 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-07 17:31:26,632 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-07 17:31:27,090 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-07 17:31:27,091 - sloby.db - INFO - Empty table fields!!!
+2022-09-07 17:31:27,395 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:04:06,790 - sloby.db - INFO - Empty table fields!!!
+2022-09-07 18:04:07,092 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:04:07,385 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:04:07,847 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-07 18:04:08,321 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-07 18:04:08,787 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-07 18:04:08,788 - sloby.db - INFO - Empty table fields!!!
+2022-09-07 18:04:09,105 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:04:21,339 - sloby.db - INFO - Empty table fields!!!
+2022-09-07 18:04:21,647 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:04:21,974 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:04:22,439 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-07 18:04:22,923 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-07 18:04:23,406 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-07 18:04:23,407 - sloby.db - INFO - Empty table fields!!!
+2022-09-07 18:04:23,726 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:09:50,786 - sloby.db - INFO - Empty table fields!!!
+2022-09-07 18:09:51,091 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:09:51,409 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:09:51,920 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-07 18:09:52,418 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-07 18:09:52,893 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-07 18:09:52,893 - sloby.db - INFO - Empty table fields!!!
+2022-09-07 18:09:53,192 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:10:42,407 - sloby.db - INFO - Empty table fields!!!
+2022-09-07 18:10:42,728 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:10:43,045 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:10:43,523 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-07 18:10:43,991 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-07 18:10:44,485 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-07 18:10:44,486 - sloby.db - INFO - Empty table fields!!!
+2022-09-07 18:10:44,779 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:11:45,477 - sloby.db - INFO - Empty table fields!!!
+2022-09-07 18:11:45,786 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:11:46,102 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:11:46,565 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-07 18:11:47,034 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-07 18:11:47,506 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-07 18:11:47,507 - sloby.db - INFO - Empty table fields!!!
+2022-09-07 18:11:47,842 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:14:13,189 - sloby.db - INFO - Empty table fields!!!
+2022-09-07 18:14:13,488 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:14:13,801 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:14:14,248 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-07 18:14:14,742 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-07 18:14:15,236 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-07 18:14:15,236 - sloby.db - INFO - Empty table fields!!!
+2022-09-07 18:14:15,540 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:15:46,784 - sloby.db - INFO - Empty table fields!!!
+2022-09-07 18:15:47,103 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:15:47,418 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:15:47,865 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-07 18:15:48,320 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-07 18:15:48,779 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-07 18:15:48,780 - sloby.db - INFO - Empty table fields!!!
+2022-09-07 18:15:49,099 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:16:34,303 - sloby.db - INFO - Empty table fields!!!
+2022-09-07 18:16:34,622 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:16:34,953 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:16:35,448 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-07 18:16:35,940 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-07 18:16:36,415 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-07 18:16:36,415 - sloby.db - INFO - Empty table fields!!!
+2022-09-07 18:16:36,725 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:16:49,776 - sloby.db - INFO - Empty table fields!!!
+2022-09-07 18:16:50,096 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:16:50,437 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:16:50,887 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-07 18:16:51,364 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-07 18:16:51,838 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-07 18:16:51,839 - sloby.db - INFO - Empty table fields!!!
+2022-09-07 18:16:52,152 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:27:54,381 - sloby.db - INFO - Empty table fields!!!
+2022-09-07 18:27:54,689 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:27:55,024 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:27:55,495 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-07 18:27:55,949 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-07 18:27:56,430 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-07 18:27:56,431 - sloby.db - INFO - Empty table fields!!!
+2022-09-07 18:27:56,757 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:28:14,430 - sloby.db - INFO - Empty table fields!!!
+2022-09-07 18:28:14,744 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:28:15,057 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:28:15,667 - sloby.db - INFO - Added USER_DATA table to the DB.
+2022-09-07 18:28:16,162 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-07 18:28:16,650 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-07 18:28:16,703 - sloby.db - INFO - Empty table fields!!!
+2022-09-07 18:28:17,019 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:28:56,239 - sloby.db - ERROR - db connect failed {'host': 'tai.db.elephantsql.com', 'dbname': 'ciqrsftx', 'user': 'ciqrsftx', 'password': 'qhqwls9u9JpK8FZ93amFfNTFEtm2SV4M', 'should_initialize_database': True}
+Traceback (most recent call last):
+  File "D:\Sloby\sloby\backend\.\SLORM\db\api.py", line 42, in _conn_singleton
+    self.conn = connect(
+  File "d:\sloby\sloby\backend\venv\lib\site-packages\psycopg\connection.py", line 578, in connect
+    raise ex.with_traceback(None)
+psycopg.OperationalError: connection failed: FATAL:  too many connections for role "ciqrsftx"
+2022-09-07 18:29:19,294 - sloby.db - INFO - Empty table fields!!!
+2022-09-07 18:29:19,626 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:29:19,949 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:29:20,253 - sloby.db - ERROR - db connect failed {'host': 'tai.db.elephantsql.com', 'dbname': 'ciqrsftx', 'user': 'ciqrsftx', 'password': 'qhqwls9u9JpK8FZ93amFfNTFEtm2SV4M', 'should_initialize_database': True}
+Traceback (most recent call last):
+  File "D:\Sloby\sloby\backend\.\SLORM\db\api.py", line 42, in _conn_singleton
+    self.conn = connect(
+  File "d:\sloby\sloby\backend\venv\lib\site-packages\psycopg\connection.py", line 578, in connect
+    raise ex.with_traceback(None)
+psycopg.OperationalError: connection failed: FATAL:  too many connections for role "ciqrsftx"
+2022-09-07 18:32:45,761 - sloby.db - INFO - Empty table fields!!!
+2022-09-07 18:32:46,074 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:32:46,402 - sloby.db - INFO - Connecting to DB
+2022-09-07 18:32:46,897 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-07 18:32:47,361 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-07 18:32:47,844 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-07 18:32:47,845 - sloby.db - INFO - Empty table fields!!!
+2022-09-07 18:32:48,167 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:36:05,926 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 10:36:06,253 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:36:06,558 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:36:07,066 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-10 10:36:07,154 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 10:36:07,467 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:36:07,530 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-10 10:36:07,779 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:36:08,006 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-10 10:36:08,007 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 10:36:08,250 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-10 10:36:08,338 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:36:08,711 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-10 10:36:09,166 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-10 10:36:09,167 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 10:36:09,480 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:38:13,830 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 10:38:14,148 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:38:14,356 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 10:38:14,458 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:38:14,661 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:38:14,923 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-10 10:38:14,968 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:38:15,271 - sloby.db - ERROR - db connect failed {'host': 'tai.db.elephantsql.com', 'dbname': 'ciqrsftx', 'user': 'ciqrsftx', 'password': 'qhqwls9u9JpK8FZ93amFfNTFEtm2SV4M', 'should_initialize_database': True}
+Traceback (most recent call last):
+  File "D:\Sloby\sloby\backend\.\SLORM\db\api.py", line 43, in _conn_singleton
+    self.conn = connect(
+  File "d:\sloby\sloby\backend\venv\lib\site-packages\psycopg\connection.py", line 578, in connect
+    raise ex.with_traceback(None)
+psycopg.OperationalError: connection failed: FATAL:  too many connections for role "ciqrsftx"
+2022-09-10 10:38:15,396 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-10 10:38:15,853 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-10 10:38:15,853 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 10:38:16,159 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:38:46,014 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 10:38:46,015 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 10:38:46,326 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:38:46,343 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:38:46,632 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:38:46,664 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:38:46,982 - sloby.db - ERROR - db connect failed {'host': 'tai.db.elephantsql.com', 'dbname': 'ciqrsftx', 'user': 'ciqrsftx', 'password': 'qhqwls9u9JpK8FZ93amFfNTFEtm2SV4M', 'should_initialize_database': True}
+Traceback (most recent call last):
+  File "D:\Sloby\sloby\backend\.\SLORM\db\api.py", line 43, in _conn_singleton
+    self.conn = connect(
+  File "d:\sloby\sloby\backend\venv\lib\site-packages\psycopg\connection.py", line 578, in connect
+    raise ex.with_traceback(None)
+psycopg.OperationalError: connection failed: FATAL:  too many connections for role "ciqrsftx"
+2022-09-10 10:38:47,098 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-10 10:38:47,530 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-10 10:38:47,978 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-10 10:38:47,978 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 10:38:48,305 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:38:50,985 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 10:38:50,988 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 10:38:51,308 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:38:51,317 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:38:51,633 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:38:51,633 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:38:51,949 - sloby.db - ERROR - db connect failed {'host': 'tai.db.elephantsql.com', 'dbname': 'ciqrsftx', 'user': 'ciqrsftx', 'password': 'qhqwls9u9JpK8FZ93amFfNTFEtm2SV4M', 'should_initialize_database': True}
+Traceback (most recent call last):
+  File "D:\Sloby\sloby\backend\.\SLORM\db\api.py", line 43, in _conn_singleton
+    self.conn = connect(
+  File "d:\sloby\sloby\backend\venv\lib\site-packages\psycopg\connection.py", line 578, in connect
+    raise ex.with_traceback(None)
+psycopg.OperationalError: connection failed: FATAL:  too many connections for role "ciqrsftx"
+2022-09-10 10:38:52,104 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-10 10:38:52,584 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-10 10:38:53,052 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-10 10:38:53,053 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 10:38:53,369 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:39:27,240 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 10:39:27,245 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 10:39:27,541 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:39:27,560 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:39:27,857 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:39:27,872 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:39:28,172 - sloby.db - ERROR - db connect failed {'host': 'tai.db.elephantsql.com', 'dbname': 'ciqrsftx', 'user': 'ciqrsftx', 'password': 'qhqwls9u9JpK8FZ93amFfNTFEtm2SV4M', 'should_initialize_database': True}
+Traceback (most recent call last):
+  File "D:\Sloby\sloby\backend\.\SLORM\db\api.py", line 43, in _conn_singleton
+    self.conn = connect(
+  File "d:\sloby\sloby\backend\venv\lib\site-packages\psycopg\connection.py", line 578, in connect
+    raise ex.with_traceback(None)
+psycopg.OperationalError: connection failed: FATAL:  too many connections for role "ciqrsftx"
+2022-09-10 10:39:28,296 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-10 10:39:28,739 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-10 10:39:29,204 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-10 10:39:29,205 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 10:39:29,526 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:41:08,695 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 10:41:08,710 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 10:41:09,001 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:41:09,011 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:41:09,314 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:41:09,316 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:41:09,632 - sloby.db - ERROR - db connect failed {'host': 'tai.db.elephantsql.com', 'dbname': 'ciqrsftx', 'user': 'ciqrsftx', 'password': 'qhqwls9u9JpK8FZ93amFfNTFEtm2SV4M', 'should_initialize_database': True}
+Traceback (most recent call last):
+  File "D:\Sloby\sloby\backend\.\SLORM\db\api.py", line 43, in _conn_singleton
+    self.conn = connect(
+  File "d:\sloby\sloby\backend\venv\lib\site-packages\psycopg\connection.py", line 578, in connect
+    raise ex.with_traceback(None)
+psycopg.OperationalError: connection failed: FATAL:  too many connections for role "ciqrsftx"
+2022-09-10 10:41:09,783 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-10 10:41:10,248 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-10 10:41:10,693 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-10 10:41:10,695 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 10:41:11,011 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:43:23,735 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 10:43:23,735 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 10:43:24,050 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:43:24,052 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:43:24,380 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:43:24,380 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:43:24,690 - sloby.db - ERROR - db connect failed {'host': 'tai.db.elephantsql.com', 'dbname': 'ciqrsftx', 'user': 'ciqrsftx', 'password': 'qhqwls9u9JpK8FZ93amFfNTFEtm2SV4M', 'should_initialize_database': True}
+Traceback (most recent call last):
+  File "D:\Sloby\sloby\backend\.\SLORM\db\api.py", line 43, in _conn_singleton
+    self.conn = connect(
+  File "d:\sloby\sloby\backend\venv\lib\site-packages\psycopg\connection.py", line 578, in connect
+    raise ex.with_traceback(None)
+psycopg.OperationalError: connection failed: FATAL:  too many connections for role "ciqrsftx"
+2022-09-10 10:43:24,699 - sloby.db - ERROR - db connect failed {'host': 'tai.db.elephantsql.com', 'dbname': 'ciqrsftx', 'user': 'ciqrsftx', 'password': 'qhqwls9u9JpK8FZ93amFfNTFEtm2SV4M', 'should_initialize_database': True}
+Traceback (most recent call last):
+  File "D:\Sloby\sloby\backend\.\SLORM\db\api.py", line 43, in _conn_singleton
+    self.conn = connect(
+  File "d:\sloby\sloby\backend\venv\lib\site-packages\psycopg\connection.py", line 578, in connect
+    raise ex.with_traceback(None)
+psycopg.OperationalError: connection failed: FATAL:  too many connections for role "ciqrsftx"
+2022-09-10 10:44:45,812 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 10:44:45,814 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 10:44:46,120 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:44:46,127 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:44:46,429 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:44:46,438 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:44:46,735 - sloby.db - ERROR - db connect failed {'host': 'tai.db.elephantsql.com', 'dbname': 'ciqrsftx', 'user': 'ciqrsftx', 'password': 'qhqwls9u9JpK8FZ93amFfNTFEtm2SV4M', 'should_initialize_database': True}
+Traceback (most recent call last):
+  File "D:\Sloby\sloby\backend\.\SLORM\db\api.py", line 43, in _conn_singleton
+    self.conn = connect(
+  File "d:\sloby\sloby\backend\venv\lib\site-packages\psycopg\connection.py", line 578, in connect
+    raise ex.with_traceback(None)
+psycopg.OperationalError: connection failed: FATAL:  too many connections for role "ciqrsftx"
+2022-09-10 10:44:46,737 - sloby.db - ERROR - db connect failed {'host': 'tai.db.elephantsql.com', 'dbname': 'ciqrsftx', 'user': 'ciqrsftx', 'password': 'qhqwls9u9JpK8FZ93amFfNTFEtm2SV4M', 'should_initialize_database': True}
+Traceback (most recent call last):
+  File "D:\Sloby\sloby\backend\.\SLORM\db\api.py", line 43, in _conn_singleton
+    self.conn = connect(
+  File "d:\sloby\sloby\backend\venv\lib\site-packages\psycopg\connection.py", line 578, in connect
+    raise ex.with_traceback(None)
+psycopg.OperationalError: connection failed: FATAL:  too many connections for role "ciqrsftx"
+2022-09-10 10:45:32,430 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 10:45:32,431 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 10:45:32,746 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:45:32,761 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:45:33,056 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:45:33,059 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:45:33,357 - sloby.db - ERROR - db connect failed {'host': 'tai.db.elephantsql.com', 'dbname': 'ciqrsftx', 'user': 'ciqrsftx', 'password': 'qhqwls9u9JpK8FZ93amFfNTFEtm2SV4M', 'should_initialize_database': True}
+Traceback (most recent call last):
+  File "D:\Sloby\sloby\backend\.\SLORM\db\api.py", line 43, in _conn_singleton
+    self.conn = connect(
+  File "d:\sloby\sloby\backend\venv\lib\site-packages\psycopg\connection.py", line 578, in connect
+    raise ex.with_traceback(None)
+psycopg.OperationalError: connection failed: FATAL:  too many connections for role "ciqrsftx"
+2022-09-10 10:45:33,368 - sloby.db - ERROR - db connect failed {'host': 'tai.db.elephantsql.com', 'dbname': 'ciqrsftx', 'user': 'ciqrsftx', 'password': 'qhqwls9u9JpK8FZ93amFfNTFEtm2SV4M', 'should_initialize_database': True}
+Traceback (most recent call last):
+  File "D:\Sloby\sloby\backend\.\SLORM\db\api.py", line 43, in _conn_singleton
+    self.conn = connect(
+  File "d:\sloby\sloby\backend\venv\lib\site-packages\psycopg\connection.py", line 578, in connect
+    raise ex.with_traceback(None)
+psycopg.OperationalError: connection failed: FATAL:  too many connections for role "ciqrsftx"
+2022-09-10 10:46:27,971 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 10:46:27,971 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 10:46:28,276 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:46:28,278 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:46:28,606 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:46:28,610 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:46:28,911 - sloby.db - ERROR - db connect failed {'host': 'tai.db.elephantsql.com', 'dbname': 'ciqrsftx', 'user': 'ciqrsftx', 'password': 'qhqwls9u9JpK8FZ93amFfNTFEtm2SV4M', 'should_initialize_database': True}
+Traceback (most recent call last):
+  File "D:\Sloby\sloby\backend\.\SLORM\db\api.py", line 43, in _conn_singleton
+    self.conn = connect(
+  File "d:\sloby\sloby\backend\venv\lib\site-packages\psycopg\connection.py", line 578, in connect
+    raise ex.with_traceback(None)
+psycopg.OperationalError: connection failed: FATAL:  too many connections for role "ciqrsftx"
+2022-09-10 10:46:28,952 - sloby.db - ERROR - db connect failed {'host': 'tai.db.elephantsql.com', 'dbname': 'ciqrsftx', 'user': 'ciqrsftx', 'password': 'qhqwls9u9JpK8FZ93amFfNTFEtm2SV4M', 'should_initialize_database': True}
+Traceback (most recent call last):
+  File "D:\Sloby\sloby\backend\.\SLORM\db\api.py", line 43, in _conn_singleton
+    self.conn = connect(
+  File "d:\sloby\sloby\backend\venv\lib\site-packages\psycopg\connection.py", line 578, in connect
+    raise ex.with_traceback(None)
+psycopg.OperationalError: connection failed: FATAL:  too many connections for role "ciqrsftx"
+2022-09-10 10:51:18,660 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 10:51:18,969 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:51:19,282 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:51:19,745 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-10 10:51:20,227 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-10 10:51:20,714 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-10 10:51:20,716 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 10:51:21,021 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:53:39,013 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 10:53:39,334 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:53:39,700 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:53:40,163 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-10 10:53:40,614 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-10 10:53:41,079 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-10 10:53:41,079 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 10:53:41,401 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:55:18,137 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 10:55:18,440 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:55:18,748 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:55:19,054 - sloby.db - ERROR - db connect failed {'host': 'tai.db.elephantsql.com', 'dbname': 'ciqrsftx', 'user': 'ciqrsftx', 'password': 'qhqwls9u9JpK8FZ93amFfNTFEtm2SV4M', 'should_initialize_database': True}
+Traceback (most recent call last):
+  File "D:\Sloby\sloby\backend\.\SLORM\db\api.py", line 43, in _conn_singleton
+    self.conn = connect(
+  File "d:\sloby\sloby\backend\venv\lib\site-packages\psycopg\connection.py", line 578, in connect
+    raise ex.with_traceback(None)
+psycopg.OperationalError: connection failed: FATAL:  too many connections for role "ciqrsftx"
+2022-09-10 10:55:31,336 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 10:55:31,656 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:55:31,964 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:55:32,280 - sloby.db - ERROR - db connect failed {'host': 'tai.db.elephantsql.com', 'dbname': 'ciqrsftx', 'user': 'ciqrsftx', 'password': 'qhqwls9u9JpK8FZ93amFfNTFEtm2SV4M', 'should_initialize_database': True}
+Traceback (most recent call last):
+  File "D:\Sloby\sloby\backend\.\SLORM\db\api.py", line 43, in _conn_singleton
+    self.conn = connect(
+  File "d:\sloby\sloby\backend\venv\lib\site-packages\psycopg\connection.py", line 578, in connect
+    raise ex.with_traceback(None)
+psycopg.OperationalError: connection failed: FATAL:  too many connections for role "ciqrsftx"
+2022-09-10 10:58:21,700 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 10:58:22,006 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:58:22,343 - sloby.db - INFO - Connecting to DB
+2022-09-10 10:58:22,829 - sloby.db - INFO - This table USER_DATA already exists.
+2022-09-10 10:58:23,308 - sloby.db - INFO - This table POST_DATA already exists.
+2022-09-10 10:58:23,775 - sloby.db - INFO - This table TEST_DATA already exists.
+2022-09-10 10:58:23,776 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 10:58:24,109 - sloby.db - INFO - Connecting to DB
+2022-09-10 11:01:49,577 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 11:01:49,885 - sloby.db - INFO - Connecting to DB
+2022-09-10 11:01:49,889 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 11:26:07,997 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 11:26:08,307 - sloby.db - INFO - Connecting to DB
+2022-09-10 11:26:08,310 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 11:26:08,610 - sloby.db - INFO - Connecting to DB
+2022-09-10 11:26:08,611 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 11:26:08,911 - sloby.db - INFO - Connecting to DB
+2022-09-10 11:26:31,043 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 11:26:31,344 - sloby.db - INFO - Connecting to DB
+2022-09-10 11:26:31,347 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 11:26:31,665 - sloby.db - INFO - Connecting to DB
+2022-09-10 11:26:31,668 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 11:26:31,983 - sloby.db - INFO - Connecting to DB
+2022-09-10 11:31:39,276 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 11:31:39,590 - sloby.db - INFO - Connecting to DB
+2022-09-10 11:31:39,591 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 11:31:39,900 - sloby.db - INFO - Connecting to DB
+2022-09-10 11:31:39,901 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 11:31:40,214 - sloby.db - INFO - Connecting to DB
+2022-09-10 11:32:42,133 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 11:32:42,443 - sloby.db - INFO - Connecting to DB
+2022-09-10 11:32:42,444 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 11:32:42,759 - sloby.db - INFO - Connecting to DB
+2022-09-10 11:32:42,759 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 11:32:43,072 - sloby.db - INFO - Connecting to DB
+2022-09-10 11:33:17,284 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 11:33:17,585 - sloby.db - INFO - Connecting to DB
+2022-09-10 11:33:17,586 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 11:33:17,896 - sloby.db - INFO - Connecting to DB
+2022-09-10 11:33:17,897 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 11:33:18,194 - sloby.db - INFO - Connecting to DB
+2022-09-10 11:33:55,521 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 11:33:55,851 - sloby.db - INFO - Connecting to DB
+2022-09-10 11:33:55,852 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 11:33:56,173 - sloby.db - INFO - Connecting to DB
+2022-09-10 11:33:56,174 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 11:33:56,484 - sloby.db - INFO - Connecting to DB
+2022-09-10 11:38:36,300 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 11:38:36,614 - sloby.db - INFO - Connecting to DB
+2022-09-10 11:38:36,615 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 11:38:36,932 - sloby.db - INFO - Connecting to DB
+2022-09-10 11:38:36,932 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 11:38:37,254 - sloby.db - INFO - Connecting to DB
+2022-09-10 11:39:05,809 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 11:39:06,154 - sloby.db - INFO - Connecting to DB
+2022-09-10 11:39:06,155 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 11:39:06,467 - sloby.db - INFO - Connecting to DB
+2022-09-10 11:39:06,468 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 11:39:06,780 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:08:08,088 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:08:08,399 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:08:08,400 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:08:08,714 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:08:08,714 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:08:09,040 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:09:46,021 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:09:46,332 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:09:46,333 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:09:46,633 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:09:46,634 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:09:46,947 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:10:09,574 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:10:09,892 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:10:09,894 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:10:10,215 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:10:10,216 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:10:10,520 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:11:00,824 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:11:01,147 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:11:01,148 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:11:01,469 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:11:01,470 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:11:01,795 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:12:10,006 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:12:10,313 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:12:10,315 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:12:10,625 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:12:10,625 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:12:10,933 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:13:12,078 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:13:12,389 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:13:12,390 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:13:12,716 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:13:12,717 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:13:13,031 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:13:15,233 - sloby.db - INFO - test: It should be a list, and both columns and values should have the same length
+2022-09-10 12:13:53,862 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:13:54,175 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:13:54,176 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:13:54,479 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:13:54,479 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:13:54,787 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:14:10,618 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:14:10,927 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:14:10,929 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:14:11,227 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:14:11,228 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:14:11,532 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:14:33,781 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:14:34,089 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:14:34,091 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:14:34,410 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:14:34,411 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:14:34,721 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:14:56,591 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:14:56,906 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:14:56,908 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:14:57,229 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:14:57,230 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:14:57,526 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:16:06,304 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:16:06,609 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:16:06,610 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:16:06,929 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:16:06,929 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:16:07,229 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:16:18,877 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:16:19,185 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:16:19,186 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:16:19,492 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:16:19,493 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:16:19,801 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:16:56,734 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:16:57,038 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:16:57,040 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:16:57,352 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:16:57,353 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:16:57,658 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:18:45,241 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:18:45,564 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:18:45,565 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:18:45,886 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:18:45,886 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:18:46,186 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:18:46,823 - sloby.db - ERROR - db connect failed {'host': 'tai.db.elephantsql.com', 'dbname': 'ciqrsftx', 'user': 'ciqrsftx', 'password': 'qhqwls9u9JpK8FZ93amFfNTFEtm2SV4M', 'should_initialize_database': True}
+Traceback (most recent call last):
+  File "D:\Sloby\sloby\backend\.\SLORM\db\api.py", line 43, in _conn_singleton
+    self.conn = connect(
+  File "d:\sloby\sloby\backend\venv\lib\site-packages\psycopg\connection.py", line 578, in connect
+    raise ex.with_traceback(None)
+psycopg.OperationalError: connection failed: FATAL:  too many connections for role "ciqrsftx"
+2022-09-10 12:20:11,167 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:20:11,481 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:20:11,483 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:20:11,783 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:20:11,784 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:20:12,100 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:20:39,162 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:20:39,470 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:20:39,472 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:20:39,791 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:20:39,792 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:20:40,112 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:21:13,810 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:21:14,122 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:21:14,124 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:21:14,435 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:21:14,436 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:21:14,746 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:28:07,617 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:28:07,938 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:28:07,939 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:28:08,255 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:28:08,256 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:28:08,566 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:28:34,640 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:28:34,966 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:28:34,967 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:28:35,284 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:28:35,285 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:28:35,603 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:29:20,499 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:29:20,809 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:29:20,810 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:29:21,130 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:29:21,131 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:29:21,444 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:29:35,100 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:29:35,420 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:29:35,421 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:29:35,748 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:29:35,749 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:29:36,068 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:29:50,966 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:29:51,268 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:29:51,274 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:29:51,605 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:29:51,606 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:29:51,928 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:30:14,378 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:30:14,689 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:30:14,690 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:30:15,002 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:30:15,002 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:30:15,326 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:31:05,297 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:31:05,606 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:31:05,607 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:31:05,919 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:31:05,921 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:31:06,249 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:31:06,250 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:31:06,557 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:31:19,619 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:31:19,928 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:31:19,929 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:31:20,238 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:31:20,240 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:31:20,559 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:31:20,560 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:31:20,879 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:32:11,537 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:32:11,840 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:32:11,842 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:32:12,174 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:32:12,175 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:32:12,489 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:33:58,103 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:33:58,410 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:33:58,412 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:33:58,720 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:33:58,721 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:33:59,044 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:40:09,379 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:40:09,685 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:40:09,686 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:40:09,997 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:40:09,997 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:40:10,301 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:41:02,503 - sloby.db - INFO - test: test
+2022-09-10 12:41:02,503 - sloby.db - INFO - test: test
+2022-09-10 12:41:02,504 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:41:02,808 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:41:02,809 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:41:03,124 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:41:03,125 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:41:03,441 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:41:34,287 - sloby.db - INFO - test: test
+2022-09-10 12:41:34,288 - sloby.db - INFO - test: test
+2022-09-10 12:41:34,289 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:41:34,603 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:41:34,604 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:41:34,920 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:41:34,920 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:41:35,224 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:42:09,115 - sloby.db - INFO - test: test
+2022-09-10 12:42:09,116 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:42:09,419 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:42:09,420 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:42:09,731 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:42:09,732 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:42:10,035 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:47:53,406 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:47:53,721 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:47:53,722 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:47:54,035 - sloby.db - INFO - Connecting to DB
+2022-09-10 12:47:54,036 - sloby.db - INFO - Empty table fields!!!
+2022-09-10 12:47:54,349 - sloby.db - INFO - Connecting to DB

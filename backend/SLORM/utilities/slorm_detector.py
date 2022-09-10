@@ -10,6 +10,7 @@ class SlormDetector(SlobyDB):
     def __init__(self, logger: bool = False):
         super().__init__()
         self.logger = logger
+
     """
     Args:
         logger: bool = False -> If you want to see these messages in the log file, you must use True, in other cases False. 

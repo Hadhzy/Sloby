@@ -1,17 +1,18 @@
 # this project
 from sqlalchemy.dialects.mssql.information_schema import columns
 
-from .db.api import SlobyDB
+from SLORM.db.api import SlobyDB
 
 # types
-from ._types import TableName, TableColumns, SetValues, Condition, ShowTables
+from SLORM._types import TableName, TableColumns, SetValues, Condition, ShowTables
 
 # errors
-from .utilities.exceptions import SelectError, InsertError, UpdateError, DeleteError
+from SLORM.utilities.exceptions import SelectError, InsertError, UpdateError, DeleteError
 from typing import List
-from .utilities.slorm_detector import SlormDetector
+from SLORM.utilities.slorm_detector import SlormDetector
 
 slorm_detector = SlormDetector(logger=True)
+
 
 
 class Slorm(SlobyDB):
@@ -64,6 +65,8 @@ class Slorm(SlobyDB):
                             values
                         )
 
+                    table_data = self.select(table_name=table_name, condition="*")
+                    return table_data
 
         except:
             raise InsertError(table_name=table_name, columns=columns, values=values)
@@ -84,6 +87,11 @@ class Slorm(SlobyDB):
                         columns_values = slorm_detector.build_update_columns_values_connection(table_columns, set_values)
 
                         cur.execute("""UPDATE {table_name} SET {columns_values} WHERE {condition}""".format(table_name=table_name, columns_values=columns_values, condition=condition))
+                        #save the changes
+                        conn.commit()
+
+                        table_data = self.select(table_name=table_name, condition="*")
+                        return table_data
         except:
             raise UpdateError(table_name, columns, set_values, condition)
 

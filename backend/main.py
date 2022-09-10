@@ -16,11 +16,11 @@ logger = logger.get_logger()
 from SLORM.slorm import Slorm
 
 #third party packages
-from pprint import pprint, pformat
+
 
 # db_tables
 
-from SLORM.db.utils.db_tables import CREATE_POST_DATA, CREATE_USER_DATA, CREATE_TEST_DATA
+#from SLORM.db.utils.db_tables import CREATE_POST_DATA, CREATE_USER_DATA, CREATE_TEST_DATA
 
 
 def get_x():
@@ -163,8 +163,8 @@ class Sloby:
 
     @router.put("/test-slorm")
     def test_slorm_update(self):
-        data = slorm.update(table_name="user_data", table_columns=["gender", ""], set_values=["male"], condition="id=1")
-        return {"data": "it was successfully"}
+        data = slorm.update(table_name="user_data", table_columns=["gender"], set_values=["first"], condition="id=1")
+        return {"data": data}
 
     @router.websocket("/ws")
     async def ws(self, websocket: WebSocket):
