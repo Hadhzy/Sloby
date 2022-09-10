@@ -112,7 +112,7 @@
             }
 
             &:focus {
-                border-color: #1c5bf8;
+                border-color: $project_section_button_color;
                 box-shadow: 1px 1px 10px #0048ff;
             }
 
@@ -139,7 +139,7 @@
 
                 &:hover {
                     transform: translateY(-5px);
-                    box-shadow: 1px 1px 5px #1c5bf8;
+                    box-shadow: 1px 1px 5px $project_section_button_color;
                 }
             }
         }

@@ -5,6 +5,9 @@ import ProjectsList from "./ProjectsList"
 import NewProjectPopup from './NewProjectPopup'
 import {ProjectsHandlerContext} from '../../Context/ProjectsHandlerContext'
 import { toast, ToastContainer } from 'react-toastify'
+import { AiOutlineSearch } from 'react-icons/ai'
+import {FcSettings} from "react-icons/fc"
+import { AiOutlinePlusCircle } from "react-icons/ai"
 
 function ProjectHandler() {
 
@@ -27,14 +30,15 @@ function ProjectHandler() {
     const UpBar = () => {
         return (
         <div className='upsection-container'>
-            <SearchBar />  
+            <div className='searchbar'>
+                <SearchBar />
+            </div>
             <div className='handler-button'>
-                <button className="button-base new-project" onClick={() => setPopup(true)}> <img src="https://i.ibb.co/cYbZ0Fv/icons8-web-design-48.png" alt="icons8-web-design-48" className='icon'></img> New Project</button>
+                <button className='button-base new-project' onClick={() => setPopup(true)}> <AiOutlinePlusCircle className='icon-base'/>  New Project</button>    
             </div>
         </div>
         )
     }
-
     
     const ProjectHandlerContent = () => {
         return(

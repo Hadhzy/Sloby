@@ -15,7 +15,6 @@
             margin-right: 10px;
         }
     }
-
     .handler-button {
         width: 10%;
         display: flex;
@@ -41,13 +40,13 @@
         }
 
         .new-project {
-            background: #1c5bf8;
+            background-color: $project_section_button_color;
             color: white;
             display: flex;
             gap: 8px;
 
             &:hover {
-                box-shadow: 1px 1px 10px #1c5bf8;
+                box-shadow: 1px 1px 10px $project_section_button_color;
                 transform: translateY(-6px);
             }
         }

@@ -7,6 +7,7 @@
 	-moz-box-shadow: none;
 	box-shadow: none;
     background: $user-tag-background-color;
+    border-bottom: 1px solid rgba(73, 73, 73, 0.145);
     .user-content {
         height: 100%;
         display: flex;

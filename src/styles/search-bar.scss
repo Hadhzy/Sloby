@@ -116,12 +116,11 @@
                     transition: 250ms ease-in-out;
 
                     &:hover {
-                        background: #1c5bf8;
+                        background: $project_section_button_color;
                     }
                 }
             
             }
-
 
             .search-result-title {
                 margin-left: 10px;

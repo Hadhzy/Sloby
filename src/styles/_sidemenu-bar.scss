@@ -57,7 +57,7 @@
     
     .menu-bar-title-active {
         margin-left: 10px;
-        color: #1c5bf8;
+        color: $project_section_button_color;
         font-weight: bold;
         transition: 250ms ease-in-out;
         font-size: 15px;
@@ -67,7 +67,7 @@
         display: flex;
         align-items: center;
         transition: 250ms ease-in-out;
-        color: #1c5bf8;
+        color: $project_section_button_color;
         margin-left: 16px;
         font-size: 23px;
     }
