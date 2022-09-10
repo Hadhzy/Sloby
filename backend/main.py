@@ -58,7 +58,10 @@ app.add_middleware(CORSMiddleware,
                    allow_methods=['*'],
                    allow_headers=['*'])
 
-sloby_db = SlobyDB(tables=[{"USER_DATA": CREATE_USER_DATA}, {"POST_DATA": CREATE_POST_DATA}, {"TEST_DATA": CREATE_TEST_DATA}], show_tables=False)
+"""
+tables=[{"USER_DATA": CREATE_USER_DATA}, {"POST_DATA": CREATE_POST_DATA}, {"TEST_DATA": CREATE_TEST_DATA}]
+"""
+sloby_db = SlobyDB(show_tables=False)
 slorm = Slorm()
 
 
@@ -154,9 +157,14 @@ class Sloby:
 
     @router.post("/test-slorm")
     def test_slorm_post(self):
-        data = slorm.insert(table_name="user_data", table_columns=["gender"], values=["test"])
+        data = slorm.insert(table_name="user_data", table_columns=["gender"], values=["male"])
 
         return {"data": data}
+
+    @router.put("/test-slorm")
+    def test_slorm_update(self):
+        data = slorm.update(table_name="user_data", table_columns=["gender", ""], set_values=["male"], condition="id=1")
+        return {"data": "it was successfully"}
 
     @router.websocket("/ws")
     async def ws(self, websocket: WebSocket):

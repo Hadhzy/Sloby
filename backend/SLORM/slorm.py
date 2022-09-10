@@ -4,7 +4,7 @@ from sqlalchemy.dialects.mssql.information_schema import columns
 from .db.api import SlobyDB
 
 # types
-from _types import TableName, TableColumns, SetValues, Condition, ShowTables
+from ._types import TableName, TableColumns, SetValues, Condition, ShowTables
 
 # errors
 from .utilities.exceptions import SelectError, InsertError, UpdateError, DeleteError
@@ -57,11 +57,6 @@ class Slorm(SlobyDB):
             with self._conn_singleton() as conn:
                 with conn.cursor() as cur:
                     if slorm_detector.insert_check(table_name, table_columns, values):
-                        # params = (table_name, ', '.join(columns), ", ".join(values))
-                        # query = "INSERT INTO %s (%s) VALUES (%s)"
-                        # cur.execute(query, params)
-                        # cur.execute(
-                        #     "INSERT INTO %s (%s) VALUES (%s)", (table_name, ', '.join(columns), ", ".join("%s" * len(values))))
                         cur.execute(
                             "INSERT INTO {0} ({1}) VALUES ({2})".format(
                                 table_name, ', '.join(table_columns), ", ".join(["%s"] * len(values))
@@ -87,9 +82,8 @@ class Slorm(SlobyDB):
                     pass
                     if slorm_detector.update_check(table_name, table_columns, set_values):
                         columns_values = slorm_detector.build_update_columns_values_connection(table_columns, set_values)
-                        # cur.execute(""" UPDATE {0} SET {1} WHERE {2}""".format(table_name, columns, set_values))
 
-                        # cur.execute("""UPDATE {table_name} SET WHERE {condition}}""".format(table_name=table_name, condition=condition))
+                        cur.execute("""UPDATE {table_name} SET {columns_values} WHERE {condition}""".format(table_name=table_name, columns_values=columns_values, condition=condition))
         except:
             raise UpdateError(table_name, columns, set_values, condition)
 
