@@ -1,5 +1,5 @@
 .menu-bar-container {
-    width: 20%;
+    width: 18%;
     background: $side-bar-backround;
     z-index: 10;
     box-shadow: 1px 1px 5px rgba(255, 255, 255, 0.1);     
@@ -24,20 +24,12 @@
             color: $side-bar-font-color;
             font-weight: bold;
             transition: 250ms ease-in-out;
-            font-size: 16px;
+            font-size: 14px;
         }
 
         &:hover {
-            background: #1c5bf8;
-            box-shadow: 1px 1px 10px #3f75ff;
+            background: #0d0d0d;
             cursor: pointer;
-            .menu-bar-title {
-                color: white;
-            }
-            .menu-item-icon {
-                color: white;
-            }
-
         }
 
         .menu-item-icon {
@@ -61,21 +53,22 @@
     width: 95%;
     padding: 5px;
     transition: 250ms ease-in-out;
-    background: #1c5bf8;
-
+    background: #111111;
+    
     .menu-bar-title-active {
         margin-left: 10px;
-        color: white;
+        color: #1c5bf8;
         font-weight: bold;
         transition: 250ms ease-in-out;
+        font-size: 15px;
     }
 
     .menu-item-icon-active {
         display: flex;
         align-items: center;
         transition: 250ms ease-in-out;
+        color: #1c5bf8;
         margin-left: 16px;
-        color: white;
         font-size: 23px;
     }
 

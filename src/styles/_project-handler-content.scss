@@ -6,61 +6,13 @@
     }
 
     .upsection-container {
-        width: 80vw;
+        width: 82vw;
         display: flex;
         height: 80px;
         background: #060606;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        .project-title {
-            font-size: 20px;
-            font-weight: bold;
-            font-style: italic;
-            width: 16.65%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            padding-left: 15px;
-            background-color: $side-bar-backround;
-            box-shadow: 1px 1px 5px rgba(255, 255, 255, 0.1);     
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            .bigger-icon {
-                width: 35px;
-                height: 35px;
-            }
-
-            .user-details {
-                font-size: 16px;
-                color: white;
-                font-weight: lighter;
-                width: 50%;
-                display: flex;
-                justify-content: center;
-            } 
-
-
-            .icon {
-                display: flex;
-                align-items: center;
-
-                .arrow-icon {
-                    font-size: 52px;
-                    padding: 10px;
-                    border-radius: 50%;
-                    background: #1c5bf8;
-    
-                    &:hover {
-                        box-shadow: 1px 1px 20px #1c5bf8;
-                    }
-                }
-            }
-
-            
-        }
-
-
-       
 
         .icon {
             width: 28px;
