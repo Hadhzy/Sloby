@@ -42,7 +42,6 @@ const SideMenuBar = () => {
     return(
         <div className='menu-bar-container'>
             <UserDataTag />
-            <div className="project-underline"></div>
                 {data.map(menu_bar_item => {
                     return (
                         <Link 

@@ -2,7 +2,8 @@ import React, {useRef} from "react"
 import SearchResults from "./SearchResults"
 import {motion} from "framer-motion"
 import { faThList } from "@fortawesome/free-solid-svg-icons"
-
+import {IoMdClose} from "react-icons/io"
+import {IoMdSearch} from "react-icons/io"
 
 const searchBarInitialState = {
     searchInput: "",
@@ -23,31 +24,26 @@ class SearchBar extends React.Component {
         this.setState(searchBarInitialState)
     }
     
-    
-    
-    
     render() {
         
         return(
         <div className="searchbar-container">
             <div className='search-bar'>
                 <div className="search-icon-container">
-                    <img src="https://i.ibb.co/74mkvm1/icons8-search-48.png" alt="" className='icon' />
+                    <IoMdSearch className="search-icon" style={{ color: "#727173", fontSize: "21px", marginRight: "-10px"}}/>
                 </div>
                 <input 
-                type="text"
-                className='search-input'
-                placeholder="Find your Projects & Folders..."
-                value={this.state.searchInput}
-                onChange={this.handleChange}
-                name="searchInput"
-                onFocus={() => this.setState({ isInputFocused: true})}
-                onKeyPress={(e) => e.key === " " && this.state.isInputFocused && this.state.searchInput === "" ? e.preventDefault() : e.stopPropagation()}
+                    type="text"
+                    className='search-input'
+                    placeholder="Search"
+                    value={this.state.searchInput}
+                    onChange={this.handleChange}
+                    name="searchInput"
+                    onFocus={() => this.setState({ isInputFocused: true})}
+                    onKeyPress={(e) => e.key === " " && this.state.isInputFocused && this.state.searchInput === "" ? e.preventDefault() : e.stopPropagation()}
                 />
                 <div className='close-icon-container' id="closeIcon">
-                    <img src="https://cdn.discordapp.com/attachments/753660501996863488/1007181968129138738/icons8-close-48.png" alt="" className='icon close' 
-                    onClick={this.handleClose}
-                    />
+                    <IoMdClose className="close-icon" onClick={this.handleClose} style={{ color: "#727173", fontSize: "21px", marginRight: "5px"}}/>
                 </div>
             </div>
             {

@@ -6,7 +6,6 @@
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
 
    .menu-bar-item {
         margin-top: 30px;
@@ -28,7 +27,7 @@
         }
 
         &:hover {
-            background: #0e0e0e;
+            background: $menu_bar_item_color;
             cursor: pointer;
         }
 
@@ -53,11 +52,11 @@
     width: 95%;
     padding: 5px;
     transition: 250ms ease-in-out;
-    background: #111111;
+    background: $menu_bar_item_color;
     
     .menu-bar-title-active {
         margin-left: 10px;
-        color: $project_section_button_color;
+        color: $lighter_bluish_color;
         font-weight: bold;
         transition: 250ms ease-in-out;
         font-size: 15px;

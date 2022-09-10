@@ -1,20 +1,19 @@
 .upsection-container {
     width: 82vw;
     display: flex;
-    height: 80px;
+    height: 50px;
     background: $user-tag-background-color;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    .icon {
-        width: 28px;
-        height: 28px;
-        
-        &.close {
-            margin-right: 10px;
-        }
+
+    .searchbar {
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
+
+   
     .handler-button {
         width: 10%;
         display: flex;
@@ -34,9 +33,9 @@
             cursor: pointer;
             border-radius: 5px;
             transition: 270ms ease-in-out;
-            padding: 10px;
+            padding: 8px;
             font-family: inherit;
-            font-size: 14px;
+            font-size: 12px;
         }
 
         .new-project {
@@ -52,3 +51,6 @@
         }
     }
 }
+
+
+

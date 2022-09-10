@@ -58,7 +58,6 @@ function SearchResults({ searchInput, isInputFocused }) {
     
     const value = searchInput.toLowerCase()
     let searchResult = projects.filter(project_data => project_data.name.toLowerCase().includes(value))
-    let projectsLast = projects.map(project_data => project_data.last)
 
 
     return (

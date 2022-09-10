@@ -12,7 +12,7 @@ function Error() {
        <BiError />
       </div>
       <div className="error-description">
-        Error! This is the error page of the slobyBulider app, you might mistyped something in the url or you just typed a non-existent URL. If you haven't know what the problem is then click here and go back to the home page. 
+        Error! This is the error page of the <span>slobyBulider app</span>, you might <span>mistyped</span> something in the url or you just typed a <span>non-existent</span> URL. If you don't know what the problem is then click here and go back to the home page. 
       </div>
         <Link to="/" className='home-link'>
           Go back to the home page
@@ -20,5 +20,4 @@ function Error() {
     </div>
   )
 }
-
 export default Error
