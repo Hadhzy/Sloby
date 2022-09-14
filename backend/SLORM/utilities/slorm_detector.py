@@ -1,9 +1,9 @@
 from SLORM.db.api import SlobyDB
 from SLORM.utilities.custom_exceptions import SlormException
-from typing import List
+
 
 # _types
-from SLORM._types import TableName, TableColumns, SetValues, Condition, ShowTables
+from SLORM._types import TableName, TableColumns, SetValues, Condition
 
 
 class SlormDetector(SlobyDB):
@@ -47,3 +47,9 @@ class SlormDetector(SlobyDB):
                 formatted_string += f"{column}='{value}' {',' if columns_counter != len(columns) else ''}"
 
         return formatted_string
+
+
+    def delete_check(self, table_name: TableName, condition: Condition = ""):
+        if not self._exists_check(table_name)[0]:
+            SlormException("type", "You should pass out a valid table name ->  --delete_check-- ", self.logger)
+        return True

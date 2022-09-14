@@ -1,5 +1,5 @@
 class SelectError(Exception):
-    def __init__(self,table_name, condition):
+    def __init__(self, table_name, condition):
         self.message = f"SelectError! The condition: {condition} is  wrong with this table: {table_name}"
 
         super().__init__(self.message)

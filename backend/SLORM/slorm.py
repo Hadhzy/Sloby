@@ -4,12 +4,15 @@ from sqlalchemy.dialects.mssql.information_schema import columns
 from SLORM.db.api import SlobyDB
 
 # types
-from SLORM._types import TableName, TableColumns, SetValues, Condition, ShowTables
+from SLORM._types import TableName, TableColumns, SetValues, Condition
 
 # errors
 from SLORM.utilities.exceptions import SelectError, InsertError, UpdateError, DeleteError
 from typing import List
 from SLORM.utilities.slorm_detector import SlormDetector
+
+# third party libraries
+from collections.abc import Sequence
 
 slorm_detector = SlormDetector(logger=True)
 
@@ -23,7 +26,7 @@ class Slorm(SlobyDB):
     def __init__(self):
        super().__init__()
 
-    def select(self, table_name: TableName = "", condition: Condition = "") -> List:
+    def select(self, table_name: TableName = "", condition: Condition = "") -> Sequence[List]:
 
         """
         Args:
@@ -42,7 +45,7 @@ class Slorm(SlobyDB):
         except:
            raise SelectError(condition, table_name)
 
-    def insert(self, table_name: TableName = "", table_columns: TableColumns = None, values: SetValues = None):
+    def insert(self, table_name: TableName = "", table_columns: Sequence[TableColumns] = None, values: Sequence[SetValues] = None) -> Sequence[List]:
         """
         Args:
             table_name: The table(name) where you want to insert something. It also can be a dictionary, that you defined in the SlobyAPI constructor.
@@ -70,7 +73,7 @@ class Slorm(SlobyDB):
 
         except:
             raise InsertError(table_name=table_name, columns=columns, values=values)
-    def update(self, table_name: TableName = "", table_columns: TableColumns = None, set_values: SetValues = None, condition: Condition = ""):
+    def update(self, table_name: TableName = "", table_columns: Sequence[TableColumns] = None, set_values: Sequence[SetValues] = None, condition: Condition = "") -> Sequence[List]:
         """
             Args:
                 table_name: Name of the table where you want to update something.
@@ -105,7 +108,13 @@ class Slorm(SlobyDB):
         try:
             with self._conn_singleton() as conn:
                 with conn.cursor() as cur:
-                    cur.execute("""""")
+                    if slorm_detector.delete_check(TableName):
+                        cur.execute("""DELETE FROM {table_name} WHERE {condition}""".format(table_name=table_name, condition=condition))
+
+                        conn.commit()
+
+                        table_data = self.select(table_name, condition="*")
+                        return table_data
         except:
             raise DeleteError(table_name, condition)
 

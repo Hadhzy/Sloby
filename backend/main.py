@@ -166,6 +166,11 @@ class Sloby:
         data = slorm.update(table_name="user_data", table_columns=["gender"], set_values=["first"], condition="id=1")
         return {"data": data}
 
+    @router.delete("/test-slorm")
+    def test_slorm_delete(self):
+        data = slorm.delete(table_name="user_data", condition="id=2")
+        return {"data": data}
+
     @router.websocket("/ws")
     async def ws(self, websocket: WebSocket):
         """ Handle all requests from frontend"""

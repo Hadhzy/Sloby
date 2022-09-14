@@ -3,9 +3,10 @@ import logging
 # third party imports
 from psycopg import Connection, connect, errors
 from typing import List
+from collections.abc import Sequence
 
 # this project
-from SLORM._types import TableName, TableColumns, SetValues, Condition, ShowTables
+from SLORM._types import TableName, TableColumns, ShowTables
 
 from .db_config.config import config
 
@@ -61,7 +62,7 @@ class SlobyDB:
             logger.info("Connecting to DB")
             with conn.cursor() as cur:  # get the cursor
                 for dict in self.tables:
-                    exists = self._exists_check(dict) # get the list of the exists
+                    exists = self._exists_check(dict)  # get the list of the exists
 
                     for key, value in dict.items():
                         if exists[0]:
@@ -72,7 +73,7 @@ class SlobyDB:
 
 
 
-    def _exists_check(self, table: TableName, column: TableColumns = "") -> list:
+    def _exists_check(self, table: TableName, column: Sequence[TableColumns] = "") -> list:
         """
             Args:
                 table: dict[str, str]:  Dict(key-> name of the table, value-> "table").
