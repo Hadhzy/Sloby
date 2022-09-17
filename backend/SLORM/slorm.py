@@ -2,14 +2,15 @@
 from sqlalchemy.dialects.mssql.information_schema import columns
 
 from SLORM.db.api import SlobyDB
-
+from SLORM.utilities.slorm_detector import SlormDetector
+from SLORM.utilities.custom_exceptions import SlormException
 # types
 from SLORM._types import TableName, TableColumns, SetValues, Condition
 
 # errors
 from SLORM.utilities.exceptions import SelectError, InsertError, UpdateError, DeleteError
 from typing import List
-from SLORM.utilities.slorm_detector import SlormDetector
+
 
 # third party libraries
 from collections.abc import Sequence
@@ -68,11 +69,13 @@ class Slorm(SlobyDB):
                             values
                         )
 
-                    table_data = self.select(table_name=table_name, condition="*")
-                    return table_data
+                        table_data = self.select(table_name=table_name, condition="*")
+                        return table_data
+                    else:
+                        raise SlormException("The insert check was unsuccessful")
 
         except:
-            raise InsertError(table_name=table_name, columns=columns, values=values)
+            raise InsertError(table_name=table_name, columns=table_columns, values=values)
     def update(self, table_name: TableName = "", table_columns: Sequence[TableColumns] = None, set_values: Sequence[SetValues] = None, condition: Condition = "") -> Sequence[List]:
         """
             Args:

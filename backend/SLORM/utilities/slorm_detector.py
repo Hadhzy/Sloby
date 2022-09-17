@@ -23,9 +23,9 @@ class SlormDetector(SlobyDB):
                     return False
         else:
             if len(columns) > len(values):
-                SlormException("test", f"There are more columns than values: {columns} :: {values} or not valid", self.logger)
+                raise SlormException(f"There are more columns than values: {columns} :: {values} or not valid", self.logger)
             elif len(values) > len(columns):
-                SlormException("test", f"There are more values than columns: {columns} :: {values} or not valid", self.logger)
+                raise SlormException(f"There are more values than columns: {columns} :: {values} or not valid", self.logger)
         return True
 
     def update_check(self, table_name: TableName = "", columns: TableColumns = None, values: SetValues = None):
@@ -34,7 +34,7 @@ class SlormDetector(SlobyDB):
                 if not self._exists_check(table_name, table_column):
                     return False
         else:
-            SlormException("test", "It should be a list, and both columns and values should have the same length", self.logger)
+            raise SlormException("It should be a list, and both columns and values should have the same length", self.logger)
         return True
 
     # noinspection PyMethodMayBeStatic
@@ -51,5 +51,5 @@ class SlormDetector(SlobyDB):
 
     def delete_check(self, table_name: TableName, condition: Condition = ""):
         if not self._exists_check(table_name)[0]:
-            SlormException("type", "You should pass out a valid table name ->  --delete_check-- ", self.logger)
+            SlormException("You should pass out a valid table name ->  --delete_check-- ", self.logger)
         return True
