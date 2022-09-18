@@ -5,54 +5,96 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="85c8f2df-d41d-40d4-9f76-141b978881d4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Components/Editor/Components/Admin/AdminPage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Editor/Components/ProjectsSection/NewProjectPopup.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Editor/Components/ProjectsSection/ProjectHandler.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Editor/Components/ProjectsSection/ProjectsDetails.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Editor/Components/ProjectsSection/ProjectsList.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Editor/Components/ProjectsSection/SearchBar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Editor/Components/ProjectsSection/SearchResults.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/Editor/Components/ProjectsSection/SideMenuBar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Admin/AdminPage.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Content.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NotEditorRelated/Content.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Context/ContentContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NotEditorRelated/Context/ContentContext.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Context/ProjectsContext.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Context/ProjectsHandlerContext.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Context/ThemeContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NotEditorRelated/Context/ThemeContext.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Context/UserContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NotEditorRelated/Context/UserContext.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Context/reducers/reducerFunctions/projectReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/EditorRelated/store/Projects/projectReducer/reducerFuntion/projectReducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Context/reducers/reducerTypes/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/EditorRelated/store/Projects/projectReducer/reducerType/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Editor/ProjectsSection/NewProjectPopup.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Editor/ProjectsSection/ProjectHandler.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Editor/ProjectsSection/ProjectsDetails.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Editor/ProjectsSection/ProjectsList.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Editor/ProjectsSection/SearchBar.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Editor/ProjectsSection/SearchResults.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Editor/ProjectsSection/SideMenuBar.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NotEditorRelated/Footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NotEditorRelated/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/IntroductionSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NotEditorRelated/IntroductionSection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/SubComponents/AboutUs/AboutUs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NotEditorRelated/SubComponents/AboutUs/AboutUs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/SubComponents/AboutUs/AboutUsContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NotEditorRelated/SubComponents/AboutUs/AboutUsContent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/SubComponents/Docs/Docs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NotEditorRelated/SubComponents/Docs/Docs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/SubComponents/Docs/Documentation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NotEditorRelated/SubComponents/Docs/Documentation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/SubComponents/Help/Community.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NotEditorRelated/SubComponents/Help/Community.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/SubComponents/Help/Forum/Forum.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NotEditorRelated/SubComponents/Help/Forum/Forum.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/SubComponents/Help/Forum/Modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NotEditorRelated/SubComponents/Help/Forum/Modal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/SubComponents/Help/Forum/QuestionItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NotEditorRelated/SubComponents/Help/Forum/QuestionItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/SubComponents/Help/Forum/UploadImages.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NotEditorRelated/SubComponents/Help/Forum/UploadImages.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/SubComponents/Help/Forum/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NotEditorRelated/SubComponents/Help/Forum/reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/SubComponents/Help/Help.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NotEditorRelated/SubComponents/Help/Help.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/SubComponents/Help/SubComponents/HelpContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NotEditorRelated/SubComponents/Help/SubComponents/HelpContent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/SubComponents/OurProject/GoalContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NotEditorRelated/SubComponents/OurProject/GoalContent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/SubComponents/OurProject/OurProject.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NotEditorRelated/SubComponents/OurProject/OurProject.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/SubComponents/OurProject/OurProjectContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NotEditorRelated/SubComponents/OurProject/OurProjectContent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/SubComponents/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NotEditorRelated/SubComponents/Register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/SubComponents/Settings/Settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NotEditorRelated/SubComponents/Settings/Settings.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/SubComponents/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NotEditorRelated/SubComponents/User.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Users/LoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NotEditorRelated/Users/LoginPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Users/RegisterPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NotEditorRelated/Users/RegisterPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Users/RegistrationEmailSentPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NotEditorRelated/Users/RegistrationEmailSentPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NotEditorRelated/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__assets__/Image.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NotEditorRelated/__assets__/Image.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__assets__/closeIcon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NotEditorRelated/__assets__/closeIcon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__assets__/onlineIcon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/NotEditorRelated/__assets__/onlineIcon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/libraries/slobyTable/SlobyTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/EditorRelated/libraries/slobyTable/SlobyTable.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/libraries/slobyTable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/EditorRelated/libraries/slobyTable/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/interfaces/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/EditorRelated/types/interfaces/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/EditorRelated/Admin/AdminPage.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/EditorRelated/ProjectsSection/NewProjectPopup.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/EditorRelated/ProjectsSection/ProjectHandler.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/EditorRelated/ProjectsSection/ProjectsDetails.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/EditorRelated/ProjectsSection/ProjectsList.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/EditorRelated/ProjectsSection/SearchBar.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/EditorRelated/ProjectsSection/SearchResults.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/EditorRelated/ProjectsSection/SideMenuBar.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/EditorRelated/libraries/slobyTable/SlobyTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Editor/libraries/slobyTable/SlobyTable.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/EditorRelated/libraries/slobyTable/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Editor/libraries/slobyTable/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/EditorRelated/store/Projects/ProjectsContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Editor/Context/Projects/ProjectsContext.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/EditorRelated/store/Projects/ProjectsHandlerContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Editor/Context/Projects/ProjectsHandlerContext.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/EditorRelated/store/Projects/projectReducer/reducerFuntion/projectReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Editor/reducers/projectReducer/reducerFuntion/projectReducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/EditorRelated/store/Projects/projectReducer/reducerType/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Editor/reducers/projectReducer/reducerType/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/EditorRelated/types/interfaces/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Editor/types/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/NotEditorRelated/AboutUs/AboutUs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Components/AboutUs/AboutUs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/NotEditorRelated/AboutUs/AboutUsContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Components/AboutUs/AboutUsContent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/NotEditorRelated/Content.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Content.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/NotEditorRelated/Context/ContentContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Context/ContentContext.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/NotEditorRelated/Context/ThemeContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Context/ThemeContext.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/NotEditorRelated/Context/UserContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Context/UserContext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/NotEditorRelated/Docs/Docs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Components/Docs/Docs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/NotEditorRelated/Docs/Documentation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Components/Docs/Documentation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/NotEditorRelated/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/NotEditorRelated/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/NotEditorRelated/IntroductionSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/IntroductionSection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/NotEditorRelated/SubComponents/AboutUs/AboutUs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Components/SubComponents/AboutUs/AboutUs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/NotEditorRelated/SubComponents/AboutUs/AboutUsContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Components/SubComponents/AboutUs/AboutUsContent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/NotEditorRelated/SubComponents/Docs/Docs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Components/SubComponents/Docs/Docs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/NotEditorRelated/SubComponents/Docs/Documentation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Components/SubComponents/Docs/Documentation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/NotEditorRelated/SubComponents/Help/Community.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Components/SubComponents/Help/Community.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/NotEditorRelated/SubComponents/Help/Forum/Forum.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Components/SubComponents/Help/Forum/Forum.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/NotEditorRelated/SubComponents/Help/Forum/Modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Components/SubComponents/Help/Forum/Modal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/NotEditorRelated/SubComponents/Help/Forum/QuestionItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Components/SubComponents/Help/Forum/QuestionItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/NotEditorRelated/SubComponents/Help/Forum/UploadImages.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Components/SubComponents/Help/Forum/UploadImages.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/NotEditorRelated/SubComponents/Help/Forum/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Components/SubComponents/Help/Forum/reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/NotEditorRelated/SubComponents/Help/Help.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Components/SubComponents/Help/Help.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/NotEditorRelated/SubComponents/Help/SubComponents/HelpContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Components/SubComponents/Help/SubComponents/HelpContent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/NotEditorRelated/SubComponents/OurProject/GoalContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Components/SubComponents/OurProject/GoalContent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/NotEditorRelated/SubComponents/OurProject/OurProject.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Components/SubComponents/OurProject/OurProject.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/NotEditorRelated/SubComponents/OurProject/OurProjectContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Components/SubComponents/OurProject/OurProjectContent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/NotEditorRelated/SubComponents/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Components/SubComponents/Register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/NotEditorRelated/SubComponents/Settings/Settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Components/SubComponents/Settings/Settings.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/NotEditorRelated/SubComponents/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Components/SubComponents/User.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/NotEditorRelated/Users/LoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Components/Users/LoginPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/NotEditorRelated/Users/RegisterPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Components/Users/RegisterPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/NotEditorRelated/Users/RegistrationEmailSentPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Components/Users/RegistrationEmailSentPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/NotEditorRelated/__assets__/Image.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/__assets__/Image.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/NotEditorRelated/__assets__/closeIcon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/__assets__/closeIcon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/NotEditorRelated/__assets__/onlineIcon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/__assets__/onlineIcon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/NotEditorRelated/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/styles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/globalPages/Error.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/globalPages/Error.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/backround.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/images/backround.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/libraries/globalHelper/preventUrls.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/libraries/globalHelper/preventUrls.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/_about_us.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/styles/_about_us.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/_admin.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/styles/_admin.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/_content.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/styles/_content.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/_content_base.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/styles/_content_base.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/_docs.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/styles/_docs.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/_error-page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/styles/_error-page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/_footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/styles/_footer.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/_forum.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/styles/_forum.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/_header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/styles/_header.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/_help.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/styles/_help.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/_login_page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/styles/_login_page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/_our_project.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/styles/_our_project.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/_popup.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/styles/_popup.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/_project-handler-content.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/styles/_project-handler-content.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/_projects.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/styles/_projects.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/_register_page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/styles/_register_page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/_settings.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/styles/_settings.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/_sidemenu-bar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/styles/_sidemenu-bar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/_upsection.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/styles/_upsection.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/_user-data-tag.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/styles/_user-data-tag.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/_user.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/styles/_user.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/community.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/styles/community.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/styles/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/profile.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/styles/profile.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/project_handler.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/styles/project_handler.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/search-bar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/styles/search-bar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/styles/variables.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,12 +108,16 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2EwIXvVxLpdY4Rxkt7F3VQDVBRw" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -88,11 +134,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\programming\typescript\sloby\src\Components\EditorRelated\libraries" />
+      <recent name="C:\programming\typescript\sloby\src\Components\NotEditorRelated\Components" />
       <recent name="C:\programming\typescript\sloby\src\Components\NotEditorRelated" />
-      <recent name="C:\programming\typescript\sloby\src\Components\EditorRelated" />
-      <recent name="C:\programming\typescript\sloby\src\Components\EditorRelated\store\Projects\projectReducer\reducerFuntion" />
-      <recent name="C:\programming\typescript\sloby\src\Components\EditorRelated\store\Projects\projectReducer\reducerType" />
+      <recent name="C:\programming\typescript\sloby\src\Components\EditorRelated\reducers" />
+      <recent name="C:\programming\typescript\sloby\src\Components\EditorRelated\types" />
+      <recent name="C:\programming\typescript\sloby\src\Components\EditorRelated\libraries" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -105,6 +151,7 @@
       <updated>1663500264792</updated>
       <workItem from="1663500268188" duration="414000" />
       <workItem from="1663500744188" duration="1159000" />
+      <workItem from="1663517079431" duration="374000" />
     </task>
     <servers />
   </component>
@@ -121,5 +168,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
