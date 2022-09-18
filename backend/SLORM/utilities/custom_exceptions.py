@@ -6,7 +6,6 @@ logger_f = logging.getLogger("sloby.db")
 
 class SlormException(Exception):
     def __init__(self, message, logger: bool = True):
-        print("logger:", logger)
         self.message = f"{type}: {message}"
         if logger:
             self.logging_it()

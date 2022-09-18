@@ -14,13 +14,14 @@ logger = logger.get_logger()
 
 # this project
 from SLORM.slorm import Slorm
-
+from SLORM.SlobyCl.utils import ConnectionManager
 #third party packages
-
-
+import json
 # db_tables
 
 #from SLORM.db.utils.db_tables import CREATE_POST_DATA, CREATE_USER_DATA, CREATE_TEST_DATA
+
+manager = ConnectionManager()
 
 
 def get_x():
@@ -174,14 +175,15 @@ class Sloby:
     @router.websocket("/ws")
     async def ws(self, websocket: WebSocket):
         """ Handle all requests from frontend"""
-        await websocket.accept()
+        await manager.connect(websocket)
         while True:
             try:
                 data = await websocket.receive_text()
             except Exception as e:
                 logger.info(f"receive_text failed: {e}")
                 break
-            logger.debug(f"quiz-received-data: {data}")
+            logger.debug(f"received-data: {data}")
+            event = json.loads(data)
 
 
 app.include_router(router)
