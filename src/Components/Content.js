@@ -1,5 +1,5 @@
 import React, {useContext} from "react"
-import Image from "../icons/Image.png"
+import Image from "../__assets__/Image.png"
 import { Typography } from "@material-ui/core"
 import {motion} from  "framer-motion"
 import IntroductionSection from "./IntroductionSection"

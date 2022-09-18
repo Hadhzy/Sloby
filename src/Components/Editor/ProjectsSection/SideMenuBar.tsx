@@ -18,7 +18,7 @@ const data = [
 const SideMenuBar = () => {
     const [activeMenu, setActiveMenu] = useState("")
 
-    const handleMenuItem = (item) => {
+    const handleMenuItem = (item: string) => {
         setActiveMenu(item)
     }
 

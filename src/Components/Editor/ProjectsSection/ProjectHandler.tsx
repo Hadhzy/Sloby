@@ -1,4 +1,4 @@
-import React, {useContext, useState, useEfffect, useEffect} from 'react'
+import React, {useContext, useState, useEffect} from 'react'
 import SearchBar from "./SearchBar"
 import SideMenuBar from './SideMenuBar'
 import ProjectsList from "./ProjectsList"

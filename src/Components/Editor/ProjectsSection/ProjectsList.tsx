@@ -6,13 +6,12 @@ import { ProjectsHandlerContext } from "../../Context/ProjectsHandlerContext"
 import { Outlet } from "react-router-dom"
 
 
-
 const ProjectsContainer = () => {
-    const {projects} = useContext(ProjectsContext)
     const { notification } = useContext(ProjectsHandlerContext)    
-
-
-
+    const {projects} = useContext(ProjectsContext)
+    
+    
+    
     const OptionalFreeTime = () => {
         return (
             <div className="optional-container">
@@ -20,12 +19,12 @@ const ProjectsContainer = () => {
             </div>
         )
     }
-
-
+    
+    
     return(
         <div className='project-renderer-container'>
                 {
-                    projects.length ? (
+                    projects?.length ? (
                        <div className="projects-container">
                            {projects.map(project => {
                                 return <ProjectsDetails project={project} key={project.id}/>

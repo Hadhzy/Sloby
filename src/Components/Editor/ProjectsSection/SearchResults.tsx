@@ -4,13 +4,12 @@ import {motion} from "framer-motion"
 import { useState } from 'react'
 import {Link} from "react-router-dom"
 import {ProjectsContext} from "../../Context/ProjectsContext"
+import { Input, ProjectState } from '../../../types/interfaces'
 
-function SearchResults({ searchInput, isInputFocused }) {
+
+function SearchResults({ searchInput }: {searchInput: Input}) {
     const { projects} = useContext(ProjectsContext)
-    const [isEmpty, setIsEmpty] = useState(false)
-
-
-
+    console.log(typeof searchInput)
     
     const EmptyError = () => {
         return (
@@ -28,26 +27,23 @@ function SearchResults({ searchInput, isInputFocused }) {
 
     
 
-    const ResultProjects = ({ project_data }) => {
-        
-        
+    const ResultProject = ({ project_data }: {project_data: ProjectState}) => {
         return(
             <motion.div
             key={project_data.id}
-            name="searchResult"
             >
                     <div className='search-result-itself' id='searchResult' style={{  borderRadius:  "0px 0px 10px 10px" }}
                     >
-                        <div className='search-result-title' name='searchResult'>
+                        <div className='search-result-title'>
                             {project_data.name}
                         </div>
                         <div className='navigate'>
-                            <Link to="#" className='off-link-dec' name='searchResult'>
+                            <Link to="#" className='off-link-dec' >
                                 <button className='jumpto-button'>Jump to</button>
                             </Link>
                         </div>
-                        <div className='search-result-type' name='searchResult'>
-                            {project_data.type === 'project' && <img src="https://i.ibb.co/cYbZ0Fv/icons8-web-design-48.png" alt="" className='project-icon'/> || project_data.type === "folder" && <img src="https://cdn.discordapp.com/attachments/753660501996863488/1007204804096966686/icons8-opened-folder-48.png" alt="" className='project-icon'/>}
+                        <div className='search-result-type'>
+                            {project_data.projectType === 'project' && <img src="https://i.ibb.co/cYbZ0Fv/icons8-web-design-48.png" alt="" className='project-icon'/> }
                         </div>   
                     </div>
                     
@@ -57,7 +53,7 @@ function SearchResults({ searchInput, isInputFocused }) {
     }
     
     const value = searchInput.toLowerCase()
-    let searchResult = projects.filter(project_data => project_data.name.toLowerCase().includes(value))
+    let searchResult = projects?.filter(project_data => project_data.name.toLowerCase().includes(value))
 
 
     return (
@@ -66,17 +62,12 @@ function SearchResults({ searchInput, isInputFocused }) {
 
 
             {
-                searchResult.length === 0 ? <EmptyError />
-
+                searchResult?.length === 0 ? <EmptyError />
                 :
-                searchResult.map(project_data => {
-                    return (
-                        searchResult.length === 0 ? <ResultProjects project_data={project_data} key={project_data.id} />
-                        : <ResultProjects project_data={project_data} key={project_data.id} />
-                    )
+                searchResult?.map(project_data => {
+                    return <ResultProject project_data={project_data} key={project_data.id} />
                 })            
             }
-
         </div>
     </div> 
   )

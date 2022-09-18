@@ -1,8 +1,10 @@
 import React, {useContext} from 'react'
 import { ProjectsContext } from '../../Context/ProjectsContext'
+import {ProjectState} from "../../../types/interfaces"
 
-function ProjectsDetails({ project }) {
+function ProjectsDetails({ project }: any) {
   const { dispatch } = useContext(ProjectsContext)
+  console.log(project)
 
   return (
       <div className='project-container' onClick={() => dispatch({ type: "REMOVE_PROJECT", id: project.id})}>

@@ -4,8 +4,10 @@ import {motion} from "framer-motion"
 import { faThList } from "@fortawesome/free-solid-svg-icons"
 import {IoMdClose} from "react-icons/io"
 import {IoMdSearch} from "react-icons/io"
+import { ChangeEvent } from "react"
+import { IsearchBarInitialState } from "../../../types/interfaces"
 
-const searchBarInitialState = {
+const searchBarInitialState: IsearchBarInitialState = {
     searchInput: "",
     isInputFocused: false,
 }
@@ -14,7 +16,7 @@ const searchBarInitialState = {
 class SearchBar extends React.Component {
     state = searchBarInitialState
     
-    handleChange = (event) => {
+    handleChange = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => {
         this.setState({
             [event.target.name]: event.target.value
         })

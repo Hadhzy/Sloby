@@ -1,7 +1,7 @@
 import React, { createContext,  useReducer, useEffect } from "react"
 import { v4 as uuidv4 } from "uuid";
 import { projectReducers } from "./reducers/reducerFunctions/projectReducer";
-import { ContextChildren, IProjectsContext, ProjectState } from "../../interfaces";
+import { ContextChildren, IProjectsContext, ProjectState } from "../../types/interfaces";
 
 /**
  * @description - This context is for the project creating. as you can see we are uploading datas to localStorage.
@@ -10,9 +10,8 @@ import { ContextChildren, IProjectsContext, ProjectState } from "../../interface
 */
 
 type reducerFunction = typeof projectReducers
-type initState = typeof initialState
 
-const initialState: ProjectState[] = [
+const initialState = [
     {
         name: "",
         description: "", 
@@ -25,7 +24,7 @@ const initialState: ProjectState[] = [
 export const ProjectsContext = createContext<IProjectsContext>(undefined!)
 
 export const ProjectsContextProvider = ({children}: ContextChildren) => {
-    const [projects, dispatch] = useReducer<reducerFunction, initState>(projectReducers, initialState, () => {
+    const [projects, dispatch] = useReducer<reducerFunction, ProjectState[]>(projectReducers, initialState, () => {
         const localData = localStorage.getItem('projects')
         return localData ? JSON.parse(localData) : []
     })
