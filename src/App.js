@@ -15,7 +15,6 @@ import RegisterPage from "./Components/Users/RegisterPage"
 import {UserContextProvider} from "./Components/Context/UserContext"
 import LoginPage from "./Components/Users/LoginPage"
 
-import {ContentContextProvider} from "./Components/Context/ContentContext"
 import RegistrationEmailSentPage from "./Components/Users/RegistrationEmailSentPage";
 import ProjectsCotnextProvider from "./Components/Context/ProjectsContext"
 import { ThemeContextProvider } from "./Components/Context/ThemeContext"
@@ -24,6 +23,7 @@ import ProjectHandler from "./Components/Editor/ProjectsSection/ProjectHandler"
 import AdminPage from "./Components/Admin/AdminPage"
 import Error from "./globalPages/Error"
 import SideMenuBar from "./Components/Editor/ProjectsSection/SideMenuBar"
+import {ContentContextProvider} from "./Components/Context/ContentContext"
 
 function App() {
   return (

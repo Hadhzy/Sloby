@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {ChangeEvent, HTMLInputTypeAttribute, useContext} from "react";
 import ErrorIcon from "@material-ui/icons/Error"
 import { ProjectsHandlerContext } from "../../Context/ProjectsHandlerContext";
 import { ProjectsContext } from "../../Context/ProjectsContext";
@@ -21,9 +21,9 @@ function Popup() {
         state = initialState
         
     
-        handleChange = (event) => {
+        handleChange = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => {
             this.setState({ 
-                [event.target.name]: event.target.value
+                [event.currentTarget.name]: event.currentTarget.value
             })
         }
     
@@ -56,7 +56,7 @@ function Popup() {
             }, 6000)
         }
     
-        handleSubmit = (event) => {
+        handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
             event.preventDefault()
             const isValid = this.validateForm()    
     
@@ -65,7 +65,7 @@ function Popup() {
                 dispatch({ type: 'ADD_PROJECT',  project: {
                     name: this.state.name,
                     description: this.state.description,
-                    type: "project"
+                   projectType: "project"
                 }})
                 this.setState(initialState)
                 setPopup(false)
@@ -105,10 +105,9 @@ function Popup() {
 
                             <label className='input-content'>
                                 <textarea 
-                                type="text"
+                                onChange={this.handleChange}
                                 value={this.state.description}
                                 name="description"
-                                onChange={this.handleChange}
                                 className={`${this.state.descriptionError ? "error-input" : "input textarea"}`}
                                 placeholder='give the project description...'
                                 />

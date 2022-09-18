@@ -1,17 +1,12 @@
-import React, {createContext, useEffect, useState} from "react";
+import React, {createContext, FC, useEffect, useState} from "react";
 import axios from "axios";
-
-/**
- * This contenxt is all about datafetching 
- */
+import {ContextChildren} from "../../interfaces"
 
 
-export const ContentContext = createContext(true)
+export const ContentContext = createContext({})
 
 
-
-
-export const ContentContextProvider = (props) => {
+export const ContentContextProvider = ({ children }: ContextChildren) => {
     const [site_info, set_site_info] = useState([])
     const [categories_accounts, set_categories_accounts] = useState([])
     const [settings_menu_titles, set_settings_menu_titles] = useState([])
@@ -21,7 +16,6 @@ export const ContentContextProvider = (props) => {
     const [help_content, set_help_content] = useState([])
     const [footer, set_footer] = useState([])
     const [social_content, set_social_content] = useState([])
-    const [menu_bar_items, set_menu_bar_items] = useState([])
     const [settings, set_settings] = useState([])
 
 
@@ -88,13 +82,6 @@ export const ContentContextProvider = (props) => {
         }).then(res => set_social_content(res.data))
     }
 
-    const fetch_menu_bar_items = () =>{
-        axios({
-            method: "get", 
-            url: `${process.env.REACT_APP_API_URL}sidebar-menu-items/`
-        }).then(res => set_menu_bar_items(res.data))
-    }
-
     const fetch_settings = () =>{
         axios({
             method: "get",
@@ -114,28 +101,26 @@ export const ContentContextProvider = (props) => {
         fetch_help_content()
         fetch_footer()
         fetch_social_content()
-        fetch_menu_bar_items()
         fetch_settings()
     }, [])
 
-    
+   
+
 
     return (
         <ContentContext.Provider value={{
-                site_info: site_info,
-                categories_accounts: categories_accounts,
-                settings_menu_titles: settings_menu_titles,
-                users_login: users_login,
-                users_create_account: users_create_account,
-                forum_and_security: forum_and_security,
-                help_content: help_content,
-                footer: footer,
-                social_content: social_content,
-                menu_bar_items: menu_bar_items,
-                settings: settings,
-                }}>
-                    {props.children}
-                </ContentContext.Provider>
-        
-        )
+            site_info,
+            categories_accounts,
+            settings_menu_titles,
+            users_login,
+            users_create_account,
+            forum_and_security,
+            help_content,
+            footer,
+            social_content,
+            settings
+        }}>
+            {children}
+        </ContentContext.Provider>
+    )       
 }

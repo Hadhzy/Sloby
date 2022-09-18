@@ -1,21 +1,20 @@
 import { v4 as uuidv4 } from "uuid";
+import { ProjectState, Action } from "../../../../interfaces";
+import {PROJECT_TYPES} from "../reducerTypes"
 
-export const projectReducers = (state, action) => {
+export const projectReducers = (state: ProjectState[], action: Action) => {
 
     switch(action.type) {
-        case "ADD_PROJECT": 
+        case PROJECT_TYPES.ADD_PROJECT: 
             return [...state, {
                 name: action.project.name,
                 description: action.project.description,
-                type: action.project.type,
+                projectType: action.project.projectType,
                 id: uuidv4()
             }]
-        
-        case "REMOVE_PROJECT":  
+        case PROJECT_TYPES.REMOVE_PROJECT:  
             return state.filter(project => project.id !== action.id)  
-            
         default: 
             return state
     }
-
 }

@@ -1,5 +1,6 @@
 import React, { createContext, useState } from "react"
 import useLocalStorage from "use-local-storage"
+import { ContextChildren, IThemeContext } from "../../interfaces"
 
 /**
  * This context is gonna determine that which is the current theme in our project
@@ -9,9 +10,11 @@ import useLocalStorage from "use-local-storage"
 
 
 
-export const ThemeContext = createContext(true)
+export const ThemeContext = createContext<
+  IThemeContext
+>(undefined!)
 
-export const ThemeContextProvider = (props) => {
+export const ThemeContextProvider = ({children}: ContextChildren) => {
   const [theme, setTheme] = useLocalStorage("theme", "theme" ? "dark" : "light")
 
   const switchTheme = () => {
@@ -26,7 +29,7 @@ export const ThemeContextProvider = (props) => {
         switchTheme: switchTheme,
       }}
     >
-      {props.children}
+     {children}
     </ThemeContext.Provider>
   )
 }

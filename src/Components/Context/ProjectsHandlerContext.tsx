@@ -1,4 +1,5 @@
 import React, { createContext, useState } from "react"
+import {IProjectHandlerContext, ContextChildren} from "../../interfaces"
 /**
  * This is a basic context for the ProjectHandler states. 
  * We avoid props drilling, which means that we avoid consistently passing props through components, and rather have a context for it
@@ -6,9 +7,11 @@ import React, { createContext, useState } from "react"
  * @param {boolean} notification - This is also gonna determine the visibility of the notification component. 
  */
 
-export const ProjectsHandlerContext = createContext(true)
+export const ProjectsHandlerContext = createContext<
+    IProjectHandlerContext
+>(undefined!)
 
-export const ProjectsHandlerContextProvider = (props) => {
+export const ProjectsHandlerContextProvider = ({children}: ContextChildren) => {
     const [popup, setPopup] = useState(false)
     const [notification, setNotification] = useState(false)
 
@@ -17,7 +20,7 @@ export const ProjectsHandlerContextProvider = (props) => {
         <ProjectsHandlerContext.Provider
            value={{ popup, setPopup, notification, setNotification }} 
         >
-            {props.children}                
+            {children}                
         </ProjectsHandlerContext.Provider>
     )
 } 
