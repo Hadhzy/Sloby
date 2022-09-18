@@ -2,7 +2,7 @@ import React, {useContext, useState, useEffect} from "react"
 import {ContentContext} from "./Context/ContentContext"
 import axios from "axios"
 import { useLocation } from "react-router-dom"
-import PreventUrls from "../libraries/globalHelper/preventUrls"
+import PreventUrls from "../../libraries/globalHelper/preventUrls"
 
 
 function Footer() {

@@ -1,6 +1,6 @@
 import React, {useContext} from 'react'
-import { ProjectsContext } from '../../Context/ProjectsContext'
-import {ProjectState} from "../../../types/interfaces"
+import { ProjectsContext } from '../../NotEditorRelated/Context/ProjectsContext'
+import {ProjectState} from "../types/interfaces"
 
 function ProjectsDetails({ project }: any) {
   const { dispatch } = useContext(ProjectsContext)

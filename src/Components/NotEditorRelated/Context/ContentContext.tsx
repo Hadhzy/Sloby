@@ -1,6 +1,6 @@
 import React, {createContext, FC, useEffect, useState} from "react";
 import axios from "axios";
-import {ContextChildren} from "../../types/interfaces"
+import {ContextChildren} from "../../EditorRelated/types/interfaces"
 
 
 export const ContentContext = createContext({})

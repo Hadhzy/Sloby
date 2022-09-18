@@ -1,6 +1,6 @@
 import React, { createContext, useState } from "react"
 import useLocalStorage from "use-local-storage"
-import { ContextChildren, IThemeContext } from "../../types/interfaces"
+import { ContextChildren, IThemeContext } from "../../EditorRelated/types/interfaces"
 
 /**
  * This context is gonna determine that which is the current theme in our project

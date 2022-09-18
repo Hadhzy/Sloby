@@ -1,10 +1,10 @@
 import React, {useContext} from "react"
-import Image from "../__assets__/Image.png"
+import Image from "./__assets__/Image.png"
 import { Typography } from "@material-ui/core"
 import {motion} from  "framer-motion"
 import IntroductionSection from "./IntroductionSection"
 import {ThemeContext} from "./Context/ThemeContext"
-import {ContentContext} from "../Components/Context/ContentContext"
+import {ContentContext} from "./Context/ContentContext"
 
 function Content() {
   const {switchTheme, theme} = useContext(ThemeContext)

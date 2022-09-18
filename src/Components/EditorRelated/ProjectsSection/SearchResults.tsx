@@ -1,10 +1,10 @@
 import React, {useContext} from 'react'
-import {ContentContext} from "../../Context/ContentContext"
+import {ContentContext} from "../../NotEditorRelated/Context/ContentContext"
 import {motion} from "framer-motion"
 import { useState } from 'react'
 import {Link} from "react-router-dom"
-import {ProjectsContext} from "../../Context/ProjectsContext"
-import { Input, ProjectState } from '../../../types/interfaces'
+import {ProjectsContext} from "../store/Projects/ProjectsContext"
+import { Input, ProjectState } from '../types/interfaces/index'
 
 
 function SearchResults({ searchInput }: {searchInput: Input}) {

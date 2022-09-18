@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 import { ProjectState, Action } from "../../../../types/interfaces";
-import {PROJECT_TYPES} from "../reducerTypes"
+import {PROJECT_TYPES} from "../reducerType"
 
 export const projectReducers = (state: ProjectState[], action: Action) => {
 

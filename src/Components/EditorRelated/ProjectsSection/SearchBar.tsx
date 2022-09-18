@@ -5,7 +5,7 @@ import { faThList } from "@fortawesome/free-solid-svg-icons"
 import {IoMdClose} from "react-icons/io"
 import {IoMdSearch} from "react-icons/io"
 import { ChangeEvent } from "react"
-import { IsearchBarInitialState } from "../../../types/interfaces"
+import { IsearchBarInitialState } from "../types/interfaces"
 
 const searchBarInitialState: IsearchBarInitialState = {
     searchInput: "",
