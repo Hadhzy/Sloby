@@ -1,9 +1,9 @@
 import React, {createContext, FC, useEffect, useState} from "react";
 import axios from "axios";
 import {ContextChildren} from "../../Editor/types"
+import { IContentContext } from "../types";
 
-
-export const ContentContext = createContext({})
+export const ContentContext = createContext<IContentContext>(undefined!)
 
 
 export const ContentContextProvider = ({ children }: ContextChildren) => {

@@ -1,9 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
-import { ProjectState, Action } from "../../../types";
-import {PROJECT_TYPES} from "../reducerType"
-
+import { ProjectState, Action } from "../../types";
+import {PROJECT_TYPES} from "./projectReducerType"
 export const projectReducers = (state: ProjectState[], action: Action) => {
-
     switch(action.type) {
         case PROJECT_TYPES.ADD_PROJECT: 
             return [...state, {

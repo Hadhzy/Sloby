@@ -1,7 +1,6 @@
-
 import React, {useContext} from 'react';
 import { motion } from "framer-motion"
-import {ContentContext} from "../../../Context/ContentContext"
+import { ContentContext } from '../../../Context/ContentContext';
 
 const containerVariants = {
 init: {
@@ -17,32 +16,30 @@ transition: {
 },
 },
 }
-function AboutUsContent(props) {
+function Documentation() {
     const {social_content} = useContext(ContentContext)
-   
     return (
-        <div className="about-us-container">
+        <div className="documentation-container">
             <motion.div
                 variants={containerVariants}
                 initial='init'
                 animate='animate'
-                className="title-base">
-                {social_content.about_us.title}
-            </motion.div>
+                className="title-base">{social_content.docs.title}</motion.div>
             <motion.div
                 variants={containerVariants}
                 initial='init'
                 animate='animate'
-                className="underline bigger-line"></motion.div>
+                className="underline"></motion.div>
+
             <motion.div
-                variants={containerVariants}
+               variants={containerVariants}
                 initial='init'
                 animate='animate'
                 className="subtitle-base">
-                {social_content.about_us.description}    
+                {social_content.docs.description}    
             </motion.div>
         </div>
     );
 }
 
-export default AboutUsContent;
+export default Documentation;

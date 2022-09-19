@@ -10,17 +10,17 @@ import IconButton from "@mui/material/IconButton"
 import Typography from "@mui/material/Typography"
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
 import MoreVertIcon from "@material-ui/icons/MoreVert"
-import { ThemeContext } from "../../../Context/ThemeContext"
+import { ThemeContext } from "../../Context/ThemeContext"
 import Switch from '@mui/material/Switch';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
-import { ContentContext } from "../../../Context/ContentContext"
+import { ContentContext } from "../../Context/ContentContext"
 
 const ExpandMore = styled((props) => {
-  const { expand, ...other } = props
+  const { expand, ...other }: any = props
   return <IconButton {...other} />
-})(({ theme, expand }) => ({
+})(({ theme, expand }: any) => ({
   transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
   marginLeft: "auto",
   transition: theme.transitions.create("transform", {
@@ -28,11 +28,11 @@ const ExpandMore = styled((props) => {
   }),
 }))
 
-function Settings(props) {
+function Settings() {
   const { settings } = useContext(ContentContext)
-  const [expanded, setExpanded] = useState(new Array(settings.length).fill(true))
+  const [expanded, setExpanded] = useState(new Array(settings?.length).fill(true))
   console.log(expanded)
-  const handleOnchange  = (position) => {
+  const handleOnchange  = (position: number) => {
      const updatedCheckedState = expanded.map((item, index) => index === position ? !item : item)
       setExpanded(updatedCheckedState)
   }
@@ -41,13 +41,13 @@ function Settings(props) {
 
   const { theme, switchTheme } = useContext(ThemeContext)
   return (
-      <div data_theme={theme}>
+      <div>
           <div className='settings-container' >
         <div className='title'>Settings</div>
         <div className='underline'></div>
         <div className='options'>
           <div className='settings-item'>
-            {settings.map((setting, index) => (
+            {settings?.map((setting, index) => (
               <div key={index}>
                 <Card className='setting-item' sx={{ width: 1000 }}>
                   <CardHeader
@@ -82,7 +82,6 @@ function Settings(props) {
                           } label={`${theme} theme`}>
 
                           </FormControlLabel>)
-
                     }
 
                     <ExpandMore

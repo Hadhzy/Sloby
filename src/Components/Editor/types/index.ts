@@ -30,11 +30,6 @@ export type IProjectsContext = {
     dispatch: Function
 }
 
-export type IThemeContext = {
-    theme: string,
-    switchTheme: Function,
-}
-
 export type IsearchBarInitialState = {
     searchInput: string,
     isInputFocused: boolean

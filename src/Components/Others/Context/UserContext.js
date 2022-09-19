@@ -54,7 +54,6 @@ export const UserContextProvider = (props) => {
       const config = {
         headers: { authorization: `token ${token}` }
       }
-
        await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/logout/`, config).then(res => _remove_token())
 
     } catch (error) {

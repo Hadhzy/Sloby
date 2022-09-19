@@ -1,6 +1,7 @@
 import React, { createContext, useState } from "react"
 import useLocalStorage from "use-local-storage"
-import { ContextChildren, IThemeContext } from "../../Editor/types"
+import { ContextChildren} from "../../Editor/types"
+import { IThemeContext } from "../../Others/types"
 
 /**
  * This context is gonna determine that which is the current theme in our project
@@ -22,11 +23,13 @@ export const ThemeContextProvider = ({children}: ContextChildren) => {
     setTheme(newTheme)
   }
 
+
+
   return (
     <ThemeContext.Provider
       value={{
-        theme: theme,
-        switchTheme: switchTheme,
+        theme, 
+        switchTheme
       }}
     >
      {children}

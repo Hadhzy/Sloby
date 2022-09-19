@@ -1,6 +1,6 @@
 import React, { createContext,  useReducer, useEffect } from "react"
 import { v4 as uuidv4 } from "uuid";
-import { projectReducers } from "./reducers/reducerFunctions/projectReducer";
+import { projectReducers } from "../../reducers/projectReducer/projectReducer";
 import { ContextChildren, IProjectsContext, ProjectState } from "../../types";
 
 /**

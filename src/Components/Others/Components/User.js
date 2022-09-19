@@ -1,6 +1,6 @@
 import React, {useContext} from "react"
 import { Link, Outlet } from "react-router-dom"
-import {UserContext} from "../../Context/UserContext";
+import {UserContext} from "../Context/UserContext";
 function Profile(props) {
     const {
         first_name,

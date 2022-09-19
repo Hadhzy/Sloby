@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
-import {ContentContext} from "../../../Context/ContentContext"
+import {ContentContext} from "../../Context/ContentContext"
 
-function OurProjectContent(props) {
+function OurProjectContent() {
     const {social_content} = useContext(ContentContext)
     return (
         <div className="content-base">
