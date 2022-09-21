@@ -98,6 +98,8 @@ class Slorm(SlobyDB):
 
                         table_data = self.select(table_name=table_name, condition="*")
                         return table_data
+                    else:
+                        SlormException(f"The update was unsuccessful(slorm.detcector.update_check) with these params: table_name:{table_name}, table_columns{table_columns} set_values: {set_values}")
         except:
             raise UpdateError(table_name, columns, set_values, condition)
 
@@ -118,6 +120,8 @@ class Slorm(SlobyDB):
 
                         table_data = self.select(table_name, condition="*")
                         return table_data
+                    else:
+                        SlormException(f"The delete was unsuccessful(delete_check) with these params: table_name{table_name} condition{condition}")
         except:
             raise DeleteError(table_name, condition)
 

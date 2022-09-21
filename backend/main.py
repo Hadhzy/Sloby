@@ -15,6 +15,7 @@ logger = logger.get_logger()
 # this project
 from SLORM.slorm import Slorm
 from SLORM.SlobyCl.utils import ConnectionManager
+from SLORM._types import SlobyTable
 #third party packages
 import json
 # db_tables

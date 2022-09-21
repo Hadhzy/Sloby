@@ -8,6 +8,12 @@ Condition = str
 ShowTables = bool
 
 
+from typing import TypedDict
 
 
+class SlobyTable(TypedDict):
+    table: TableName
 
+
+class SlobyTables(TypedDict):
+    pass
