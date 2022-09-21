@@ -1,6 +1,6 @@
 import React from 'react';
 
-function RegistrationEmailSentPage(props) {
+function RegistrationEmailSentPage() {
     return (
         <div className="content-base">
                 <h1>Thank you for your registration</h1>

@@ -9,11 +9,7 @@ class PreventUrls {
  */
 
 
-    constructor({ className, urlToPreventFrom, currentUrl }) {
-        this.className = className
-        this.urlToPreventFrom = urlToPreventFrom
-        this.currentUrl = currentUrl.pathname
-    }
+    constructor({ className, urlToPreventFrom, currentUrl }: {className: string, urlToPreventFrom: Array<string>, currentUrl: string}) {} 
 
     preventURL() {
         if(this.urlToPreventFrom.includes(this.currentUrl)) {

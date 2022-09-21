@@ -121,13 +121,14 @@
     }
   ],
 
-  "users-login": 
-    {
+  "users-login": {
       "id": 0,
       "title": "Login",
-      "optional-waiting": false,
+      "optional_waiting": false,
       "forgot_password": "Forgot your password?",
-      "small_tag": "Return to Site"
+      "small_tag": "Return to Site",
+      "button_title": ""
+
     },
     
     "users-create-account":{

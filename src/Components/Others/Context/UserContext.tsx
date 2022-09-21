@@ -1,10 +1,11 @@
 import React, { createContext, useState, useEffect } from "react"
 import axios from "axios"
 import {useCookies} from "react-cookie";
+import { ContextChildren, IUserContext } from "../../Editor/types";
 
-export const UserContext = createContext(true)
+export const UserContext = createContext<IUserContext>(undefined!)
 
-export const UserContextProvider = (props) => {
+export const UserContextProvider = ({children}: ContextChildren) => {
   const [logged_in, set_logged_in] = useState(false)
   const [token, set_token] = useState(null)
   const [cookies, setCookie, removeCookie] = useCookies()
@@ -13,7 +14,7 @@ export const UserContextProvider = (props) => {
 
   const DAYS_TO_SECONDS = 86400
 
-    const secondsCalculator = (days) => {
+    const secondsCalculator = (days: number) => {
         return days *  DAYS_TO_SECONDS
     }
   const check_token = () => {
@@ -23,19 +24,19 @@ export const UserContextProvider = (props) => {
     }
   }
 
-  const _store_token = (value) => {
+  const _store_token = (value: React.SetStateAction<null>) => {
     set_token(value)
     setCookie("token", value, {path: "/", sameSite:"strict", maxAge: secondsCalculator(1)})
     set_logged_in(true)
   }
 
-  const _remove_token = (value) => {
+  const _remove_token = (value: string) => {
     removeCookie("token", {path: "/"})
     set_token(null)
     set_logged_in(false)
   }
 
-  const log_in_user = async (email, password) => {
+  const log_in_user = async (email: string, password: string) => {
     try {
       const user_data = {email: email, password: password}
       const config = { headers: {"content-type": "application/json"} }
@@ -54,14 +55,14 @@ export const UserContextProvider = (props) => {
       const config = {
         headers: { authorization: `token ${token}` }
       }
-       await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/logout/`, config).then(res => _remove_token())
+       await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/logout/`, config).then(res => _remove_token(res.data))
 
     } catch (error) {
       console.log(error) 
     }
   }
 
-  const register_user = async (email, password) => {
+  const register_user = async (email: string, password: string) => {
     try{
       const result = await axios({
         method: "post",
@@ -107,7 +108,7 @@ export const UserContextProvider = (props) => {
         logged_in: logged_in
       }}
     >
-      {props.children}
+     {children}
     </UserContext.Provider>
   )
 }

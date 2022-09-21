@@ -4,7 +4,7 @@ import {ThemeContext} from "../../Context/ThemeContext";
 import {ContentContext} from "../../Context/ContentContext"
 import {UserContext} from "../../Context/UserContext"
 
-function LoginPage(props) {
+function LoginPage() {
     const [email, set_email] = useState("")
     const [password, set_password] = useState("")
     const {theme} = useContext(ThemeContext)
@@ -14,16 +14,17 @@ function LoginPage(props) {
     
     const navigate = useNavigate()
     
-    const handle_login = async (e) => {
+    const handle_login = async (e: React.SyntheticEvent) => {
         e.preventDefault()
         if(email.length === 0 || password.length === 0) return
-        await log_in_user(email, password)
+        if(log_in_user) await log_in_user(email, password)
         
 
         navigate("/user/profile")
     }
     return (
-        <div data_theme={theme}>
+        <div>
+           {users_login ? (
             <div className="login-container">
                 <form  className="form-container-base">
                     <h3 className="login-title">{users_login.title}</h3>
@@ -40,6 +41,7 @@ function LoginPage(props) {
                     <small className="login-title">or <Link className="off-link-dec action-hover " to="/">{users_login.small_tag}</Link></small>
                 </form>
             </div>
+           ): null}
         </div>
     );
 }

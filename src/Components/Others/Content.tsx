@@ -1,5 +1,4 @@
 import React, {useContext} from "react"
-import Image from "./__assets__/Image.png"
 import { Typography } from "@material-ui/core"
 import {motion} from  "framer-motion"
 import IntroductionSection from "./IntroductionSection"
@@ -10,8 +9,9 @@ function Content() {
   const {switchTheme, theme} = useContext(ThemeContext)
   const {site_info} = useContext(ContentContext)
   return (
-      <div data_theme={theme}>
-        <div className="theme-case-content">
+      <div>
+        {site_info ? (
+          <div className="theme-case-content">
           <motion.div className='content-container'
             initial={{ opacity:0}}
                   animate={{ opacity: 1 }}
@@ -33,6 +33,7 @@ function Content() {
               </motion.div>
             </motion.div>
           </div>
+        ): null}
       </div>
 
   )

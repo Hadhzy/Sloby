@@ -1,7 +1,8 @@
 import React, {useContext} from "react"
 import { Link, Outlet } from "react-router-dom"
-import {UserContext} from "../Context/UserContext";
-function Profile(props) {
+import { IUserContext } from "../../Editor/types";
+import {UserContext} from "../Context/UserContext"
+function Profile() {
     const {
         first_name,
         set_first_name,
@@ -15,7 +16,7 @@ function Profile(props) {
         set_user_name,
         phone_number,
         set_phone_number
-    } = useContext(UserContext)
+    } = useContext<any>(UserContext)
   return (
     <div className="profile-container content-base">
         <h1 className="title-base">Profile</h1>

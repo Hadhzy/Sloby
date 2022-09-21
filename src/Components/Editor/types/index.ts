@@ -36,3 +36,10 @@ export type IsearchBarInitialState = {
 }
 
 export type Input = "" | string
+
+export type IUserContext = {
+    log_in_user?: Function, 
+    log_out_user: () => Promise<void>
+    register_user?: Function
+    logged_in?: boolean
+}
