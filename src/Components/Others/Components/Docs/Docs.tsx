@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {Routes, Route, Navigate} from "react-router-dom"
 import Documentation from "./Documentation";
-import {ThemeContext} from "../../../Context/ThemeContext"
+import {ThemeContext} from "../../Context/ThemeContext"
 
 function Docs() {
     const {theme} = useContext(ThemeContext)

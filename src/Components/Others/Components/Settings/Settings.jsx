@@ -46,7 +46,7 @@ function Settings() {
         <div className='underline'></div>
         <div className='options'>
           <div className='settings-item'>
-            {settings?.map((setting, index) => (
+            {settings.map((setting, index) => (
               <div key={index}>
                 <Card className='setting-item' sx={{ width: 1000 }}>
                   <CardHeader

@@ -1,9 +1,9 @@
 import React, {ChangeEvent, HTMLInputTypeAttribute, useContext} from "react";
 import ErrorIcon from "@material-ui/icons/Error"
-import { ProjectsHandlerContext } from "../../Others/Context/ProjectsHandlerContext";
-import { ProjectsContext } from "../../Others/Context/ProjectsContext";
+import { ProjectsHandlerContext } from "../../Context/Projects/ProjectsHandlerContext";
+import { ProjectsContext } from "../../Context/Projects/ProjectsContext";
 import { faThList } from "@fortawesome/free-solid-svg-icons";
-
+import { IEventType } from "../../types";
 
 const initialState = {
     name: "",
@@ -21,7 +21,7 @@ function Popup() {
         state = initialState
         
     
-        handleChange = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => {
+        handleChange = (event: IEventType) => {
             this.setState({ 
                 [event.currentTarget.name]: event.currentTarget.value
             })
@@ -56,7 +56,7 @@ function Popup() {
             }, 6000)
         }
     
-        handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        handleSubmit = (event: IEventType) => {
             event.preventDefault()
             const isValid = this.validateForm()    
     

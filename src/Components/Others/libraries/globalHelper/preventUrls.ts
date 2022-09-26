@@ -1,6 +1,10 @@
-class PreventUrls {
+import { IPreventUrl } from './../../types/index';
+import React from 'react';
+
+class PreventUrls  {
+   
 /**
-     **This class is used to hide different components based on the url. 
+     **This class is used for hide different components based on the current url of the browser. 
     * 
     * @param {string} className - The className of the component that we currently pass through. 
     * @param {Array} urlToPreventFrom - This is an array of the urls that we want to hide our components.
@@ -9,7 +13,8 @@ class PreventUrls {
  */
 
 
-    constructor({ className, urlToPreventFrom, currentUrl }: {className: string, urlToPreventFrom: Array<string>, currentUrl: string}) {} 
+    constructor({ className, urlToPreventFrom, currentUrl }: IPreventUrl) {}
+     
 
     preventURL() {
         if(this.urlToPreventFrom.includes(this.currentUrl)) {

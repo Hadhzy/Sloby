@@ -4,59 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85c8f2df-d41d-40d4-9f76-141b978881d4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Editor/reducers/projectReducer/projectReducer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Editor/reducers/projectReducer/projectReducerType.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Others/Components/AboutUs/AboutUs.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Others/Components/AboutUs/AboutUsContent.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Others/Components/Docs/Docs.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Others/Components/Docs/Documentation.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Others/Components/Help/Community.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Others/Components/Help/Forum/Forum.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Others/Components/Help/Forum/Modal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Others/Components/Help/Forum/QuestionItem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Others/Components/Help/Forum/UploadImages.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Others/Components/Help/Forum/reducer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Others/Components/Help/Help.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Others/Components/Help/SubComponents/HelpContent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Others/types/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/reportWebVitals.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/setupTests.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Editor/Components/Admin/AdminPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Editor/Components/Admin/AdminPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Editor/Context/Projects/ProjectsContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Editor/Context/Projects/ProjectsContext.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Editor/reducers/projectReducer/reducerFuntion/projectReducer.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Editor/reducers/projectReducer/reducerType/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Others/Components/AboutUs/AboutUs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Others/Components/AboutUs/AboutUsContent.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Others/Components/Docs/Docs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Others/Components/Docs/Documentation.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Others/Components/SubComponents/AboutUs/AboutUs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Others/Components/SubComponents/AboutUs/AboutUsContent.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Others/Components/SubComponents/Docs/Docs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Others/Components/SubComponents/Docs/Documentation.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Others/Components/SubComponents/Help/Community.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Others/Components/SubComponents/Help/Forum/Forum.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Others/Components/SubComponents/Help/Forum/Modal.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Others/Components/SubComponents/Help/Forum/QuestionItem.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Others/Components/SubComponents/Help/Forum/UploadImages.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Others/Components/SubComponents/Help/Forum/reducer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Others/Components/SubComponents/Help/Help.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Others/Components/SubComponents/Help/SubComponents/HelpContent.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Others/Components/SubComponents/OurProject/GoalContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Components/OurProject/GoalContent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Others/Components/SubComponents/OurProject/OurProject.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Components/OurProject/OurProject.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Others/Components/SubComponents/OurProject/OurProjectContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Components/OurProject/OurProjectContent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Others/Components/SubComponents/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Components/Register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Others/Components/SubComponents/Settings/Settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Components/Settings/Settings.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Others/Components/SubComponents/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Components/User.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Others/Context/ContentContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Context/ContentContext.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Others/Context/UserContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Context/UserContext.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reportWebVitals.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/setupTests.js" beforeDir="false" />
-    </list>
+    <list default="true" id="85c8f2df-d41d-40d4-9f76-141b978881d4" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -76,23 +24,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/programming/typescript/sloby&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\programming\\typescript\\sloby\\node_modules\\typescript\\lib&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/programming/javascript/referenceSite/FullStackReferenceSite/ReferenceSiteFullStack",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\programming\\typescript\\sloby\\node_modules\\typescript\\lib"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\programming\typescript\sloby\src\Components\Others\Components" />
@@ -114,6 +62,7 @@
       <workItem from="1663500744188" duration="1159000" />
       <workItem from="1663517079431" duration="374000" />
       <workItem from="1663603111364" duration="48000" />
+      <workItem from="1663860725689" duration="20000" />
     </task>
     <servers />
   </component>

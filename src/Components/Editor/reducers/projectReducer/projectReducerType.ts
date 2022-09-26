@@ -1,4 +1,4 @@
 export enum PROJECT_TYPES {
-    ADD_PROJECT = "ADD_PROJECT",
-    REMOVE_PROJECT = "REMOVE_PROJECT"
+    ADD_PROJECT = "AddProject",
+    REMOVE_PROJECT = "RemoveProject"
 }

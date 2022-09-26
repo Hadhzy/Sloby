@@ -1,7 +1,7 @@
 
 import React, {useContext} from 'react';
 import { motion } from "framer-motion"
-import {ContentContext} from "../../../Context/ContentContext"
+import {ContentContext} from "../../Context/ContentContext"
 
 const containerVariants = {
 init: {

@@ -3,17 +3,19 @@ import {ContentContext} from "./Context/ContentContext"
 import axios from "axios"
 import { useLocation } from "react-router-dom"
 import PreventUrls from "./libraries/globalHelper/preventUrls"
+import { IFooterItem } from "./types"
 
 
 function Footer() {
   const {footer} = useContext(ContentContext)
   let currentUrl = useLocation()
-  let footerClassName = new PreventUrls({ className: "footer-container", urlToPreventFrom: ["/editor/dashboard", "/admin"], currentUrl: currentUrl })  
+  let footerClassName = new PreventUrls({ className: "footer-container", urlToPreventFrom: ["/editor/dashboard", "/admin"], currentUrl: currentUrl.pathname })  
 
 
   return <div className={footerClassName.preventURL()}>
         {footer ? (
-          {footer.map(footer_item => (
+          <div>
+            {footer.map((footer_item: IFooterItem) => (
             <div className="footer-items content-base" key={footer_item.id}>
                 <div className="footer-text footer-title">{footer_item.title}</div>
               <div>
@@ -34,10 +36,11 @@ function Footer() {
               </div>
             </div>
           ))}
+          </div>
         ): null}
   </div>
 
-  function OptionalInput({footer_item}) {
+  function OptionalInput({footer_item}: {footer_item: IFooterItem}) {
     return(
       <div className="footer-input">
          <input className="footer-input-style" placeholder={footer_item.placeholder} type="text"/>

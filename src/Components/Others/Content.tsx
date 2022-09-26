@@ -5,6 +5,7 @@ import IntroductionSection from "./IntroductionSection"
 import {ThemeContext} from "./Context/ThemeContext"
 import {ContentContext} from "./Context/ContentContext"
 
+
 function Content() {
   const {switchTheme, theme} = useContext(ThemeContext)
   const {site_info} = useContext(ContentContext)
@@ -28,7 +29,7 @@ function Content() {
               >
                 <IntroductionSection />
                 <div className='hero-section-item'>
-                  <img src={site_info.img} alt='Image' />
+                <img src={site_info.img} alt='Image' />
                 </div>
               </motion.div>
             </motion.div>

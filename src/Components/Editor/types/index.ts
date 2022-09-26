@@ -1,3 +1,4 @@
+import { ChangeEvent } from 'react';
 import React, { ReactChildren, ReactChild } from 'react';
 
 export type ProjectState = {
@@ -43,3 +44,5 @@ export type IUserContext = {
     register_user?: Function
     logged_in?: boolean
 }
+
+export type IEventType = ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement> | React.FormEvent<HTMLFormElement>

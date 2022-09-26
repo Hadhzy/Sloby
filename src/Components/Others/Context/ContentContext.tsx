@@ -7,8 +7,8 @@ export const ContentContext = createContext<IContentContext>(undefined!)
 
 
 export const ContentContextProvider = ({ children }: ContextChildren) => {
-    const [site_info, set_site_info] = useState([])
-    const [categories_accounts, set_categories_accounts] = useState([])
+    const [site_info, set_site_info] = useState({})
+    const [categories_accounts, set_categories_accounts] = useState({})
     const [settings_menu_titles, set_settings_menu_titles] = useState([])
     const [users_login, set_users_login] = useState([])
     const [users_create_account, set_users_create_account] = useState([])

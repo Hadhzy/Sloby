@@ -1,8 +1,8 @@
 import React, {useContext, useEffect} from "react"
-import { ProjectsContext } from "../../Others/Context/ProjectsContext"
+import { ProjectsContext } from "../../Context/Projects/ProjectsContext"
 import { toast, ToastContainer } from 'react-toastify'
 import ProjectsDetails from "./ProjectsDetails"
-import { ProjectsHandlerContext } from "../../Others/Context/ProjectsHandlerContext"
+import { ProjectsHandlerContext } from "../../Context/Projects/ProjectsHandlerContext"
 import { Outlet } from "react-router-dom"
 
 

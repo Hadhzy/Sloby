@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import {Routes, Route} from "react-router-dom"
-import {ThemeContext} from "../../../Context/ThemeContext"
+import {ThemeContext} from "../../Context/ThemeContext"
 import AboutUsContent from "./AboutUsContent"
 
 

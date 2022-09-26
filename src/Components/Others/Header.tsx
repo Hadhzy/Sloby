@@ -3,7 +3,7 @@ import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown"
 import axios from "axios"
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
-import { Menu, MenuItem, Button } from "@material-ui/core"
+import { Menu, MenuItem, Button, ListItemSecondaryActionClassKey } from "@material-ui/core"
 import MoreVertIcon from "@material-ui/icons/MoreVert"
 import {ThemeContext} from "./Context/ThemeContext";
 import {ContentContext} from "./Context/ContentContext"
@@ -13,30 +13,30 @@ import PreventUrls from "./libraries/globalHelper/preventUrls"
 import Content from "./Content"
 import Footer from "./Footer"
 
+type IHeaderItemData = {item_data: {items?: Array<string>, url?: string, title?: string | any,}}
 
-
-function HeaderMenuItem({ item_data }) {
+function HeaderMenuItem({ item_data }: IHeaderItemData) {
 
   return (
     <div className='menu-item'>
       <Link className="off-link-dec" to={`categories/${item_data.url}`}>
-            <div className="header-menu-items">
-        {item_data.title.toUpperCase()}
+        <div className="header-menu-items">
+          {item_data.title.toUpperCase()}
         </div>
       </Link>
       {item_data.items && <KeyboardArrowDownIcon />}
 
-    <Popup item_data={item_data}/>
+      <Popup item_data={item_data} />
 
     </div>
   )
 
-  function Popup({item_data}) {
+  function Popup({ item_data }: IHeaderItemData) {
     return(
     <>
       {item_data.items && (
         <div className='popup-menu'>
-          {item_data.items.map((i) => (
+          {item_data.items.map((i: string) => (
             <div key={i} className='popup-items'>
               <Link
                 to={`/categories/${item_data.url}/${i
@@ -67,7 +67,7 @@ function HeaderMenu() {
 
   return (
     <div className='menu'>
-      {menu_list.map((item_data) => {
+      {menu_list.map((item_data: {id?: number}) => {
         return <HeaderMenuItem key={item_data.id} item_data={item_data} />
       })}
     </div>
@@ -81,10 +81,10 @@ function Header() {
   let currentUrl = useLocation()
 
 
-  let headerClassName = new PreventUrls({ className: "theme-case-header", urlToPreventFrom: ["/editor/dashboard", "/admin",], currentUrl })
+  let headerClassName = new PreventUrls({ className: "theme-case-header", urlToPreventFrom: ["/editor/dashboard", "/admin",], currentUrl: currentUrl.pathname })
   
   return (
-    <div data_theme={theme}>
+    <div>
       <div className={headerClassName.preventURL()}>
         <div className='header-container' >
                  <Link to="/" className="off-link-dec home icon">
@@ -122,7 +122,7 @@ function Header() {
                                 Log out
                             </button>
                         </div>
-                        :
+                        : categories_accounts ? 
                         <div>
                             <motion.button className='button' whileHover={{ scale: 1.1 }}>
                                 <Link className="off-link-dec white" to="users/login">{categories_accounts.login_title}</Link>
@@ -131,7 +131,7 @@ function Header() {
                                 <Link className="off-link-dec white" to="users/register">{categories_accounts.register_title}</Link>
                             </motion.button>
                         </div>
-
+                        :null
                 }
             </motion.div>
           </div>
@@ -153,7 +153,7 @@ function Sidebar() {
   const [anchorEl, setAnchorEl] = useState(null)
   const {settings_menu_titles} = useContext(ContentContext)
 
-  const handleClick = (event) => {
+  const handleClick = (event: ) => {
     setAnchorEl(event.currentTarget)
   }
 
