@@ -44,5 +44,4 @@ export type IUserContext = {
     register_user?: Function
     logged_in?: boolean
 }
-
-export type IEventType = ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement> | React.FormEvent<HTMLFormElement>
+export type IEventType = ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement> | React.FormEvent<HTMLFormElement> | React.ChangeEvent<HTMLInputElement>

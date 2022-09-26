@@ -15,7 +15,7 @@ function IntroductionSection() {
   
 
   return (
-      <div data_theme={theme}>
+      <div>
         <div className="introduction-section">
         <Container maxWidth='sm' className="section-color">
           <Typography

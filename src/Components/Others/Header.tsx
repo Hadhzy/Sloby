@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react"
+import React, { useState, useEffect, useContext, SetStateAction } from "react"
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown"
 import axios from "axios"
 import { motion } from "framer-motion"
@@ -12,6 +12,7 @@ import { useLocation } from 'react-router-dom';
 import PreventUrls from "./libraries/globalHelper/preventUrls"
 import Content from "./Content"
 import Footer from "./Footer"
+import { IEventType } from "../Editor/types"
 
 type IHeaderItemData = {item_data: {items?: Array<string>, url?: string, title?: string | any,}}
 
@@ -67,7 +68,7 @@ function HeaderMenu() {
 
   return (
     <div className='menu'>
-      {menu_list.map((item_data: {id?: number}) => {
+      {menu_list.map((item_data: any) => {
         return <HeaderMenuItem key={item_data.id} item_data={item_data} />
       })}
     </div>
@@ -153,7 +154,7 @@ function Sidebar() {
   const [anchorEl, setAnchorEl] = useState(null)
   const {settings_menu_titles} = useContext(ContentContext)
 
-  const handleClick = (event: ) => {
+  const handleClick = (event: any) => {
     setAnchorEl(event.currentTarget)
   }
 
@@ -163,28 +164,32 @@ function Sidebar() {
 
   return (
     <div>
-      <Button
-        aria-controls='simple-menu'
-        aria-haspopup='true'
-        onClick={handleClick}
-      >
-        <MoreVertIcon />
-      </Button>
-      <Menu
-        id='simple-menu'
-        anchorEl={anchorEl}
-        keepMounted
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-      >
-        <MenuItem onClick={handleClose}>
-          <Link className='off-link-dec' to='settings'>
-            {settings_menu_titles.item_1}
-          </Link>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>{settings_menu_titles.item_2}</MenuItem>
-        <MenuItem onClick={handleClose}>{settings_menu_titles.item_3}</MenuItem>
-      </Menu>
+      {settings_menu_titles ? (
+        <div>
+        <Button
+          aria-controls='simple-menu'
+          aria-haspopup='true'
+          onClick={handleClick}
+        >
+          <MoreVertIcon />
+        </Button>
+        <Menu
+          id='simple-menu'
+          anchorEl={anchorEl}
+          keepMounted
+          open={Boolean(anchorEl)}
+          onClose={handleClose}
+        >
+          <MenuItem onClick={handleClose}>
+            <Link className='off-link-dec' to='settings'>
+              {settings_menu_titles.item_1}
+            </Link>
+          </MenuItem>
+          <MenuItem onClick={handleClose}>{settings_menu_titles.item_2}</MenuItem>
+          <MenuItem onClick={handleClose}>{settings_menu_titles.item_3}</MenuItem>
+        </Menu>
+      </div>
+      ): null}
     </div>
   )
 }
