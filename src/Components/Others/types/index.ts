@@ -5,13 +5,14 @@ type UserLoginType = { id: number, title: string, optional_waiting: string, forg
 type SiteInfoType = { title: string, sub_title: string, button_title_doc: string, button_title_get_started: string, img: string } 
 type CateGoriesAccountsType = {id: number, login_title: string, register_title: string, __comment: string}
 type SettingMenuTitlesType = {id: number, item_1: string, item_2: string, item_3: string, __comment: string}
+type LoginPageType = { id: number, title: string, forgot_password: string, small_tag: string}
 
 export type IContentContext = {
     site_info?: SiteInfoType | any,
     categories_accounts?: CateGoriesAccountsType | any,
-    settings_menu_titles?: SettingMenuTitlesType,
-    users_login?: UsersType[],
-    users_create_account?: UserLoginType[],
+    settings_menu_titles?: SettingMenuTitlesType | any,
+    users_login?: LoginPageType | any,
+    users_create_account?: UserLoginType | any,
     forum_and_security?: Array<Object>,
     help_content?: Array<Object>,
     footer?: any,
