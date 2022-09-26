@@ -5,7 +5,7 @@ from SLORM.db.api import SlobyDB
 from SLORM.utilities.slorm_detector import SlormDetector
 from SLORM.utilities.custom_exceptions import SlormException
 # types
-from SLORM._types import TableName, TableColumns, SetValues, Condition
+from SLORM._types import TableName, TableColumns, SetValues, Condition, SlobyTable
 
 # errors
 from SLORM.utilities.exceptions import SelectError, InsertError, UpdateError, DeleteError
@@ -113,7 +113,7 @@ class Slorm(SlobyDB):
         try:
             with self._conn_singleton() as conn:
                 with conn.cursor() as cur:
-                    if slorm_detector.delete_check(TableName):
+                    if slorm_detector.delete_check(table_name):
                         cur.execute("""DELETE FROM {table_name} WHERE {condition}""".format(table_name=table_name, condition=condition))
 
                         conn.commit()
@@ -125,10 +125,12 @@ class Slorm(SlobyDB):
         except:
             raise DeleteError(table_name, condition)
 
-    def create_table(self,  tables: TableName):
+    def create_table(self,  table: SlobyTable):
         """
             Args:
-                tables: A list with dictionaries, that contain the name of the table and the data of the table.
+                table: A sloby table, that contain the name of the table and the data of the table.
         """
 
-        pass
+        created_table = self.create_table_after_db_initiate(table)
+        return created_table
+

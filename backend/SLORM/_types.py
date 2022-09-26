@@ -1,19 +1,23 @@
-from typing import List, Dict
+from typing import List, Dict, TypedDict, NewType
 
 
-TableName = str | List[Dict[str, str]]
+#Base types
+TableName = str
 TableColumns = List[str] | str
 SetValues = List[str] | str
 Condition = str
 ShowTables = bool
 
+#Custom types
 
-from typing import TypedDict
+sql_table = NewType("sql_table", str)
 
 
+#TypeDicts
 class SlobyTable(TypedDict):
-    table: TableName
+    table_name: TableName
+    table: sql_table
 
 
-class SlobyTables(TypedDict):
-    pass
+
+SlobyTables = List[SlobyTable]

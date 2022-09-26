@@ -15,12 +15,12 @@ logger = logger.get_logger()
 # this project
 from SLORM.slorm import Slorm
 from SLORM.SlobyCl.utils import ConnectionManager
-from SLORM._types import SlobyTable
+from SLORM._types import SlobyTables
 #third party packages
 import json
 # db_tables
 
-#from SLORM.db.utils.db_tables import CREATE_POST_DATA, CREATE_USER_DATA, CREATE_TEST_DATA
+from SLORM.db.utils.db_tables import CREATE_POST_DATA, CREATE_USER_DATA, CREATE_TEST_DATA, CREATE_EXPERIENCE_DATA
 
 manager = ConnectionManager()
 
@@ -172,6 +172,12 @@ class Sloby:
     def test_slorm_delete(self):
         data = slorm.delete(table_name="user_data", condition="id=2")
         return {"data": data}
+
+    @router.post("/create-table")
+    def test_slorm_post(self):
+        data = slorm.create_table({"table_name": "test", "table": CREATE_EXPERIENCE_DATA})
+        return {"data": data}
+
 
     @router.websocket("/ws")
     async def ws(self, websocket: WebSocket):

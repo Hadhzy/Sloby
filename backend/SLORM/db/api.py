@@ -6,15 +6,14 @@ from typing import List
 from collections.abc import Sequence
 
 # this project
-from SLORM._types import TableName, TableColumns, ShowTables
-
-from .db_config.config import config
-
+from SLORM._types import TableName, TableColumns, ShowTables, SlobyTables, SlobyTable
+from SLORM.utilities.custom_exceptions import SlormException
+from SLORM.db.db_config.config import config
 logger = logging.getLogger("sloby.db")
 
 
 class SlobyDB:
-    def __init__(self, conf=None, tables: TableName = None, show_tables: ShowTables = False):
+    def __init__(self, conf=None, tables: SlobyTables = None, show_tables: ShowTables = False):
         """Initialize database from config
         Args:
             tables list[dict[str, str]] = None: A list with dictionaries, that contain the name of the table and the data of the table.
@@ -62,7 +61,7 @@ class SlobyDB:
             logger.info("Connecting to DB")
             with conn.cursor() as cur:  # get the cursor
                 for dict in self.tables:
-                    exists = self._exists_check(dict)  # get the list of the exists
+                    exists = self._exists_check(dict)  # get a list of the exists
 
                     for key, value in dict.items():
                         if exists[0]:
@@ -73,7 +72,7 @@ class SlobyDB:
 
 
 
-    def _exists_check(self, table: TableName, column: Sequence[TableColumns] = "") -> list:
+    def _exists_check(self, table: SlobyTable | TableName, column: Sequence[TableColumns] = "") -> list:
         """
             Args:
                 table: dict[str, str]:  Dict(key-> name of the table, value-> "table").
@@ -89,13 +88,12 @@ class SlobyDB:
         with self._conn_singleton() as conn:
             with conn.cursor() as cur:
 
-                #  check if the type is a dict
-                if type(table) is dict:
-                    name = self.__get_table_name(table)
-                # or str
-                else:
-                    name = table
-                    # check the column is a valid data
+
+
+                name = self.__get_table_name(table)
+
+
+                # check the column is a valid data
 
                 if column:
                     cur.execute(""" SELECT * FROM information_schema.columns WHERE table_name = %(table_name)s and column_name = %(column_name)s """, {"table_name": table, "column_name": column})
@@ -132,7 +130,7 @@ class SlobyDB:
                 return cur.fetchall()
 
     # noinspection PyMethodMayBeStatic
-    def __get_table_name(self, table: TableName) -> str:
+    def __get_table_name(self, table: SlobyTable | TableName) -> str:
         """
             ARGS:
                 table: dict[str, str]:dict(key-> name of the table, value-> "table").
@@ -140,11 +138,29 @@ class SlobyDB:
                 str: The Name of the table
         """
 
+        if type(table) == TableName:
+            return table
         for key, value in table.items():
             return str(key)
 
-    def handle_slorm(self):
-        pass
+    def create_table_after_db_initiate(self, table):
+        try:
+            with self._conn_singleton() as conn:
+                with conn.cursor() as cur:
+                    for dict in table:
+                        exists = self._exists_check(dict)
+                        for key, value in dict.items():
+                            print(value)
+                            if exists[0]:
+                                logger.info(f"This table {key} already exists.")
+                            else:
+                                cur.execute(value)
+                                logger.info(f"Added {key} table to the DB.")
+                                return True
+        except:
+            SlormException("Table creation via the endpoint was unsuccessful", True)
+            return False
 
 
-api = SlobyDB()
+
+
