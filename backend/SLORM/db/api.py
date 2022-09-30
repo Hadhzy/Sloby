@@ -144,13 +144,13 @@ class SlobyDB:
             return str(key)
 
     def create_table_after_db_initiate(self, table):
+        print(table)
         try:
             with self._conn_singleton() as conn:
                 with conn.cursor() as cur:
                     for dict in table:
                         exists = self._exists_check(dict)
                         for key, value in dict.items():
-                            print(value)
                             if exists[0]:
                                 logger.info(f"This table {key} already exists.")
                             else:
@@ -158,8 +158,7 @@ class SlobyDB:
                                 logger.info(f"Added {key} table to the DB.")
                                 return True
         except:
-            SlormException("Table creation via the endpoint was unsuccessful", True)
-            return False
+            raise SlormException("Table creation via the endpoint was unsuccessful", True)
 
 
 

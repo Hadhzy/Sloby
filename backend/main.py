@@ -170,12 +170,12 @@ class Sloby:
 
     @router.delete("/test-slorm")
     def test_slorm_delete(self):
-        data = slorm.delete(table_name="user_data", condition="id=2")
+        data = slorm.delete(table_name="user_data")
         return {"data": data}
 
     @router.post("/create-table")
     def test_slorm_post(self):
-        data = slorm.create_table({"table_name": "test", "table": CREATE_EXPERIENCE_DATA})
+        data = slorm.create_table([{"test": CREATE_EXPERIENCE_DATA}])
         return {"data": data}
 
 

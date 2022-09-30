@@ -5,7 +5,7 @@ from SLORM.db.api import SlobyDB
 from SLORM.utilities.slorm_detector import SlormDetector
 from SLORM.utilities.custom_exceptions import SlormException
 # types
-from SLORM._types import TableName, TableColumns, SetValues, Condition, SlobyTable
+from SLORM._types import TableName, TableColumns, SetValues, Condition, NewTableAfterDatabaseInitialization
 
 # errors
 from SLORM.utilities.exceptions import SelectError, InsertError, UpdateError, DeleteError
@@ -44,7 +44,7 @@ class Slorm(SlobyDB):
                     selected_items = cur.fetchall()
                     return selected_items
         except:
-           raise SelectError(condition, table_name)
+           raise SelectError(table_name, condition)
 
     def insert(self, table_name: TableName = "", table_columns: Sequence[TableColumns] = None, values: Sequence[SetValues] = None) -> Sequence[List]:
         """
@@ -69,8 +69,8 @@ class Slorm(SlobyDB):
                             values
                         )
 
-                        table_data = self.select(table_name=table_name, condition="*")
-                        return table_data
+                        inserted_data = self.select(table_name=table_name, condition="*")
+                        return inserted_data
                     else:
                         raise SlormException("The insert check was unsuccessful")
 
@@ -96,10 +96,10 @@ class Slorm(SlobyDB):
                         #save the changes
                         conn.commit()
 
-                        table_data = self.select(table_name=table_name, condition="*")
-                        return table_data
+                        updated_data = self.select(table_name=table_name, condition="*")
+                        return updated_data
                     else:
-                        SlormException(f"The update was unsuccessful(slorm.detcector.update_check) with these params: table_name:{table_name}, table_columns{table_columns} set_values: {set_values}")
+                        raise SlormException(f"The update was unsuccessful(slorm.detcector.update_check) with these params: table_name:{table_name}, table_columns{table_columns} set_values: {set_values}")
         except:
             raise UpdateError(table_name, columns, set_values, condition)
 
@@ -114,18 +114,22 @@ class Slorm(SlobyDB):
             with self._conn_singleton() as conn:
                 with conn.cursor() as cur:
                     if slorm_detector.delete_check(table_name):
-                        cur.execute("""DELETE FROM {table_name} WHERE {condition}""".format(table_name=table_name, condition=condition))
+                        if not condition:
+                            cur.execute("""DROP TABLE {table_name}""".format(table_name=table_name))
+                        else:
+                            cur.execute("""DELETE FROM {table_name} WHERE {condition}""".format(table_name=table_name, condition=condition))
+
 
                         conn.commit()
 
-                        table_data = self.select(table_name, condition="*")
-                        return table_data
+                        deleted_data = self.select(table_name, condition="*")
+                        return deleted_data
                     else:
                         SlormException(f"The delete was unsuccessful(delete_check) with these params: table_name{table_name} condition{condition}")
         except:
             raise DeleteError(table_name, condition)
 
-    def create_table(self,  table: SlobyTable):
+    def create_table(self,  table: NewTableAfterDatabaseInitialization):
         """
             Args:
                 table: A sloby table, that contain the name of the table and the data of the table.
