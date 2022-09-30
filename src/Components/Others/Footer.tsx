@@ -12,7 +12,7 @@ function Footer() {
   let footerClassName = new PreventUrls({ className: "footer-container", urlToPreventFrom: ["/editor/dashboard", "/admin"], currentUrl: currentUrl.pathname })  
 
   return <div className="footer-container">
-    hello
+    Hello world
   </div>
   // return <div className="theme-case-footer">
   //    <div className="footer-container">

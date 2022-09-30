@@ -84,7 +84,7 @@ function Header() {
   let headerClassName = new PreventUrls({ className: "theme-case-header", urlToPreventFrom: ["/editor/dashboard", "/admin",], currentUrl: currentUrl.pathname })
   
   return (
-    <div>
+    <div className="theme-case-header">
       <div className={headerClassName.preventURL()}>
         <div className='header-container' >
                  <Link to="/" className="off-link-dec home icon">

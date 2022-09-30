@@ -43,7 +43,6 @@
   background: #3f51b5;
 }
 
-[data_theme="dark"] {
     .content-container{
       background-color: $black_theme_background_content;
     }
@@ -234,7 +233,6 @@
       color: white;
     }
   }
-    transition: 250ms ease-in-out;
     //settings
     .MuiSvgIcon-root {
       color: white;
@@ -271,8 +269,6 @@
     }
   }
   //header-end
-}
-
 *{
     margin: 0;
     padding: 0;
