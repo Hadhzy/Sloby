@@ -15,13 +15,13 @@ import {UserContextProvider} from "./Components/Others/Context/UserContext"
 import LoginPage from "./Components/Others/Components/Users/LoginPage"
 
 import RegistrationEmailSentPage from "./Components/Others/Components/Users/RegistrationEmailSentPage";
-import ProjectsCotnextProvider from "./Components/Editor/Context/Projects/ProjectsContext"
+import ProjectsCotnextProvider from "./Editor/Context/Projects/ProjectsContext"
 import { ThemeContextProvider } from "./Components/Others/Context/ThemeContext"
-import {ProjectsHandlerContextProvider} from "./Components/Editor/Context/Projects/ProjectsHandlerContext"
-import ProjectHandler from "./Components/Editor/Components/ProjectsSection/ProjectHandler"
-import AdminPage from "./Components/Editor/Components/Admin/AdminPage"
+import {ProjectsHandlerContextProvider} from "./Editor/Context/Projects/ProjectsHandlerContext"
+import ProjectHandler from "./Editor/Components/ProjectsSection/ProjectHandler"
+import AdminPage from "./Editor/Components/Admin/AdminPage"
 import Error from "./Components/Others/globalPages/Error"
-import SideMenuBar from "./Components/Editor/Components/ProjectsSection/SideMenuBar"
+import SideMenuBar from "./Editor/Components/ProjectsSection/SideMenuBar"
 import {ContentContextProvider} from "./Components/Others/Context/ContentContext"
 
 function App() {

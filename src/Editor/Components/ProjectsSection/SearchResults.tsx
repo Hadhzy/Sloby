@@ -1,7 +1,5 @@
 import React, {useContext} from 'react'
-import {ContentContext} from "../../../Others/Context/ContentContext"
 import {motion} from "framer-motion"
-import { useState } from 'react'
 import {Link} from "react-router-dom"
 import {ProjectsContext} from "../../Context/Projects/ProjectsContext"
 import { Input, ProjectState } from '../../types'

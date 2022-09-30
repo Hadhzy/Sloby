@@ -12,7 +12,6 @@ import { useLocation } from 'react-router-dom';
 import PreventUrls from "./libraries/globalHelper/preventUrls"
 import Content from "./Content"
 import Footer from "./Footer"
-import { IEventType } from "../Editor/types"
 
 type IHeaderItemData = {item_data: {items?: Array<string>, url?: string, title?: string | any,}}
 

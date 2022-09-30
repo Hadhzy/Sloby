@@ -1,5 +1,4 @@
 import React, { useContext, useState} from "react"
-import {ContentContext} from "../../../Others/Context/ContentContext"
 import {Link} from "react-router-dom"
 import { BiHomeAlt, BiNews } from 'react-icons/bi'
 import { AiFillHeart } from "react-icons/ai"
