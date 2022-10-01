@@ -28,3 +28,19 @@ export const SlobyInput = styled.input`
         box-shadow: 5px 5px 1rem #151515;
     }
 `
+
+
+export const ErrorPageContainer = styled.div`
+  background-color: #202020;
+  flex-direction: column;  
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+export const ErrorDescription = styled.div`
+   color: #898989;
+   font-weight: bold; 
+   font-size: 20px;
+`

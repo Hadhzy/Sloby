@@ -6,6 +6,7 @@ import { AdminPageContainer, AdminPageFormContainer, AdminPageTitle, SubmitButto
 import { SlobyInput} from '../../styles/global';
 import { ContentContext } from '../../../Components/Others/Context/ContentContext';
 import {IAdminPage, IAdminPageForm } from "../../../Components/Others/types"
+import { AdminPageErrorMessages } from '../../store/ErrorMessages';
 
 function AdminPage() {
     const isUserHavePermission = useAuth()
@@ -13,7 +14,7 @@ function AdminPage() {
     
     return isUserHavePermission ? (
         <AdminPageContainer>
-            {admin_page ? (
+            {admin_page && isUserHavePermission ? (
                 <AdminPageFormContainer>
                     <AdminPageTitle>Sign In</AdminPageTitle>
                     {
@@ -27,7 +28,7 @@ function AdminPage() {
                 </AdminPageFormContainer>
             ) : null}
         </AdminPageContainer>
-    ) : <ErrorPage />
+    ) : <ErrorPage errorMessage={AdminPageErrorMessages.USER_DONT_HAVE_PERMISSION} />
 }
 
 export default AdminPage;
