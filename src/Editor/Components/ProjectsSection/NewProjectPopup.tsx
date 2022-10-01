@@ -1,7 +1,7 @@
 import React, {ChangeEvent, HTMLInputTypeAttribute, useContext} from "react";
 import ErrorIcon from "@material-ui/icons/Error"
-import { ProjectsHandlerContext } from "../../Context/Projects/ProjectsHandlerContext";
-import { ProjectsContext } from "../../Context/Projects/ProjectsContext";
+import { ProjectsHandlerContext } from "../../store/Projects/ProjectsHandlerContext";
+import { ProjectsContext } from "../../store/Projects/ProjectsContext";
 import { faThList } from "@fortawesome/free-solid-svg-icons";
 import { IEventType } from "../../types";
 

@@ -1,5 +1,5 @@
 import React, {useContext} from 'react'
-import { ProjectsContext } from "../../Context/Projects/ProjectsContext"
+import { ProjectsContext } from "../../store/Projects/ProjectsContext"
 import {ProjectState} from "../../types"
 
 function ProjectsDetails({ project }: any) {

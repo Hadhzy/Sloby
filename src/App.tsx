@@ -1,4 +1,3 @@
-
 import React, {useContext} from "react"
 import "./Components/Others/styles/main.scss"
 import Header from "./Components/Others/Header"
@@ -13,11 +12,10 @@ import Profile from "./Components/Others/Components/User"
 import RegisterPage from "./Components/Others/Components/Users/RegisterPage"
 import {UserContextProvider} from "./Components/Others/Context/UserContext"
 import LoginPage from "./Components/Others/Components/Users/LoginPage"
-
 import RegistrationEmailSentPage from "./Components/Others/Components/Users/RegistrationEmailSentPage";
-import ProjectsCotnextProvider from "./Editor/Context/Projects/ProjectsContext"
+import ProjectsCotnextProvider from "./Editor/store/Projects/ProjectsContext"
 import { ThemeContextProvider } from "./Components/Others/Context/ThemeContext"
-import {ProjectsHandlerContextProvider} from "./Editor/Context/Projects/ProjectsHandlerContext"
+import {ProjectsHandlerContextProvider} from "./Editor/store/Projects/ProjectsHandlerContext"
 import ProjectHandler from "./Editor/Components/ProjectsSection/ProjectHandler"
 import AdminPage from "./Editor/Components/Admin/AdminPage"
 import Error from "./Components/Others/globalPages/Error"
@@ -33,7 +31,6 @@ function App() {
           <ProjectsCotnextProvider>
             <ProjectsHandlerContextProvider>
                <div className='App'>
-                
                 <Routes>
                   <Route path="/" element={<Header/>} />
                   <Route path='/user/profile' element={<Profile />} />

@@ -6,6 +6,8 @@ type SiteInfoType = { title: string, sub_title: string, button_title_doc: string
 type CateGoriesAccountsType = {id: number, login_title: string, register_title: string, __comment: string}
 type SettingMenuTitlesType = {id: number, item_1: string, item_2: string, item_3: string, __comment: string}
 type LoginPageType = { id: number, title: string, forgot_password: string, small_tag: string}
+export type IAdminPage = { forms: [IAdminPageForm]}
+export type IAdminPageForm = {id: number, placeholder: string, name: string}
 
 export type IContentContext = {
     site_info?: SiteInfoType | any,
@@ -18,6 +20,7 @@ export type IContentContext = {
     footer?: any,
     social_content?: any,
     settings?: Array<Object>,
+    admin_page?: IAdminPage | any
 }
 
 export type IThemeContext = {

@@ -3,7 +3,7 @@ import SearchBar from "./SearchBar"
 import SideMenuBar from './SideMenuBar'
 import ProjectsList from "./ProjectsList"
 import NewProjectPopup from './NewProjectPopup'
-import {ProjectsHandlerContext} from '../../Context/Projects/ProjectsHandlerContext'
+import {ProjectsHandlerContext} from '../../store/Projects/ProjectsHandlerContext'
 import { toast, ToastContainer } from 'react-toastify'
 import { AiOutlineSearch } from 'react-icons/ai'
 import {FcSettings} from "react-icons/fc"

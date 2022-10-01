@@ -17,6 +17,7 @@ export const ContentContextProvider = ({ children }: ContextChildren) => {
     const [footer, set_footer] = useState([])
     const [social_content, set_social_content] = useState([])
     const [settings, set_settings] = useState([])
+    const [admin_page, set_admin_page] = useState({})
 
 
     const fetch_site_info = () => {
@@ -88,6 +89,13 @@ export const ContentContextProvider = ({ children }: ContextChildren) => {
             url: `${process.env.REACT_APP_API_URL}settings-menu/`
         }).then(res => set_settings(res.data))
     }
+
+    const fetch_admin_page = () => {
+        axios({
+            method: "get",
+            url: `${process.env.REACT_APP_API_URL}admin-page/`
+        }).then(res => set_admin_page(res.data))
+    }
     
 
     
@@ -102,6 +110,7 @@ export const ContentContextProvider = ({ children }: ContextChildren) => {
         fetch_footer()
         fetch_social_content()
         fetch_settings()
+        fetch_admin_page()
     }, [])
 
    
@@ -118,7 +127,8 @@ export const ContentContextProvider = ({ children }: ContextChildren) => {
             help_content,
             footer,
             social_content,
-            settings
+            settings,
+            admin_page
         }}>
             {children}
         </ContentContext.Provider>

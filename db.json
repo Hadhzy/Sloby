@@ -221,6 +221,13 @@
      "content_title": "Test2",
       "long_description": "lorem10"},
     {"id": 2}
-  ]
+  ],
+
+  "admin-page": {
+    "forms": [
+      {"id": 1, "placeholder": "username...", "name": "username"},
+      {"id": 2, "placeholder": "password...", "name": "password"}
+    ]
+  }
 }
 
