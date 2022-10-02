@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85c8f2df-d41d-40d4-9f76-141b978881d4" name="Changes" comment="" />
+    <list default="true" id="85c8f2df-d41d-40d4-9f76-141b978881d4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Editor/store/Projects/ProjectsContext.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Editor/store/Projects/ProjectsHandlerContext.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Others/Context/UserContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Context/UserContext.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Editor/Context/Projects/ProjectsContext.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Editor/Context/Projects/ProjectsHandlerContext.tsx" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,23 +31,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/programming/javascript/referenceSite/FullStackReferenceSite/ReferenceSiteFullStack",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "C:\\programming\\typescript\\sloby\\node_modules\\typescript\\lib"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/programming/typescript/sloby&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\programming\\typescript\\sloby\\node_modules\\typescript\\lib&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\programming\typescript\sloby\src\Components\Others\Components" />
@@ -63,6 +70,9 @@
       <workItem from="1663517079431" duration="374000" />
       <workItem from="1663603111364" duration="48000" />
       <workItem from="1663860725689" duration="20000" />
+      <workItem from="1664475459946" duration="29000" />
+      <workItem from="1664475703844" duration="70000" />
+      <workItem from="1664552851851" duration="50000" />
     </task>
     <servers />
   </component>
