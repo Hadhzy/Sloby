@@ -12,6 +12,7 @@ from SLORM.db.db_config.config import config
 logger = logging.getLogger("sloby.db")
 
 
+# fixme: init type hint tables
 class SlobyDB:
     def __init__(self, conf=None, tables: SlobyTables = None, show_tables: ShowTables = False):
         """Initialize database from config
@@ -44,7 +45,8 @@ class SlobyDB:
                 host=conf['host'],
                 dbname=conf['dbname'],
                 user=conf['user'],
-                password=conf['password'])
+                password=conf['password'],
+                )
         except errors.ConnectionDoesNotExist as e:
             logger.exception(f'db connect failed {conf}')
             raise e
@@ -63,12 +65,13 @@ class SlobyDB:
                 for dict in self.tables:
                     exists = self._exists_check(dict)  # get a list of the exists
 
-                    for key, value in dict.items():
-                        if exists[0]:
-                            logger.info(f"This table {key} already exists.")
-                        else:
-                            cur.execute(value)
-                            logger.info(f"Added {key} table to the DB.")
+                    table_name = dict["table_name"]
+                    sql_table = dict["table"]
+                    if exists[0]:
+                        logger.info(f"This table {table_name} already exists.")
+                    else:
+                        cur.execute(sql_table)
+                        logger.info(f"Added {table_name} table to the DB.")
 
 
 
@@ -96,7 +99,7 @@ class SlobyDB:
                 # check the column is a valid data
 
                 if column:
-                    cur.execute(""" SELECT * FROM information_schema.columns WHERE table_name = %(table_name)s and column_name = %(column_name)s """, {"table_name": table, "column_name": column})
+                    cur.execute(""" SELECT * FROM information_schema.columns WHERE table_name = %(table_name)s and column_name = %(column_name)s """, {"table_name": name, "column_name": column})
 
                     column_fetch = cur.fetchone()
                     column_exists = column_fetch[0]
@@ -140,8 +143,7 @@ class SlobyDB:
 
         if type(table) == TableName:
             return table
-        for key, value in table.items():
-            return str(key)
+        return table["table_name"]
 
     def create_table_after_db_initiate(self, table):
         print(table)
@@ -159,7 +161,3 @@ class SlobyDB:
                                 return True
         except:
             raise SlormException("Table creation via the endpoint was unsuccessful", True)
-
-
-
-

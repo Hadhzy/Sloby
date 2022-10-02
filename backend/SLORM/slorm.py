@@ -1,6 +1,9 @@
 # this project
 from sqlalchemy.dialects.mssql.information_schema import columns
 
+#  FastApi
+from fastapi import HTTPException
+
 from SLORM.db.api import SlobyDB
 from SLORM.utilities.slorm_detector import SlormDetector
 from SLORM.utilities.custom_exceptions import SlormException
@@ -28,7 +31,7 @@ class Slorm(SlobyDB):
        super().__init__()
 
     def select(self, table_name: TableName = "", condition: Condition = "") -> Sequence[List]:
-
+        selected_items_connector = False
         """
         Args:
             table_name("str"): Name of the table.
@@ -42,9 +45,13 @@ class Slorm(SlobyDB):
                     cur.execute("""SELECT {0} FROM {1}""".format(condition, table_name))
 
                     selected_items = cur.fetchall()
+                    selected_items_connector = True
                     return selected_items
         except:
-           raise SelectError(table_name, condition)
+            raise SelectError(table_name, condition)
+        finally:
+            if not selected_items_connector:
+                raise HTTPException(status_code=409, detail=f"Something went wrong with this table: {table_name} !")
 
     def insert(self, table_name: TableName = "", table_columns: Sequence[TableColumns] = None, values: Sequence[SetValues] = None) -> Sequence[List]:
         """
@@ -116,16 +123,18 @@ class Slorm(SlobyDB):
                     if slorm_detector.delete_check(table_name):
                         if not condition:
                             cur.execute("""DROP TABLE {table_name}""".format(table_name=table_name))
+                            conn.commit()
+                            return True
                         else:
                             cur.execute("""DELETE FROM {table_name} WHERE {condition}""".format(table_name=table_name, condition=condition))
+                            deleted_data = self.select(table_name, condition="*")
+                            conn.commit()
+                            return deleted_data
 
 
-                        conn.commit()
 
-                        deleted_data = self.select(table_name, condition="*")
-                        return deleted_data
                     else:
-                        SlormException(f"The delete was unsuccessful(delete_check) with these params: table_name{table_name} condition{condition}")
+                        raise SlormException(f"The delete was unsuccessful(delete_check) with these params: table_name{table_name} condition{condition}")
         except:
             raise DeleteError(table_name, condition)
 
@@ -137,4 +146,3 @@ class Slorm(SlobyDB):
 
         created_table = self.create_table_after_db_initiate(table)
         return created_table
-

@@ -1,5 +1,5 @@
 import sys
-from fastapi import FastAPI, Depends, WebSocket
+from fastapi import FastAPI, Depends, WebSocket, HTTPException
 from fastapi_utils.cbv import cbv
 from fastapi_utils.inferring_router import InferringRouter
 from fastapi.middleware.cors import CORSMiddleware
@@ -15,7 +15,6 @@ logger = logger.get_logger()
 # this project
 from SLORM.slorm import Slorm
 from SLORM.SlobyCl.utils import ConnectionManager
-from SLORM._types import SlobyTables
 #third party packages
 import json
 # db_tables
@@ -63,7 +62,7 @@ app.add_middleware(CORSMiddleware,
 """
 tables=[{"USER_DATA": CREATE_USER_DATA}, {"POST_DATA": CREATE_POST_DATA}, {"TEST_DATA": CREATE_TEST_DATA}]
 """
-sloby_db = SlobyDB(show_tables=False)
+sloby_db = SlobyDB(show_tables=False, tables=[{"table_name": "USER_DATA", "table": CREATE_USER_DATA}, {"table_name": "POST_DATA", "table": CREATE_POST_DATA}, {"table_name": "TEST_DATA", "table": CREATE_TEST_DATA}])
 slorm = Slorm()
 
 
@@ -154,7 +153,6 @@ class Sloby:
     @router.get("/test-slorm")
     def test_slorm_select(self):
         data = slorm.select("test_data", "*")
-
         return {"data": data}
 
     @router.post("/test-slorm")
@@ -170,7 +168,7 @@ class Sloby:
 
     @router.delete("/test-slorm")
     def test_slorm_delete(self):
-        data = slorm.delete(table_name="user_data")
+        data = slorm.delete(table_name="test_data")
         return {"data": data}
 
     @router.post("/create-table")
