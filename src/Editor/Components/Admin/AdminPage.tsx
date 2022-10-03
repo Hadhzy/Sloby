@@ -19,8 +19,8 @@ function AdminPage() {
                     <AdminPageTitle>Sign In</AdminPageTitle>
                     {
                         admin_page.forms?.map((item: IAdminPageForm) => {
-                            return <form>
-                                <SlobyInput key={item.id} placeholder={item.placeholder} />
+                            return <form key={item.id}>
+                                <SlobyInput placeholder={item.placeholder} type={item.type} />
                             </form>
                        })
                     }

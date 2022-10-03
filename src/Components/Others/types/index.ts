@@ -7,7 +7,7 @@ type CateGoriesAccountsType = {id: number, login_title: string, register_title: 
 type SettingMenuTitlesType = {id: number, item_1: string, item_2: string, item_3: string, __comment: string}
 type LoginPageType = { id: number, title: string, forgot_password: string, small_tag: string}
 export type IAdminPage = { forms: [IAdminPageForm]}
-export type IAdminPageForm = {id: number, placeholder: string, name: string}
+export type IAdminPageForm = {id: number, placeholder: string, name: string, type: "text" | "password"}
 
 export type IContentContext = {
     site_info?: SiteInfoType | any,

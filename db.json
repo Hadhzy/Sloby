@@ -225,8 +225,8 @@
 
   "admin-page": {
     "forms": [
-      {"id": 1, "placeholder": "username...", "name": "username"},
-      {"id": 2, "placeholder": "password...", "name": "password"}
+      {"id": 1, "placeholder": "username...", "name": "username", "type": "text"},
+      {"id": 2, "placeholder": "password...", "name": "password", "type": "password"}
     ]
   }
 }

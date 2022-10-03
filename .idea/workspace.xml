@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85c8f2df-d41d-40d4-9f76-141b978881d4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Editor/store/Projects/ProjectsContext.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Editor/store/Projects/ProjectsHandlerContext.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Others/Context/UserContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Others/Context/UserContext.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Editor/Context/Projects/ProjectsContext.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Editor/Context/Projects/ProjectsHandlerContext.tsx" beforeDir="false" />
+    <list default="true" id="cfb8a942-8c1e-4613-ab74-7a47bc271d33" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sloby.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sloby.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/sloby.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/sloby.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,74 +20,71 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2EwIXvVxLpdY4Rxkt7F3VQDVBRw" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="2FZt07nuA3AYgoVU6WmIhc7vgaA" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/programming/typescript/sloby&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\programming\\typescript\\sloby\\node_modules\\typescript\\lib&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\programming\typescript\sloby\src\Components\Others\Components" />
-      <recent name="C:\programming\typescript\sloby\src\Components\NotEditorRelated\Components" />
-      <recent name="C:\programming\typescript\sloby\src\Components\NotEditorRelated" />
-      <recent name="C:\programming\typescript\sloby\src\Components\EditorRelated\reducers" />
-      <recent name="C:\programming\typescript\sloby\src\Components\EditorRelated\types" />
-    </key>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="sloby" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="85c8f2df-d41d-40d4-9f76-141b978881d4" name="Changes" comment="" />
-      <created>1663500264792</created>
+      <changelist id="cfb8a942-8c1e-4613-ab74-7a47bc271d33" name="Changes" comment="" />
+      <created>1664711211093</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1663500264792</updated>
-      <workItem from="1663500268188" duration="414000" />
-      <workItem from="1663500744188" duration="1159000" />
-      <workItem from="1663517079431" duration="374000" />
-      <workItem from="1663603111364" duration="48000" />
-      <workItem from="1663860725689" duration="20000" />
-      <workItem from="1664475459946" duration="29000" />
-      <workItem from="1664475703844" duration="70000" />
-      <workItem from="1664552851851" duration="50000" />
+      <updated>1664711211093</updated>
+      <workItem from="1664711218391" duration="1595000" />
+      <workItem from="1664716740879" duration="721000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/sloby$main.coverage" NAME="main Coverage Results" MODIFIED="1664712450438" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
   </component>
 </project>

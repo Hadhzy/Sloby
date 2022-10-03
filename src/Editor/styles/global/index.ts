@@ -10,6 +10,7 @@ export const SlobyInput = styled.input`
     text-indent: 10px;
     color: #AAAAAA;
     outline: none;
+    font-weight: bold;
 
     transition: 250ms ease-in-out;
 
