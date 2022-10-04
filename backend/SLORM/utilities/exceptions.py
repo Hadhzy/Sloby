@@ -39,7 +39,7 @@ class UpdateError(Exception):
 
 class DeleteError(Exception):
     def __init__(self, table_name, condition, logger: bool = True):
-        self.message = f"DeleteError! The delete was unsuccessful from this table: {table_name} with this condition: {condition}"
+        self.message = f"DeleteError! The delete was unsuccessful from this table: {table_name} with this condition: {condition}!"
         if logger:
             self.logging_it()
         super().__init__(self.message)
