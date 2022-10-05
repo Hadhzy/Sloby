@@ -1,5 +1,5 @@
 import sys
-from fastapi import FastAPI, Depends, WebSocket, HTTPException
+from fastapi import FastAPI, Depends, WebSocket
 from fastapi_utils.cbv import cbv
 from fastapi_utils.inferring_router import InferringRouter
 from fastapi.middleware.cors import CORSMiddleware
@@ -157,22 +157,22 @@ class Sloby:
 
     @router.post("/test-slorm")
     def test_slorm_post(self):
-        data = slorm.insert(table_name="user_data", table_columns=["gender", "test"], values=["male"])
+        data = slorm.insert(table_name="user_data", table_columns=["gender", "ident"], values=["male", "test1"])
 
         return {"data": data}
 
     @router.put("/test-slorm")
     def test_slorm_update(self):
-        data = slorm.update(table_name="user_data", table_columns=["gender"], set_values=["first"], condition="id=1")
+        data = slorm.update(table_name="user_data", table_columns=["gender"], set_values=["female"], condition="id=3")
         return {"data": data}
 
     @router.delete("/test-slorm")
     def test_slorm_delete(self):
-        data = slorm.delete(table_name="test_data")
+        data = slorm.delete(table_name="sdfsdfsdf", condition="id=2")
         return {"data": data}
 
     @router.post("/create-table")
-    def test_slorm_post(self):
+    def test_slorm_create_table(self):
         data = slorm.create_table([{"test": CREATE_EXPERIENCE_DATA}])
         return {"data": data}
 

@@ -60,7 +60,7 @@ class Slorm(SlobyDB):
             table_columns: These are the sql columns, where you can add something.
             values: It should be the values of the table.
         """
-
+        inserted_item_connector = False
         table_columns = table_columns or []
         values = values or []
 
@@ -75,14 +75,19 @@ class Slorm(SlobyDB):
                             ),
                             values
                         )
+                        conn.commit()  # save the changes
 
                         inserted_data = self.select(table_name=table_name, condition="*")
+                        inserted_item_connector = True
                         return inserted_data
                     else:
                         raise SlormException("The insert check was unsuccessful")
 
         except:
             raise InsertError(table_name=table_name, columns=table_columns, values=values)
+        finally:
+            if not inserted_item_connector:
+                raise HTTPException(status_code=409, detail=f"Something went wrong with this table: {table_name} !")
     def update(self, table_name: TableName = "", table_columns: Sequence[TableColumns] = None, set_values: Sequence[SetValues] = None, condition: Condition = "") -> Sequence[List]:
         """
             Args:
@@ -91,7 +96,7 @@ class Slorm(SlobyDB):
                 set_values: The values that you want to add to the columns.
                 condition: A simple sign(str) or statements, shows what data you need, it works like a filter, if the filter behavior appears in the tables, then you going to get them.
         """
-
+        updated_item_connector = False
         try:
             with self._conn_singleton() as conn:
                 with conn.cursor() as cur:
@@ -104,19 +109,22 @@ class Slorm(SlobyDB):
                         conn.commit()
 
                         updated_data = self.select(table_name=table_name, condition="*")
+                        updated_item_connector = True
                         return updated_data
                     else:
                         raise SlormException(f"The update was unsuccessful(slorm.detcector.update_check) with these params: table_name:{table_name}, table_columns{table_columns} set_values: {set_values}")
         except:
             raise UpdateError(table_name, columns, set_values, condition)
-
+        finally:
+            if not updated_item_connector:
+                raise HTTPException(status_code=409, detail=f"Something went wrong with this table: {table_name} !")
     def delete(self, table_name: TableName = "", condition: Condition = ""):
         """
             Args:
                  table_name: Name of the table where you want to delete something.
                  condition: A simple sign(str) or statements, shows what data you need, it works like a filter, if the filter behavior appears in the tables, then you going to get them.
         """
-
+        deleted_item_connector = False
         try:
             with self._conn_singleton() as conn:
                 with conn.cursor() as cur:
@@ -124,11 +132,16 @@ class Slorm(SlobyDB):
                         if not condition:
                             cur.execute("""DROP TABLE {table_name}""".format(table_name=table_name))
                             conn.commit()
+                            deleted_item_connector = True
                             return True
                         else:
                             cur.execute("""DELETE FROM {table_name} WHERE {condition}""".format(table_name=table_name, condition=condition))
+
+                            conn.commit()  # save the changes
+
                             deleted_data = self.select(table_name, condition="*")
-                            conn.commit()
+
+                            deleted_item_connector = True
                             return deleted_data
 
 
@@ -137,7 +150,9 @@ class Slorm(SlobyDB):
                         raise SlormException(f"The delete was unsuccessful(delete_check) with these params: table_name{table_name} condition{condition}")
         except:
             raise DeleteError(table_name, condition)
-
+        finally:
+            if not deleted_item_connector:
+                raise HTTPException(status_code=409, detail=f"Something went wrong with delete this table: {table_name} !")
     def create_table(self,  table: NewTableAfterDatabaseInitialization):
         """
             Args:
