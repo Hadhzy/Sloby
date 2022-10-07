@@ -20,7 +20,7 @@ function Popup() {
     class PopupContent extends React.Component {
         state = initialState
         
-    
+
         handleChange = (event: IEventType) => {
             this.setState({ 
                 [event.currentTarget.name]: event.currentTarget.value

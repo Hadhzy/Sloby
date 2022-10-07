@@ -7,11 +7,16 @@ import { SlobyInput} from '../../styles/global';
 import { ContentContext } from '../../../Components/Others/Context/ContentContext';
 import {IAdminPage, IAdminPageForm } from "../../../Components/Others/types"
 import { AdminPageErrorMessages } from '../../store/ErrorMessages';
+import {SlobyValidate} from '../../libraries/SlobyValidate';
+import { IEventType } from '../../types';
 
 function AdminPage() {
     const isUserHavePermission = useAuth()
     const {admin_page} = useContext(ContentContext)
-    
+    const adminPageForm = new SlobyValidate(["username", "password"], [""])
+
+    console.log(adminPageForm.manageInputValues())
+
     return isUserHavePermission ? (
         <AdminPageContainer>
             {admin_page && isUserHavePermission ? (
@@ -20,7 +25,13 @@ function AdminPage() {
                     {
                         admin_page.forms?.map((item: IAdminPageForm) => {
                             return <form key={item.id}>
-                                <SlobyInput placeholder={item.placeholder} type={item.type} />
+                                <SlobyInput
+                                    placeholder={item.placeholder}
+                                    type={item.type}
+                                    value={""}
+                                    onChange={(e) => adminPageForm.handleChange(e)}
+                                    name={adminPageForm.state.inputNames.forEach((item: string) => {return item})}
+                                />
                             </form>
                        })
                     }

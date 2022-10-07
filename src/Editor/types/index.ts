@@ -1,3 +1,4 @@
+import { SetStateAction } from 'react';
 import { ChangeEvent } from 'react';
 import React, { ReactChildren, ReactChild } from 'react';
 
@@ -8,6 +9,8 @@ export type ProjectState = {
     projectType?: string, 
     last?: boolean,
 }
+
+export type IsetState = any
    
  export type Action = {
     type: string,
@@ -45,3 +48,11 @@ export type IUserContext = {
     logged_in?: boolean
 }
 export type IEventType = ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement> | React.FormEvent<HTMLFormElement> | React.ChangeEvent<HTMLInputElement>
+
+export type ISlobyValidateState = any
+
+export interface ISlobyValidate {
+    state: ISlobyValidateState,
+    inputNames: Array<string>,
+    handleChange(event: IEventType): void,
+}

@@ -1,14 +1,21 @@
+import { ISlobyValidate,ISlobyValidateState } from './../../types/index';
 import React from "react"
+import { IEventType } from "../../types"
 
-class SlobyValidate {
-    constructor(public name: string) { }
+export class SlobyValidate implements ISlobyValidate {
+    public state: ISlobyValidateState = {
+        inputNames: [],
+        inputValues: []
+    }
     
-    generate() {
-        return this.name
+    constructor(public inputNames: Array<string>, public inputValues: Array<string>) { this.state = this.state }
+    
+    manageInputValues() {
+        if (this.inputValues.length === 1 && this.inputValues.includes("")) {
+            
+        } 
+    }
+
+    handleChange(event: IEventType) {
     }
 }
-
-const i = new SlobyValidate("name")
-console.log(i.generate())
-
-export default SlobyValidate

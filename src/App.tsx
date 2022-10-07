@@ -20,7 +20,7 @@ import ProjectHandler from "./Editor/Components/ProjectsSection/ProjectHandler"
 import AdminPage from "./Editor/Components/Admin/AdminPage"
 import Error from "./Components/Others/globalPages/Error"
 import SideMenuBar from "./Editor/Components/ProjectsSection/SideMenuBar"
-import {ContentContextProvider} from "./Components/Others/Context/ContentContext"
+import { ContentContextProvider } from "./Components/Others/Context/ContentContext"
 
 function App() {
   return (
