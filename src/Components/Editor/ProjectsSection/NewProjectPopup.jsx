@@ -120,7 +120,7 @@ function Popup() {
                             </label>
                         </div>
                         <div className='for-the-button'>
-                            <button className="blue-button">Submit</button>
+                            <button className="blue-button">Submit!</button>
                     </div>
                 </div>
             </form>
