@@ -11,6 +11,16 @@
 # production
 /build
 
+# this project
+/.vscode/.idea
+
+/backend/.idea
+/backend/venv/
+/backend/tests/
+/backend/sloby.log
+/backend/SLORM/db/db_config/database_remote.ini
+/backend/SLORM/db/db_config/database_localhost.ini
+
 # misc
 .DS_Store
 .env.local
