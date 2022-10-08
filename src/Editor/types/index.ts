@@ -52,7 +52,9 @@ export type IEventType = ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAre
 export type ISlobyValidateState = any
 
 export interface ISlobyValidate {
-    state: ISlobyValidateState,
-    inputNames: Array<string>,
+    inputNames: any,
+    setInputNames(): void,
+    setNames(): any
+    inputNamesList: Array<any>,
     handleChange(event: IEventType): void,
 }

@@ -22,9 +22,11 @@ export const AdminPageContainer = styled.div`
     form {
         display: block;
     }
+    border: 1px solid red;
+
 `
 
-export const AdminPageFormContainer = styled.div`
+export const AdminPageSignInContainer = styled.div`
     background: #1D1D1D;    
     display: flex;
     justify-content: center;
@@ -34,8 +36,18 @@ export const AdminPageFormContainer = styled.div`
     color: white;
     border-radius: 12px;
     height: 560px;
-    gap: 60px;
+    gap: 50px;
     position: relative;
+    border: 1px solid red;
+`
+
+
+export const AdminPageFormContainer = styled.form`
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 `
 
 export const SubmitButton = styled.button`
@@ -55,4 +67,8 @@ export const SubmitButton = styled.button`
         transform: translateY(-5px);
         background-color: #272727;
     }
+`
+
+export const SubmitButtonContainer = styled.div`
+    display: flex;
 `

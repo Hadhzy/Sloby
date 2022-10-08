@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import SlobyTable from '../../libraries/slobyTable/SlobyTable';
 import {useAuth} from "../../Custom/CustomHooks"
 import ErrorPage from '../../Custom/CustomPages/ErrorPage';
-import { AdminPageContainer, AdminPageFormContainer, AdminPageTitle, SubmitButton } from '../../styles/AdminPage';
+import { AdminPageContainer, AdminPageSignInContainer, AdminPageTitle, SubmitButton, AdminPageFormContainer, SubmitButtonContainer } from '../../styles/AdminPage';
 import { SlobyInput} from '../../styles/global';
 import { ContentContext } from '../../../Components/Others/Context/ContentContext';
 import {IAdminPage, IAdminPageForm } from "../../../Components/Others/types"
@@ -14,29 +14,39 @@ function AdminPage() {
     const isUserHavePermission = useAuth()
     const {admin_page} = useContext(ContentContext)
     const adminPageForm = new SlobyValidate(["username", "password"], [""])
+    const [userName, setUserName] = useState("")
+    const [password, setPassword] = useState("")
 
-    console.log(adminPageForm.manageInputValues())
+    const handleSubmit = (e: IEventType) => {
+        e.preventDefault()
+        console.log("submitted form")
+    }
 
     return isUserHavePermission ? (
         <AdminPageContainer>
             {admin_page && isUserHavePermission ? (
-                <AdminPageFormContainer>
+                <AdminPageSignInContainer>
                     <AdminPageTitle>Sign In</AdminPageTitle>
-                    {
-                        admin_page.forms?.map((item: IAdminPageForm) => {
-                            return <form key={item.id}>
-                                <SlobyInput
-                                    placeholder={item.placeholder}
-                                    type={item.type}
-                                    value={""}
-                                    onChange={(e) => adminPageForm.handleChange(e)}
-                                    name={adminPageForm.state.inputNames.forEach((item: string) => {return item})}
-                                />
-                            </form>
-                       })
-                    }
-                    <SubmitButton>Submit</SubmitButton>
-                </AdminPageFormContainer>
+                    <AdminPageFormContainer onSubmit={handleSubmit}>
+                        <SlobyInput
+                            placeholder={"username..."}
+                            type={"text"}
+                            value={userName}
+                            onChange={(e) => setUserName(e.currentTarget.value)}
+                            name={"username"}
+                        />
+                        <SlobyInput
+                            placeholder={"password..."}
+                            type={"password"}
+                            value={password}
+                            onChange={(e) => setPassword(e.currentTarget.value)}
+                            name={"password"}
+                        />
+                    <SubmitButtonContainer>
+                        <SubmitButton type='submit'>Submit</SubmitButton>
+                    </SubmitButtonContainer>
+                    </AdminPageFormContainer>
+                </AdminPageSignInContainer>
             ) : null}
         </AdminPageContainer>
     ) : <ErrorPage errorMessage={AdminPageErrorMessages.USER_DONT_HAVE_PERMISSION} />
