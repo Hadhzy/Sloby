@@ -25,7 +25,7 @@ function AdminPage() {
             {admin_page && isUserHavePermission ? (
                 <AdminPageSignInContainer>
                     <AdminPageTitle>Sign In</AdminPageTitle>
-                    <AdminPageFormContainer onSubmit={(e) => adminPageForm.submit(e)}>
+                    <AdminPageFormContainer onSubmit={(e) => adminPageForm.submit(e, "username>10password>6&&witherros")}>
                         <SlobyInput
                             placeholder={"username..."}
                             type={"text"}
