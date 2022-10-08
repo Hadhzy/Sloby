@@ -47,9 +47,11 @@ export type IUserContext = {
     register_user?: Function
     logged_in?: boolean
 }
-export type IEventType = ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement> | React.FormEvent<HTMLFormElement> | React.ChangeEvent<HTMLInputElement>
+export type IEventType = React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement> | React.FormEvent<HTMLFormElement> | React.ChangeEvent<HTMLInputElement>
 
 export type ISlobyValidateState = any
+
+
 
 export interface ISlobyValidate {
     inputNames: any,

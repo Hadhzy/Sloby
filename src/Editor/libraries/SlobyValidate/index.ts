@@ -3,36 +3,19 @@ import React from "react"
 import { IEventType } from "../../types"
 
 
+export default class SlobyValidate {
+    inputList: string[];
 
-
-
-export class SlobyValidate {
-    [key: string]: any
-    inputNames: any;
-    
-    constructor(inputNamesList: Array<string>, inputValues: Array<string>) { 
-        this.inputNames = {}
-        this.inputNames.inputNamesList = inputNamesList
-        // this.inputNamesList.forEach((item: string) => {
-        //     this.inputNames[item] = item
-        // })
+    constructor(public inputs: any) {
+        this.inputList = [...Object.getOwnPropertyNames(this.inputs)]
+        this.inputs = this.handleChange
     }
 
-
-    setInputNames() {
-        console.log("setting")
+    handleChange(e: IEventType) {
+        this.inputs = { ...this.inputs, [e.currentTarget.name]: e.currentTarget.value }
     }
 
-
-    // manageInputValues() {
-    //     if (this.inputValues.length === 1 && this.inputValues.includes("")) {
-
-    //     } 
-    // }
-
-   
-
-    handleChange(event: IEventType) {
-        console.log("handleing the cahnge")
+    submit(e: IEventType) {
+        e.preventDefault()
     }
 }
