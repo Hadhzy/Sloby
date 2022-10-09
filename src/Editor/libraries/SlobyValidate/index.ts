@@ -21,7 +21,8 @@ export default class SlobyValidate {
         console.log("submitting the essential form")
         const inputsAreFilled = this.checkInputIsFilled()
         const conditionImplemented = inputsAreFilled && this.conditionImplementation(condition)
-        if(!conditionImplemented) return console.log("Please fill all of the forms")
+        if(!inputsAreFilled) return console.log("Please fil all of the forms with the right condition")
+        if(!conditionImplemented) return console.log("Please implement the condition properly")
         return console.log("The condition is implemented")
     }
 
@@ -33,6 +34,7 @@ export default class SlobyValidate {
     }
 
     conditionImplementation(condition: string) {
+        console.log(condition)
         return true
     }
 }

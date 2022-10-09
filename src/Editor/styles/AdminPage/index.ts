@@ -22,8 +22,6 @@ export const AdminPageContainer = styled.div`
     form {
         display: block;
     }
-    border: 1px solid red;
-
 `
 
 export const AdminPageSignInContainer = styled.div`
@@ -38,15 +36,15 @@ export const AdminPageSignInContainer = styled.div`
     height: 560px;
     gap: 50px;
     position: relative;
-    border: 1px solid red;
 `
 
 
-export const AdminPageFormContainer = styled.form`
-    border: 1px solid red;
+export const AdminPageFormContainer = styled.div`
+    height: 350px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 45px;
     align-items: center;
 `
 
@@ -69,6 +67,3 @@ export const SubmitButton = styled.button`
     }
 `
 
-export const SubmitButtonContainer = styled.div`
-    display: flex;
-`
