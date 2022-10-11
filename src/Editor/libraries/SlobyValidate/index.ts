@@ -18,12 +18,13 @@ export default class SlobyValidate {
 
     submit(e: IEventType, condition: string) {
         e.preventDefault()
-        console.log("submitting the essential form")
         const inputsAreFilled = this.checkInputIsFilled()
         const conditionImplemented = inputsAreFilled && this.conditionImplementation(condition)
+        const passwordValid = this.passwordValid()
         if(!inputsAreFilled) return console.log("Please fil all of the forms with the right condition")
-        if(!conditionImplemented) return console.log("Please implement the condition properly")
-        return console.log("The condition is implemented")
+        if (!conditionImplemented) return console.log("Please implement the condition properly")
+        if(!passwordValid) return console.log("Invalid password")
+        return console.log("You're in")
     }
 
     checkInputIsFilled() {
@@ -34,8 +35,17 @@ export default class SlobyValidate {
     }
 
     conditionImplementation(condition: string) {
-        console.log(condition)
         return true
+    }
+
+    passwordValid() {
+        const newestPassword = this.getNewesAcceptedPassword()
+        if(newestPassword !== this.inputs.password) return false
+        return true
+    }
+
+    getNewesAcceptedPassword() { 
+        return "slobyAdminPagePassword.com"
     }
 }
 

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import SlobyTable from '../../libraries/slobyTable/SlobyTable';
-import {useAuth, useSlobyValidateChange} from "../../Custom/CustomHooks"
+import {useAuth} from "../../Custom/CustomHooks"
 import ErrorPage from '../../Custom/CustomPages/ErrorPage';
 import { AdminPageContainer, AdminPageSignInContainer, AdminPageTitle, SubmitButton, AdminPageFormContainer } from '../../styles/AdminPage';
 import { SlobyInput} from '../../styles/global';
