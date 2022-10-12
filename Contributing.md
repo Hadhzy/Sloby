@@ -11,3 +11,22 @@
 ## Contributing to the project
 
 To contribute you can go ahead and create a PR, if it changes anything major. Please create an Issue First.
+
+
+# How does sloby works?
+*Sloby has a lot of different parts, that is why hard to understand what's going on.*
+
+- **The EDITOR:**
+
+```diff
+ This whole UI/UX gonna be the main point of the user, that's gonna show the current work and also your work progress and the tools, so this is the heart of the sobby. 
+```
+
+- **The Sloby-python-framework:**
+```diff
+This is the main part of the sloby-backend, the users can create their backend applications(authentication, API) for the sloby-editor(frontend), or they can create the WHOLE app with this framework, also the frontend(use react via python). 
+```
+
+- **The parser**:
+*in progress*
+
