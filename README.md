@@ -9,7 +9,7 @@ $${\color{red}How \space \color{lightblue}Does \space \color{orange}sloby \space
 
 > The `sloby-python-framework`
 
-> The `compilers(python, react)`
+> The `parsers(python, react)`
 
 ## Setup.
 ### Docker Installation 📦
