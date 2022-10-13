@@ -1,8 +1,15 @@
 # Sloby 🦥
 
 The **next level** online editor the allows people to build their own websites without **no problem** .
+$${\color{red}How \space \color{lightblue}Does \space \color{orange}sloby \space \color{lightblue}  works? }$$
 
+*Parts of the sloby:*
 
+> The `Editor`(itself)
+
+> The `sloby-python-framework`
+
+> The `compilers(python, react)`
 
 ## Setup.
 ### Docker Installation 📦
