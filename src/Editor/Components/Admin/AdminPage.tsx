@@ -24,7 +24,7 @@ function AdminPage() {
         <AdminPageContainer>
             {admin_page && isUserHavePermission ? (
                 <AdminPageSignInContainer>
-                    <AdminPageTitle>Sign In</AdminPageTitle>
+                    <AdminPageTitle>Log In</AdminPageTitle>
                     <form onSubmit={(e) => adminPageForm.submit(e, "username>10password>6")}>
                     <AdminPageFormContainer>
                             <SlobyInput
@@ -51,3 +51,5 @@ function AdminPage() {
 }
 
 export default AdminPage;
+
+

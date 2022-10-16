@@ -20,7 +20,8 @@ export type IContentContext = {
     footer?: any,
     social_content?: any,
     settings?: Array<Object>,
-    admin_page?: IAdminPage | any
+    admin_page?: IAdminPage | any,
+    sloby_dashboard?: Object | any
 }
 
 export type IThemeContext = {

@@ -228,6 +228,12 @@
       {"id": 1, "placeholder": "username...", "name": "username", "type": "text", "value": ""},
       {"id": 2, "placeholder": "password...", "name": "password", "type": "password", "value": ""}
     ]
-  }
+  },
+
+  "sloby-menu-bar": [
+    {"id": 0, "title": "Settings", "icon": "https://img.icons8.com/external-kiranshastry-solid-kiranshastry/344/external-settings-interface-kiranshastry-solid-kiranshastry.png"},
+    {"id": 1, "title": "Updates", "icon": "https://img.icons8.com/android/344/idea.png"},
+    {"id": 2, "title": "Progress", "icon": "https://img.icons8.com/sf-regular/344/bullish.png"}
+  ]
 }
 

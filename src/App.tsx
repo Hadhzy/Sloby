@@ -16,11 +16,10 @@ import RegistrationEmailSentPage from "./Components/Others/Components/Users/Regi
 import ProjectsCotnextProvider from "./Editor/store/Projects/ProjectsContext"
 import { ThemeContextProvider } from "./Components/Others/Context/ThemeContext"
 import {ProjectsHandlerContextProvider} from "./Editor/store/Projects/ProjectsHandlerContext"
-import ProjectHandler from "./Editor/Components/ProjectsSection/ProjectHandler"
 import AdminPage from "./Editor/Components/Admin/AdminPage"
 import Error from "./Components/Others/globalPages/Error"
-import SideMenuBar from "./Editor/Components/ProjectsSection/SideMenuBar"
 import { ContentContextProvider } from "./Components/Others/Context/ContentContext"
+import Dashboard from "./Editor/Components/Dashboard/Dashboard"
 
 function App() {
   return (
@@ -45,7 +44,7 @@ function App() {
                   <Route path='users/login' element={<LoginPage />} />
                   <Route path='users/verified-registration-email' element={<RegistrationEmailSentPage/>} />
                   <Route path="/editor/dashboard">
-                    <Route index element={<ProjectHandler />} />
+                    <Route index element={<Dashboard />} />
                   </Route>
                   <Route path="/admin" element={<AdminPage/>}/>
                 </Routes>

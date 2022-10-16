@@ -18,6 +18,7 @@ export const ContentContextProvider = ({ children }: ContextChildren) => {
     const [social_content, set_social_content] = useState([])
     const [settings, set_settings] = useState([])
     const [admin_page, set_admin_page] = useState({})
+    const [sloby_dashboard, set_sloby_dashboard] = useState([])
 
 
     const fetch_site_info = () => {
@@ -96,6 +97,13 @@ export const ContentContextProvider = ({ children }: ContextChildren) => {
             url: `${process.env.REACT_APP_API_URL}admin-page/`
         }).then(res => set_admin_page(res.data))
     }
+
+    const fetch_sloby_dashboard = () => {
+        axios({
+            method: "get",
+            url: `${process.env.REACT_APP_API_URL}sloby-menu-bar/`
+        }).then(res => set_sloby_dashboard(res.data))
+    }
     
 
     
@@ -111,6 +119,7 @@ export const ContentContextProvider = ({ children }: ContextChildren) => {
         fetch_social_content()
         fetch_settings()
         fetch_admin_page()
+        fetch_sloby_dashboard()
     }, [])
 
    
@@ -128,7 +137,8 @@ export const ContentContextProvider = ({ children }: ContextChildren) => {
             footer,
             social_content,
             settings,
-            admin_page
+            admin_page,
+            sloby_dashboard
         }}>
             {children}
         </ContentContext.Provider>

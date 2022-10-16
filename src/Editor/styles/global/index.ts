@@ -45,3 +45,11 @@ export const ErrorDescription = styled.div`
    font-weight: bold; 
    font-size: 20px;
 `
+
+
+export const varaibles = {
+    sloby_menu_bg: "#141414",
+    sloby_dashboard_bg: "#191919",
+    sloby_font_color: "#FAFAFA",
+    sloby_menu_color: "#B9B9B9"
+}
