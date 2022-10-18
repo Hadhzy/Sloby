@@ -8,6 +8,7 @@ import {GiProgression} from "react-icons/gi"
 import {FaListUl} from "react-icons/fa"
 import {MdOutlineDashboard} from "react-icons/md"
 import {AiTwotoneFolder} from "react-icons/ai"
+import { FaSearch } from "react-icons/fa"
 
 function SlobyMenu() {
     const {sloby_dashboard} = useContext(ContentContext)
@@ -16,7 +17,8 @@ function SlobyMenu() {
     const mainMenus = [
         {id: 0, title: "Settings", icon: <IoMdSettings className="sloby-icon"/>},
         {id: 1, title: "Updates", icon: <FaLightbulb className="sloby-icon"/>},
-        {id: 2, title: "Progress", icon: <GiProgression className="sloby-icon"/>}
+        { id: 2, title: "Progress", icon: <GiProgression className="sloby-icon" /> },
+        {id: 3, title: "Search", icon: <FaSearch className='sloby-icon'/>}
     ]
 
     const views = [
