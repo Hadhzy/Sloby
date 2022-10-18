@@ -14,11 +14,14 @@ logger = logger.get_logger()
 
 # this project
 from SLORM.slorm import Slorm
-
-
+from SlobyCl.utils import ConnectionManager
+#third party packages
+import json
 # db_tables
 
-from SLORM.db.utils.db_tables import CREATE_POST_DATA, CREATE_USER_DATA, CREATE_TEST_DATA
+from SLORM.db.utils.db_tables import CREATE_POST_DATA, CREATE_USER_DATA, CREATE_TEST_DATA, CREATE_EXPERIENCE_DATA
+
+manager = ConnectionManager()
 
 
 def get_x():
@@ -56,7 +59,10 @@ app.add_middleware(CORSMiddleware,
                    allow_methods=['*'],
                    allow_headers=['*'])
 
-sloby_db = SlobyDB(tables=[{"USER_DATA": CREATE_USER_DATA}, {"POST_DATA": CREATE_POST_DATA}, {"TEST_DATA": CREATE_TEST_DATA}], show_tables=False)
+"""
+tables=[{"USER_DATA": CREATE_USER_DATA}, {"POST_DATA": CREATE_POST_DATA}, {"TEST_DATA": CREATE_TEST_DATA}]
+"""
+sloby_db = SlobyDB(show_tables=False, tables=[{"table_name": "USER_DATA", "table": CREATE_USER_DATA}, {"table_name": "POST_DATA", "table": CREATE_POST_DATA}, {"table_name": "TEST_DATA", "table": CREATE_TEST_DATA}])
 slorm = Slorm()
 
 
@@ -144,23 +150,45 @@ class Sloby:
 
         return {"data": data}
 
-    @router.get("/test-select")
-    def test_select(self):
+    @router.get("/test-slorm")
+    def test_slorm_select(self):
         data = slorm.select("test_data", "*")
+        return {"data": data}
+
+    @router.post("/test-slorm")
+    def test_slorm_post(self):
+        data = slorm.insert(table_name="user_data", table_columns=["gender", "ident"], values=["male", "test1"])
 
         return {"data": data}
+
+    @router.put("/test-slorm")
+    def test_slorm_update(self):
+        data = slorm.update(table_name="user_data", table_columns=["gender"], set_values=["female"], condition="id=3")
+        return {"data": data}
+
+    @router.delete("/test-slorm")
+    def test_slorm_delete(self):
+        data = slorm.delete(table_name="sdfsdfsdf", condition="id=2")
+        return {"data": data}
+
+    @router.post("/create-table")
+    def test_slorm_create_table(self):
+        data = slorm.create_table([{"test": CREATE_EXPERIENCE_DATA}])
+        return {"data": data}
+
 
     @router.websocket("/ws")
     async def ws(self, websocket: WebSocket):
         """ Handle all requests from frontend"""
-        await websocket.accept()
+        await manager.connect(websocket)
         while True:
             try:
                 data = await websocket.receive_text()
             except Exception as e:
                 logger.info(f"receive_text failed: {e}")
                 break
-            logger.debug(f"quiz-received-data: {data}")
+            logger.debug(f"received-data: {data}")
+            event = json.loads(data)
 
 
 app.include_router(router)

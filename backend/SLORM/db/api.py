@@ -3,16 +3,18 @@ import logging
 # third party imports
 from psycopg import Connection, connect, errors
 from typing import List
+from collections.abc import Sequence
 
 # this project
-
-from .db_config.config import config
-
+from SLORM._types import TableName, TableColumns, ShowTables, SlobyTables, SlobyTable
+from SLORM.utilities.custom_exceptions import SlormException
+from SLORM.db.db_config.config import config
 logger = logging.getLogger("sloby.db")
 
 
+# fixme: init type hint tables
 class SlobyDB:
-    def __init__(self, conf=None, tables: list[dict[str, str]] = None, show_tables: bool = False):
+    def __init__(self, conf=None, tables: SlobyTables = None, show_tables: ShowTables = False):
         """Initialize database from config
         Args:
             tables list[dict[str, str]] = None: A list with dictionaries, that contain the name of the table and the data of the table.
@@ -43,7 +45,8 @@ class SlobyDB:
                 host=conf['host'],
                 dbname=conf['dbname'],
                 user=conf['user'],
-                password=conf['password'])
+                password=conf['password'],
+                )
         except errors.ConnectionDoesNotExist as e:
             logger.exception(f'db connect failed {conf}')
             raise e
@@ -60,26 +63,46 @@ class SlobyDB:
             logger.info("Connecting to DB")
             with conn.cursor() as cur:  # get the cursor
                 for dict in self.tables:
-                    exists = self.__exists_check(dict)
+                    exists = self._exists_check(dict)  # get a list of the exists
 
-                    for key, value in dict.items():
-                        if exists:
-                            logger.info(f"This table {key} already exists.")
-                        else:
-                            cur.execute(value)
-                            logger.info(f"Added {key} table to the DB.")
+                    table_name = dict["table_name"]
+                    sql_table = dict["table"]
+                    if exists[0]:
+                        logger.info(f"This table {table_name} already exists.")
+                    else:
+                        cur.execute(sql_table)
+                        logger.info(f"Added {table_name} table to the DB.")
 
-    def __exists_check(self, table: dict[str, str]) -> bool:
+
+
+    def _exists_check(self, table: SlobyTable | TableName, column: Sequence[TableColumns] = "") -> list:
         """
             Args:
                 table: dict[str, str]:  Dict(key-> name of the table, value-> "table").
+                column: str : it should be the name of the column, that you want to check
             Returns:
-                A Boolean, if it is exist true, if it is not then false.
+                A List with the exists values.
+                exists[0] -> table
+                exists[1] -> column
         """
+
+        column_exists = None
 
         with self._conn_singleton() as conn:
             with conn.cursor() as cur:
+
+
+
                 name = self.__get_table_name(table)
+
+
+                # check the column is a valid data
+
+                if column:
+                    cur.execute(""" SELECT * FROM information_schema.columns WHERE table_name = %(table_name)s and column_name = %(column_name)s """, {"table_name": name, "column_name": column})
+
+                    column_fetch = cur.fetchone()
+                    column_exists = column_fetch[0]
 
                 cur.execute("""
                 SELECT EXISTS(
@@ -91,8 +114,9 @@ class SlobyDB:
                      )
                     """, {"name": str(name).lower()}
                         )
-                exists = cur.fetchone()
-                return exists[0]
+                table_fetch = cur.fetchone()
+                table_exists = table_fetch[0]
+                return [table_exists, column_exists]
 
     def _get_all_tables(self) -> List:
         """
@@ -109,7 +133,7 @@ class SlobyDB:
                 return cur.fetchall()
 
     # noinspection PyMethodMayBeStatic
-    def __get_table_name(self, table: dict[str, str]) -> str:
+    def __get_table_name(self, table: SlobyTable | TableName) -> str:
         """
             ARGS:
                 table: dict[str, str]:dict(key-> name of the table, value-> "table").
@@ -117,11 +141,23 @@ class SlobyDB:
                 str: The Name of the table
         """
 
-        for key, value in table.items():
-            return str(key)
+        if type(table) == TableName:
+            return table
+        return table["table_name"]
 
-    def handle_slorm(self):
-        pass
-
-
-api = SlobyDB()
+    def create_table_after_db_initiate(self, table):
+        print(table)
+        try:
+            with self._conn_singleton() as conn:
+                with conn.cursor() as cur:
+                    for dict in table:
+                        exists = self._exists_check(dict)
+                        for key, value in dict.items():
+                            if exists[0]:
+                                logger.info(f"This table {key} already exists.")
+                            else:
+                                cur.execute(value)
+                                logger.info(f"Added {key} table to the DB.")
+                                return True
+        except:
+            raise SlormException("Table creation via the endpoint was unsuccessful", True)

@@ -111,7 +111,7 @@ function Popup() {
                                 name="description"
                                 onChange={this.handleChange}
                                 className={`${this.state.descriptionError ? "error-input" : "input textarea"}`}
-                                placeholder='give the project description...'
+                                placeholder='give the project description...!'
                                 />
                                 <div className="errors">
                                     <div className='error-message'>{this.state.descriptionError}</div>
@@ -120,7 +120,7 @@ function Popup() {
                             </label>
                         </div>
                         <div className='for-the-button'>
-                            <button className="blue-button">Submit</button>
+                            <button className="blue-button">Submit!</button>
                     </div>
                 </div>
             </form>

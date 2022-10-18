@@ -7,7 +7,7 @@ from fastapi import params
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 
-def config(filename='database_remote.ini', section="postgresql") -> dict:
+def config(filename='database_localhost.ini', section="postgresql") -> dict:
     """**Makes a dict out of string.**
     Taking info from database.ini to use for the database connection
     :param filename: A ini file containing info for connection in the same folder as this file
