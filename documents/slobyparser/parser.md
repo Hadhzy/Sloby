@@ -14,3 +14,15 @@ Sloby parser is a parser for programming, it is able to make connection between 
 > ***Terribly useful*** :mortar_board:
 
 > ***Decode possibilities*** :twisted_rightwards_arrows:
+
+
+### *How does it work?*
+
+#### Rules:
+
+- **Following sequences from top to down**
+- **Define code indentation similiar to json.**
+
+#### Syntax:
+
+#### Examples: 
