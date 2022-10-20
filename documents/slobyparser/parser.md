@@ -47,7 +47,7 @@ def function1(name: str, age: int):
 ```
 *typescript*
 ```ts
-function function1(name: string, age: string) {
+function function1(name: string, age:  number) {
     if (name == "gabor") {
         return true
     } else console.log("tomas")
