@@ -1,9 +1,13 @@
 import React from 'react';
+import { DashboardContainer } from '../../styles/AdminPage';
+import { SlobyMenuContainer } from '../../styles/Dashboard';
+
 
 function AdminPageDashboard() {
-    return <div>
-        True
-    </div>
+    return <DashboardContainer>
+        <SlobyMenuContainer>
+        </SlobyMenuContainer>
+    </DashboardContainer>
 }
 
 

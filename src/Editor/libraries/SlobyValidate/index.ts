@@ -13,7 +13,6 @@ export default class SlobyValidate {
         this.inputList = [...Object.getOwnPropertyNames(this.inputs)]
         this.inputs = this.handleChange
         this.allowedToEnter = false
-        console.log(this.allowedToEnter)
     }
 
     handleChange(e: IEventType) {

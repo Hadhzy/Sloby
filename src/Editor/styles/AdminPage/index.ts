@@ -1,4 +1,6 @@
 import styled, { css } from "styled-components";
+import { varaibles } from '../global';
+
 
 export const AdminPageTitle = styled.div`
   color: white;  
@@ -72,4 +74,10 @@ export const SlobyErrorMessage = styled.p`
     padding-top: -30px;
     color: red;
     font-weight: bold;
+`
+
+export const DashboardContainer = styled.div`
+    background: ${varaibles.sloby_menu_bg};
+    width: 100%;
+    height: 100vh;
 `
