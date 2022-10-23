@@ -13,13 +13,12 @@ import RegisterPage from "./Components/Others/Components/Users/RegisterPage"
 import {UserContextProvider} from "./Components/Others/Context/UserContext"
 import LoginPage from "./Components/Others/Components/Users/LoginPage"
 import RegistrationEmailSentPage from "./Components/Others/Components/Users/RegistrationEmailSentPage";
-import ProjectsCotnextProvider from "./Editor/store/Projects/ProjectsContext"
 import { ThemeContextProvider } from "./Components/Others/Context/ThemeContext"
-import {ProjectsHandlerContextProvider} from "./Editor/store/Projects/ProjectsHandlerContext"
-import AdminPage from "./Editor/Components/Admin/AdminPage"
+import AdminPage from "./Editor/Components/Admin/AdminPageValidation"
 import Error from "./Components/Others/globalPages/Error"
 import { ContentContextProvider } from "./Components/Others/Context/ContentContext"
 import Dashboard from "./Editor/Components/Dashboard/Dashboard"
+import AdminPageDashboard from "./Editor/Components/Admin/AdminDashboard"
 
 function App() {
   return (
@@ -27,14 +26,11 @@ function App() {
     <UserContextProvider>
     <ContentContextProvider>
       <ThemeContextProvider>
-          <ProjectsCotnextProvider>
-            <ProjectsHandlerContextProvider>
-               <div className='App'>
+          <div className='App'>
                 <Routes>
                   <Route path="/" element={<Header/>} />
                   <Route path='/user/profile' element={<Profile />} />
                   <Route path='/categories/:category/:subcategory' />
-
                   <Route path='categories/about-us/*' element={<AboutUs />} />
                   <Route path='categories/docs/*' element={<Docs />} />
                   <Route path='categories/our-project/*' element={<OurProject />} />
@@ -46,11 +42,10 @@ function App() {
                   <Route path="/editor/dashboard">
                     <Route index element={<Dashboard />} />
                   </Route>
-                  <Route path="/admin" element={<AdminPage/>}/>
+                    <Route path="/admin" element={<AdminPage />} />
+                    <Route path="/admin/dashboard" element={ <AdminPageDashboard />} /> 
                 </Routes>
           </div>
-          </ProjectsHandlerContextProvider>
-          </ProjectsCotnextProvider>
       </ThemeContextProvider>
       </ContentContextProvider>
     </UserContextProvider>

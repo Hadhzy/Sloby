@@ -46,6 +46,7 @@ export const AdminPageFormContainer = styled.div`
     justify-content: center;
     gap: 45px;
     align-items: center;
+
 `
 
 export const SubmitButton = styled.button`
@@ -67,3 +68,8 @@ export const SubmitButton = styled.button`
     }
 `
 
+export const SlobyErrorMessage = styled.p`
+    padding-top: -30px;
+    color: red;
+    font-weight: bold;
+`

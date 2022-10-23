@@ -2,10 +2,14 @@ import React, { useEffect } from "react"
 import ReactDOM from "react-dom"
 import App from "./App"
 import reportWebVitals from "./reportWebVitals"
+import { Provider } from "react-redux"
+import { store } from "./Editor/store/redux"
 
 ReactDOM.render(
-         <React.StrictMode>
+      <React.StrictMode>
+      <Provider store={store}>
         <App />
+      </Provider>
     </React.StrictMode>,
   document.getElementById("root")
 )
