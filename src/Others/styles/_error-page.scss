@@ -1,0 +1,22 @@
+.error-page-container {
+    background-color: $settings-container-background-color;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .error-icon {
+        font-size: 450px;
+        color: $user-tag-font-color;
+    }
+
+    .error-description {
+        color: white;
+        width: 50%;
+    }
+
+    .home-link {
+        cursor: pointer;
+    }
+}
