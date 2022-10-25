@@ -4,8 +4,8 @@ import {useAuth} from "../../Custom/CustomHooks"
 import ErrorPage from '../../Custom/CustomPages/ErrorPage';
 import { AdminPageContainer, AdminPageSignInContainer, AdminPageTitle, SubmitButton, AdminPageFormContainer, SlobyErrorMessage } from '../../styles/AdminPage';
 import { SlobyInput} from '../../styles/global';
-import { ContentContext } from '../../../Components/Others/Context/ContentContext';
-import {IAdminPage, IAdminPageForm } from "../../../Components/Others/types"
+import { ContentContext } from '../../../Others/Context/ContentContext';
+import {IAdminPage, IAdminPageForm } from "../../../Others/types"
 import { AdminPageErrorMessages } from '../../store/ErrorMessages';
 import SlobyValidate from '../../libraries/SlobyValidate';
 import { IEventType } from '../../types';

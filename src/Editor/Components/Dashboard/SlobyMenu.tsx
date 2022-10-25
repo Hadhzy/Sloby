@@ -1,6 +1,6 @@
 import { Menu } from '@material-ui/core';
 import React, { useContext, useEffect, useState } from 'react';
-import { ContentContext } from '../../../Components/Others/Context/ContentContext';
+import { ContentContext } from '../../../Others/Context/ContentContext';
 import { SlobyDashboard, SlobyMenuContainer,ViewItem, UserDetails,SlobyImage,FavoriteContainer,UserName,MainMenus,MenuItem, ViewsContainer, SlobyMenuCategoryTitle, FavoriteProject } from '../../styles/Dashboard';
 import {IoMdSettings} from "react-icons/io"
 import {FaLightbulb} from "react-icons/fa"

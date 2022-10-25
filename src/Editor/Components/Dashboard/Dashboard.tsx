@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { ContentContext } from '../../../Components/Others/Context/ContentContext';
+import { ContentContext } from '../../../Others/Context/ContentContext';
 import { SlobyDashboard, UserDetails,UserName } from '../../styles/Dashboard';
 import SlobyMenu from './SlobyMenu';
 
