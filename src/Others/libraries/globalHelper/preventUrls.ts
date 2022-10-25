@@ -2,9 +2,9 @@ import { IPreventUrl } from '../../types';
 import React from 'react';
 
 class PreventUrls  {
-    urlToPreventFrom: any;
+    urlToPreventFrom: string[];
     className: string;
-    currentUrl: any    
+    currentUrl: string    
 // /**
 //      **This class is used for hide different components based on the current url of the browser. 
 //     * 

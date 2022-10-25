@@ -1,5 +1,4 @@
 import React from 'react'
-import PreventUrls from '../libraries/globalHelper/preventUrls'
 import {BiError} from "react-icons/bi"
 import {Link} from "react-router-dom";
 //This page is gonna be displayed whenever the user mistpyed something urls AND if the tpyed url doesn't exist then it will be visible
