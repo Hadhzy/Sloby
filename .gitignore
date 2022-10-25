@@ -4,9 +4,9 @@
 /node_modules
 /.pnp
 .pnp.js
-.idea/
-.vscode/
-sloby-editor-framework/
+/.idea
+/.vscode
+/.sloby-editor-framework
 venv/
 # testing
 /coverage
