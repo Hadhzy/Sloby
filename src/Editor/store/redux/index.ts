@@ -1,9 +1,9 @@
-import {configureStore} from "@reduxjs/toolkit"
-import validateErrorReducer from "./validateError/validateErrorSlice"
+import { configureStore } from "@reduxjs/toolkit"
+import dashboardReducer from "./dashboard/dashboardSlice"
 
 export const store = configureStore({
     reducer: {
-        validateError: validateErrorReducer
+        dashboard: dashboardReducer
     }
 })
 

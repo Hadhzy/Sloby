@@ -9,7 +9,6 @@ import {IAdminPage, IAdminPageForm } from "../../../Others/types"
 import { AdminPageErrorMessages } from '../../store/ErrorMessages';
 import SlobyValidate from '../../libraries/SlobyValidate';
 import { IEventType } from '../../types';
-import { useSelector } from 'react-redux';
 import { RootState } from '../../store/redux';
 import { Navigate, useNavigate } from 'react-router-dom';
 
@@ -29,7 +28,6 @@ function AdminPage() {
     const isUserHavePermission = useAuth()
     const { admin_page } = useContext(ContentContext)
     const adminPageForm = new SlobyValidate(initalState)
-    const validateSlice = useSelector((state: RootState) => state.validateError)
     const navigate = useNavigate()
 
     return isUserHavePermission ? (
@@ -67,5 +65,3 @@ function AdminPage() {
 }
 
 export default AdminPage;
-
-

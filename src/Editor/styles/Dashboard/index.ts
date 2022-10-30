@@ -7,13 +7,14 @@ import { varaibles } from '../global';
 export const SlobyDashboard = styled.div`
     width: 100%;
     height: 100vh;
-    background-color: ${varaibles.sloby_dashboard_bg}
+    background-color: ${varaibles.sloby_dashboard_bg};
+    display: flex;
 `
 
 export const SlobyMenuContainer = styled.div`
     background: ${varaibles.sloby_menu_bg};
     height: 100%;
-    width: 433px !important;
+    width: 400px !important;
     border-radius: 0px 40px 40px 0px !important;
 `
 
@@ -28,7 +29,7 @@ export const UserDetails = styled.div`
 export const UserName = styled.div`
     color: ${varaibles.sloby_font_color};
     font-weight: bold;
-    font-size: 19px !important;
+    font-size: 18px !important;
 `
 
 export const SlobyImage = styled.img`
@@ -59,6 +60,7 @@ export const MenuItem = styled.div  `
         font-size: 36px;
         color: #2d2d2d;
     }
+    
     transition: all 0.3s ease-in-out;
 
     &:hover {
@@ -136,4 +138,60 @@ export const FavoriteProject = styled.div`
         margin-left: 15px;
     }
     border-radius: 15px;
+`
+
+export const SlobySearchWindowContainer = styled.div`
+    height: max-content;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
+export const SlobySearchWindow = styled.div`
+    height: max-content;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    background-color: #171717;
+    height: 45px;
+    border-radius: 0px 0px 20px 20px;
+`
+
+export const SlobySearchContainer = styled.div`
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+`
+
+export const Searchbar = styled.input`
+    background-color: #1D1D1D;
+    border: none;
+    width: 300px;
+    outline: none;
+    color: #949494;
+    font-weight: bold;
+    height: 30px;
+    border-radius: 0px 20px 20px 0px;
+    font-size: 15px;
+
+`
+
+export const IconContainer = styled.div`
+    background-color: #1D1D1D;
+    border-radius: 20px 0px 0px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+
+     .search {
+        color: #333333; 
+        height: 30px;
+        font-size: 20px;
+    }
 `
