@@ -1,9 +1,25 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit"
 
-export interface Dashboard {search: boolean}
+export type Project = {
+    projectName: string,
+    projectDescription: string
+}
+
+export interface Dashboard {
+    search: boolean, projectModal: boolean, projectName: string, projectDescription: string,
+    errorMessage: string,
+    shouldErrorDisplay: boolean,
+    projects: Array<Object>
+}
 
 const initialState: Dashboard = {
-    search: false
+    search: false,
+    projectModal: false,
+    projectName: "",
+    projectDescription: "",
+    errorMessage: "",
+    shouldErrorDisplay: false,
+    projects: []
 }
 
 export const dashboardSlice = createSlice({
@@ -12,9 +28,24 @@ export const dashboardSlice = createSlice({
     reducers: {
         setSearchbar: (state, action: PayloadAction<boolean>) => {
             state.search = action.payload
+        },
+        setProjectModal: (state, action: PayloadAction<boolean>) => {
+            state.projectModal = action.payload
+        },
+        updateProjectName: (state, action: PayloadAction<string>) => {
+            state.projectName = action.payload
+        },
+        updateProjectDescription: (state, action: PayloadAction<string>) => {
+            state.projectDescription = action.payload
+        },
+        setError: (state, action: PayloadAction<string>) => {
+            state.errorMessage = action.payload
+        },
+        createProject: (state, action: PayloadAction<Project>) => {
+            state.projects = [...state.projects, action.payload]
         }
     }
 })
 
-export const { setSearchbar } = dashboardSlice.actions
+export const { setSearchbar, setProjectModal, updateProjectName, updateProjectDescription, setError, createProject } = dashboardSlice.actions
 export default dashboardSlice.reducer

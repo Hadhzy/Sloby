@@ -18,7 +18,7 @@ import {
 } from '../../utils/styles/Dashboard';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../store';
-import { setSearchbar } from '../../store/dashboard/dashboardSlice';
+import { setSearchbar, setProjectModal } from '../../store/dashboard/dashboardSlice';
 import { mainMenus, views } from '../../utils/temporaryAPI';
 import { AiTwotoneFolder } from 'react-icons/ai';
 import { IEventType } from '../../utils/types';
@@ -58,7 +58,7 @@ function SlobyMenu() {
             </MenuItem>
           );
         })}
-       <NewProjectButton>New Project</NewProjectButton>
+       <NewProjectButton onClick={() => dispatch(setProjectModal(true))}>New Project</NewProjectButton>
       </MainMenus>
       <ViewsContainer>
         <SlobyMenuCategoryTitle>Views</SlobyMenuCategoryTitle>

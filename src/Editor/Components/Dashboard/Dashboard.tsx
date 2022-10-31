@@ -8,6 +8,7 @@ import SlobyMenu from './SlobyMenu';
 import { useSelector } from "react-redux"
 import { RootState } from '../../store';
 import Search from './Search';
+import ProjectModal from './ProjectModal';
 
 function Dashboard() {
     const dashboardSlice = useSelector((state: RootState) => {
@@ -19,7 +20,7 @@ function Dashboard() {
     <SlobyDashboard>
         <SlobyMenu />
         {dashboardSlice.search && <Search />}
-        
+        {dashboardSlice.projectModal && <ProjectModal />}
     </SlobyDashboard>
     )
 }

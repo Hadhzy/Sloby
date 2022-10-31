@@ -7,7 +7,7 @@ export const AdminPageTitle = styled.div`
   font-size: 36px;
   font-weight: bold;
   position: absolute;
-  top: 50px;  
+  top: 50px;
 `
 
 
@@ -31,13 +31,14 @@ export const AdminPageSignInContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 860px;
+    width: 880px;
     flex-direction: column;
     color: white;
     border-radius: 12px;
-    height: 560px;
+    height: 600px;
     gap: 50px;
     position: relative;
+    border: 3px solid #202020;
 `
 
 
@@ -48,7 +49,6 @@ export const AdminPageFormContainer = styled.div`
     justify-content: center;
     gap: 45px;
     align-items: center;
-
 `
 
 export const SubmitButton = styled.button`
@@ -71,9 +71,11 @@ export const SubmitButton = styled.button`
 `
 
 export const SlobyErrorMessage = styled.p`
-    padding-top: -30px;
     color: red;
     font-weight: bold;
+    display: flex;
+    justify-content: center;
+    margin-top: -40px;
 `
 
 export const DashboardContainer = styled.div`

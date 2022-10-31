@@ -14,7 +14,7 @@ export const SlobyDashboard = styled.div`
 export const SlobyMenuContainer = styled.div`
     background: ${varaibles.sloby_menu_bg};
     height: 100%;
-    width: 400px !important;
+    width: 450px !important;
     border-radius: 0px 40px 40px 0px !important;
 `
 
@@ -142,7 +142,7 @@ export const FavoriteProject = styled.div`
 
 export const SlobySearchWindowContainer = styled.div`
     height: max-content;
-    width: 80%;
+    width: 70%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -212,4 +212,34 @@ export const NewProjectButton = styled.button`
         background-color: #212121;
         cursor: pointer;
     }
+`
+
+export const ProjectModalContainer = styled.div`
+    position: fixed;
+    z-index: 200;
+    backdrop-filter: blur(5px);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
+export const ModalContent = styled.div`
+    width: 700px;
+    background-color: #191919;
+    height: 600px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 3px solid #202020;   
+`
+export const ModalTitle = styled.div`
+    font-weight: bold;
+    color: #B9B9B9;
+    margin-top: 10px;
+    font-size: 18px;
 `
