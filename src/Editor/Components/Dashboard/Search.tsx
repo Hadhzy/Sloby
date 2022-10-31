@@ -1,6 +1,6 @@
 import React from "react"
 import { FaSearch } from "react-icons/fa"
-import { SlobySearchContainer, Searchbar, IconContainer, SlobySearchWindow, SlobySearchWindowContainer } from "../../styles/Dashboard"
+import { SlobySearchContainer, Searchbar, IconContainer, SlobySearchWindow, SlobySearchWindowContainer } from "../../utils/styles/Dashboard"
 import { motion } from "framer-motion"
 import {GrFormClose} from "react-icons/gr"
 
@@ -17,7 +17,7 @@ function Search() {
                 placeholder="Search..."
             />
         </SlobySearchContainer>
-    </SlobySearchWindow>
+        </SlobySearchWindow>
     </SlobySearchWindowContainer>
 }
 

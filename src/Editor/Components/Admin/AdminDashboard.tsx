@@ -1,6 +1,6 @@
 import React from 'react';
-import { DashboardContainer } from '../../styles/AdminPage';
-import { SlobyMenuContainer } from '../../styles/Dashboard';
+import { DashboardContainer } from '../../utils/styles/AdminPage';
+import { SlobyMenuContainer } from '../../utils/styles/Dashboard';
 
 
 function AdminPageDashboard() {

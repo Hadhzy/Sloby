@@ -14,13 +14,14 @@ import {
   ViewsContainer,
   SlobyMenuCategoryTitle,
   FavoriteProject,
-} from '../../styles/Dashboard';
+  NewProjectButton,
+} from '../../utils/styles/Dashboard';
 import { useDispatch } from 'react-redux';
-import { AppDispatch } from '../../store/redux';
-import { setSearchbar } from '../../store/redux/dashboard/dashboardSlice';
-import { mainMenus, views } from '../../store/temporaryAPI';
+import { AppDispatch } from '../../store';
+import { setSearchbar } from '../../store/dashboard/dashboardSlice';
+import { mainMenus, views } from '../../utils/temporaryAPI';
 import { AiTwotoneFolder } from 'react-icons/ai';
-import { IEventType } from '../../types';
+import { IEventType } from '../../utils/types';
 
 function SlobyMenu() {
     const { sloby_dashboard } = useContext(ContentContext);
@@ -43,6 +44,7 @@ function SlobyMenu() {
         <UserName>Gabor Hadhazy's dashboard</UserName>
       </UserDetails>
       <div className="underline"></div>
+      
       <MainMenus>
         {mainMenus.map((item: any) => {
           return (
@@ -56,6 +58,7 @@ function SlobyMenu() {
             </MenuItem>
           );
         })}
+       <NewProjectButton>New Project</NewProjectButton>
       </MainMenus>
       <ViewsContainer>
         <SlobyMenuCategoryTitle>Views</SlobyMenuCategoryTitle>

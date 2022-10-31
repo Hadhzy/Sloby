@@ -1,7 +1,7 @@
 import React, { createContext, useState, useEffect } from "react"
 import axios from "axios"
 import {useCookies} from "react-cookie";
-import { ContextChildren, IUserContext } from "../../Editor/types";
+import { ContextChildren, IUserContext } from "../../Editor/utils/types";
 
 export const UserContext = createContext<IUserContext>(undefined!)
 

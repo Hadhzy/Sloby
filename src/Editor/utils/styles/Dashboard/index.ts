@@ -195,3 +195,21 @@ export const IconContainer = styled.div`
         font-size: 20px;
     }
 `
+
+export const NewProjectButton = styled.button`
+    margin-left: 35px;     
+    width: 60%;  
+    padding: 10px;
+    border-radius: 15px;   
+    color: #D4D4D4;
+    background-color: #1C1C1C;     
+    font-size: 17px;
+    font-weight: bold;
+    border: none;    
+    transition: 250ms ease-in-out;
+     &:hover {
+        transform: translateY(-4px);
+        background-color: #212121;
+        cursor: pointer;
+    }
+`
