@@ -14,7 +14,7 @@ function Search() {
                 <FaSearch className='sloby-icon search' />
             </IconContainer>
             <Searchbar
-                placeholder="Search..."
+                placeholder="Search.."
             />
         </SlobySearchContainer>
         </SlobySearchWindow>
