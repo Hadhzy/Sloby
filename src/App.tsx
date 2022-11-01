@@ -3,7 +3,7 @@ import "./Others/styles/main.scss"
 import Header from "./Others/Header"
 import Footer from "./Others/Footer"
 import Content from "./Others/Content"
-import Settings from "./Others/Components/Settings/Settings"
+import Settings from "./Editor/Components/Dashboard/Settings"
 import AboutUs from "./Others/Components/AboutUs/AboutUs"
 import Docs from "./Others/Components/Docs/Docs"
 import OurProject from "./Others/Components/OurProject/OurProject"
@@ -34,13 +34,12 @@ function App() {
                   <Route path='categories/about-us/*' element={<AboutUs />} />
                   <Route path='categories/docs/*' element={<Docs />} />
                   <Route path='categories/our-project/*' element={<OurProject />} />
-                  <Route path='settings' element={<Settings />} />
                   <Route path='*' element={<Error />} />
                   <Route path='users/register' element={<RegisterPage />} />
                   <Route path='users/login' element={<LoginPage />} />
                   <Route path='users/verified-registration-email' element={<RegistrationEmailSentPage/>} />
-                  <Route path="/editor/dashboard">
-                    <Route index element={<Dashboard />} />
+                  <Route path="editor/dashboard" element={<Dashboard />}> 
+                    <Route path="profile-settings" element={<Settings />} />
                   </Route>
                     <Route path="/admin" element={<AdminPage />} />
                     <Route path="/admin/dashboard" element={ <AdminPageDashboard />} /> 

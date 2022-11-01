@@ -9,10 +9,10 @@ import { FaSearch } from "react-icons/fa"
 
 
 export const mainMenus = [
-    {id: 0, title: "Settings", icon: <IoMdSettings className="sloby-icon"/>},
-    {id: 1, title: "Updates", icon: <FaLightbulb className="sloby-icon"/>},
-    { id: 2, title: "Progress", icon: <GiProgression className="sloby-icon" /> },
-    {id: 3, title: "Search", icon: <FaSearch className='sloby-icon'/>}
+    {id: 0, title: "Settings", icon: <IoMdSettings className="sloby-icon"/>, path: "profile-settings"},
+    {id: 1, title: "Updates", icon: <FaLightbulb className="sloby-icon"/>, path: "updates"},
+    { id: 2, title: "Progress", icon: <GiProgression className="sloby-icon" /> , path: "progress"},
+    {id: 3, title: "Search", icon: <FaSearch className='sloby-icon'/>, path: "search"}
 ]
 
 export const views = [

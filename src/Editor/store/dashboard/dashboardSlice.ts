@@ -8,7 +8,7 @@ export type Project = {
 export interface Dashboard {
     search: boolean, projectModal: boolean, projectName: string, projectDescription: string,
     errorMessage: string,
-    shouldErrorDisplay: boolean,
+    shouldNotificationDisplay: boolean,
     projects: Array<Object>
 }
 
@@ -18,8 +18,8 @@ const initialState: Dashboard = {
     projectName: "",
     projectDescription: "",
     errorMessage: "",
-    shouldErrorDisplay: false,
-    projects: []
+    projects: [],
+    shouldNotificationDisplay: false
 }
 
 export const dashboardSlice = createSlice({
@@ -43,9 +43,12 @@ export const dashboardSlice = createSlice({
         },
         createProject: (state, action: PayloadAction<Project>) => {
             state.projects = [...state.projects, action.payload]
+        },
+        displayNotification: (state, action: PayloadAction<boolean>) => {
+            state.shouldNotificationDisplay = action.payload
         }
     }
 })
 
-export const { setSearchbar, setProjectModal, updateProjectName, updateProjectDescription, setError, createProject } = dashboardSlice.actions
+export const { setSearchbar, setProjectModal, updateProjectName, updateProjectDescription, setError, createProject,displayNotification } = dashboardSlice.actions
 export default dashboardSlice.reducer

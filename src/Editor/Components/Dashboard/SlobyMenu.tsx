@@ -22,6 +22,8 @@ import { setSearchbar, setProjectModal } from '../../store/dashboard/dashboardSl
 import { mainMenus, views } from '../../utils/temporaryAPI';
 import { AiTwotoneFolder } from 'react-icons/ai';
 import { IEventType } from '../../utils/types';
+import { Link } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 
 function SlobyMenu() {
     const { sloby_dashboard } = useContext(ContentContext);
@@ -48,14 +50,16 @@ function SlobyMenu() {
       <MainMenus>
         {mainMenus.map((item: any) => {
           return (
-            <MenuItem
+            <Link to={item.path} className="off-link-dec">
+               <MenuItem
               key={item.id}
               id={item.title}
               onClick={(e: any) => handleClick(e)}
-            >
-              {item.icon}
-              {item.title}
+              >
+            {item.icon}
+             {item.title}
             </MenuItem>
+            </Link>
           );
         })}
        <NewProjectButton onClick={() => dispatch(setProjectModal(true))}>New Project</NewProjectButton>

@@ -3,7 +3,8 @@ import { FaSearch } from "react-icons/fa"
 import { SlobySearchContainer, Searchbar, IconContainer, SlobySearchWindow, SlobySearchWindowContainer } from "../../utils/styles/Dashboard"
 import { motion } from "framer-motion"
 import {GrFormClose} from "react-icons/gr"
-
+import { useSelector } from "react-redux"
+import { RootState } from "../../store"
 
 
 function Search() {
@@ -11,10 +12,12 @@ function Search() {
         <SlobySearchWindow>
             <SlobySearchContainer>
             <IconContainer>
-                <FaSearch className='sloby-icon search' />
+                <FaSearch
+                    className='sloby-icon search'
+                />
             </IconContainer>
             <Searchbar
-                placeholder="Search.."
+                    placeholder="Search.."
             />
         </SlobySearchContainer>
         </SlobySearchWindow>

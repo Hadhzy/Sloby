@@ -9,6 +9,8 @@ import { useSelector } from "react-redux"
 import { RootState } from '../../store';
 import Search from './Search';
 import ProjectModal from './ProjectModal';
+import { ToastContainer, toast } from "react-toastify"
+import { Outlet } from 'react-router-dom';
 
 function Dashboard() {
     const dashboardSlice = useSelector((state: RootState) => {
@@ -21,7 +23,23 @@ function Dashboard() {
         <SlobyMenu />
         {dashboardSlice.search && <Search />}
         {dashboardSlice.projectModal && <ProjectModal />}
-    </SlobyDashboard>
+        {
+            dashboardSlice.shouldNotificationDisplay && <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"
+                style={{ textAlign: "center" }}
+            />
+            }
+            <Outlet />
+  </SlobyDashboard>
     )
 }
 
