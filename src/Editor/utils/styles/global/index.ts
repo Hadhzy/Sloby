@@ -49,7 +49,7 @@ export const ErrorDescription = styled.div`
 
 export const varaibles = {
     sloby_menu_bg: "#141414",
-    sloby_dashboard_bg: "#191919",
+    sloby_dashboard_bg: "#181818",
     sloby_font_color: "#FAFAFA",
     sloby_menu_color: "#B9B9B9",
 

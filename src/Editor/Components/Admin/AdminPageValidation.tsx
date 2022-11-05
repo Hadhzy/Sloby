@@ -1,16 +1,15 @@
 import React, { useContext, useState } from 'react';
 import SlobyTable from '../../libraries/slobyTable/SlobyTable';
-import {useAuth} from "../../Custom/CustomHooks"
-import ErrorPage from '../../Custom/CustomPages/ErrorPage';
-import { AdminPageContainer, AdminPageSignInContainer, AdminPageTitle, SubmitButton, AdminPageFormContainer, SlobyErrorMessage } from '../../styles/AdminPage';
-import { SlobyInput} from '../../styles/global';
+import {useAuth} from "../../utils/hooks"
+import ErrorPage from '../../utils/pages/ErrorPage';
+import { AdminPageContainer, AdminPageSignInContainer, AdminPageTitle, SubmitButton, AdminPageFormContainer, SlobyErrorMessage } from '../../utils/styles/AdminPage';
+import { SlobyInput} from '../../utils/styles/global';
 import { ContentContext } from '../../../Others/Context/ContentContext';
 import {IAdminPage, IAdminPageForm } from "../../../Others/types"
-import { AdminPageErrorMessages } from '../../store/ErrorMessages';
+import { AdminPageErrorMessages } from '../../utils/constans';
 import SlobyValidate from '../../libraries/SlobyValidate';
-import { IEventType } from '../../types';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../store/redux';
+import { IEventType } from '../../utils/types';
+import { RootState } from '../../store';
 import { Navigate, useNavigate } from 'react-router-dom';
 
 
@@ -29,7 +28,6 @@ function AdminPage() {
     const isUserHavePermission = useAuth()
     const { admin_page } = useContext(ContentContext)
     const adminPageForm = new SlobyValidate(initalState)
-    const validateSlice = useSelector((state: RootState) => state.validateError)
     const navigate = useNavigate()
 
     return isUserHavePermission ? (
@@ -67,5 +65,3 @@ function AdminPage() {
 }
 
 export default AdminPage;
-
-

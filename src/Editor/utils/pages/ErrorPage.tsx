@@ -1,5 +1,5 @@
 import React from "react"
-import {ErrorPageContainer, ErrorDescription} from "../../styles/global"
+import {ErrorPageContainer, ErrorDescription} from "../styles/global"
 
 function ErrorPage({errorMessage}: {errorMessage: string}) {
     return <ErrorPageContainer>

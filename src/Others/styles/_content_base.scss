@@ -114,7 +114,7 @@
     color: $blue-hover-color;
   }
   text-decoration: none;
-  color: white;
+  color: #B9B9B9;
   .help-icon{
     display: flex;
     justify-content: center;
@@ -265,4 +265,9 @@
 .icon {
   width: 25px;
   height: 25px;
+}
+
+.large-icon {
+  font-size: 20rem;
+  color: #4d4d4d;
 }

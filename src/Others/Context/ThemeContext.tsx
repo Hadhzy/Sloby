@@ -1,6 +1,6 @@
 import React, { createContext, useState } from "react"
 import useLocalStorage from "use-local-storage"
-import { ContextChildren} from "../../Editor/types"
+import { ContextChildren} from "../../Editor/utils/types"
 import { IThemeContext } from "../types"
 
 /**

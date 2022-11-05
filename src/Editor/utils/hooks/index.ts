@@ -1,5 +1,5 @@
 import React from "react"
-import { IEventType } from "../../types"
+import { IEventType } from "../types"
 
 export const useAuth = () => {
     const user = { permissions: { adminPage: true } }

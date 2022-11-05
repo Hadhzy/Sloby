@@ -1,10 +1,11 @@
-import { ISlobyValidate,ISlobyValidateState } from './../../types/index';
+
+import { ISlobyValidate,ISlobyValidateState } from '../../utils/types/index';
 import React, { useState } from "react"
-import { IEventType } from "../../types"
+import { IEventType } from "../../utils/types"
 import { v4 as uuidv4 } from "uuid";
-import { ADMIN_PAGE } from '../../store/AdminPage';
+import { ADMIN_PAGE } from '../../utils/constans';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../store/redux';
+import { RootState } from '../../store';
 
 export default class SlobyValidate {
     inputList: string[];

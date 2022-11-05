@@ -38,7 +38,7 @@
     "react-router-dom": "^6.2.2",
     "react-scripts": "5.0.0",
     "react-scroll-to-bottom": "^4.2.0",
-    "react-toastify": "^9.0.7",
+    "react-toastify": "^9.1.0",
     "sass": "^1.49.8",
     "socket.io-client": "^4.4.1",
     "styled-components": "^5.3.6",
@@ -73,6 +73,8 @@
   },
   "devDependencies": {
     "@types/uuid": "^8.3.4",
-    "jsdoc": "^3.6.11"
+    "eslint": "^8.7.0",
+    "jsdoc": "^3.6.11",
+    "prettier": "^2.5.1"
   }
 }
