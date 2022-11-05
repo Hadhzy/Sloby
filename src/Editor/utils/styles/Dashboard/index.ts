@@ -11,6 +11,10 @@ export const SlobyDashboard = styled.div`
     display: flex;
 `
 
+export const SlobyProjectHandlerContainer = styled.div`
+    width: 70%;
+`
+
 export const SlobyMenuContainer = styled.div`
     background: ${varaibles.sloby_menu_bg};
     height: 100%;
@@ -36,23 +40,23 @@ export const SlobyImage = styled.img`
     width: 34px;
     height: 35px;
     border-radius: 50%;
-    margin-left: 10px;  
+    margin-left: 15px;  
 `
 
 export const MainMenus = styled.div`
-    margin-top: 50px !important;
+    margin-top: 40px !important;
     height: max-content;
 `
 export const MenuItem = styled.div  `
     font-weight: bolder;
     color: ${varaibles.sloby_menu_color};
-    font-size: 18px !important;
+    font-size: 17px !important;
     display: flex;
     align-items: center;
     gap: 30px;
     width: 70%;
     margin-left: 30px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     border-radius: 10px !important;
     padding: 5px !important;
 
@@ -142,7 +146,7 @@ export const FavoriteProject = styled.div`
 
 export const SlobySearchWindowContainer = styled.div`
     height: max-content;
-    width: 70%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -242,4 +246,93 @@ export const ModalTitle = styled.div`
     color: #B9B9B9;
     margin-top: 10px;
     font-size: 18px;
+`
+
+export const ProjectsHandler = styled.div`
+    position: fixed;
+    padding-top: 65px;
+`
+
+export const Title = styled.h2`
+    font-weight: bold;
+    height: max-content;
+    margin-left: 55px;
+    color: #4E4E4E;
+`
+export const ProjectContainer = styled.div`
+    border: 1px solid xred;
+    margin-top: 25px;
+    margin-left: 55px;
+    width: 73.55vw;
+    height: 83vh;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 45px;
+`
+
+export const EmptyProjects = styled.div`
+    width: 73.55vw;
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+`
+
+export const Description = styled.div`
+    color: #424242;
+    font-size: 16px;
+    font-weight: bold;
+`
+
+export const Project = styled.div`
+    width: 200px;
+    height: 200px;
+    background: #121212;
+    border-radius: 15px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    transition: 250ms ease-in-out;
+    &:hover {
+        transition: 250ms ease-in-out;
+        transform: translateY(-5px);
+        cursor: pointer;
+    }
+`
+
+export const ProjectTitle = styled.div`
+    color: #C2C2C2;
+`
+export const ProjectTitleContainer = styled.div`
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 7px;
+    border-radius: 20px;
+    background: #161616;
+    margin-top: 35px;
+    border: 1px solid #202020;
+`
+
+export const ProfilePicture = styled.div`
+    width: 90px;
+    height: 90px;
+    background-color: #1F1F1F;
+    border-radius: 50%;
+`
+
+export const IntegrationButton = styled.div`
+    width: 100%;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: flex-end;
+
+    .integration-button-icon {
+        color: #303030;
+        margin-right: 7px;
+        font-size: 17px;
+    }
 `

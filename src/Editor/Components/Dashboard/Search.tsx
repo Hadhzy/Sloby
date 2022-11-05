@@ -21,6 +21,7 @@ function Search() {
             />
         </SlobySearchContainer>
         </SlobySearchWindow>
+        
     </SlobySearchWindowContainer>
 }
 

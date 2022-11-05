@@ -1,4 +1,5 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit"
+import { Navigate, useNavigate } from 'react-router-dom';
 
 export type Project = {
     projectName: string,
@@ -6,14 +7,13 @@ export type Project = {
 }
 
 export interface Dashboard {
-    search: boolean, projectModal: boolean, projectName: string, projectDescription: string,
+    projectModal: boolean, projectName: string, projectDescription: string,
     errorMessage: string,
     shouldNotificationDisplay: boolean,
     projects: Array<Object>
 }
 
 const initialState: Dashboard = {
-    search: false,
     projectModal: false,
     projectName: "",
     projectDescription: "",
@@ -26,9 +26,6 @@ export const dashboardSlice = createSlice({
     name: "dashboard",
     initialState,
     reducers: {
-        setSearchbar: (state, action: PayloadAction<boolean>) => {
-            state.search = action.payload
-        },
         setProjectModal: (state, action: PayloadAction<boolean>) => {
             state.projectModal = action.payload
         },
@@ -46,9 +43,9 @@ export const dashboardSlice = createSlice({
         },
         displayNotification: (state, action: PayloadAction<boolean>) => {
             state.shouldNotificationDisplay = action.payload
-        }
+        },
     }
 })
 
-export const { setSearchbar, setProjectModal, updateProjectName, updateProjectDescription, setError, createProject,displayNotification } = dashboardSlice.actions
+export const { setProjectModal, updateProjectName, updateProjectDescription, setError, createProject,displayNotification } = dashboardSlice.actions
 export default dashboardSlice.reducer

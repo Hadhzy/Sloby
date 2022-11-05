@@ -73,6 +73,8 @@
   },
   "devDependencies": {
     "@types/uuid": "^8.3.4",
-    "jsdoc": "^3.6.11"
+    "eslint": "^8.7.0",
+    "jsdoc": "^3.6.11",
+    "prettier": "^2.5.1"
   }
 }

@@ -18,7 +18,7 @@ import {
 } from '../../utils/styles/Dashboard';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../store';
-import { setSearchbar, setProjectModal } from '../../store/dashboard/dashboardSlice';
+import { setProjectModal } from '../../store/dashboard/dashboardSlice';
 import { mainMenus, views } from '../../utils/temporaryAPI';
 import { AiTwotoneFolder } from 'react-icons/ai';
 import { IEventType } from '../../utils/types';
@@ -30,14 +30,6 @@ function SlobyMenu() {
     const dispatch = useDispatch<AppDispatch>();
     const [value, setValues] = useState(false)
         
-        
-    const handleClick = (e: any) => {
-        console.log(e.target.id);
-        if (e.target.id !== 'Search') return;
-        dispatch(setSearchbar(true));
-    };
-
-    
     
   return (
     <SlobyMenuContainer>
@@ -50,16 +42,16 @@ function SlobyMenu() {
       <MainMenus>
         {mainMenus.map((item: any) => {
           return (
-            <Link to={item.path} className="off-link-dec">
-               <MenuItem
-              key={item.id}
-              id={item.title}
-              onClick={(e: any) => handleClick(e)}
+              <Link to={item.path} className="off-link-dec">
+                <MenuItem
+                key={item.id}
+                id={item.title}
+                
               >
-            {item.icon}
-             {item.title}
-            </MenuItem>
-            </Link>
+                {item.icon}
+                {item.title}
+                </MenuItem>
+              </Link>
           );
         })}
        <NewProjectButton onClick={() => dispatch(setProjectModal(true))}>New Project</NewProjectButton>

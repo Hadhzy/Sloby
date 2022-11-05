@@ -19,7 +19,10 @@ import Error from "./Others/globalPages/Error"
 import { ContentContextProvider } from "./Others/Context/ContentContext"
 import Dashboard from "./Editor/Components/Dashboard/Dashboard"
 import AdminPageDashboard from "./Editor/Components/Admin/AdminDashboard"
-
+import Updates from "./Editor/Components/Dashboard/Updates"
+import Progress from "./Editor/Components/Dashboard/Progress"
+import Projects from "./Editor/Components/Dashboard/Projects"
+import Editor from "./Editor/Components/Editor/Editor"
 function App() {
   return (
   <BrowserRouter>
@@ -38,11 +41,15 @@ function App() {
                   <Route path='users/register' element={<RegisterPage />} />
                   <Route path='users/login' element={<LoginPage />} />
                   <Route path='users/verified-registration-email' element={<RegistrationEmailSentPage/>} />
+                  <Route path="editor/workspace/:id" element={<Editor />} />
                   <Route path="editor/dashboard" element={<Dashboard />}> 
+                    <Route index element={<Projects />} />
                     <Route path="profile-settings" element={<Settings />} />
-                  </Route>
+                    <Route path="updates" element={<Updates />} />
+                    <Route path="progress" element={<Progress />} />
+                </Route>
                     <Route path="/admin" element={<AdminPage />} />
-                    <Route path="/admin/dashboard" element={ <AdminPageDashboard />} /> 
+                    <Route path="/admin/dashboard" element={<AdminPageDashboard />} /> 
                 </Routes>
           </div>
       </ThemeContextProvider>
