@@ -17,7 +17,7 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
 import { ContentContext } from "../../Context/ContentContext"
 
-const ExpandMore = styled((props) => {
+const ExpandMore = styled((props: any) => {
   const { expand, ...other } = props
   return <IconButton {...other} />
 })(({ theme, expand }) => ({
@@ -32,7 +32,7 @@ function Settings() {
   const { settings } = useContext(ContentContext)
   const [expanded, setExpanded] = useState(new Array(settings?.length).fill(true))
   console.log(expanded)
-  const handleOnchange  = (position) => {
+  const handleOnchange  = (position: any) => {
      const updatedCheckedState = expanded.map((item, index) => index === position ? !item : item)
       setExpanded(updatedCheckedState)
   }
@@ -46,7 +46,9 @@ function Settings() {
         <div className='underline'></div>
         <div className='options'>
           <div className='settings-item'>
-            {settings.map((setting, index) => (
+            {settings ? (
+              <>
+                {settings.map((setting: any, index: number) => (
               <div key={index}>
                 <Card className='setting-item' sx={{ width: 1000 }}>
                   <CardHeader
@@ -72,16 +74,16 @@ function Settings() {
                     <IconButton aria-lebel="share">
                         <ShareIcon/>
                     </IconButton>
-                    {
+                    {/* {
                       setting.type === "switch" && (
-                          <FormControlLabel control={
-                             <Switch checked={theme === "light"? false : true} onChange={switchTheme}>
-                            click to change the theme
-                          </Switch>
-                          } label={`${theme} theme`}>
+                          // <FormControlLabel control={
+                          //    <Switch checked={theme === "light"? false : true} onChange={switchTheme}>
+                          //   click to change the theme
+                          // </Switch>
+                          // } label={`${theme} theme`}>
 
-                          </FormControlLabel>)
-                    }
+                          // </FormControlLabel>)
+                    } */}
 
                     <ExpandMore
                       expand={expanded}
@@ -92,7 +94,7 @@ function Settings() {
                       <ExpandMoreIcon />
                     </ExpandMore>
                   </CardActions>
-                  <Collapse in={expanded} timeout='auto' unmountOnExit>
+                  <Collapse timeout='auto' unmountOnExit>
                     <CardContent>
                       <Typography paragraph>{setting.content_title}</Typography>
                       <Typography paragraph>
@@ -103,6 +105,8 @@ function Settings() {
                 </Card>
               </div>
             ))}
+              </>
+            ): null}
           </div>
         </div>
       </div>

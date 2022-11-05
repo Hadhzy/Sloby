@@ -19,7 +19,7 @@ export type IContentContext = {
     help_content?: Array<Object>,
     footer?: any,
     social_content?: any,
-    settings?: Array<Object>,
+    settings?: Array<Object> | any,
     admin_page?: IAdminPage | any,
     sloby_dashboard?: Object | any
 }
