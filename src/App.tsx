@@ -22,7 +22,7 @@ import AdminPageDashboard from "./Editor/Components/Admin/AdminDashboard"
 import Updates from "./Editor/Components/Dashboard/Updates"
 import Progress from "./Editor/Components/Dashboard/Progress"
 import Projects from "./Editor/Components/Dashboard/Projects"
-import SlobyEditor from "./sloby-editor-framework/SlobyEditor/Editor"
+import SlobyEditor from "./sloby-editor-framework/implementations/SlobyEditor/Editor"
 function App() {
   return (
   <BrowserRouter>

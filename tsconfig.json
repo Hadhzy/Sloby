@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES6",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "target": "ES2017",
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -9,14 +8,16 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
+    "module": "CommonJS",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "isolatedModules": false,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "preserveConstEnums": true
   },
-  "include": ["src",
-    "src/sloby-editor-framework/SlobyEditor/Editor"
+  "include": [
+    "src",
+    "src/sloby-editor-framework/implementations/SlobyEditor/Editor"
   ]
 }

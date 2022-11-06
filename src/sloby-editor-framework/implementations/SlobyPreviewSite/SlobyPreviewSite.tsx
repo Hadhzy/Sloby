@@ -1,5 +1,5 @@
 import React from 'react'
-import { SlobyPreviewSiteContainer } from '../../Editor/utils/styles/Editor'
+import { SlobyPreviewSiteContainer } from '../../../Editor/utils/styles/Editor'
 
 function SlobyPreviewSite() {
   return <SlobyPreviewSiteContainer>
