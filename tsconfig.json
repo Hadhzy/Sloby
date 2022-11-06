@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ES6",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -17,6 +17,6 @@
     "jsx": "react-jsx"
   },
   "include": ["src",
-    "sloby-editor-framework/SlobyEditor/editor"
+    "src/sloby-editor-framework/SlobyEditor/Editor"
   ]
 }
