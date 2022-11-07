@@ -7,15 +7,16 @@ export const SlobyEditorContainer = styled.div`
   height: 100vh;
 `
 
-export const SlobyConstantTools = styled.div`
+export const SlobyParts = styled.div`
   display: flex;
   border: 1px solid blue;
   height: 100vh;
-  width: 70%;
+  width: 100%;
   justify-content: space-between;
 `
 
 export const SlobyToolsContainer = styled.div`
+  width: 15%;
   color: white;
   border: 1px solid red;
 `
@@ -23,4 +24,8 @@ export const SlobyToolsContainer = styled.div`
 export const SlobyPreviewSiteContainer = styled.div`
   color: white;
   border: 1px solid red;
+  width: 70%;
+`
+export const SlobyModifierContainer = styled.div`
+  width: 15%;
 `

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
+    "target": "es2021",
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
