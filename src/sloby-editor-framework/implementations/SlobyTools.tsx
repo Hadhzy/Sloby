@@ -1,5 +1,5 @@
 import React from "react"
-import { SlobyToolsContainer } from "../../../Editor/utils/styles/Editor"
+import { SlobyToolsContainer } from "../../Editor/utils/styles/Editor"
 
 function SlobyTools() {
   return <SlobyToolsContainer>
