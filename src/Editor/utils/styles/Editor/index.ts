@@ -44,3 +44,24 @@ export const SlobyNavigatorContainer = styled.div`
   justify-content: center;
   align-items: center;
 `
+
+export const SlobyToolContainer = styled.div`
+  border: 1px solid red;
+  transition: 250ms ease-in-out;
+  &:hover {
+    transition: 250ms ease-in-out;
+    .tools-container {
+      transition: 250ms ease-in-out;
+      opacity: 1;
+      display: block;
+      visibility: visible;
+    }
+  }
+`
+
+export const ToolNameContainer = styled.div`
+  transition: 250ms ease-in-out;
+  opacity: 0;
+  display: none;
+  visibility: hidden;
+`
