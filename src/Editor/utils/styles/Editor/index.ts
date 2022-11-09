@@ -44,24 +44,49 @@ export const SlobyNavigatorContainer = styled.div`
   justify-content: center;
   align-items: center;
 `
+export const ToolNameContainer = styled.div`
+  margin-top: 35px;
+  margin-bottom: 11px;
+  visibility: hidden;
+`
 
 export const SlobyToolContainer = styled.div`
+  position: relative;
   border: 1px solid red;
   transition: 250ms ease-in-out;
+  border-radius: 50%;
+  padding: 14px;
+  background-color: #171717;
+  border: 1px solid #262626;
+  cursor: pointer;
+  .sloby-tool-image {
+    display: flex;
+    jutify-conent: center;
+    align-items:center;
+    width: 30px;
+    height: 30px;
+  }
+
   &:hover {
     transition: 250ms ease-in-out;
-    .tools-container {
-      transition: 250ms ease-in-out;
-      opacity: 1;
-      display: block;
-      visibility: visible;
-    }
+    background-color: #191919;
+    transform: translateY(-2px);
   }
 `
 
-export const ToolNameContainer = styled.div`
-  transition: 250ms ease-in-out;
-  opacity: 0;
-  display: none;
-  visibility: hidden;
+
+
+export const Tool = styled.div`
+  border: 1px solid red; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
+export const SlobyBuildingStepsContainer = styled.div`
+  border: 1px solid green;
+  color: white;
+  height: 4%;
+  display: flex;
+  align-items: center;
 `

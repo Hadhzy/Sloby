@@ -5,7 +5,7 @@ import textToolReducer from "../../sloby-editor-framework/store/sloby-tools/text
 export const store = configureStore({
     reducer: {
         dashboard: dashboardReducer,
-        textTools: textToolReducer
+        textTool: textToolReducer
     }
 })
 

@@ -1,25 +1,31 @@
 import React, { useContext, useState } from "react"
-import { SlobyToolsContainer,SlobyToolContainer,ToolNameContainer } from "../../Editor/utils/styles/Editor"
+import { SlobyToolsContainer,SlobyToolContainer,ToolNameContainer,Tool } from "../../Editor/utils/styles/Editor"
+import { IEventType } from "../../Editor/utils/types"
 import { ContentContext } from "../../Others/Context/ContentContext"
+import { AppDispatch } from "../../Editor/store"
+import { useDispatch } from "react-redux"
+import { setActive } from "../store/sloby-tools/textToolSlice"
 
 function SlobyTools() {
   const {sloby_tools} = useContext(ContentContext)
+  const dispatch = useDispatch<AppDispatch>()
 
   const CustomToolNameDisplayer = ({ tool } : {tool: string}) => {
-    return <ToolNameContainer className="tools-container">
+    return <ToolNameContainer className="tools-displayer">
       {tool}
     </ToolNameContainer>
   }
-
 
   return <SlobyToolsContainer>
       {sloby_tools && (
         <>
           {sloby_tools.map((sloby_tool: any) => {
-            return <SlobyToolContainer key={sloby_tool.id}>
-                <CustomToolNameDisplayer tool={sloby_tool.tool}/>
-                <img src={sloby_tool.url} alt={sloby_tool.tool} />
-            </SlobyToolContainer>
+          return  <Tool key={sloby_tool.id}>
+                <CustomToolNameDisplayer tool={sloby_tool.tool} />
+                <SlobyToolContainer  >
+                  <img src={sloby_tool.url} alt={sloby_tool.tool} className="sloby-tool-image"/>
+                </SlobyToolContainer>
+             </Tool>
           })}
         </>
       )}
