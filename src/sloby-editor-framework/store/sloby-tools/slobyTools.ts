@@ -18,7 +18,7 @@ export const slobyToolsSlice = createSlice({
   name: "sloby_tools",
   initialState,
   reducers: {
-    setActive: (state: Tools, action: PayloadAction<ExpectedActionParameter>) => {
+    toolActivated: (state: Tools, action: PayloadAction<ExpectedActionParameter>) => {
       /**
        * Setting a sloby tool active, that's gonna help the detector class which will detect the changes and apply them.
        * Using the action parameter object to set up the tool isActive property-
@@ -32,5 +32,5 @@ export const slobyToolsSlice = createSlice({
   }
 })
 
-export const {setActive} = slobyToolsSlice.actions
+export const {toolActivated} = slobyToolsSlice.actions
 export default slobyToolsSlice.reducer
