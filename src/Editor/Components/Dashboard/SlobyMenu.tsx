@@ -59,12 +59,11 @@ function SlobyMenu() {
       <ViewsContainer>
         <SlobyMenuCategoryTitle>Views</SlobyMenuCategoryTitle>
         {views.map((item: any) => {
-          return (
-            <ViewItem key={item.id}>
+          return <ViewItem key={item.id}>
               {item.icon}
               {item.title}
             </ViewItem>
-          );
+          ;
         })}
       </ViewsContainer>
       <FavoriteContainer>

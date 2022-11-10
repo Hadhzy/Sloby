@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit"
 import dashboardReducer from "./dashboard/dashboardSlice"
-import textToolReducer from "../../sloby-editor-framework/store/sloby-tools/textToolSlice"
+import slobyToolReducer from "../../sloby-editor-framework/store/sloby-tools/slobyTools"
 
 export const store = configureStore({
     reducer: {
-        dashboard: dashboardReducer,
-        textTool: textToolReducer
+        projectDashboard: dashboardReducer,
+        slobyTools: slobyToolReducer
     }
 })
 

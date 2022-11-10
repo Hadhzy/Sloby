@@ -15,7 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function ProjectModal() {
   const dispatch = useDispatch<AppDispatch>()
-  const dashboardSlice = useSelector((state: RootState) => state.dashboard)
+  const dashboardSlice = useSelector((state: RootState) => state.projectDashboard)
   const notify = () => toast.success("You have successfully crated a project")
  
 
