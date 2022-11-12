@@ -6,5 +6,4 @@ export interface SlobyElement {
 
 export interface ExpectedActionParameter {
   tool?: keyof Tools,
-  value: boolean
 }
