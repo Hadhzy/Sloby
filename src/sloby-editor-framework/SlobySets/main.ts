@@ -1,17 +1,18 @@
-import { SLOBY_SET_ERRORS } from "../utils/constans"
 import { ExpectedSetValues, SlobySetType } from "./types"
 
 export class SlobySet {
-    subsets: ExpectedSetValues[]
-    constructor(public values: ExpectedSetValues[]) { this.subsets = [] }
+    subsets: ExpectedSetValues
+    constructor(public values: ExpectedSetValues[]) {
+        this.subsets = []
+    }
     
     add(addedValues: ExpectedSetValues | ExpectedSetValues[]) {
         /**
          * Add a particular value to a set
          */
-        const isTheValueWronglyDeclered = Array.isArray(addedValues) && addedValues.length > 1
-        if(!isTheValueWronglyDeclered) throw new Error(SLOBY_SET_ERRORS.WRONGLY_DECLARED_VALUES)
-        console.log("This is a single ora  multuple element")
+        const isTheValueWronglyDeclered = Array.isArray(addedValues) && addedValues.length <= 1
+        if(isTheValueWronglyDeclered) throw new Error(`If you are trying to add multiple values into your set, make sure that you add at least two in an Array, otherwise add just a single value without arrays`)
+        console.log("You are in the implementation zone")
     }
 
     delete(element: ExpectedSetValues) {
@@ -19,7 +20,7 @@ export class SlobySet {
          * Delete a particluar value from a set value
          */
         const isTheElementRelevant = this.elementCheckker(element)
-        if (!isTheElementRelevant) throw new Error(`The set does not includes the property ${element}, you cannot delete it unless it is in the set`)
+        if (!isTheElementRelevant) throw new Error(`The set does not includes the property ${element}, you cannot delete it unless it is included`)
         const resolvedValues = this.values.filter(value => value !== element)
         this.values = resolvedValues
     }
@@ -47,8 +48,7 @@ export class SlobySet {
     }
 }
 const set1 = new SlobySet([231, "a"])
-set1.add(1)
-console.log(set1)
+set1.add([1, 2])
 
 // console.log(set1.getNumber())
 // console.log(set2)

@@ -28,7 +28,6 @@ function SlobyTools() {
 
   const handleToolActivation = (e: any) => {
     dispatch(activateTool({ tool : e.target.id }))
-    console.log(e.target.id)
     const tool = new Deliver()
     tool.deliverToHandler(e.target.id)
   }
