@@ -24,7 +24,7 @@ export const slobyToolsSlice = createSlice({
        * Using the action parameter object to set up the tool isActive property-
        * to whatever the action payload value property is.
        */
-      console.log(`${action.payload} has been activated`)
+      console.log(`${action.payload.tool} has been activated`)
       const currentTool = action.payload.tool
       if(!currentTool) return
       state[currentTool].isActive = !state[currentTool].isActive

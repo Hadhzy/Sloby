@@ -1,9 +1,16 @@
 import { Tools } from "../../store/sloby-tools/slobyTools"
 
-export interface SlobyElement {
-  type?: string,
+export type SlobyElement = {
+  type?: string
 }
 
-export interface ExpectedActionParameter {
-  tool?: keyof Tools,
+export type ExpectedActionParameter = {
+  tool: keyof Tools 
+}
+
+export type SlobyToolObject = {
+  id: number
+  tool_name: string
+  url: string
+  dispatched_tool: string
 }

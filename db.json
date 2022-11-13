@@ -259,8 +259,9 @@
   "sloby-tools": [
     {
       "id": 0,
-      "tool": "Text Displayer",
-      "url": "https://cdn.discordapp.com/attachments/753660501996863488/1039835182808699020/icons8-font-48_3.png"
+      "tool_name": "Text Displayer",
+      "url": "https://cdn.discordapp.com/attachments/753660501996863488/1039835182808699020/icons8-font-48_3.png",
+      "dispatched_tool": "textTool"
     }
   ]
 }
