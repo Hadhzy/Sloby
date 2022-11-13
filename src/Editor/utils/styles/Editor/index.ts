@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import React from 'react';
 import styled, { css } from "styled-components";
 import { varaibles } from '../global';
@@ -25,6 +26,12 @@ export const SlobyToolsContainer = styled.div`
   display: flex;  
   flex-direction: column;
   align-items: center;
+  transition: 250ms ease-in-out;
+
+  .hidden {
+    visibility: hidden;
+    transition: 250ms ease-in-out;
+  }
 `
 export const SlobyPreviewInterface = styled.div`
   color: white;
@@ -44,21 +51,34 @@ export const SlobyNavigatorContainer = styled.div`
   justify-content: center;
   align-items: center;
 `
-export const ToolNameContainer = styled.div`
+export const ToolNameContainer = styled(motion.div)`
   margin-top: 35px;
   margin-bottom: 11px;
-  visibility: hidden;
+  text-align: center;
+  color: #d4d7d9;
+  font-weight: bold;
+  width: 180px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #191919;
 `
 
-export const SlobyToolContainer = styled.div`
+export const SlobyToolInnerContainer = styled(motion.div)`
   position: relative;
-  border: 1px solid red;
   transition: 250ms ease-in-out;
   border-radius: 50%;
   padding: 14px;
   background-color: #171717;
   border: 1px solid #262626;
   cursor: pointer;
+  &:hover {
+    transition: 250ms ease-in-out;
+    background-color: #191919;
+    transform: translateY(-2px);
+  }
   .sloby-tool-image {
     display: flex;
     jutify-conent: center;
@@ -67,17 +87,13 @@ export const SlobyToolContainer = styled.div`
     height: 30px;
   }
 
-  &:hover {
-    transition: 250ms ease-in-out;
-    background-color: #191919;
-    transform: translateY(-2px);
-  }
+  
 `
 
 
 
 export const Tool = styled.div`
-  border: 1px solid red; 
+  width: 60%;
   display: flex;
   flex-direction: column;
   align-items: center;
