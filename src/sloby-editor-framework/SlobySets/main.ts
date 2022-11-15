@@ -1,11 +1,13 @@
+import { prependOnceListener } from "process"
+import TextCreationTool from "../tools/text-creator"
 import { ExpectedSetValues, SlobySetType } from "./types"
 
 export class SlobySet {
-    subsets: ExpectedSetValues
+    subsets: SlobySetType[]
     constructor(public values: ExpectedSetValues[]) {
         this.subsets = []
     }
-    
+
     add(addedValues: ExpectedSetValues) {
         /**
          * Add a particular value to a set, which can be either single element or a list of elements
@@ -27,31 +29,10 @@ export class SlobySet {
         }
     }
 
-    delete(element: ExpectedSetValues) {
-        /**
-         * Delete a particluar value from a set value
-         */
-        const isTheElementRelevant = this.singleElementCheckker(element)
-        if (!isTheElementRelevant) throw new Error(`The set does not includes the property ${element}, you cannot delete it unless it is included`)
-        const resolvedValues = this.values.filter(value => value !== element)
-        this.values = resolvedValues
-    }
 
-    unionWith(unionSet: SlobySetType) {
-        const unionVales = this.values.concat()
-        return unionVales
-    }
-
-    getNumber() { return this.values.length }
-
-    interSectionWith(intersectionSet: SlobySetType) {
-        console.log(intersectionSet)
-        // const intersectedValues = this.values.forEach(element => element === intersectionSet)
-        // return intersectedValues
-    }
-
-    createSubSet(set: ExpectedSetValues) {
-        
+    addSubSet(subset: SlobySetType) {
+        const preparedSubSet = { ...subset }
+        this.subsets = [...this.subsets, preparedSubSet]
     }
 
     private validateDeclaredError(addedValues: ExpectedSetValues) { 
@@ -76,9 +57,3 @@ export class SlobySet {
         return elementsAreIncluded
     }
 }
-const set1 = new SlobySet([231, "a"])
-set1.add(2)
-console.log(set1)
-
-// console.log(set1.getNumber())
-// console.log(set2)

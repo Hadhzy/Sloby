@@ -3,7 +3,7 @@ import { SlobyToolsContainer,SlobyToolInnerContainer,ToolNameContainer,Tool } fr
 import { ContentContext } from "../../Others/Context/ContentContext"
 import { AppDispatch } from "../../Editor/store"
 import { useDispatch } from "react-redux"
-import { activateTool } from "../store/sloby-tools/slobyTools"
+import { activateTool } from "../store/sloby-tools/slobyToolsSlice"
 import { SlobyToolObject } from "../utils/types"
 import { IEventType } from "../../Editor/utils/types"
 import { Deliver } from "../handlers/deliver"
@@ -13,7 +13,6 @@ function SlobyTools() {
   const {sloby_tools} = useContext(ContentContext)
   const dispatch = useDispatch<AppDispatch>()
   const [isCustomDisplayerActive, setIsCustomDisplayerActive] = useState(true)
-
 
   const CustomToolNameDisplayer = ({ tool } : {tool: string}) => {
     return <ToolNameContainer className={`${isCustomDisplayerActive ? "" : "hidden"}`}
@@ -28,17 +27,8 @@ function SlobyTools() {
 
   const handleToolActivation = (e: any) => {
     dispatch(activateTool({ tool : e.target.id }))
-    const tool = new Deliver()
-    tool.deliverToHandler(e.target.id)
   }
 
-  const handleActiveState = () => {
-      setIsCustomDisplayerActive(true)
-  }
-
-  const handleInActiveState = () => {
-      setIsCustomDisplayerActive(false)
-  }
 
   return <SlobyToolsContainer>
       {sloby_tools && (
@@ -49,8 +39,8 @@ function SlobyTools() {
                 <div onClick={(e) => handleToolActivation(e)}>
                   <SlobyToolInnerContainer 
                     id={sloby_tool.dispatched_tool} 
-                    onMouseEnter={handleActiveState} 
-                    onMouseLeave={handleInActiveState}
+                    onMouseEnter={() => setIsCustomDisplayerActive(true)} 
+                    onMouseLeave={() => setIsCustomDisplayerActive(false)}
                   >
                     <img src={sloby_tool.url}  alt={""} className="sloby-tool-image" id={sloby_tool.dispatched_tool}/>
                   </SlobyToolInnerContainer>
