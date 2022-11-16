@@ -2,19 +2,20 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit"
 import { useContext } from "react"
 import { ContentContext } from "../../../Others/Context/ContentContext"
 import { Deliver } from "../../handlers/deliver"
+import TextCreationTool from "../../tools/text-creator"
 import { ExpectedActionParameter } from "../../utils/types"
 
 export interface Tools {
-  textTool: {
+  TextCreationTool: {
     isActive: boolean
-  }
+  },
 }
 
 
 const initialState: Tools = {
-  textTool: {
+  TextCreationTool: {
     isActive: false
-  }
+  },
 }
 
 

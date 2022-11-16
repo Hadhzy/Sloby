@@ -38,11 +38,11 @@ function SlobyTools() {
               <CustomToolNameDisplayer tool={sloby_tool.tool_name} />
                 <div onClick={(e) => handleToolActivation(e)}>
                   <SlobyToolInnerContainer 
-                    id={sloby_tool.dispatched_tool} 
+                    id={sloby_tool.tool} 
                     onMouseEnter={() => setIsCustomDisplayerActive(true)} 
                     onMouseLeave={() => setIsCustomDisplayerActive(false)}
                   >
-                    <img src={sloby_tool.url}  alt={""} className="sloby-tool-image" id={sloby_tool.dispatched_tool}/>
+                    <img src={sloby_tool.url}  alt={""} className="sloby-tool-image" id={sloby_tool.tool}/>
                   </SlobyToolInnerContainer>
                 </div>
              </Tool>

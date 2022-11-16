@@ -1,7 +1,9 @@
-export default class TextCreationTool {
+import { SlobyTextCreationTool } from "../../utils/interfaces";
+
+export default class TextCreationTool implements SlobyTextCreationTool {
   constructor() {}
 
-  method(name: string) {
+  public method(name: string) {
     console.log(`${name} has been initialized`)
   }
 }

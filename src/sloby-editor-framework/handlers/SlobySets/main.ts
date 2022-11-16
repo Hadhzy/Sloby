@@ -1,5 +1,5 @@
 import { prependOnceListener } from "process"
-import TextCreationTool from "../tools/text-creator"
+import TextCreationTool from "../../tools/text-creator"
 import { ExpectedSetValues, SlobySetType } from "./types"
 
 export class SlobySet {

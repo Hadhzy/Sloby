@@ -12,5 +12,5 @@ export type SlobyToolObject = {
   id: number
   tool_name: string
   url: string
-  dispatched_tool: string
+  tool: string
 }

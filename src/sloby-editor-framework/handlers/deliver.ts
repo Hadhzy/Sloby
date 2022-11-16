@@ -1,4 +1,5 @@
-import { SlobySet } from "../SlobySets/main"
+import { SlobyDynamicClass } from "./SlobyDynamicClass"
+import { SlobySet } from "./SlobySets/main"
 
 export class Deliver {
   constructor() {}
@@ -9,13 +10,13 @@ export class Deliver {
      * For example if the "textTool" was activated then this method will deliver the info for the textHandler class
      */
     console.log(`${tool} is in delivering state`)
-  }
-
-  private handleDeliveringWithSets() {
     /**
-     * This will take care of recognizing the proper class handler from the tool activation state
-     * Using own set package the SlobySets
+     * We are declaring the handler instance and creating the new Dynamic class for it.
+     * We're gonna pass the currentTool string for the dynamic class to create the proper class handler for us.
+     * In this case we are passing null as the parameters
      */
-    const slobyTool = new SlobySet([])
+    let handler = new SlobyDynamicClass(tool, null)
+    // @ts-expect-error
+    console.log(handler.method("name"))
   }
 }
