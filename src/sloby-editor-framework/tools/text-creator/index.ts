@@ -1,9 +1,10 @@
+import { SlobyBaseTool } from "../../utils/abstracts";
 import { SlobyTextCreationTool } from "../../utils/interfaces";
 
-export default class TextCreationTool implements SlobyTextCreationTool {
+export default class TextCreationTool implements SlobyTextCreationTool, SlobyBaseTool {
   constructor() {}
 
-  public method(name: string) {
-    console.log(`${name} has been initialized`)
+   initialize(tool: string) {
+    console.log(`${tool} has been initialized`)
   }
 }
