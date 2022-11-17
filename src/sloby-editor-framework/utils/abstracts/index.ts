@@ -1,3 +1,3 @@
 export abstract class SlobyBaseTool {
-  abstract initialize(tool: string): void
+  abstract initializeTool(tool: string): void
 }

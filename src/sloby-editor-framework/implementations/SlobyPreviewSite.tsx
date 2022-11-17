@@ -1,10 +1,13 @@
 import React from 'react'
-import { SlobyPreviewInterface } from '../../Editor/utils/styles/Editor'
+import { SlobyPreviewInterfaceContainer,PreviewSiteInterface } from '../../Editor/utils/styles/Editor'
 
 function SlobyPreviewSiteInterface() {
-  return <SlobyPreviewInterface>
+  return <SlobyPreviewInterfaceContainer>
     preview site interface of the sloby.
-  </SlobyPreviewInterface>
+    <PreviewSiteInterface>
+        
+    </PreviewSiteInterface>
+  </SlobyPreviewInterfaceContainer>
 }
 
 export default SlobyPreviewSiteInterface

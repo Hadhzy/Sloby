@@ -33,7 +33,7 @@ export const SlobyToolsContainer = styled.div`
     transition: 250ms ease-in-out;
   }
 `
-export const SlobyPreviewInterface = styled.div`
+export const SlobyPreviewInterfaceContainer = styled.div`
   color: white;
   border: 1px solid red;
   width: 70%;
@@ -41,6 +41,7 @@ export const SlobyPreviewInterface = styled.div`
 export const SlobyModifierContainer = styled.div`
   width: 15%;
   color: white;
+  border: 1px solid red;
 `
 
 export const SlobyNavigatorContainer = styled.div`
@@ -105,4 +106,7 @@ export const SlobyBuildingStepsContainer = styled.div`
   height: 4%;
   display: flex;
   align-items: center;
+`
+
+export const PreviewSiteInterface = styled.div`
 `

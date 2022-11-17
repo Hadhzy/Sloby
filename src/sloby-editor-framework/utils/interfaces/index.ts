@@ -1,4 +1,5 @@
 export interface SlobyTextCreationTool {
+  
 }
 
 export interface SlobyToolsStoreObject {

@@ -4,7 +4,7 @@ import { SlobyTextCreationTool } from "../../utils/interfaces";
 export default class TextCreationTool implements SlobyTextCreationTool, SlobyBaseTool {
   constructor() {}
 
-   initialize(tool: string) {
+   initializeTool(tool: string) {
     console.log(`${tool} has been initialized`)
   }
 }

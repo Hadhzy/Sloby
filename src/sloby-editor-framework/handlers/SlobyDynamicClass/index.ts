@@ -12,7 +12,7 @@ export class SlobyDynamicClass {
     if(SlobyToolsStore[currentClassName] === undefined || SlobyToolsStore[currentClassName] === null) {
       throw new Error(`Class ${currentClassName} is not in the store`)
     }
-    
+
     return new SlobyToolsStore[currentClassName](args)
   }
 }
