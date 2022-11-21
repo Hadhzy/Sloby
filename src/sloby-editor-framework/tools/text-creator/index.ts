@@ -6,5 +6,8 @@ export default class TextCreationTool implements SlobyTextCreationTool, SlobyBas
 
    initializeTool(tool: string) {
     console.log(`${tool} has been initialized`)
+    return true
   }
+
+  status() { return "" }
 }

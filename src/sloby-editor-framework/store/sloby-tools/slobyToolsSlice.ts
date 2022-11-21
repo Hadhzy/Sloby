@@ -3,18 +3,22 @@ import { useContext } from "react"
 import { ContentContext } from "../../../Others/Context/ContentContext"
 import { Deliver } from "../../handlers/deliver"
 import TextCreationTool from "../../tools/text-creator"
-import { ExpectedActionParameter } from "../../utils/types"
+import { ExpectedToolActionParameter } from "../../utils/types"
+import { SlobyStateHandler } from "../../handlers/SlobyStateHandler"
 
 export interface Tools {
   TextCreationTool: {
     isActive: boolean
+    isCustomDisplayerActive: boolean
   },
 }
 
+const testInitialState = new SlobyStateHandler()
 
 const initialState: Tools = {
   TextCreationTool: {
-    isActive: false
+    isActive: false,
+    isCustomDisplayerActive: false
   },
 }
 
@@ -23,7 +27,7 @@ export const slobyToolsSlice = createSlice({
   name: "sloby_tools",
   initialState,
   reducers: {
-    activateTool: (state: Tools, action: PayloadAction<ExpectedActionParameter>) => {
+    activateTool: (state: Tools, action: PayloadAction<ExpectedToolActionParameter>) => {
       /**
       * Setting up a sloby tool active, that is the first step of the implementation every tool will start with this.
       */
@@ -33,8 +37,11 @@ export const slobyToolsSlice = createSlice({
       state[currentTool].isActive = !state[currentTool].isActive
 
       const deliver = new Deliver()
-      deliver.deliverToHandler(action.payload.tool)
+      deliver.startDelivering(action.payload.tool)
     }, 
+    activateCustomDisplayer: (state, action) => {
+
+    }
   }
 })
 

@@ -4,7 +4,7 @@ import { SlobySet } from "./SlobySets/main"
 export class Deliver {
   constructor() {}
 
-  deliverToHandler(tool: string) {
+  startDelivering(tool: string) {
     /**
      * This is the main method for delivering a tool activation to the proper class handler.
      * For example if the "textTool" was activated then this method will deliver the info for the textHandler class
@@ -18,5 +18,6 @@ export class Deliver {
     let handler = new SlobyDynamicClass(tool, null)
     // @ts-expect-error
     handler.initializeTool(tool)
+    if(true) {}
   }
 }

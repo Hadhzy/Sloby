@@ -4,7 +4,7 @@ export type SlobyElement = {
   type?: string
 }
 
-export type ExpectedActionParameter = {
+export type ExpectedToolActionParameter = {
   tool: keyof Tools ,
 }
 
@@ -14,3 +14,5 @@ export type SlobyToolObject = {
   url: string
   tool: string
 }
+
+export type SlobyStateValue = {}

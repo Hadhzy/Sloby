@@ -4,7 +4,7 @@ import { SlobyEditorContainer, SlobyParts,  SlobyNavigatorContainer} from "../..
 import SlobyBuildingSteps from "../SlobyBuildingSteps"
 import SlobyEditorNavigator from "../SlobyEditorNavigator"
 import SlobyModifier from "../SlobyModifier"
-import SlobyPreviewSite from "../SlobyPreviewSite"
+import SlobyPreviewSiteInterface from "../SlobyPreviewSiteInterface"
 import SlobyTools from "../SlobyTools"
 
 function SlobyEditor() {
@@ -15,7 +15,7 @@ function SlobyEditor() {
       <SlobyBuildingSteps />
       <SlobyParts>
         <SlobyTools />
-        <SlobyPreviewSite />
+        <SlobyPreviewSiteInterface />
         <SlobyModifier />
       </SlobyParts>
   </SlobyEditorContainer>
