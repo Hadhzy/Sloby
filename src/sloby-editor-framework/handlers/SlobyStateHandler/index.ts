@@ -1,4 +1,4 @@
-import { SlobyToolsStore } from "../../tools";
+import { SlobyToolsStore } from "../../tools/tools_store";
 import { SlobyStateHandlerInterface } from "../../utils/interfaces";
 
 export class SlobyStateHandler implements SlobyStateHandlerInterface {
@@ -10,14 +10,13 @@ export class SlobyStateHandler implements SlobyStateHandlerInterface {
   }
 
   addGlobalToolProperty(value: string, payload?: any) {
-    if(!SlobyToolsStore[value]) throw new Error(`${value} is not an available Sloby Tool`)
-    if(!payload) this.state[value] = {}
-    this.state[value] = payload 
+    if(!SlobyToolsStore[value]) throw new Error(`${value} is not an existing Sloby Tool`)
+    if(this.state.hasOwnProperty(value)) return 
+    if(payload === undefined) return this.state[value] = {}
+    this.state[value] = payload
   }
 }
 
 
 const state = new SlobyStateHandler()
-console.log(state.getGlobalInitialState())
-state.addGlobalToolProperty("TextCreationTool")
 console.log(state.getGlobalInitialState())

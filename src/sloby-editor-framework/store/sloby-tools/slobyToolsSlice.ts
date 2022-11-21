@@ -9,7 +9,6 @@ import { SlobyStateHandler } from "../../handlers/SlobyStateHandler"
 export interface Tools {
   TextCreationTool: {
     isActive: boolean
-    isCustomDisplayerActive: boolean
   },
 }
 
@@ -18,7 +17,6 @@ const testInitialState = new SlobyStateHandler()
 const initialState: Tools = {
   TextCreationTool: {
     isActive: false,
-    isCustomDisplayerActive: false
   },
 }
 
@@ -38,10 +36,7 @@ export const slobyToolsSlice = createSlice({
 
       const deliver = new Deliver()
       deliver.startDelivering(action.payload.tool)
-    }, 
-    activateCustomDisplayer: (state, action) => {
-
-    }
+    },
   }
 })
 

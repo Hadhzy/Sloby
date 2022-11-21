@@ -1,4 +1,4 @@
-import { SlobyToolsStore } from "../../tools";
+import { SlobyToolsStore } from "../../tools/tools_store";
 
 export class SlobyDynamicClass {
   /**
