@@ -7,9 +7,7 @@ $${\color{red}How \space \color{lightblue}Does \space \color{orange}sloby \space
 
 > The `Editor`(itself)
 
-> The `sloby-python-framework`
-
-> The `parsers(python, react)`
+> The `slobypy`
 
 ## Setup.
 ### Docker Installation 📦
