@@ -3,7 +3,6 @@ import { SlobyToolsContainer,SlobyToolInnerContainer,ToolNameContainer,Tool } fr
 import { ContentContext } from "../../Others/Context/ContentContext"
 import { AppDispatch } from "../../Editor/store"
 import { useDispatch } from "react-redux"
-import { activateTool } from "../store/sloby-tools/slobyToolsSlice"
 import { SlobyToolObject } from "../utils/types"
 import { IEventType } from "../../Editor/utils/types"
 import { Deliver } from "../handlers/deliver"
@@ -26,7 +25,6 @@ function SlobyTools() {
 
 
   const handleToolActivation = (e: any) => {
-    // dispatch(activateTool({ tool : e.target.id }))
     const deliver = new Deliver()
     deliver.startDelivering(e.target.id)
   }

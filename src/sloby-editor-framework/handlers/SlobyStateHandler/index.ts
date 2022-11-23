@@ -1,4 +1,5 @@
 import { SlobyToolsStore } from "../../tools/tools_store";
+import { SlobyGlobalState } from "../../utils/constans";
 import { SlobyStateHandlerInterface } from "../../utils/interfaces";
 
 export class SlobyStateHandler implements SlobyStateHandlerInterface {
@@ -24,6 +25,8 @@ export class SlobyStateHandler implements SlobyStateHandlerInterface {
     this.addGlobalToolProperty(tool, { isActive: false })
     console.log(this.getGlobalInitialState())  
     console.log(`${tool} has been initialized`)
+    localStorage.setItem(SlobyGlobalState, JSON.stringify(this.state))
+    console.log("Local storage has been initialized and ready to be updated")
   }
 }
 

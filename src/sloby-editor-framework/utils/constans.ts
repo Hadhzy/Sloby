@@ -9,3 +9,5 @@ export enum STATUS {
   SUCCESS = "successfully implemented",
   ERROR = "An error occured"
 }
+
+export const SlobyGlobalState = "SLOBY_GLOBAL_DATABASE"

@@ -5,40 +5,24 @@ import { Deliver } from "../../handlers/deliver"
 import TextCreationTool from "../../tools/text-creator"
 import { ExpectedToolActionParameter } from "../../utils/types"
 import { SlobyStateHandler } from "../../handlers/SlobyStateHandler"
+import { SlobyGlobalState } from "../../utils/constans"
+import SlobyManager from "../../handlers/SlobyManager"
+
 
 export interface Tools {
   TextCreationTool: {
     isActive: boolean
   },
 }
+const manager = new SlobyManager()
 
-const testInitialState = new SlobyStateHandler()
-
-const initialState: Tools = {
-  TextCreationTool: {
-    isActive: false,
-  },
-}
-
+const initialState: any = manager.getLocalStorageGlobalState()
 
 export const slobyToolsSlice = createSlice({
   name: "sloby_tools",
   initialState,
-  reducers: {
-    activateTool: (state: Tools, action: PayloadAction<ExpectedToolActionParameter>) => {
-      /**
-      * Setting up a sloby tool active, that is the first step of the implementation every tool will start with this.
-      */
-      // console.log(`${action.payload.tool} has been activated`)
-      // const currentTool = action.payload.tool
-      // if(!currentTool) return
-      // state[currentTool].isActive = !state[currentTool].isActive
-
-      // const deliver = new Deliver()
-      // deliver.startDelivering(action.payload.tool)
-    },
-  }
+  reducers: {}
 })
 
-export const { activateTool } = slobyToolsSlice.actions
+export const {  } = slobyToolsSlice.actions
 export default slobyToolsSlice.reducer
