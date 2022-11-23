@@ -2,18 +2,28 @@ import { SlobyToolsStore } from "../../tools/tools_store";
 import { SlobyStateHandlerInterface } from "../../utils/interfaces";
 
 export class SlobyStateHandler implements SlobyStateHandlerInterface {
-  constructor() {}
-  state: Record<string, any> = {}
+  state: Record<string, any>
+  constructor() {
+    this.state = {}
+  }
+  
+  
 
   getGlobalInitialState() {
     return this.state
   }
 
   addGlobalToolProperty(value: string, payload?: any) {
-    if(!SlobyToolsStore[value]) throw new Error(`${value} is not an existing Sloby Tool`)
-    if(this.state.hasOwnProperty(value)) return 
-    if(payload === undefined) return this.state[value] = {}
-    this.state[value] = payload
+    if(!SlobyToolsStore[value]) throw new Error(`${value} is not an existing Sloby Tool`) 
+    if(this.state.hasOwnProperty(value)) return // Checking whether the tool has already been declared
+    if(payload === undefined) return this.state[value] = {} // If we are not passing any payload then it'll set it to an empty object
+    this.state[value] = payload // Setting the object property to whatever the payload contains
+  }
+
+  initializeTool(tool: string):void {
+    this.addGlobalToolProperty(tool, { isActive: false })
+    console.log(this.getGlobalInitialState())  
+    console.log(`${tool} has been initialized`)
   }
 }
 

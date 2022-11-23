@@ -29,13 +29,13 @@ export const slobyToolsSlice = createSlice({
       /**
       * Setting up a sloby tool active, that is the first step of the implementation every tool will start with this.
       */
-      console.log(`${action.payload.tool} has been activated`)
-      const currentTool = action.payload.tool
-      if(!currentTool) return
-      state[currentTool].isActive = !state[currentTool].isActive
+      // console.log(`${action.payload.tool} has been activated`)
+      // const currentTool = action.payload.tool
+      // if(!currentTool) return
+      // state[currentTool].isActive = !state[currentTool].isActive
 
-      const deliver = new Deliver()
-      deliver.startDelivering(action.payload.tool)
+      // const deliver = new Deliver()
+      // deliver.startDelivering(action.payload.tool)
     },
   }
 })
