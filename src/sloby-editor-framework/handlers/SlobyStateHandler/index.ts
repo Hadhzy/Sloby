@@ -7,8 +7,6 @@ export class SlobyStateHandler implements SlobyStateHandlerInterface {
   constructor() {
     this.state = {}
   }
-  
-  
 
   getGlobalInitialState() {
     return this.state

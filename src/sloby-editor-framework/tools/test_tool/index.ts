@@ -1,12 +1,8 @@
+import { SlobyStateHandler } from "../../handlers/SlobyStateHandler";
 import { SlobyBaseTool } from "../../utils/abstracts";
 
-export default class TestTool implements SlobyBaseTool {
-  constructor() {}
-
-   initializeTool(tool: string) {
-    console.log(`${tool} has been initialized`)
-    return true
+export default class TestTool extends SlobyStateHandler {
+  constructor() {
+    super();
   }
-
-  status() { return "" }
 }
