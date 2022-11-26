@@ -10,8 +10,4 @@ export default class SlobyHelper {
   setLocalStorage(value: string, data: any) {
     return localStorage.setItem(value, JSON.stringify(data))
   }
-
-  getAllSlobyToolClass() {
-    
-  }
 }

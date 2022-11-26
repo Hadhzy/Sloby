@@ -5,24 +5,23 @@ import { BaseSlobyToolObject, SlobyToolPropertyObject } from "../../utils/types"
 import SlobyHelper from "../SlobyHelper";
 
 export class SlobyStateHandler implements SlobyStateHandlerInterface {
-  state: Record<string, any>
+  state: any
   constructor() {
-    const help = new SlobyHelper()
-    this.state = help.getLocalStorage(SlobyGlobalState)
+    this.state = {}
   }
 
   getGlobalInitialState() { return this.state }
-  addGlobalToolProperty(value: string, payload: SlobyToolPropertyObject) {
-    if(!SlobyToolsStore[value]) throw new Error(`${value} is not an existing Sloby Tool`)
-    console.log("it is not having an own value")
-    this.state[value] = payload
+
+  addGlobalToolProperty(currentTool: string, payload: SlobyToolPropertyObject) {
+    if(!SlobyToolsStore[currentTool]) throw new Error(`${currentTool} is not an existing Sloby Tool`)
+    this.state[currentTool] = payload
     console.log(this.state)
     const help = new SlobyHelper()
     help.setLocalStorage(SlobyGlobalState, this.state)
-    console.log(`Local storage has been initialized with the new tool of ${value}`)
+    console.log(`Local storage has been initialized with the new tool of ${currentTool}`)
   }
 
-  initializeTool(tool: string):void {
+  initializeTool(tool: string) {
     this.addGlobalToolProperty(tool, { isActive: false })
   }
 }
