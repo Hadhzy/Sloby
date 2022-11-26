@@ -18,7 +18,5 @@ export class Deliver {
     let handler = new SlobyDynamicClass(tool)
     // @ts-expect-error
     handler.initializeTool(tool)
-    // @ts-expect-error
-    handler.activateTool(tool)
   }
 }

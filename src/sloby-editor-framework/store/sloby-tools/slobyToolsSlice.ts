@@ -6,7 +6,7 @@ import TextCreationTool from "../../tools/text-creator"
 import { ExpectedToolActionParameter } from "../../utils/types"
 import { SlobyStateHandler } from "../../handlers/SlobyStateHandler"
 import { SlobyGlobalState } from "../../utils/constans"
-import SlobyManager from "../../handlers/SlobyManager"
+import SlobyManager from "../../handlers/SlobyHelper"
 
 
 export interface Tools {
@@ -16,7 +16,7 @@ export interface Tools {
 }
 const manager = new SlobyManager()
 
-const initialState: any = manager.getLocalStorageGlobalState()
+const initialState: any = manager.getLocalStorage(SlobyGlobalState)
 
 export const slobyToolsSlice = createSlice({
   name: "sloby_tools",
