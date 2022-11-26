@@ -42,9 +42,8 @@ function SlobyMenu() {
       <MainMenus>
         {mainMenus.map((item: any) => {
           return (
-              <Link to={item.path} className="off-link-dec">
+              <Link to={item.path} className="off-link-dec" key={item.id}>
                 <MenuItem
-                key={item.id}
                 id={item.title}
                 
               >

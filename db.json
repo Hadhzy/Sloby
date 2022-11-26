@@ -262,6 +262,12 @@
       "tool_name": "Text Creator",
       "url": "https://cdn.discordapp.com/attachments/753660501996863488/1039835182808699020/icons8-font-48_3.png",
       "tool": "TextCreationTool"
+    },
+    {
+      "id": 1,
+      "tool_name": "Test Tool",
+      "url": "https://cdn.discordapp.com/attachments/753660501996863488/1039835182808699020/icons8-font-48_3.png",
+      "tool": "TestTool"
     }
   ]
 }

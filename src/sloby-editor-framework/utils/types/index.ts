@@ -16,3 +16,12 @@ export type SlobyToolObject = {
 }
 
 export type SlobyStateValue = {}
+
+export type SlobyToolPropertyObject = {
+  isActive: boolean
+}
+
+export type BaseSlobyToolObject = {
+  [key: string]: any
+  isActive?: boolean
+}

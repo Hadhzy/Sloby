@@ -6,7 +6,7 @@ export interface SlobyToolsStoreObject {
 
 export interface SlobyStateHandlerInterface {
   getGlobalInitialState(): Object
-  addGlobalToolProperty(value: string): void
+  addGlobalToolProperty(value: string, payload: any): void
 }
 
 export interface Tools {
