@@ -1,11 +1,5 @@
-import { Tools } from "../../store/sloby-tools/slobyToolsSlice"
-
 export type SlobyElement = {
   type?: string
-}
-
-export type ExpectedToolActionParameter = {
-  tool: keyof Tools ,
 }
 
 export type SlobyToolObject = {
