@@ -1,5 +1,5 @@
-import { SlobyDynamicClass } from "./SlobyDynamicClass"
-import { SlobySet } from "./SlobySets/main"
+import { SlobyDynamicClass } from './SlobyDynamicClass'
+import { SlobySet } from './SlobySets/main'
 
 export class Deliver {
   constructor() {}

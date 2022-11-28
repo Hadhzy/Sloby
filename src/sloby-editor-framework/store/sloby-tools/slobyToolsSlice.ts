@@ -1,28 +1,27 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit"
-import { useContext } from "react"
-import { ContentContext } from "../../../Others/Context/ContentContext"
-import { Deliver } from "../../handlers/deliver"
-import TextCreationTool from "../../tools/text-creator"
-import { ExpectedToolActionParameter } from "../../utils/types"
-import { SlobyStateHandler } from "../../handlers/SlobyStateHandler"
-import { SlobyGlobalState } from "../../utils/constans"
-import SlobyManager from "../../handlers/SlobyHelper"
-
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { useContext } from 'react'
+import { ContentContext } from '../../../Others/Context/ContentContext'
+import { Deliver } from '../../handlers/deliver'
+import TextCreationTool from '../../tools/text-creator'
+import { ExpectedToolActionParameter } from '../../utils/types'
+import { SlobyStateHandler } from '../../handlers/SlobyStateHandler'
+import { SlobyGlobalState } from '../../utils/constans'
+import SlobyManager from '../../handlers/SlobyHelper'
 
 export interface Tools {
   TextCreationTool: {
     isActive: boolean
-  },
+  }
 }
 const manager = new SlobyManager()
 
 const initialState: any = manager.getLocalStorage(SlobyGlobalState)
 
 export const slobyToolsSlice = createSlice({
-  name: "sloby_tools",
+  name: 'sloby_tools',
   initialState,
-  reducers: {}
+  reducers: {},
 })
 
-export const {  } = slobyToolsSlice.actions
+export const {} = slobyToolsSlice.actions
 export default slobyToolsSlice.reducer

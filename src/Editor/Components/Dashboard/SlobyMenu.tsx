@@ -1,6 +1,6 @@
-import { Menu } from '@material-ui/core';
-import React, { useContext, useEffect, useState } from 'react';
-import { ContentContext } from '../../../Others/Context/ContentContext';
+import { Menu } from '@material-ui/core'
+import React, { useContext, useEffect, useState } from 'react'
+import { ContentContext } from '../../../Others/Context/ContentContext'
 import {
   SlobyDashboard,
   SlobyMenuContainer,
@@ -15,22 +15,21 @@ import {
   SlobyMenuCategoryTitle,
   FavoriteProject,
   NewProjectButton,
-} from '../../utils/styles/Dashboard';
-import { useDispatch } from 'react-redux';
-import { AppDispatch } from '../../store';
-import { setProjectModal } from '../../store/dashboard/dashboardSlice';
-import { mainMenus, views } from '../../utils/temporaryAPI';
-import { AiTwotoneFolder } from 'react-icons/ai';
-import { IEventType } from '../../utils/types';
-import { Link } from 'react-router-dom';
-import { Outlet } from 'react-router-dom';
+} from '../../utils/styles/Dashboard'
+import { useDispatch } from 'react-redux'
+import { AppDispatch } from '../../store'
+import { setProjectModal } from '../../store/dashboard/dashboardSlice'
+import { mainMenus, views } from '../../utils/temporaryAPI'
+import { AiTwotoneFolder } from 'react-icons/ai'
+import { IEventType } from '../../utils/types'
+import { Link } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 
 function SlobyMenu() {
-    const { sloby_dashboard } = useContext(ContentContext);
-    const dispatch = useDispatch<AppDispatch>();
-    const [value, setValues] = useState(false)
-        
-    
+  const { sloby_dashboard } = useContext(ContentContext)
+  const dispatch = useDispatch<AppDispatch>()
+  const [value, setValues] = useState(false)
+
   return (
     <SlobyMenuContainer>
       <UserDetails>
@@ -38,31 +37,31 @@ function SlobyMenu() {
         <UserName>Gabor Hadhazy's dashboard</UserName>
       </UserDetails>
       <div className="underline"></div>
-      
+
       <MainMenus>
         {mainMenus.map((item: any) => {
           return (
-              <Link to={item.path} className="off-link-dec" key={item.id}>
-                <MenuItem
-                id={item.title}
-                
-              >
+            <Link to={item.path} className="off-link-dec" key={item.id}>
+              <MenuItem id={item.title}>
                 {item.icon}
                 {item.title}
-                </MenuItem>
-              </Link>
-          );
+              </MenuItem>
+            </Link>
+          )
         })}
-       <NewProjectButton onClick={() => dispatch(setProjectModal(true))}>New Project</NewProjectButton>
+        <NewProjectButton onClick={() => dispatch(setProjectModal(true))}>
+          New Project
+        </NewProjectButton>
       </MainMenus>
       <ViewsContainer>
         <SlobyMenuCategoryTitle>Views</SlobyMenuCategoryTitle>
         {views.map((item: any) => {
-          return <ViewItem key={item.id}>
+          return (
+            <ViewItem key={item.id}>
               {item.icon}
               {item.title}
             </ViewItem>
-          ;
+          )
         })}
       </ViewsContainer>
       <FavoriteContainer>
@@ -75,7 +74,7 @@ function SlobyMenu() {
         </FavoriteContainer>
       </FavoriteContainer>
     </SlobyMenuContainer>
-  );
+  )
 }
 
-export default SlobyMenu;
+export default SlobyMenu

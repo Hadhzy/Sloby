@@ -1,307 +1,289 @@
 .forum-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgba(242, 242, 242, 1);
+  align-items: center;
+  font-size: 16px;
+  height: 800px;
+  flex: 1;
+  .help-system-container {
+    width: 800px;
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    background-color: rgba(242, 242, 242, 1);
-    align-items: center;
-    font-size: 16px;
-    height: 800px;
-    flex: 1;
-    .help-system-container {
-        width: 800px;
-        display: flex;
-        flex-direction: column;
-        transition: 250ms ease-in-out;
-        width: 72%;
-        height: inherit;
-        background-color: white;
-        border-radius: 16px;
-        margin-bottom: 20px;
-        margin-top: 10px;
-       
-        .ask-for-help {
-            padding: 5px;
-            filter: drop-shadow(0 7px 5px rgba(0, 0, 0, 0.3));
-            display: flex;
-            justify-content: center;
-            background: white;
-            border-radius: 16px;
-        }
-        
-        .underline {
-            width: 5rem;
-            height: 0.25rem;
-            background: $blue-hover-color;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 10px;
-            &.bigger-line{
-                width: 18rem;
-            }
-        }
+    transition: 250ms ease-in-out;
+    width: 72%;
+    height: inherit;
+    background-color: white;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    margin-top: 10px;
 
-        
+    .ask-for-help {
+      padding: 5px;
+      filter: drop-shadow(0 7px 5px rgba(0, 0, 0, 0.3));
+      display: flex;
+      justify-content: center;
+      background: white;
+      border-radius: 16px;
+    }
 
+    .underline {
+      width: 5rem;
+      height: 0.25rem;
+      background: $blue-hover-color;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 10px;
+      &.bigger-line {
+        width: 18rem;
+      }
+    }
 
     .create-question-container {
-        margin-top: 15px;
-        padding: 10px;
-        display: flex;
+      margin-top: 15px;
+      padding: 10px;
+      display: flex;
     }
 
-        .title-questions {
-            font-weight: lighter;
-            font-size: $large-font-size;
-            margin-top: 25px;
+    .title-questions {
+      font-weight: lighter;
+      font-size: $large-font-size;
+      margin-top: 25px;
+    }
+    .questions-container {
+      .question-item {
+        display: flex;
+        justify-content: space-between;
+        border: 2px solid #d5d7d9;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        width: $question-item-width;
+        transition: 250ms ease-in-out;
+
+        &:hover {
+          transition: 250ms ease-in-out;
+          box-shadow: 2px 2px 2px 1px #141414;
+          transform: translateY(-1px);
         }
-     .questions-container {
+        .question-title-and-desc {
+          padding: 5px;
+          width: 90%;
 
-         .question-item {
+          .question-title {
+            font-size: $question-title-font-size;
+            margin-top: -10px;
+            border-bottom: 1px solid #d5d7d9;
+            border-radius: 10px;
+            margin-bottom: 15px;
+          }
+          .question-description {
+            height: 70px;
+            padding: 5px 2px;
+            overflow-wrap: break-word;
+            overflow-y: scroll;
+          }
 
-            display: flex;
-            justify-content: space-between;
-            border: 2px solid #d5d7d9;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            width: $question-item-width;
-            transition: 250ms ease-in-out;
-
-              &:hover {
-             transition: 250ms ease-in-out;
-              box-shadow: 2px 2px 2px 1px #141414;
-            transform: translateY(-1px);
-         }
-             .question-title-and-desc {
-                 padding: 5px;
-                 width: 90%;
-
-                 .question-title {
-                     font-size: $question-title-font-size;
-                     margin-top: -10px;
-                     border-bottom: 1px solid #d5d7d9;
-                     border-radius: 10px;
-                     margin-bottom: 15px;
-
-                 }
-                 .question-description {
-                    height: 70px;
-                    padding: 5px 2px;
-                    overflow-wrap: break-word;
-                    overflow-y: scroll;
-                 }
-
-
-                  .delete-icon {
-                    cursor: pointer;
-                  }
-             }
-         }
-     }
+          .delete-icon {
+            cursor: pointer;
+          }
+        }
+      }
+    }
   }
 
+  .modal-add-item-container {
+    display: flex;
+    background-color: white;
+    padding: 20px;
+    filter: drop-shadow(0 10px 6px rgba(0, 0, 0, 0.22));
+    margin-bottom: 15px;
+    border-radius: 20px;
+    border-top: 5px solid #52ae30;
+    color: #52ae30;
+  }
 
-
-    .modal-add-item-container {
-        display: flex;
-        background-color: white;
-        padding: 20px;
-        filter: drop-shadow(0 10px 6px rgba(0, 0, 0, 0.22));
-        margin-bottom: 15px;
-        border-radius: 20px;
-        border-top: 5px solid #52ae30;
-        color: #52ae30;
-
-    }
-
-    .modal-no-value-container {
-        background-color: white;
-        padding: 20px;
-        filter: drop-shadow(0 10px 6px rgba(0, 0, 0, 0.22));
-        margin-bottom: 15px;
-        border-radius: 20px;
-        border-top: 5px solid red;
-        color: red;
-        display: flex;
-    }
-
+  .modal-no-value-container {
+    background-color: white;
+    padding: 20px;
+    filter: drop-shadow(0 10px 6px rgba(0, 0, 0, 0.22));
+    margin-bottom: 15px;
+    border-radius: 20px;
+    border-top: 5px solid red;
+    color: red;
+    display: flex;
+  }
 }
 
 .container {
-    position: fixed;
-    z-index: 200;
-    background-color: rgba(0,0,0, 0.6);
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+  position: fixed;
+  z-index: 200;
+  background-color: rgba(0, 0, 0, 0.6);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .details {
+    width: 80%;
+    height: 80%;
+    background-color: white;
+    padding: 10px;
+    border-radius: 11px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    .details {
-        width: 80%;
-        height: 80%;
-        background-color: white;
-        padding: 10px;
-        border-radius: 11px;
+    flex-direction: column;
+    overflow: scroll;
+    position: fixed;
+    border: 1px solid green;
+
+    .MuiSvgIcon-root {
+      color: black;
+    }
+
+    .MuiSelect-select.MuiSelect-select {
+      display: flex;
+      justify-content: center;
+    }
+
+    .close-icon {
+      position: fixed;
+    }
+
+    .category-selector {
+      width: 400px;
+      height: 37px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: $black_theme_background_header;
+      border-radius: 0.25rem;
+      resize: vertical;
+      user-select: none;
+      margin-bottom: 25px;
+      max-width: calc(#{$form-container-width} - 15px * 2.5);
+      font-weight: bold;
+      border: 1px solid #767676;
+
+      &:hover {
+        outline-style: none;
+        transition: 250ms ease-in-out;
+        border-color: $blue-hover-color;
+        box-shadow: 2px 2px 2px 1px $blue-hover-color;
+      }
+
+      &:focus {
+        outline-style: none;
+        transition: 250ms ease-in-out;
+        border-color: $blue-hover-color;
+        box-shadow: 2px 2px 2px 1px $blue-hover-color;
+      }
+
+      .paragraph {
+        color: #5f5f5f;
+        margin: 0 6px;
+      }
+
+      .selector {
+        background-color: $blue-hover-color;
+      }
+    }
+
+    .MuiSelect-select.MuiSelect-select {
+      width: 130px;
+      color: #d5d7d9;
+    }
+    .MuiInputLabel-animated {
+      color: #d5d7d9;
+    }
+
+    .inputs {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+
+      .select-option {
+        background-color: $black_theme_background_header;
+      }
+    }
+
+    .message-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .textarea {
+        width: 60%;
+        height: 200px;
+        padding: 12px 20px;
+        border-radius: 4px;
+        background-color: $black_theme_background_header;
+        font-size: 16px;
+        resize: none;
+        color: white;
+        font-family: inherit;
+        font-size: $medium-font-size;
+        margin-top: 30px;
+
+        &:focus {
+          outline-style: none;
+          transition: 250ms ease-in-out;
+          border-color: $blue-hover-color;
+          box-shadow: 2px 2px 2px 1px $blue-hover-color;
+        }
+      }
+    }
+
+    .submit-button-container {
+      display: flex;
+      justify-content: flex-end;
+      margin: 50px;
+    }
+
+    .upload-image-container {
+      display: flex;
+      justify-content: center;
+      margin: 100px 0px;
+
+      .upload-container {
+        border: 1px solid #767676;
+        padding: 20px;
+        width: 900px;
+        height: 150px;
         display: flex;
         flex-direction: column;
-        overflow: scroll;   
-        position: fixed;
-        border: 1px solid green;
+        justify-content: space-around;
+        display: flex;
+        align-items: center;
+        border-style: dashed;
+        border-radius: 5px;
+        cursor: pointer;
 
-        
-        .MuiSvgIcon-root {
-            color: black;
+        &:hover {
+          outline-style: none;
+          transition: 250ms ease-in-out;
+          border-color: $blue-hover-color;
+          box-shadow: 2px 2px 2px 1px $blue-hover-color;
         }
 
-        .MuiSelect-select.MuiSelect-select {
-            display: flex;
-            justify-content: center;
+        .description {
+          color: #767676;
         }
 
-        .close-icon {
-            position: fixed;
+        .image-icon {
+          font-size: $large-font-size;
         }
 
-        .category-selector {
-            width: 400px;
-            height: 37px;
-            display: flex;
-            justify-content:space-between;
-            align-items: center;
-            background-color: $black_theme_background_header;
-            border-radius: 0.25rem;
-            resize: vertical;
-            user-select: none;
-            margin-bottom: 25px;
-            max-width: calc(#{$form-container-width} - 15px*2.5);
-            font-weight: bold;
-            border: 1px solid #767676;
-            
-            &:hover {
-                outline-style: none;
-                transition: 250ms ease-in-out;
-                border-color: $blue-hover-color;
-                box-shadow: 2px 2px 2px 1px $blue-hover-color;
-            }
-
-            &:focus {
-                outline-style: none;
-                transition: 250ms ease-in-out;
-                border-color: $blue-hover-color;
-                box-shadow: 2px 2px 2px 1px $blue-hover-color;
-            }
-
-            .paragraph {
-                color: #5f5f5f;
-                margin: 0 6px;
-            }
-
-            .selector {
-                background-color: $blue-hover-color;
-            }
+        img {
+          margin-bottom: 15px;
+          width: 50px;
+          height: 50px;
         }
 
-        .MuiSelect-select.MuiSelect-select {
-            width: 130px;
-            color: #d5d7d9;
+        .icon {
+          font-size: 3rem;
         }
-        .MuiInputLabel-animated {
-            color: #d5d7d9;
-        }
-
-        .inputs {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-
-            .select-option {
-                background-color: $black_theme_background_header;
-            }
-        }
-
-        .message-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            .textarea {
-                width: 60%;
-                height: 200px;
-                padding: 12px 20px;
-                border-radius: 4px;
-                background-color: $black_theme_background_header;
-                font-size: 16px;
-                resize: none;
-                color: white;
-                font-family:inherit;
-                font-size: $medium-font-size;
-                margin-top: 30px;
-
-                &:focus {
-                    outline-style: none;
-                    transition: 250ms ease-in-out;
-                    border-color: $blue-hover-color;
-                    box-shadow: 2px 2px 2px 1px $blue-hover-color;
-                }
-            }
-
-            
-        }
-
-        .submit-button-container {
-            display: flex;
-            justify-content: flex-end;
-            margin: 50px;
-        }
-
-        .upload-image-container {
-            display: flex;
-            justify-content: center;
-            margin: 100px 0px;
-            
-            .upload-container {
-                border: 1px solid #767676;
-                padding: 20px;
-                width: 900px;
-                height: 150px;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-around;
-                display: flex;
-                align-items: center;
-                border-style: dashed;
-                border-radius: 5px;
-                cursor: pointer;
-
-                &:hover {
-                    outline-style: none;
-                    transition: 250ms ease-in-out;
-                    border-color: $blue-hover-color;
-                    box-shadow: 2px 2px 2px 1px $blue-hover-color;
-                }
-
-                .description {
-                    color: #767676;
-                }
-
-                .image-icon {
-                    font-size: $large-font-size;
-                }
-
-                img {
-                    margin-bottom: 15px;
-                    width: 50px;
-                    height: 50px;
-                }
-
-                .icon {
-                    font-size: 3rem;
-                }
-
-                
-            }
-        }
+      }
     }
+  }
 }
-
-
