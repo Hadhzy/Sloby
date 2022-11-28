@@ -30,6 +30,7 @@ function App() {
     <ContentContextProvider>
       <ThemeContextProvider>
           <div className='App'>
+            <h1>TESTING</h1>
                 <Routes>
                   <Route path="/" element={<Header/>} />
                   <Route path='/user/profile' element={<Profile />} />
