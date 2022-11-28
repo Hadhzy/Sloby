@@ -17,7 +17,7 @@ import { useSearchParams } from 'react-router-dom';
 function Dashboard() {
     const dashboardSlice = useSelector((state: RootState) => {
         console.log(state)
-        return state.dashboard
+        return state.projectDashboard
     })
     const [searchParams] = useSearchParams()
     console.log(searchParams.getAll)

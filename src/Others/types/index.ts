@@ -21,7 +21,8 @@ export type IContentContext = {
     social_content?: any,
     settings?: Array<Object> | any,
     admin_page?: IAdminPage | any,
-    sloby_dashboard?: Object | any
+    sloby_dashboard?: Object | any,
+    sloby_tools?: Object | any
 }
 
 export type IThemeContext = {
