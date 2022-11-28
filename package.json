@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "sloby-editor": "./sloby-editor-framework",
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
     "@fortawesome/fontawesome-svg-core": "^1.3.0",
@@ -41,6 +40,7 @@
     "react-scroll-to-bottom": "^4.2.0",
     "react-toastify": "^9.1.0",
     "sass": "^1.49.8",
+    "sloby-editor": "./sloby-editor-framework",
     "socket.io-client": "^4.4.1",
     "styled-components": "^5.3.6",
     "typescript": "^4.8.3",
@@ -52,7 +52,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint src --ext .ts,.tsx,.js,.jsx"
   },
   "eslintConfig": {
     "extends": [
@@ -74,7 +75,10 @@
   },
   "devDependencies": {
     "@types/uuid": "^8.3.4",
-    "eslint": "^8.7.0",
+    "@typescript-eslint/eslint-plugin": "^5.44.0",
+    "@typescript-eslint/parser": "^5.44.0",
+    "eslint": "^8.28.0",
+    "eslint-plugin-react": "^7.31.11",
     "jsdoc": "^3.6.11",
     "prettier": "^2.5.1"
   }
