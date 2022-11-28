@@ -1,3 +1,1 @@
-export class Formatter {
-  constructor() {}
-}
+export class Formatter {}

@@ -1,3 +1,1 @@
-export class Injector {
-    constructor() {}
-}
+export class Injector {}
