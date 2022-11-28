@@ -9,12 +9,15 @@ export class SlobyDynamicClass {
      * Checking if the className is exist in the store object.
      * If the class is exists then it will return an instance of it.
      */
-    if(SlobyToolsStore[currentClassName] === undefined || SlobyToolsStore[currentClassName] === null) {
+    if (
+      SlobyToolsStore[currentClassName] === undefined ||
+      SlobyToolsStore[currentClassName] === null
+    ) {
       /**
        * Throwing an error when the tool is not existing.
        */
-      throw new Error(`Class ${currentClassName} is not in the store`)
+      throw new Error(`Class ${currentClassName} is not in the store`);
     }
-    return new SlobyToolsStore[currentClassName](args)
+    return new SlobyToolsStore[currentClassName](args);
   }
 }

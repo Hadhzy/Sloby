@@ -1,14 +1,19 @@
-import React from "react"
-import { AdminPageContainer } from "../../../Editor/utils/styles/AdminPage"
-import { SlobyEditorContainer, SlobyParts,  SlobyNavigatorContainer} from "../../../Editor/utils/styles/Editor"
-import SlobyBuildingSteps from "../SlobyBuildingSteps"
-import SlobyEditorNavigator from "../SlobyEditorNavigator"
-import SlobyModifier from "../SlobyModifier"
-import SlobyPreviewSiteInterface from "../SlobyPreviewSiteInterface"
-import SlobyTools from "../SlobyTools"
+import React from "react";
+import { AdminPageContainer } from "../../../Editor/utils/styles/AdminPage";
+import {
+  SlobyEditorContainer,
+  SlobyParts,
+  SlobyNavigatorContainer,
+} from "../../../Editor/utils/styles/Editor";
+import SlobyBuildingSteps from "../SlobyBuildingSteps";
+import SlobyEditorNavigator from "../SlobyEditorNavigator";
+import SlobyModifier from "../SlobyModifier";
+import SlobyPreviewSiteInterface from "../SlobyPreviewSiteInterface";
+import SlobyTools from "../SlobyTools";
 
 function SlobyEditor() {
-  return <SlobyEditorContainer>
+  return (
+    <SlobyEditorContainer>
       <SlobyNavigatorContainer>
         <SlobyEditorNavigator />
       </SlobyNavigatorContainer>
@@ -18,7 +23,8 @@ function SlobyEditor() {
         <SlobyPreviewSiteInterface />
         <SlobyModifier />
       </SlobyParts>
-  </SlobyEditorContainer>
+    </SlobyEditorContainer>
+  );
 }
 
-export default SlobyEditor
+export default SlobyEditor;

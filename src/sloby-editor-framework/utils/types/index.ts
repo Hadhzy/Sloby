@@ -1,21 +1,19 @@
 export type SlobyElement = {
-  type?: string
-}
+  type?: string;
+};
 
 export type SlobyToolObject = {
-  id: number
-  tool_name: string
-  url: string
-  tool: string
-}
-
-export type SlobyStateValue = {}
+  id: number;
+  tool_name: string;
+  url: string;
+  tool: string;
+};
 
 export type SlobyToolPropertyObject = {
-  isActive: boolean
-}
+  isActive: boolean;
+};
 
 export type BaseSlobyToolObject = {
-  [key: string]: any
-  isActive?: boolean
-}
+  [key: string]: any;
+  isActive?: boolean;
+};

@@ -4,7 +4,6 @@ export class InerfaceInjector {
   /**
    * It is going to inject the current Object that we're working with to the preview site interface.
    */
-  constructor() { }
 
   inject() {
     /**
