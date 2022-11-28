@@ -42,9 +42,8 @@ function SlobyMenu() {
       <MainMenus>
         {mainMenus.map((item: any) => {
           return (
-              <Link to={item.path} className="off-link-dec">
+              <Link to={item.path} className="off-link-dec" key={item.id}>
                 <MenuItem
-                key={item.id}
                 id={item.title}
                 
               >
@@ -59,12 +58,11 @@ function SlobyMenu() {
       <ViewsContainer>
         <SlobyMenuCategoryTitle>Views</SlobyMenuCategoryTitle>
         {views.map((item: any) => {
-          return (
-            <ViewItem key={item.id}>
+          return <ViewItem key={item.id}>
               {item.icon}
               {item.title}
             </ViewItem>
-          );
+          ;
         })}
       </ViewsContainer>
       <FavoriteContainer>

@@ -52,7 +52,6 @@ export type IEventType = React.ChangeEvent<HTMLInputElement> | React.ChangeEvent
 export type ISlobyValidateState = any
 
 
-
 export interface ISlobyValidate {
     inputNames: any,
     setInputNames(): void,

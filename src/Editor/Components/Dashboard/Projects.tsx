@@ -10,7 +10,7 @@ import { GiConsoleController } from 'react-icons/gi'
 import { v4 as uuidv4 } from "uuid";
 
 function Projects() {
-  const dashboardSlice = useSelector((state: RootState) => state.dashboard)
+  const dashboardSlice = useSelector((state: RootState) => state.projectDashboard)
   const navigate = useNavigate()
   const EmptyProject = () => {
     return <EmptyProjects>

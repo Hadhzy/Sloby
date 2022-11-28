@@ -20,9 +20,6 @@ let initalState = {
 }
 
 let slobyError = ""
-console.log(slobyError)
-
-
 
 function AdminPage() {
     const isUserHavePermission = useAuth()

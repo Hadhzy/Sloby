@@ -22,7 +22,7 @@ import AdminPageDashboard from "./Editor/Components/Admin/AdminDashboard"
 import Updates from "./Editor/Components/Dashboard/Updates"
 import Progress from "./Editor/Components/Dashboard/Progress"
 import Projects from "./Editor/Components/Dashboard/Projects"
-import Editor from "./Editor/Components/Editor/Editor"
+import SlobyEditor from "./sloby-editor-framework/implementations/SlobyEditor/Editor"
 function App() {
   return (
   <BrowserRouter>
@@ -41,7 +41,7 @@ function App() {
                   <Route path='users/register' element={<RegisterPage />} />
                   <Route path='users/login' element={<LoginPage />} />
                   <Route path='users/verified-registration-email' element={<RegistrationEmailSentPage/>} />
-                  <Route path="editor/workspace/:id" element={<Editor />} />
+                  <Route path="editor/workspace/:id" element={<SlobyEditor />} />
                   <Route path="editor/dashboard" element={<Dashboard />}> 
                     <Route index element={<Projects />} />
                     <Route path="profile-settings" element={<Settings />} />
