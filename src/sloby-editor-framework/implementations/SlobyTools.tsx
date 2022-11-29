@@ -56,6 +56,7 @@ function SlobyTools() {
                       className="sloby-tool-image"
                       id={sloby_tool.tool}
                     />
+                    a
                   </SlobyToolInnerContainer>
                 </div>
               </Tool>
