@@ -7,9 +7,7 @@ _Parts of the sloby:_
 
 > The `Editor`(itself)
 
-> The `sloby-python-framework`
-
-> The `parsers(python, react)`
+> The `slobypy`
 
 ## Setup.
 
