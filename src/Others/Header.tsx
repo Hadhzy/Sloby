@@ -1,26 +1,26 @@
-import React, { useState, useEffect, useContext, SetStateAction } from "react";
-import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
-import axios from "axios";
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, useContext, SetStateAction } from 'react'
+import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown'
+import axios from 'axios'
+import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import {
   Menu,
   MenuItem,
   Button,
   ListItemSecondaryActionClassKey,
-} from "@material-ui/core";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
-import { ThemeContext } from "./Context/ThemeContext";
-import { ContentContext } from "./Context/ContentContext";
-import { UserContext } from "./Context/UserContext";
-import { useLocation } from "react-router-dom";
-import PreventUrls from "./libraries/globalHelper/preventUrls";
-import Content from "./Content";
-import Footer from "./Footer";
+} from '@material-ui/core'
+import MoreVertIcon from '@material-ui/icons/MoreVert'
+import { ThemeContext } from './Context/ThemeContext'
+import { ContentContext } from './Context/ContentContext'
+import { UserContext } from './Context/UserContext'
+import { useLocation } from 'react-router-dom'
+import PreventUrls from './libraries/globalHelper/preventUrls'
+import Content from './Content'
+import Footer from './Footer'
 
 type IHeaderItemData = {
-  item_data: { items?: Array<string>; url?: string; title?: string | any };
-};
+  item_data: { items?: Array<string>; url?: string; title?: string | any }
+}
 
 function HeaderMenuItem({ item_data }: IHeaderItemData) {
   return (
@@ -44,7 +44,7 @@ function HeaderMenuItem({ item_data }: IHeaderItemData) {
                 <Link
                   to={`/categories/${item_data.url}/${i
                     .toLowerCase()
-                    .replaceAll(" ", "-")}`}
+                    .replaceAll(' ', '-')}`}
                   className="popup-items off-link-dec"
                 >
                   {i}
@@ -54,7 +54,7 @@ function HeaderMenuItem({ item_data }: IHeaderItemData) {
           </div>
         )}
       </>
-    );
+    )
   }
 }
 
@@ -63,7 +63,7 @@ function HeaderMenu() {
 
   useEffect(() => {
     axios({
-      method: "get",
+      method: 'get',
       url: `${process.env.REACT_APP_API_URL}categories/`,
     }).then((res) => set_menu_list(res.data));
   }, []);
@@ -78,16 +78,16 @@ function HeaderMenu() {
 }
 
 function Header() {
-  const { theme } = useContext(ThemeContext);
-  const { categories_accounts } = useContext(ContentContext);
-  const { logged_in, log_out_user } = useContext(UserContext);
-  const currentUrl = useLocation();
+  const { theme } = useContext(ThemeContext)
+  const { categories_accounts } = useContext(ContentContext)
+  const { logged_in, log_out_user } = useContext(UserContext)
+  let currentUrl = useLocation()
 
-  const headerClassName = new PreventUrls({
-    className: "theme-case-header",
-    urlToPreventFrom: ["/editor/dashboard", "/admin"],
+  let headerClassName = new PreventUrls({
+    className: 'theme-case-header',
+    urlToPreventFrom: ['/editor/dashboard', '/admin'],
     currentUrl: currentUrl.pathname,
-  });
+  })
 
   return (
     <div className="theme-case-header">
@@ -113,7 +113,7 @@ function Header() {
               transition={{
                 delay: 1,
                 duration: 0.2,
-                type: "spring",
+                type: 'spring',
                 stiffness: 400,
               }}
             >
@@ -152,12 +152,12 @@ function Header() {
       <Content />
       <Footer />
     </div>
-  );
+  )
 }
 
 function Sidebar() {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const { settings_menu_titles } = useContext(ContentContext);
+  const [anchorEl, setAnchorEl] = useState(null)
+  const { settings_menu_titles } = useContext(ContentContext)
 
   const handleClick = (event: any) => {
     setAnchorEl(event.currentTarget);
@@ -203,4 +203,4 @@ function Sidebar() {
   );
 }
 
-export default Header;
+export default Header

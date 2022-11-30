@@ -12,6 +12,6 @@ export interface SlobyStateHandlerInterface {
 
 export interface Tools {
   TextCreationTool: {
-    isActive: boolean;
-  };
+    isActive: boolean
+  }
 }

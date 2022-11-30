@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
-import { Link, Outlet } from "react-router-dom";
-import { UserContext } from "../Context/UserContext";
+import React, { useContext } from 'react'
+import { Link, Outlet } from 'react-router-dom'
+import { UserContext } from '../Context/UserContext'
 function Profile() {
   const {
     first_name,
@@ -15,7 +15,7 @@ function Profile() {
     set_user_name,
     phone_number,
     set_phone_number,
-  } = useContext<any>(UserContext);
+  } = useContext<any>(UserContext)
   return (
     <div className="profile-container content-base">
       <h1 className="title-base">Profile</h1>
@@ -41,4 +41,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default Profile

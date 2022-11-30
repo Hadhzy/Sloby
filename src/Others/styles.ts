@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -6,17 +6,17 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(8, 0, 6),
   },
   icon: {
-    marginRight: "20px",
+    marginRight: '20px',
   },
   buttons: {
-    marginTop: "40px",
+    marginTop: '40px',
   },
   footer: {
     backgroundColor: theme.palette.background.paper,
-    padding: "55px 0",
+    padding: '55px 0',
   },
   testBorder: {
-    color: "red",
+    color: 'red',
   },
 }));
 

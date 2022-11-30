@@ -1,10 +1,10 @@
-import { IPreventUrl } from "../../types";
-import React from "react";
+import { IPreventUrl } from '../../types'
+import React from 'react'
 
 class PreventUrls {
-  urlToPreventFrom: string[];
-  className: string;
-  currentUrl: string;
+  urlToPreventFrom: string[]
+  className: string
+  currentUrl: string
   // /**
   //      **This class is used for hide different components based on the current url of the browser.
   //     *
@@ -15,15 +15,15 @@ class PreventUrls {
   //  */
 
   constructor(options: IPreventUrl) {
-    this.className = options.className;
-    this.currentUrl = options.currentUrl;
-    this.urlToPreventFrom = options.urlToPreventFrom;
+    this.className = options.className
+    this.currentUrl = options.currentUrl
+    this.urlToPreventFrom = options.urlToPreventFrom
   }
 
   preventURL() {
     if (this.urlToPreventFrom.includes(this.currentUrl)) {
-      return "display-none";
-    } else return this.className;
+      return 'display-none'
+    } else return this.className
     /**
      * This method is going to check that whether or not the currentUrl is in the preventedUrl list.
      * @returns {string} - It is gonna return a string based on the conditions
@@ -31,4 +31,4 @@ class PreventUrls {
   }
 }
 
-export default PreventUrls;
+export default PreventUrls

@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
-import { motion } from "framer-motion";
-import { ContentContext } from "../../Context/ContentContext";
+import React, { useContext } from 'react'
+import { motion } from 'framer-motion'
+import { ContentContext } from '../../Context/ContentContext'
 
 const containerVariants = {
   init: {
@@ -11,13 +11,13 @@ const containerVariants = {
     transition: {
       delay: 1,
       duration: 0.2,
-      type: "spring",
+      type: 'spring',
       stiffness: 400,
     },
   },
-};
+}
 function AboutUsContent(props: any) {
-  const { social_content } = useContext(ContentContext);
+  const { social_content } = useContext(ContentContext)
 
   return (
     <div className="about-us-container">
@@ -44,7 +44,7 @@ function AboutUsContent(props: any) {
         {social_content?.about_us.description}
       </motion.div>
     </div>
-  );
+  )
 }
 
-export default AboutUsContent;
+export default AboutUsContent

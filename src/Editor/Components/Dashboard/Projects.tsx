@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 import {
   ProjectsHandler,
   ProjectContainer,
@@ -10,36 +10,36 @@ import {
   ProjectTitle,
   ProfilePicture,
   ProjectTitleContainer,
-} from "../../utils/styles/Dashboard";
-import Search from "./Search";
-import { useSelector } from "react-redux";
-import { RootState } from "../../store";
-import { FaImages } from "react-icons/fa";
-import { BsThreeDotsVertical } from "react-icons/bs";
-import { useNavigate } from "react-router-dom";
-import { GiConsoleController } from "react-icons/gi";
-import { v4 as uuidv4 } from "uuid";
+} from '../../utils/styles/Dashboard'
+import Search from './Search'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../store'
+import { FaImages } from 'react-icons/fa'
+import { BsThreeDotsVertical } from 'react-icons/bs'
+import { useNavigate } from 'react-router-dom'
+import { GiConsoleController } from 'react-icons/gi'
+import { v4 as uuidv4 } from 'uuid'
 
 function Projects() {
   const dashboardSlice = useSelector(
     (state: RootState) => state.projectDashboard
-  );
-  const navigate = useNavigate();
+  )
+  const navigate = useNavigate()
   const EmptyProject = () => {
     return (
       <EmptyProjects>
         <FaImages className="large-icon" />
         <Description>
-          You have no projects to show,let is create one.
+          You have no projects to show, let's create one.
         </Description>
       </EmptyProjects>
-    );
-  };
+    )
+  }
 
-  const handleProjectOpening = (navigate: any) => {
-    console.log("Inside of opening a project");
-    return navigate(`/editor/workspace/${uuidv4()}`);
-  };
+  const handleProjectOpening = (navigate: Function) => {
+    console.log('Inside of opening a project')
+    return navigate(`/editor/workspace/${uuidv4()}`)
+  }
 
   return (
     <>
@@ -58,15 +58,15 @@ function Projects() {
                     onClick={() => handleProjectOpening(navigate)}
                   >
                     <IntegrationButton>
-                      {" "}
-                      <BsThreeDotsVertical className="integration-button-icon" />{" "}
+                      {' '}
+                      <BsThreeDotsVertical className="integration-button-icon" />{' '}
                     </IntegrationButton>
                     <ProfilePicture />
                     <ProjectTitleContainer>
                       <ProjectTitle>{item.projectName}</ProjectTitle>
                     </ProjectTitleContainer>
                   </Project>
-                );
+                )
               })}
             </>
           )}
@@ -76,4 +76,4 @@ function Projects() {
   );
 }
 
-export default Projects;
+export default Projects

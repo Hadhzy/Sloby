@@ -1,7 +1,7 @@
-import React, { createContext, useState } from "react";
-import useLocalStorage from "use-local-storage";
-import { ContextChildren } from "../../Editor/utils/types";
-import { IThemeContext } from "../types";
+import React, { createContext, useState } from 'react'
+import useLocalStorage from 'use-local-storage'
+import { ContextChildren } from '../../Editor/utils/types'
+import { IThemeContext } from '../types'
 
 /**
  * This context is gonna determine that which is the current theme in our project
@@ -9,15 +9,15 @@ import { IThemeContext } from "../types";
  * @function switchTheme - This is gonna switch the theme based on the current theme, and return the opposite one.
  */
 
-export const ThemeContext = createContext<IThemeContext>(undefined!);
+export const ThemeContext = createContext<IThemeContext>(undefined!)
 
 export const ThemeContextProvider = ({ children }: ContextChildren) => {
-  const [theme, setTheme] = useLocalStorage("theme", "");
+  const [theme, setTheme] = useLocalStorage('theme', 'theme' ? 'dark' : 'light')
 
   const switchTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
-  };
+    const newTheme = theme === 'light' ? 'dark' : 'light'
+    setTheme(newTheme)
+  }
 
   return (
     <ThemeContext.Provider
@@ -28,5 +28,5 @@ export const ThemeContextProvider = ({ children }: ContextChildren) => {
     >
       {children}
     </ThemeContext.Provider>
-  );
-};
+  )
+}

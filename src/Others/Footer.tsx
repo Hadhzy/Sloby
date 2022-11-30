@@ -1,20 +1,20 @@
-import React, { useContext, useState, useEffect } from "react";
-import { ContentContext } from "./Context/ContentContext";
-import axios from "axios";
-import { useLocation } from "react-router-dom";
-import PreventUrls from "./libraries/globalHelper/preventUrls";
-import { IFooterItem } from "./types";
+import React, { useContext, useState, useEffect } from 'react'
+import { ContentContext } from './Context/ContentContext'
+import axios from 'axios'
+import { useLocation } from 'react-router-dom'
+import PreventUrls from './libraries/globalHelper/preventUrls'
+import { IFooterItem } from './types'
 
 function Footer() {
-  const { footer } = useContext(ContentContext);
-  const currentUrl = useLocation();
-  const footerClassName = new PreventUrls({
-    className: "footer-container",
-    urlToPreventFrom: ["/editor/dashboard", "/admin"],
+  const { footer } = useContext(ContentContext)
+  let currentUrl = useLocation()
+  let footerClassName = new PreventUrls({
+    className: 'footer-container',
+    urlToPreventFrom: ['/editor/dashboard', '/admin'],
     currentUrl: currentUrl.pathname,
-  });
+  })
 
-  return <div className="footer-container">Hello world</div>;
+  return <div className="footer-container">Hello world</div>
   // return <div className="theme-case-footer">
   //    <div className="footer-container">
   //       {footer ? (
@@ -60,7 +60,7 @@ function Footer() {
               <div className="footer-icon" key={icon}>
                 <i className={icon}></i>
               </div>
-            );
+            )
           })}
         </div>
       </div>

@@ -1,7 +1,6 @@
-/* eslint-disable react/no-unescaped-entities */
-import React from "react";
-import { BiError } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import React from 'react'
+import { BiError } from 'react-icons/bi'
+import { Link } from 'react-router-dom'
 //This page is gonna be displayed whenever the user mistpyed something urls AND if the tpyed url doesn't exist then it will be visible
 
 function Error() {
@@ -12,7 +11,7 @@ function Error() {
       </div>
       <div className="error-description">
         Error! This is the error page of the <span>slobyBulider app</span>, you
-        might <span>mistyped</span> something in the url or you just typed a{" "}
+        might <span>mistyped</span> something in the url or you just typed a{' '}
         <span>non-existent</span> URL. If you don't know what the problem is
         then click here and go back to the home page.
       </div>
@@ -22,4 +21,4 @@ function Error() {
     </div>
   );
 }
-export default Error;
+export default Error

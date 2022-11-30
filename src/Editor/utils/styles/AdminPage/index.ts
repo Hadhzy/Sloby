@@ -1,5 +1,5 @@
-import styled, { css } from "styled-components";
-import { varaibles } from "../global";
+import styled, { css } from 'styled-components'
+import { varaibles } from '../global'
 
 export const AdminPageTitle = styled.div`
   color: white;
@@ -7,7 +7,7 @@ export const AdminPageTitle = styled.div`
   font-weight: bold;
   position: absolute;
   top: 50px;
-`;
+`
 
 export const AdminPageContainer = styled.div`
   background: #222222;
@@ -22,7 +22,7 @@ export const AdminPageContainer = styled.div`
   form {
     display: block;
   }
-`;
+`
 
 export const AdminPageSignInContainer = styled.div`
   background: #1d1d1d;
@@ -37,7 +37,7 @@ export const AdminPageSignInContainer = styled.div`
   gap: 50px;
   position: relative;
   border: 3px solid #202020;
-`;
+`
 
 export const AdminPageFormContainer = styled.div`
   height: 350px;
@@ -46,7 +46,7 @@ export const AdminPageFormContainer = styled.div`
   justify-content: center;
   gap: 45px;
   align-items: center;
-`;
+`
 
 export const SubmitButton = styled.button`
   position: absolute;
@@ -65,7 +65,7 @@ export const SubmitButton = styled.button`
     transform: translateY(-5px);
     background-color: #272727;
   }
-`;
+`
 
 export const SlobyErrorMessage = styled.p`
   color: red;
@@ -73,10 +73,10 @@ export const SlobyErrorMessage = styled.p`
   display: flex;
   justify-content: center;
   margin-top: -40px;
-`;
+`
 
 export const DashboardContainer = styled.div`
   background: ${varaibles.sloby_menu_bg};
   width: 100%;
   height: 100vh;
-`;
+`

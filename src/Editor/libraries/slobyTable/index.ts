@@ -1,3 +1,5 @@
-import React from "react";
+import React from 'react'
 
-class SlobyAdminController {}
+class SlobyAdminController {
+  constructor() {}
+}

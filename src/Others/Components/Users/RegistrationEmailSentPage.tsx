@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 function RegistrationEmailSentPage() {
   return (
@@ -6,7 +6,7 @@ function RegistrationEmailSentPage() {
       <h1>Thank you for your registration</h1>
       <p>We sent confirmation link to your email address.</p>
     </div>
-  );
+  )
 }
 
-export default RegistrationEmailSentPage;
+export default RegistrationEmailSentPage

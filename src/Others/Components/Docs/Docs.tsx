@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
-import Documentation from "./Documentation";
-import { ThemeContext } from "../../Context/ThemeContext";
+import React, { useContext } from 'react'
+import { Routes, Route, Navigate } from 'react-router-dom'
+import Documentation from './Documentation'
+import { ThemeContext } from '../../Context/ThemeContext'
 
 function Docs() {
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext)
   return (
     <div>
       <Routes>
@@ -13,7 +13,7 @@ function Docs() {
         <Route path="see-right-now" element={<Documentation />} />
       </Routes>
     </div>
-  );
+  )
 }
 
-export default Docs;
+export default Docs

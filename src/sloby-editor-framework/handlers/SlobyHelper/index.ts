@@ -1,6 +1,8 @@
-import { SlobyGlobalState } from "../../utils/constans";
+import { SlobyGlobalState } from '../../utils/constans'
 
 export default class SlobyHelper {
+  constructor() {}
+
   getLocalStorage(value: string) {
     return JSON.parse(localStorage.getItem(value)!);
   }
