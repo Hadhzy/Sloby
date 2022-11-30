@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 import {
   AdminPageContainer,
   AdminPageFormContainer,
@@ -6,16 +6,16 @@ import {
   AdminPageTitle,
   SlobyErrorMessage,
   SubmitButton,
-} from "../../utils/styles/AdminPage";
+} from '../../utils/styles/AdminPage'
 import {
   ProjectModalContainer,
   ModalContent,
   ModalTitle,
-} from "../../utils/styles/Dashboard";
-import { SlobyInput } from "../../utils/styles/global";
-import { IEventType } from "../../utils/types";
-import { useDispatch } from "react-redux";
-import { AppDispatch, RootState } from "../../store";
+} from '../../utils/styles/Dashboard'
+import { SlobyInput } from '../../utils/styles/global'
+import { IEventType } from '../../utils/types'
+import { useDispatch } from 'react-redux'
+import { AppDispatch, RootState } from '../../store'
 import {
   createProject,
   displayNotification,
@@ -23,47 +23,47 @@ import {
   setProjectModal,
   updateProjectDescription,
   updateProjectName,
-} from "../../store/dashboard/dashboardSlice";
-import { motion } from "framer-motion";
-import { useSelector } from "react-redux";
-import { ToastContainer, toast } from "react-toastify";
+} from '../../store/dashboard/dashboardSlice'
+import { motion } from 'framer-motion'
+import { useSelector } from 'react-redux'
+import { ToastContainer, toast } from 'react-toastify'
 
-import "react-toastify/dist/ReactToastify.css";
+import 'react-toastify/dist/ReactToastify.css'
 
 function ProjectModal() {
-  const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useDispatch<AppDispatch>()
   const dashboardSlice = useSelector(
     (state: RootState) => state.projectDashboard
-  );
-  const notify = () => toast.success("You have successfully crated a project");
+  )
+  const notify = () => toast.success('You have successfully crated a project')
 
   const handleClick = (e: any) => {
-    if (e.target.id !== "projectModalContainer") return;
-    console.log("target is outside of the modal");
-    dispatch(setProjectModal(false));
-    console.log(dashboardSlice.projectName);
-  };
+    if (e.target.id !== 'projectModalContainer') return
+    console.log('target is outside of the modal')
+    dispatch(setProjectModal(false))
+    console.log(dashboardSlice.projectName)
+  }
 
   const handleSubmit = (e: any) => {
-    e.preventDefault();
-    console.log("submitting");
+    e.preventDefault()
+    console.log('submitting')
     if (
-      dashboardSlice.projectDescription === "" ||
-      dashboardSlice.projectName === ""
+      dashboardSlice.projectDescription === '' ||
+      dashboardSlice.projectName === ''
     )
-      return dispatch(setError("Please fill the inputs"));
-    dispatch(setError(""));
-    dispatch(setProjectModal(false));
-    dispatch(updateProjectName(""));
-    dispatch(updateProjectDescription(""));
+      return dispatch(setError('Please fill the inputs'))
+    dispatch(setError(''))
+    dispatch(setProjectModal(false))
+    dispatch(updateProjectName(''))
+    dispatch(updateProjectDescription(''))
     const props = {
       projectName: dashboardSlice.projectName,
       projectDescription: dashboardSlice.projectDescription,
-    };
-    dispatch(createProject(props));
-    dispatch(displayNotification(true));
-    notify();
-  };
+    }
+    dispatch(createProject(props))
+    dispatch(displayNotification(true))
+    notify()
+  }
 
   return (
     <ProjectModalContainer
@@ -98,4 +98,4 @@ function ProjectModal() {
     </ProjectModalContainer>
   );
 }
-export default ProjectModal;
+export default ProjectModal

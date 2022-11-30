@@ -9,4 +9,4 @@ function SlobyBuildingSteps() {
   );
 }
 
-export default SlobyBuildingSteps;
+export default SlobyBuildingSteps

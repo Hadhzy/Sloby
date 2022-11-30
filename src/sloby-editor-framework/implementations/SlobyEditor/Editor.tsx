@@ -1,15 +1,15 @@
-import React from "react";
-import { AdminPageContainer } from "../../../Editor/utils/styles/AdminPage";
+import React from 'react'
+import { AdminPageContainer } from '../../../Editor/utils/styles/AdminPage'
 import {
   SlobyEditorContainer,
   SlobyParts,
   SlobyNavigatorContainer,
-} from "../../../Editor/utils/styles/Editor";
-import SlobyBuildingSteps from "../SlobyBuildingSteps";
-import SlobyEditorNavigator from "../SlobyEditorNavigator";
-import SlobyModifier from "../SlobyModifier";
-import SlobyPreviewSiteInterface from "../SlobyPreviewSiteInterface";
-import SlobyTools from "../SlobyTools";
+} from '../../../Editor/utils/styles/Editor'
+import SlobyBuildingSteps from '../SlobyBuildingSteps'
+import SlobyEditorNavigator from '../SlobyEditorNavigator'
+import SlobyModifier from '../SlobyModifier'
+import SlobyPreviewSiteInterface from '../SlobyPreviewSiteInterface'
+import SlobyTools from '../SlobyTools'
 
 function SlobyEditor() {
   return (
@@ -24,7 +24,7 @@ function SlobyEditor() {
         <SlobyModifier />
       </SlobyParts>
     </SlobyEditorContainer>
-  );
+  )
 }
 
-export default SlobyEditor;
+export default SlobyEditor

@@ -1,52 +1,52 @@
-import React, { useContext } from "react";
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { ThemeContext } from "../../Context/ThemeContext";
-import { ContentContext } from "../../Context/ContentContext";
-import { UserContext } from "../../Context/UserContext";
+import React, { useContext } from 'react'
+import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { ThemeContext } from '../../Context/ThemeContext'
+import { ContentContext } from '../../Context/ContentContext'
+import { UserContext } from '../../Context/UserContext'
 
 function RegisterPage() {
-  const { register_user } = useContext(UserContext);
-  const [email, set_email] = useState("");
-  const [password1, set_password1] = useState("");
-  const [password2, set_password2] = useState("");
-  const [error, set_error] = useState("");
-  const [waiting, set_waiting] = useState(false);
+  const { register_user } = useContext(UserContext)
+  const [email, set_email] = useState('')
+  const [password1, set_password1] = useState('')
+  const [password2, set_password2] = useState('')
+  const [error, set_error] = useState('')
+  const [waiting, set_waiting] = useState(false)
 
-  const { theme } = useContext(ThemeContext);
-  const { users_create_account } = useContext(ContentContext);
+  const { theme } = useContext(ThemeContext)
+  const { users_create_account } = useContext(ContentContext)
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handle_button_clicked = async (e: React.SyntheticEvent) => {
-    e.preventDefault();
-    set_error("");
+    e.preventDefault()
+    set_error('')
 
     if (email.length === 0) {
-      set_error("Email must be filled.");
-      return;
+      set_error('Email must be filled.')
+      return
     }
 
     if (password1.length === 0) {
-      set_error("Password is invalid");
-      return;
+      set_error('Password is invalid')
+      return
     }
 
     if (password2 !== password1) {
-      set_error("Passwords doesn't match");
-      return;
+      set_error("Passwords doesn't match")
+      return
     }
-    set_waiting(true);
-    if (!register_user) return;
-    const result = await register_user(email, password1);
+    set_waiting(true)
+    if (!register_user) return
+    let result = await register_user(email, password1)
 
-    set_waiting(false);
+    set_waiting(false)
     if (result) {
-      navigate("/users/verified-registration-email");
+      navigate('/users/verified-registration-email')
     } else {
-      set_error("Something went wrong");
+      set_error('Something went wrong')
     }
-  };
+  }
   return (
     <div>
       {users_create_account ? (
@@ -91,7 +91,7 @@ function RegisterPage() {
             )}
             <br />
             <small className="login-title">
-              or{" "}
+              or{' '}
               <Link className="off-link-dec action-hover" to="/">
                 {users_create_account.small_tag}
               </Link>
@@ -100,7 +100,7 @@ function RegisterPage() {
         </div>
       ) : null}
     </div>
-  );
+  )
 }
 
-export default RegisterPage;
+export default RegisterPage

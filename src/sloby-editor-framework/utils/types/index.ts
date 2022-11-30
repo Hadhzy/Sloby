@@ -1,6 +1,11 @@
+
 export type SlobyElement = {
-  type?: string;
-};
+  type?: string
+}
+
+export type ExpectedToolActionParameter = {
+  tool: keyof Tools
+}
 
 export type SlobyToolObject = {
   id: number;
@@ -14,6 +19,6 @@ export type SlobyToolPropertyObject = {
 };
 
 export type BaseSlobyToolObject = {
-  [key: string]: any;
-  isActive?: boolean;
-};
+  [key: string]: any
+  isActive?: boolean
+}

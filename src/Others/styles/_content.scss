@@ -1,4 +1,4 @@
-.content-container{
+.content-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,12 +16,10 @@
       img {
         width: 490px;
         height: 490px;
-        user-select: none; 
+        user-select: none;
       }
 
       display: flex;
     }
   }
-
-  
 }

@@ -1,4 +1,5 @@
-import { SlobyDynamicClass } from "./SlobyDynamicClass";
+import { SlobyDynamicClass } from './SlobyDynamicClass'
+import { SlobySet } from './SlobySets/main'
 
 export class Deliver {
   startDelivering(tool: string) {

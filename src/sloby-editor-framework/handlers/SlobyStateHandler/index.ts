@@ -1,12 +1,8 @@
-import { current } from "@reduxjs/toolkit";
-import { SlobyToolsStore } from "../../tools/tools_store";
-import { SlobyGlobalState } from "../../utils/constans";
-import { SlobyStateHandlerInterface } from "../../utils/interfaces";
-import {
-  BaseSlobyToolObject,
-  SlobyToolPropertyObject,
-} from "../../utils/types";
-import SlobyHelper from "../SlobyHelper";
+import { SlobyToolsStore } from '../../tools/tools_store'
+import { SlobyGlobalState } from '../../utils/constans'
+import { SlobyStateHandlerInterface } from '../../utils/interfaces'
+import { BaseSlobyToolObject, SlobyToolPropertyObject } from '../../utils/types'
+import SlobyHelper from '../SlobyHelper'
 
 export class SlobyStateHandler implements SlobyStateHandlerInterface {
   state: any;
@@ -15,21 +11,19 @@ export class SlobyStateHandler implements SlobyStateHandlerInterface {
   }
 
   getGlobalInitialState() {
-    return this.state;
+    return this.state
   }
 
   addGlobalToolProperty(currentTool: string, payload: SlobyToolPropertyObject) {
     if (!SlobyToolsStore[currentTool])
-      throw new Error(`${currentTool} is not an existing Sloby Tool`);
-    const helper = new SlobyHelper();
-    this.state[currentTool] = payload;
-    helper.setLocalStorage(SlobyGlobalState, this.state);
-    console.log(this.state);
-  }
-
-  initializeLocalStorage() {
-    const helper = new SlobyHelper();
-    return helper.getLocalStorage(SlobyGlobalState);
+      throw new Error(`${currentTool} is not an existing Sloby Tool`)
+    this.state[currentTool] = payload
+    console.log(this.state)
+    const help = new SlobyHelper()
+    help.setLocalStorage(SlobyGlobalState, this.state)
+    console.log(
+      `Local storage has been initialized with the new tool of ${currentTool}`
+    )
   }
 
   initializeTool(tool: string) {

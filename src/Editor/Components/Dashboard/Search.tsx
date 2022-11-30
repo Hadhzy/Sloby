@@ -1,16 +1,16 @@
-import React from "react";
-import { FaSearch } from "react-icons/fa";
+import React from 'react'
+import { FaSearch } from 'react-icons/fa'
 import {
   SlobySearchContainer,
   Searchbar,
   IconContainer,
   SlobySearchWindow,
   SlobySearchWindowContainer,
-} from "../../utils/styles/Dashboard";
-import { motion } from "framer-motion";
-import { GrFormClose } from "react-icons/gr";
-import { useSelector } from "react-redux";
-import { RootState } from "../../store";
+} from '../../utils/styles/Dashboard'
+import { motion } from 'framer-motion'
+import { GrFormClose } from 'react-icons/gr'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../store'
 
 function Search() {
   return (
@@ -28,7 +28,7 @@ function Search() {
         </SlobySearchContainer>
       </SlobySearchWindow>
     </SlobySearchWindowContainer>
-  );
+  )
 }
 
-export default Search;
+export default Search
