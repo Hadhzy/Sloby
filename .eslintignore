@@ -3,3 +3,5 @@ public/
 dist/
 documents
 public
+.husky
+README.md

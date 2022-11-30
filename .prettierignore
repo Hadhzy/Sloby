@@ -3,6 +3,9 @@ build
 coverage
 documents
 public
+.husky
+README.md
 
 # Ignore all HTML files:
 *.html
+
