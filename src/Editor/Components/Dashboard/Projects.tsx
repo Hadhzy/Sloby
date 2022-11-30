@@ -73,7 +73,7 @@ function Projects() {
         </ProjectContainer>
       </ProjectsHandler>
     </>
-  )
+  );
 }
 
 export default Projects

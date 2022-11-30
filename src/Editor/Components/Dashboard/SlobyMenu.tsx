@@ -34,7 +34,7 @@ function SlobyMenu() {
     <SlobyMenuContainer>
       <UserDetails>
         <SlobyImage src="https://content.invisioncic.com/a319035/monthly_2016_11/avatar.thumb.png.c68c113d40702f1cbaf0ff7fbb57ee46.png"></SlobyImage>
-        <UserName>Gabor Hadhazy's dashboard</UserName>
+        <UserName>Gabor Hadhazy&aposs dashboard</UserName>
       </UserDetails>
       <div className="underline"></div>
 

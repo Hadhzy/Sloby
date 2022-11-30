@@ -96,6 +96,6 @@ function ProjectModal() {
         </form>
       </AdminPageSignInContainer>
     </ProjectModalContainer>
-  )
+  );
 }
 export default ProjectModal

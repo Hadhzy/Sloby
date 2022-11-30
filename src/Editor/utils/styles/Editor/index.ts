@@ -9,7 +9,7 @@ export const SlobyEditorContainer = styled.div`
   height: 100vh;
   flex-direction: column;
   justify-content: flex-end;
-`
+`;
 export const SlobyParts = styled.div`
   display: flex;
   border: 1px solid blue;
@@ -17,7 +17,7 @@ export const SlobyParts = styled.div`
   width: 100%;
   justify-content: space-between;
   height: 95vh;
-`
+`;
 
 export const SlobyToolsContainer = styled.div`
   width: 15%;
@@ -32,17 +32,17 @@ export const SlobyToolsContainer = styled.div`
     visibility: hidden;
     transition: 250ms ease-in-out;
   }
-`
+`;
 export const SlobyPreviewInterfaceContainer = styled.div`
   color: white;
   border: 1px solid red;
   width: 70%;
-`
+`;
 export const SlobyModifierContainer = styled.div`
   width: 15%;
   color: white;
   border: 1px solid red;
-`
+`;
 
 export const SlobyNavigatorContainer = styled.div`
   color: white;
@@ -51,7 +51,7 @@ export const SlobyNavigatorContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
 export const ToolNameContainer = styled(motion.div)`
   margin-top: 35px;
   margin-bottom: 11px;
@@ -65,7 +65,7 @@ export const ToolNameContainer = styled(motion.div)`
   align-items: center;
   border-radius: 10px;
   background-color: #191919;
-`
+`;
 
 export const SlobyToolInnerContainer = styled(motion.div)`
   position: relative;
@@ -94,7 +94,7 @@ export const Tool = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`
+`;
 
 export const SlobyBuildingStepsContainer = styled.div`
   border: 1px solid green;
@@ -102,6 +102,8 @@ export const SlobyBuildingStepsContainer = styled.div`
   height: 4%;
   display: flex;
   align-items: center;
-`
+`;
+
+export const PreviewSiteInterface = styled.div``;
 
 export const PreviewSiteInterface = styled.div``

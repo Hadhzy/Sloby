@@ -32,9 +32,9 @@ function SlobyTools() {
   }
 
   const handleToolActivation = (e: any) => {
-    const deliver = new Deliver()
-    deliver.startDelivering(e.target.id)
-  }
+    const deliver = new Deliver();
+    deliver.startDelivering(e.target.id);
+  };
 
   return (
     <SlobyToolsContainer>
