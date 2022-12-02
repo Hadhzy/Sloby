@@ -37,14 +37,16 @@ function ProjectModal() {
   )
   const notify = () => toast.success('You have successfully crated a project')
 
-  const handleClick = (e: any) => {
+  const handleClick = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent> | any
+  ) => {
     if (e.target.id !== 'projectModalContainer') return
     console.log('target is outside of the modal')
     dispatch(setProjectModal(false))
     console.log(dashboardSlice.projectName)
   }
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     console.log('submitting')
     if (
@@ -72,20 +74,22 @@ function ProjectModal() {
       animate={{ scale: 1, opacity: 1 }}
       transition={{ delay: 0.2, duration: 0.5 }}
       id="projectModalContainer"
-      onClick={(e: any) => handleClick(e)}
+      onClick={(e) => handleClick(e)}
     >
       <AdminPageSignInContainer>
         <AdminPageTitle>New Project</AdminPageTitle>
-        <form onSubmit={(e: any) => handleSubmit(e)}>
+        <form onSubmit={(e) => handleSubmit(e)}>
           <AdminPageFormContainer>
             <SlobyInput
               placeholder="project name"
               value={dashboardSlice.projectName}
-              onChange={(e: any) => dispatch(updateProjectName(e.target.value))}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                dispatch(updateProjectName(e.target.value))
+              }
             />
             <SlobyInput
               placeholder="description"
-              onChange={(e: any) =>
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 dispatch(updateProjectDescription(e.target.value))
               }
               value={dashboardSlice.projectDescription}

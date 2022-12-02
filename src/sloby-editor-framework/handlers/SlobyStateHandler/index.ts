@@ -1,12 +1,16 @@
-import { SlobyToolsStore } from '../../tools/tools_store'
+import { SlobyToolsStore } from '../../tools/tools_components_store'
 import { SlobyGlobalState } from '../../utils/constans'
 import { SlobyStateHandlerInterface } from '../../utils/interfaces'
-import { BaseSlobyToolObject, SlobyToolPropertyObject } from '../../utils/types'
+import { SlobyToolPropertyObject } from '../../utils/types'
 import SlobyHelper from '../SlobyHelper'
 
-export class SlobyStateHandler implements SlobyStateHandlerInterface {
-  state: any
+export class SlobyStateHandler
+  extends SlobyHelper
+  implements SlobyStateHandlerInterface
+{
+  state: Record<string, any>
   constructor() {
+    super()
     this.state = this.initializeLocalStorage()
   }
 
@@ -19,19 +23,17 @@ export class SlobyStateHandler implements SlobyStateHandlerInterface {
       throw new Error(`${currentTool} is not an existing Sloby Tool`)
     this.state[currentTool] = payload
     console.log(this.state)
-    const help = new SlobyHelper()
-    help.setLocalStorage(SlobyGlobalState, this.state)
+    this.setLocalStorage(SlobyGlobalState, this.state)
     console.log(
       `Local storage has been initialized with the new tool of ${currentTool}`
     )
   }
 
-  initializeLocalStorage() {
-    const helper = new SlobyHelper()
-    return helper.getLocalStorage(SlobyGlobalState)
-  }
-
   initializeTool(tool: string) {
     this.addGlobalToolProperty(tool, { isActive: !this.state[tool].isActive })
+  }
+
+  getToolProperty(tool: string, property?: string | undefined): object {
+    return {}
   }
 }

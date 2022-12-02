@@ -16,7 +16,7 @@ const containerVariants = {
     },
   },
 }
-function AboutUsContent(props: any) {
+function AboutUsContent() {
   const { social_content } = useContext(ContentContext)
 
   return (
