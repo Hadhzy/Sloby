@@ -52,4 +52,4 @@ function IntroductionSection() {
   )
 }
 
-export default IntroductionSection;
+export default IntroductionSection

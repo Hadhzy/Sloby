@@ -16,8 +16,8 @@ export class SlobyDynamicClass {
       /**
        * Throwing an error when the tool is not existing.
        */
-      throw new Error(`Class ${currentClassName} is not in the store`);
+      throw new Error(`Class ${currentClassName} is not in the store`)
     }
-    return new SlobyToolsStore[currentClassName](args);
+    return new SlobyToolsStore[currentClassName](args)
   }
 }

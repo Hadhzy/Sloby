@@ -12,7 +12,7 @@ export interface Dashboard {
   projectDescription: string
   errorMessage: string
   shouldNotificationDisplay: boolean
-  projects: Array<Object>
+  projects: Array<any>
 }
 
 const initialState: Dashboard = {

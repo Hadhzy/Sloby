@@ -7,8 +7,8 @@ import { IFooterItem } from './types'
 
 function Footer() {
   const { footer } = useContext(ContentContext)
-  let currentUrl = useLocation()
-  let footerClassName = new PreventUrls({
+  const currentUrl = useLocation()
+  const footerClassName = new PreventUrls({
     className: 'footer-container',
     urlToPreventFrom: ['/editor/dashboard', '/admin'],
     currentUrl: currentUrl.pathname,
@@ -64,8 +64,8 @@ function Footer() {
           })}
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Footer;
+export default Footer

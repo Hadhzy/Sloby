@@ -32,7 +32,7 @@ function HeaderMenuItem({ item_data }: IHeaderItemData) {
 
       <Popup item_data={item_data} />
     </div>
-  );
+  )
 
   function Popup({ item_data }: IHeaderItemData) {
     return (
@@ -59,31 +59,31 @@ function HeaderMenuItem({ item_data }: IHeaderItemData) {
 }
 
 function HeaderMenu() {
-  const [menu_list, set_menu_list] = useState([]);
+  const [menu_list, set_menu_list] = useState([])
 
   useEffect(() => {
     axios({
       method: 'get',
       url: `${process.env.REACT_APP_API_URL}categories/`,
-    }).then((res) => set_menu_list(res.data));
-  }, []);
+    }).then((res) => set_menu_list(res.data))
+  }, [])
 
   return (
     <div className="menu">
       {menu_list.map((item_data: any) => {
-        return <HeaderMenuItem key={item_data.id} item_data={item_data} />;
+        return <HeaderMenuItem key={item_data.id} item_data={item_data} />
       })}
     </div>
-  );
+  )
 }
 
 function Header() {
   const { theme } = useContext(ThemeContext)
   const { categories_accounts } = useContext(ContentContext)
   const { logged_in, log_out_user } = useContext(UserContext)
-  let currentUrl = useLocation()
+  const currentUrl = useLocation()
 
-  let headerClassName = new PreventUrls({
+  const headerClassName = new PreventUrls({
     className: 'theme-case-header',
     urlToPreventFrom: ['/editor/dashboard', '/admin'],
     currentUrl: currentUrl.pathname,
@@ -160,12 +160,12 @@ function Sidebar() {
   const { settings_menu_titles } = useContext(ContentContext)
 
   const handleClick = (event: any) => {
-    setAnchorEl(event.currentTarget);
-  };
+    setAnchorEl(event.currentTarget)
+  }
 
   const handleClose = () => {
-    setAnchorEl(null);
-  };
+    setAnchorEl(null)
+  }
 
   return (
     <div>
@@ -200,7 +200,7 @@ function Sidebar() {
         </div>
       ) : null}
     </div>
-  );
+  )
 }
 
 export default Header

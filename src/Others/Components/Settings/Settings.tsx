@@ -18,15 +18,15 @@ import ShareIcon from '@material-ui/icons/Share'
 import { ContentContext } from '../../Context/ContentContext'
 
 const ExpandMore = styled((props: any) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
+  const { expand, ...other } = props
+  return <IconButton {...other} />
 })(({ theme, expand }) => ({
   transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
   marginLeft: 'auto',
   transition: theme.transitions.create('transform', {
     duration: theme.transitions.duration.shortest,
   }),
-}));
+}))
 
 function Settings() {
   const { settings } = useContext(ContentContext)
@@ -116,4 +116,4 @@ function Settings() {
   )
 }
 
-export default Settings;
+export default Settings

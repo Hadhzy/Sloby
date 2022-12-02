@@ -30,13 +30,13 @@ function Projects() {
       <EmptyProjects>
         <FaImages className="large-icon" />
         <Description>
-          You have no projects to show, let's create one.
+          You have no projects to show, let is create one.
         </Description>
       </EmptyProjects>
     )
   }
-
-  const handleProjectOpening = (navigate: Function) => {
+  // Reaplace any type
+  const handleProjectOpening = (navigate: any) => {
     console.log('Inside of opening a project')
     return navigate(`/editor/workspace/${uuidv4()}`)
   }
@@ -73,7 +73,7 @@ function Projects() {
         </ProjectContainer>
       </ProjectsHandler>
     </>
-  );
+  )
 }
 
 export default Projects

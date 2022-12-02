@@ -7,6 +7,6 @@ export default class TextCreationTool
   implements SlobyTextCreationTool
 {
   constructor() {
-    super();
+    super()
   }
 }

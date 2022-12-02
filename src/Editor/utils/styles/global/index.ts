@@ -39,7 +39,7 @@ export const ErrorPageContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
+`
 
 export const ErrorDescription = styled.div`
   color: #898989;

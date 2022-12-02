@@ -5,9 +5,9 @@ import { BaseSlobyToolObject, SlobyToolPropertyObject } from '../../utils/types'
 import SlobyHelper from '../SlobyHelper'
 
 export class SlobyStateHandler implements SlobyStateHandlerInterface {
-  state: any;
+  state: any
   constructor() {
-    this.state = this.initializeLocalStorage();
+    this.state = this.initializeLocalStorage()
   }
 
   getGlobalInitialState() {
@@ -27,11 +27,11 @@ export class SlobyStateHandler implements SlobyStateHandlerInterface {
   }
 
   initializeLocalStorage() {
-    const helper = new SlobyHelper();
-    return helper.getLocalStorage(SlobyGlobalState);
+    const helper = new SlobyHelper()
+    return helper.getLocalStorage(SlobyGlobalState)
   }
 
   initializeTool(tool: string) {
-    this.addGlobalToolProperty(tool, { isActive: !this.state[tool].isActive });
+    this.addGlobalToolProperty(tool, { isActive: !this.state[tool].isActive })
   }
 }

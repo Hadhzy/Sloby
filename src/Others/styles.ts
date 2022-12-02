@@ -18,6 +18,6 @@ const useStyles = makeStyles((theme) => ({
   testBorder: {
     color: 'red',
   },
-}));
+}))
 
-export default useStyles;
+export default useStyles

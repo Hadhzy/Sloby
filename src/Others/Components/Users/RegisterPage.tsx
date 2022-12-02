@@ -38,7 +38,7 @@ function RegisterPage() {
     }
     set_waiting(true)
     if (!register_user) return
-    let result = await register_user(email, password1)
+    const result = await register_user(email, password1)
 
     set_waiting(false)
     if (result) {

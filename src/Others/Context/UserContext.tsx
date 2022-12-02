@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useCookies } from 'react-cookie'
 import { ContextChildren, IUserContext } from '../../Editor/utils/types'
 
-export const UserContext = createContext<IUserContext>(undefined!);
+export const UserContext = createContext<IUserContext>(undefined!)
 
 export const UserContextProvider = ({ children }: ContextChildren) => {
   const [logged_in, set_logged_in] = useState(false)
@@ -12,7 +12,7 @@ export const UserContextProvider = ({ children }: ContextChildren) => {
 
   const [first_name, set_first_name] = useState('')
 
-  const DAYS_TO_SECONDS = 86400;
+  const DAYS_TO_SECONDS = 86400
 
   const secondsCalculator = (days: number) => {
     return days * DAYS_TO_SECONDS
@@ -22,7 +22,7 @@ export const UserContextProvider = ({ children }: ContextChildren) => {
       set_token(cookies.token)
       set_logged_in(true)
     }
-  };
+  }
 
   const _store_token = (value: React.SetStateAction<null>) => {
     set_token(value)
@@ -45,14 +45,14 @@ export const UserContextProvider = ({ children }: ContextChildren) => {
       const user_data = { email: email, password: password }
       const config = { headers: { 'content-type': 'application/json' } }
 
-      let response = await axios.post(
+      const response = await axios.post(
         `${process.env.REACT_APP_API_URL}/api/auth/login/`,
         user_data,
         config
       )
       _store_token(response.data.key)
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
   }
 
@@ -68,7 +68,7 @@ export const UserContextProvider = ({ children }: ContextChildren) => {
     } catch (error) {
       console.log(error)
     }
-  };
+  }
 
   const register_user = async (email: string, password: string) => {
     try {
@@ -85,7 +85,7 @@ export const UserContextProvider = ({ children }: ContextChildren) => {
     } catch (err) {
       return false
     }
-  };
+  }
 
   const fetch_profile = () => {
     axios({
@@ -95,17 +95,13 @@ export const UserContextProvider = ({ children }: ContextChildren) => {
         authorization: `token ${token}`,
       },
     }).then((res) => {
-      let profile_data = res.data.profile
+      const profile_data = res.data.profile
     })
   }
   useEffect(() => {
     check_token()
   }, [])
 
-  useEffect(() => {
-    if (logged_in) {
-    }
-  })
   return (
     <UserContext.Provider
       value={{

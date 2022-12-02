@@ -19,12 +19,12 @@ import { IEventType } from '../../utils/types'
 import { RootState } from '../../store'
 import { Navigate, useNavigate } from 'react-router-dom'
 
-let initalState = {
+const initalState = {
   username: '',
   password: '',
 }
 
-let slobyError = ''
+const slobyError = ''
 
 function AdminPage() {
   const isUserHavePermission = useAuth()
