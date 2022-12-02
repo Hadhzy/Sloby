@@ -26,6 +26,11 @@ export class SlobyStateHandler implements SlobyStateHandlerInterface {
     )
   }
 
+  initializeLocalStorage() {
+    const helper = new SlobyHelper();
+    return helper.getLocalStorage(SlobyGlobalState);
+  }
+
   initializeTool(tool: string) {
     this.addGlobalToolProperty(tool, { isActive: !this.state[tool].isActive });
   }

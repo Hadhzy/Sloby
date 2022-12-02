@@ -105,5 +105,3 @@ export const SlobyBuildingStepsContainer = styled.div`
 `;
 
 export const PreviewSiteInterface = styled.div``;
-
-export const PreviewSiteInterface = styled.div``

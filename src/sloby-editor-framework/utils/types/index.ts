@@ -3,9 +3,9 @@ export type SlobyElement = {
   type?: string
 }
 
-export type ExpectedToolActionParameter = {
-  tool: keyof Tools
-}
+// export type ExpectedToolActionParameter = {
+//   tool: keyof Tools
+// }
 
 export type SlobyToolObject = {
   id: number;
