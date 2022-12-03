@@ -20,12 +20,15 @@ Most probably wondering about that, WordPress is the same as this project, let m
 ## 🎬 How to get started? <a name = "get-started" ></a>
 To get started working on our editor you need to do a couple of things. If you're someone who just wants to support the Team by code you can just make a PR, that we will approve, However, if you're someone who are already in the team or wants to join then you need to do the following things:
 
+If you are wanna be the part of the team: 
 1. You need to **add** something to the project and make a **PR**, just for us to make sure that you can work with us (We need to test you and trust you in the first place), however If you are already in the team ignore this step.
 3. Create your branch with your name and the feature that you are currently working on. *gaborhadhazy/authentication* 
 4. Check this [Working Flow](#working-flow)
-5. Make sure to keep in tocuh every with your teammates and dicuss everything. :D 
-
+5. Make sure to keep in tocuh every with your teammates and discuss everything. :D 
 ***Note***: Make sure to pull the changes logically whenever you're done with something make sure to pull, to avoid merge conflicts. 
+
+If are just wanna contribute: 
+[Follow along with this](https://www.dataschool.io/how-to-contribute-on-github/)
 
 </br>
 
