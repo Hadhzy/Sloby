@@ -1,15 +1,13 @@
-# Sloby 🦥
+<h2 align="center"><b>SlobyBuilder</b>: ✨The reformed way of webdevelopment ✨</h2>
+<p align="center"><i>Built by the FlurryGlo Developer Team (organization)</i></p>
+<p align="center"> 
+  <a href="github.com/FlurryGlo"> FlurryGlo Organization </a>
+</p>
 
-The **next level** online editor the allows people to build their own websites without **no problem** .
-$${\color{red}How \space \color{lightblue}Does \space \color{orange}sloby \space \color{lightblue}  works? }$$
+ <p align="center"><a href="github.com/FlurryGlo/slobypy">Related slobypy python framework</a></p>
 
-*Parts of the sloby:*
 
-> The `Editor`(itself)
-
-> The `slobypy`
-
-## Setup.
+## Setup
 ### Docker Installation 📦
 
 Install docker for your operating system: https://docs.docker.com/get-docker/
