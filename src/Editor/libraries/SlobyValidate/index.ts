@@ -1,4 +1,4 @@
-import { ISlobyValidate, ISlobyValidateState } from '../../utils/types/index'
+import { SlobyValidateInputs } from '../../utils/types/index'
 import React, { useState } from 'react'
 import { IEventType } from '../../utils/types'
 import { v4 as uuidv4 } from 'uuid'
@@ -9,17 +9,18 @@ import { RootState } from '../../store'
 export default class SlobyValidate {
   inputList: string[]
   allowedToEnter: boolean
-  constructor(public inputs: any) {
+  constructor(public inputs: SlobyValidateInputs | any) {
     this.inputList = [...Object.getOwnPropertyNames(this.inputs)]
-    this.inputs = this.handleChange
+    const result = this.handleChange
+    this.inputs = result
     this.allowedToEnter = false
   }
 
-  handleChange(e: IEventType) {
-    this.inputs = {
+  handleChange(e: React.FormEvent<HTMLFormElement>): SlobyValidateInputs {
+    return (this.inputs = {
       ...this.inputs,
       [e.currentTarget.name]: e.currentTarget.value,
-    }
+    })
   }
 
   submit(e: IEventType, condition: string) {

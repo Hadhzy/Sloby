@@ -10,4 +10,4 @@ function ErrorPage({ errorMessage }: { errorMessage: string }) {
   )
 }
 
-export default ErrorPage;
+export default ErrorPage

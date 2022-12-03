@@ -12,7 +12,7 @@ import { IThemeContext } from '../types'
 export const ThemeContext = createContext<IThemeContext>(undefined!)
 
 export const ThemeContextProvider = ({ children }: ContextChildren) => {
-  const [theme, setTheme] = useLocalStorage('theme', 'theme' ? 'dark' : 'light')
+  const [theme, setTheme] = useLocalStorage('theme', 'light')
 
   const switchTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light'

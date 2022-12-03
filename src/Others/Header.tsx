@@ -17,12 +17,9 @@ import { useLocation } from 'react-router-dom'
 import PreventUrls from './libraries/globalHelper/preventUrls'
 import Content from './Content'
 import Footer from './Footer'
+import { HeaderItemData } from '../Editor/utils/types'
 
-type IHeaderItemData = {
-  item_data: { items?: Array<string>; url?: string; title?: string | any }
-}
-
-function HeaderMenuItem({ item_data }: IHeaderItemData) {
+function HeaderMenuItem({ item_data }: { item_data: HeaderItemData }) {
   return (
     <div className="menu-item">
       <Link className="off-link-dec" to={`categories/${item_data.url}`}>
@@ -34,7 +31,7 @@ function HeaderMenuItem({ item_data }: IHeaderItemData) {
     </div>
   )
 
-  function Popup({ item_data }: IHeaderItemData) {
+  function Popup({ item_data }: { item_data: HeaderItemData }) {
     return (
       <>
         {item_data.items && (
@@ -70,7 +67,7 @@ function HeaderMenu() {
 
   return (
     <div className="menu">
-      {menu_list.map((item_data: any) => {
+      {menu_list.map((item_data: HeaderItemData) => {
         return <HeaderMenuItem key={item_data.id} item_data={item_data} />
       })}
     </div>
@@ -81,9 +78,9 @@ function Header() {
   const { theme } = useContext(ThemeContext)
   const { categories_accounts } = useContext(ContentContext)
   const { logged_in, log_out_user } = useContext(UserContext)
-  let currentUrl = useLocation()
+  const currentUrl = useLocation()
 
-  let headerClassName = new PreventUrls({
+  const headerClassName = new PreventUrls({
     className: 'theme-case-header',
     urlToPreventFrom: ['/editor/dashboard', '/admin'],
     currentUrl: currentUrl.pathname,
@@ -158,9 +155,12 @@ function Header() {
 function Sidebar() {
   const [anchorEl, setAnchorEl] = useState(null)
   const { settings_menu_titles } = useContext(ContentContext)
+  console.log(anchorEl)
 
-  const handleClick = (event: any) => {
-    setAnchorEl(event.currentTarget)
+  const handleClick = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent> | any
+  ) => {
+    setAnchorEl(event.target)
   }
 
   const handleClose = () => {
@@ -174,7 +174,9 @@ function Sidebar() {
           <Button
             aria-controls="simple-menu"
             aria-haspopup="true"
-            onClick={handleClick}
+            onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
+              handleClick(e)
+            }
           >
             <MoreVertIcon />
           </Button>

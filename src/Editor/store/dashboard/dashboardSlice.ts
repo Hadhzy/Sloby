@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { Navigate, useNavigate } from 'react-router-dom'
 
-export type Project = {
+export type ProjectState = {
   projectName: string
   projectDescription: string
 }
@@ -12,7 +12,7 @@ export interface Dashboard {
   projectDescription: string
   errorMessage: string
   shouldNotificationDisplay: boolean
-  projects: Array<Object>
+  projects: Array<ProjectState>
 }
 
 const initialState: Dashboard = {
@@ -40,7 +40,7 @@ export const dashboardSlice = createSlice({
     setError: (state, action: PayloadAction<string>) => {
       state.errorMessage = action.payload
     },
-    createProject: (state, action: PayloadAction<Project>) => {
+    createProject: (state, action: PayloadAction<ProjectState>) => {
       state.projects = [...state.projects, action.payload]
     },
     displayNotification: (state, action: PayloadAction<boolean>) => {

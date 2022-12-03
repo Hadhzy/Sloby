@@ -1,7 +1,7 @@
 import { SetStateAction } from 'react'
 import { ChangeEvent } from 'react'
 import React, { ReactChildren, ReactChild } from 'react'
-
+import { validateInitalState } from '../../Components/Admin/AdminPageValidation'
 export type ProjectState = {
   name: string
   description?: string
@@ -9,8 +9,6 @@ export type ProjectState = {
   projectType?: string
   last?: boolean
 }
-
-export type IsetState = any
 
 export type Action = {
   type: string
@@ -22,18 +20,6 @@ export type ContextChildren = {
   children: ReactChild | ReactChildren
 }
 
-export type IProjectHandlerContext = {
-  popup: boolean
-  setPopup: Function
-  notification: boolean
-  setNotification: Function
-}
-
-export type IProjectsContext = {
-  projects?: ProjectState[]
-  dispatch: Function
-}
-
 export type IsearchBarInitialState = {
   searchInput: string
   isInputFocused: boolean
@@ -41,24 +27,40 @@ export type IsearchBarInitialState = {
 
 export type Input = '' | string
 
+// Will be refactored with Nest Js
 export type IUserContext = {
-  log_in_user?: Function
+  log_in_user?: any
   log_out_user: () => Promise<void>
-  register_user?: Function
+  register_user?: any
   logged_in?: boolean
 }
+
 export type IEventType =
   | React.ChangeEvent<HTMLInputElement>
   | React.ChangeEvent<HTMLTextAreaElement>
   | React.FormEvent<HTMLFormElement>
   | React.ChangeEvent<HTMLInputElement>
 
-export type ISlobyValidateState = any
+export type MainMenusObject = {
+  id: number
+  title: string
+  icon: JSX.Element
+  path: string
+}
 
-export interface ISlobyValidate {
-  inputNames: any
-  setInputNames(): void
-  setNames(): any
-  inputNamesList: Array<any>
-  handleChange(event: IEventType): void
+export type ViewsObject = {
+  id: number
+  title: string
+  icon: JSX.Element
+}
+
+export type SlobyValidateInputs = {
+  [key: string]: string
+}
+
+export type HeaderItemData = {
+  id: number
+  url: string
+  title: string
+  items: [string] | null
 }

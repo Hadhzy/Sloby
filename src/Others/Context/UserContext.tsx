@@ -45,7 +45,7 @@ export const UserContextProvider = ({ children }: ContextChildren) => {
       const user_data = { email: email, password: password }
       const config = { headers: { 'content-type': 'application/json' } }
 
-      let response = await axios.post(
+      const response = await axios.post(
         `${process.env.REACT_APP_API_URL}/api/auth/login/`,
         user_data,
         config
@@ -95,17 +95,13 @@ export const UserContextProvider = ({ children }: ContextChildren) => {
         authorization: `token ${token}`,
       },
     }).then((res) => {
-      let profile_data = res.data.profile
+      const profile_data = res.data.profile
     })
   }
   useEffect(() => {
     check_token()
   }, [])
 
-  useEffect(() => {
-    if (logged_in) {
-    }
-  })
   return (
     <UserContext.Provider
       value={{

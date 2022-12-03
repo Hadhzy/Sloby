@@ -1,4 +1,4 @@
-import { SlobyToolsStore } from '../../tools/tools_store'
+import { SlobyToolsStore } from '../../tools/tools_components_store'
 
 export class SlobyDynamicClass {
   /**
@@ -16,8 +16,8 @@ export class SlobyDynamicClass {
       /**
        * Throwing an error when the tool is not existing.
        */
-      throw new Error(`Class ${currentClassName} is not in the store`);
+      throw new Error(`Class ${currentClassName} is not in the store`)
     }
-    return new SlobyToolsStore[currentClassName](args);
+    return new SlobyToolsStore[currentClassName](args)
   }
 }

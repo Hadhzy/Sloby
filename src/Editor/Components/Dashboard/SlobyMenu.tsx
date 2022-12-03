@@ -21,7 +21,7 @@ import { AppDispatch } from '../../store'
 import { setProjectModal } from '../../store/dashboard/dashboardSlice'
 import { mainMenus, views } from '../../utils/temporaryAPI'
 import { AiTwotoneFolder } from 'react-icons/ai'
-import { IEventType } from '../../utils/types'
+import { IEventType, MainMenusObject, ViewsObject } from '../../utils/types'
 import { Link } from 'react-router-dom'
 import { Outlet } from 'react-router-dom'
 
@@ -39,7 +39,7 @@ function SlobyMenu() {
       <div className="underline"></div>
 
       <MainMenus>
-        {mainMenus.map((item: any) => {
+        {mainMenus.map((item: MainMenusObject) => {
           return (
             <Link to={item.path} className="off-link-dec" key={item.id}>
               <MenuItem id={item.title}>
@@ -55,7 +55,7 @@ function SlobyMenu() {
       </MainMenus>
       <ViewsContainer>
         <SlobyMenuCategoryTitle>Views</SlobyMenuCategoryTitle>
-        {views.map((item: any) => {
+        {views.map((item: ViewsObject) => {
           return (
             <ViewItem key={item.id}>
               {item.icon}

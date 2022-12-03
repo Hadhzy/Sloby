@@ -1,4 +1,5 @@
-// eslint-disable-next-line no-undef
+/* eslint-disable */
+
 module.exports = {
   env: {
     browser: true,
@@ -19,10 +20,11 @@ module.exports = {
   rules: {
     semi: 0,
     'comma-dangle': 0,
-    'prettier/prettier': 'error',
+    // 'prettier/prettier': 'error',
     'react/jsx-filename-extension': [
       1,
       { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
     ],
+    'prettier/prettier': [0, { endOfLine: 'auto' }],
   },
 }
