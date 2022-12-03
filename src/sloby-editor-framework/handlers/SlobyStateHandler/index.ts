@@ -33,7 +33,9 @@ export class SlobyStateHandler
     this.addGlobalToolProperty(tool, { isActive: !this.state[tool].isActive })
   }
 
-  getToolProperty(tool: string, property?: string | undefined): object {
-    return {}
+  getToolProperty(tool: string) {
+    if (this.state[tool] === undefined || this.state[tool] === null) return
+    console.log('The required tool is valid')
+    return this.state[tool]
   }
 }
