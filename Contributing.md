@@ -18,7 +18,7 @@ The editor is built using React with Typescript, and in the backend using Nest J
 Most probably wondering about that, WordPress is the same as this project, let me clear this point for you. This will not be just a website, but an environment, that we will provide for people just like you. This is a  nicely formatted environment with unique features such as animation and high-quality customisations, also AI systems for coding, a built-in coding development environment, and other packages such as a python framework, which will allow you to make your websites with python code throughout our editor. On top of these features, we're making everything free. We will provide high-quality features such as sharing your project and working on it in real-time. You can also publish your project, where you can see all of the other people's projects, and you can download those projects and implement them as your own. You'll have a domain name registered in each project, so you don't have to worry about deploying your project manually anymore. If you're a developer you can implement your coding skills using our editor's built-in coding environment, and so on... Our main goal is to reform the way of how web-development works. We're gonna make a tool that'll be accessible for everyone, and make a global system that'll implement every coding and not coding feature in one place. Allowing everyone to make websites in their current situation, no matter whether they are developers or not, whether they have 0 skills in developing websites. One tool will solve every problem regarding of web-development. 
 
 ## 🎬 How to get started? <a name = "get-started" ></a>
-To get started working on our editor you need to do a couple of things. If you're someone who just wants to support the Team by code you can just make a PR, that we will approve, However, if you're someone who are already in the team or wants to join then you need to do the following things:
+To get started working on our editor you need to do a couple of things. if you're someone who are already in the team or wants to join then you need to do the following things:
 
 If you are wanna be the part of the team: 
 1. You need to **add** something to the project and make a **PR**, just for us to make sure that you can work with us (We need to test you and trust you in the first place), however If you are already in the team ignore this step.
@@ -27,8 +27,8 @@ If you are wanna be the part of the team:
 5. Make sure to keep in tocuh every with your teammates and discuss everything. :D 
 ***Note***: Make sure to pull the changes logically whenever you're done with something make sure to pull, to avoid merge conflicts. 
 
-If are just wanna contribute: 
-[Follow along with this](https://www.dataschool.io/how-to-contribute-on-github/)
+If are just wanna contribute and support us: 
+[Follow these steps](https://www.dataschool.io/how-to-contribute-on-github/)
 
 </br>
 
