@@ -14,7 +14,7 @@ export class Deliver {
      * In this case we are passing null as the parameters
      */
     const handler = new SlobyDynamicClass(tool)
-    // @ts-expect-error The Typescript doesn't know that which class is defined but the dynamic class do.
+    // @ts-expect-error The Typescript doesn't know that which class is defined but the dynamic class will do.
     handler.initializeTool(tool)
   }
 }
