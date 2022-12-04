@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion';
-import React from 'react';
-import styled, { css } from "styled-components";
-import { varaibles } from '../global';
+import { motion } from 'framer-motion'
+import React from 'react'
+import styled, { css } from 'styled-components'
+import { varaibles } from '../global'
 
 export const SlobyEditorContainer = styled.div`
   background: #131313;
@@ -23,7 +23,7 @@ export const SlobyToolsContainer = styled.div`
   width: 15%;
   color: white;
   border: 1px solid red;
-  display: flex;  
+  display: flex;
   flex-direction: column;
   align-items: center;
   transition: 250ms ease-in-out;
@@ -83,15 +83,11 @@ export const SlobyToolInnerContainer = styled(motion.div)`
   .sloby-tool-image {
     display: flex;
     jutify-conent: center;
-    align-items:center;
+    align-items: center;
     width: 30px;
     height: 30px;
   }
-
-  
 `
-
-
 
 export const Tool = styled.div`
   width: 60%;
@@ -108,5 +104,4 @@ export const SlobyBuildingStepsContainer = styled.div`
   align-items: center;
 `
 
-export const PreviewSiteInterface = styled.div`
-`
+export const PreviewSiteInterface = styled.div``

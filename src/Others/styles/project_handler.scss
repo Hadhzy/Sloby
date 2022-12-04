@@ -1,27 +1,27 @@
 .project-handler-container {
-    height: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: relative;
+  .display-flex {
     display: flex;
-    flex-direction: column;
-    height: 100vh;
-    position: relative;
-    .display-flex {
-        display: flex;
-        border: 1px solid pink;
-    }
-    
-    .error-input {
-        font-size: 16px;
-        border-radius: 10px;
-        background: black;
-        padding: 10px;
-        color: white;
-        border: 2px solid #ea7476;
-        outline: none;
-        transition: all 0.2s ease-in-out;
-        resize: none;
-    }
+    border: 1px solid pink;
+  }
 
-    .projects-content {
-        border: 1px solid red;
-    }
+  .error-input {
+    font-size: 16px;
+    border-radius: 10px;
+    background: black;
+    padding: 10px;
+    color: white;
+    border: 2px solid #ea7476;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    resize: none;
+  }
+
+  .projects-content {
+    border: 1px solid red;
+  }
 }

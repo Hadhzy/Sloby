@@ -1,9 +1,7 @@
 .main-div {
+  display: flex;
+  .changeable-content {
     display: flex;
-    .changeable-content {
-        display: flex;
-        flex-direction: column;
-    }
-
-    
+    flex-direction: column;
+  }
 }

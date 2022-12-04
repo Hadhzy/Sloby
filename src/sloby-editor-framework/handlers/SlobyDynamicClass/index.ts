@@ -1,4 +1,4 @@
-import { SlobyToolsStore } from "../../tools/tools_store";
+import { SlobyToolsStore } from '../../tools/tools_components_store'
 
 export class SlobyDynamicClass {
   /**
@@ -9,7 +9,10 @@ export class SlobyDynamicClass {
      * Checking if the className is exist in the store object.
      * If the class is exists then it will return an instance of it.
      */
-    if(SlobyToolsStore[currentClassName] === undefined || SlobyToolsStore[currentClassName] === null) {
+    if (
+      SlobyToolsStore[currentClassName] === undefined ||
+      SlobyToolsStore[currentClassName] === null
+    ) {
       /**
        * Throwing an error when the tool is not existing.
        */

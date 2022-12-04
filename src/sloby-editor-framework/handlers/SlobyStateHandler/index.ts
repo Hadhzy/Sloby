@@ -1,32 +1,41 @@
-import { current } from "@reduxjs/toolkit";
-import { SlobyToolsStore } from "../../tools/tools_store";
-import { SlobyGlobalState } from "../../utils/constans";
-import { SlobyStateHandlerInterface } from "../../utils/interfaces";
-import { BaseSlobyToolObject, SlobyToolPropertyObject } from "../../utils/types";
-import SlobyHelper from "../SlobyHelper";
+import { SlobyToolsStore } from '../../tools/tools_components_store'
+import { SlobyGlobalState } from '../../utils/constans'
+import { SlobyStateHandlerInterface } from '../../utils/interfaces'
+import { SlobyToolPropertyObject } from '../../utils/types'
+import SlobyHelper from '../SlobyHelper'
 
-export class SlobyStateHandler implements SlobyStateHandlerInterface {
-  state: any
+export class SlobyStateHandler
+  extends SlobyHelper
+  implements SlobyStateHandlerInterface
+{
+  state: Record<string, any>
   constructor() {
+    super()
     this.state = this.initializeLocalStorage()
   }
 
-  getGlobalInitialState() { return this.state }
-
-  addGlobalToolProperty(currentTool: string, payload: SlobyToolPropertyObject) {
-    if(!SlobyToolsStore[currentTool]) throw new Error(`${currentTool} is not an existing Sloby Tool`)
-    const helper = new SlobyHelper()
-    this.state[currentTool] = payload
-    helper.setLocalStorage(SlobyGlobalState, this.state)
-    console.log(this.state)
+  getGlobalInitialState() {
+    return this.state
   }
 
-  initializeLocalStorage() {
-    const helper = new SlobyHelper()
-    return helper.getLocalStorage(SlobyGlobalState)
+  addGlobalToolProperty(currentTool: string, payload: SlobyToolPropertyObject) {
+    if (!SlobyToolsStore[currentTool])
+      throw new Error(`${currentTool} is not an existing Sloby Tool`)
+    this.state[currentTool] = payload
+    console.log(this.state)
+    this.setLocalStorage(SlobyGlobalState, this.state)
+    console.log(
+      `Local storage has been initialized with the new tool of ${currentTool}`
+    )
   }
 
   initializeTool(tool: string) {
-    this.addGlobalToolProperty(tool, {isActive: !this.state[tool].isActive})
+    this.addGlobalToolProperty(tool, { isActive: !this.state[tool].isActive })
+  }
+
+  getToolProperty(tool: string) {
+    if (this.state[tool] === undefined || this.state[tool] === null) return
+    console.log('The required tool is valid')
+    return this.state[tool]
   }
 }

@@ -1,20 +1,19 @@
-import React, {useContext} from 'react';
-import {Routes, Route} from "react-router-dom"
-import {ThemeContext} from "../../Context/ThemeContext"
-import AboutUsContent from "./AboutUsContent"
-
+import React, { useContext } from 'react'
+import { Routes, Route } from 'react-router-dom'
+import { ThemeContext } from '../../Context/ThemeContext'
+import AboutUsContent from './AboutUsContent'
 
 function AboutUs() {
-    const {theme} = useContext(ThemeContext)
-    return (
-      <div>
-        {/* <div data_theme={theme}>
+  const { theme } = useContext(ThemeContext)
+  return (
+    <div>
+      {/* <div data_theme={theme}>
             <Routes>
                 <Route path="/" element={<AboutUsContent/>}/>
             </Routes>
           </div> */}
-        </div>
-    );
+    </div>
+  )
 }
 
-export default AboutUs;
+export default AboutUs

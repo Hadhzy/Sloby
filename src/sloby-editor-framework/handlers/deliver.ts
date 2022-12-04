@@ -1,9 +1,7 @@
-import { SlobyDynamicClass } from "./SlobyDynamicClass"
-import { SlobySet } from "./SlobySets/main"
+import { SlobyDynamicClass } from './SlobyDynamicClass'
+import { SlobySet } from './SlobySets/main'
 
 export class Deliver {
-  constructor() {}
-
   startDelivering(tool: string) {
     /**
      * This is the main method for delivering a tool activation to the proper class handler.
@@ -15,8 +13,8 @@ export class Deliver {
      * We're gonna pass the currentTool string for the dynamic class to create the proper class handler for us.
      * In this case we are passing null as the parameters
      */
-    let handler = new SlobyDynamicClass(tool)
-    // @ts-expect-error
+    const handler = new SlobyDynamicClass(tool)
+    // @ts-expect-error The Typescript doesn't know that which class is defined but the dynamic class will do.
     handler.initializeTool(tool)
   }
 }

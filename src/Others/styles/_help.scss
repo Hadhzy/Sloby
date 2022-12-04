@@ -1,20 +1,20 @@
-.help-container{
+.help-container {
   display: flex;
 
   align-items: center;
   flex-direction: column;
 
-  .subtitle{
+  .subtitle {
     padding: 3px;
-    border: 0.2px solid rgba(0,0,0,0.1);
+    border: 0.2px solid rgba(0, 0, 0, 0.1);
     border-radius: 3px;
     margin: 10px;
   }
-  .options{
+  .options {
     margin-top: 70px;
     display: flex;
     gap: 100px;
-    .icons{
+    .icons {
       font-size: 40px;
     }
 
