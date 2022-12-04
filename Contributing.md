@@ -195,6 +195,3 @@ export default class TextCreationTool
 This is where our processing is currently at, we're now trying to render some form of dynamic TSX to start implementing the tool feature. We're now on the path of compliting the first milestone which is the `Sloby Hello world`
 
 [🎉**Contributors**🎉](https://github.com/FlurryGlo/Sloby/graphs/contributors)
-</br>
-</br>
-<h4>This readme is just for the process of contributing if you wanna understand the logic and the code of the project check this out: <a href="https://github.com/FlurryGlo/Sloby">Sloby</a> </h4>
