@@ -6,6 +6,28 @@
 </p>
 
  <p align="center"><a href="github.com/FlurryGlo/slobypy">Related slobypy python framework</a></p>
+ 
+ ## 📝 Table of Contents
+- [📝 Table of Contents](#-table-of-contents)
+- [👋 Run our project](#run-project)
+- [📁 Our Folder structure](#folder)
+
+
+## 👋 Run our project <a name = "run-project"></a>
+You can start our project and run it locally, just to see where are we at. You can clone the project and you can run the dev branch, like this: 
+```
+npm start
+```
+Currently we use json-server as our data, because we're refacrtoring our backend to *Nest JS* and we use json-server as a temporary solution:
+```
+json-server --watch db.json --port 3001
+```
+However if you just wanna see the website and not the code itself then you can reach out to this link: `link goes here`
+</br>
+</br>
+***Note***: Make sure to run `npm install`before running the project, and make sure that *Node* is installed as well
+
+## 📁 Our folder structure <a></a>
 
 
 ## Setup
