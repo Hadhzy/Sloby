@@ -7,7 +7,7 @@ import Settings from './Editor/Components/Dashboard/Settings'
 import AboutUs from './Others/Components/AboutUs/AboutUs'
 import Docs from './Others/Components/Docs/Docs'
 import OurProject from './Others/Components/OurProject/OurProject'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, HashRouter } from 'react-router-dom'
 import Profile from './Others/Components/User'
 import RegisterPage from './Others/Components/Users/RegisterPage'
 import { UserContextProvider } from './Others/Context/UserContext'
@@ -25,7 +25,7 @@ import Projects from './Editor/Components/Dashboard/Projects'
 import SlobyEditor from './sloby-editor-framework/implementations/SlobyEditor/Editor'
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <UserContextProvider>
         <ContentContextProvider>
           <ThemeContextProvider>
@@ -64,7 +64,7 @@ function App() {
           </ThemeContextProvider>
         </ContentContextProvider>
       </UserContextProvider>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 export default App
