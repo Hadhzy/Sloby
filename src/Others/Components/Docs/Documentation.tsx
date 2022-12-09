@@ -21,12 +21,12 @@ function Documentation() {
   return (
     <div className="documentation-container">
       <motion.div variants={containerVariants} initial="init" animate="animate" className="title-base">
-        {social_content.docs.title}
+        {social_content?.docs?.title}
       </motion.div>
       <motion.div variants={containerVariants} initial="init" animate="animate" className="underline"></motion.div>
 
       <motion.div variants={containerVariants} initial="init" animate="animate" className="subtitle-base">
-        {social_content.docs.description}
+        {social_content?.docs?.description}
       </motion.div>
     </div>
   );
