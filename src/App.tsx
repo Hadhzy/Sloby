@@ -17,7 +17,7 @@ import { ContentContextProvider } from "./Others/Context/ContentContext";
 import { ThemeContextProvider } from "./Others/Context/ThemeContext";
 import { UserContextProvider } from "./Others/Context/UserContext";
 import Error from "./Others/globalPages/Error";
-import Home from "./Others/Home";
+import { Home } from "./Others/Home";
 import "./Others/styles/main.scss";
 import SlobyEditor from "./sloby-editor-framework/implementations/SlobyEditor/Editor";
 

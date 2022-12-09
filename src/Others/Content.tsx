@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { ContentContext } from "./Context/ContentContext";
 import IntroductionSection from "./IntroductionSection";
 
-function Content() {
+export function Content() {
   // const { switchTheme, theme } = useContext(ThemeContext);
   const { site_info } = useContext(ContentContext);
   return (
@@ -37,5 +37,3 @@ function Content() {
     </div>
   );
 }
-
-export default Content;

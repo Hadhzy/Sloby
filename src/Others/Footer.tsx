@@ -1,4 +1,4 @@
-function Footer() {
+export function Footer() {
   // const { footer } = useContext(ContentContext);
   // const currentUrl = useLocation();
   // const footerClassName = new PreventUrls({
@@ -56,5 +56,3 @@ function Footer() {
   //   );
   // }
 }
-
-export default Footer;
