@@ -5,10 +5,12 @@ import IntroductionSection from "./IntroductionSection";
 
 export function Content() {
   // const { switchTheme, theme } = useContext(ThemeContext);
+
   const { site_info } = useContext(ContentContext);
-  return (
-    <div>
-      {site_info ? (
+
+  if (site_info) {
+    return (
+      <>
         <div className="theme-case-content">
           <motion.div
             className="content-container"
@@ -33,7 +35,9 @@ export function Content() {
             </motion.div>
           </motion.div>
         </div>
-      ) : null}
-    </div>
-  );
+      </>
+    );
+  } else {
+    return null;
+  }
 }
