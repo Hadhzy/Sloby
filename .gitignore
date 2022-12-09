@@ -38,3 +38,6 @@ yarn-error.log*
 .idea/
 # Local Netlify folder
 .netlify
+
+# typescript
+*.tsbuildinfo
