@@ -57,19 +57,19 @@ export type IContentContext = {
   settings_menu_titles?: SettingMenuTitlesType | any
   users_login?: LoginPageType | any
   users_create_account?: UserLoginType | any
-  forum_and_security?: Array<Object>
-  help_content?: Array<Object>
+  forum_and_security?: Array<any>
+  help_content?: Array<any>
   footer?: any
   social_content?: any
-  settings?: Array<Object> | any
+  settings?: Array<any> | any
   admin_page?: IAdminPage | any
-  sloby_dashboard?: Object | any
-  sloby_tools?: Object | any
+  sloby_dashboard?: any | any
+  sloby_tools?: any | any
 }
 
 export type IThemeContext = {
   theme?: string
-  switchTheme?: Function
+  switchTheme?(): any
 }
 
 export type IFooterItem = {
