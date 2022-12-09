@@ -1,1 +1,2 @@
+* fix errors first
 * add path aliases

@@ -1,7 +1,5 @@
-import React from 'react'
-
 function Progress() {
-  return <div>Progress</div>
+  return <div>Progress</div>;
 }
 
-export default Progress
+export default Progress;

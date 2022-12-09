@@ -1,20 +1,13 @@
-import React, { useContext, useState, useEffect } from 'react'
-import { ContentContext } from './Context/ContentContext'
-import axios from 'axios'
-import { useLocation } from 'react-router-dom'
-import PreventUrls from './libraries/globalHelper/preventUrls'
-import { IFooterItem } from './types'
-
 function Footer() {
-  const { footer } = useContext(ContentContext)
-  const currentUrl = useLocation()
-  const footerClassName = new PreventUrls({
-    className: 'footer-container',
-    urlToPreventFrom: ['/editor/dashboard', '/admin'],
-    currentUrl: currentUrl.pathname,
-  })
+  // const { footer } = useContext(ContentContext);
+  // const currentUrl = useLocation();
+  // const footerClassName = new PreventUrls({
+  //   className: "footer-container",
+  //   urlToPreventFrom: ["/editor/dashboard", "/admin"],
+  //   currentUrl: currentUrl.pathname,
+  // });
 
-  return <div className="footer-container">Hello world</div>
+  return <div className="footer-container">Hello world</div>;
   // return <div className="theme-case-footer">
   //    <div className="footer-container">
   //       {footer ? (
@@ -45,27 +38,23 @@ function Footer() {
   // </div>
   // </div>
 
-  function OptionalInput({ footer_item }: { footer_item: IFooterItem }) {
-    return (
-      <div className="footer-input">
-        <input
-          className="footer-input-style"
-          placeholder={footer_item.placeholder}
-          type="text"
-        />
-        <button className="footer-button-style">{footer_item.button}</button>
-        <div className="footer-bellow-content footer-icons">
-          {footer_item.icons.map((icon) => {
-            return (
-              <div className="footer-icon" key={icon}>
-                <i className={icon}></i>
-              </div>
-            )
-          })}
-        </div>
-      </div>
-    )
-  }
+  // function OptionalInput({ footer_item }: { footer_item: IFooterItem }) {
+  //   return (
+  //     <div className="footer-input">
+  //       <input className="footer-input-style" placeholder={footer_item.placeholder} type="text" />
+  //       <button className="footer-button-style">{footer_item.button}</button>
+  //       <div className="footer-bellow-content footer-icons">
+  //         {footer_item.icons.map((icon) => {
+  //           return (
+  //             <div className="footer-icon" key={icon}>
+  //               <i className={icon}></i>
+  //             </div>
+  //           );
+  //         })}
+  //       </div>
+  //     </div>
+  //   );
+  // }
 }
 
-export default Footer
+export default Footer;

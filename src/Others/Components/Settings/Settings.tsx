@@ -1,47 +1,41 @@
-import React, { useContext, useState } from 'react'
-import { styled } from '@mui/material/styles'
-import Card from '@mui/material/Card'
-import CardHeader from '@mui/material/CardHeader'
-import CardMedia from '@mui/material/CardMedia'
-import CardContent from '@mui/material/CardContent'
-import CardActions from '@mui/material/CardActions'
-import Collapse from '@mui/material/Collapse'
-import IconButton from '@mui/material/IconButton'
-import Typography from '@mui/material/Typography'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import MoreVertIcon from '@material-ui/icons/MoreVert'
-import { ThemeContext } from '../../Context/ThemeContext'
-import Switch from '@mui/material/Switch'
-import FormControlLabel from '@mui/material/FormControlLabel'
-import FavoriteIcon from '@material-ui/icons/Favorite'
-import ShareIcon from '@material-ui/icons/Share'
-import { ContentContext } from '../../Context/ContentContext'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import MoreVertIcon from "@material-ui/icons/MoreVert";
+import ShareIcon from "@material-ui/icons/Share";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardHeader from "@mui/material/CardHeader";
+import Collapse from "@mui/material/Collapse";
+import IconButton from "@mui/material/IconButton";
+import { styled } from "@mui/material/styles";
+import Typography from "@mui/material/Typography";
+import { useContext, useState } from "react";
+import { ContentContext } from "../../Context/ContentContext";
 
 const ExpandMore = styled((props: any) => {
-  const { expand, ...other } = props
-  return <IconButton {...other} />
+  const { expand, ...other } = props;
+  return <IconButton {...other} />;
 })(({ theme, expand }) => ({
-  transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-  marginLeft: 'auto',
-  transition: theme.transitions.create('transform', {
+  transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
+  marginLeft: "auto",
+  transition: theme.transitions.create("transform", {
     duration: theme.transitions.duration.shortest,
   }),
-}))
+}));
 
 function Settings() {
-  const { settings } = useContext(ContentContext)
-  const [expanded, setExpanded] = useState(
-    new Array(settings?.length).fill(true)
-  )
-  console.log(expanded)
+  const { settings } = useContext(ContentContext);
+  const [expanded, setExpanded] = useState(new Array(settings?.length).fill(true));
+  console.log(expanded);
   const handleOnchange = (position: any) => {
-    const updatedCheckedState = expanded.map((item, index) =>
-      index === position ? !item : item
-    )
-    setExpanded(updatedCheckedState)
-  }
+    const updatedCheckedState = expanded.map((item, index) => (index === position ? !item : item));
+    setExpanded(updatedCheckedState);
+  };
 
-  const { theme, switchTheme } = useContext(ThemeContext)
+  // const { theme, switchTheme } = useContext(ThemeContext);
+
   return (
     <div>
       <div className="settings-container">
@@ -71,7 +65,7 @@ function Settings() {
                         <IconButton aria-label="add to favorites">
                           <FavoriteIcon />
                         </IconButton>
-                        <IconButton aria-lebel="share">
+                        <IconButton aria-label="share">
                           <ShareIcon />
                         </IconButton>
                         {/* {
@@ -96,12 +90,8 @@ function Settings() {
                       </CardActions>
                       <Collapse timeout="auto" unmountOnExit>
                         <CardContent>
-                          <Typography paragraph>
-                            {setting.content_title}
-                          </Typography>
-                          <Typography paragraph>
-                            {setting.long_description}
-                          </Typography>
+                          <Typography paragraph>{setting.content_title}</Typography>
+                          <Typography paragraph>{setting.long_description}</Typography>
                         </CardContent>
                       </Collapse>
                     </Card>
@@ -113,7 +103,7 @@ function Settings() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Settings
+export default Settings;

@@ -1,34 +1,29 @@
-import { Menu } from '@material-ui/core'
-import React, { useContext, useEffect, useState } from 'react'
-import { ContentContext } from '../../../Others/Context/ContentContext'
+import { AiTwotoneFolder } from "react-icons/ai";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { AppDispatch } from "../../store";
+import { setProjectModal } from "../../store/dashboard/dashboardSlice";
 import {
-  SlobyDashboard,
-  SlobyMenuContainer,
-  ViewItem,
-  UserDetails,
-  SlobyImage,
   FavoriteContainer,
-  UserName,
+  FavoriteProject,
   MainMenus,
   MenuItem,
-  ViewsContainer,
-  SlobyMenuCategoryTitle,
-  FavoriteProject,
   NewProjectButton,
-} from '../../utils/styles/Dashboard'
-import { useDispatch } from 'react-redux'
-import { AppDispatch } from '../../store'
-import { setProjectModal } from '../../store/dashboard/dashboardSlice'
-import { mainMenus, views } from '../../utils/temporaryAPI'
-import { AiTwotoneFolder } from 'react-icons/ai'
-import { IEventType, MainMenusObject, ViewsObject } from '../../utils/types'
-import { Link } from 'react-router-dom'
-import { Outlet } from 'react-router-dom'
+  SlobyImage,
+  SlobyMenuCategoryTitle,
+  SlobyMenuContainer,
+  UserDetails,
+  UserName,
+  ViewItem,
+  ViewsContainer,
+} from "../../utils/styles/Dashboard";
+import { mainMenus, views } from "../../utils/temporaryAPI";
+import { MainMenusObject, ViewsObject } from "../../utils/types";
 
 function SlobyMenu() {
-  const { sloby_dashboard } = useContext(ContentContext)
-  const dispatch = useDispatch<AppDispatch>()
-  const [value, setValues] = useState(false)
+  // const { sloby_dashboard } = useContext(ContentContext);
+  const dispatch = useDispatch<AppDispatch>();
+  // const [value, setValues] = useState(false);
 
   return (
     <SlobyMenuContainer>
@@ -47,11 +42,9 @@ function SlobyMenu() {
                 {item.title}
               </MenuItem>
             </Link>
-          )
+          );
         })}
-        <NewProjectButton onClick={() => dispatch(setProjectModal(true))}>
-          New Project
-        </NewProjectButton>
+        <NewProjectButton onClick={() => dispatch(setProjectModal(true))}>New Project</NewProjectButton>
       </MainMenus>
       <ViewsContainer>
         <SlobyMenuCategoryTitle>Views</SlobyMenuCategoryTitle>
@@ -61,7 +54,7 @@ function SlobyMenu() {
               {item.icon}
               {item.title}
             </ViewItem>
-          )
+          );
         })}
       </ViewsContainer>
       <FavoriteContainer>
@@ -74,7 +67,7 @@ function SlobyMenu() {
         </FavoriteContainer>
       </FavoriteContainer>
     </SlobyMenuContainer>
-  )
+  );
 }
 
-export default SlobyMenu
+export default SlobyMenu;

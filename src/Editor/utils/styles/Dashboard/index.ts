@@ -1,24 +1,23 @@
-import React from 'react'
-import styled, { css } from 'styled-components'
-import { varaibles } from '../global'
+import styled from "styled-components";
+import { varaibles } from "../global";
 
 export const SlobyDashboard = styled.div`
   width: 100%;
   height: 100vh;
   background-color: ${varaibles.sloby_dashboard_bg};
   display: flex;
-`
+`;
 
 export const SlobyProjectHandlerContainer = styled.div`
   width: 70%;
-`
+`;
 
 export const SlobyMenuContainer = styled.div`
   background: ${varaibles.sloby_menu_bg};
   height: 100%;
   width: 450px !important;
   border-radius: 0px 40px 40px 0px !important;
-`
+`;
 
 export const UserDetails = styled.div`
   height: 80px;
@@ -26,25 +25,25 @@ export const UserDetails = styled.div`
   gap: 40px;
   align-items: center;
   margin-bottom: -7px !important;
-`
+`;
 
 export const UserName = styled.div`
   color: ${varaibles.sloby_font_color};
   font-weight: bold;
   font-size: 18px !important;
-`
+`;
 
 export const SlobyImage = styled.img`
   width: 34px;
   height: 35px;
   border-radius: 50%;
   margin-left: 15px;
-`
+`;
 
 export const MainMenus = styled.div`
   margin-top: 40px !important;
   height: max-content;
-`
+`;
 export const MenuItem = styled.div`
   font-weight: bolder;
   color: ${varaibles.sloby_menu_color};
@@ -69,9 +68,9 @@ export const MenuItem = styled.div`
     background: #1c1c1c;
     cursor: pointer;
   }
-`
+`;
 
-export const ViewsContainer = styled.div``
+export const ViewsContainer = styled.div``;
 
 export const SlobyMenuCategoryTitle = styled.div`
   font-size: 18px;
@@ -79,7 +78,7 @@ export const SlobyMenuCategoryTitle = styled.div`
   font-weight: bold;
   margin-left: 35px !important;
   margin-top: 50px !important;
-`
+`;
 
 export const ViewItem = styled.div`
   color: #d4d4d4;
@@ -107,9 +106,9 @@ export const ViewItem = styled.div`
     background-color: #212121;
     cursor: pointer;
   }
-`
+`;
 
-export const FavoriteContainer = styled.div``
+export const FavoriteContainer = styled.div``;
 
 export const FavoriteProject = styled.div`
   width: 70%;
@@ -137,7 +136,7 @@ export const FavoriteProject = styled.div`
     margin-left: 15px;
   }
   border-radius: 15px;
-`
+`;
 
 export const SlobySearchWindowContainer = styled.div`
   height: max-content;
@@ -145,7 +144,7 @@ export const SlobySearchWindowContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
 
 export const SlobySearchWindow = styled.div`
   height: max-content;
@@ -157,14 +156,14 @@ export const SlobySearchWindow = styled.div`
   background-color: #171717;
   height: 45px;
   border-radius: 0px 0px 20px 20px;
-`
+`;
 
 export const SlobySearchContainer = styled.div`
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
 
 export const Searchbar = styled.input`
   background-color: #1d1d1d;
@@ -176,7 +175,7 @@ export const Searchbar = styled.input`
   height: 30px;
   border-radius: 0px 20px 20px 0px;
   font-size: 15px;
-`
+`;
 
 export const IconContainer = styled.div`
   background-color: #1d1d1d;
@@ -191,7 +190,7 @@ export const IconContainer = styled.div`
     height: 30px;
     font-size: 20px;
   }
-`
+`;
 
 export const NewProjectButton = styled.button`
   margin-left: 35px;
@@ -209,7 +208,7 @@ export const NewProjectButton = styled.button`
     background-color: #212121;
     cursor: pointer;
   }
-`
+`;
 
 export const ProjectModalContainer = styled.div`
   position: fixed;
@@ -222,7 +221,7 @@ export const ProjectModalContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
 
 export const ModalContent = styled.div`
   width: 700px;
@@ -233,25 +232,25 @@ export const ModalContent = styled.div`
   flex-direction: column;
   align-items: center;
   border: 3px solid #202020;
-`
+`;
 export const ModalTitle = styled.div`
   font-weight: bold;
   color: #b9b9b9;
   margin-top: 10px;
   font-size: 18px;
-`
+`;
 
 export const ProjectsHandler = styled.div`
   position: fixed;
   padding-top: 65px;
-`
+`;
 
 export const Title = styled.h2`
   font-weight: bold;
   height: max-content;
   margin-left: 55px;
   color: #4e4e4e;
-`
+`;
 export const ProjectContainer = styled.div`
   border: 1px solid xred;
   margin-top: 25px;
@@ -261,7 +260,7 @@ export const ProjectContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 45px;
-`
+`;
 
 export const EmptyProjects = styled.div`
   width: 73.55vw;
@@ -271,13 +270,13 @@ export const EmptyProjects = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 32px;
-`
+`;
 
 export const Description = styled.div`
   color: #424242;
   font-size: 16px;
   font-weight: bold;
-`
+`;
 
 export const Project = styled.div`
   width: 200px;
@@ -294,11 +293,11 @@ export const Project = styled.div`
     transform: translateY(-5px);
     cursor: pointer;
   }
-`
+`;
 
 export const ProjectTitle = styled.div`
   color: #c2c2c2;
-`
+`;
 export const ProjectTitleContainer = styled.div`
   width: 90%;
   display: flex;
@@ -308,14 +307,14 @@ export const ProjectTitleContainer = styled.div`
   background: #161616;
   margin-top: 35px;
   border: 1px solid #202020;
-`
+`;
 
 export const ProfilePicture = styled.div`
   width: 90px;
   height: 90px;
   background-color: #1f1f1f;
   border-radius: 50%;
-`
+`;
 
 export const IntegrationButton = styled.div`
   width: 100%;
@@ -328,4 +327,4 @@ export const IntegrationButton = styled.div`
     margin-right: 7px;
     font-size: 17px;
   }
-`
+`;

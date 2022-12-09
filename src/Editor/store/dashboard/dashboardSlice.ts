@@ -1,53 +1,52 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export type ProjectState = {
-  projectName: string
-  projectDescription: string
-}
+  projectName: string;
+  projectDescription: string;
+};
 
 export interface Dashboard {
-  projectModal: boolean
-  projectName: string
-  projectDescription: string
-  errorMessage: string
-  shouldNotificationDisplay: boolean
-  projects: Array<ProjectState>
+  projectModal: boolean;
+  projectName: string;
+  projectDescription: string;
+  errorMessage: string;
+  shouldNotificationDisplay: boolean;
+  projects: Array<ProjectState>;
 }
 
 const initialState: Dashboard = {
   projectModal: false,
-  projectName: '',
-  projectDescription: '',
-  errorMessage: '',
+  projectName: "",
+  projectDescription: "",
+  errorMessage: "",
   projects: [],
   shouldNotificationDisplay: false,
-}
+};
 
 export const dashboardSlice = createSlice({
-  name: 'dashboard',
+  name: "dashboard",
   initialState,
   reducers: {
     setProjectModal: (state, action: PayloadAction<boolean>) => {
-      state.projectModal = action.payload
+      state.projectModal = action.payload;
     },
     updateProjectName: (state, action: PayloadAction<string>) => {
-      state.projectName = action.payload
+      state.projectName = action.payload;
     },
     updateProjectDescription: (state, action: PayloadAction<string>) => {
-      state.projectDescription = action.payload
+      state.projectDescription = action.payload;
     },
     setError: (state, action: PayloadAction<string>) => {
-      state.errorMessage = action.payload
+      state.errorMessage = action.payload;
     },
     createProject: (state, action: PayloadAction<ProjectState>) => {
-      state.projects = [...state.projects, action.payload]
+      state.projects = [...state.projects, action.payload];
     },
     displayNotification: (state, action: PayloadAction<boolean>) => {
-      state.shouldNotificationDisplay = action.payload
+      state.shouldNotificationDisplay = action.payload;
     },
   },
-})
+});
 
 export const {
   setProjectModal,
@@ -56,5 +55,5 @@ export const {
   setError,
   createProject,
   displayNotification,
-} = dashboardSlice.actions
-export default dashboardSlice.reducer
+} = dashboardSlice.actions;
+export default dashboardSlice.reducer;

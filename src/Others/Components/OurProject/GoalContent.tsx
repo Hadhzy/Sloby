@@ -1,6 +1,6 @@
-import React, { useContext } from 'react'
-import { motion } from 'framer-motion'
-import { ContentContext } from '../../Context/ContentContext'
+import { motion } from "framer-motion";
+import { useContext } from "react";
+import { ContentContext } from "../../Context/ContentContext";
 const containerVariants = {
   init: {
     y: -700,
@@ -10,22 +10,17 @@ const containerVariants = {
     transition: {
       delay: 1,
       duration: 0.2,
-      type: 'spring',
+      type: "spring",
       stiffness: 400,
     },
   },
-}
+};
 
 function GoalContent() {
-  const { social_content } = useContext(ContentContext)
+  const { social_content } = useContext(ContentContext);
   return (
     <div className="goal-content-container">
-      <motion.div
-        variants={containerVariants}
-        initial="init"
-        animate="animate"
-        className="title-base"
-      >
+      <motion.div variants={containerVariants} initial="init" animate="animate" className="title-base">
         {social_content?.goal.title}
       </motion.div>
       <motion.div
@@ -34,16 +29,11 @@ function GoalContent() {
         animate="animate"
         className="underline bigger-line"
       ></motion.div>
-      <motion.div
-        variants={containerVariants}
-        initial="init"
-        animate="animate"
-        className="subtitle-base"
-      >
+      <motion.div variants={containerVariants} initial="init" animate="animate" className="subtitle-base">
         {social_content?.goal.description}
       </motion.div>
     </div>
-  )
+  );
 }
 
-export default GoalContent
+export default GoalContent;

@@ -1,13 +1,11 @@
-import React, { useContext } from 'react'
-import { Typography } from '@material-ui/core'
-import { motion } from 'framer-motion'
-import IntroductionSection from './IntroductionSection'
-import { ThemeContext } from './Context/ThemeContext'
-import { ContentContext } from './Context/ContentContext'
+import { motion } from "framer-motion";
+import { useContext } from "react";
+import { ContentContext } from "./Context/ContentContext";
+import IntroductionSection from "./IntroductionSection";
 
 function Content() {
-  const { switchTheme, theme } = useContext(ThemeContext)
-  const { site_info } = useContext(ContentContext)
+  // const { switchTheme, theme } = useContext(ThemeContext);
+  const { site_info } = useContext(ContentContext);
   return (
     <div>
       {site_info ? (
@@ -19,7 +17,7 @@ function Content() {
             transition={{
               delay: 1,
               duration: 0.2,
-              type: 'spring',
+              type: "spring",
             }}
           >
             <motion.div
@@ -30,14 +28,14 @@ function Content() {
             >
               <IntroductionSection />
               <div className="hero-section-item">
-                <img src={site_info.img} alt="Image" />
+                <img src={site_info.img} alt="img" />
               </div>
             </motion.div>
           </motion.div>
         </div>
       ) : null}
     </div>
-  )
+  );
 }
 
-export default Content
+export default Content;

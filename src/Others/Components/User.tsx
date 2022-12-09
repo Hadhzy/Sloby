@@ -1,11 +1,7 @@
-import React, { useContext } from 'react'
-import { Link, Outlet } from 'react-router-dom'
-import { UserContext } from '../Context/UserContext'
 function Profile() {
   return (
     <div className="profile-container content-base">
       <h1 className="title-base">Profile</h1>
-
       <hr />
       <div className="profile-information">
         <div className="name-container">
@@ -16,15 +12,11 @@ function Profile() {
           <input className="input-base" type="text" placeholder="Country" />
           <input className="input-base" type="text" placeholder="Email" />
           <input className="input-base" type="text" placeholder="User Name" />
-          <input
-            className="input-base"
-            type="text"
-            placeholder="Phone number"
-          />
+          <input className="input-base" type="text" placeholder="Phone number" />
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Profile
+export default Profile;
