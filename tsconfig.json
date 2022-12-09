@@ -14,10 +14,12 @@
     "isolatedModules": false,
     "noEmit": true,
     "jsx": "react-jsx",
-    "preserveConstEnums": true
+    "preserveConstEnums": true,
+    "incremental": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noImplicitThis": true
   },
-  "include": [
-    "src",
-    "src/sloby-editor-framework/implementations/SlobyEditor/Editor"
-  ]
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }

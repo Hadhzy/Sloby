@@ -26,7 +26,6 @@
     "font-awesome": "^4.7.0",
     "framer-motion": "^6.2.8",
     "json-server": "^0.17.0",
-    "node-sass": "^7.0.1",
     "query-string": "^7.1.1",
     "react": "^17.0.2",
     "react-cookie": "^4.1.1",
@@ -40,7 +39,6 @@
     "react-scroll-to-bottom": "^4.2.0",
     "react-toastify": "^9.1.0",
     "sass": "^1.49.8",
-    "sloby-editor": "./sloby-editor-framework",
     "socket.io-client": "^4.4.1",
     "styled-components": "^5.3.6",
     "typescript": "^4.8.3",
@@ -50,18 +48,13 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "server": "json-server --watch db.json --port 3001 // to server",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx",
     "pretty": "prettier --write .",
     "prepare": "husky install"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
@@ -86,11 +79,5 @@
     "jsdoc": "^3.6.11",
     "lint-staged": "^13.0.4",
     "prettier": "^2.8.0"
-  },
-  "lint-staged": {
-    "**/*.{js,jsx,ts,tsx}": [
-      "npm run lint",
-      "prettier --write"
-    ]
   }
 }
