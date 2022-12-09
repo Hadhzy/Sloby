@@ -3,6 +3,7 @@ import { ContentContext } from "./Context/ContentContext";
 import { OptionalInput } from "./OptionalInput";
 import { IFooterItem } from "./types";
 
+// TODO: Edit this.
 export function Footer() {
   const { footer } = useContext(ContentContext);
   // const currentUrl = useLocation();
