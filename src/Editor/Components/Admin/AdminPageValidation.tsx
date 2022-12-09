@@ -15,12 +15,12 @@ import {
 } from "../../utils/styles/AdminPage";
 import { SlobyInput } from "../../utils/styles/global";
 
-type TValidateInitalState = {
+type TValidateInitialState = {
   username: string;
   password: string;
 };
 
-export const validateInitalState: TValidateInitalState = {
+export const validateInitalState: TValidateInitialState = {
   username: "",
   password: "",
 };

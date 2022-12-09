@@ -22,6 +22,7 @@ import Search from "./Search";
 function Projects() {
   const dashboardSlice = useSelector((state: RootState) => state.projectDashboard);
   const navigate = useNavigate();
+
   const EmptyProject = () => {
     return (
       <EmptyProjects>
@@ -30,6 +31,7 @@ function Projects() {
       </EmptyProjects>
     );
   };
+
   const handleProjectOpening = (navigate: NavigateFunction) => {
     console.log("Inside of opening a project");
     return navigate(`/editor/workspace/${uuidv4()}`);

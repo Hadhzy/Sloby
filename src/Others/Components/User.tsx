@@ -5,7 +5,7 @@ function Profile() {
       <hr />
       <div className="profile-information">
         <div className="name-container">
-          <input className="input-base" type="text" placeholder="First ame" />
+          <input className="input-base" type="text" placeholder="First name" />
           <input className="input-base" type="text" placeholder="Last name" />
         </div>
         <div className="other-information">

@@ -14,8 +14,10 @@ function Dashboard() {
     console.log(state);
     return state.projectDashboard;
   });
+
   const [searchParams] = useSearchParams();
   console.log(searchParams.getAll);
+
   return (
     <SlobyDashboard>
       <SlobyMenu />

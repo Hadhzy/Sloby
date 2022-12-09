@@ -4,7 +4,7 @@ import { SlobyMenuContainer } from "../../utils/styles/Dashboard";
 function AdminPageDashboard() {
   return (
     <DashboardContainer>
-      <SlobyMenuContainer></SlobyMenuContainer>
+      <SlobyMenuContainer />
     </DashboardContainer>
   );
 }
