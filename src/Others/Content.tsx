@@ -10,32 +10,30 @@ export function Content() {
 
   if (site_info) {
     return (
-      <>
-        <div className="theme-case-content">
+      <div className="theme-case-content">
+        <motion.div
+          className="content-container"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            delay: 1,
+            duration: 0.2,
+            type: "spring",
+          }}
+        >
           <motion.div
-            className="content-container"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{
-              delay: 1,
-              duration: 0.2,
-              type: "spring",
-            }}
+            className="hero-section-container"
+            initial={{ x: -500 }}
+            animate={{ x: 0 }}
+            transition={{ delay: 1, duration: 0.8 }}
           >
-            <motion.div
-              className="hero-section-container"
-              initial={{ x: -500 }}
-              animate={{ x: 0 }}
-              transition={{ delay: 1, duration: 0.8 }}
-            >
-              <IntroductionSection />
-              <div className="hero-section-item">
-                <img src={site_info.img} alt="img" />
-              </div>
-            </motion.div>
+            <IntroductionSection />
+            <div className="hero-section-item">
+              <img src={site_info.img} alt="img" />
+            </div>
           </motion.div>
-        </div>
-      </>
+        </motion.div>
+      </div>
     );
   } else {
     return null;
