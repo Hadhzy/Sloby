@@ -1,0 +1,2 @@
+* edit footer
+* add path aliases

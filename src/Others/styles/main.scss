@@ -1,29 +1,29 @@
-@import 'variables';
-@import 'header';
-@import 'content';
-@import 'footer';
-@import 'content_base';
-@import 'forum';
-@import 'user';
-@import 'help';
-@import 'settings';
-@import 'about_us';
-@import 'our_project';
-@import 'register_page';
-@import 'login_page';
-@import 'docs';
-@import 'community';
-@import 'profile';
-@import 'project_handler';
-@import 'admin';
-@import 'search-bar';
-@import 'sidemenu-bar';
-@import 'projects';
-@import 'popup';
-@import 'project-handler-content';
-@import 'user-data-tag';
-@import 'upsection';
-@import 'error-page';
+@import "variables";
+@import "header";
+@import "content";
+@import "footer";
+@import "content_base";
+@import "forum";
+@import "user";
+@import "help";
+@import "settings";
+@import "about_us";
+@import "our_project";
+@import "register_page";
+@import "login_page";
+@import "docs";
+@import "community";
+@import "profile";
+@import "project_handler";
+@import "admin";
+@import "search-bar";
+@import "sidemenu-bar";
+@import "projects";
+@import "popup";
+@import "project-handler-content";
+@import "user-data-tag";
+@import "upsection";
+@import "error-page";
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -81,7 +81,7 @@
 .header-container {
   background-color: $black_theme_background_header;
 }
-.theme-case-header {
+.theme-case-home {
   background-color: black;
   border: 0.1px solid black;
 }
@@ -269,7 +269,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 body {

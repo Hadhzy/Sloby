@@ -65,12 +65,7 @@
       "id": 1,
       "title": "Popular Searches",
       "placeholder": "",
-      "items": [
-        "Apartment for Rent",
-        "Apartment Low to hide",
-        "Offices for Buy",
-        "Offices for Rent"
-      ],
+      "items": ["Apartment for Rent", "Apartment Low to hide", "Offices for Buy", "Offices for Rent"],
       "input": false,
       "icons": [],
       "news_letter_description": "",
@@ -98,12 +93,7 @@
       "input": true,
       "placeholder": "Your Email",
       "button": "Send",
-      "icons": [
-        "fab fa-twitter",
-        "fab fa-facebook-f",
-        "fab fa-skype",
-        "fab fa-linkedin-in"
-      ],
+      "icons": ["fab fa-twitter", "fab fa-facebook-f", "fab fa-skype", "fab fa-linkedin-in"],
       "items": [],
       "copyright": "2020 homeID. All Rights Reserved"
     }

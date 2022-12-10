@@ -1,6 +1,6 @@
-import React, { useContext } from 'react'
-import { motion } from 'framer-motion'
-import { ContentContext } from '../../Context/ContentContext'
+import { motion } from "framer-motion";
+import { useContext } from "react";
+import { ContentContext } from "../../Context/ContentContext";
 
 const containerVariants = {
   init: {
@@ -11,22 +11,17 @@ const containerVariants = {
     transition: {
       delay: 1,
       duration: 0.2,
-      type: 'spring',
+      type: "spring",
       stiffness: 400,
     },
   },
-}
+};
 function AboutUsContent() {
-  const { social_content } = useContext(ContentContext)
+  const { social_content } = useContext(ContentContext);
 
   return (
     <div className="about-us-container">
-      <motion.div
-        variants={containerVariants}
-        initial="init"
-        animate="animate"
-        className="title-base"
-      >
+      <motion.div variants={containerVariants} initial="init" animate="animate" className="title-base">
         {social_content?.about_us.title}
       </motion.div>
       <motion.div
@@ -35,16 +30,11 @@ function AboutUsContent() {
         animate="animate"
         className="underline bigger-line"
       ></motion.div>
-      <motion.div
-        variants={containerVariants}
-        initial="init"
-        animate="animate"
-        className="subtitle-base"
-      >
+      <motion.div variants={containerVariants} initial="init" animate="animate" className="subtitle-base">
         {social_content?.about_us.description}
       </motion.div>
     </div>
-  )
+  );
 }
 
-export default AboutUsContent
+export default AboutUsContent;

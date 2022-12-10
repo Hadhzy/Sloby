@@ -1,24 +1,16 @@
-import React from 'react'
-import { FaSearch } from 'react-icons/fa'
+import { motion } from "framer-motion";
+import { FaSearch } from "react-icons/fa";
 import {
-  SlobySearchContainer,
-  Searchbar,
   IconContainer,
+  Searchbar,
+  SlobySearchContainer,
   SlobySearchWindow,
   SlobySearchWindowContainer,
-} from '../../utils/styles/Dashboard'
-import { motion } from 'framer-motion'
-import { GrFormClose } from 'react-icons/gr'
-import { useSelector } from 'react-redux'
-import { RootState } from '../../store'
+} from "../../utils/styles/Dashboard";
 
 function Search() {
   return (
-    <SlobySearchWindowContainer
-      as={motion.div}
-      animate={{ y: [-100, 0] }}
-      transition={{ duration: 0.5 }}
-    >
+    <SlobySearchWindowContainer as={motion.div} animate={{ y: [-100, 0] }} transition={{ duration: 0.5 }}>
       <SlobySearchWindow>
         <SlobySearchContainer>
           <IconContainer>
@@ -28,7 +20,7 @@ function Search() {
         </SlobySearchContainer>
       </SlobySearchWindow>
     </SlobySearchWindowContainer>
-  )
+  );
 }
 
-export default Search
+export default Search;

@@ -1,12 +1,7 @@
-import React from 'react'
-import { SlobyBuildingStepsContainer } from '../../Editor/utils/styles/Editor'
+import { SlobyBuildingStepsContainer } from "../../Editor/utils/styles/Editor";
 
 function SlobyBuildingSteps() {
-  return (
-    <SlobyBuildingStepsContainer>
-      SlobyBuildingSteps
-    </SlobyBuildingStepsContainer>
-  )
+  return <SlobyBuildingStepsContainer>SlobyBuildingSteps</SlobyBuildingStepsContainer>;
 }
 
-export default SlobyBuildingSteps
+export default SlobyBuildingSteps;
