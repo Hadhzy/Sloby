@@ -20,7 +20,7 @@ function IntroductionSection() {
             color="textPrimary"
             gutterBottom
           >
-            {site_info.title}
+            <br />
           </Typography>
           <Typography
             variant="h5"

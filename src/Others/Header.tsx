@@ -90,9 +90,6 @@ function Header() {
     <div className="theme-case-header">
       <div className={headerClassName.preventURL()}>
         <div className="header-container">
-          <Link to="/" className="off-link-dec home icon">
-            TomikaSlobyka
-          </Link>
           <div className="navigation">
             <motion.div
               transition={{ delay: 1, duration: 1.5 }}
@@ -102,7 +99,6 @@ function Header() {
             >
               <HeaderMenu />
             </motion.div>
-
             <motion.div
               className="button-wrapper"
               initial={{ y: -150 }}
