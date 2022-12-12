@@ -1,18 +1,5 @@
 @import 'variables';
-@import 'header';
-@import 'content';
-@import 'footer';
 @import 'content_base';
-@import 'forum';
-@import 'user';
-@import 'help';
-@import 'settings';
-@import 'about_us';
-@import 'our_project';
-@import 'register_page';
-@import 'login_page';
-@import 'docs';
-@import 'community';
 @import 'profile';
 @import 'project_handler';
 @import 'admin';
@@ -21,13 +8,7 @@
 @import 'projects';
 @import 'popup';
 @import 'project-handler-content';
-@import 'user-data-tag';
-@import 'upsection';
 @import 'error-page';
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 ::-webkit-scrollbar {
   width: 10px;

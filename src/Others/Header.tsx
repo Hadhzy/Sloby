@@ -15,8 +15,6 @@ import { ContentContext } from './Context/ContentContext'
 import { UserContext } from './Context/UserContext'
 import { useLocation } from 'react-router-dom'
 import PreventUrls from './libraries/globalHelper/preventUrls'
-import Content from './Content'
-import Footer from './Footer'
 import { HeaderItemData } from '../Editor/utils/types'
 
 function Header() {
