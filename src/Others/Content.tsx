@@ -4,12 +4,15 @@ import { motion } from 'framer-motion'
 import IntroductionSection from './IntroductionSection'
 import { ThemeContext } from './Context/ThemeContext'
 import { ContentContext } from './Context/ContentContext'
+import Header from './Header'
+import Footer from './Footer'
 
 function Content() {
   const { switchTheme, theme } = useContext(ThemeContext)
   const { site_info } = useContext(ContentContext)
   return (
     <div>
+      <Header />
       {site_info ? (
         <div className="theme-case-content">
           <motion.div
@@ -36,6 +39,7 @@ function Content() {
           </motion.div>
         </div>
       ) : null}
+      <Footer />
     </div>
   )
 }

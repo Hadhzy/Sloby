@@ -31,7 +31,7 @@ function App() {
           <ThemeContextProvider>
             <div className="App">
               <Routes>
-                <Route path="/" element={<Header />} />
+                <Route path="/" element={<Content />} />
                 <Route path="/user/profile" element={<Profile />} />
                 <Route path="/categories/:category/:subcategory" />
                 <Route path="categories/about-us/*" element={<AboutUs />} />
