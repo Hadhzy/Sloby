@@ -2,12 +2,10 @@ import React, { useContext } from 'react'
 import useStyles from './styles'
 import { Typography, Button, Container, Grid } from '@material-ui/core'
 import { createTheme, ThemeProvider } from '@material-ui/core/styles'
-import { ThemeContext } from './Context/ThemeContext'
 import { ContentContext } from './Context/ContentContext'
 import { Link } from 'react-router-dom'
 
 function IntroductionSection() {
-  const { theme } = useContext(ThemeContext)
   const { site_info } = useContext(ContentContext)
 
   return (

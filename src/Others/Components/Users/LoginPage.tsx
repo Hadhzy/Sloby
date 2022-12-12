@@ -1,13 +1,11 @@
 import React, { useContext, useState, useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { ThemeContext } from '../../Context/ThemeContext'
 import { ContentContext } from '../../Context/ContentContext'
 import { UserContext } from '../../Context/UserContext'
 
 function LoginPage() {
   const [email, set_email] = useState('')
   const [password, set_password] = useState('')
-  const { theme } = useContext(ThemeContext)
   const { users_login } = useContext(ContentContext)
   const { log_in_user } = useContext(UserContext)
 

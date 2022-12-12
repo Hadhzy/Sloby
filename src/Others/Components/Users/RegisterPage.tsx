@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { ThemeContext } from '../../Context/ThemeContext'
 import { ContentContext } from '../../Context/ContentContext'
 import { UserContext } from '../../Context/UserContext'
 
@@ -12,8 +11,6 @@ function RegisterPage() {
   const [password2, set_password2] = useState('')
   const [error, set_error] = useState('')
   const [waiting, set_waiting] = useState(false)
-
-  const { theme } = useContext(ThemeContext)
   const { users_create_account } = useContext(ContentContext)
 
   const navigate = useNavigate()
