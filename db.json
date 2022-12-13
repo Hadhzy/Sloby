@@ -57,7 +57,7 @@
       "optional": ["Terms of use", "Privacy Policy"],
       "input": false,
       "icons": [],
-      "copyright": null,
+      "copyright": "",
       "news_letter_description": "",
       "button": ""
     },
@@ -74,7 +74,7 @@
       "input": false,
       "icons": [],
       "news_letter_description": "",
-      "copyright": null,
+      "copyright": "",
       "optional": [],
       "button": ""
     },
@@ -87,7 +87,7 @@
       "input": false,
       "icons": [],
       "news_letter_description": "",
-      "copyright": null,
+      "copyright": "",
       "button": ""
     },
     {
@@ -218,25 +218,6 @@
     },
     { "id": 2 }
   ],
-
-  "admin-page": {
-    "forms": [
-      {
-        "id": 1,
-        "placeholder": "username...",
-        "name": "username",
-        "type": "text",
-        "value": ""
-      },
-      {
-        "id": 2,
-        "placeholder": "password...",
-        "name": "password",
-        "type": "password",
-        "value": ""
-      }
-    ]
-  },
 
   "sloby-menu-bar": [
     {

@@ -1,23 +1,14 @@
 import React, { useContext, useState, useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { ContentContext } from '../../Context/ContentContext'
-import { UserContext } from '../../Context/UserContext'
 
 function LoginPage() {
   const [email, set_email] = useState('')
   const [password, set_password] = useState('')
   const { users_login } = useContext(ContentContext)
-  const { log_in_user } = useContext(UserContext)
 
   const navigate = useNavigate()
 
-  const handle_login = async (e: React.SyntheticEvent) => {
-    e.preventDefault()
-    if (email.length === 0 || password.length === 0) return
-    if (log_in_user) await log_in_user(email, password)
-
-    navigate('/user/profile')
-  }
   return (
     <div>
       {users_login ? (
@@ -47,7 +38,7 @@ function LoginPage() {
               </Link>
             </small>
             <br />
-            <button onClick={handle_login} className="bbutton">
+            <button className="bbutton">
               {users_login.title.toUpperCase()}
             </button>
 

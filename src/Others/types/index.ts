@@ -1,13 +1,5 @@
 import React from 'react'
 
-type UsersType = {
-  id: number
-  title: string
-  optional_waiting: boolean
-  forgot_password: string
-  small_tag: string
-  button_title: string
-}
 type UserLoginType = {
   id: number
   title: string
@@ -16,34 +8,29 @@ type UserLoginType = {
   button_title: string
   small_tag: string
 }
-type SiteInfoType = {
+type TSiteInfo = {
+  id: string
   title: string
   sub_title: string
   button_title_doc: string
   button_title_get_started: string
   img: string
 }
-type CateGoriesAccountsType = {
+type TCategoriesAccounts = {
   id: number
   login_title: string
   register_title: string
   __comment: string
 }
-type SettingMenuTitlesType = {
-  id: number
-  item_1: string
-  item_2: string
-  item_3: string
-  __comment: string
-}
+
 type LoginPageType = {
   id: number
   title: string
   forgot_password: string
   small_tag: string
 }
-export type IAdminPage = { forms: [IAdminPageForm] }
-export type IAdminPageForm = {
+export type TAdminPage = { forms: [TAdminPageForm] }
+export type TAdminPageForm = {
   id: number
   placeholder: string
   name: string
@@ -52,17 +39,12 @@ export type IAdminPageForm = {
 }
 
 export type IContentContext = {
-  site_info?: SiteInfoType | any
-  categories_accounts?: CateGoriesAccountsType | any
-  settings_menu_titles?: SettingMenuTitlesType | any
-  users_login?: LoginPageType | any
-  users_create_account?: UserLoginType | any
-  forum_and_security?: Array<any>
-  help_content?: Array<any>
-  footer?: any
-  social_content?: any
-  settings?: Array<any> | any
-  admin_page?: IAdminPage | any
+  site_info?: TSiteInfo[]
+  categories_accounts?: TCategoriesAccounts[]
+  users_login?: LoginPageType
+  users_create_account?: UserLoginType
+  footer?: TFooterItem[]
+  admin_page?: TAdminPage
   sloby_dashboard?: any | any
   sloby_tools?: any | any
 }
@@ -72,7 +54,7 @@ export type IThemeContext = {
   switchTheme?(): any
 }
 
-export type IFooterItem = {
+export type TFooterItem = {
   id: number
   title: string
   placeholder: string

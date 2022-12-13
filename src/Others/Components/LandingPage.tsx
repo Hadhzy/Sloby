@@ -1,7 +1,8 @@
 /* This example requires Tailwind CSS v3.0+ */
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { ContentContext } from '../Context/ContentContext'
 
 const navigation = [
   { name: 'Product', href: '#' },
@@ -12,7 +13,7 @@ const navigation = [
 
 export default function LandingPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
+  const { site_info } = useContext(ContentContext)
   return (
     <div className="isolate bg-white">
       <div className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">

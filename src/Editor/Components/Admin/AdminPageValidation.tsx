@@ -12,7 +12,7 @@ import {
 } from '../../utils/styles/AdminPage'
 import { SlobyInput } from '../../utils/styles/global'
 import { ContentContext } from '../../../Others/Context/ContentContext'
-import { IAdminPage, IAdminPageForm } from '../../../Others/types'
+import { TAdminPage, TAdminPageForm } from '../../../Others/types'
 import { AdminPageErrorMessages } from '../../utils/constans'
 import SlobyValidate from '../../libraries/SlobyValidate'
 import { IEventType } from '../../utils/types'

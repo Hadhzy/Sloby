@@ -2,10 +2,8 @@ import React, { useContext } from 'react'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { ContentContext } from '../../Context/ContentContext'
-import { UserContext } from '../../Context/UserContext'
 
 function RegisterPage() {
-  const { register_user } = useContext(UserContext)
   const [email, set_email] = useState('')
   const [password1, set_password1] = useState('')
   const [password2, set_password2] = useState('')
@@ -14,36 +12,6 @@ function RegisterPage() {
   const { users_create_account } = useContext(ContentContext)
 
   const navigate = useNavigate()
-
-  const handle_button_clicked = async (e: React.SyntheticEvent) => {
-    e.preventDefault()
-    set_error('')
-
-    if (email.length === 0) {
-      set_error('Email must be filled.')
-      return
-    }
-
-    if (password1.length === 0) {
-      set_error('Password is invalid')
-      return
-    }
-
-    if (password2 !== password1) {
-      set_error("Passwords doesn't match")
-      return
-    }
-    set_waiting(true)
-    if (!register_user) return
-    const result = await register_user(email, password1)
-
-    set_waiting(false)
-    if (result) {
-      navigate('/users/verified-registration-email')
-    } else {
-      set_error('Something went wrong')
-    }
-  }
   return (
     <div>
       {users_create_account ? (
@@ -82,7 +50,7 @@ function RegisterPage() {
                 {users_create_account.optional_waiting}
               </div>
             ) : (
-              <button className="bbutton" onClick={handle_button_clicked}>
+              <button className="bbutton">
                 {users_create_account.button_title}
               </button>
             )}

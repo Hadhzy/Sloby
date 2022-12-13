@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import { Link, Outlet } from 'react-router-dom'
-import { UserContext } from '../Context/UserContext'
 function Profile() {
   return (
     <div className="profile-container content-base">
