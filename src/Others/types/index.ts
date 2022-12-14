@@ -38,7 +38,14 @@ export type TAdminPageForm = {
   value: string
 }
 
+type THeaderCategories = {
+  id: number
+  url: string
+  title: string
+}
+
 export type IContentContext = {
+  header_categories?: THeaderCategories[]
   site_info?: TSiteInfo[]
   categories_accounts?: TCategoriesAccounts[]
   users_login?: LoginPageType

@@ -6,6 +6,7 @@ import { IContentContext } from '../types'
 export const ContentContext = createContext<IContentContext>(undefined!)
 
 export const ContentContextProvider = ({ children }: ContextChildren) => {
+  const [header_categories, set_header_categories] = useState()
   const [site_info, set_site_info] = useState()
   const [categories_accounts, set_categories_accounts] = useState()
   const [users_login, set_users_login] = useState()
@@ -40,11 +41,15 @@ export const ContentContextProvider = ({ children }: ContextChildren) => {
     axios
       .get(`${process.env.REACT_APP_API_URL}api/sloby-menu-bar`)
       .then((res) => set_sloby_dashboard(res.data))
+    axios
+      .get(`${process.env.REACT_APP_API_URL}api/header-categories`)
+      .then((res) => set_header_categories(res.data))
   }, [])
 
   return (
     <ContentContext.Provider
       value={{
+        header_categories,
         site_info,
         categories_accounts,
         users_login,
