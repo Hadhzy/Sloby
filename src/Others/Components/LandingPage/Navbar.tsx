@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react'
-import { ContentContext } from '../Context/ContentContext'
+import { ContentContext } from '../../Context/ContentContext'
 import { HiOutlineMenuAlt1 } from 'react-icons/hi'
 import { GrFormClose } from 'react-icons/gr'
-import { close, menu } from '../../assets'
+import { close, menu } from '../../../assets'
 function Navbar() {
   const { header_categories } = useContext(ContentContext)
   const [toggle, setToggle] = useState(false)

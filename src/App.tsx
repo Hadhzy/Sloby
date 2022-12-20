@@ -14,7 +14,7 @@ import Updates from './Editor/Components/Dashboard/Updates'
 import Progress from './Editor/Components/Dashboard/Progress'
 import Projects from './Editor/Components/Dashboard/Projects'
 import SlobyEditor from './sloby-editor-framework/implementations/SlobyEditor/Editor'
-import LandingPage from './Others/Components/LandingPage'
+import LandingPage from './Others/Components/LandingPage/LandingPage'
 function App() {
   return (
     <BrowserRouter>

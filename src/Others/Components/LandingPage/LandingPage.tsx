@@ -2,10 +2,10 @@
 import { useContext, useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { ContentContext } from '../Context/ContentContext'
-import styles from '../../styles'
+import { ContentContext } from '../../Context/ContentContext'
+import styles from '../../../styles'
 import Navbar from './Navbar'
-import Hero from './Hero'
+import Hero from '../Hero'
 
 export default function LandingPage() {
   const { site_info } = useContext(ContentContext)
