@@ -15,25 +15,28 @@ import Progress from './Editor/Components/Dashboard/Progress'
 import Projects from './Editor/Components/Dashboard/Projects'
 import SlobyEditor from './sloby-editor-framework/implementations/SlobyEditor/Editor'
 import LandingPage from './Others/Components/LandingPage/LandingPage'
+import { StarAnimationContextProvider } from './Others/Context/StarAnimation'
 function App() {
   return (
     <BrowserRouter>
       <ContentContextProvider>
-        <div className="App">
-          <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="*" element={<Error />} />
-            <Route path="editor/workspace/:id" element={<SlobyEditor />} />
-            <Route path="editor/dashboard" element={<Dashboard />}>
-              <Route index element={<Projects />} />
-              <Route path="profile-settings" element={<Settings />} />
-              <Route path="updates" element={<Updates />} />
-              <Route path="progress" element={<Progress />} />
-            </Route>
-            <Route path="/admin" element={<AdminPage />} />
-            <Route path="/admin/dashboard" element={<AdminPageDashboard />} />
-          </Routes>
-        </div>
+        <StarAnimationContextProvider>
+          <div className="App">
+            <Routes>
+              <Route path="/" element={<LandingPage />} />
+              <Route path="*" element={<Error />} />
+              <Route path="editor/workspace/:id" element={<SlobyEditor />} />
+              <Route path="editor/dashboard" element={<Dashboard />}>
+                <Route index element={<Projects />} />
+                <Route path="profile-settings" element={<Settings />} />
+                <Route path="updates" element={<Updates />} />
+                <Route path="progress" element={<Progress />} />
+              </Route>
+              <Route path="/admin" element={<AdminPage />} />
+              <Route path="/admin/dashboard" element={<AdminPageDashboard />} />
+            </Routes>
+          </div>
+        </StarAnimationContextProvider>
       </ContentContextProvider>
     </BrowserRouter>
   )
