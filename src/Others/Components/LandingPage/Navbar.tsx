@@ -17,7 +17,7 @@ function Navbar({ className }: { className: string }) {
   return (
     <header
       className={`${
-        scroll > 10 ? (shouldBackground = false) : 'bg-dark-dark'
+        scroll > 10 ? (shouldBackground = false) : 'bg-[#111111]'
       } fixed w-full z-50 text-center backdrop-blur-md drop-shadow-2xl ${
         shouldBackground && 'bg-dark-dark'
       }  transition-colors ${className}`}
