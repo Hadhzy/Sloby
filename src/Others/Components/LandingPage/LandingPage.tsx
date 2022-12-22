@@ -13,6 +13,8 @@ import { Planet1, Planet2, Planet3, Planet4 } from '../../../assets/index'
 import Star from './Star'
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from '../../../Editor/store'
+import motion from 'framer-motion'
+import { Link } from 'react-router-dom'
 export default function LandingPage() {
   const { site_info } = useContext(ContentContext)
 
@@ -30,18 +32,21 @@ export default function LandingPage() {
         </div>
       ))}
       <div className="w-full flex-center flex-col gap-8 lg:p-40 z-20">
-        <p className="z-20 text-center max-w-7xl animate-gradientMove bg-enlarge text-transparent bg-gradient-to-r from-red-light via-purple-500 via-pink-500 to-yellow-mid bg-clip-text text-6xl lg:text-8xl font-bold">
+        <p className="z-20 text-center select-none  max-w-7xl animate-gradientMove bg-enlarge text-transparent bg-gradient-to-r from-red-light via-purple-500 via-pink-500 to-yellow-mid bg-clip-text text-6xl lg:text-8xl font-bold">
           The Next-Gen Website Builder.
         </p>
-        <p className="z-20 text-xl text-center">
+        <p className="z-20 text-xl text-center select-none">
           Rapid web development re-imagined in one simple, coherent tool <br />
           satisfying your every need through its myriad of features.
         </p>
         <div className="mt-4 flex-center gap-16 text-md">
-          <a className="z-20 p-4 px-12 bg-dark-dark ring-offset-4 ring-offset-back ring-2 ring-red-mid rounded-2xl">
+          <Link
+            to="auth/signup"
+            className="z-20 cursor-pointer select-none p-4 px-12 bg-dark-dark ring-offset-4 ring-offset-back ring-2 ring-red-mid ease-in duration-300 rounded-2xl hover:translate-y-[-5px]"
+          >
             Get Started
-          </a>
-          <a className="z-20 p-4 px-12 bg-dark-dark ring-offset-4 ring-offset-back ring-2 ring-dark-dark rounded-2xl">
+          </Link>
+          <a className="z-20 cursor-pointer  p-4 px-12 select-none  bg-dark-dark ring-offset-4 ring-offset-back ring-2 ring-dark-dark rounded-2xl">
             Documentation
           </a>
         </div>

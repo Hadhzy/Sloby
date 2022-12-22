@@ -1,71 +1,24 @@
-import React, { useContext } from 'react'
-import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { ContentContext } from '../../Context/ContentContext'
+import React from 'react'
+import { SlobyLogoDark } from '../../../assets'
+import { SlobyInput } from '../../../Editor/utils/styles/global'
 
-function RegisterPage() {
-  const [email, set_email] = useState('')
-  const [password1, set_password1] = useState('')
-  const [password2, set_password2] = useState('')
-  const [error, set_error] = useState('')
-  const [waiting, set_waiting] = useState(false)
-  const { users_create_account } = useContext(ContentContext)
-
-  const navigate = useNavigate()
+export default function RegisterPage() {
   return (
-    <div>
-      {users_create_account ? (
-        <div className="register-container">
-          <form className="form-container-base">
-            <h3 className="login-title">{users_create_account.title}</h3>
-            <div className="underline bigger-line"></div>
-
-            <input
-              className="input-base"
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => set_email(e.target.value)}
-            />
-            <input
-              className="input-base"
-              type="password"
-              placeholder="Password"
-              value={password1}
-              onChange={(e) => set_password1(e.target.value)}
-            />
-            <input
-              className="input-base"
-              type="password"
-              placeholder="Password confirm"
-              value={password2}
-              onChange={(e) => set_password2(e.target.value)}
-            />
-
-            <br />
-            {error && <small className="error-message">{error}</small>}
-            <br />
-            {waiting ? (
-              <div className="waiting-color">
-                {users_create_account.optional_waiting}
-              </div>
-            ) : (
-              <button className="bbutton">
-                {users_create_account.button_title}
-              </button>
-            )}
-            <br />
-            <small className="login-title">
-              or{' '}
-              <Link className="off-link-dec action-hover" to="/">
-                {users_create_account.small_tag}
-              </Link>
-            </small>
-          </form>
+    <div className="isolate text-white bg-[#0B0B0B] flex-col h-screen flex justify-center items-center">
+      <p className="mb-[60px] text-4xl">Sign up</p>
+      <div className="w-[800px] h-[600px] bg-[#0D0D0D]  rounded-xl">
+        <div className="w-full flex justify-center mt-[10px]">
+          <img src={SlobyLogoDark} alt="" />
         </div>
-      ) : null}
+        <div className="flex flex-col w-full justify-center mt-[40px] items-center gap-[40px]">
+          <SlobyInput placeholder="username" />
+          <SlobyInput placeholder="Email" />
+          <SlobyInput placeholder="password" />
+          <button className="w-[500px] h-[50px]  text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-bold rounded-lg text-sm py-2.5 text-center mr-2 mb-2">
+            Sign up
+          </button>
+        </div>
+      </div>
     </div>
   )
 }
-
-export default RegisterPage

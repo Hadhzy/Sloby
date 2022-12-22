@@ -39,41 +39,38 @@ function AdminPage() {
 
   return isUserHavePermission ? (
     <AdminPageContainer>
-      {admin_page && isUserHavePermission ? (
-        <AdminPageSignInContainer>
-          <AdminPageTitle>Log In</AdminPageTitle>
-          <form
-            onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
-              if (!adminPageForm.submit(e, 'username>10password>6'))
-                return false
-              navigate('/admin/dashboard')
-            }}
-          >
-            <AdminPageFormContainer>
-              <SlobyInput
-                placeholder={'username...'}
-                type={'text'}
-                value={adminPageForm.inputs.username}
-                onChange={(e: React.FormEvent<HTMLFormElement> | any) =>
-                  adminPageForm.handleChange(e)
-                }
-                name={'username'}
-              />
-              <SlobyInput
-                placeholder={'password...'}
-                type={'password'}
-                value={adminPageForm.inputs.password}
-                onChange={(e: React.FormEvent<HTMLFormElement> | any) =>
-                  adminPageForm.handleChange(e)
-                }
-                name={'password'}
-              />
-              <SlobyErrorMessage>{slobyError}</SlobyErrorMessage>
-              <SubmitButton type="submit">Submit</SubmitButton>
-            </AdminPageFormContainer>
-          </form>
-        </AdminPageSignInContainer>
-      ) : null}
+      <AdminPageSignInContainer>
+        <AdminPageTitle>Log In</AdminPageTitle>
+        <form
+          onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
+            if (!adminPageForm.submit(e, 'username>10password>6')) return false
+            navigate('/admin/dashboard')
+          }}
+        >
+          <AdminPageFormContainer>
+            <SlobyInput
+              placeholder={'username...'}
+              type={'text'}
+              value={adminPageForm.inputs.username}
+              onChange={(e: React.FormEvent<HTMLFormElement> | any) =>
+                adminPageForm.handleChange(e)
+              }
+              name={'username'}
+            />
+            <SlobyInput
+              placeholder={'password...'}
+              type={'password'}
+              value={adminPageForm.inputs.password}
+              onChange={(e: React.FormEvent<HTMLFormElement> | any) =>
+                adminPageForm.handleChange(e)
+              }
+              name={'password'}
+            />
+            <SlobyErrorMessage>{slobyError}</SlobyErrorMessage>
+            <SubmitButton type="submit">Submit</SubmitButton>
+          </AdminPageFormContainer>
+        </form>
+      </AdminPageSignInContainer>
     </AdminPageContainer>
   ) : (
     <ErrorPage
