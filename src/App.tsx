@@ -18,6 +18,7 @@ import LandingPage from './Others/Components/LandingPage/LandingPage'
 import { StarAnimationContextProvider } from './Others/Context/StarAnimation'
 import RegisterPage from './Others/Components/Users/RegisterPage'
 import Loading from './Others/Components/Loading'
+import LoginPage from './Others/Components/Users/LoginPage'
 function App() {
   return (
     <BrowserRouter>
@@ -37,6 +38,7 @@ function App() {
               <Route path="/admin" element={<AdminPage />} />
               <Route path="/admin/dashboard" element={<AdminPageDashboard />} />
               <Route path="auth/signup" element={<RegisterPage />} />
+              <Route path="auth/login" element={<LoginPage />} />
               <Route path="loading" element={<Loading />} />
             </Routes>
           </div>

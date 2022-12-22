@@ -1,57 +1,70 @@
-import React, { useContext, useState, useRef } from 'react'
+import React, { useContext, useState, useRef, FormEvent } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { ContentContext } from '../../Context/ContentContext'
-
+import { SlobyLogoDark } from '../../../assets'
+import { SlobyInput } from '../../../Editor/utils/styles/global'
+import axios from 'axios'
 function LoginPage() {
-  const [email, set_email] = useState('')
-  const [password, set_password] = useState('')
-  const { users_login } = useContext(ContentContext)
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
 
   const navigate = useNavigate()
 
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault()
+    console.log('Submitted form')
+    if (!username || !password) {
+      setError('Please fill all of the fields')
+    } else if (password.length < 8) {
+      setError('Please provide a password with at least 8 characters')
+    } else if (username.length < 3) {
+      setError('Please provide a username with at least 3 characters')
+    } else {
+      setError('')
+      try {
+        axios.post(`http://localhost:4001/api/auth/login`, {
+          username,
+          password,
+        })
+      } catch (error) {
+        console.log(error)
+      }
+    }
+  }
+
   return (
-    <div>
-      {users_login ? (
-        <div className="login-container">
-          <form className="form-container-base">
-            <h3 className="login-title">{users_login.title}</h3>
-            <div className="underline"></div>
-
-            <input
-              className="input-base"
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => set_email(e.target.value)}
-            />
-            <input
-              className="input-base"
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => set_password(e.target.value)}
-            />
-
-            <small>
-              <Link className="off-link-dec  action-hover " to="/">
-                {users_login.forgot_password}
-              </Link>
-            </small>
-            <br />
-            <button className="bbutton">
-              {users_login.title.toUpperCase()}
-            </button>
-
-            <br />
-            <small className="login-title">
-              or{' '}
-              <Link className="off-link-dec action-hover " to="/">
-                {users_login.small_tag}
-              </Link>
-            </small>
-          </form>
+    <div className="isolat ease-in  text-white bg-[#0B0B0B] flex-col h-screen flex justify-center items-center">
+      <p className="mb-[60px] text-4xl">Log in</p>
+      <div className="w-[800px] h-[600px] bg-[#0D0D0D]  rounded-xl">
+        <div className="w-full flex justify-center mt-[30px]">
+          <img src={SlobyLogoDark} alt="" />
         </div>
-      ) : null}
+        <form
+          onSubmit={(e: FormEvent) => handleSubmit(e)}
+          className="flex flex-col w-full justify-center mt-[40px] items-center gap-[40px]"
+        >
+          <SlobyInput
+            type="text"
+            placeholder="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <SlobyInput
+            type="password"
+            placeholder="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <p>{error}</p>
+          <button
+            type="submit"
+            className="w-[500px] h-[50px] ease-in   text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-bold rounded-lg text-sm py-2.5 text-center mr-2 mb-2"
+          >
+            Log in
+          </button>
+        </form>
+      </div>
     </div>
   )
 }

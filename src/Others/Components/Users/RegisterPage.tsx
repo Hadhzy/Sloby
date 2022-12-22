@@ -9,36 +9,38 @@ import { sendData } from '../../../Editor/store/user/userSlice'
 import Loading from '../Loading'
 import { GiConsoleController } from 'react-icons/gi'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 export default function RegisterPage() {
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
-  const dispatch = useDispatch<AppDispatch>()
+  const navigate = useNavigate()
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
     console.log('Submitted')
     if (!username || !email || !password) {
-      setError('Please fill all of the inputs')
+      setError('Please fill all of the fields')
     } else if (password.length < 8) {
       setError('Please provide a password with at least 8 characters')
     } else if (username.length < 3) {
       setError('Please provide a username with at least 3 characters')
     } else {
       setError('')
-    }
-    const { NESTJS_SERVER_URL } = process.env
 
-    try {
-      axios.post(`http://localhost:4001/api/users/create`, {
-        username,
-        email,
-        password,
-      })
-    } catch (err) {
-      console.log(err)
+      try {
+        axios.post(`http://localhost:4001/api/users/create`, {
+          username,
+          email,
+          password,
+        })
+      } catch (err) {
+        console.log(err)
+      } finally {
+        navigate('/auth/login')
+      }
     }
   }
 
