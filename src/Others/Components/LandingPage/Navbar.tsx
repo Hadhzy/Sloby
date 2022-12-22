@@ -18,9 +18,7 @@ function Navbar({ className }: { className: string }) {
     <header
       className={`${
         scroll > 10 ? (shouldBackground = false) : 'bg-[#111111]'
-      } fixed w-full z-50 text-center backdrop-blur-md drop-shadow-2xl ${
-        shouldBackground && 'bg-dark-dark'
-      }  transition-colors ${className}`}
+      } fixed w-full z-50 text-center backdrop-blur-md drop-shadow-2xl ${'#111111'}  transition-colors ${className}`}
     >
       <div className="mx-auto max-w-7xl">
         <nav className="w-full my-2 hidden md:inline-flex flex-row justify-content-center gap-6">

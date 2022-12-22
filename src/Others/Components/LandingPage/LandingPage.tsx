@@ -15,6 +15,7 @@ import { useDispatch } from 'react-redux'
 import { AppDispatch } from '../../../Editor/store'
 import motion from 'framer-motion'
 import { Link } from 'react-router-dom'
+import Loading from '../Loading'
 export default function LandingPage() {
   const { site_info } = useContext(ContentContext)
 
@@ -52,6 +53,7 @@ export default function LandingPage() {
         </div>
       </div>
       <div className="h-screen">test</div>
+      <Loading />
     </div>
   )
 }
