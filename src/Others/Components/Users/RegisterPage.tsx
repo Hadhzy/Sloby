@@ -3,12 +3,19 @@ import { SlobyLogoDark } from '../../../assets'
 import { SlobyInput } from '../../../Editor/utils/styles/global'
 import { off } from 'process'
 import { MdOpenInFull } from 'react-icons/md'
+import { useDispatch } from 'react-redux'
+import { AppDispatch } from '../../../Editor/store'
+import { sendData } from '../../../Editor/store/user/userSlice'
+import Loading from '../Loading'
+import { GiConsoleController } from 'react-icons/gi'
+import axios from 'axios'
 
 export default function RegisterPage() {
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
+  const dispatch = useDispatch<AppDispatch>()
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
@@ -19,9 +26,20 @@ export default function RegisterPage() {
       setError('Please provide a password with at least 8 characters')
     } else if (username.length < 3) {
       setError('Please provide a username with at least 3 characters')
+    } else {
+      setError('')
     }
+    const { NESTJS_SERVER_URL } = process.env
 
-    setError('')
+    try {
+      axios.post(`http://localhost:4001/api/users/create`, {
+        username,
+        email,
+        password,
+      })
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   return (

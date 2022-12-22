@@ -53,7 +53,6 @@ export default function LandingPage() {
         </div>
       </div>
       <div className="h-screen">test</div>
-      <Loading />
     </div>
   )
 }

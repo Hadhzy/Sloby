@@ -17,6 +17,7 @@ import SlobyEditor from './sloby-editor-framework/implementations/SlobyEditor/Ed
 import LandingPage from './Others/Components/LandingPage/LandingPage'
 import { StarAnimationContextProvider } from './Others/Context/StarAnimation'
 import RegisterPage from './Others/Components/Users/RegisterPage'
+import Loading from './Others/Components/Loading'
 function App() {
   return (
     <BrowserRouter>
@@ -36,6 +37,7 @@ function App() {
               <Route path="/admin" element={<AdminPage />} />
               <Route path="/admin/dashboard" element={<AdminPageDashboard />} />
               <Route path="auth/signup" element={<RegisterPage />} />
+              <Route path="loading" element={<Loading />} />
             </Routes>
           </div>
         </StarAnimationContextProvider>

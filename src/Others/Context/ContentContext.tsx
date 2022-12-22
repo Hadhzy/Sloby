@@ -8,7 +8,6 @@ export const ContentContext = createContext<IContentContext>(undefined!)
 export const ContentContextProvider = ({ children }: ContextChildren) => {
   const [header_categories, set_header_categories] = useState()
   const [site_info, set_site_info] = useState()
-  const [categories_accounts, set_categories_accounts] = useState()
   const [users_login, set_users_login] = useState()
   const [users_create_account, set_users_create_account] = useState()
   const [footer, set_footer] = useState()
@@ -16,33 +15,31 @@ export const ContentContextProvider = ({ children }: ContextChildren) => {
   const [sloby_dashboard, set_sloby_dashboard] = useState()
   const [sloby_tools, set_sloby_tools] = useState()
 
+  const { NESTJS_SERVER_URL } = process.env
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_API_URL}api/site-info`)
+      .get(`http://localhost:4001/api/site-info`)
       .then((res) => set_site_info(res.data))
     axios
-      .get(`${process.env.REACT_APP_API_URL}api/categories-accounts/`)
-      .then((res) => set_categories_accounts(res.data))
-    axios
-      .get(`${process.env.REACT_APP_API_URL}api/users-login/`)
+      .get(`http://localhost:4001/api/users-login/`)
       .then((res) => set_users_login(res.data))
     axios
-      .get(`${process.env.REACT_APP_API_URL}api/users-create-account/`)
+      .get(`http://localhost:4001/api/users-create-account/`)
       .then((res) => set_users_create_account(res.data))
     axios
-      .get(`${process.env.REACT_APP_API_URL}api/footer/`)
+      .get(`http://localhost:4001/api/footer/`)
       .then((res) => set_footer(res.data))
     axios
-      .get(`${process.env.REACT_APP_API_URL}api/admin-page`)
+      .get(`http://localhost:4001/api/admin-page`)
       .then((res) => set_admin_page(res.data))
     axios
-      .get(`${process.env.REACT_APP_API_URL}api/sloby-tools`)
+      .get(`http://localhost:4001/api/sloby-tools`)
       .then((res) => set_sloby_tools(res.data))
     axios
-      .get(`${process.env.REACT_APP_API_URL}api/sloby-menu-bar`)
+      .get(`http://localhost:4001/api/sloby-menu-bar`)
       .then((res) => set_sloby_dashboard(res.data))
     axios
-      .get(`${process.env.REACT_APP_API_URL}api/header-categories`)
+      .get(`http://localhost:4001/api/header-categories`)
       .then((res) => set_header_categories(res.data))
   }, [])
 
@@ -51,7 +48,6 @@ export const ContentContextProvider = ({ children }: ContextChildren) => {
       value={{
         header_categories,
         site_info,
-        categories_accounts,
         users_login,
         users_create_account,
         footer,
