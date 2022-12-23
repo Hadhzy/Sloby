@@ -36,8 +36,10 @@ export default function RegisterPage() {
           password,
         })
         .then((response) => {
-          if (response.data.length > 0) return setError(response.data)
-          else console.log('Successfully created an account')
+          if (response.data.length > 0) {
+            setError(response.data)
+            console.log('setError(response.data)')
+          } else console.log('Successfully created an account')
         })
     }
   }
