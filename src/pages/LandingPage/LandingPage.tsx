@@ -15,8 +15,6 @@ import { AppDispatch } from '../../store'
 import motion from 'framer-motion'
 import { Link } from 'react-router-dom'
 export default function LandingPage() {
-  const { site_info } = useContext(ContentContext)
-
   return (
     <div className="isolate text-white bg-[#0B0B0B] h-screen">
       <Planet src={Planet1} className="w-32 inset-y-36 left-72" />

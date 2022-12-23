@@ -20,6 +20,7 @@ import { StarAnimationContextProvider } from './utils/context/StarAnimation'
 import RegisterPage from './pages/Users/RegisterPage'
 import Loading from './pages/global/Loading'
 import LoginPage from './pages/Users/LoginPage'
+import { getAuthUser } from './utils/api'
 function App() {
   return (
     <BrowserRouter>

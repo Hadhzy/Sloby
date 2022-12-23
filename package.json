@@ -25,6 +25,7 @@
     "@types/styled-components": "^5.1.26",
     "axios": "^0.26.1",
     "babel-plugin-macros": "^3.1.0",
+    "dotenv": "^16.0.3",
     "font-awesome": "^4.7.0",
     "framer-motion": "^6.2.8",
     "json-server": "^0.17.0",

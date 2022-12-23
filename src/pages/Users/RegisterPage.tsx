@@ -16,8 +16,9 @@ export default function RegisterPage() {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const navigate = useNavigate()
+  const { REACT_APP_API_URL } = process.env
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     console.log('Submitted')
     if (!username || !email || !password) {
@@ -28,18 +29,15 @@ export default function RegisterPage() {
       setError('Please provide a username with at least 3 characters')
     } else {
       setError('')
-
-      try {
-        axios.post(`http://localhost:4001/api/users/create`, {
+      await axios
+        .post('http://localhost:4001/api/users/register', {
           username,
           email,
           password,
         })
-      } catch (err) {
-        console.log(err)
-      } finally {
-        navigate('/auth/login')
-      }
+        .then((response) => {
+          setError(response.data)
+        })
     }
   }
 

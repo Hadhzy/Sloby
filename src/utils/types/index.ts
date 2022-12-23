@@ -89,6 +89,13 @@ type TCategoriesAccounts = {
   __comment: string
 }
 
+export type User = {
+  user_id: number
+  username: string
+  email: string
+  password: string
+}
+
 type LoginPageType = {
   id: number
   title: string

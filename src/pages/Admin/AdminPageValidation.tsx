@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react'
-import { useAuth } from '../../utils/hooks'
 import ErrorPage from '../global/ErrorPage'
 import {
   AdminPageContainer,
@@ -31,7 +30,7 @@ export const validateInitalState: validateInitalState = {
 const slobyError = ''
 
 function AdminPage() {
-  const isUserHavePermission = useAuth()
+  const isUserHavePermission = true
   const { admin_page } = useContext(ContentContext)
   const adminPageForm = new SlobyValidate(validateInitalState)
   const navigate = useNavigate()
