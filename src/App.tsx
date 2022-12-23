@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import './Others/styles/main.scss'
+import './utils/styles/scss/main.scss'
 import Settings from './pages/Dashboard/Settings'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import AdminPage from './pages/Admin/AdminPageValidation'
@@ -8,6 +8,7 @@ import {
   ContentContext,
   ContentContextProvider,
 } from './utils/context/ContentContext'
+import ProtectedRoutes from './utils/guards/ProtectedRoutes'
 import Dashboard from './pages/Dashboard/Dashboard'
 import AdminPageDashboard from './pages/Admin/AdminDashboard'
 import Updates from './pages/Dashboard/Updates'
@@ -26,20 +27,24 @@ function App() {
         <StarAnimationContextProvider>
           <div className="App">
             <Routes>
+              <Route element={<ProtectedRoutes />}>
+                <Route path="editor/workspace/:id" element={<SlobyEditor />} />
+                <Route path="editor/dashboard" element={<Dashboard />}>
+                  <Route index element={<Projects />} />
+                  <Route path="profile-settings" element={<Settings />} />
+                  <Route path="updates" element={<Updates />} />
+                  <Route path="progress" element={<Progress />} />
+                </Route>
+                <Route path="/admin" element={<AdminPage />} />
+                <Route
+                  path="/admin/dashboard"
+                  element={<AdminPageDashboard />}
+                />
+              </Route>
               <Route path="/" element={<LandingPage />} />
               <Route path="*" element={<Error />} />
-              <Route path="editor/workspace/:id" element={<SlobyEditor />} />
-              <Route path="editor/dashboard" element={<Dashboard />}>
-                <Route index element={<Projects />} />
-                <Route path="profile-settings" element={<Settings />} />
-                <Route path="updates" element={<Updates />} />
-                <Route path="progress" element={<Progress />} />
-              </Route>
-              <Route path="/admin" element={<AdminPage />} />
-              <Route path="/admin/dashboard" element={<AdminPageDashboard />} />
               <Route path="auth/signup" element={<RegisterPage />} />
               <Route path="auth/login" element={<LoginPage />} />
-              <Route path="loading" element={<Loading />} />
             </Routes>
           </div>
         </StarAnimationContextProvider>

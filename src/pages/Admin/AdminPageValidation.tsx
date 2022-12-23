@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react'
-import SlobyTable from '../../Editor/libraries/slobyTable/SlobyTable'
 import { useAuth } from '../../utils/hooks'
 import ErrorPage from '../global/ErrorPage'
 import {
