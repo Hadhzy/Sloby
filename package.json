@@ -41,7 +41,7 @@
     "react-router-dom": "^6.2.2",
     "react-scripts": "5.0.0",
     "react-scroll-to-bottom": "^4.2.0",
-    "react-toastify": "^9.1.0",
+    "react-toastify": "^9.1.1",
     "sass": "^1.49.8",
     "sloby-editor": "./sloby-editor-framework",
     "socket.io-client": "^4.4.1",

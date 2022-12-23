@@ -21,34 +21,40 @@ import RegisterPage from './pages/Users/RegisterPage'
 import Loading from './pages/global/Loading'
 import LoginPage from './pages/Users/LoginPage'
 import { getAuthUser } from './utils/api'
+import { ToastContextProvider } from './utils/context/ToastContext'
 function App() {
   return (
     <BrowserRouter>
       <ContentContextProvider>
-        <StarAnimationContextProvider>
-          <div className="App">
-            <Routes>
-              <Route element={<ProtectedRoutes />}>
-                <Route path="editor/workspace/:id" element={<SlobyEditor />} />
-                <Route path="editor/dashboard" element={<Dashboard />}>
-                  <Route index element={<Projects />} />
-                  <Route path="profile-settings" element={<Settings />} />
-                  <Route path="updates" element={<Updates />} />
-                  <Route path="progress" element={<Progress />} />
+        <ToastContextProvider>
+          <StarAnimationContextProvider>
+            <div className="App">
+              <Routes>
+                <Route element={<ProtectedRoutes />}>
+                  <Route
+                    path="editor/workspace/:id"
+                    element={<SlobyEditor />}
+                  />
+                  <Route path="editor/dashboard" element={<Dashboard />}>
+                    <Route index element={<Projects />} />
+                    <Route path="profile-settings" element={<Settings />} />
+                    <Route path="updates" element={<Updates />} />
+                    <Route path="progress" element={<Progress />} />
+                  </Route>
+                  <Route path="/admin" element={<AdminPage />} />
+                  <Route
+                    path="/admin/dashboard"
+                    element={<AdminPageDashboard />}
+                  />
                 </Route>
-                <Route path="/admin" element={<AdminPage />} />
-                <Route
-                  path="/admin/dashboard"
-                  element={<AdminPageDashboard />}
-                />
-              </Route>
-              <Route path="/" element={<LandingPage />} />
-              <Route path="*" element={<Error />} />
-              <Route path="auth/signup" element={<RegisterPage />} />
-              <Route path="auth/login" element={<LoginPage />} />
-            </Routes>
-          </div>
-        </StarAnimationContextProvider>
+                <Route path="/" element={<LandingPage />} />
+                <Route path="*" element={<Error />} />
+                <Route path="auth/signup" element={<RegisterPage />} />
+                <Route path="auth/login" element={<LoginPage />} />
+              </Routes>
+            </div>
+          </StarAnimationContextProvider>
+        </ToastContextProvider>
       </ContentContextProvider>
     </BrowserRouter>
   )

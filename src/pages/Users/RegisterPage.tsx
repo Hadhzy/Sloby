@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from 'react'
+import React, { FormEvent, useContext, useState } from 'react'
 import { SlobyLogoDark } from '../../assets'
 import { SlobyInput } from '../../utils/styles/global'
 import { off } from 'process'
@@ -9,6 +9,8 @@ import { sendData } from '../../store/user/userSlice'
 import { GiConsoleController } from 'react-icons/gi'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify'
+import { ToastContext } from '../../utils/context/ToastContext'
 
 export default function RegisterPage() {
   const [username, setUsername] = useState('')
@@ -16,6 +18,7 @@ export default function RegisterPage() {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const navigate = useNavigate()
+  const { activateToast } = useContext(ToastContext)
   const { REACT_APP_API_URL } = process.env
 
   const handleSubmit = async (e: FormEvent) => {
@@ -39,7 +42,10 @@ export default function RegisterPage() {
           if (response.data.length > 0) {
             setError(response.data)
             console.log('setError(response.data)')
-          } else console.log('Successfully created an account')
+          } else {
+            activateToast()
+            navigate('/auth/login')
+          }
         })
     }
   }
@@ -81,6 +87,18 @@ export default function RegisterPage() {
             Sign up
           </button>
         </form>
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
       </div>
     </div>
   )

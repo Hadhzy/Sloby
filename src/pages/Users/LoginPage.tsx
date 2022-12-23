@@ -4,12 +4,15 @@ import { ContentContext } from '../../utils/context/ContentContext'
 import { SlobyLogoDark } from '../../assets'
 import { SlobyInput } from '../../utils/styles/global'
 import axios from 'axios'
+import { ToastContext } from '../../utils/context/ToastContext'
+import { ToastContainer, toast } from 'react-toastify'
+
 function LoginPage() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
-
-  const navigate = useNavigate()
+  const [currentUser, setCurrentUser] = useState('')
+  const { toastify } = useContext(ToastContext)
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
@@ -23,10 +26,15 @@ function LoginPage() {
     } else {
       setError('')
       try {
-        axios.post(`http://localhost:4001/api/auth/login`, {
-          username,
-          password,
-        })
+        axios
+          .post(`http://localhost:4001/api/auth/login`, {
+            username,
+            password,
+          })
+          .then((response) => {
+            setCurrentUser(response.data)
+            console.log(currentUser)
+          })
       } catch (error) {
         console.log(error)
       }
@@ -64,6 +72,7 @@ function LoginPage() {
             Log in
           </button>
         </form>
+        {toastify && <ToastContainer />}
       </div>
     </div>
   )
