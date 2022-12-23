@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { ContentContext } from '../../../Others/Context/ContentContext'
+import { ContentContext } from '../../utils/context/ContentContext'
 import {
   SlobyDashboard,
   UserDetails,

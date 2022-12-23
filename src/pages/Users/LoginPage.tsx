@@ -1,8 +1,8 @@
 import React, { useContext, useState, useRef, FormEvent } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { ContentContext } from '../../Context/ContentContext'
-import { SlobyLogoDark } from '../../../assets'
-import { SlobyInput } from '../../../Editor/utils/styles/global'
+import { ContentContext } from '../../utils/context/ContentContext'
+import { SlobyLogoDark } from '../../assets'
+import { SlobyInput } from '../../utils/styles/global'
 import axios from 'axios'
 function LoginPage() {
   const [username, setUsername] = useState('')

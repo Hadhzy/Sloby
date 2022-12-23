@@ -1,5 +1,5 @@
 import React, { createContext, FC, useEffect, useState } from 'react'
-import { ContextChildren } from '../../Editor/utils/types'
+import { ContextChildren } from '../types'
 
 type TAnimationProp = {
   x: number

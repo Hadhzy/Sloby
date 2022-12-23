@@ -1,5 +1,5 @@
 import React from 'react'
-import { SlobyBuildingStepsContainer } from '../../Editor/utils/styles/Editor'
+import { SlobyBuildingStepsContainer } from '../../utils/styles/Editor'
 
 function SlobyBuildingSteps() {
   return (

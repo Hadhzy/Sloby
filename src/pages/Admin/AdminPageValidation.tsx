@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
-import SlobyTable from '../../libraries/slobyTable/SlobyTable'
+import SlobyTable from '../../Editor/libraries/slobyTable/SlobyTable'
 import { useAuth } from '../../utils/hooks'
-import ErrorPage from '../../utils/pages/ErrorPage'
+import ErrorPage from '../global/ErrorPage'
 import {
   AdminPageContainer,
   AdminPageSignInContainer,
@@ -11,10 +11,10 @@ import {
   SlobyErrorMessage,
 } from '../../utils/styles/AdminPage'
 import { SlobyInput } from '../../utils/styles/global'
-import { ContentContext } from '../../../Others/Context/ContentContext'
-import { TAdminPage, TAdminPageForm } from '../../../Others/types'
+import { ContentContext } from '../../utils/context/ContentContext'
+import { TAdminPage, TAdminPageForm } from '../../utils/types'
 import { AdminPageErrorMessages } from '../../utils/constans'
-import SlobyValidate from '../../libraries/SlobyValidate'
+import SlobyValidate from '../../lib/SlobyValidate'
 import { IEventType } from '../../utils/types'
 import { RootState } from '../../store'
 import { Navigate, useNavigate } from 'react-router-dom'

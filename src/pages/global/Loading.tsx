@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { useSelector } from 'react-redux'
-import { RootState } from '../../Editor/store'
+import { RootState } from '../../store'
 
 const loadingCircle = {
   display: 'block',

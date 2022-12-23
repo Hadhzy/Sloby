@@ -1,6 +1,6 @@
 import { Menu } from '@material-ui/core'
 import React, { useContext, useEffect, useState } from 'react'
-import { ContentContext } from '../../../Others/Context/ContentContext'
+import { ContentContext } from '../../utils/context/ContentContext'
 import {
   SlobyDashboard,
   SlobyMenuContainer,

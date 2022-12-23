@@ -4,12 +4,12 @@ import {
   SlobyToolInnerContainer,
   ToolNameContainer,
   Tool,
-} from '../../Editor/utils/styles/Editor'
-import { ContentContext } from '../../Others/Context/ContentContext'
-import { AppDispatch } from '../../Editor/store'
+} from '../../utils/styles/Editor'
+import { ContentContext } from '../../utils/context/ContentContext'
+import { AppDispatch } from '../../store'
 import { useDispatch } from 'react-redux'
 import { SlobyToolObject } from '../utils/types'
-import { IEventType } from '../../Editor/utils/types'
+import { IEventType } from '../../utils/types'
 import { Deliver } from '../handlers/deliver'
 import { motion } from 'framer-motion'
 

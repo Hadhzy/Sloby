@@ -2,7 +2,7 @@ import React from 'react'
 import {
   SlobyPreviewInterfaceContainer,
   PreviewSiteInterface,
-} from '../../Editor/utils/styles/Editor'
+} from '../../utils/styles/Editor'
 
 function SlobyPreviewSiteInterface() {
   return (

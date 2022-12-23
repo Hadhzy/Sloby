@@ -1,24 +1,24 @@
 import React, { useContext } from 'react'
 import './Others/styles/main.scss'
-import Settings from './Editor/Components/Dashboard/Settings'
+import Settings from './pages/Dashboard/Settings'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import AdminPage from './Editor/Components/Admin/AdminPageValidation'
-import Error from './Others/globalPages/Error'
+import AdminPage from './pages/Admin/AdminPageValidation'
+import Error from './pages/global/Error'
 import {
   ContentContext,
   ContentContextProvider,
-} from './Others/Context/ContentContext'
-import Dashboard from './Editor/Components/Dashboard/Dashboard'
-import AdminPageDashboard from './Editor/Components/Admin/AdminDashboard'
-import Updates from './Editor/Components/Dashboard/Updates'
-import Progress from './Editor/Components/Dashboard/Progress'
-import Projects from './Editor/Components/Dashboard/Projects'
+} from './utils/context/ContentContext'
+import Dashboard from './pages/Dashboard/Dashboard'
+import AdminPageDashboard from './pages/Admin/AdminDashboard'
+import Updates from './pages/Dashboard/Updates'
+import Progress from './pages/Dashboard/Progress'
+import Projects from './pages/Dashboard/Projects'
 import SlobyEditor from './sloby-editor-framework/implementations/SlobyEditor/Editor'
-import LandingPage from './Others/Components/LandingPage/LandingPage'
-import { StarAnimationContextProvider } from './Others/Context/StarAnimation'
-import RegisterPage from './Others/Components/Users/RegisterPage'
-import Loading from './Others/Components/Loading'
-import LoginPage from './Others/Components/Users/LoginPage'
+import LandingPage from './pages/LandingPage/LandingPage'
+import { StarAnimationContextProvider } from './utils/context/StarAnimation'
+import RegisterPage from './pages/Users/RegisterPage'
+import Loading from './pages/global/Loading'
+import LoginPage from './pages/Users/LoginPage'
 function App() {
   return (
     <BrowserRouter>
