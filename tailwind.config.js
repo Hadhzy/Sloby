@@ -41,5 +41,5 @@ module.exports = {
       'enlarge': '190%',
     }
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms'),],
 }

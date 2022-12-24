@@ -1,7 +1,8 @@
 import Image from 'next/image'
+import Link from 'next/link';
 import {useCallback, useEffect, useState} from "react";
 
-export default function Navbar({ className }: { className: string }) {
+export default function Navbar({className}: { className: string }) {
     const [scroll, setScroll] = useState(false);
 
     useEffect(() => {
@@ -15,7 +16,10 @@ export default function Navbar({ className }: { className: string }) {
             className={`${className} ${scroll ? "" : "bg-dark-dark"} fixed w-full z-50 text-center backdrop-blur-md drop-shadow-2xl transition-colors`}>
             <div className="mx-auto max-w-7xl">
                 <nav className="w-full my-2 hidden md:inline-flex flex-row justify-content-center gap-6">
-                    <Image alt="Sloby Logo" src="/images/Sloby Logo Dark.svg" className="h-auto w-28 mr-3" width={20} height={20}/>
+                    <Link href="/">
+                        <Image alt="Sloby Logo" src="/images/Sloby Logo Dark.svg" className="h-auto w-28 mr-3"
+                               width={20} height={20}/>
+                    </Link>
                     <div className="flex-center">
                         <a className="nav-button" href="/quickstart">
                             Quick Start

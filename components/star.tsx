@@ -17,7 +17,7 @@ export function Star() {
     }, []);
 
     return (
-        <Image src="/images/Star.svg" className="w-2 absolute top-0 left-0"
+        <Image src="/images/Star.svg" className="w-2 absolute top-0 left-0 z-5"
                style={{top: top, left: left, transform: transform}} alt="Star" width={20}
                height={20}/>
     )
