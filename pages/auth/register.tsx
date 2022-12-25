@@ -6,24 +6,14 @@ import {Star} from "../../components/star";
 import Link from "next/link";
 import {useSession, useSupabaseClient} from "@supabase/auth-helpers-react";
 import {stringifyQuery} from "next/dist/server/server-route-utils";
-import {useRouter} from "next/router";
 import {loggedIn} from "../../lib/helpers";
+import {useRouter} from "next/router";
 
 const isEmail = (email: string) => {
     return /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
 };
 
-export default async function Register() {
-    const supabase = useSupabaseClient()
-    const {
-        data: {session},
-    } = await supabase.auth.getSession()
-    let router = useRouter();
-
-    if (session?.user.email) {
-        await router.push("/editor/dashboard");
-    }
-
+export default function Register() {
     const [hidePassword, setHidePassword] = useState(true);
     const [emailStyles, setEmailStyles] = useState("");
     const [passwordStyles, setPasswordStyles] = useState("");
@@ -32,8 +22,11 @@ export default async function Register() {
     const [errorMsg, setErrorMsg] = useState('')
     const [successMsg, setSuccessMsg] = useState('')
     const [strength, setStrength] = useState(0);
+    const supabase = useSupabaseClient()
     const passwordRef = React.useRef<HTMLInputElement>(null)
     const emailRef = React.useRef<HTMLInputElement>(null)
+
+    let router = useRouter();
 
     function onHidePassword() {
         setHidePassword(!hidePassword);
@@ -144,7 +137,7 @@ export default async function Register() {
 
     useEffect(() => {
         loggedIn(supabase, router, "/editor/dashboard");
-    });
+    })
 
     return (
         <Layout>
