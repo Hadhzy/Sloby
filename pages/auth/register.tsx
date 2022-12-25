@@ -1,17 +1,39 @@
 import Layout from "../../components/layout";
 import Head from "next/head";
 import Image from "next/image";
-import {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Star} from "../../components/star";
 import Link from "next/link";
+import {useSession, useSupabaseClient} from "@supabase/auth-helpers-react";
+import {stringifyQuery} from "next/dist/server/server-route-utils";
+import {useRouter} from "next/router";
+import {loggedIn} from "../../lib/helpers";
 
 const isEmail = (email: string) => {
     return /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
 };
 
-export default function Register() {
+export default async function Register() {
+    const supabase = useSupabaseClient()
+    const {
+        data: {session},
+    } = await supabase.auth.getSession()
+    let router = useRouter();
+
+    if (session?.user.email) {
+        await router.push("/editor/dashboard");
+    }
+
     const [hidePassword, setHidePassword] = useState(true);
     const [emailStyles, setEmailStyles] = useState("");
+    const [passwordStyles, setPasswordStyles] = useState("");
+    const [strengthStyles, setStrengthStyles] = useState(["", "0%"]);
+    const [repeatPasswordStyles, setRepeatPasswordStyles] = useState("");
+    const [errorMsg, setErrorMsg] = useState('')
+    const [successMsg, setSuccessMsg] = useState('')
+    const [strength, setStrength] = useState(0);
+    const passwordRef = React.useRef<HTMLInputElement>(null)
+    const emailRef = React.useRef<HTMLInputElement>(null)
 
     function onHidePassword() {
         setHidePassword(!hidePassword);
@@ -31,6 +53,99 @@ export default function Register() {
         }
     }
 
+    function onRepeatPasswordChange(event: any) {
+        if (event.target.value !== passwordRef.current?.value) {
+            setRepeatPasswordStyles("!border-red-mid");
+        } else {
+            setRepeatPasswordStyles("!border-green-mid");
+        }
+    }
+
+    function verifyRepeatPassword(event: any) {
+        if (event.target.value !== passwordRef.current?.value) {
+            setRepeatPasswordStyles("!border-red-mid animate-shake");
+        }
+    }
+
+    function onPasswordChange(event: any) {
+        // Check password length
+        let temp_strength = 0;
+        if (event.target.value.length >= 8) {
+            temp_strength++;
+        }
+        if (event.target.value.match(/[a-z]+/)) {
+            temp_strength++;
+        }
+        if (event.target.value.match(/[A-Z]+/)) {
+            temp_strength++;
+        }
+        if (event.target.value.match(/[0-9]+/)) {
+            temp_strength++;
+        }
+        if (event.target.value.match(/[$@#&!]+/)) {
+            temp_strength++;
+        }
+        setStrength(temp_strength);
+        if (strength >= 4) {
+            setStrengthStyles(["bg-green-mid", `${temp_strength * 100 / 5}%`]);
+        }
+        if (strength === 3) {
+            setStrengthStyles(["bg-yellow-mid", `${temp_strength * 100 / 5}%`]);
+        }
+        if (strength <= 2) {
+            setStrengthStyles(["bg-red-mid", `${temp_strength * 100 / 5}%`]);
+        }
+    }
+
+    async function onSubmit(event: any) {
+        event.preventDefault();
+
+        if (emailStyles.startsWith("!border-red-mid") || emailRef.current?.value === '') {
+            setErrorMsg('Please enter a valid email address')
+            setEmailStyles("!border-red-mid !animate-shake");
+            return;
+        }
+
+        if (passwordRef.current?.value === '') {
+            setErrorMsg('Please enter a password')
+            setPasswordStyles("!border-red-mid !animate-shake");
+            return;
+        }
+
+        if (strength < 4) {
+            setErrorMsg('Password is too weak')
+            setPasswordStyles("!border-red-mid !animate-shake");
+            return;
+        }
+
+        const body = {
+            username: event.currentTarget.username.value,
+            password: event.currentTarget.password.value,
+            name: event.currentTarget.name.value,
+        }
+
+        if (body.password !== event.currentTarget.rpassword.value) {
+            setErrorMsg(`The passwords don't match`)
+            return
+        }
+
+        const {data, error} = await supabase.auth.signUp({
+            email: event.currentTarget.email.value,
+            password: event.currentTarget.password.value,
+            options: {
+                data: {
+                    username: event.currentTarget.username.value,
+                }
+            }
+        })
+
+        setSuccessMsg('Check your email for a confirmation link')
+    }
+
+    useEffect(() => {
+        loggedIn(supabase, router, "/editor/dashboard");
+    });
+
     return (
         <Layout>
             <Head>
@@ -42,22 +157,25 @@ export default function Register() {
             <main>
                 {Array.from({length: 20}, (_, i) => <Star key={i}/>)}
                 <div className={"flex-center flex-col gap-8 lg:p-40"}>
-                    <div className={"flex flex-row bg-dark-dark rounded-lg w-2/3 z-50"}>
+                    <div className={"flex flex-row bg-dark-dark rounded-lg w-2/3 z-40"}>
                         <div className={"bg-dark-mid flex-center rounded-l-lg w-1/2"}>
                             <Image alt="Sloby Logo" src={"/images/Sloby Logo Dark.svg"} width={400} height={500}/>
                         </div>
-                        <div className={"w-1/2 flex flex-col justify-between m-16 gap-8"}>
+                        <form onSubmit={onSubmit} className={"w-1/2 flex flex-col justify-between m-16 gap-8"}>
                             <p className={"font-semibold text-5xl"}>Sign Up</p>
                             <label className="block flex flex-col gap-2">
                                 <span className="">Your Username</span>
                                 <input type="text"
+                                       name="username"
                                        className={`px-6 rounded-full mt-1 block w-full rounded-md bg-dark-mid border-transparent focus:border-gray-500 focus:bg-dark-dark focus:ring-0`}
-                                       placeholder="Enter your email"
+                                       placeholder="Enter your username"
                                 />
                             </label>
                             <label className="block flex flex-col gap-2">
                                 <span className="">Your email</span>
                                 <input type="email"
+                                       ref={emailRef}
+                                       name={"email"}
                                        className={`${emailStyles} px-6 rounded-full mt-1 block w-full rounded-md bg-dark-mid border-transparent focus:border-gray-500 focus:bg-dark-dark focus:ring-0`}
                                        placeholder="Enter your email"
                                        onChange={onEmailChange}
@@ -66,7 +184,19 @@ export default function Register() {
                             </label>
                             <label className="block flex flex-col gap-2">
                                 <span className="">Your password</span>
+                                <div className={"flex-center gap-2"}>
+                                    <span className={"text-sm text-gray-400"}>Strength: </span>
+                                    <div className={"h-2 w-full bg-dark-mid rounded-full"}>
+                                        <div
+                                            className={`${passwordStyles} rounded-full ${strengthStyles[0]} h-full transition-all duration-500`}
+                                            style={{width: strengthStyles[1]}}/>
+                                    </div>
+                                </div>
                                 <input type={hidePassword ? "password" : "text"}
+                                       ref={passwordRef}
+                                       id={"password"}
+                                       name={"password"}
+                                       onChange={onPasswordChange}
                                        className="px-6 rounded-full mt-1 block w-full rounded-md bg-dark-mid border-transparent focus:border-gray-500 focus:bg-dark-dark focus:ring-0"
                                        placeholder="Enter your password"></input>
                                 <label className="mt-2 inline-flex items-center">
@@ -76,15 +206,32 @@ export default function Register() {
                                     <span className="ml-2">Show password</span>
                                 </label>
                             </label>
+                            <label className="block flex flex-col gap-2">
+                                <span className="">Repeat your password</span>
+                                <input type={"password"}
+                                       name={"rpassword"}
+                                       onChange={onRepeatPasswordChange}
+                                       onBlur={verifyRepeatPassword}
+                                       className={`${repeatPasswordStyles} px-6 rounded-full mt-1 block w-full rounded-md bg-dark-mid border-transparent focus:border-gray-500 focus:bg-dark-dark focus:ring-0`}
+                                       placeholder="Repeat your password"></input>
+                            </label>
                             <div className={"flex flex-col gap-3"}>
-                                <input type="submit" value="Submit"
-                                       className={"flex-center bg-green-dark w-1/4 p-3 rounded-full"}/>
+                                <button type="submit"
+                                        className={"flex-center bg-green-dark w-1/4 p-3 rounded-full"}>Submit
+                                </button>
                                 <Link href={"/auth/login"}>
-                                    <p className={"hover:underline"}>Already a member? <span className={"text-blue-400"}>Log in</span>
+                                    <p className={"hover:underline"}>Already a member? <span
+                                        className={"text-blue-400"}>Log in</span>
                                     </p>
                                 </Link>
                             </div>
-                        </div>
+                            <div className={`${errorMsg ? "p-2 px-6" : ""} bg-red-mid rounded-xl`}>
+                                {errorMsg}
+                            </div>
+                            <div className={`${successMsg ? "p-2 px-6" : ""} bg-green-mid rounded-xl`}>
+                                {successMsg}
+                            </div>
+                        </form>
                     </div>
                 </div>
             </main>

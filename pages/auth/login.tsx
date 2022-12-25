@@ -1,9 +1,12 @@
 import Layout from "../../components/layout";
 import Head from "next/head";
 import Image from "next/image";
-import {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Star} from "../../components/star";
 import Link from "next/link";
+import {useSupabaseClient} from "@supabase/auth-helpers-react";
+import {useRouter} from "next/router";
+import {loggedIn} from "../../lib/helpers";
 
 const isEmail = (email: string) => {
     return /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
@@ -12,6 +15,12 @@ const isEmail = (email: string) => {
 export default function Login() {
     const [hidePassword, setHidePassword] = useState(true);
     const [emailStyles, setEmailStyles] = useState("");
+    const [errorMsg, setErrorMsg] = useState("");
+    const [successMsg, setSuccessMsg] = useState("");
+    const emailRef = React.useRef<HTMLInputElement>(null)
+    const supabase = useSupabaseClient()
+
+    let router = useRouter();
 
     function onHidePassword() {
         setHidePassword(!hidePassword);
@@ -31,6 +40,32 @@ export default function Login() {
         }
     }
 
+    async function onSubmit(event: any) {
+        event.preventDefault();
+        if (emailStyles.startsWith("!border-red-mid") || emailRef.current?.value === '') {
+            setErrorMsg('Please enter a valid email address')
+            setEmailStyles("!border-red-mid !animate-shake");
+            return;
+        }
+
+        const {data, error} = await supabase.auth.signInWithPassword({
+                email: event.currentTarget.email.value,
+                password: event.currentTarget.password.value,
+            },
+        )
+
+        if (error) {
+            setErrorMsg(error.message);
+        }
+
+        console.log(data, error)
+        await router.push('/editor/dashboard')
+    }
+
+    useEffect(() => {
+        loggedIn(supabase, router, "/editor/dashboard");
+    });
+
     return (
         <Layout>
             <Head>
@@ -46,12 +81,14 @@ export default function Login() {
                         <div className={"bg-dark-mid flex-center rounded-l-lg w-1/2"}>
                             <Image alt="Sloby Logo" src={"/images/Sloby Logo Dark.svg"} width={400} height={500}/>
                         </div>
-                        <div className={"w-1/2 flex flex-col justify-between m-16 gap-8"}>
+                        <form onSubmit={onSubmit} className={"w-1/2 flex flex-col justify-between m-16 gap-8"}>
                             <p className={"font-semibold text-5xl"}>Log In</p>
                             <label className="block flex flex-col gap-2">
                                 <span className="">Your email</span>
                                 <input type="email"
+                                       name="email"
                                        className={`${emailStyles} px-6 rounded-full mt-1 block w-full rounded-md bg-dark-mid border-transparent focus:border-gray-500 focus:bg-dark-dark focus:ring-0`}
+                                       ref={emailRef}
                                        placeholder="Enter your email"
                                        onChange={onEmailChange}
                                        onBlur={verifyEmailState}
@@ -60,6 +97,7 @@ export default function Login() {
                             <label className="block flex flex-col gap-2">
                                 <span className="">Your password</span>
                                 <input type={hidePassword ? "password" : "text"}
+                                       name="password"
                                        className="px-6 rounded-full mt-1 block w-full rounded-md bg-dark-mid border-transparent focus:border-gray-500 focus:bg-dark-dark focus:ring-0"
                                        placeholder="Enter your password"></input>
                                 <label className="mt-2 inline-flex items-center">
@@ -70,14 +108,21 @@ export default function Login() {
                                 </label>
                             </label>
                             <div className={"flex flex-col gap-3"}>
-                                <input type="submit" value="Submit"
-                                       className={"flex-center bg-green-dark w-1/4 p-3 rounded-full"}/>
+                                <button type="submit"
+                                        className={"flex-center bg-green-dark w-1/4 p-3 rounded-full"}>Submit
+                                </button>
                                 <Link href={"/auth/register"}>
                                     <p className={"hover:underline"}>Not a member? <span className={"text-blue-400"}>Sign up</span>
                                     </p>
                                 </Link>
                             </div>
-                        </div>
+                            <div className={`${errorMsg ? "p-2 px-6" : ""} bg-red-mid rounded-xl`}>
+                                {errorMsg}
+                            </div>
+                            <div className={`${successMsg ? "p-2 px-6" : ""} bg-green-mid rounded-xl`}>
+                                {successMsg}
+                            </div>
+                        </form>
                     </div>
                 </div>
             </main>

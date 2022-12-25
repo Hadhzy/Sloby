@@ -27,9 +27,9 @@ module.exports = {
                 }
             },
             colors: {
-                'back': '#11162b',
-                'dark-dark': '#28293d',
-                'dark-mid': '#555870',
+                'back': '#040404',
+                'dark-dark': '#111111',
+                'dark-mid': '#373737',
                 'dark-light': '#9090a7',
                 'red-dark': '#ff3b3b',
                 'red-mid': '#ff5c5c',
