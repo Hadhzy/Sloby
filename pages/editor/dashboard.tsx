@@ -11,6 +11,8 @@ export default function Dashboard() {
             data: {session},
         } = await supabase.auth.getSession()
 
+        console.log(session)
+
         setUsername(session?.user?.user_metadata.username);
     }
 

@@ -19,3 +19,23 @@ export const getURL = () => {
     url = url.charAt(url.length - 1) === '/' ? url : `${url}/`;
     return url;
 };
+
+export async function googleLogin(event: any, supabase: any) {
+    event.preventDefault();
+    const {data, error} = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+            redirectTo: getURL(),
+        }
+    })
+}
+
+export async function githubLogin(event: any, supabase: any) {
+    event.preventDefault();
+    const {data, error} = await supabase.auth.signInWithOAuth({
+        provider: 'github',
+        options: {
+            redirectTo: getURL(),
+        }
+    })
+}
