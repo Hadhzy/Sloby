@@ -1,8 +1,8 @@
-import Layout from "../../components/layout";
+import Layout from "../../components/LandingPage/layout";
 import Head from "next/head";
 import Image from "next/image";
 import React, {useEffect, useState} from "react";
-import {Star} from "../../components/star";
+import { Star } from "../../components/LandingPage/star";
 import Link from "next/link";
 import {useSupabaseClient} from "@supabase/auth-helpers-react";
 import {useRouter} from "next/router";

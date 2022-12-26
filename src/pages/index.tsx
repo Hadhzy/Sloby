@@ -1,12 +1,11 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link';
-import Layout from '../components/layout'
+import Layout from '../components/LandingPage/layout'
 import {Inter} from '@next/font/google'
 import styles from '../styles/Home.module.css'
-import {Planet} from "../components/planet";
-import {Star} from "../components/star";
-
+import {Planet} from "../components/LandingPage/planet";
+import  {Star}  from '../components/LandingPage/star';
 const inter = Inter({subsets: ['latin']})
 
 export default function Home() {

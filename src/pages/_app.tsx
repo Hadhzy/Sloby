@@ -1,4 +1,5 @@
 import '../styles/globals.css'
+
 import type { AppProps } from 'next/app'
 import {useState} from "react";
 import {createBrowserSupabaseClient} from "@supabase/auth-helpers-nextjs";

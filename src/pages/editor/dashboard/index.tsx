@@ -1,5 +1,7 @@
 import {useSupabaseClient} from "@supabase/auth-helpers-react";
 import {useEffect, useState} from "react";
+import DashboardMenu from "../../../components/dashboard/DashboardMenu"
+import DashboardHome from "../../../components/dashboard/DashboardHome";
 
 export default function Dashboard() {
     const supabase = useSupabaseClient();
@@ -8,17 +10,18 @@ export default function Dashboard() {
 
     async function getSupabaseData() {
         const {
-            data: {session},
-        } = await supabase.auth.getSession()
+            data: {session}
+        } = await supabase?.auth?.getSession()
 
         let { data: profile, error } = await supabase
             .from('profiles')
             .select('username')
             .eq('id', session?.user?.id)
 
-        console.log(session)
+        console.log(session?.user)
 
-        setUsername(profile[0].username);
+        //@ts-ignore    
+        return setUsername(profile[0].username)
     }
 
     useEffect(() => {
@@ -29,6 +32,9 @@ export default function Dashboard() {
     }, []);
 
     return (
-        <p>hello there {loading ? 'Loading ...' : username}</p>
+        <div className="flex ">
+            <DashboardMenu />
+            <DashboardHome />
+        </div>
     )
 }

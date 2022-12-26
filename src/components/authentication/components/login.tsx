@@ -1,12 +1,12 @@
-import Layout from "../../components/layout";
+import Layout from "../../LandingPage/layout";
 import Head from "next/head";
 import Image from "next/image";
 import React, {useEffect, useState} from "react";
-import {Star} from "../../components/star";
 import Link from "next/link";
 import {useSupabaseClient} from "@supabase/auth-helpers-react";
 import {useRouter} from "next/router";
-import {getURL, githubLogin, googleLogin, loggedIn} from "../../lib/helpers";
+import {getURL, githubLogin, googleLogin, loggedIn} from "../../../lib/helpers";
+import { Star } from "../../LandingPage/star";
 
 const isEmail = (email: string) => {
     return /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
@@ -47,24 +47,25 @@ export default function Login() {
             setEmailStyles("!border-red-mid !animate-shake");
             return;
         }
-
+      
         const {data, error} = await supabase.auth.signInWithPassword({
                 email: event.currentTarget.email.value,
                 password: event.currentTarget.password.value,
             },
         )
-
+      
         if (error) {
             setErrorMsg(error.message);
         }
-
+      
         console.log(data, error)
         if (router.query.redirectedFrom) {
             await router.push(router.query.redirectedFrom.toString())
             return;
         }
         await router.push('/editor/dashboard')
-    }
+      }
+    
 
     return (
         <Layout>

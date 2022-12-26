@@ -1,14 +1,16 @@
-import Layout from "../../components/layout";
+import Layout from "../../LandingPage/layout";
 import Head from "next/head";
 import Image from "next/image";
 import React, {useEffect, useState} from "react";
-import {Star} from "../../components/star";
+
 import Link from "next/link";
 import {useSession, useSupabaseClient} from "@supabase/auth-helpers-react";
 import {stringifyQuery} from "next/dist/server/server-route-utils";
-import {getURL, githubLogin, googleLogin, loggedIn} from "../../lib/helpers";
+import {getURL, githubLogin, googleLogin, loggedIn} from "../../../lib/helpers";
 import {useRouter} from "next/router";
-
+import { onPasswordChange } from "../handlers/onPasswordChange";
+import { onSubmit } from "../handlers/onSubmit";
+import { Star } from "../../LandingPage/star";
 const isEmail = (email: string) => {
     return /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
 };
@@ -61,84 +63,7 @@ export default function Register() {
         }
     }
 
-    function onPasswordChange(event: any) {
-        // Check password length
-        let temp_strength = 0;
-        if (event.target.value.length >= 8) {
-            temp_strength++;
-        }
-        if (event.target.value.match(/[a-z]+/)) {
-            temp_strength++;
-        }
-        if (event.target.value.match(/[A-Z]+/)) {
-            temp_strength++;
-        }
-        if (event.target.value.match(/[0-9]+/)) {
-            temp_strength++;
-        }
-        if (event.target.value.match(/[$@#&!]+/)) {
-            temp_strength++;
-        }
-        setStrength(temp_strength);
-        if (strength >= 4) {
-            setStrengthStyles(["bg-green-mid", `${temp_strength * 100 / 5}%`]);
-        }
-        if (strength === 3) {
-            setStrengthStyles(["bg-yellow-mid", `${temp_strength * 100 / 5}%`]);
-        }
-        if (strength <= 2) {
-            setStrengthStyles(["bg-red-mid", `${temp_strength * 100 / 5}%`]);
-        }
-    }
-
-    async function onSubmit(event: any) {
-        event.preventDefault();
-
-        if (emailStyles.startsWith("!border-red-mid") || emailRef.current?.value === '') {
-            setErrorMsg('Please enter a valid email address')
-            setEmailStyles("!border-red-mid !animate-shake");
-            return;
-        }
-
-        if (passwordRef.current?.value === '') {
-            setErrorMsg('Please enter a password')
-            setPasswordStyles("!border-red-mid !animate-shake");
-            return;
-        }
-
-        if (strength < 4) {
-            setErrorMsg('Password is too weak')
-            setPasswordStyles("!border-red-mid !animate-shake");
-            return;
-        }
-
-        const body = {
-            username: event.currentTarget.username.value,
-            password: event.currentTarget.password.value,
-            name: event.currentTarget.name.value,
-        }
-
-        if (body.password !== event.currentTarget.rpassword.value) {
-            setErrorMsg(`The passwords don't match`)
-            return
-        }
-
-        const {data, error} = await supabase.auth.signUp({
-            email: event.currentTarget.email.value,
-            password: event.currentTarget.password.value,
-        })
-
-        const {
-            data: {session},
-        } = await supabase.auth.getSession()
-
-        const { data: profile } = await supabase
-            .from('profiles')
-            .update({ username: usernameRef.current?.value })
-            .eq('id', session?.user?.id)
-
-        setSuccessMsg('Check your email for a confirmation link')
-    }
+    
 
     useEffect(() => {
         loggedIn(supabase, router, "/editor/dashboard");
@@ -159,7 +84,7 @@ export default function Register() {
                         <div className={"bg-dark-mid flex-center rounded-l-lg w-1/2"}>
                             <Image alt="Sloby Logo" src={"/images/Sloby Logo Dark.svg"} width={400} height={500}/>
                         </div>
-                        <form onSubmit={onSubmit} className={"w-1/2 flex flex-col justify-between m-16 gap-8"}>
+                        <form onSubmit={(e: React.FormEvent<HTMLFormElement>) => onSubmit(e, emailStyles, setEmailStyles, setPasswordStyles, setErrorMsg, setSuccessMsg, emailRef, strength, passwordRef, usernameRef,supabase)} className={"w-1/2 flex flex-col justify-between m-16 gap-8"}>
                             <p className={"font-semibold text-5xl"}>Sign Up</p>
                             <div
                                 className={"flex items-center w-full rounded-lg bg-white p-2 gap-3 hover:cursor-pointer"}
@@ -227,7 +152,7 @@ export default function Register() {
                                        ref={passwordRef}
                                        id={"password"}
                                        name={"password"}
-                                       onChange={onPasswordChange}
+                                       onChange={(e: React.ChangeEvent<HTMLInputElement>) => onPasswordChange(e, setStrength, setStrengthStyles, strength)}
                                        className="px-6 rounded-full mt-1 block w-full rounded-md bg-dark-mid border-transparent focus:border-gray-500 focus:bg-dark-dark focus:ring-0"
                                        placeholder="Enter your password"></input>
                                 <label className="mt-2 inline-flex items-center">

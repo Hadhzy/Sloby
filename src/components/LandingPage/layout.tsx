@@ -2,7 +2,7 @@
 
 import Navbar from './navbar'
 
-export default function Layout({ children }) {
+export default function Layout({ children }: {children: any}) {
     return (
         <div className='bg-back min-h-screen text-white'>
             <Navbar className=''/>
