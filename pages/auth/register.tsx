@@ -94,6 +94,8 @@ export default function Register() {
     async function onSubmit(event: any) {
         event.preventDefault();
 
+        console.log(event)
+
         if (emailStyles.startsWith("!border-red-mid") || emailRef.current?.value === '') {
             setErrorMsg('Please enter a valid email address')
             setEmailStyles("!border-red-mid !animate-shake");
@@ -112,13 +114,7 @@ export default function Register() {
             return;
         }
 
-        const body = {
-            username: event.currentTarget.username.value,
-            password: event.currentTarget.password.value,
-            name: event.currentTarget.name.value,
-        }
-
-        if (body.password !== event.currentTarget.rpassword.value) {
+        if (event.currentTarget.password.value !== event.currentTarget.rpassword.value) {
             setErrorMsg(`The passwords don't match`)
             return
         }
@@ -139,10 +135,6 @@ export default function Register() {
 
         setSuccessMsg('Check your email for a confirmation link')
     }
-
-    useEffect(() => {
-        loggedIn(supabase, router, "/editor/dashboard");
-    })
 
     return (
         <Layout>

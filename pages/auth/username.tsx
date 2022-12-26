@@ -4,7 +4,7 @@ import Image from "next/image";
 import React, {useEffect, useState} from "react";
 import {Star} from "../../components/star";
 import Link from "next/link";
-import {useSupabaseClient} from "@supabase/auth-helpers-react";
+import {useSession, useSupabaseClient} from "@supabase/auth-helpers-react";
 import {useRouter} from "next/router";
 import {getURL, githubLogin, googleLogin, loggedIn} from "../../lib/helpers";
 
@@ -16,15 +16,12 @@ export default function Login() {
     const [errorMsg, setErrorMsg] = useState("");
     const usernameRef = React.useRef<HTMLInputElement>(null)
     const supabase = useSupabaseClient()
+    const session = useSession()
 
     let router = useRouter();
 
     async function onSubmit(event: any) {
         event.preventDefault();
-
-        const {
-            data: {session},
-        } = await supabase.auth.getSession()
 
         const { data, error } = await supabase
             .from('profiles')
