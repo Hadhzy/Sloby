@@ -9,9 +9,20 @@ export async function middleware(req: NextRequest) {
     const {
         data: {session},
     } = await supabase.auth.getSession()
+    const { data: profile, error } = await supabase
+        .from('profiles')
+        .select('username')
+        .eq('id', session?.user?.id)
 
     // Check auth condition
     if (session?.user.email) {
+        const requiresIncompleteProfile = ['/auth/username']
+
+        if (requiresIncompleteProfile.some((route) => req.nextUrl.pathname.match(route)) && (!(profile) || profile[0].username)) {
+            redirectUrl.pathname = '/editor/dashboard'
+            return NextResponse.redirect(redirectUrl)
+        }
+
         const oneTimeRoutes = ['/auth/(.*)']
         if (oneTimeRoutes.some((route) => req.nextUrl.pathname.match(route))) {
             redirectUrl.pathname = '/editor/dashboard'
