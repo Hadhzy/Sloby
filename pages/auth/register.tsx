@@ -25,6 +25,7 @@ export default function Register() {
     const supabase = useSupabaseClient()
     const passwordRef = React.useRef<HTMLInputElement>(null)
     const emailRef = React.useRef<HTMLInputElement>(null)
+    const usernameRef = React.useRef<HTMLInputElement>(null)
 
     let router = useRouter();
 
@@ -125,12 +126,16 @@ export default function Register() {
         const {data, error} = await supabase.auth.signUp({
             email: event.currentTarget.email.value,
             password: event.currentTarget.password.value,
-            options: {
-                data: {
-                    username: event.currentTarget.username.value,
-                }
-            }
         })
+
+        const {
+            data: {session},
+        } = await supabase.auth.getSession()
+
+        const { data: profile } = await supabase
+            .from('profiles')
+            .update({ username: usernameRef.current?.value })
+            .eq('id', session?.user?.id)
 
         setSuccessMsg('Check your email for a confirmation link')
     }
@@ -191,7 +196,8 @@ export default function Register() {
                             <label className="block flex flex-col gap-2">
                                 <span className="">Your Username</span>
                                 <input type="text"
-                                       name="username"
+                                       name={"username"}
+                                       ref={usernameRef}
                                        className={`px-6 rounded-full mt-1 block w-full rounded-md bg-dark-mid border-transparent focus:border-gray-500 focus:bg-dark-dark focus:ring-0`}
                                        placeholder="Enter your username"
                                 />

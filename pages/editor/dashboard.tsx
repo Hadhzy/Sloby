@@ -11,9 +11,14 @@ export default function Dashboard() {
             data: {session},
         } = await supabase.auth.getSession()
 
+        let { data: profile, error } = await supabase
+            .from('profiles')
+            .select('username')
+            .eq('id', session?.user?.id)
+
         console.log(session)
 
-        setUsername(session?.user?.user_metadata.username);
+        setUsername(profile[0].username);
     }
 
     useEffect(() => {

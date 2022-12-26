@@ -66,10 +66,6 @@ export default function Login() {
         await router.push('/editor/dashboard')
     }
 
-    useEffect(() => {
-        loggedIn(supabase, router, "/editor/dashboard");
-    });
-
     return (
         <Layout>
             <Head>
