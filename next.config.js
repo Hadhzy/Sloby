@@ -7,6 +7,16 @@ const nextConfig = {
         source: '/editor',
         destination: '/editor/dashboard',
         permanent: true,
+        // images: {
+        //   remotePatterns: [
+        //     {
+        //       protocol: 'https',
+        //       hostname: 'lh3.googleusercontent.com',
+        //       port: '',
+        //       pathname: ''
+        //     }
+        //   ]
+        // }
       },
     ]
   },
