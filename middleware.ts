@@ -14,9 +14,6 @@ export async function middleware(req: NextRequest) {
         .select('username')
         .eq('id', session?.user?.id)
 
-    console.log(profile)
-    console.log(session?.user?.id)
-
     // Check auth condition
     if (session?.user.email) {
         const requiresIncompleteProfile = ['/auth/username']
