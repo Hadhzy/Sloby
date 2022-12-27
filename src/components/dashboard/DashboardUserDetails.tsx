@@ -9,7 +9,7 @@ export default function DashboardUserDetails() {
     const session = useSession()
     console.log(session?.user.user_metadata.avatar_url);
     return (
-        <div className='flex flex-col gap-10 p-8 mt-8 ml-4 text-white'>
+        <div className='flex flex-col gap-10 p-8 ml-4 text-white'>
             <div className='text-4xl lg:text-7xl font-bold flex gap-36'>
                 Good Morning, <br/>{session?.user.user_metadata.name}
                 <img src={session?.user.user_metadata.avatar_url} alt="" className='w-[180px] h-[180px] rounded-full'/>
