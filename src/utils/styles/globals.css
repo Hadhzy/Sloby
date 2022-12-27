@@ -7,6 +7,10 @@
     .flex-center {
         @apply flex items-center justify-center
     }
+
+    .dashboardIcon {
+        @apply text-dark-mid mt-10 text-4xl m-1 p-2.5 cursor-pointer ease-in duration-200 hover:text-dark-light rounded-xl
+    }
 }
 
 .btn {

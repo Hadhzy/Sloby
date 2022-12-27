@@ -22,7 +22,7 @@ export default function Dashboard() {
 
         console.log(session?.user)
 
-        //@ts-ignore    
+        //@ts-ignore
         return setUsername(profile[0].username)
     }
 

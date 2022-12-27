@@ -1,3 +1,5 @@
+const { fontFamily } = require('tailwindcss/defaultTheme');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: ['./src/pages/**/*.{ts,tsx}', './src/components/**/*.{ts,tsx}'],
@@ -30,7 +32,7 @@ module.exports = {
                 'dark-font-color': '#505050',
                 'dark-dark': '#111111',
                 'dark-mid': '#373737',
-                'dark-light': '#9090a7',
+                'dark-light': '#cfcfcf',
                 'red-dark': '#ff3b3b',
                 'red-mid': '#ff5c5c',
                 'red-light': '#ff8080',
@@ -38,19 +40,27 @@ module.exports = {
                 'green-mid': '#39da8a',
                 'green-light': '#57eba3',
                 'blue-dark': '#0063f8',
+                'blue-perfect': '#0085ff',
                 'blue-mid': '#5b8dee',
                 'blue-light': '#9dbff8',
                 'yellow-dark': '#ffcc00',
                 'yellow-mid': '#fedd49',
-                'yellow-light': '#feed73'
-            }
+                'yellow-light': '#feed73',
+                'blurple': '#4f40ff'
+            },
+            borderRadius: {
+                'large': '50px',
+            },
+            fontFamily: {
+                sans: ['Inter', 'sans-serif'],
+            },
         },
         backgroundSize: {
             'auto': 'auto',
             'cover': 'cover',
             'contain': 'contain',
             'enlarge': '190%',
-        }
+        },
     },
     plugins: [require('@tailwindcss/forms'),],
 }
