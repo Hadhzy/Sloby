@@ -20,7 +20,7 @@ export default function Dashboard() {
 
         console.log(session?.user)
 
-        //@ts-ignore    
+        //@ts-ignore
         return setUsername(profile[0].username)
     }
 
@@ -32,7 +32,7 @@ export default function Dashboard() {
     }, []);
 
     return (
-        <div className="flex ">
+        <div className="flex">
             <DashboardMenu />
             <DashboardHome />
         </div>

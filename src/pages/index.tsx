@@ -1,12 +1,8 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import Link from 'next/link';
 import Layout from '../components/LandingPage/layout'
-import {Inter} from '@next/font/google'
-import styles from '../styles/Home.module.css'
 import {Planet} from "../components/LandingPage/planet";
-import  {Star}  from '../components/LandingPage/star';
-const inter = Inter({subsets: ['latin']})
+import {Star} from '../components/LandingPage/star';
 
 export default function Home() {
     return (
@@ -34,8 +30,10 @@ export default function Home() {
                     </p>
                     <div className="mt-4 flex-center gap-16 text-md z-50">
                         <Link href={"/auth/login"}>
-                            <div className="z-20 p-4 px-12 bg-dark-dark ring-offset-4 ring-offset-back ring-2 ring-red-mid rounded-2xl">Get
-                                Started</div>
+                            <div
+                                className="z-20 p-4 px-12 bg-dark-dark ring-offset-4 ring-offset-back ring-2 ring-red-mid rounded-2xl">Get
+                                Started
+                            </div>
                         </Link>
                         <a
                             className="z-20 p-4 px-12 bg-dark-dark ring-offset-4 ring-offset-back ring-2 ring-dark-dark rounded-2xl">Documentation</a>

@@ -1,28 +1,41 @@
 import React from 'react'
 import CountUp from 'react-countup'
-import { getEveryNth } from './getEveryNth'
-import { getRandomNumber } from './getRandomNumber'
+import {getEveryNth} from './getEveryNth'
+import {getRandomNumber} from './getRandomNumber'
 
-export default function DashboardStats() {
+export default function DashboardStats({
+                                           title, subTitle = '', value, valueEnd, lightColor, darkColor
+                                       }: { title: string, subTitle?: string, value: number, valueEnd: string, lightColor: string, darkColor: string }) {
 
-  const ChartElement = () => {
-    let randomNumber = getRandomNumber(20, 70)
-    console.log(randomNumber)
-    return <div className='flex gap-2 items-end'>
-      <div className={`bg-[#0085ff] h-[60px] w-[13px] rounded-full`} />
-      <div className={`bg-[#4F40FF] h-[50px] w-[13px] rounded-full`} />
-    </div>
-  }
-
-  return (
-    <div className='w-full'>
-      <div className='bg-[#111111] w-[450px] h-[230px] rounded-[40px] ml-[50px] mt-[20px]'>
-        <p className='pt-[30px] pl-[55px] font-bold text-lg text-[#414141]'>Total visits</p>
-        <h1 className='pt-[30px] pl-[55px] mt-[-15px] text-4xl font-bold'><CountUp end={1234} duration={5}/> visits</h1>
-        <div className='flex gap-3 mt-5 justify-center'>
-          {Array.from({length: 8}, (_, i) => <ChartElement key={i}/>)}
+    const ChartElement = ({values}: { values: number[] }) => {
+        // Normalize randomNumbers between 0 and 1
+        const max = Math.max(...values)
+        const min = Math.min(...values)
+        const modifier = 50;
+        values = values.map((n) => (n - min) / (max - min))
+        console.log(values)
+        return <div className='flex gap-2 items-end'>
+            {values.map((n, i) => {
+                return (
+                    <div key={i} className={`w-2 rounded-full ${lightColor}`} style={{height: n * modifier + 'px'}}/>
+                )
+            })}
         </div>
-      </div>
-    </div>
-  )
+    }
+
+    const visits = Array.from({length: 13}, () => getRandomNumber(100, 20000))
+
+    return (
+        <div className='w-full'>
+            <div className='flex flex-col bg-dark-dark rounded-large py-8 gap-1.5 px-10'>
+                <p className='font-bold text-lg text-dark-mid'>{title}</p>
+                <h1 className='text-4xl font-bold'><CountUp end={visits.reduce((a, b) => a + b, 0)} duration={2}
+                                                            useEasing={true}/> {valueEnd}</h1>
+                <div className='flex gap-3 mt-5'>
+                    <ChartElement values={visits}/>
+                </div>
+                <p className='font-bold text-lg text-dark-mid'>{subTitle}</p>
+            </div>
+        </div>
+    )
 }
