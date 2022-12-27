@@ -26,7 +26,7 @@ export default function DashboardStats({
     const visits = Array.from({length: 13}, () => getRandomNumber(100, 20000))
 
     return (
-        <div className='w-full'>
+        <div className='w-[22rem]'>
             <div className='flex flex-col bg-dark-dark rounded-large py-8 gap-1.5 px-10'>
                 <p className='font-bold text-lg text-dark-mid'>{title}</p>
                 <h1 className='text-4xl font-bold'><CountUp end={visits.reduce((a, b) => a + b, 0)} duration={2}
