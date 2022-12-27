@@ -25,6 +25,9 @@ module.exports = {
             },
             colors: {
                 'back': '#040404',
+                'dark-main-dark': '#0D0D0D',
+                'dark-border': '#202020',
+                'dark-font-color': '#505050',
                 'dark-dark': '#111111',
                 'dark-mid': '#373737',
                 'dark-light': '#9090a7',
