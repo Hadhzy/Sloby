@@ -6,9 +6,13 @@ import {Inter} from '@next/font/google'
 import styles from '../styles/Home.module.css'
 import {Planet} from "../components/LandingPage/planet";
 import  {Star}  from '../components/LandingPage/star';
+import { useSession } from '@supabase/auth-helpers-react';
 const inter = Inter({subsets: ['latin']})
 
 export default function Home() {
+    const session = useSession()
+    console.log(session?.user)
+
     return (
         <Layout>
             <Head>
