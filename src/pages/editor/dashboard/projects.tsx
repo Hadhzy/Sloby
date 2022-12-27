@@ -1,7 +1,10 @@
 import React from 'react'
+import DashboardLayout from '../../../components/layouts/indext'
 
 export default function projects() {
   return (
-    <div>projects</div>
+    <DashboardLayout>
+     
+    </DashboardLayout>
   )
 }

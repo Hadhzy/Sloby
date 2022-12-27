@@ -2,6 +2,8 @@ import {useSupabaseClient} from "@supabase/auth-helpers-react";
 import {useEffect, useState} from "react";
 import DashboardMenu from "../../../components/dashboard/DashboardMenu"
 import DashboardHome from "../../../components/dashboard/DashboardHome";
+import Layout from "../../../components/LandingPage/layout";
+import DashboardLayout from "../../../components/layouts/indext";
 
 export default function Dashboard() {
     const supabase = useSupabaseClient();
@@ -32,9 +34,8 @@ export default function Dashboard() {
     }, []);
 
     return (
-        <div className="flex ">
-            <DashboardMenu />
-            <DashboardHome />
-        </div>
+            <div className="flex ">
+                <DashboardHome />
+            </div>
     )
 }
