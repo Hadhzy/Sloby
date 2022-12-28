@@ -20,7 +20,8 @@ export default function DashboardStats({
                         <div className={`peer w-2 rounded-full z-30`}
                              style={{height: n * modifier + 'px', position: 'inherit'}}/>
                         <div
-                            className="peer-hover:flex-center hidden -top-2 -left-[250%] -translate-y-full absolute bg-dark-border z-40 py-1 px-2 rounded-full text-sm">
+                            className={`peer-hover:flex-center hidden -top-2 -translate-y-full absolute bg-dark-border z-40 py-1 px-2 rounded-full text-sm`}
+                            style={{left: `-${(values[i].toString().length * 50) + 50}%`}}>
                             {values[i]}
                         </div>
                     </div>
@@ -28,8 +29,6 @@ export default function DashboardStats({
             })}
         </div>
     }
-
-    console.log('chartdata', chartData)
 
     return (
         <div className='w-[22rem]'>
