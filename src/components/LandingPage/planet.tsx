@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import {useEffect, useMemo, useState} from "react";
+import {motion} from 'framer-motion'
 
 export function Planet({src, className}: { src: string, className: string }) {
     const [transform, setTransform] = useState("translate(0)");
@@ -14,7 +15,11 @@ export function Planet({src, className}: { src: string, className: string }) {
     }, []);
 
     return (
-        <Image alt="Planet" src={src} className={`${className} hidden lg:block absolute z-10`}
-               style={{transform: transform}} width={200} height={200}/>
+        <motion.div
+           initial={{ opacity: 0}} animate={{ opacity: 1, }} transition={{ delay: 1, duration: 1.5, ease: "easeInOut" }} 
+        >
+            <Image alt="Planet" src={src} className={`${className} hidden lg:block absolute z-10`}
+            style={{transform: transform}} width={200} height={200}/>
+        </motion.div>
     )
 }
