@@ -3,6 +3,7 @@ import ProjectsManager from './ProjectsManager'
 import ProjectsHandler from './ProjectsHandler'
 import { ProjectsContext, ProjectsContextProvider } from '../../../utils/contexts/ProjectsContext'
 import ProjectModal from './ProjectModal'
+import { AnimatePresence } from 'framer-motion'
 
 export default function ProjectsSection() {
   const {project_data} = useContext(ProjectsContext)
@@ -10,7 +11,9 @@ export default function ProjectsSection() {
 
   return (
     <div className={`bg-dark-dark h-screen relative `}>
-        {project_data.project_modal && <ProjectModal />}
+        <AnimatePresence>
+          {project_data.project_modal && <ProjectModal />}
+        </AnimatePresence>
         <ProjectsManager />
         <ProjectsHandler />
     </div>
