@@ -1,9 +1,6 @@
 import {useSupabaseClient} from "@supabase/auth-helpers-react";
 import {useEffect, useState} from "react";
-import DashboardMenu from "../../../components/dashboard/DashboardMenu"
 import DashboardHome from "../../../components/dashboard/DashboardHome";
-import Layout from "../../../components/LandingPage/layout";
-import DashboardLayout from "../../../components/layouts/indext";
 import {getRandomNumber} from "../../../components/dashboard/getRandomNumber";
 
 export async function getServerSideProps() {

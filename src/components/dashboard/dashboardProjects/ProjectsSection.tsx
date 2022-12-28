@@ -10,11 +10,7 @@ export default function ProjectsSection() {
   console.log(project_data.project_modal)
 
   return (
-    <div className={`bg-dark-dark h-screen relative `}>
-        <AnimatePresence>
-          {project_data.project_modal && <ProjectModal />}
-        </AnimatePresence>
-        <ProjectsManager />
+    <div className={`bg-dark-dark h-screen relative`}>
         <ProjectsHandler />
     </div>
   )

@@ -1,5 +1,5 @@
 import React from 'react'
-import DashboardLayout from '../../../components/layouts/indext'
+import DashboardLayout from '../../../components/layouts/dashboard/DashboardLayout'
 import Projects from '../../../components/dashboard/dashboardProjects/ProjectsSection'
 import { QueryClientProvider } from 'react-query'
 

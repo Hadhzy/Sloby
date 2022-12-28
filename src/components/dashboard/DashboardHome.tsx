@@ -1,7 +1,7 @@
 import {useSession} from '@supabase/auth-helpers-react'
 import React, {useContext} from 'react'
 import DashboardUserDetails from './DashboardUserDetails'
-import DashboardLayout from '../layouts/indext'
+import DashboardLayout from '../layouts/dashboard/DashboardLayout'
 import ProjectsManager from "./dashboardProjects/ProjectsManager";
 import {getRandomNumber} from "./getRandomNumber";
 import {AnimatePresence} from "framer-motion";
@@ -15,13 +15,7 @@ export default function DashboardHome({totalVisits, totalUsage}: { totalVisits: 
     console.log('totalvists', totalVisits)
     return (
         <DashboardLayout>
-            <AnimatePresence>
-                {project_data.project_modal && <ProjectModal />}
-            </AnimatePresence>
-            <div className={`bg-dark-dark w-full h-full`}>
-                <ProjectsManager/>
-                <DashboardUserDetails totalVisits={totalVisits} totalUsage={totalUsage}/>
-            </div>
+            <DashboardUserDetails totalVisits={totalVisits} totalUsage={totalUsage}/>
         </DashboardLayout>
     )
 }
