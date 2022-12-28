@@ -9,7 +9,11 @@
     }
 
     .dashboardIcon {
-        @apply text-dark-mid mt-10 text-4xl m-1 p-2.5 cursor-pointer ease-in duration-200 hover:text-dark-light rounded-xl
+        @apply text-dark-mid mt-10 text-4xl m-1 p-2.5 cursor-pointer ease-in transition-all duration-100 hover:text-white rounded-xl static hover:bg-dark-border
+    }
+
+    .dashboardIconTooltip {
+        @apply peer-hover:opacity-100 opacity-0 transition-opacity duration-100 ease-in absolute top-1/2 left-16 text-white bg-dark-darker p-2 rounded-xl
     }
 }
 

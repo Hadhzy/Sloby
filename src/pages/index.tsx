@@ -4,7 +4,6 @@ import Layout from '../components/LandingPage/layout'
 import {Planet} from "../components/LandingPage/planet";
 import  {Star}  from '../components/LandingPage/star';
 import { useSession } from '@supabase/auth-helpers-react';
-const inter = Inter({subsets: ['latin']})
 
 export default function Home() {
     const session = useSession()
