@@ -6,6 +6,7 @@ import {createBrowserSupabaseClient} from "@supabase/auth-helpers-nextjs";
 import {useRouter} from "next/router";
 import {useClickOutside} from "../../../utils/hooks";
 import {ProjectsContext} from "../../../utils/contexts/ProjectsContext";
+import {AnimatePresence, motion, Variants} from 'framer-motion';
 
 function ProjectsManager() {
     const [clickedClass, setClickedClass] = useState({projects: true, shared: false})
@@ -16,6 +17,15 @@ function ProjectsManager() {
     const session = useSession()
     const [supabase] = useState(() => createBrowserSupabaseClient())
     const router = useRouter()
+
+    const profileVariants: Variants = {
+        open: {
+            opacity: 1,
+            y: 0,
+            transition: { type: "spring", stiffness: 300, damping: 24 }
+        },
+        closed: { opacity: 0, y: 20, transition: { duration: 0.2 } }
+    };
 
     useClickOutside(profileRef, () => setProfileDropdown(false));
 
@@ -48,20 +58,44 @@ function ProjectsManager() {
                     <Image src={session?.user.user_metadata.avatar_url} alt="Your profile picture"
                            className='rounded-full cursor-pointer'
                            width={40} height={40}/>
+                    <AnimatePresence>
                     {profileDropdown &&
-                        <div
+                        <motion.div
+                            variants={{
+                                open: {
+                                    clipPath: "inset(0% 0% 0% 0% round 10px)",
+                                    transition: {
+                                        type: "spring",
+                                        bounce: 0,
+                                        duration: 0.7,
+                                        delayChildren: 0.3,
+                                        staggerChildren: 0.05
+                                    }
+                                },
+                                closed: {
+                                    clipPath: "inset(0% 0% 100% 100% round 10px)",
+                                    transition: {
+                                        type: "spring",
+                                        bounce: 0,
+                                        duration: 0.3
+                                    }
+                                }
+                            }}
+                            initial={"closed"}
+                            animate={"open"}
                             className={"gap-2 border-dark-border border bg-dark-darker py-4 rounded-lg absolute translate-y-3 right-0 flex flex-col"}>
                             <p className={"px-4"}>Signed in as {session?.user.email}</p>
                             <div className={"bg-dark-border h-0.5 w-full my-1"}/>
-                            <p className={"cursor-pointer hover:bg-dark-border px-4 py-1"}>Profile</p>
-                            <p className={"cursor-pointer hover:bg-dark-border px-4 py-1"}>Projects</p>
+                            <motion.p variants={profileVariants} className={"cursor-pointer hover:bg-dark-border px-4 py-1"}>Profile</motion.p>
+                            <motion.p variants={profileVariants} className={"cursor-pointer hover:bg-dark-border px-4 py-1"}>Projects</motion.p>
                             <div className={"bg-dark-border h-0.5 w-full my-1"}/>
-                            <p className={"cursor-pointer hover:bg-dark-border px-4 py-1"}>Upgrade</p>
-                            <p className={"cursor-pointer hover:bg-dark-border px-4 py-1"}>Settings</p>
+                            <motion.p variants={profileVariants} className={"cursor-pointer hover:bg-dark-border px-4 py-1"}>Upgrade</motion.p>
+                            <motion.p variants={profileVariants} className={"cursor-pointer hover:bg-dark-border px-4 py-1"}>Settings</motion.p>
                             <div className={"bg-dark-border h-0.5 w-full my-1"}/>
-                            <p className={"cursor-pointer hover:bg-dark-border px-4 py-1"} onClick={(e) => signOut()}>Sign out</p>
-                        </div>
+                            <motion.p variants={profileVariants} className={"cursor-pointer hover:bg-dark-border px-4 py-1"} onClick={(e) => signOut()}>Sign out</motion.p>
+                        </motion.div>
                     }
+                    </AnimatePresence>
                 </div>
             </div>
         </div>
