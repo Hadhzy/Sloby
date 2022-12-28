@@ -1,13 +1,10 @@
 import React, {useState} from 'react'
 import Image from 'next/image'
-import Login from '../authentication/components/login'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {faBarsProgress} from '@fortawesome/free-solid-svg-icons'
 import {faGear} from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link'
-import {useSWRConfig} from 'swr'
-import projects from '../../pages/editor/dashboard/projects'
 
 export default function DashboardMenu({className}: {className?: string }) {
     return (
@@ -21,7 +18,7 @@ export default function DashboardMenu({className}: {className?: string }) {
                 <div className='relative'>
                     <Link href="/editor/dashboard/projects" className={"peer"}>
                         <FontAwesomeIcon icon={faBarsProgress}
-                                         className={"dashboardIcon"}/>
+                            className={"dashboardIcon"}/>
                     </Link>
                     <div
                         className={`dashboardIconTooltip`}>

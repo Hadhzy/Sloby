@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import Link from 'next/link';
 import Layout from '../components/LandingPage/layout'
-import {Planet} from "../components/LandingPage/planet";
-import  {Star}  from '../components/LandingPage/star';
+import { Planet } from "../components/LandingPage/planet";
+import  { Star }  from '../components/LandingPage/star';
 import { useSession } from '@supabase/auth-helpers-react';
 
 export default function Home() {
