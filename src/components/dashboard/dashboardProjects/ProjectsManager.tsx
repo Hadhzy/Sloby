@@ -1,16 +1,18 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import ProjectModal from './ProjectModal'
 import Image from "next/image";
 import {useSession} from "@supabase/auth-helpers-react";
 import {createBrowserSupabaseClient} from "@supabase/auth-helpers-nextjs";
 import {useRouter} from "next/router";
 import {useClickOutside} from "../../../utils/hooks";
+import {ProjectsContext} from "../../../utils/contexts/ProjectsContext";
 
 function ProjectsManager() {
     const [clickedClass, setClickedClass] = useState({projects: true, shared: false})
     const [profileDropdown, setProfileDropdown] = useState(false)
     const profileRef = React.useRef<HTMLInputElement>(null)
     const [projectModal, setProjectModal] = useState(false)
+    const {project_data, set_project_data} = useContext(ProjectsContext)
     const session = useSession()
     const [supabase] = useState(() => createBrowserSupabaseClient())
     const router = useRouter()
@@ -39,7 +41,7 @@ function ProjectsManager() {
             <div className={"flex-center gap-12 text-white"}>
                 <div
                     className='ease-in-out duration-200 btn bg-blue-dark origin-top hover:translate-y-[-2px] hover:scale-105 hover:bg-blue-600'>
-                    <button onClick={() => setProjectModal(true)}>New Project</button>
+                    <button onClick={() => set_project_data({ ...project_data, project_modal: true })}>New Project</button>
                 </div>
                 <div className={"relative"} onClick={() => setProfileDropdown(!profileDropdown)} ref={profileRef}>
                     <Image src={session?.user.user_metadata.avatar_url} alt="Your profile picture"
