@@ -18,6 +18,7 @@ function ProjectsManager() {
       <div className='mr-16 text-white ease-in-out duration-200 btn bg-blue-dark origin-top hover:translate-y-[-2px] hover:scale-105 hover:bg-blue-600'>
         <button onClick={() => setProjectModal(true)}>New Project</button>
       </div>
+      asdasd
     </div>
   )
 }
