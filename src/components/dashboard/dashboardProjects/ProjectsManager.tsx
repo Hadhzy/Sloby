@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+import ProjectModal from './ProjectModal'
 
 function ProjectsManager() {
   const [clickedClass, setClickedClass] = useState({ projects: true, shared: false })
+  const [projectModal, setProjectModal] = useState(false)
 
   return (
     <div className='w-full p-8 h-14 border-b border-dark-border flex justify-between items-center ease-in-out duration-200'>
@@ -14,7 +16,7 @@ function ProjectsManager() {
         </div>
       </div>
       <div className='mr-16 text-white ease-in-out duration-200 btn bg-blue-dark origin-top hover:translate-y-[-2px] hover:scale-105 hover:bg-blue-600'>
-        <button>New Project</button>
+        <button onClick={() => setProjectModal(true)}>New Project</button>
       </div>
     </div>
   )
