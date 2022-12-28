@@ -4,8 +4,22 @@ import DashboardMenu from "../../../components/dashboard/DashboardMenu"
 import DashboardHome from "../../../components/dashboard/DashboardHome";
 import Layout from "../../../components/LandingPage/layout";
 import DashboardLayout from "../../../components/layouts/indext";
+import {getRandomNumber} from "../../../components/dashboard/getRandomNumber";
 
-export default function Dashboard() {
+export async function getServerSideProps() {
+    console.log("EXECUTE")
+    const totalVisits = Array.from({length: 14}, () => getRandomNumber(0, 100))
+    const totalUsage = Array.from({length: 7}, () => getRandomNumber(0, 100))
+    console.log('totalVisits', totalVisits)
+    return {
+        props: {
+            totalVisits,
+            totalUsage
+        }
+    }
+}
+
+export default function Dashboard({totalVisits, totalUsage}: { totalVisits: number[], totalUsage: number[] }) {
     const supabase = useSupabaseClient();
     const [loading, setLoading] = useState(true);
     const [username, setUsername] = useState('');
@@ -35,7 +49,7 @@ export default function Dashboard() {
 
     return (
             <div className="flex ">
-                <DashboardHome />
+                <DashboardHome totalVisits={totalVisits} totalUsage={totalUsage}/>
             </div>
     )
 }

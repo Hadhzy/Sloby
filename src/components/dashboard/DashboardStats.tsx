@@ -4,8 +4,8 @@ import {getEveryNth} from './getEveryNth'
 import {getRandomNumber} from './getRandomNumber'
 
 export default function DashboardStats({
-                                           title, subTitle = '', value, valueEnd, lightColor, darkColor
-                                       }: { title: string, subTitle?: string, value: number, valueEnd: string, lightColor: string, darkColor: string }) {
+                                           title, subTitle = '', valueEnd, lightColor, darkColor, chartData
+                                       }: { title: string, subTitle?: string, valueEnd: string, lightColor: string, darkColor: string, chartData: number[] }) {
 
     const ChartElement = ({values}: { values: number[] }) => {
         // Normalize randomNumbers between 0 and 1
@@ -29,16 +29,16 @@ export default function DashboardStats({
         </div>
     }
 
-    const visits = Array.from({length: 13}, () => getRandomNumber(100, 20000))
+    console.log('chartdata', chartData)
 
     return (
         <div className='w-[22rem]'>
             <div className='flex flex-col bg-dark-darkest rounded-large py-8 gap-1.5 px-10'>
                 <p className='font-bold text-lg text-dark-mid'>{title}</p>
-                <h1 className='text-4xl font-bold'><CountUp end={visits.reduce((a, b) => a + b, 0)} duration={2}
+                <h1 className='text-4xl font-bold'><CountUp end={chartData.reduce((a, b) => a + b, 0)} duration={2}
                                                             useEasing={true}/> {valueEnd}</h1>
                 <div className='flex gap-3 mt-5'>
-                    <ChartElement values={visits}/>
+                    <ChartElement values={chartData}/>
                 </div>
                 <p className='font-bold text-lg text-dark-mid'>{subTitle}</p>
             </div>
