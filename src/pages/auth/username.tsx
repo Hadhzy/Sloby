@@ -2,7 +2,7 @@ import Layout from "../../components/LandingPage/layout";
 import Head from "next/head";
 import Image from "next/image";
 import React, {useEffect, useState} from "react";
-import { Star } from "../../components/LandingPage/star";
+import {Star} from "../../components/LandingPage/star";
 import Link from "next/link";
 import {useSession, useSupabaseClient} from "@supabase/auth-helpers-react";
 import {useRouter} from "next/router";
@@ -14,6 +14,7 @@ const isEmail = (email: string) => {
 
 export default function Login() {
     const [errorMsg, setErrorMsg] = useState("");
+    const [loading, setLoading] = useState(true);
     const usernameRef = React.useRef<HTMLInputElement>(null)
     const supabase = useSupabaseClient()
     const session = useSession()
@@ -23,9 +24,9 @@ export default function Login() {
     async function onSubmit(event: any) {
         event.preventDefault();
 
-        const { data, error } = await supabase
+        const {data, error} = await supabase
             .from('profiles')
-            .update({ username: usernameRef.current?.value })
+            .update({username: usernameRef.current?.value})
             .eq('id', session?.user?.id)
 
 
@@ -41,6 +42,29 @@ export default function Login() {
         await router.push('/editor/dashboard')
     }
 
+    async function checkUsername() {
+        //     Check if a username is already present
+        //     If it is, redirect to the dashboard
+        //     If it isn't, show the username input
+        const {data, error} = await supabase
+            .from('profiles')
+            .select('username')
+            .eq('id', session?.user?.id)
+
+        if (!(data) || data[0].username) {
+            await router.push('/editor/dashboard')
+            return true;
+        }
+        setLoading(false)
+    }
+
+    useEffect(() => {
+        checkUsername()
+    })
+
+    if (loading) {
+        return <div>Loading...</div>
+    }
     return (
         <Layout>
             <Head>
