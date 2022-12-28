@@ -18,3 +18,11 @@ export const useClickOutside = (ref: any, handler: CallableFunction) => {
         };
     }, [handler, ref]);
 };
+
+export function getWindowDimensions() {
+    const { innerWidth: width, innerHeight: height } = window;
+    return {
+        width,
+        height
+    };
+}

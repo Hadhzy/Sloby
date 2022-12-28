@@ -1,10 +1,11 @@
 import {useSession} from '@supabase/auth-helpers-react'
-import React from 'react'
+import React, {useContext} from 'react'
 import DashboardStats from './DashboardStats'
 import Image from 'next/image'
 import DashboardProjectPreview from "./DashboardProjectPreview";
 import ProjectsManager from "./dashboardProjects/ProjectsManager";
 import {getRandomNumber} from "./getRandomNumber";
+import {ProjectsContext} from "../../utils/contexts/ProjectsContext";
 
 
 export default function DashboardUserDetails({
@@ -12,9 +13,10 @@ export default function DashboardUserDetails({
                                                  totalUsage
                                              }: { totalVisits: number[], totalUsage: number[] }) {
     const session = useSession()
+    const {project_data, set_project_data} = useContext(ProjectsContext)
     console.log(session?.user.user_metadata.avatar_url);
     return (
-        <div className='flex flex-col gap-10 p-8 ml-4 text-white'>
+        <div className={`flex flex-col gap-10 p-8 ml-4 text-white transition-all duration-500 ${project_data.project_modal ? 'blur-sm' : ''}`}>
             <div className='text-4xl lg:text-7xl font-bold flex gap-36'>
                 Good Morning, <br/>{session?.user.user_metadata.name}
             </div>

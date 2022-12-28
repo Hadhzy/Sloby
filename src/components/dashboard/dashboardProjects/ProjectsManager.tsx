@@ -26,7 +26,7 @@ function ProjectsManager() {
 
     return (
         <div
-            className='w-full p-8 h-14 border-b border-dark-border flex justify-between items-center ease-in-out duration-200'>
+            className='z-50 sticky bg-dark-dark w-full p-8 h-14 border-b border-dark-border flex justify-between items-center ease-in-out duration-200'>
             <div className='flex gap-14 font-semibold text-dark-font-color ease-in-out duration-200'>
                 <div onClick={() => setClickedClass({projects: true, shared: false})}
                      className={`p-2 ease-in-out duration-200 hover:scale-105  bg-dark-dark rounded-xl hover:bg-dark-border hover:text-white cursor-pointer ${clickedClass.projects ? 'bg-dark-border text-white scale-105' : ""}`}>
@@ -40,8 +40,9 @@ function ProjectsManager() {
             </div>
             <div className={"flex-center gap-12 text-white"}>
                 <div
-                    className='ease-in-out duration-200 btn bg-blue-dark origin-top hover:translate-y-[-2px] hover:scale-105 hover:bg-blue-600'>
-                    <button onClick={() => set_project_data({ ...project_data, project_modal: true })}>New Project</button>
+                    className='ease-in-out duration-200 btn bg-blue-dark origin-top hover:translate-y-[-2px] hover:scale-105 hover:bg-blue-600'
+                    onClick={() => set_project_data({ ...project_data, project_modal: true })}>
+                    <button>New Project</button>
                 </div>
                 <div className={"relative"} onClick={() => setProfileDropdown(!profileDropdown)} ref={profileRef}>
                     <Image src={session?.user.user_metadata.avatar_url} alt="Your profile picture"
