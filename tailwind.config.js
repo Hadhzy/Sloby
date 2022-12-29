@@ -27,7 +27,9 @@ module.exports = {
             },
             colors: {
                 'back': '#040404',
+                'dark-font-light': '#909090',
                 'dark-darkest': '#000000',
+                'dark-dark-hover': '#141414',
                 'dark-darker': '#0D0D0D',
                 'dark-blur-bg': "#0c0c0c", 
                 "dark-input-border": "rgba(0, 0, 0, 0.1)",    

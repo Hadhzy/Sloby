@@ -8,14 +8,14 @@ export default function SlobyInput({placeholder, type}: {placeholder: string, ty
     <>
       {type === 'input' ? (
         <input type="text" 
-        className='px-6 m-10 mt-24 ease-linear duration-300 border-2 border-dark-dark-mid outline-none  block w-[70%] rounded-md bg-dark-dark-mid placeholder:text-dark-font-color placeholder:font-bold' 
+        className='px-6 m-10 mt-24 ease-linear duration-300 border-2 border-dark-dark-mid outline-none  block w-[80%] rounded-md bg-dark-dark-mid placeholder:text-dark-font-color placeholder:font-bold' 
         placeholder={`${focus ? '' : placeholder}`}
         />
       ): (
         <textarea 
         cols={10}
         rows={20}
-        className='px-6 m-10 mt-24  ease-linear duration-300 border-2 border-dark-dark-mid outline-none  block w-[70%] h-[20%] rounded-md bg-dark-dark-mid placeholder:text-dark-font-color placeholder:font-bold' 
+        className='px-6 m-10 mt-24  ease-linear duration-300 border-2 border-dark-dark-mid outline-none static  block w-[80%] h-[20%] rounded-md bg-dark-dark-mid placeholder:text-dark-font-color placeholder:font-bold' 
         placeholder={`${focus ? '' : placeholder}`}
         />
       )}
