@@ -35,7 +35,11 @@ export default function Projects() {
         <div>
             {
                 projects.map((project: TSlobyProject) => {
-                    return <Project key={project.id} project={project}/>
+                    return (
+                        <div key={project.id} className=' flex flex-wrap gap-20 border-white'>
+                            <Project key={project.id} project={project}/>
+                        </div>
+                    ) 
                 })
             }
         </div>

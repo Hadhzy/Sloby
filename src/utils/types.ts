@@ -12,4 +12,5 @@ export type TSlobyProject = {
   shared_with: string[] |[], 
   creator: string
   public: boolean;
+  tags: number
 }
