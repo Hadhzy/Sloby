@@ -16,7 +16,7 @@ export default function DashboardUserDetails({
     const {project_data, set_project_data} = useContext(ProjectsContext)
     console.log(session?.user.user_metadata.avatar_url);
     return (
-        <div className={`flex flex-col gap-10 p-8 ml-4 text-white transition-all duration-500 ${project_data.project_modal ? 'blur-sm' : ''}`}>
+        <div className={`flex h-screen flex-col gap-10 p-8 ml-4 text-white transition-all duration-500 ${project_data.project_modal ? 'blur-sm' : ''}`}>
             <div className='text-4xl lg:text-7xl font-bold flex gap-36'>
                 Good Morning, <br/>{session?.user.user_metadata.name}
             </div>
