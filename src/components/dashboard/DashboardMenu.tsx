@@ -27,13 +27,13 @@ export default function DashboardMenu({className}: {className?: string }) {
                 </div>
             </div>
             <div className='flex-center mb-6'>
-                <div className={"relative"}>
+                <div className={"relative z-40"}>
                     <Link href="/editor/dashboard/settings" className={"peer"}>
                         <FontAwesomeIcon icon={faGear}
                                          className={"dashboardIcon"}/>
                     </Link>
                     <div
-                        className={`dashboardIconTooltip`}>
+                        className={`dashboardIconTooltip `}>
                         Settings
                     </div>
                 </div>

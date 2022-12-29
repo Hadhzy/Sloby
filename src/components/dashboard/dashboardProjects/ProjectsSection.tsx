@@ -10,7 +10,7 @@ export default function ProjectsSection() {
   console.log(project_data.project_modal)
 
   return (
-    <div className={`bg-dark-dark h-screen relative`}>
+    <div className={` h-screen relative ${project_data.project_modal && "bg-[rgba(0, 0, 0,)]"}`}>
         <ProjectsHandler />
     </div>
   )

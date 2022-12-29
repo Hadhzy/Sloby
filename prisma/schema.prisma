@@ -10,22 +10,8 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model SlobyUserData {
-  id             String    @id @unique @default(uuid())
-  projects       Project[] @relation("CreatedProject")
-  sharedProjects Project[] @relation("SharedProject")
-}
-
-model Project {
-  id                 Int            @id @unique
-  projectName        String
-  projectDescription String
-  createdAt          DateTime       @default(now())
-  shared             Boolean
-  creator            SlobyUserData? @relation("CreatedProject", fields: [creatorId], references: [id])
-  creatorId          String
-  sharedBy           SlobyUserData? @relation("SharedProject", fields: [sharedById], references: [id])
-  sharedById         String?
-
-  @@unique([projectName])
+model Test {
+  id Int @id()
+  title String
+  something String
 }

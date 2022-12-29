@@ -22,10 +22,10 @@ export default function ProjectModal() {
         <motion.div initial={{x: (windowDimensions.width / 100) * 40, opacity: 0}} key='box' animate={{x: 0, opacity: 1}} transition={{duration: 1}}
                     exit={{x: 3000, opacity: 0}}
 
-                    className={`text-white border-l flex flex-col justify-between border-dark-mid w-[40%] right-0 h-full fixed z-40 bg-dark-blur-bg`}>
-            <div className='flex justify-center flex-col items-center'>
-                <SlobyInput placeholder='give me the project name'/>
-                <SlobyInput placeholder='give me the project description'/>
+                    className={`text-white backdrop-blur-md border-l flex flex-col justify-between border-dark-mid w-[40%] right-0 h-full fixed z-40 bg-dark-blur-bg`}>
+            <div className='flex justify-start flex-col items-center'>
+                <SlobyInput placeholder='give me the project name' type='input' />
+                <SlobyInput placeholder='give me the project description' type="textholder"/>
             </div>
             <div className='flex items-center'>
                 <div
