@@ -2,6 +2,7 @@ import {useSupabaseClient} from "@supabase/auth-helpers-react";
 import {useEffect, useState} from "react";
 import DashboardHome from "../../../components/dashboard/DashboardHome";
 import {getRandomNumber} from "../../../components/dashboard/getRandomNumber";
+import Loading from "../../../components/loading";
 
 export async function getServerSideProps() {
     console.log("EXECUTE")
@@ -46,7 +47,7 @@ export default function Dashboard({totalVisits, totalUsage}: { totalVisits: numb
 
     return (
             <div className="flex ">
-                <DashboardHome totalVisits={totalVisits} totalUsage={totalUsage}/>
+                {loading ? <Loading /> : <DashboardHome totalVisits={totalVisits} totalUsage={totalUsage}/>}
             </div>
     )
 }

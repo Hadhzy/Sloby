@@ -1,12 +1,14 @@
-import React, {useState} from 'react'
+import React, {useState,useContext} from 'react'
 import Image from 'next/image'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {faBarsProgress} from '@fortawesome/free-solid-svg-icons'
 import {faGear} from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link'
+import { LoadingContext } from '../../utils/contexts/Loading'
 
 export default function DashboardMenu({className}: {className?: string }) {
+    const {setLoading} = useContext(LoadingContext)
     return (
         <div
             className={`${className} fixed bg-dark-darker h-screen w-[90px] border-dark-border border-r flex flex-col justify-between`}>
@@ -16,7 +18,7 @@ export default function DashboardMenu({className}: {className?: string }) {
                            height={70}/>
                 </Link>
                 <div className='relative'>
-                    <Link href="/editor/dashboard/projects" className={"peer"}>
+                    <Link href="/editor/dashboard/projects" onClick={() => setLoading(true)} className={"peer"}>
                         <FontAwesomeIcon icon={faBarsProgress}
                             className={"dashboardIcon"}/>
                     </Link>
