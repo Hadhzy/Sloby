@@ -1,6 +1,6 @@
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import React, {useEffect, useState} from 'react'
-import {faChevronDown, faChevronRight, faCircleXmark} from '@fortawesome/free-solid-svg-icons'
+import {faChevronDown, faChevronRight, faCircleExclamation, faCircleXmark} from '@fortawesome/free-solid-svg-icons'
 import {AnimatePresence, Variants, motion} from 'framer-motion'
 
 export default function ProjectTags() {
@@ -123,7 +123,13 @@ export default function ProjectTags() {
                             </div>
                         </motion.div>
                     )}
-                    <p className={`${error ? "p-2 px-6 opacity-100" : "opacity-0"} bg-red-mid rounded-xl w-[85%] mt-4 transition-opacity duration-200`}>{error}</p>
+                    {error !== '' && (
+                    <motion.div className={`${error ? "p-2 px-6 opacity-100" : "opacity-0"} flex justify-between items-center bg-red-mid rounded-xl w-[85%] mt-4 transition-opacity duration-200`} transition={{ duration: 0.5, delay: 0.2 }} animate={{ opacity: [0,1], y: [400,0]}} >
+                        <p>{error}</p>
+                        <FontAwesomeIcon icon={faCircleExclamation} className='text-lg' />
+                    </motion.div>
+                    )}
+                    
                 </div>
             </div>
         </AnimatePresence>
