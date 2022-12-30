@@ -31,6 +31,7 @@ export default function ProjectModal() {
         else if(name.length < 4) return setError('Please provide your project with at least 4 characters long name')
         else if(description.length < 20) return setError('Please provide your project with at least 20 characters long description')
         setError('')
+        console.log(name, description )
         set_project_data({...project_data, project_modal: false})
     }
 
