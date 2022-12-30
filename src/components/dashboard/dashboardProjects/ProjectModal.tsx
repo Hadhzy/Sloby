@@ -9,8 +9,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { TSlobyProject } from '../../../utils/types';
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 import { v4 as uuidv4 } from 'uuid';
+import Projects from "./Projects";
 export default function ProjectModal() {
-    const {project_data, set_project_data} = useContext(ProjectsContext)
+    const {project_data, current_tags, set_project_data, current_project_id, set_current_project_id} = useContext(ProjectsContext)
     const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
@@ -19,8 +20,7 @@ export default function ProjectModal() {
     const [checked, setChecked] = useState(false)
     const supabase = useSupabaseClient()
     const session = useSession()
-
-    console.log(checked)
+    const [test, setTest] = useState<string>('')
 
     useEffect(() => {
         function handleResize() {
@@ -31,13 +31,33 @@ export default function ProjectModal() {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
+    const sendCurrentTags = async () => {
+        console.log(current_tags)
+
+        const {data, error} = await supabase
+            .from('tag')
+            .insert([])
+        if(error) console.log(error)
+    }
+
     const sendRequest = async () => {
+        let id = uuidv4()
+        console.log({
+            id: id,
+            created_at: new Date(),
+            project_name: name,
+            project_description: description,
+            shared_with: null,
+            creator: session?.user.id,
+            public: checked
+        })
         const { data, error } = await supabase
             .from('projects')
             .insert<TSlobyProject>([
-                {id: 12, created_at: new Date(), project_name: name, project_description: description, creator: session?.user.id, public: checked, shared_with: '204490a2-5614-461f-8f4f-177301e6b190', tags: uuidv4()}
+
             ])
             .select()
+        sendCurrentTags()
         if(error) {
             console.log(error)
         }
@@ -62,7 +82,6 @@ export default function ProjectModal() {
         set_project_data({...project_data, project_modal: false})
     }
 
-    console.log((windowDimensions.width / 100) * 60)
     return (
         <motion.div initial={{x: (windowDimensions.width / 100) * 40, opacity: 0}} key='box' animate={{x: 0, opacity: 1}} transition={{duration: 1}}
                     exit={{x: 3000, opacity: 0}}
@@ -77,7 +96,7 @@ export default function ProjectModal() {
                         <ProjectTags setTags={setTags}/>
                         <p className='text-dark-font-color font-bold mt-10'>You can share your project by selecting the checkbox</p>    
                         <div className='ml-2 flex items-center'>
-                            <input id="default-checkbox" type='checkbox' checked={checked} onClick={() => setChecked((prev: boolean) => !prev)}  className="w-4 h-4 text-blue-600 bg-dark-dark rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-dark-border dark:border-dark-darkest" />
+                            <input id="default-checkbox" type='checkbox' checked={checked} onChange={() => setChecked((prev: boolean) => !prev)}  className="w-4 h-4 text-blue-600 bg-dark-dark rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-dark-border dark:border-dark-darkest" />
                             <label htmlFor="default-checkbox" className="ml-2 text-sm font-bold text-gray-900 dark:text-dark-font-color ">Publish my project</label>
                         </div>
                         <AnimatePresence>

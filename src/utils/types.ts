@@ -4,19 +4,19 @@ export type TProjectsParamater = {
   project_modal: boolean
 }
 
-type Tag = {
+export type Tag = {
   id: number;
   tag: string, 
   color: string
+  project_id: number
 }
 
 export type TSlobyProject = {
-  id: number, 
+  id: string,
   created_at: Date, 
   project_name: string,
   project_description: string,
-  shared_with: string
+  shared_with: string | null
   creator: string | undefined,
   public: boolean;
-  tags: Array<Tag> | undefined | string
 }

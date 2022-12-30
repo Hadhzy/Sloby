@@ -16,6 +16,7 @@ export default function Projects() {
             .from('projects')
             .select('*')
 
+
         if (error) {
             console.log(error)
         }

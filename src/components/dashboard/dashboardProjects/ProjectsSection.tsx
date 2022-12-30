@@ -9,8 +9,7 @@ import { LoadingContext } from '../../../utils/contexts/Loading'
 export default function ProjectsSection() {
   const {project_data} = useContext(ProjectsContext)
   const {setLoading} = useContext(LoadingContext)
-  console.log(project_data.project_modal)
-  
+
 
   return (
     <div className={` h-screen relative ${project_data.project_modal && "bg-[rgba(0, 0, 0,)]"}`}>

@@ -1,17 +1,31 @@
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import React, {useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import {faChevronDown, faChevronRight, faCircleExclamation, faCircleXmark} from '@fortawesome/free-solid-svg-icons'
 import {AnimatePresence, Variants, motion} from 'framer-motion'
+import supabase from "../../../utils/supabase";
+import {ProjectsContext} from "../../../utils/contexts/ProjectsContext";
+import { v4 as uuidv4 } from 'uuid';
 
 export default function ProjectTags({ setTags }: { setTags: Function}) {
     const [popupDisplay, setPopupDisplay] = useState(false)
     const [tagDisplay, setTagDisplay] = useState(false)
-    const [appliedTag, setAppliedTag] = useState<{tag: string, color: string}[]>([])
+    const [appliedTag, setAppliedTag] = useState<{tag: string, color: string, id: string, project_id: string}[]>([])
     const [error, setError] = useState('')
     const [colorSelect, setColorSelect] = useState(false)
     const [selectedColor, setSelectedColor] = useState('gray-700')
-    
-    setTags(appliedTag)
+    const {set_current_tags, current_tags, current_project_id} = useContext(ProjectsContext)
+
+
+    useEffect(() => {
+        set_current_tags(appliedTag)
+    }, [appliedTag])
+    async function getData() {
+        const {data: projects} = await supabase
+            .from('projects')
+            .select('*')
+        console.log(projects)
+
+    }
     const optionsVariants: Variants = {
         open: {
             opacity: 1,
@@ -20,9 +34,8 @@ export default function ProjectTags({ setTags }: { setTags: Function}) {
         },
         closed: {opacity: 0, y: 50, transition: {duration: 0.5}}
     };
-
-
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setTags(appliedTag)
         let currentValue = e.target.value
         if (currentValue.endsWith(' ')) {
             if (appliedTag.length < 3) {
@@ -30,7 +43,7 @@ export default function ProjectTags({ setTags }: { setTags: Function}) {
                     setError(`Tag '${currentValue.trim()}' already applied`)
                 } else {
                     if (currentValue.trim().length <= 20) {
-                        setAppliedTag([...appliedTag, {tag: currentValue.trim(), color: selectedColor}])
+                        setAppliedTag([...appliedTag, {id: uuidv4(), tag: currentValue.trim(), color: selectedColor, project_id: current_project_id as string }])
                         e.target.value = ''
                         setError('')
                     } else {
