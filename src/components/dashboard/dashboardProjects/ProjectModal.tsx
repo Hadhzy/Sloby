@@ -6,13 +6,21 @@ import {getWindowDimensions} from "../../../utils/hooks";
 import ProjectTags from './ProjectTags';
 import { faCircleExclamation } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import { TSlobyProject } from '../../../utils/types';
+import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
+import { v4 as uuidv4 } from 'uuid';
 export default function ProjectModal() {
     const {project_data, set_project_data} = useContext(ProjectsContext)
     const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
     const [error, setError] = useState('')
+    const [tags, setTags] = useState()
+    const [checked, setChecked] = useState(false)
+    const supabase = useSupabaseClient()
+    const session = useSession()
+
+    console.log(checked)
 
     useEffect(() => {
         function handleResize() {
@@ -23,14 +31,34 @@ export default function ProjectModal() {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
+    const sendRequest = async () => {
+        const { data, error } = await supabase
+            .from('projects')
+            .insert<TSlobyProject>([
+                {id: 12, created_at: new Date(), project_name: name, project_description: description, creator: session?.user.id, public: checked, shared_with: '204490a2-5614-461f-8f4f-177301e6b190', tags: uuidv4()}
+            ])
+            .select()
+        if(error) {
+            console.log(error)
+        }
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        if(data) {
+            console.log(data)
+            setError('')
+        }
+    }
+
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log("Submittung the form")
-        if(!name || !description) return setError('Please fill all of the fields properly')
+        if(!name) return setError('Please fill the fields properly')
         else if(name.length < 4) return setError('Please provide your project with at least 4 characters long name')
+        sendRequest()
+        
+        
         setError('')
-        console.log(name, description )
+        console.log(name, description)
         set_project_data({...project_data, project_modal: false})
     }
 
@@ -46,7 +74,12 @@ export default function ProjectModal() {
                         <SlobyInput placeholder='give me the project description(optional)' type="textholder" value={description} setValue={setDescription} error={error}/>
                     <div className='flex ease-linear mt-5 duration-200 justify-start flex-col gap-6 ml-12'>
                         <p className='text-dark-font-color font-bold'>Add some tags to your project</p>    
-                        <ProjectTags />
+                        <ProjectTags setTags={setTags}/>
+                        <p className='text-dark-font-color font-bold mt-10'>You can share your project by selecting the checkbox</p>    
+                        <div className='ml-2 flex items-center'>
+                            <input id="default-checkbox" type='checkbox' checked={checked} onClick={() => setChecked((prev: boolean) => !prev)}  className="w-4 h-4 text-blue-600 bg-dark-dark rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-dark-border dark:border-dark-darkest" />
+                            <label htmlFor="default-checkbox" className="ml-2 text-sm font-bold text-gray-900 dark:text-dark-font-color ">Publish my project</label>
+                        </div>
                         <AnimatePresence>
                         {error !== '' && (
                             <motion.div exit={{ opacity: 0, y: 400 }} transition={{ duration: 0.5, delay: 0.2 }} animate={{ opacity: [0,1], y: [400,0]}}

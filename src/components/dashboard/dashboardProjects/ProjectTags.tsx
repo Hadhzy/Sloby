@@ -1,16 +1,17 @@
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import {faChevronDown, faChevronRight, faCircleExclamation, faCircleXmark} from '@fortawesome/free-solid-svg-icons'
 import {AnimatePresence, Variants, motion} from 'framer-motion'
 
-export default function ProjectTags() {
+export default function ProjectTags({ setTags }: { setTags: Function}) {
     const [popupDisplay, setPopupDisplay] = useState(false)
     const [tagDisplay, setTagDisplay] = useState(false)
     const [appliedTag, setAppliedTag] = useState<{tag: string, color: string}[]>([])
     const [error, setError] = useState('')
     const [colorSelect, setColorSelect] = useState(false)
     const [selectedColor, setSelectedColor] = useState('gray-700')
-
+    
+    setTags(appliedTag)
     const optionsVariants: Variants = {
         open: {
             opacity: 1,
