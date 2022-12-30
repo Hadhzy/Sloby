@@ -29,7 +29,6 @@ export default function ProjectModal() {
         console.log("Submittung the form")
         if(!name || !description) return setError('Please fill all of the fields properly')
         else if(name.length < 4) return setError('Please provide your project with at least 4 characters long name')
-        else if(description.length < 20) return setError('Please provide your project with at least 20 characters long description')
         setError('')
         console.log(name, description )
         set_project_data({...project_data, project_modal: false})
@@ -43,9 +42,9 @@ export default function ProjectModal() {
                     className={`text-white backdrop-blur-md border-l flex flex-col justify-between border-dark-mid w-[40%] right-0 h-full fixed z-40 bg-dark-blur-bg`}>
             <form action="" onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)} className='flex flex-col'>
                 <div className='flex justify-start flex-col ease-out duration-150'>
-                    <SlobyInput placeholder='give me the project name' type='input'  value={name} setValue={setName} error={error}/>
-                    <SlobyInput placeholder='give me the project description' type="textholder" value={description} setValue={setDescription} error={error}/>
-                    <div className='flex ease-linear duration-200 justify-start flex-col gap-6 ml-12'>
+                        <SlobyInput placeholder='give me the project name' type='input'  value={name} setValue={setName} error={error}/>
+                        <SlobyInput placeholder='give me the project description(optional)' type="textholder" value={description} setValue={setDescription} error={error}/>
+                    <div className='flex ease-linear mt-5 duration-200 justify-start flex-col gap-6 ml-12'>
                         <p className='text-dark-font-color font-bold'>Add some tags to your project</p>    
                         <ProjectTags />
                         <AnimatePresence>
