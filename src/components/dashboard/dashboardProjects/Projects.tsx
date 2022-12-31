@@ -36,7 +36,7 @@ export default function Projects() {
         <div className={"flex flex-row gap-36"}>
             {
                 projects.map((project: TSlobyProject) => {
-                    return (
+                    return ( //@ts-ignore
                         <div key={project.id} className='flex flex-wrap gap-20 border-white'>
                             <Project key={project.id} project={project}/>
                         </div>

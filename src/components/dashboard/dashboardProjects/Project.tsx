@@ -2,12 +2,17 @@ import React from 'react'
 import {Tag, TSlobyProject} from '../../../utils/types'
 import ProjectsHandler from './ProjectsHandler'
 import Image from 'next/image'
+import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Project({project}: { project: TSlobyProject }) {
     return (
         <div
-            className='flex cursor-pointer flex-wrap w-72 ease-in-out duration-200 hover:scale-105 hover:translate-y-[-5px]'>
+            className='flex relative cursor-pointer flex-wrap w-72 ease-in-out duration-200 hover:scale-105 hover:translate-y-[-5px]'>
             <div className='w-full rounded-t-3xl flex justify-center bg-dark-darkest'>
+                <div className='absolute right-[20px] top-[10px]'>
+                    <FontAwesomeIcon icon={faEllipsisVertical} className='text-dark-font-light'/>
+                </div>
                 <Image alt="Sloby Logo" className='mt-[10px]' src={"/images/Sloby Logo Dark.svg"} width={150}
                        height={70}/>
             </div>
