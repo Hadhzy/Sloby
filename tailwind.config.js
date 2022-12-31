@@ -38,6 +38,7 @@ module.exports = {
                 'input-placeholder-font': "#898989",               
                 'dark-dark': '#111111',
                 'dark-font-mid': '#707070',
+                'dark-action-bg': '#090909',
                 'dark-dark-mid': '#121212',
                 'dark-border': '#202020',
                 'dark-mid': '#373737',

@@ -1,15 +1,17 @@
 import {useSession, useSupabaseClient, useUser} from '@supabase/auth-helpers-react'
 import {SupabaseClient} from '@supabase/supabase-js'
-import React, {useEffect} from 'react'
+import React, {useEffect, useContext} from 'react'
 import supabase from '../../../utils/supabase'
 import {TSlobyProject} from '../../../utils/types'
 import Project from './Project'
+import { ProjectsContext } from '../../../utils/contexts/ProjectsContext'
 
 
 export default function Projects() {
     const session = useSession()
     const supabase = useSupabaseClient()
     const [projects, setProjects] = React.useState([])
+    const {actionBar} = useContext(ProjectsContext)
 
     async function getProjects() {
         let {data: projects, error} = await supabase
