@@ -1,5 +1,5 @@
 import React from 'react'
-import {TSlobyProject} from '../../../utils/types'
+import {Tag, TSlobyProject} from '../../../utils/types'
 import ProjectsHandler from './ProjectsHandler'
 import Image from 'next/image'
 
@@ -13,12 +13,11 @@ export default function Project({project}: { project: TSlobyProject }) {
             </div>
             <div className='flex flex-col p-4 pb-6 gap-2 w-full bg-dark-project-bg min-h-[18rem] rounded-b-3xl'>
                 <div className='w-full items-end flex gap-3 h-[15%]'>
-                    <span
-                        className='w-12 h-5 rounded-full text-black text-xs flex justify-center items-center bg-[#FEBC28]'>Work</span>
-                    <span
-                        className='w-12 h-5 rounded-full text-black text-xs flex justify-center items-center bg-[#FF5C5C]'>Apple</span>
-                    <span
-                        className='w-12 h-5 rounded-full text-black text-xs flex justify-center items-center bg-[#5B8DEE]'>IOS</span>
+                    {project.tags.map((tag: Tag) => {
+                        return <span className={`w-12 h-5 rounded-full text-white text-xs flex justify-center items-center bg-${tag.color}`}>
+                            {tag.tag}
+                        </span>
+                    })}
                 </div>
                 <p className='mt-2 font-semibold text-xl'>{project.project_name}</p>
                 <div className='text-xs text-dark-font-mid font-semibold'>

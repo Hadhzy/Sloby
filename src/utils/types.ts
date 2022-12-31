@@ -8,7 +8,6 @@ export type Tag = {
   id: number;
   tag: string, 
   color: string
-  project_id: number
 }
 
 export type TSlobyProject = {
@@ -19,4 +18,5 @@ export type TSlobyProject = {
   shared_with: string | null
   creator: string | undefined,
   public: boolean;
+  tags: Tag[]
 }

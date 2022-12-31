@@ -20,7 +20,8 @@ export default function ProjectModal() {
     const [checked, setChecked] = useState(false)
     const supabase = useSupabaseClient()
     const session = useSession()
-    const [test, setTest] = useState<string>('')
+
+    console.log(current_tags)
 
     useEffect(() => {
         function handleResize() {
@@ -32,7 +33,6 @@ export default function ProjectModal() {
     }, []);
 
     const sendCurrentTags = async () => {
-        console.log(current_tags)
 
         const {data, error} = await supabase
             .from('tag')
@@ -42,6 +42,8 @@ export default function ProjectModal() {
 
     const sendRequest = async () => {
         let id = uuidv4()
+        const stringed = JSON.stringify(current_tags)
+        const parsed = JSON.parse(stringed)
         console.log({
             id: id,
             created_at: new Date(),
@@ -49,12 +51,22 @@ export default function ProjectModal() {
             project_description: description,
             shared_with: null,
             creator: session?.user.id,
-            public: checked
+            public: checked,
+            tags: stringed
         })
         const { data, error } = await supabase
             .from('projects')
             .insert<TSlobyProject>([
-
+                {
+                    id: id,
+                    created_at: new Date(),
+                    project_name: name,
+                    project_description: description,
+                    shared_with: null,
+                    creator: session?.user.id,
+                    public: checked,
+                    tags: current_tags
+                }
             ])
             .select()
         sendCurrentTags()
