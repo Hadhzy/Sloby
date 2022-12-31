@@ -14,7 +14,7 @@ export default function Project({project}: { project: TSlobyProject }) {
             <div className='flex flex-col p-4 pb-6 gap-2 w-full bg-dark-project-bg min-h-[18rem] rounded-b-3xl'>
                 <div className='w-full items-end flex gap-3 h-[15%]'>
                     {project.tags.map((tag: Tag) => {
-                        return <span className={`w-12 h-5 rounded-full text-white text-xs flex justify-center items-center bg-${tag.color}`}>
+                        return <span key={tag.id} className={`w-12 h-5 rounded-full text-white text-xs flex justify-center items-center bg-${tag.color}`}>
                             {tag.tag}
                         </span>
                     })}
