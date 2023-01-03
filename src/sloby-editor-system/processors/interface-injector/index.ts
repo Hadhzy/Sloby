@@ -1,4 +1,4 @@
-import { SlobyElement } from '../../utils/types'
+import { SlobyElement } from '../../../sloby-editor-framework/utils/types'
 
 export class InerfaceInjector {
   /**

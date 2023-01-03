@@ -1,5 +1,5 @@
 import React from 'react'
-import { SlobyStateHandler } from '../handlers/SlobyStateHandler'
+import { SlobyStateHandler } from '../../sloby-editor-framework/handlers/SlobyStateHandler'
 
 const state = new SlobyStateHandler()
 console.log(state.getGlobalInitialState())
