@@ -1,24 +1,28 @@
 import React, {useEffect, useContext, useState} from 'react';
 import { ProjectsContext } from '../../utils/contexts/ProjectsContext';
 import { checkUserProjectPerms } from '../../utils/helpers';
-import { useSession } from '@supabase/auth-helpers-react';
+import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
+import SlobyEditor from '../../sloby-editor-system/implementations/SlobyEditor';
+import { useRouter } from 'next/router';
 
 
 const Editor = () => {
   const {currentClickedProject} = useContext(ProjectsContext)
   const session = useSession()
   const [succes, setSuccess] = useState(false)
+  const router = useRouter()
+  const supabase = useSupabaseClient()
 
   useEffect(() => {
-    const doesUserHavePerm =  checkUserProjectPerms(currentClickedProject, session)
-    if(doesUserHavePerm) return setSuccess(true)
-    else return setSuccess(false)
-  }, [currentClickedProject, session])
+    console.log('Validation permissions...')
+    const perm = checkUserProjectPerms(router.query.id as string, session, supabase, setSuccess)
+    console.log(perm)
+  })
 
   return <div>
     {succes ? (
-      <div>You have access</div>
-    ): <div>You do not have access to open this project</div>}
+      <SlobyEditor />
+    ): <div className='bg-black h-screen  text-red-600 flex justify-center items-center text-2xl font-bold'>You do not have access to this project</div>}
   </div>
 }
 

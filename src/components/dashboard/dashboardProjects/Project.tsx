@@ -19,7 +19,6 @@ export default function Project({project}: { project: TSlobyProject }) {
     return (
         <div
             className='flex relative cursor-pointer flex-wrap w-72 ease-in-out duration-200 hover:scale-105 hover:translate-y-[-5px]' onClick={() => {
-                setCurrentClickedProject(project)
                 router.push(`/editor/${project.id}`)
             }}>
             <div className='w-full rounded-t-3xl flex justify-center bg-dark-darkest'>

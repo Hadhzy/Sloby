@@ -1,7 +1,10 @@
 import React from 'react'
+import { isConstructorDeclaration } from 'typescript'
+import { TSlobyProject } from './types'
+
 
 export async function getProjects(setProjects: Function, supabase: any) {
-  let {data: projects, error} = await supabase
+    let {data: projects, error} = await supabase
       .from('projects')
       .select('*')
 
@@ -14,4 +17,18 @@ export async function getProjects(setProjects: Function, supabase: any) {
       // @ts-ignore
       setProjects(projects)
   }
+}
+
+export async function getProjectById(project_id: string, supabase: any){
+    let {data, error} = await supabase
+        .from('projects')
+        .select('*')
+        .match({
+            id: project_id,
+        })
+
+    if(data) {
+        return data[0]
+    }
+    if(error) return console.log(error)
 }
