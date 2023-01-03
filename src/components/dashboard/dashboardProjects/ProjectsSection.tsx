@@ -5,6 +5,7 @@ import { ProjectsContext, ProjectsContextProvider } from '../../../utils/context
 import ProjectModal from './ProjectModal'
 import { AnimatePresence } from 'framer-motion'
 import { LoadingContext } from '../../../utils/contexts/Loading'
+import Loading from '../../loading'
 
 export default function ProjectsSection() {
   const {project_data} = useContext(ProjectsContext)
