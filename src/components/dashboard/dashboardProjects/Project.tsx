@@ -6,19 +6,18 @@ import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { ProjectsContext } from '../../../utils/contexts/ProjectsContext'
 import { LoadingContext } from '../../../utils/contexts/Loading'
+import { useSession } from '@supabase/auth-helpers-react'
 export default function Project({project}: { project: TSlobyProject }) {
     const {actionBar, setActionBar} = useContext(ProjectsContext)
     const {loading, setLoading} = useContext(LoadingContext)
+    const session = useSession()
 
     
-    const handleValidation = (project: TSlobyProject) => {
-        setLoading(true)
-        console.log(project.id)
-    }
+    
 
     return (
         <div
-            className='flex relative cursor-pointer flex-wrap w-72 ease-in-out duration-200 hover:scale-105 hover:translate-y-[-5px]' onClick={() => handleValidation(project)}>
+            className='flex relative cursor-pointer flex-wrap w-72 ease-in-out duration-200 hover:scale-105 hover:translate-y-[-5px]' onClick={() => console.log('clicked')}>
             <div className='w-full rounded-t-3xl flex justify-center bg-dark-darkest'>
                 <div onClick={() => setActionBar((prev) => !prev)} className='absolute right-[20px] top-[10px]  px-3 py-1 rounded-full ease-in-out duration-150  hover:bg-dark-dark-mid'>
                     <FontAwesomeIcon icon={faEllipsisVertical} className='text-dark-font-light'/>

@@ -5,6 +5,7 @@ import supabase from '../../../utils/supabase'
 import {TSlobyProject} from '../../../utils/types'
 import Project from './Project'
 import { ProjectsContext } from '../../../utils/contexts/ProjectsContext'
+import { getProjects } from '../../../utils/api'
 
 
 export default function Projects() {
@@ -13,26 +14,13 @@ export default function Projects() {
     const [projects, setProjects] = React.useState([])
     const {actionBar} = useContext(ProjectsContext)
 
-    async function getProjects() {
-        let {data: projects, error} = await supabase
-            .from('projects')
-            .select('*')
 
+  
 
-        if (error) {
-            console.log(error)
-        }
-
-        if (projects !== null) {
-            // @ts-ignore
-            setProjects(projects)
-        }
-
-    }
 
     useEffect(() => {
-        getProjects()
-    })
+        getProjects(setProjects, supabase)
+    }, [supabase])
 
     return (
         <div className={"flex flex-row gap-36"}>
