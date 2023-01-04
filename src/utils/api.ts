@@ -32,3 +32,8 @@ export async function getProjectById(project_id: string, supabase: any){
     }
     if(error) return console.log(error)
 }
+
+export async function getCurrentProject(project_id: string, supabase: any) {
+  const currentProject = await getProjectById(project_id, supabase)
+  return currentProject  
+}

@@ -7,7 +7,6 @@ import { useRouter } from 'next/router';
 
 
 const Editor = () => {
-  const {currentClickedProject} = useContext(ProjectsContext)
   const session = useSession()
   const [succes, setSuccess] = useState(false)
   const router = useRouter()
@@ -16,7 +15,6 @@ const Editor = () => {
   useEffect(() => {
     console.log('Validation permissions...')
     const perm = checkUserProjectPerms(router.query.id as string, session, supabase, setSuccess)
-    console.log(perm)
   })
 
   return <div>

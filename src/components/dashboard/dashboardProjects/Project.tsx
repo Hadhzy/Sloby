@@ -10,7 +10,7 @@ import { useSession } from '@supabase/auth-helpers-react'
 import { checkUserProjectPerms } from '../../../utils/helpers'
 import { useRouter } from 'next/router'
 export default function Project({project}: { project: TSlobyProject }) {
-    const {actionBar, setActionBar, setCurrentClickedProject, currentClickedProject} = useContext(ProjectsContext)
+    const {actionBar, setActionBar, setCurrentProject, currentProject} = useContext(ProjectsContext)
     const {loading, setLoading} = useContext(LoadingContext)
     const session = useSession()
     const router = useRouter()
