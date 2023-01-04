@@ -26,12 +26,15 @@ module.exports = {
                 }
             },
             colors: {
-                'dark-steps-bg': '#202020',
+                'mod-bg': '#090909',
+                'tools-bg': '#090909',
+                'editor-border-color': '#202020',
+                'dark-steps-bg': '#191919',
                 'dark-building-steps-bg': '#101010',
                 'dark-preview-hover': '#292929',
                 'dark-preview': '#232323',
                 'dark-info-bg': 'black',
-                'dark-info': '#191919',
+                'dark-info': '#181818',
                 'back': '#040404',
                 'dark-font-light': '#909090',
                 'dark-darkest': '#000000',

@@ -7,7 +7,7 @@ export default function SlobyEditorInformation() {
   const { currentProject } = useContext(ProjectsContext)
   
   return (
-    <div className='p-3 w-full border-b border-dark-mid  bg-dark-info flex justify-between items-center'>
+    <div className='p-3 w-full border-b-1 border-editor-border-color bg-dark-info flex justify-between items-center'>
       <div>
         <div className='bg-dark-preview rounded-full px-3 py-2 cursor-pointer  text-white ease-in-out duration-150  hover:scale-105 hover:bg-dark-preview-hover'>
           <FontAwesomeIcon icon={faArrowLeft}/>
