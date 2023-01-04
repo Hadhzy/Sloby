@@ -26,6 +26,8 @@ module.exports = {
                 }
             },
             colors: {
+                'dark-steps-bg': '#202020',
+                'dark-building-steps-bg': '#101010',
                 'dark-preview-hover': '#292929',
                 'dark-preview': '#232323',
                 'dark-info-bg': 'black',
