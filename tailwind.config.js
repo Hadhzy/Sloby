@@ -2,7 +2,7 @@ const { fontFamily } = require('tailwindcss/defaultTheme');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: ['./src/pages/**/*.{ts,tsx}', './src/components/**/*.{ts,tsx}'],
+    content: ['./src/pages/**/*.{ts,tsx}', './src/components/**/*.{ts,tsx}', './src/sloby-editor-system/**/*.{ts,tsx}'],
     theme: {
         extend: {
             animation: {
@@ -26,6 +26,10 @@ module.exports = {
                 }
             },
             colors: {
+                'dark-preview-hover': '#292929',
+                'dark-preview': '#232323',
+                'dark-info-bg': 'black',
+                'dark-info': '#191919',
                 'back': '#040404',
                 'dark-font-light': '#909090',
                 'dark-darkest': '#000000',

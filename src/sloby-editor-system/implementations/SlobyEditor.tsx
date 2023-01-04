@@ -19,10 +19,8 @@ function SlobyEditor() {
     currentProject.then((res) => setCurrentProject(res))
   })
 
-  return <div className='bg-dark-dark-mid flex h-screen flex-col justify-end'>
-    <div className='text-white border  border-red-600 h-[5%] flex justify-center items-center'>
+  return <div className='flex h-screen flex-col justify-end'>
       <SlobyEditorInformation />
-    </div>
     <SlobyBuildingSteps />
     <div className='flex justify-between h-full text-white'>
       <SlobyTools />
