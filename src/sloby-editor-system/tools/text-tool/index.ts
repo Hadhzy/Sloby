@@ -3,5 +3,5 @@ import { ToolCategories } from "../../utils/constants";
 
 @RegisterTool(ToolCategories.OBJECT)
 export default class TextCreationTool {
-
+  
 }

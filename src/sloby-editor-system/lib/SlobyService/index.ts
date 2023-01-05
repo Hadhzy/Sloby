@@ -12,7 +12,7 @@ export default class SlobyService implements ISlobyService{
     )
   }
 
-  saveJson(filename: string, json: JSON) {
+  saveJson(filename: string, json: string) {
     /**Saving a Json data by the filename and with the proper Json string data */
     return fs.writeFileSync(filename, JSON.stringify(json, null, 2))
   }

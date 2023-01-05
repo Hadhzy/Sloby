@@ -1,9 +1,15 @@
 import React from 'react'
 
-export default function SlobyTools() {
-  return (
-    <div className='bg-tools-bg  w-1/4'>
-        SlobyTools
-    </div>
-  )
+
+export default class SlobyTools extends React.Component{
+  constructor(props: any) {
+    super(props)
+  }
+  render() {
+    return (
+      <div className='bg-tools-bg  w-1/4'>
+          asd
+      </div>
+    )
+  }
 }
