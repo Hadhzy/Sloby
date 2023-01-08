@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h2 align="center"><b>SlobyBuilder</b>: ✨The reformed way of webdevelopment ✨</h2>
+<p align="center"><i>Built by the FlurryGlo Developer Team (organization)</i></p>
+<p align="center"> <a href="https://github.com/FlurryGlo/Sloby/blob/main/Contributing.md">Contribute for the Sloby</a></p>
+<p align="center"> 
+  <a href="github.com/FlurryGlo"> FlurryGlo Organization </a>
+</p>
 
-## Getting Started
+ <p align="center"><a href="github.com/FlurryGlo/slobypy">Related slobypy python framework</a></p>
+ 
+ ## 📝 Table of Contents
+- [📝 Table of Contents](#-table-of-contents)
+- [🥅 Our goal](#goal)
+- [📚 Basic Info](#basic-info)
+- [📋 Describing the editor](#editor-describing)
 
-First, run the development server:
+## 🥅 Our Goal <a name = "goal"></a>
+To reform the way of how web-development works by refactoring all of the tools that not just as a developer, but an average person (with no coding skills) needs to build a website. We combine these tools into a simple, concise tool that is globally accessible (FREE).  
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## 📚 Basic Info <a name="basic-info"></a> 
+The editor is built using `React` with `Typescript`, with a backend made with `NestJS`. This is a next-level editor, made to compete with the high ranks of wordpress and webflow, which allows people to build their websites for free, regardless of their coding skills.  If you want be the part of revoloutionizing the world of web-development, you are in the right place. Me and my brother have been started this project together and have been working on it consistently with our growing development team, which splits into 2 sub-teams. One team is working on the editor and the other is working on the `slobypy` python framework. I'm (gaborhadhazy) leading the editor developer team and my brother (Hels15) is leading the python framework project. 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📋 Describing the Editor <a name="editor-describing"></a>
+In this case, Wordpress can be seen as a similar project that can be used to compare features. However, Sloby will not be your ordinary website builder, but a never seen before website building environment, that we will provide for people just like you. With its soothing atmosphere and unique features such as animation and high-quality customisations, we ensure that the developer experience is always our top priority. In addition, Sloby will contain a built-in coding development environment. For more experienced developers, we offer the `slobypy` Python framework, allowing you to design and mould your websites with pure Pythonic code and syntax throughout our editor. Did I mention that all of this is free? We will provide high-quality features such as real time project sharing and development, design sharing, automatic domain names and automated project deploys! Our main goal is to revouloutionize the world of web-development. One tool. One system. One Sloby.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+</br>
+</br>
+If you wanna be the part of this process, and excited to reforming the way of web-development then check this out: 
+</br>
+ <h3> <a href="https://github.com/FlurryGlo/Sloby/blob/main/Contributing.md">Be the part of the Sloby</a> </h3> 
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
