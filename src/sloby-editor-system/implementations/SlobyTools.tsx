@@ -25,7 +25,7 @@ export default function SlobyTools  (){
 
 
     return (
-      <div className='bg-tools-bg  w-1/4'>
+      <div className='bg-tools-bg md:w-1/1 lg:w-1/2 xl:w-1/3'>
         <div className='bg-sloby-tools-bg  ml-2 mt-6 mr-10 w-96 h-3/4 rounded-3xl flex flex-col items-center'>
           <div className='border-b border-editor-border-color items-center w-full flex justify-center h-14'>
             <p className='text-lg font-semibold'>Sloby Tools</p>
