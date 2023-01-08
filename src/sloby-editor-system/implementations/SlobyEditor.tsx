@@ -1,35 +1,38 @@
-import React,{useEffect, useContext} from 'react'
-import SlobyEditorInformation from './SlobyEditorInformation'
-import SlobyBuildingSteps from './SlobyBuildingSteps'
-import SlobyTools from './SlobyTools'
-import SlobyPreviewSiteInterface from './SlobyPreviewSiteInterface'
-import SlobyModifier from './SlobyModifier'
-import { useRouter } from 'next/router'
-import { getCurrentProject } from '../../utils/api'
-import { useSupabaseClient } from '@supabase/auth-helpers-react'
-import { ProjectsContext } from '../../utils/contexts/ProjectsContext'
+import React, { useEffect, useContext } from "react";
+import SlobyEditorInformation from "./SlobyEditorInformation";
+import SlobyBuildingSteps from "./SlobyBuildingSteps";
+import SlobyTools from "./SlobyTools";
+import SlobyPreviewSiteInterface from "./SlobyPreviewSiteInterface";
+import SlobyModifier from "./SlobyModifier";
+import { useRouter } from "next/router";
+import { getCurrentProject } from "../../utils/api";
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
+import { ProjectsContext } from "../../utils/contexts/ProjectsContext";
 
 function SlobyEditor() {
-  const router = useRouter()
-  const supabase = useSupabaseClient()
-  const {setCurrentProject} = useContext(ProjectsContext)
+  const router = useRouter();
+  const supabase = useSupabaseClient();
+  const { setCurrentProject } = useContext(ProjectsContext);
 
   useEffect(() => {
-    const currentProject = getCurrentProject(router.query.id as string, supabase)
-    currentProject.then((res) => setCurrentProject(res))
-  })
+    const currentProject = getCurrentProject(
+      router.query.id as string,
+      supabase
+    );
+    currentProject.then((res) => setCurrentProject(res));
+  });
 
-  return <div className='flex h-screen flex-col justify-end'>
+  return (
+    <div className="flex h-screen flex-col justify-end">
       <SlobyEditorInformation />
-    <SlobyBuildingSteps />
-    <div className='flex h-full text-white'>
-      <SlobyTools />
-      <SlobyPreviewSiteInterface />
-      <SlobyModifier />
+      <SlobyBuildingSteps />
+      <div className="flex h-full text-white">
+        <SlobyTools />
+        <SlobyPreviewSiteInterface />
+        <SlobyModifier />
+      </div>
     </div>
-  </div>
+  );
 }
 
-
-
-export default SlobyEditor
+export default SlobyEditor;
