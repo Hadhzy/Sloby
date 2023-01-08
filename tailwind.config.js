@@ -26,8 +26,10 @@ module.exports = {
                 }
             },
             colors: {
+                'tool-bg': '#191919',
+                'sloby-tools-bg': '#151515',
                 'mod-bg': '#090909',
-                'tools-bg': '#090909',
+                'tools-bg': '#121212',
                 'editor-border-color': '#202020',
                 'dark-steps-bg': '#191919',
                 'dark-building-steps-bg': '#101010',

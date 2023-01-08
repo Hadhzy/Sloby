@@ -37,3 +37,18 @@ export async function getCurrentProject(project_id: string, supabase: any) {
   const currentProject = await getProjectById(project_id, supabase)
   return currentProject  
 }
+
+export async function getTools(supabase: any, ) {
+    let {data, error} = await supabase
+    .from('sloby_tools')
+    .select('*')
+
+    if (error) {
+        console.log(error)
+    }
+
+    if (data) {
+      //@ts-ignore
+      return data
+    }
+  }

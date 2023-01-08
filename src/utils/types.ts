@@ -20,3 +20,9 @@ export type TSlobyProject = {
   public: boolean;
   tags: Tag[]
 }
+
+export type TSlobyTool = {
+  id: number;
+  tool_p_name: string;
+  tool_name: string;
+}

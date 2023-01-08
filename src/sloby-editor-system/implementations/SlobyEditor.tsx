@@ -22,7 +22,7 @@ function SlobyEditor() {
   return <div className='flex h-screen flex-col justify-end'>
       <SlobyEditorInformation />
     <SlobyBuildingSteps />
-    <div className='flex justify-between h-full text-white'>
+    <div className='flex h-full text-white'>
       <SlobyTools />
       <SlobyPreviewSiteInterface />
       <SlobyModifier />

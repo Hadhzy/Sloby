@@ -14,7 +14,7 @@ const Editor = () => {
 
   useEffect(() => {
     console.log('Validation permissions...')
-    const perm = checkUserProjectPerms(router.query.id as string, session, supabase, setSuccess)
+    checkUserProjectPerms(router.query.id as string, session, supabase, setSuccess)
   })
 
   return <div>
