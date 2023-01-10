@@ -1,18 +1,18 @@
-import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
-import React, { useEffect, useState } from "react";
-import { getTools } from "../../utils/api";
-import { TSlobyTool } from "../../utils/types";
-import { motion } from "framer-motion";
+import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
+import React, { useEffect, useState } from 'react';
+import { getTools } from '../../utils/api';
+import { TSlobyTool } from '../../utils/types';
+import { motion } from 'framer-motion';
 const tools = [
-  { id: 1, tool_p_name: "Text Creation Tool", tool_name: "TextCreationTool" },
-  { id: 2, tool_p_name: "Text Creation Tool", tool_name: "TextCreationTool" },
-  { id: 3, tool_p_name: "Text Creation Tool", tool_name: "TextCreationTool" },
-  { id: 4, tool_p_name: "Text Creation Tool", tool_name: "TextCreationTool" },
-  { id: 5, tool_p_name: "Text Creation Tool", tool_name: "TextCreationTool" },
-  { id: 6, tool_p_name: "Text Creation Tool", tool_name: "TextCreationTool" },
-  { id: 7, tool_p_name: "Text Creation Tool", tool_name: "TextCreationTool" },
-  { id: 9, tool_p_name: "Text Creation Tool", tool_name: "TextCreationTool" },
-  { id: 8, tool_p_name: "Text Creation Tool", tool_name: "TextCreationTool" },
+  { id: 1, tool_p_name: 'Text Creation Tool', tool_name: 'TextCreationTool' },
+  { id: 2, tool_p_name: 'Text Creation Tool', tool_name: 'TextCreationTool' },
+  { id: 3, tool_p_name: 'Text Creation Tool', tool_name: 'TextCreationTool' },
+  { id: 4, tool_p_name: 'Text Creation Tool', tool_name: 'TextCreationTool' },
+  { id: 5, tool_p_name: 'Text Creation Tool', tool_name: 'TextCreationTool' },
+  { id: 6, tool_p_name: 'Text Creation Tool', tool_name: 'TextCreationTool' },
+  { id: 7, tool_p_name: 'Text Creation Tool', tool_name: 'TextCreationTool' },
+  { id: 9, tool_p_name: 'Text Creation Tool', tool_name: 'TextCreationTool' },
+  { id: 8, tool_p_name: 'Text Creation Tool', tool_name: 'TextCreationTool' },
 ];
 
 export default function SlobyTools() {

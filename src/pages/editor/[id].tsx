@@ -1,9 +1,9 @@
-import React, { useEffect, useContext, useState } from "react";
-import { ProjectsContext } from "../../utils/contexts/ProjectsContext";
-import { checkUserProjectPerms } from "../../utils/helpers";
-import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
-import SlobyEditor from "../../sloby-editor-system/implementations/SlobyEditor";
-import { useRouter } from "next/router";
+import React, { useEffect, useContext, useState } from 'react';
+import { ProjectsContext } from '../../utils/contexts/ProjectsContext';
+import { checkUserProjectPerms } from '../../utils/helpers';
+import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
+import SlobyEditor from '../../sloby-editor-system/implementations/SlobyEditor';
+import { useRouter } from 'next/router';
 
 const Editor = () => {
   const session = useSession();
@@ -12,7 +12,7 @@ const Editor = () => {
   const supabase = useSupabaseClient();
 
   useEffect(() => {
-    console.log("Validation permissions...");
+    console.log('Validation permissions...');
     checkUserProjectPerms(
       router.query.id as string,
       session,

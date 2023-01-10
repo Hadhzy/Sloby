@@ -1,5 +1,5 @@
-import { Dispatch, SetStateAction, createContext, useState } from "react";
-import { TSlobyProject, Tag } from "../types";
+import { Dispatch, SetStateAction, createContext, useState } from 'react';
+import { TSlobyProject, Tag } from '../types';
 
 type ProjectsContext = {
   project_data: {
@@ -28,22 +28,22 @@ export const ProjectsContext = createContext<ProjectsContext>(undefined!);
 
 export const ProjectsContextProvider = ({ children }: { children: any }) => {
   const [project_data, set_project_data] = useState({
-    project_name: "",
-    project_description: "",
+    project_name: '',
+    project_description: '',
     project_modal: false,
   });
-  const [current_project_id, set_current_project_id] = useState<string>("");
+  const [current_project_id, set_current_project_id] = useState<string>('');
   const [current_tags, set_current_tags] = useState([]);
   const [actionBar, setActionBar] = useState(false);
   const [currentProject, setCurrentProject] = useState<TSlobyProject>({
-    id: "",
+    id: '',
     created_at: new Date(),
-    project_name: "",
-    project_description: "",
-    shared_with: "",
-    creator: "",
+    project_name: '',
+    project_description: '',
+    shared_with: '',
+    creator: '',
     public: false,
-    tags: [{ id: 1, color: "", tag: "" }],
+    tags: [{ id: 1, color: '', tag: '' }],
   });
 
   return (

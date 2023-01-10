@@ -1,33 +1,33 @@
-import Layout from "../../LandingPage/layout";
-import Head from "next/head";
-import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import Layout from '../../LandingPage/layout';
+import Head from 'next/head';
+import Image from 'next/image';
+import React, { useEffect, useState } from 'react';
 
-import Link from "next/link";
-import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
-import { stringifyQuery } from "next/dist/server/server-route-utils";
+import Link from 'next/link';
+import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
+import { stringifyQuery } from 'next/dist/server/server-route-utils';
 import {
   getURL,
   githubLogin,
   googleLogin,
   loggedIn,
-} from "../../../lib/helpers";
-import { useRouter } from "next/router";
-import { onPasswordChange } from "../handlers/onPasswordChange";
-import { onSubmit } from "../handlers/onSubmit";
-import { Star } from "../../LandingPage/star";
+} from '../../../lib/helpers';
+import { useRouter } from 'next/router';
+import { onPasswordChange } from '../handlers/onPasswordChange';
+import { onSubmit } from '../handlers/onSubmit';
+import { Star } from '../../LandingPage/star';
 const isEmail = (email: string) => {
   return /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
 };
 
 export default function Register() {
   const [hidePassword, setHidePassword] = useState(true);
-  const [emailStyles, setEmailStyles] = useState("");
-  const [passwordStyles, setPasswordStyles] = useState("");
-  const [strengthStyles, setStrengthStyles] = useState(["", "0%"]);
-  const [repeatPasswordStyles, setRepeatPasswordStyles] = useState("");
-  const [errorMsg, setErrorMsg] = useState("");
-  const [successMsg, setSuccessMsg] = useState("");
+  const [emailStyles, setEmailStyles] = useState('');
+  const [passwordStyles, setPasswordStyles] = useState('');
+  const [strengthStyles, setStrengthStyles] = useState(['', '0%']);
+  const [repeatPasswordStyles, setRepeatPasswordStyles] = useState('');
+  const [errorMsg, setErrorMsg] = useState('');
+  const [successMsg, setSuccessMsg] = useState('');
   const [strength, setStrength] = useState(0);
   const supabase = useSupabaseClient();
   const passwordRef = React.useRef<HTMLInputElement>(null);
@@ -42,34 +42,34 @@ export default function Register() {
 
   function onEmailChange(event: any) {
     if (isEmail(event.target.value)) {
-      setEmailStyles("!border-green-mid");
+      setEmailStyles('!border-green-mid');
     } else {
-      setEmailStyles("!border-red-mid");
+      setEmailStyles('!border-red-mid');
     }
   }
 
   function verifyEmailState() {
-    if (emailStyles.startsWith("!border-red-mid")) {
-      setEmailStyles("!border-red-mid animate-shake");
+    if (emailStyles.startsWith('!border-red-mid')) {
+      setEmailStyles('!border-red-mid animate-shake');
     }
   }
 
   function onRepeatPasswordChange(event: any) {
     if (event.target.value !== passwordRef.current?.value) {
-      setRepeatPasswordStyles("!border-red-mid");
+      setRepeatPasswordStyles('!border-red-mid');
     } else {
-      setRepeatPasswordStyles("!border-green-mid");
+      setRepeatPasswordStyles('!border-green-mid');
     }
   }
 
   function verifyRepeatPassword(event: any) {
     if (event.target.value !== passwordRef.current?.value) {
-      setRepeatPasswordStyles("!border-red-mid animate-shake");
+      setRepeatPasswordStyles('!border-red-mid animate-shake');
     }
   }
 
   useEffect(() => {
-    loggedIn(supabase, router, "/editor/dashboard");
+    loggedIn(supabase, router, '/editor/dashboard');
   });
 
   return (
@@ -84,12 +84,12 @@ export default function Register() {
         {Array.from({ length: 20 }, (_, i) => (
           <Star key={i} />
         ))}
-        <div className={"flex-center flex-col gap-8 lg:p-40"}>
-          <div className={"flex flex-row bg-dark-dark rounded-lg w-2/3 z-40"}>
-            <div className={"bg-dark-mid flex-center rounded-l-lg w-1/2"}>
+        <div className={'flex-center flex-col gap-8 lg:p-40'}>
+          <div className={'flex flex-row bg-dark-dark rounded-lg w-2/3 z-40'}>
+            <div className={'bg-dark-mid flex-center rounded-l-lg w-1/2'}>
               <Image
                 alt="Sloby Logo"
-                src={"/images/Sloby Logo Dark.svg"}
+                src={'/images/Sloby Logo Dark.svg'}
                 width={400}
                 height={500}
               />
@@ -110,12 +110,12 @@ export default function Register() {
                   supabase
                 )
               }
-              className={"w-1/2 flex flex-col justify-between m-16 gap-8"}
+              className={'w-1/2 flex flex-col justify-between m-16 gap-8'}
             >
-              <p className={"font-semibold text-5xl"}>Sign Up</p>
+              <p className={'font-semibold text-5xl'}>Sign Up</p>
               <div
                 className={
-                  "flex items-center w-full rounded-lg bg-white p-2 gap-3 hover:cursor-pointer"
+                  'flex items-center w-full rounded-lg bg-white p-2 gap-3 hover:cursor-pointer'
                 }
                 onClick={(e) => googleLogin(e, supabase)}
               >
@@ -142,13 +142,13 @@ export default function Register() {
                   />
                   <path d="M1 1h22v22H1z" fill="none" />
                 </svg>
-                <span className={"text-gray-500 font-medium"}>
+                <span className={'text-gray-500 font-medium'}>
                   Continue with Google
                 </span>
               </div>
               <div
                 className={
-                  "flex items-center w-full rounded-lg bg-white p-2 gap-3 hover:cursor-pointer"
+                  'flex items-center w-full rounded-lg bg-white p-2 gap-3 hover:cursor-pointer'
                 }
                 onClick={(e) => githubLogin(e, supabase)}
               >
@@ -161,7 +161,7 @@ export default function Register() {
                   <title>GitHub</title>
                   <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
                 </svg>
-                <span className={"text-gray-500 font-medium"}>
+                <span className={'text-gray-500 font-medium'}>
                   Continue with GitHub
                 </span>
               </div>
@@ -169,7 +169,7 @@ export default function Register() {
                 <span className="">Your Username</span>
                 <input
                   type="text"
-                  name={"username"}
+                  name={'username'}
                   ref={usernameRef}
                   className={`px-6 rounded-full mt-1 block w-full rounded-md bg-dark-mid border-transparent focus:border-gray-500 focus:bg-dark-dark focus:ring-0`}
                   placeholder="Enter your username"
@@ -180,7 +180,7 @@ export default function Register() {
                 <input
                   type="email"
                   ref={emailRef}
-                  name={"email"}
+                  name={'email'}
                   className={`${emailStyles} px-6 rounded-full mt-1 block w-full rounded-md bg-dark-mid border-transparent focus:border-gray-500 focus:bg-dark-dark focus:ring-0`}
                   placeholder="Enter your email"
                   onChange={onEmailChange}
@@ -189,9 +189,9 @@ export default function Register() {
               </label>
               <label className="block flex flex-col gap-2">
                 <span className="">Your password</span>
-                <div className={"flex-center gap-2"}>
-                  <span className={"text-sm text-gray-400"}>Strength: </span>
-                  <div className={"h-2 w-full bg-dark-mid rounded-full"}>
+                <div className={'flex-center gap-2'}>
+                  <span className={'text-sm text-gray-400'}>Strength: </span>
+                  <div className={'h-2 w-full bg-dark-mid rounded-full'}>
                     <div
                       className={`${passwordStyles} rounded-full ${strengthStyles[0]} h-full transition-all duration-500`}
                       style={{ width: strengthStyles[1] }}
@@ -199,10 +199,10 @@ export default function Register() {
                   </div>
                 </div>
                 <input
-                  type={hidePassword ? "password" : "text"}
+                  type={hidePassword ? 'password' : 'text'}
                   ref={passwordRef}
-                  id={"password"}
-                  name={"password"}
+                  id={'password'}
+                  name={'password'}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                     onPasswordChange(
                       e,
@@ -226,38 +226,38 @@ export default function Register() {
               <label className="block flex flex-col gap-2">
                 <span className="">Repeat your password</span>
                 <input
-                  type={"password"}
-                  name={"rpassword"}
+                  type={'password'}
+                  name={'rpassword'}
                   onChange={onRepeatPasswordChange}
                   onBlur={verifyRepeatPassword}
                   className={`${repeatPasswordStyles} px-6 rounded-full mt-1 block w-full rounded-md bg-dark-mid border-transparent focus:border-gray-500 focus:bg-dark-dark focus:ring-0`}
                   placeholder="Repeat your password"
                 ></input>
               </label>
-              <div className={"flex flex-col gap-3"}>
+              <div className={'flex flex-col gap-3'}>
                 <button
                   type="submit"
-                  className={"flex-center bg-green-dark w-1/4 p-3 rounded-full"}
+                  className={'flex-center bg-green-dark w-1/4 p-3 rounded-full'}
                 >
                   Submit
                 </button>
-                <Link href={"/auth/login"}>
-                  <p className={"hover:underline"}>
-                    Already a member?{" "}
-                    <span className={"text-blue-400"}>Log in</span>
+                <Link href={'/auth/login'}>
+                  <p className={'hover:underline'}>
+                    Already a member?{' '}
+                    <span className={'text-blue-400'}>Log in</span>
                   </p>
                 </Link>
               </div>
               <div
                 className={`${
-                  errorMsg ? "p-2 px-6" : ""
+                  errorMsg ? 'p-2 px-6' : ''
                 } bg-red-mid rounded-xl`}
               >
                 {errorMsg}
               </div>
               <div
                 className={`${
-                  successMsg ? "p-2 px-6" : ""
+                  successMsg ? 'p-2 px-6' : ''
                 } bg-green-mid rounded-xl`}
               >
                 {successMsg}

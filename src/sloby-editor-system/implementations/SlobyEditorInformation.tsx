@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
-import { ProjectsContext } from "../../utils/contexts/ProjectsContext";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGear } from "@fortawesome/free-solid-svg-icons";
-import { motion } from "framer-motion";
+import React, { useContext } from 'react';
+import { ProjectsContext } from '../../utils/contexts/ProjectsContext';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGear } from '@fortawesome/free-solid-svg-icons';
+import { motion } from 'framer-motion';
 export default function SlobyEditorInformation() {
   const { currentProject } = useContext(ProjectsContext);
 

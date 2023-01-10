@@ -1,8 +1,8 @@
-import React from "react";
-import { TSlobyProject } from "./types";
-import { Session } from "inspector";
-import { SessionContext } from "@supabase/auth-helpers-react";
-import { getProjectById } from "./api";
+import React from 'react';
+import { TSlobyProject } from './types';
+import { Session } from 'inspector';
+import { SessionContext } from '@supabase/auth-helpers-react';
+import { getProjectById } from './api';
 
 export function checkUserProjectPerms(
   project_id: string,

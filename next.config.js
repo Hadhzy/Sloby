@@ -2,13 +2,13 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["lh3.googleusercontent.com"],
+    domains: ['lh3.googleusercontent.com'],
   },
   async redirects() {
     return [
       {
-        source: "/editor",
-        destination: "/editor/dashboard",
+        source: '/editor',
+        destination: '/editor/dashboard',
         permanent: true,
         // images: {
         //   remotePatterns: [

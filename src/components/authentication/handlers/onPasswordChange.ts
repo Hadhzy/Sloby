@@ -23,12 +23,12 @@ export function onPasswordChange(
   }
   setStrength(temp_strength);
   if (strength >= 4) {
-    setStrengthStyles(["bg-green-mid", `${(temp_strength * 100) / 5}%`]);
+    setStrengthStyles(['bg-green-mid', `${(temp_strength * 100) / 5}%`]);
   }
   if (strength === 3) {
-    setStrengthStyles(["bg-yellow-mid", `${(temp_strength * 100) / 5}%`]);
+    setStrengthStyles(['bg-yellow-mid', `${(temp_strength * 100) / 5}%`]);
   }
   if (strength <= 2) {
-    setStrengthStyles(["bg-red-mid", `${(temp_strength * 100) / 5}%`]);
+    setStrengthStyles(['bg-red-mid', `${(temp_strength * 100) / 5}%`]);
   }
 }

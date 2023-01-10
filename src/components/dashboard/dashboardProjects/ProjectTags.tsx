@@ -1,15 +1,15 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useContext, useEffect, useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useContext, useEffect, useState } from 'react';
 import {
   faChevronDown,
   faChevronRight,
   faCircleExclamation,
   faCircleXmark,
-} from "@fortawesome/free-solid-svg-icons";
-import { AnimatePresence, Variants, motion } from "framer-motion";
-import supabase from "../../../utils/supabase";
-import { ProjectsContext } from "../../../utils/contexts/ProjectsContext";
-import { v4 as uuidv4 } from "uuid";
+} from '@fortawesome/free-solid-svg-icons';
+import { AnimatePresence, Variants, motion } from 'framer-motion';
+import supabase from '../../../utils/supabase';
+import { ProjectsContext } from '../../../utils/contexts/ProjectsContext';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function ProjectTags({ setTags }: { setTags: Function }) {
   const [popupDisplay, setPopupDisplay] = useState(false);
@@ -17,9 +17,9 @@ export default function ProjectTags({ setTags }: { setTags: Function }) {
   const [appliedTag, setAppliedTag] = useState<
     { tag: string; color: string; id: string; project_id: string }[]
   >([]);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const [colorSelect, setColorSelect] = useState(false);
-  const [selectedColor, setSelectedColor] = useState("gray-700");
+  const [selectedColor, setSelectedColor] = useState('gray-700');
   const { set_current_tags, current_tags, current_project_id } =
     useContext(ProjectsContext);
 
@@ -27,21 +27,21 @@ export default function ProjectTags({ setTags }: { setTags: Function }) {
     set_current_tags(appliedTag);
   }, [appliedTag]);
   async function getData() {
-    const { data: projects } = await supabase.from("projects").select("*");
+    const { data: projects } = await supabase.from('projects').select('*');
     console.log(projects);
   }
   const optionsVariants: Variants = {
     open: {
       opacity: 1,
       y: 0,
-      transition: { type: "spring", stiffness: 300, damping: 24 },
+      transition: { type: 'spring', stiffness: 300, damping: 24 },
     },
     closed: { opacity: 0, y: 50, transition: { duration: 0.5 } },
   };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTags(appliedTag);
     let currentValue = e.target.value;
-    if (currentValue.endsWith(" ")) {
+    if (currentValue.endsWith(' ')) {
       if (appliedTag.length < 3) {
         if (appliedTag.some((e) => e.tag === currentValue.trim())) {
           setError(`Tag '${currentValue.trim()}' already applied`);
@@ -56,17 +56,17 @@ export default function ProjectTags({ setTags }: { setTags: Function }) {
                 project_id: current_project_id as string,
               },
             ]);
-            e.target.value = "";
-            setError("");
+            e.target.value = '';
+            setError('');
           } else {
-            setError("Tag must be less than or equal to 20 characters");
+            setError('Tag must be less than or equal to 20 characters');
           }
         }
       } else {
-        setError("You can only apply 3 tags");
+        setError('You can only apply 3 tags');
       }
     } else {
-      setError("");
+      setError('');
     }
   };
 
@@ -84,9 +84,9 @@ export default function ProjectTags({ setTags }: { setTags: Function }) {
                   <div
                     key={i}
                     className={`bg-${color} ${
-                      color === "gray-700"
-                        ? "text-gray-300"
-                        : "text-black/[0.65]"
+                      color === 'gray-700'
+                        ? 'text-gray-300'
+                        : 'text-black/[0.65]'
                     } group text-xs font-bold mr-2 px-2.5 py-0.5 rounded-full`}
                     onClick={(e) => {
                       e.stopPropagation();
@@ -97,7 +97,7 @@ export default function ProjectTags({ setTags }: { setTags: Function }) {
                   >
                     <FontAwesomeIcon
                       icon={faCircleXmark}
-                      className={"!hidden group-hover:!inline-block mr-1"}
+                      className={'!hidden group-hover:!inline-block mr-1'}
                     />
                     <p className={`inline-block`}>{tag}</p>
                   </div>
@@ -119,7 +119,7 @@ export default function ProjectTags({ setTags }: { setTags: Function }) {
             <motion.div
               key="box"
               exit={{ opacity: 0, y: -30 }}
-              transition={{ duration: 0.2, type: "spring" }}
+              transition={{ duration: 0.2, type: 'spring' }}
               initial={{ opacity: 0, y: -15 }}
               animate={{ opacity: 1, y: 0 }}
               className="flex justify-center items-center gap-2 w-[85%] p-6 bg-dark-dark select-none ease-linear duration-150 rounded-xl "
@@ -142,9 +142,9 @@ export default function ProjectTags({ setTags }: { setTags: Function }) {
                     <motion.div
                       variants={{
                         open: {
-                          clipPath: "inset(0% 0% 0% 0% round 10px)",
+                          clipPath: 'inset(0% 0% 0% 0% round 10px)',
                           transition: {
-                            type: "spring",
+                            type: 'spring',
                             bounce: 0,
                             duration: 0.7,
                             delayChildren: 0.3,
@@ -152,57 +152,57 @@ export default function ProjectTags({ setTags }: { setTags: Function }) {
                           },
                         },
                         closed: {
-                          clipPath: "inset(100% 0% 0% 100% round 10px)",
+                          clipPath: 'inset(100% 0% 0% 100% round 10px)',
                           transition: {
-                            type: "spring",
+                            type: 'spring',
                             bounce: 0,
                             duration: 0.3,
                           },
                         },
                       }}
-                      initial={"closed"}
-                      animate={"open"}
+                      initial={'closed'}
+                      animate={'open'}
                       className={
-                        "border-dark-border border bg-dark-darker rounded-lg absolute -translate-y-full -top-2 right-0 flex"
+                        'border-dark-border border bg-dark-darker rounded-lg absolute -translate-y-full -top-2 right-0 flex'
                       }
                     >
                       <motion.div
                         variants={optionsVariants}
-                        className={"cursor-pointer bg-gray-700 px-4 py-5"}
+                        className={'cursor-pointer bg-gray-700 px-4 py-5'}
                         onClick={() => {
-                          setSelectedColor("gray-700");
+                          setSelectedColor('gray-700');
                         }}
                       />
-                      <div className={"bg-dark-border h-full w-0.5"} />
+                      <div className={'bg-dark-border h-full w-0.5'} />
                       <motion.div
                         variants={optionsVariants}
-                        className={"cursor-pointer bg-blue-mid px-4 py-5"}
+                        className={'cursor-pointer bg-blue-mid px-4 py-5'}
                         onClick={() => {
-                          setSelectedColor("blue-mid");
+                          setSelectedColor('blue-mid');
                         }}
                       />
-                      <div className={"bg-dark-border h-full w-0.5"} />
+                      <div className={'bg-dark-border h-full w-0.5'} />
                       <motion.div
                         variants={optionsVariants}
-                        className={"cursor-pointer bg-green-mid px-4 py-5"}
+                        className={'cursor-pointer bg-green-mid px-4 py-5'}
                         onClick={() => {
-                          setSelectedColor("green-mid");
+                          setSelectedColor('green-mid');
                         }}
                       />
-                      <div className={"bg-dark-border h-full w-0.5"} />
+                      <div className={'bg-dark-border h-full w-0.5'} />
                       <motion.div
                         variants={optionsVariants}
-                        className={"cursor-pointer bg-yellow-mid px-4 py-5"}
+                        className={'cursor-pointer bg-yellow-mid px-4 py-5'}
                         onClick={() => {
-                          setSelectedColor("yellow-mid");
+                          setSelectedColor('yellow-mid');
                         }}
                       />
-                      <div className={"bg-dark-border h-full w-0.5"} />
+                      <div className={'bg-dark-border h-full w-0.5'} />
                       <motion.div
                         variants={optionsVariants}
-                        className={"cursor-pointer bg-red-mid px-4 py-5"}
+                        className={'cursor-pointer bg-red-mid px-4 py-5'}
                         onClick={() => {
-                          setSelectedColor("red-mid");
+                          setSelectedColor('red-mid');
                         }}
                       />
                     </motion.div>
@@ -211,10 +211,10 @@ export default function ProjectTags({ setTags }: { setTags: Function }) {
               </div>
             </motion.div>
           )}
-          {error !== "" && (
+          {error !== '' && (
             <motion.div
               className={`${
-                error ? "p-2 px-6 opacity-100" : "opacity-0"
+                error ? 'p-2 px-6 opacity-100' : 'opacity-0'
               } flex justify-between items-center bg-red-mid rounded-xl w-[85%] mt-4 transition-opacity duration-200`}
               transition={{ duration: 0.5, delay: 0.2 }}
               animate={{ opacity: [0, 1], y: [400, 0] }}

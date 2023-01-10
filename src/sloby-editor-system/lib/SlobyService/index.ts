@@ -1,5 +1,5 @@
-import * as fs from "fs";
-import { ISlobyService } from "../../utils/interfaces";
+import * as fs from 'fs';
+import { ISlobyService } from '../../utils/interfaces';
 
 export default class SlobyService implements ISlobyService {
   /** Providing helper methods for global usage*/

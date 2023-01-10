@@ -1,12 +1,12 @@
-import Image from "next/image";
-import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import Image from 'next/image';
+import Link from 'next/link';
+import { useCallback, useEffect, useState } from 'react';
 
 export default function Navbar({ className }: { className: string }) {
   const [scroll, setScroll] = useState(false);
 
   useEffect(() => {
-    window.addEventListener("scroll", () => {
+    window.addEventListener('scroll', () => {
       setScroll(window.scrollY > 20);
     });
   }, []);
@@ -14,7 +14,7 @@ export default function Navbar({ className }: { className: string }) {
   return (
     <header
       className={`${className} ${
-        scroll ? "" : "bg-dark-dark"
+        scroll ? '' : 'bg-dark-dark'
       } fixed w-full z-50 text-center backdrop-blur-md drop-shadow-2xl transition-colors`}
     >
       <div className="mx-auto max-w-7xl">

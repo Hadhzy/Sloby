@@ -1,14 +1,14 @@
-import React, { useEffect, useContext } from "react";
-import SlobyEditorInformation from "./SlobyEditorInformation";
-import SlobyBuildingSteps from "./SlobyBuildingSteps";
-import SlobyTools from "./SlobyTools";
-import SlobyPreviewSiteInterface from "./SlobyPreviewSiteInterface";
-import SlobyModifier from "./SlobyModifier";
-import { useRouter } from "next/router";
-import { getCurrentProject } from "../../utils/api";
-import { useSupabaseClient } from "@supabase/auth-helpers-react";
-import { ProjectsContext } from "../../utils/contexts/ProjectsContext";
-import { motion } from "framer-motion";
+import React, { useEffect, useContext } from 'react';
+import SlobyEditorInformation from './SlobyEditorInformation';
+import SlobyBuildingSteps from './SlobyBuildingSteps';
+import SlobyTools from './SlobyTools';
+import SlobyPreviewSiteInterface from './SlobyPreviewSiteInterface';
+import SlobyModifier from './SlobyModifier';
+import { useRouter } from 'next/router';
+import { getCurrentProject } from '../../utils/api';
+import { useSupabaseClient } from '@supabase/auth-helpers-react';
+import { ProjectsContext } from '../../utils/contexts/ProjectsContext';
+import { motion } from 'framer-motion';
 
 function SlobyEditor() {
   const router = useRouter();

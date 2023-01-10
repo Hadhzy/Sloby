@@ -2,14 +2,14 @@ import {
   useSession,
   useSupabaseClient,
   useUser,
-} from "@supabase/auth-helpers-react";
-import { SupabaseClient } from "@supabase/supabase-js";
-import React, { useEffect, useContext } from "react";
-import supabase from "../../../utils/supabase";
-import { TSlobyProject } from "../../../utils/types";
-import Project from "./Project";
-import { ProjectsContext } from "../../../utils/contexts/ProjectsContext";
-import { getProjects } from "../../../utils/api";
+} from '@supabase/auth-helpers-react';
+import { SupabaseClient } from '@supabase/supabase-js';
+import React, { useEffect, useContext } from 'react';
+import supabase from '../../../utils/supabase';
+import { TSlobyProject } from '../../../utils/types';
+import Project from './Project';
+import { ProjectsContext } from '../../../utils/contexts/ProjectsContext';
+import { getProjects } from '../../../utils/api';
 
 export default function Projects() {
   const session = useSession();
@@ -22,7 +22,7 @@ export default function Projects() {
   }, [supabase]);
 
   return (
-    <div className={"flex flex-row gap-36"}>
+    <div className={'flex flex-row gap-36'}>
       {projects.map((project: TSlobyProject) => {
         return (
           //@ts-ignore

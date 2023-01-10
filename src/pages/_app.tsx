@@ -1,14 +1,14 @@
-import "../utils/styles/globals.css";
+import '../utils/styles/globals.css';
 
-import type { AppProps } from "next/app";
-import { Suspense, useState, useEffect } from "react";
-import { createBrowserSupabaseClient } from "@supabase/auth-helpers-nextjs";
-import { SessionContextProvider } from "@supabase/auth-helpers-react";
-import { ProjectsContextProvider } from "../utils/contexts/ProjectsContext";
-import "@fortawesome/fontawesome-svg-core/styles.css";
-import { LoadingContextProvider } from "../utils/contexts/Loading";
-import { useRouter } from "next/router";
-import LoadingAnimation from "../components/loading";
+import type { AppProps } from 'next/app';
+import { Suspense, useState, useEffect } from 'react';
+import { createBrowserSupabaseClient } from '@supabase/auth-helpers-nextjs';
+import { SessionContextProvider } from '@supabase/auth-helpers-react';
+import { ProjectsContextProvider } from '../utils/contexts/ProjectsContext';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import { LoadingContextProvider } from '../utils/contexts/Loading';
+import { useRouter } from 'next/router';
+import LoadingAnimation from '../components/loading';
 
 function Loading() {
   const router: any = useRouter();
@@ -23,14 +23,14 @@ function Loading() {
         setLoading(false);
       }, 5000);
 
-    router.events.on("routerChangeStart", handleStart);
-    router.events.on("routerChangeComplete", handleComplete);
-    router.events.on("routerChangeError", handleComplete);
+    router.events.on('routerChangeStart', handleStart);
+    router.events.on('routerChangeComplete', handleComplete);
+    router.events.on('routerChangeError', handleComplete);
 
     return () => {
-      router.events.off("routerChangeStart", handleStart);
-      router.events.off("routerChangeComplete", handleComplete);
-      router.events.off("routerChangeError", handleComplete);
+      router.events.off('routerChangeStart', handleStart);
+      router.events.off('routerChangeComplete', handleComplete);
+      router.events.off('routerChangeError', handleComplete);
     };
   });
 

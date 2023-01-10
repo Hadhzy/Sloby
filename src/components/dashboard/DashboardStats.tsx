@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import CountUp from "react-countup";
-import { getEveryNth } from "./getEveryNth";
-import { getRandomNumber } from "./getRandomNumber";
+import React, { useState } from 'react';
+import CountUp from 'react-countup';
+import { getEveryNth } from './getEveryNth';
+import { getRandomNumber } from './getRandomNumber';
 
 export default function DashboardStats({
   title,
-  subTitle = "",
+  subTitle = '',
   valueEnd,
   lightColor,
   darkColor,
@@ -36,7 +36,7 @@ export default function DashboardStats({
             >
               <div
                 className={`peer w-2 rounded-full z-30`}
-                style={{ height: n * modifier + "px", position: "inherit" }}
+                style={{ height: n * modifier + 'px', position: 'inherit' }}
               />
               <div
                 className={`peer-hover:flex-center hidden -top-2 -translate-y-full absolute bg-dark-border z-40 py-1 px-2 rounded-full text-sm`}
@@ -60,7 +60,7 @@ export default function DashboardStats({
             end={chartData.reduce((a, b) => a + b, 0)}
             duration={2}
             useEasing={true}
-          />{" "}
+          />{' '}
           {valueEnd}
         </h1>
         <div className="flex gap-3 mt-5">

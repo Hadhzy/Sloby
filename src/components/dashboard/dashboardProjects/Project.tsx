@@ -1,14 +1,14 @@
-import React, { useState, useContext, useEffect } from "react";
-import { Tag, TSlobyProject } from "../../../utils/types";
-import ProjectsHandler from "./ProjectsHandler";
-import Image from "next/image";
-import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ProjectsContext } from "../../../utils/contexts/ProjectsContext";
-import { LoadingContext } from "../../../utils/contexts/Loading";
-import { useSession } from "@supabase/auth-helpers-react";
-import { checkUserProjectPerms } from "../../../utils/helpers";
-import { useRouter } from "next/router";
+import React, { useState, useContext, useEffect } from 'react';
+import { Tag, TSlobyProject } from '../../../utils/types';
+import ProjectsHandler from './ProjectsHandler';
+import Image from 'next/image';
+import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { ProjectsContext } from '../../../utils/contexts/ProjectsContext';
+import { LoadingContext } from '../../../utils/contexts/Loading';
+import { useSession } from '@supabase/auth-helpers-react';
+import { checkUserProjectPerms } from '../../../utils/helpers';
+import { useRouter } from 'next/router';
 export default function Project({ project }: { project: TSlobyProject }) {
   const { actionBar, setActionBar, setCurrentProject, currentProject } =
     useContext(ProjectsContext);
@@ -36,7 +36,7 @@ export default function Project({ project }: { project: TSlobyProject }) {
         <Image
           alt="Sloby Logo"
           className="mt-[10px]"
-          src={"/images/Sloby Logo Dark.svg"}
+          src={'/images/Sloby Logo Dark.svg'}
           width={150}
           height={70}
         />

@@ -1,17 +1,17 @@
-import Image from "next/image";
-import { useEffect, useMemo, useState } from "react";
-import { motion } from "framer-motion";
+import Image from 'next/image';
+import { useEffect, useMemo, useState } from 'react';
+import { motion } from 'framer-motion';
 
 export function Planet({ src, className }: { src: string; className: string }) {
-  const [transform, setTransform] = useState("translate(0)");
+  const [transform, setTransform] = useState('translate(0)');
   const multiplier = 10;
 
   useEffect(() => {
-    window.addEventListener("mousemove", (event) => {
+    window.addEventListener('mousemove', (event) => {
       const x = event.clientX / window.innerWidth;
       const y = event.clientY / window.innerHeight;
       setTransform(
-        "translate(-" + x * multiplier + "px, -" + y * multiplier + "px)"
+        'translate(-' + x * multiplier + 'px, -' + y * multiplier + 'px)'
       );
     });
   }, []);
@@ -20,7 +20,7 @@ export function Planet({ src, className }: { src: string; className: string }) {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ delay: 1, duration: 1.5, ease: "easeInOut" }}
+      transition={{ delay: 1, duration: 1.5, ease: 'easeInOut' }}
     >
       <Image
         alt="Planet"
