@@ -2,7 +2,7 @@ import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
 import React, { useEffect, useState } from "react";
 import { getTools } from "../../utils/api";
 import { TSlobyTool } from "../../utils/types";
-
+import { motion } from "framer-motion";
 const tools = [
   { id: 1, tool_p_name: "Text Creation Tool", tool_name: "TextCreationTool" },
   { id: 2, tool_p_name: "Text Creation Tool", tool_name: "TextCreationTool" },
@@ -24,7 +24,11 @@ export default function SlobyTools() {
 
   return (
     <div className="bg-tools-bg md:w-1/1 lg:w-1/2 xl:w-1/3">
-      <div className="bg-sloby-tools-bg  ml-2 mt-6 mr-10 w-96 h-3/4 rounded-3xl flex flex-col items-center">
+      <motion.div
+        transition={{ delay: 1.5, duration: 0.4 }}
+        animate={{ x: [-500, 0] }}
+        className="bg-sloby-tools-bg  ml-2 mt-6 mr-10 w-96 h-3/4 rounded-3xl flex flex-col items-center"
+      >
         <div className="border-b border-editor-border-color items-center w-full flex justify-center h-14">
           <p className="text-lg font-semibold">Sloby Tools</p>
         </div>
@@ -40,7 +44,7 @@ export default function SlobyTools() {
             );
           })}
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

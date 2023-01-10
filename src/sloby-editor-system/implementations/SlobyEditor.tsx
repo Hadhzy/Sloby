@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 import { getCurrentProject } from "../../utils/api";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { ProjectsContext } from "../../utils/contexts/ProjectsContext";
+import { motion } from "framer-motion";
 
 function SlobyEditor() {
   const router = useRouter();
@@ -23,13 +24,15 @@ function SlobyEditor() {
   });
 
   return (
-    <div className="flex h-screen flex-col justify-end">
-      <SlobyEditorInformation />
-      <SlobyBuildingSteps />
-      <div className="flex h-full text-white">
-        <SlobyTools />
-        <SlobyPreviewSiteInterface />
-        <SlobyModifier />
+    <div className="bg-tool-bg">
+      <div className="flex h-screen flex-col justify-end">
+        <SlobyEditorInformation />
+        <SlobyBuildingSteps />
+        <div className="flex h-full text-white">
+          <SlobyTools />
+          <SlobyPreviewSiteInterface />
+          <SlobyModifier />
+        </div>
       </div>
     </div>
   );
