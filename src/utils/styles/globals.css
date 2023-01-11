@@ -18,4 +18,12 @@
   .btn {
     @apply rounded-xl py-2 px-3 text-base font-semibold cursor-pointer tracking-wider;
   }
+
+  .welcome-color {
+    background: linear-gradient(180deg, #3b2d73 0%, #3b2496 69.27%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
 }

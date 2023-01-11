@@ -1,5 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 export default function SlobyPreviewSiteInterface() {
-  return <motion.div className="w-full bg-[#101010]"></motion.div>;
+  return (
+    <motion.div className="w-full bg-[#101010]">
+      <motion.div
+        animate={{ opacity: [0, 1], y: [10, 0] }}
+        transition={{ duration: 0.3, delay: 0.1 }}
+      >
+        <p className="flex justify-center mt-10 text-[50px]  welcome-color">
+          SlobyBuilder
+        </p>
+      </motion.div>
+    </motion.div>
+  );
 }
