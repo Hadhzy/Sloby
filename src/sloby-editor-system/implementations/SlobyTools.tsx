@@ -27,7 +27,7 @@ export default function SlobyTools() {
   return (
     <div className="bg-tools-bg md:w-1/1 lg:w-1/2 xl:w-1/3">
       <motion.div
-        transition={{ delay: 1.5, duration: 0.4 }}
+        transition={{ delay: 1.2, duration: 0.4 }}
         animate={{ x: [-500, 0] }}
         className="bg-sloby-tools-bg  ml-2 mt-6 mr-6 w-96 h-3/4 rounded-xl flex flex-col items-center"
       >
@@ -39,7 +39,7 @@ export default function SlobyTools() {
             return (
               <div
                 key={tool.id}
-                className="w-20 h-20 bg-tool-bg flex flex-wrap justify-center items-center rounded-xl mt-4"
+                className="w-20 h-20 bg-tool-bg flex ease-in-out duration-150  flex-wrap justify-center items-center rounded-xl mt-4 hover:scale-110 cursor-pointer hover:bg-tool-bg-hover"
               >
                 <FontAwesomeIcon icon={faFont} className="text-2xl" />
               </div>

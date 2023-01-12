@@ -28,6 +28,7 @@ module.exports = {
         },
       },
       colors: {
+        'tool-bg-hover': '#202020',
         'tool-bg': '#191919',
         'sloby-tools-bg': '#151515',
         'mod-bg': '#090909',

@@ -4,7 +4,7 @@ export default function SlobyModifier() {
   return (
     <div className="w-1/4  bg-tools-bg  text-white h-full">
       <motion.div
-        transition={{ delay: 1.5, duration: 0.3 }}
+        transition={{ delay: 1.2, duration: 0.3 }}
         animate={{ opacity: [0, 1], scale: [0, 1] }}
         className="bg-sloby-tools-bg ml-6 mr-2 h-3/4 w-80 rounded-xl mt-6 outline-none"
       >
