@@ -21,7 +21,9 @@ type ProjectsContext = {
   actionBar: boolean;
   setActionBar: Dispatch<SetStateAction<boolean>>;
   currentProject: TSlobyProject;
-  setCurrentProject: Dispatch<SetStateAction<any>>;
+  setCurrentProject: Dispatch<SetStateAction<TSlobyProject>>;
+  tools: [Record<string, any>];
+  setTools: Dispatch<SetStateAction<[Record<string, any>]>>;
 };
 
 export const ProjectsContext = createContext<ProjectsContext>(undefined!);
@@ -35,6 +37,7 @@ export const ProjectsContextProvider = ({ children }: { children: any }) => {
   const [current_project_id, set_current_project_id] = useState<string>('');
   const [current_tags, set_current_tags] = useState([]);
   const [actionBar, setActionBar] = useState(false);
+  const [tools, setTools] = useState<any>([]);
   const [currentProject, setCurrentProject] = useState<TSlobyProject>({
     id: '',
     created_at: new Date(),
@@ -59,6 +62,8 @@ export const ProjectsContextProvider = ({ children }: { children: any }) => {
         setActionBar,
         currentProject,
         setCurrentProject,
+        tools,
+        setTools,
       }}
     >
       {children}

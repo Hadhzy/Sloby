@@ -11,6 +11,7 @@ export async function getProjects(setProjects: Function, supabase: any) {
 
   if (projects !== null) {
     // @ts-ignore
+    console.log(projects);
     setProjects(projects);
   }
 }
@@ -31,7 +32,7 @@ export async function getCurrentProject(project_id: string, supabase: any) {
   return currentProject;
 }
 
-export async function getTools(supabase: any) {
+export async function getTools(supabase: any, setTools: Function) {
   let { data, error } = await supabase.from('sloby_tools').select('*');
 
   if (error) {
@@ -39,7 +40,7 @@ export async function getTools(supabase: any) {
   }
 
   if (data) {
-    //@ts-ignore
-    return data;
+    console.log(data);
+    setTools(data);
   }
 }

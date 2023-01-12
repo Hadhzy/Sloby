@@ -1,40 +1,32 @@
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { getTools } from '../../utils/api';
 import { TSlobyTool } from '../../utils/types';
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFont } from '@fortawesome/free-solid-svg-icons';
-const tools = [
-  { id: 1, tool_p_name: 'Text Creation Tool', tool_name: 'TextCreationTool' },
-  { id: 2, tool_p_name: 'Text Creation Tool', tool_name: 'TextCreationTool' },
-  { id: 3, tool_p_name: 'Text Creation Tool', tool_name: 'TextCreationTool' },
-  { id: 4, tool_p_name: 'Text Creation Tool', tool_name: 'TextCreationTool' },
-  { id: 5, tool_p_name: 'Text Creation Tool', tool_name: 'TextCreationTool' },
-  { id: 6, tool_p_name: 'Text Creation Tool', tool_name: 'TextCreationTool' },
-  { id: 7, tool_p_name: 'Text Creation Tool', tool_name: 'TextCreationTool' },
-  { id: 9, tool_p_name: 'Text Creation Tool', tool_name: 'TextCreationTool' },
-  { id: 8, tool_p_name: 'Text Creation Tool', tool_name: 'TextCreationTool' },
-];
+import { ProjectsContext } from '../../utils/contexts/ProjectsContext';
 
 export default function SlobyTools() {
   const supabase = useSupabaseClient();
+  const { setTools, tools } = useContext(ProjectsContext);
 
   useEffect(() => {
-    getTools(supabase);
-  }, []);
+    getTools(supabase, setTools);
+  }, [supabase]);
 
   return (
     <div className="bg-tools-bg ">
       <motion.div
         transition={{ delay: 1.2, duration: 0.4 }}
         animate={{ x: [-500, 0] }}
-        className="bg-sloby-tools-bg  ml-2 mt-6 mr-6 xl:w-[335px] lg:w-[315px] h-3/4 rounded-xl flex flex-col items-center "
+        className="bg-sloby-tools-bg  ml-2 mt-6 mr-6 xl:w-[335px] lg:w-[310px] h-3/4 rounded-xl flex flex-col items-center "
       >
         <div className="border-b border-editor-border-color items-center w-full flex justify-center h-14">
           <p className="text-lg font-semibold">Sloby Tools</p>
         </div>
         <div className="flex flex-wrap gap-8 p-2 justify-center mt-6">
+          {/**@ts-expect-error */}
           {tools.map((tool: TSlobyTool) => {
             return (
               <div
