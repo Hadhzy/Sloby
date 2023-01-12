@@ -6,7 +6,7 @@ export default function SlobyModifier() {
       <motion.div
         transition={{ delay: 1.2, duration: 0.3 }}
         animate={{ opacity: [0, 1], scale: [0, 1] }}
-        className="bg-sloby-tools-bg ml-6 mr-2 h-3/4 w-80 rounded-xl mt-6 outline-none"
+        className="bg-sloby-tools-bg ml-6 mr-3 h-3/4 xl:w-80 lg:w-72 rounded-xl mt-6 outline-none"
       >
         <div className="border-b border-editor-border-color items-center w-full flex justify-center h-14">
           <p className="text-lg font-semibold">Sloby Modifier</p>

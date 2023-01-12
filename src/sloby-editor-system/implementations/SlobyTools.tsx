@@ -25,16 +25,16 @@ export default function SlobyTools() {
   }, []);
 
   return (
-    <div className="bg-tools-bg md:w-1/1 lg:w-1/2 xl:w-1/3">
+    <div className="bg-tools-bg ">
       <motion.div
         transition={{ delay: 1.2, duration: 0.4 }}
         animate={{ x: [-500, 0] }}
-        className="bg-sloby-tools-bg  ml-2 mt-6 mr-6 w-96 h-3/4 rounded-xl flex flex-col items-center"
+        className="bg-sloby-tools-bg  ml-2 mt-6 mr-6 xl:w-[335px] lg:w-[315px] h-3/4 rounded-xl flex flex-col items-center "
       >
         <div className="border-b border-editor-border-color items-center w-full flex justify-center h-14">
           <p className="text-lg font-semibold">Sloby Tools</p>
         </div>
-        <div className="flex flex-wrap gap-10 justify-center mt-6">
+        <div className="flex flex-wrap gap-8 p-2 justify-center mt-6">
           {tools.map((tool: TSlobyTool) => {
             return (
               <div
