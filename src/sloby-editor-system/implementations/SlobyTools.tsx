@@ -26,10 +26,10 @@ export default function SlobyTools() {
           <p className="text-lg font-semibold">Sloby Tools</p>
         </div>
         <div className="flex flex-wrap gap-8 p-2 justify-center mt-6">
-          {/**@ts-expect-error */}
           {tools.map((tool: TSlobyTool) => {
             return (
               <div
+                onClick={() => console.log('asd')}
                 key={tool.id}
                 className="w-20 h-20 bg-tool-bg flex ease-in-out duration-150  flex-wrap justify-center items-center rounded-xl mt-4 hover:scale-110 cursor-pointer hover:bg-tool-bg-hover"
               >

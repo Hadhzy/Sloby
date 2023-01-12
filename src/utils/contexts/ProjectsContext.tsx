@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, createContext, useState } from 'react';
-import { TSlobyProject, Tag } from '../types';
+import { TSlobyProject, TSlobyTool, Tag } from '../types';
 
 type ProjectsContext = {
   project_data: {
@@ -22,8 +22,8 @@ type ProjectsContext = {
   setActionBar: Dispatch<SetStateAction<boolean>>;
   currentProject: TSlobyProject;
   setCurrentProject: Dispatch<SetStateAction<TSlobyProject>>;
-  tools: [Record<string, any>];
-  setTools: Dispatch<SetStateAction<[Record<string, any>]>>;
+  tools: [TSlobyTool];
+  setTools: Dispatch<SetStateAction<[TSlobyTool]>>;
 };
 
 export const ProjectsContext = createContext<ProjectsContext>(undefined!);

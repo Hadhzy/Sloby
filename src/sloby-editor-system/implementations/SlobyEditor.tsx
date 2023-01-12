@@ -30,7 +30,6 @@ function SlobyEditor() {
       <div>
         <div className="flex h-screen flex-col justify-end">
           <SlobyEditorInformation />
-          <SlobyBuildingSteps />
           <div className="flex h-full text-white">
             <SlobyTools />
             <SlobyPreviewSiteInterface />

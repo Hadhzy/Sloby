@@ -172,9 +172,8 @@ export default function ProjectModal() {
         </div>
 
         <div className="flex items-center absolute bottom-1">
-          {/* @ts-ignore  */}
           <div
-            onClick={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}
+            onClick={(e: any) => handleSubmit(e)}
             className="text-white m-10 w-24 flex justify-center ease-in-out duration-200 btn bg-blue-dark origin-top hover:translate-y-[-2px] hover:scale-105 hover:bg-blue-600"
           >
             <button type="submit">Save</button>
