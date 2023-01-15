@@ -22,7 +22,7 @@ export type TSlobyProject = {
 };
 
 export type TSlobyTool = {
-  id: number;
+  id: string;
   tool_p_name: string;
   tool_name: string;
 };

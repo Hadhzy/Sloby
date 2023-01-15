@@ -8,8 +8,6 @@ import { useSession } from '@supabase/auth-helpers-react';
 import { motion } from 'framer-motion';
 
 export default function projects() {
-  
-
   return (
     <div className="flex">
       <DashboardLayout>

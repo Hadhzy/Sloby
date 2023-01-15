@@ -29,7 +29,14 @@ export default function SlobyTools() {
           {tools.map((tool: TSlobyTool) => {
             return (
               <div
-                onClick={() => console.log('asd')}
+                id={tool.id}
+                onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
+                  console.log(
+                    tools.find(
+                      (tool: TSlobyTool) => tool.id === e.currentTarget.id
+                    )
+                  )
+                }
                 key={tool.id}
                 className="w-20 h-20 bg-tool-bg flex ease-in-out duration-150  flex-wrap justify-center items-center rounded-xl mt-4 hover:scale-110 cursor-pointer hover:bg-tool-bg-hover"
               >
