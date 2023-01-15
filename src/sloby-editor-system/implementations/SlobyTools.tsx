@@ -20,7 +20,7 @@ export default function SlobyTools() {
       <motion.div
         transition={{ delay: 1.2, duration: 0.4 }}
         animate={{ x: [-500, 0] }}
-        className="bg-sloby-tools-bg  ml-2 mt-6 mr-6 xl:w-[335px] lg:w-[310px] h-3/4 rounded-xl flex flex-col items-center "
+        className="bg-sloby-tools-bg  ml-2 mt-3 mr-3 xl:w-[335px] lg:w-[310px] h-[91vh] rounded-xl flex flex-col items-center "
       >
         <div className="border-b border-editor-border-color items-center w-full flex justify-center h-14">
           <p className="text-lg font-semibold">Sloby Tools</p>

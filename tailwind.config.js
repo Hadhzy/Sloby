@@ -28,6 +28,8 @@ module.exports = {
         },
       },
       colors: {
+        'interface-bg': '#171414',
+        'bg-action': '#1D1D1D',
         'action-bg': '#151515',
         'tool-bg-hover': '#202020',
         'tool-bg': '#191919',
