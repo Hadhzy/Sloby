@@ -41,6 +41,6 @@ export async function getTools(supabase: any, setTools: Function) {
 
   if (data) {
     console.log(data);
-    setTools(data);
+    return data && setTools(data);
   }
 }

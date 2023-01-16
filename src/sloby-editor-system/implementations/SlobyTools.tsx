@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFont } from '@fortawesome/free-solid-svg-icons';
 import { ProjectsContext } from '../../utils/contexts/ProjectsContext';
+import { ActionHandler } from '../lib/handlers/ActionHandler';
 
 export default function SlobyTools() {
   const supabase = useSupabaseClient();
@@ -31,7 +32,7 @@ export default function SlobyTools() {
               <div
                 id={tool.id}
                 onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
-                  console.log(
+                  new ActionHandler(
                     tools.find(
                       (tool: TSlobyTool) => tool.id === e.currentTarget.id
                     )
