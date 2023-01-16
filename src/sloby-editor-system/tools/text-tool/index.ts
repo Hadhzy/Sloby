@@ -1,8 +1,13 @@
 import RegisterTool from '../../lib/decorators/common/RegisterTool';
+import { BaseTool } from '../../utils/abstracts';
 import { ToolCategories } from '../../utils/constants';
 
-export default class TextCreationTool {
+export default class TextCreationTool extends BaseTool {
   constructor() {
-    console.log(`I am here in the ${this.constructor.name} class`);
+    super();
+  }
+
+  resolve() {
+    console.log(`Hello from ${this.constructor.name}`);
   }
 }

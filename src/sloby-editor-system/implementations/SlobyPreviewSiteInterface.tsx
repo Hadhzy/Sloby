@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { toolsConstructors } from '../utils/constants';
+
 export default function SlobyPreviewSiteInterface() {
   return (
     <motion.div className="w-full bg-interface-bg">
