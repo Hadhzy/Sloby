@@ -1,16 +1,19 @@
 import RegisterTool from '../../lib/decorators/common/RegisterTool';
+import HtmlTranslator from '../../lib/grammar/Html';
+import InterfaceIntegration from '../../lib/handlers/InterfaceIntegration';
 import { BaseTool } from '../../utils/abstracts';
-import { ToolCategories } from '../../utils/constants';
+import { BaseToolTemplates, ToolCategories } from '../../utils/constants';
 
 export default class TextCreationTool extends BaseTool {
-  constructor() {
+  constructor(private interfaceIntegration: InterfaceIntegration) {
     super();
   }
 
   resolve() {
-    /**Decide whether the tool is for creating something or modifing something 
-     * If the tool is for creating something then we need to get the communication with the websocket server
-     * otherwise we need to interact with the preview interface
-    */
+    /**Decide whether the tool is for creating something or modifing something
+     * If the tool is for creating something then we need to get the integration with the preview interface
+     * otherwise we need to interact with the db and get the whole source code of the prview and apply the logic locally
+     */
+    this.interfaceIntegration.add(BaseToolTemplates.TEXT_CREATION_TOOL);
   }
 }

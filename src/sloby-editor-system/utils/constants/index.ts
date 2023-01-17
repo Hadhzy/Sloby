@@ -3,6 +3,7 @@ import supabase from '../../../utils/supabase';
 import TextCreationTool from '../../tools/text-tool/index';
 import { TSlobyTool } from '../../../utils/types';
 import { PostgrestFilterBuilder } from '@supabase/postgrest-js';
+import Html from '../../lib/grammar/Html';
 export enum ToolCategories {
   OBJECT = 'Object',
   UI_UX = 'UI/UX',
@@ -20,3 +21,15 @@ export const toolsConstructors: Record<string, any> = {
   TextCreationTool,
 };
 
+const htmlTranslator = new Html();
+export enum BaseToolTemplates {
+  //@ts-expect-error
+  TEXT_CREATION_TOOL = htmlTranslator.generate(
+    'div',
+    'This is just a test if it is works'
+  ),
+}
+
+export enum General {
+  LOCAL_STORAGE_NAME = 'SLOBY_PREVIEW_SOURCE_CODE',
+}
