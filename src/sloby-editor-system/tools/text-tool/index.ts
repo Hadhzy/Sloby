@@ -8,6 +8,9 @@ export default class TextCreationTool extends BaseTool {
   }
 
   resolve() {
-    console.log(`Hello from ${this.constructor.name}`);
+    /**Decide whether the tool is for creating something or modifing something 
+     * If the tool is for creating something then we need to get the communication with the websocket server
+     * otherwise we need to interact with the preview interface
+    */
   }
 }

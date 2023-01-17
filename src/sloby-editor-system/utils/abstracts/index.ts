@@ -1,4 +1,4 @@
 import React from 'react';
 export abstract class BaseTool {
-  abstract resolve(): void;
+  public abstract resolve(): void;
 }
