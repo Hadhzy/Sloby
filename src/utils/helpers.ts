@@ -26,3 +26,5 @@ export function checkUserProjectPerms(
     })
     .catch((err) => console.log(err));
 }
+
+export function projectIsValid(project_id: string, setExists: Function) {}
