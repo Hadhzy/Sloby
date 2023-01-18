@@ -2,9 +2,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { toolsConstructors } from '../utils/constants';
 import { useRouter } from 'next/router';
+import InterfaceIntegration from '../lib/handlers/InterfaceIntegration';
 
 export default function SlobyPreviewSiteInterface() {
   const router = useRouter();
+  const source = new InterfaceIntegration();
+
   return (
     <motion.div className="w-full bg-interface-bg">
       <motion.div
@@ -15,9 +18,9 @@ export default function SlobyPreviewSiteInterface() {
         <p className="flex justify-center mt-10 text-[50px]  welcome-color">
           SlobyBuilder
         </p>
-        {router.query.id === 'e1a222bd-ba13-4e38-98c6-b200682ce746' && (
-          <div>It is only going to be displayed in here</div>
-        )}
+        <div className="ml-2 mt-3">
+          {source.getProjectBasedSourceCode(router.query.id as string)}
+        </div>
       </motion.div>
     </motion.div>
   );

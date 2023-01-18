@@ -7,10 +7,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFont } from '@fortawesome/free-solid-svg-icons';
 import { ProjectsContext } from '../../utils/contexts/ProjectsContext';
 import { ActionHandler } from '../lib/handlers/ActionHandler';
+import { useRouter } from 'next/router';
 
 export default function SlobyTools() {
   const supabase = useSupabaseClient();
   const { setTools, tools } = useContext(ProjectsContext);
+  const router = useRouter();
 
   useEffect(() => {
     getTools(supabase, setTools);
@@ -35,7 +37,8 @@ export default function SlobyTools() {
                   new ActionHandler(
                     tools.find(
                       (tool: TSlobyTool) => tool.id === e.currentTarget.id
-                    )
+                    ),
+                    router.query.id as string
                   )
                 }
                 key={tool.id}
