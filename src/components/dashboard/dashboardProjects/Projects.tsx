@@ -5,7 +5,7 @@ import {
 } from '@supabase/auth-helpers-react';
 import { SupabaseClient } from '@supabase/supabase-js';
 import React, { useEffect, useContext } from 'react';
-import supabase from '../../../utils/supabase';
+import supabase from '../../../config/supabase';
 import { TSlobyProject } from '../../../utils/types';
 import Project from './Project';
 import { ProjectsContext } from '../../../utils/contexts/ProjectsContext';
@@ -18,7 +18,7 @@ export default function Projects() {
   const { actionBar } = useContext(ProjectsContext);
 
   useEffect(() => {
-    getProjects(setProjects, supabase);
+    getProjects(setProjects);
   }, [supabase]);
 
   return (

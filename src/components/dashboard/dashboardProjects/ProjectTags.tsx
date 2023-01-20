@@ -7,7 +7,7 @@ import {
   faCircleXmark,
 } from '@fortawesome/free-solid-svg-icons';
 import { AnimatePresence, Variants, motion } from 'framer-motion';
-import supabase from '../../../utils/supabase';
+import supabase from '../../../config/supabase';
 import { ProjectsContext } from '../../../utils/contexts/ProjectsContext';
 import { v4 as uuidv4 } from 'uuid';
 

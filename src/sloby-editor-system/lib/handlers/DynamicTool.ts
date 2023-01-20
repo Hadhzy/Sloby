@@ -2,7 +2,7 @@ import { BaseTool } from '../../utils/abstracts';
 import { toolsConstructors } from '../../utils/constants';
 import { TCurrentRoute } from '../../utils/types';
 import InterfaceIntegration from './InterfaceIntegration';
-
+import DatabaseService from '../services/DatabaseService';
 export class DynamicTool {
   /**A class which will be used to return the current activated tool class instance */
 
@@ -17,7 +17,7 @@ export class DynamicTool {
      * @returns {class} => It'll return the proper tool class based on what tool has been activated
      */
     return new toolsConstructors[currentToolName](
-      new InterfaceIntegration(),
+      new InterfaceIntegration(new DatabaseService()),
       currentRoute as string
     ).resolve() as BaseTool;
   }

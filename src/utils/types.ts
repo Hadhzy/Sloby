@@ -19,6 +19,7 @@ export type TSlobyProject = {
   creator: string | undefined;
   public: boolean;
   tags: Tag[];
+  preview_source: string;
 };
 
 export type TSlobyTool = {

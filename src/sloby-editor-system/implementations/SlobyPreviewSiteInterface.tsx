@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { toolsConstructors } from '../utils/constants';
 import { useRouter } from 'next/router';
 import InterfaceIntegration from '../lib/handlers/InterfaceIntegration';
+import DatabaseService from '../lib/services/DatabaseService';
 
 export default function SlobyPreviewSiteInterface() {
+  const [currentSource, setCurrentSource] = useState<any>([]);
   const router = useRouter();
-  const source = new InterfaceIntegration();
+  const source = new DatabaseService();
 
+  useEffect(() => {
+    console.log(router.query.id);
+    source.getSourceCodebyId(router.query.id as string, setCurrentSource);
+    console.log(currentSource);
+  }, []);
   return (
     <motion.div className="w-full bg-interface-bg">
       <motion.div
@@ -18,9 +25,7 @@ export default function SlobyPreviewSiteInterface() {
         <p className="flex justify-center mt-10 text-[50px]  welcome-color">
           SlobyBuilder
         </p>
-        <div className="ml-2 mt-3">
-          {source.getProjectBasedSourceCode(router.query.id as string)}
-        </div>
+        <div className="ml-2 mt-3">{}</div>
       </motion.div>
     </motion.div>
   );

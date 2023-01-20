@@ -1,5 +1,5 @@
 import { ClassType } from 'react';
-import supabase from '../../../utils/supabase';
+import supabase from '../../../config/supabase';
 import TextCreationTool from '../../tools/text-tool/index';
 import { TSlobyTool } from '../../../utils/types';
 import { PostgrestFilterBuilder } from '@supabase/postgrest-js';

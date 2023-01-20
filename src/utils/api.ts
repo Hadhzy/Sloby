@@ -1,8 +1,8 @@
 import React from 'react';
 import { isConstructorDeclaration } from 'typescript';
 import { TSlobyProject } from './types';
-
-export async function getProjects(setProjects: Function, supabase: any) {
+import supabase from '../config/supabase';
+export async function getProjects(setProjects: Function) {
   let { data: projects, error } = await supabase.from('projects').select('*');
 
   if (error) {
@@ -16,7 +16,7 @@ export async function getProjects(setProjects: Function, supabase: any) {
   }
 }
 
-export async function getProjectById(project_id: string, supabase: any) {
+export async function getProjectById(project_id: string) {
   let { data, error } = await supabase.from('projects').select('*').match({
     id: project_id,
   });
@@ -27,12 +27,12 @@ export async function getProjectById(project_id: string, supabase: any) {
   if (error) return console.log(error);
 }
 
-export async function getCurrentProject(project_id: string, supabase: any) {
-  const currentProject = await getProjectById(project_id, supabase);
+export async function getCurrentProject(project_id: string) {
+  const currentProject = await getProjectById(project_id);
   return currentProject;
 }
 
-export async function getTools(supabase: any, setTools: Function) {
+export async function getTools(setTools: Function) {
   let { data, error } = await supabase.from('sloby_tools').select('*');
 
   if (error) {
@@ -41,6 +41,7 @@ export async function getTools(supabase: any, setTools: Function) {
 
   if (data) {
     console.log(data);
-    return data && setTools(data);
+    setTools(data);
+    return data;
   }
 }
