@@ -1,5 +1,3 @@
-import { SlobyElement } from '../../../sloby-editor-framework/utils/types';
-
 export class InerfaceInjector {
   /**
    * It is going to inject the current Object that we're working with to the preview site interface.

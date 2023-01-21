@@ -11,10 +11,8 @@ export function checkUserProjectPerms(
   setSuccess: Function
 ) {
   //@ts-ignore
-  const currentProject: Promise<void | TSlobyProject> = getProjectById(
-    project_id,
-    supabase
-  );
+  const currentProject: Promise<void | TSlobyProject> =
+    getProjectById(project_id);
   currentProject
     .then((res: any) => {
       if (

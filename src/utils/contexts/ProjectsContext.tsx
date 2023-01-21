@@ -47,6 +47,7 @@ export const ProjectsContextProvider = ({ children }: { children: any }) => {
     creator: '',
     public: false,
     tags: [{ id: 1, color: '', tag: '' }],
+    preview_source: '',
   });
 
   return (
