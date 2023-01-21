@@ -7,15 +7,17 @@ import DatabaseService from '../lib/services/DatabaseService';
 
 export default function SlobyPreviewSiteInterface() {
   const [currentSource, setCurrentSource] = useState<
-    Array<{ preview_source: string }>
+    Array<{ [key: string]: string }>
   >([{ preview_source: '' }]);
   const router = useRouter();
-  const source = new DatabaseService();
+  // const source = new DatabaseService();
 
   useEffect(() => {
-    console.log(router.query.id);
-    source.getSourceCodebyId(router.query.id as string, setCurrentSource);
-  }, []);
+    // source.getSourceCodebyId(router.query.id as string, setCurrentSource);
+    //@ts-ignore
+    setCurrentSource(JSON.parse(localStorage.getItem('GLOBAL_SOURCE')));
+    console.log(currentSource);
+  }, [localStorage.getItem('GLOBAL_SOURCE')]);
   return (
     <motion.div className="w-full bg-interface-bg">
       <motion.div
@@ -26,7 +28,7 @@ export default function SlobyPreviewSiteInterface() {
         <p className="flex justify-center mt-10 text-[50px]  welcome-color">
           SlobyBuilder
         </p>
-        <div className="ml-2 mt-3">{currentSource[0].preview_source}</div>
+        <div className="ml-2 mt-3">{currentSource[router.query.id]}</div>
       </motion.div>
     </motion.div>
   );

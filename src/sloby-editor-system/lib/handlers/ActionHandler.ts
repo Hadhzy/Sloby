@@ -13,8 +13,6 @@ export class ActionHandler {
      * @param {TSlobyTool | undefined} currentTool => this is the current tool that the action has been made
      * @param {string} currentRoute => the current route that the action has been triggered from
      */
-    console.log(currentRoute);
-
     return new DynamicTool(currentTool?.tool_name as string, currentRoute);
   }
 }

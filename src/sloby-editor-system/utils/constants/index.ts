@@ -31,5 +31,5 @@ export enum BaseToolTemplates {
 }
 
 export enum General {
-  LOCAL_STORAGE_NAME = 'SLOBY_PREVIEW_SOURCE_CODE',
+  LOCAL_STORAGE_NAME = 'GLOBAL_SOURCE',
 }
