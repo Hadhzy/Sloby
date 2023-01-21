@@ -69,7 +69,7 @@ export default function Register() {
   }
 
   useEffect(() => {
-    loggedIn(supabase, router, '/editor/dashboard');
+    loggedIn(router, '/editor/dashboard');
   });
 
   return (
@@ -117,7 +117,7 @@ export default function Register() {
                 className={
                   'flex items-center w-full rounded-lg bg-white p-2 gap-3 hover:cursor-pointer'
                 }
-                onClick={(e) => googleLogin(e, supabase)}
+                onClick={(e) => googleLogin(e)}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -150,7 +150,7 @@ export default function Register() {
                 className={
                   'flex items-center w-full rounded-lg bg-white p-2 gap-3 hover:cursor-pointer'
                 }
-                onClick={(e) => githubLogin(e, supabase)}
+                onClick={(e) => githubLogin(e)}
               >
                 <svg
                   role="img"

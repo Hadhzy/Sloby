@@ -1,4 +1,7 @@
-export async function loggedIn(supabase: any, router: any, redirect: string) {
+import { NextRouter } from 'next/router';
+import supabase from '../config/supabase';
+
+export async function loggedIn(router: NextRouter, redirect: string) {
   const {
     data: { session },
   } = await supabase.auth.getSession();
@@ -12,8 +15,8 @@ export async function loggedIn(supabase: any, router: any, redirect: string) {
 
 export const getURL = () => {
   let url =
-    process?.env?.REACT_APP_NEXT_PUBLIC_SUPABASE_URL ?? // Set this to your site URL in production env.
-    process?.env?.REACT_APP_NEXT_PUBLIC_SUPABASE_ANON_KEY ?? // Automatically set by Vercel.
+    process?.env?.NEXT_PUBLIC_SUPABASE_URL ?? // Set this to your site URL in production env.
+    process?.env?.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? // Automatically set by Vercel.
     'http://localhost:3000/auth/username';
   // Make sure to include `https://` when not localhost.
   url = url.includes('http') ? url : `https://${url}`;
@@ -22,7 +25,9 @@ export const getURL = () => {
   return url;
 };
 
-export async function googleLogin(event: any, supabase: any) {
+export async function googleLogin(
+  event: React.MouseEvent<HTMLDivElement, MouseEvent>
+) {
   event.preventDefault();
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: 'google',
@@ -32,7 +37,9 @@ export async function googleLogin(event: any, supabase: any) {
   });
 }
 
-export async function githubLogin(event: any, supabase: any) {
+export async function githubLogin(
+  event: React.MouseEvent<HTMLDivElement, MouseEvent>
+) {
   event.preventDefault();
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: 'github',

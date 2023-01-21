@@ -57,8 +57,8 @@ export default function Login() {
     }
 
     const { data, error } = await supabase.auth.signInWithPassword({
-      email: event.currentTarget.email.value,
-      password: event.currentTarget.password.value,
+      email: event.target.email.value,
+      password: event.target.password.value,
     });
 
     if (error) {
@@ -104,7 +104,9 @@ export default function Login() {
                 className={
                   'flex items-center w-full rounded-lg bg-white p-2 gap-3 hover:cursor-pointer'
                 }
-                onClick={(e) => googleLogin(e, supabase)}
+                onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
+                  googleLogin(e)
+                }
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -137,7 +139,9 @@ export default function Login() {
                 className={
                   'flex items-center w-full rounded-lg bg-white p-2 gap-3 hover:cursor-pointer'
                 }
-                onClick={(e) => githubLogin(e, supabase)}
+                onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
+                  githubLogin(e)
+                }
               >
                 <svg
                   role="img"
