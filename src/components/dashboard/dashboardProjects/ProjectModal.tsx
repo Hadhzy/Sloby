@@ -71,6 +71,7 @@ export default function ProjectModal() {
           creator: session?.user.id,
           public: checked,
           tags: current_tags,
+          preview_source: '',
         },
       ])
       .select();
