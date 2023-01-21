@@ -1,5 +1,3 @@
-// components/layout.js
-
 import Navbar from './navbar';
 import { motion } from 'framer-motion';
 export default function Layout({ children }: { children: any }) {
