@@ -57,8 +57,8 @@ export default function Login() {
     }
 
     const { data, error } = await supabase.auth.signInWithPassword({
-      email: event.target.email.value,
-      password: event.target.password.value,
+      email: event.currentTarget.email.value,
+      password: event.currentTarget.password.value,
     });
 
     if (error) {
@@ -72,6 +72,10 @@ export default function Login() {
     }
     await router.push('/editor/dashboard');
   }
+
+  useEffect(() => {
+    loggedIn(router, '/editor/dashboard', supabase);
+  }, [router]);
 
   return (
     <Layout>
