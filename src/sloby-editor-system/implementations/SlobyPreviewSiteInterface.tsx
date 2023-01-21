@@ -4,6 +4,7 @@ import { toolsConstructors } from '../utils/constants';
 import { useRouter } from 'next/router';
 import InterfaceIntegration from '../lib/handlers/InterfaceIntegration';
 import DatabaseService from '../lib/services/DatabaseService';
+import parse from 'html-react-parser';
 
 export default function SlobyPreviewSiteInterface() {
   const [currentSource, setCurrentSource] = useState('');
@@ -18,6 +19,7 @@ export default function SlobyPreviewSiteInterface() {
 
     //@ts-ignore
     setCurrentSource(sourceCode);
+    console.log(typeof sourceCode);
   }, [localStorage.getItem('GLOBAL_SOURCE')]);
   return (
     <motion.div className="w-full bg-interface-bg">
@@ -29,7 +31,7 @@ export default function SlobyPreviewSiteInterface() {
         <p className="flex justify-center mt-10 text-[50px]  welcome-color">
           SlobyBuilder
         </p>
-        <div className="ml-2 mt-3">{currentSource}</div>
+        <div className="ml-2 mt-3">{parse(currentSource)}</div>
       </motion.div>
     </motion.div>
   );

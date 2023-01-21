@@ -53,7 +53,7 @@ export default class InterfaceIntegration {
     } else {
       /**Otherwise if the project has a source code then we just simply need to update it*/
       let updatedObject = { ...this.SOURCE_CODE_BASE }; // making cloned version of the current LocalStorage object
-      let addedValue = updatedObject[id] + `/n${value}`; // creating the html string block
+      let addedValue = updatedObject[id] + `${value}`; // creating the html string block
       updatedObject[id] = addedValue; // adding the html block to the updated object
       localStorage.setItem('GLOBAL_SOURCE', JSON.stringify(updatedObject)); // finally updating the localStorage
     }
