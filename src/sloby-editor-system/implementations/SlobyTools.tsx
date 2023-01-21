@@ -15,7 +15,7 @@ export default function SlobyTools() {
   const router = useRouter();
 
   useEffect(() => {
-    getTools(setTools);
+    getTools(setTools, supabase);
   }, [supabase]);
 
   return (

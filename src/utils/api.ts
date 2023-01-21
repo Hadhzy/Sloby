@@ -1,8 +1,7 @@
 import React from 'react';
 import { isConstructorDeclaration } from 'typescript';
 import { TSlobyProject } from './types';
-import supabase from '../config/supabase';
-export async function getProjects(setProjects: Function) {
+export async function getProjects(setProjects: Function, supabase: any) {
   let { data: projects, error } = await supabase.from('projects').select('*');
 
   if (error) {
@@ -11,12 +10,11 @@ export async function getProjects(setProjects: Function) {
 
   if (projects !== null) {
     // @ts-ignore
-    console.log(projects);
     setProjects(projects);
   }
 }
 
-export async function getProjectById(project_id: string) {
+export async function getProjectById(project_id: string, supabase: any) {
   let { data, error } = await supabase.from('projects').select('*').match({
     id: project_id,
   });
@@ -27,12 +25,12 @@ export async function getProjectById(project_id: string) {
   if (error) return console.log(error);
 }
 
-export async function getCurrentProject(project_id: string) {
-  const currentProject = await getProjectById(project_id);
+export async function getCurrentProject(project_id: string, supabase: any) {
+  const currentProject = await getProjectById(project_id, supabase);
   return currentProject;
 }
 
-export async function getTools(setTools: Function) {
+export async function getTools(setTools: Function, supabase: any) {
   let { data, error } = await supabase.from('sloby_tools').select('*');
 
   if (error) {

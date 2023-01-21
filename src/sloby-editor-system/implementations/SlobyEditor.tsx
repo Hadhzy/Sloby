@@ -18,7 +18,10 @@ function SlobyEditor() {
   const { setCurrentProject } = useContext(ProjectsContext);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    const currentProject = getCurrentProject(router.query.id as string);
+    const currentProject = getCurrentProject(
+      router.query.id as string,
+      supabase
+    );
     currentProject.then((res) => setCurrentProject(res));
   });
 

@@ -13,12 +13,12 @@ import { getProjects } from '../../../utils/api';
 
 export default function Projects() {
   const session = useSession();
-  const supabase = useSupabaseClient();
+  const supabase = useSupabaseClient()
   const [projects, setProjects] = React.useState([]);
   const { actionBar } = useContext(ProjectsContext);
 
   useEffect(() => {
-    getProjects(setProjects);
+    getProjects(setProjects, supabase);
   }, [supabase]);
 
   return (
