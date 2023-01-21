@@ -6,14 +6,15 @@ import InterfaceIntegration from '../lib/handlers/InterfaceIntegration';
 import DatabaseService from '../lib/services/DatabaseService';
 
 export default function SlobyPreviewSiteInterface() {
-  const [currentSource, setCurrentSource] = useState<any>([]);
+  const [currentSource, setCurrentSource] = useState<
+    Array<{ preview_source: string }>
+  >([{ preview_source: '' }]);
   const router = useRouter();
   const source = new DatabaseService();
 
   useEffect(() => {
     console.log(router.query.id);
     source.getSourceCodebyId(router.query.id as string, setCurrentSource);
-    console.log(currentSource);
   }, []);
   return (
     <motion.div className="w-full bg-interface-bg">
@@ -25,7 +26,7 @@ export default function SlobyPreviewSiteInterface() {
         <p className="flex justify-center mt-10 text-[50px]  welcome-color">
           SlobyBuilder
         </p>
-        <div className="ml-2 mt-3">{}</div>
+        <div className="ml-2 mt-3">{currentSource[0].preview_source}</div>
       </motion.div>
     </motion.div>
   );

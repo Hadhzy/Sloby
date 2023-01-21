@@ -40,7 +40,6 @@ export async function getTools(setTools: Function) {
   }
 
   if (data) {
-    console.log(data);
     setTools(data);
     return data;
   }

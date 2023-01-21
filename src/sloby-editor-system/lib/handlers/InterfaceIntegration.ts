@@ -11,11 +11,12 @@ export default class InterfaceIntegration {
     this.currentRoute = '';
   }
   add(item: string | BaseToolTemplates = '', currentRoute: TCurrentRoute) {
-    /**This method will add an item to the global source code of the preview
+    /**This method will add an item to the global source code of the preview and will push it into the database
      *@param {string} item => The item which will be added to the global source code
      */
     this.currentRoute = currentRoute;
     this.databaseService.insertCodeToDatabase(item, this.currentRoute);
+    console.log('Added some item to the db');
   }
 
   getProjectBasedSourceCode(project_id: string): string {
