@@ -6,17 +6,18 @@ import InterfaceIntegration from '../lib/handlers/InterfaceIntegration';
 import DatabaseService from '../lib/services/DatabaseService';
 
 export default function SlobyPreviewSiteInterface() {
-  const [currentSource, setCurrentSource] = useState<
-    Array<{ [key: string]: string }>
-  >([{ preview_source: '' }]);
+  const [currentSource, setCurrentSource] = useState('');
   const router = useRouter();
-  // const source = new DatabaseService();
 
   useEffect(() => {
     // source.getSourceCodebyId(router.query.id as string, setCurrentSource);
+    const source = new InterfaceIntegration(new DatabaseService());
+    const sourceCode = source.getProjectBasedSourceCode(
+      router.query.id as string
+    );
+
     //@ts-ignore
-    setCurrentSource(JSON.parse(localStorage.getItem('GLOBAL_SOURCE')));
-    console.log(currentSource);
+    setCurrentSource(sourceCode);
   }, [localStorage.getItem('GLOBAL_SOURCE')]);
   return (
     <motion.div className="w-full bg-interface-bg">
@@ -28,7 +29,7 @@ export default function SlobyPreviewSiteInterface() {
         <p className="flex justify-center mt-10 text-[50px]  welcome-color">
           SlobyBuilder
         </p>
-        <div className="ml-2 mt-3">{currentSource[router.query.id]}</div>
+        <div className="ml-2 mt-3">{currentSource}</div>
       </motion.div>
     </motion.div>
   );
