@@ -105,7 +105,7 @@ export default function Login() {
                   'flex items-center w-full rounded-lg bg-white p-2 gap-3 hover:cursor-pointer'
                 }
                 onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
-                  googleLogin(e)
+                  googleLogin(e, supabase)
                 }
               >
                 <svg
@@ -140,7 +140,7 @@ export default function Login() {
                   'flex items-center w-full rounded-lg bg-white p-2 gap-3 hover:cursor-pointer'
                 }
                 onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
-                  githubLogin(e)
+                  githubLogin(e, supabase)
                 }
               >
                 <svg
