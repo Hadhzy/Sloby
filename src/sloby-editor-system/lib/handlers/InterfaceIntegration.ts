@@ -6,13 +6,15 @@ import { throws } from 'assert';
 
 export default class InterfaceIntegration {
   /**The class which will be responsible of integrating with the preview interface */
-  SOURCE_CODE_BASE: TSourceCodeBase;
+  SOURCE_CODE_BASE: TSourceCodeBase | null;
   currentRoute: TCurrentRoute;
   constructor(private databaseService: DatabaseService) {
-    this.SOURCE_CODE_BASE = JSON.parse(
-      //@ts-expect-error
-      localStorage.getItem(General.LOCAL_STORAGE_NAME)
-    ) as TSourceCodeBase;
+    this.SOURCE_CODE_BASE = localStorage.getItem('GLOBAL_SOURCE')
+      ? (JSON.parse(
+          //@ts-expect-error
+          localStorage.getItem(General.LOCAL_STORAGE_NAME)
+        ) as TSourceCodeBase)
+      : null;
     this.currentRoute = '';
   }
   add(item: string | any = '', currentRoute: TCurrentRoute) {
@@ -41,11 +43,13 @@ export default class InterfaceIntegration {
      * @param {string} id => The id of the project that needs to be updated.
      * @param {string} value => The value that the project will be updated with.
      */
-    if (this.SOURCE_CODE_BASE[id] === undefined) {
+
+    if (this.SOURCE_CODE_BASE === null) {
       /**If there is no source code base with the project id yet then we are going to add it
        * That means that the project has no source code yet so we need to assign it to the localStorage
        */
-      this.SOURCE_CODE_BASE[id] = value; //Adding the value to the global object
+      localStorage.setItem('GLOBAL_SOURCE', '');
+      this.SOURCE_CODE_BASE! = { [id]: value }; //Adding the value to the global object
       localStorage.setItem(
         General.LOCAL_STORAGE_NAME,
         JSON.stringify(this.SOURCE_CODE_BASE) //setting the value in localStorage
