@@ -23,34 +23,34 @@ export default function Navbar({ className }: { className: string }) {
             <Image
               alt="Sloby Logo"
               src="/images/Sloby Logo Dark.svg"
-              className="h-auto w-28 mr-3"
+              className="h-auto w-28 mr-3 select-none"
               width={20}
               height={20}
             />
           </Link>
-          <div className="flex-center">
+          <div className="flex-center select-none">
             <a className="nav-button" href="/quickstart">
               Quick Start
             </a>
           </div>
-          <div className="flex-center">
+          <div className="flex-center select-none">
             <a className="nav-button" href="/documentation">
               Documentation
             </a>
           </div>
-          <div className="flex-center">
+          <div className="flex-center select-none">
             <a className="nav-button" href="/templates">
               Templates
             </a>
           </div>
-          <div className="flex-center">
+          <div className="flex-center select-none">
             <a className="nav-button" href="/blog">
               Blog
             </a>
           </div>
           <svg
             role="img"
-            className="ml-auto w-10 fill-white hover:fill-red-light transition-colors"
+            className="ml-auto w-10 fill-white hover:fill-red-light transition-colors select-none"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
           >
