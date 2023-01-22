@@ -5,11 +5,11 @@ import { useRouter } from 'next/router';
 import InterfaceIntegration from '../lib/handlers/InterfaceIntegration';
 import DatabaseService from '../lib/services/DatabaseService';
 import parse from 'html-react-parser';
+import ElementModifier from '../lib/modifiers/ElementModifier';
 
 export default function SlobyPreviewSiteInterface() {
   const [currentSource, setCurrentSource] = useState('');
   const router = useRouter();
-
   useEffect(() => {
     // source.getSourceCodebyId(router.query.id as string, setCurrentSource);
     const source = new InterfaceIntegration(new DatabaseService());
@@ -17,7 +17,6 @@ export default function SlobyPreviewSiteInterface() {
       router.query.id as string
     );
 
-    //@ts-ignore
     setCurrentSource(sourceCode);
     console.log(typeof sourceCode);
   }, [localStorage.getItem('GLOBAL_SOURCE')]);
@@ -31,7 +30,14 @@ export default function SlobyPreviewSiteInterface() {
         <p className="flex justify-center mt-10 text-[50px]  welcome-color">
           SlobyBuilder
         </p>
-        <div className="ml-2 mt-3">{parse(currentSource)}</div>
+        <div
+          className="ml-2 mt-3"
+          onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
+            new ElementModifier(e.target)
+          }
+        >
+          {parse(currentSource)}
+        </div>
       </motion.div>
     </motion.div>
   );

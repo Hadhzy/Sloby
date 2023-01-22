@@ -10,3 +10,5 @@ export type TCurrentRoute = string;
 export interface TSourceCodeBase {
   [key: string]: string | any;
 }
+
+export type TModifierElement = EventTarget;
