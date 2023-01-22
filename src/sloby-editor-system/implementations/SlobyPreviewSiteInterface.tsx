@@ -12,13 +12,14 @@ export default function SlobyPreviewSiteInterface() {
   const router = useRouter();
   useEffect(() => {
     // source.getSourceCodebyId(router.query.id as string, setCurrentSource);
-    const source = new InterfaceIntegration(new DatabaseService());
-    const sourceCode = source.getProjectBasedSourceCode(
-      router.query.id as string
-    );
-
-    setCurrentSource(sourceCode);
-    console.log(typeof sourceCode);
+    if (localStorage.getItem('GLOBAL_SOURCE')) {
+      const source = new InterfaceIntegration(new DatabaseService());
+      const sourceCode = source.getProjectBasedSourceCode(
+        router.query.id as string
+      );
+      setCurrentSource(sourceCode);
+      console.log(typeof sourceCode);
+    } else return setCurrentSource('');
   }, [localStorage.getItem('GLOBAL_SOURCE')]);
   return (
     <motion.div className="w-full bg-interface-bg">
@@ -36,7 +37,7 @@ export default function SlobyPreviewSiteInterface() {
             new ElementModifier(e.target)
           }
         >
-          {parse(currentSource)}
+          {currentSource ? parse(currentSource) : ''}
         </div>
       </motion.div>
     </motion.div>
