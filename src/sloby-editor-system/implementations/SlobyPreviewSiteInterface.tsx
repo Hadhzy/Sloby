@@ -6,6 +6,7 @@ import InterfaceIntegration from '../lib/handlers/InterfaceIntegration';
 import DatabaseService from '../lib/services/DatabaseService';
 import parse from 'html-react-parser';
 import ElementModifier from '../lib/modifiers/ElementModifier';
+import JsxParser from 'react-jsx-parser';
 
 export default function SlobyPreviewSiteInterface() {
   const [currentSource, setCurrentSource] = useState('');
@@ -28,7 +29,7 @@ export default function SlobyPreviewSiteInterface() {
         transition={{ duration: 0.3, delay: 0.1 }}
         className="h-[95%]"
       >
-        <p className="flex justify-center mt-10 text-[50px]  welcome-color">
+        <p className="flex justify-center mt-10 text-[50px] welcome-color">
           SlobyBuilder
         </p>
         <div
@@ -37,7 +38,8 @@ export default function SlobyPreviewSiteInterface() {
             new ElementModifier(e.target)
           }
         >
-          {currentSource ? parse(currentSource) : ''}
+          {/**@ts-ignore */}
+          {currentSource !== undefined ? parse(currentSource) : ''}
         </div>
       </motion.div>
     </motion.div>

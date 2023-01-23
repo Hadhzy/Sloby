@@ -1,4 +1,5 @@
 import { TranslatedElement } from '../../utils/types';
+import { BaseClassNames } from './BaseClassNames';
 
 export default class Html {
   /**This will take care of translating the html in order for the preview interface to use */
@@ -10,7 +11,18 @@ export default class Html {
      */
     switch (translate_to) {
       case 'div': {
-        return `<div>${translated_element as string}</div>`;
+        return `<div>
+          <div className='${BaseClassNames.BASIC_DIV}'>${
+          translated_element as string
+        }</div>
+          <div>94*64</div>
+        </div>`;
+        // return `<div>
+        //   <div  className='${BaseClassNames.BASIC_DIV}'>${
+        //   translated_element as string
+        // }</div>
+        // <div>asd</div>
+        // </div>`;
       }
     }
   }

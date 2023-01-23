@@ -22,7 +22,7 @@ export default class InterfaceIntegration {
      *@param {string} item => The item which will be added to the global source code
      */
     this.currentRoute = currentRoute;
-    console.log(this.updatingSourceCode(currentRoute, item));
+    this.updatingSourceCode(currentRoute, item);
   }
 
   getProjectBasedSourceCode(project_id: string): string {
@@ -31,7 +31,9 @@ export default class InterfaceIntegration {
      */
     const GLOBAL_SOURCE_CODE = JSON.parse(
       //@ts-ignore
-      localStorage.getItem('GLOBAL_SOURCE')
+      localStorage.getItem('GLOBAL_SOURCE') !== undefined
+        ? localStorage.getItem('GLOBAL_SOURCE')
+        : null
     ); // error needs to be resolved
     if (!GLOBAL_SOURCE_CODE[project_id])
       return ''; // If there is no source code then return empty string
@@ -48,17 +50,17 @@ export default class InterfaceIntegration {
       /**If there is no source code base with the project id yet then we are going to add it
        * That means that the project has no source code yet so we need to assign it to the localStorage
        */
-      localStorage.setItem('GLOBAL_SOURCE', '');
+      console.log('If block');
       this.SOURCE_CODE_BASE! = { [id]: value }; //Adding the value to the global object
-      localStorage.setItem(
+      return localStorage.setItem(
         General.LOCAL_STORAGE_NAME,
         JSON.stringify(this.SOURCE_CODE_BASE) //setting the value in localStorage
       );
     } else {
       /**Otherwise if the project has a source code then we just simply need to update it*/
-      let updatedObject = { ...this.SOURCE_CODE_BASE }; // making cloned version of the current LocalStorage object
-      let addedValue = updatedObject[id] + `${value}`; // creating the html string block
-      updatedObject[id] = addedValue; // adding the html block to the updated object
+      console.log('Else block');
+      let updatedObject: Record<string, any> = {}; // making cloned version of the current LocalStorage object
+      updatedObject = { [id]: `${value}` };
       localStorage.setItem('GLOBAL_SOURCE', JSON.stringify(updatedObject)); // finally updating the localStorage
     }
   }
