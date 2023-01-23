@@ -1,7 +1,8 @@
 import { TranslatedElement } from '../../utils/types';
-import { BaseClassNames } from './BaseClassNames';
+import { BaseClassNames, colors } from './BaseClassNames';
 
 export default class Html {
+  constructor() {}
   /**This will take care of translating the html in order for the preview interface to use */
   generate(translate_to: TranslatedElement, translated_element: any): string {
     /**A method that will generate html based on what is being passed
@@ -11,18 +12,15 @@ export default class Html {
      */
     switch (translate_to) {
       case 'div': {
-        return `<div>
-          <div className='${BaseClassNames.BASIC_DIV}'>${
+        const colors = ['blue-600', 'green-600'];
+        return `<div className='w-full'>
+          <div className='${BaseClassNames.BASIC_DIV_PARENT}'>
+          <div className='${BaseClassNames.BASIC_DIV} border border-blue-600'>${
           translated_element as string
         }</div>
-          <div>94*64</div>
+          <div className='bg-blue-600 mt-1 px-2 py-1 rounded-lg text-xs'>93 x 64</div>
+        </div>
         </div>`;
-        // return `<div>
-        //   <div  className='${BaseClassNames.BASIC_DIV}'>${
-        //   translated_element as string
-        // }</div>
-        // <div>asd</div>
-        // </div>`;
       }
     }
   }

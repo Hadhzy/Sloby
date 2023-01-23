@@ -22,6 +22,7 @@ export const toolsConstructors: Record<string, any> = {
 };
 
 const htmlTranslator = new Html();
+
 export enum BaseToolTemplates {
   //@ts-expect-error
   TEXT_CREATION_TOOL = htmlTranslator.generate(

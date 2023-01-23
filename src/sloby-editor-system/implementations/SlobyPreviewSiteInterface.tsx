@@ -11,6 +11,7 @@ import JsxParser from 'react-jsx-parser';
 export default function SlobyPreviewSiteInterface() {
   const [currentSource, setCurrentSource] = useState('');
   const router = useRouter();
+
   useEffect(() => {
     // source.getSourceCodebyId(router.query.id as string, setCurrentSource);
     if (localStorage.getItem('GLOBAL_SOURCE')) {
@@ -38,8 +39,14 @@ export default function SlobyPreviewSiteInterface() {
             new ElementModifier(e.target)
           }
         >
-          {/**@ts-ignore */}
-          {currentSource !== undefined ? parse(currentSource) : ''}
+          {currentSource !== undefined ? (
+            <div>
+              {/*@ts-ignore**/}
+              <JsxParser jsx={currentSource} />
+            </div>
+          ) : (
+            ''
+          )}
         </div>
       </motion.div>
     </motion.div>

@@ -1,4 +1,5 @@
 import RegisterTool from '../../lib/decorators/common/RegisterTool';
+import { colors } from '../../lib/grammar/BaseClassNames';
 import HtmlTranslator from '../../lib/grammar/Html';
 import InterfaceIntegration from '../../lib/handlers/InterfaceIntegration';
 import { BaseTool } from '../../utils/abstracts';
