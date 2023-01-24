@@ -4,26 +4,32 @@ import { checkUserProjectPerms } from '../../utils/helpers';
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 import SlobyEditor from '../../sloby-editor-system/implementations/SlobyEditor';
 import { useRouter } from 'next/router';
+import { GetServerSideProps, NextPage } from 'next';
+import { createServerSupabaseClient } from '@supabase/auth-helpers-nextjs';
 
-const Editor = () => {
-  const session = useSession();
-  const [succes, setSuccess] = useState(false);
-  const router = useRouter();
-  const supabase = useSupabaseClient();
 
-  useEffect(() => {
-    console.log('Validation permissions...');
-    checkUserProjectPerms(
-      router.query.id as string,
-      session,
-      supabase,
-      setSuccess
-    );
-  });
+type Props = {
+  success: boolean;
+}
+const Editor: NextPage<Props> = ({ success }) => {
+  // const session = useSession();
+  // const [success, setSuccess] = useState(false);
+  // const router = useRouter();
+  // const supabase = useSupabaseClient();
+
+  // useEffect(() => {
+  //   console.log('Validation permissions...');
+  //   checkUserProjectPerms(
+  //     router.query.id as string,
+  //     session,
+  //     supabase,
+  //     setSuccess
+  //   );
+  // });
 
   return (
     <div>
-      {succes ? (
+      {success ? (
         <SlobyEditor />
       ) : (
         <div className="bg-black h-screen  text-red-600 flex justify-center items-center text-2xl font-bold">
@@ -35,3 +41,29 @@ const Editor = () => {
 };
 
 export default Editor;
+
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  // Create authenticated Supabase Client
+  const supabase = createServerSupabaseClient(ctx);
+  // Check if we have a session
+  const {
+    data: { session },
+  } = await supabase.auth.getSession()
+
+  // if (!session)
+  //   return {
+  //     redirect: {
+  //       destination: '/',
+  //       permanent: false,
+  //     },
+  //   }
+
+  return {
+    props: {
+      // initialSession: session,
+      // user: session.user,
+      success: session ? true : false
+    },
+  }
+}
