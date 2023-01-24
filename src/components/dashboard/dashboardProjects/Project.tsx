@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ProjectsContext } from '../../../utils/contexts/ProjectsContext';
 import { LoadingContext } from '../../../utils/contexts/Loading';
 import { useSession } from '@supabase/auth-helpers-react';
-import { checkUserProjectPerms } from '../../../utils/helpers';
 import { useRouter } from 'next/router';
 export default function Project({ project }: { project: TSlobyProject }) {
   const { actionBar, setActionBar, setCurrentProject, currentProject } =

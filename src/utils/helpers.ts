@@ -8,7 +8,7 @@ export function checkUserProjectPerms(
   project_id: string,
   session: any,
   supabase: any,
-  setSuccess: Function
+  // setSuccess: Function
 ) {
   //@ts-ignore
   const currentProject: Promise<void | TSlobyProject> = getProjectById(
@@ -27,4 +27,4 @@ export function checkUserProjectPerms(
     .catch((err) => console.log(err));
 }
 
-export function projectIsValid(project_id: string, setExists: Function) {}
+export function projectIsValid(project_id: string, setExists: Function) { }
