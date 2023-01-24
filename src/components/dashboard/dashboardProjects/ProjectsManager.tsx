@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import { useClickOutside } from '../../../utils/hooks';
 import { ProjectsContext } from '../../../utils/contexts/ProjectsContext';
 import { AnimatePresence, motion, Variants } from 'framer-motion';
+import { ApiUser } from '../../../api/user.api';
 
 function ProjectsManager() {
   const [clickedClass, setClickedClass] = useState({
@@ -33,7 +34,8 @@ function ProjectsManager() {
   useClickOutside(profileRef, () => setProfileDropdown(false));
 
   async function signOut() {
-    const { error } = await supabase.auth.signOut();
+    const { error } = await ApiUser.signOut(supabase);
+    // const { error } = await supabase.auth.signOut();
     await router.push('/auth/login');
   }
 

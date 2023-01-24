@@ -13,10 +13,9 @@ import { getProjects } from '../../../utils/api';
 import { ProjectServices } from '../../../api/project.api';
 
 export default function Projects() {
-  const session = useSession();
+
   const projectServices = new ProjectServices(useSupabaseClient());
   const [projects, setProjects] = React.useState([]);
-  const { actionBar } = useContext(ProjectsContext);
 
 
   useEffect(() => {
@@ -25,7 +24,7 @@ export default function Projects() {
   }, [supabase]);
 
   return (
-    <div className={'flex flex-row gap-36'}>
+    <div className={'grid md:grid-cols-2 gap-y-5 lg:grid-cols-3 lg:gap-x-5 xl:grid-cols-4'}>
       {projects.map((project: TSlobyProject) => {
         return (
           <div key={project.id} className="flex flex-wrap gap-20 border-white">

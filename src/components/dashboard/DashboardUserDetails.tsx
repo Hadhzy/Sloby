@@ -6,6 +6,7 @@ import DashboardProjectPreview from './DashboardProjectPreview';
 import ProjectsManager from './dashboardProjects/ProjectsManager';
 import { getRandomNumber } from './getRandomNumber';
 import { ProjectsContext } from '../../utils/contexts/ProjectsContext';
+import { ApiUser } from '../../api/user.api';
 
 export default function DashboardUserDetails({
   totalVisits,
@@ -14,21 +15,22 @@ export default function DashboardUserDetails({
   totalVisits: number[];
   totalUsage: number[];
 }) {
-  const session = useSession();
+  const apiUser = new ApiUser(useSession());
   const { project_data, set_project_data } = useContext(ProjectsContext);
-  console.log(session?.user.user_metadata.avatar_url);
+  // console.log(session?.user.user_metadata.avatar_url);
+  console.log(apiUser.user.user_metadata.avatar_url);
   return (
     <div
-      className={`flex h-screen flex-col gap-10 p-8 ml-4 text-white transition-all duration-500 ${
-        project_data.project_modal ? 'blur-sm' : ''
-      }`}
+      className={`flex h-screen overflow-scroll flex-col gap-10 p-8 ml-4 text-white transition-all duration-500 ${project_data.project_modal ? 'blur-sm' : ''
+        }`}
     >
       <div className="text-4xl lg:text-7xl font-bold flex gap-36">
         Good Morning, <br />
-        {session?.user.user_metadata.name}
+        {apiUser.user.user_metadata.name}
+        {/* { session?.user.user_metadata.name} */}
       </div>
       <div className={'w-1/2 h-1 bg-dark-border rounded-lg'}></div>
-      <div className={'flex gap-20'}>
+      <div className={'flex gap-20 flex-wrap'}>
         <div>
           <DashboardStats
             title={'Total visits'}
@@ -77,7 +79,7 @@ export default function DashboardUserDetails({
       >
         Recent Projects
       </p>
-      <div className={'flex gap-20'}>
+      <div className={'flex gap-20 flex-wrap'}>
         <DashboardProjectPreview
           previewImage={'/images/preview1.webp'}
           title={'My Project 1'}

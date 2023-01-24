@@ -1,9 +1,5 @@
-import React, { useEffect, useContext, useState } from 'react';
-import { ProjectsContext } from '../../utils/contexts/ProjectsContext';
-import { checkUserProjectPerms } from '../../utils/helpers';
-import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
+import React, { } from 'react';
 import SlobyEditor from '../../sloby-editor-system/implementations/SlobyEditor';
-import { useRouter } from 'next/router';
 import { GetServerSideProps, NextPage } from 'next';
 import { createServerSupabaseClient } from '@supabase/auth-helpers-nextjs';
 import { ProjectServices } from '../../api/project.api';
