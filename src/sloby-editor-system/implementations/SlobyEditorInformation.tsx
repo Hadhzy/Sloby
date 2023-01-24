@@ -7,7 +7,6 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 export default function SlobyEditorInformation() {
   const { currentProject } = useContext(ProjectsContext);
-
   return (
     <div className="p-3 w-full border-b-1 border-editor-border-color bg-dark-info flex items-center">
       <motion.div

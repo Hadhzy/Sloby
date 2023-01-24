@@ -20,7 +20,9 @@ function SlobyEditor() {
   const { setCurrentProject } = useContext(ProjectsContext);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    projectServices.getCurrentProject(router.query.id as string).then((data) => setCurrentProject(data as any));
+    projectServices
+      .getCurrentProject(router.query.id as string)
+      .then((data) => setCurrentProject(data as any));
     // const currentProject = getCurrentProject(
     //   router.query.id as string,
     //   supabase
@@ -30,7 +32,7 @@ function SlobyEditor() {
 
   return (
     <>
-      <div>
+      <div className="select-none">
         <div className="flex h-screen flex-col justify-end">
           <SlobyEditorInformation />
           <div className="flex h-full text-white">

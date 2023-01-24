@@ -15,6 +15,31 @@ export default function SlobyPreviewSiteInterface() {
   const [currentSource, setCurrentSource] = useState('');
   const router = useRouter();
 
+  function mousedown(item: HTMLDivElement) {
+    item.addEventListener('mousemove', (e: MouseEvent) => mousemove(e, item));
+    item.addEventListener('mouseup', () => mouseup(item));
+  }
+
+  function mouseup(item: HTMLDivElement) {
+    item.removeEventListener('mousemove', (e: MouseEvent) =>
+      mousemove(e, item)
+    );
+  }
+
+  function mousemove(e: MouseEvent, element: any) {
+    let x = e.clientX - 125 + 'px';
+    let y = e.clientY - 25 + 'px';
+    element.style.left = x;
+    element.style.top = y;
+  }
+
+  const textToolElements = document.querySelectorAll('text-element');
+
+  textToolElements.forEach((element: any) => {
+    console.log(element);
+    return element.addEventListener('mousedown', mousedown(element));
+  });
+
   useEffect(() => {
     // source.getSourceCodebyId(router.query.id as string, setCurrentSource);
     if (localStorage.getItem('GLOBAL_SOURCE')) {
@@ -23,7 +48,6 @@ export default function SlobyPreviewSiteInterface() {
         router.query.id as string
       );
       setCurrentSource(sourceCode);
-      console.log(currentSource);
     } else return setCurrentSource('');
   }, [localStorage.getItem('GLOBAL_SOURCE')]);
   return (
@@ -37,14 +61,7 @@ export default function SlobyPreviewSiteInterface() {
           SlobyBuilder
         </p>
         <div className="ml-2 mt-3">
-          {currentSource !== undefined ? (
-            <div>
-              {/**@ts-ignore */}
-              <JsxParser jsx={currentSource} />
-            </div>
-          ) : (
-            ''
-          )}
+          {currentSource !== undefined ? parse(currentSource) : ''}
         </div>
       </motion.div>
     </motion.div>
