@@ -20,7 +20,6 @@ export default function SlobyPreviewSiteInterface() {
         router.query.id as string
       );
       setCurrentSource(sourceCode);
-      console.log(typeof sourceCode);
     } else return setCurrentSource('');
   }, [localStorage.getItem('GLOBAL_SOURCE')]);
   return (

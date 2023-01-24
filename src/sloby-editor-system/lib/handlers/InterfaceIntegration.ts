@@ -25,17 +25,12 @@ export default class InterfaceIntegration {
     this.updatingSourceCode(currentRoute, item);
   }
 
-  getProjectBasedSourceCode(project_id: string): string {
+  getProjectBasedSourceCode(project_id: string) {
     /**This method will get the source code of the project based on its id
      * @param {string} project_id => The id of the requested project
      */
-    const GLOBAL_SOURCE_CODE = JSON.parse(
-      //@ts-ignore
-      localStorage.getItem('GLOBAL_SOURCE')
-    ); // error needs to be resolved
-    if (!GLOBAL_SOURCE_CODE[project_id])
-      return ''; // If there is no source code then return empty string
-    else return GLOBAL_SOURCE_CODE[project_id] as string; // otherwise return the associated source code
+    if (!localStorage.getItem('GLOBAL_SOURCE')) return;
+    else return this.SOURCE_CODE_BASE![project_id];
   }
 
   private updatingSourceCode(id: string, value: string) {
