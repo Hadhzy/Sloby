@@ -1,6 +1,6 @@
 import { TranslatedElement } from '../../utils/types';
 import { BaseClassNames, colors } from './BaseClassNames';
-
+import { v4 as uuidv4 } from 'uuid';
 export default class Html {
   constructor() {}
   /**This will take care of translating the html in order for the preview interface to use */
@@ -13,7 +13,7 @@ export default class Html {
     switch (translate_to) {
       case 'div': {
         const colors = ['blue-600', 'green-600'];
-        return `<div className='w-full'>
+        return `<div className='w-full' id={${uuidv4() as string}}>
           <div className='${BaseClassNames.BASIC_DIV_PARENT}'>
           <div className='${BaseClassNames.BASIC_DIV} border border-blue-600'>${
           translated_element as string

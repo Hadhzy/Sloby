@@ -33,20 +33,8 @@ export default function SlobyPreviewSiteInterface() {
         <p className="flex justify-center mt-10 text-[50px] welcome-color">
           SlobyBuilder
         </p>
-        <div
-          className="ml-2 mt-3"
-          onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
-            new ElementModifier(e.target)
-          }
-        >
-          {currentSource !== undefined ? (
-            <div>
-              {/*@ts-ignore**/}
-              <JsxParser jsx={currentSource} />
-            </div>
-          ) : (
-            ''
-          )}
+        <div className="ml-2 mt-3">
+          {currentSource !== undefined ? parse(currentSource) : ''}
         </div>
       </motion.div>
     </motion.div>
