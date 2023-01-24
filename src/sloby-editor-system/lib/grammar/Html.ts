@@ -1,6 +1,8 @@
 import { TranslatedElement } from '../../utils/types';
 import { BaseClassNames, colors } from './BaseClassNames';
 import { v4 as uuidv4 } from 'uuid';
+import SlobyInput from '../../../components/SlobyInput';
+import JsxParser from 'react-jsx-parser';
 export default class Html {
   constructor() {}
   /**This will take care of translating the html in order for the preview interface to use */
@@ -13,14 +15,18 @@ export default class Html {
     switch (translate_to) {
       case 'div': {
         const colors = ['blue-600', 'green-600'];
-        return `<div className='w-full' id={${uuidv4() as string}}>
-          <div className='${BaseClassNames.BASIC_DIV_PARENT}'>
-          <div className='${BaseClassNames.BASIC_DIV} border border-blue-600'>${
+        return `<DndProvider>
+                <div className='w-full'>
+                <div className='${BaseClassNames.BASIC_DIV_PARENT}'>
+                <div className='${
+                  BaseClassNames.BASIC_DIV
+                } border border-blue-600 hover:decoration-2 duration-75  decoration-blue-400 hover:underline'>${
           translated_element as string
         }</div>
-          <div className='bg-blue-600 mt-1 px-2 py-1 rounded-lg text-xs'>93 x 64</div>
-        </div>
-        </div>`;
+                <div className='bg-blue-600 mt-1 px-2 py-1 rounded-lg text-[11px]'>93 x 64</div>
+              </div>
+              </div>
+        </DndProvider>`;
       }
     }
   }

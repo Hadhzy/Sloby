@@ -7,6 +7,9 @@ import DatabaseService from '../lib/services/DatabaseService';
 import parse from 'html-react-parser';
 import ElementModifier from '../lib/modifiers/ElementModifier';
 import JsxParser from 'react-jsx-parser';
+import SlobyInput from '../../components/SlobyInput';
+import JSXStyle from 'styled-jsx/style';
+import { DndProvider } from 'react-dnd';
 
 export default function SlobyPreviewSiteInterface() {
   const [currentSource, setCurrentSource] = useState('');
@@ -20,6 +23,7 @@ export default function SlobyPreviewSiteInterface() {
         router.query.id as string
       );
       setCurrentSource(sourceCode);
+      console.log(currentSource);
     } else return setCurrentSource('');
   }, [localStorage.getItem('GLOBAL_SOURCE')]);
   return (
@@ -33,7 +37,14 @@ export default function SlobyPreviewSiteInterface() {
           SlobyBuilder
         </p>
         <div className="ml-2 mt-3">
-          {currentSource !== undefined ? parse(currentSource) : ''}
+          {currentSource !== undefined ? (
+            <div>
+              {/**@ts-ignore */}
+              <JsxParser jsx={currentSource} />
+            </div>
+          ) : (
+            ''
+          )}
         </div>
       </motion.div>
     </motion.div>
