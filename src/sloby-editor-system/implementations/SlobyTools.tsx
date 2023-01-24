@@ -8,14 +8,17 @@ import { faFont } from '@fortawesome/free-solid-svg-icons';
 import { ProjectsContext } from '../../utils/contexts/ProjectsContext';
 import { ActionHandler } from '../lib/handlers/ActionHandler';
 import { useRouter } from 'next/router';
+import { ProjectServices } from '../../api/project.api';
 
 export default function SlobyTools() {
   const supabase = useSupabaseClient();
+  const projectServices = new ProjectServices(supabase);
   const { setTools, tools } = useContext(ProjectsContext);
   const router = useRouter();
 
   useEffect(() => {
-    getTools(setTools, supabase);
+    // getTools(setTools, supabase);
+    projectServices.getTools().then(({ data }) => setTools(data as any));
   }, [supabase]);
 
   return (

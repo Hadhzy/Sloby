@@ -2,6 +2,7 @@ import React from 'react';
 import { isConstructorDeclaration } from 'typescript';
 import { TSlobyProject } from './types';
 export async function getProjects(setProjects: Function, supabase: any) {
+
   let { data: projects, error } = await supabase.from('projects').select('*');
 
   if (error) {

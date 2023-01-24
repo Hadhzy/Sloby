@@ -10,15 +10,18 @@ import { TSlobyProject } from '../../../utils/types';
 import Project from './Project';
 import { ProjectsContext } from '../../../utils/contexts/ProjectsContext';
 import { getProjects } from '../../../utils/api';
+import { ProjectServices } from '../../../api/project.api';
 
 export default function Projects() {
   const session = useSession();
-  const supabase = useSupabaseClient()
+  const projectServices = new ProjectServices(useSupabaseClient());
   const [projects, setProjects] = React.useState([]);
   const { actionBar } = useContext(ProjectsContext);
 
+
   useEffect(() => {
-    getProjects(setProjects, supabase);
+    // getProjects(setProjects, supabase);
+    projectServices.getProjects().then((data) => setProjects(data.data as any));
   }, [supabase]);
 
   return (

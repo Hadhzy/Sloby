@@ -11,18 +11,21 @@ import { ProjectsContext } from '../../utils/contexts/ProjectsContext';
 import { motion } from 'framer-motion';
 import { Audio } from 'react-loader-spinner';
 import WelcomePage from '../../components/dashboard/WelcomePage';
+import { ProjectServices } from '../../api/project.api';
 
 function SlobyEditor() {
   const router = useRouter();
   const supabase = useSupabaseClient();
+  const projectServices = new ProjectServices(supabase);
   const { setCurrentProject } = useContext(ProjectsContext);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    const currentProject = getCurrentProject(
-      router.query.id as string,
-      supabase
-    );
-    currentProject.then((res) => setCurrentProject(res));
+    projectServices.getCurrentProject(router.query.id as string).then((data) => setCurrentProject(data as any));
+    // const currentProject = getCurrentProject(
+    //   router.query.id as string,
+    //   supabase
+    // );
+    // currentProject.then((res) => setCurrentProject(res));
   });
 
   return (
