@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { toolsConstructors } from '../utils/constants';
 import { useRouter } from 'next/router';
@@ -10,24 +10,26 @@ import JsxParser from 'react-jsx-parser';
 import SlobyInput from '../../components/SlobyInput';
 import JSXStyle from 'styled-jsx/style';
 import { DndProvider } from 'react-dnd';
-import HTMLReactParser from 'html-react-parser';
+
 import Input from './editor-components/text-tool/Input';
 export default function SlobyPreviewSiteInterface() {
   const [currentSource, setCurrentSource] = useState('');
   const router = useRouter();
-
+  const [i, setI] = useState('');
   if (typeof window !== 'undefined') {
+    const source = new InterfaceIntegration(new DatabaseService());
+    const sourceCode = useMemo(() => {
+      return source.getProjectBasedSourceCode(router.query.id as string);
+    }, [currentSource]);
+
     useEffect(() => {
       // source.getSourceCodebyId(router.query.id as string, setCurrentSource);
       if (localStorage.getItem('GLOBAL_SOURCE')) {
-        const source = new InterfaceIntegration(new DatabaseService());
-        const sourceCode = source.getProjectBasedSourceCode(
-          router.query.id as string
-        );
         setCurrentSource(sourceCode);
       } else return setCurrentSource('');
     }, [localStorage.getItem('GLOBAL_SOURCE')]);
   }
+
   return (
     <motion.div className="w-full bg-interface-bg">
       <motion.div
@@ -39,12 +41,13 @@ export default function SlobyPreviewSiteInterface() {
           SlobyBuilder
         </p>
         <div className="ml-2 mt-3 flex flex-col gap-4">
-          {currentSource !== undefined ? (
-            /**@ts-ignore */
-            <JsxParser jsx={currentSource} components={{ Input }} />
-          ) : (
-            ''
-          )}
+          <JsxParser
+            bindings={{
+              foo: 'bar',
+            }}
+            components={{ Input }}
+            jsx={currentSource}
+          />
         </div>
       </motion.div>
     </motion.div>

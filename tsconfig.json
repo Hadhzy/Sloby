@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "paths": {
+      "react": ["./node_modules/@types/react"]
+    },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -17,13 +20,15 @@
     "incremental": true,
     "emitDecoratorMetadata": true
   },
+
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     "next.config.js",
     "tailwind.config.js",
-    "postcss.config.js"
+    "postcss.config.js",
+    "src/sloby-editor-system/implementations/SlobyPreviewSiteInterface.tsx"
   ],
   "exclude": ["node_modules"]
 }

@@ -1,9 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './src/pages/**/*.{ts,tsx}',
-    './src/components/**/*.{ts,tsx}',
-    './src/sloby-editor-system/**/*.{ts,tsx}',
+    './src/pages/**/*.{ts,tsx,js,jsx}',
+    './src/components/**/*.{ts,tsx,js,jsx}',
+    './src/sloby-editor-system/**/*.{ts,tsx,js,jsx}',
   ],
   theme: {
     extend: {

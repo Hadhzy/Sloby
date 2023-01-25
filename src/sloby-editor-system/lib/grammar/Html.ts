@@ -1,3 +1,4 @@
+import React from 'react';
 import { TranslatedElement } from '../../utils/types';
 import { BaseClassNames, colors } from './BaseClassNames';
 import { v4 as uuidv4 } from 'uuid';
@@ -7,7 +8,10 @@ import JsxParser from 'react-jsx-parser';
 export default class Html {
   constructor() {}
   /**This will take care of translating the html in order for the preview interface to use */
-  generate(translate_to: TranslatedElement, translated_element: any): string {
+  public generate(
+    translate_to: TranslatedElement,
+    translated_element: any
+  ): string {
     /**A method that will generate html based on what is being passed
      * @param {TranslatedElement} translate_to => it will tell that what html element should we translate the string to
      * @param {any} translated_element => The element that will be translated
@@ -15,7 +19,6 @@ export default class Html {
      */
     switch (translate_to) {
       case 'div': {
-        const colors = ['blue-600', 'green-600'];
         return `<div>
                 <div className='w-full text-element'>
                 <div className='${BaseClassNames.BASIC_DIV_PARENT}'>
