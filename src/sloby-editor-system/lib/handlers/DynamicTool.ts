@@ -16,9 +16,21 @@ export class DynamicTool {
      * @param {any} args => the optional arguments that has been passed throught tool activation
      * @returns {class} => It'll return the proper tool class based on what tool has been activated
      */
-    return new toolsConstructors[currentToolName](
-      new InterfaceIntegration(new DatabaseService()),
-      currentRoute as string
-    ).resolve() as BaseTool;
+    if (!toolsConstructors[currentToolName])
+      throw new Error(
+        `There is no such tool as ${currentToolName} included in the toolConstructors object, you need to create a tool handler class based on the BaseTool interface for it and add the class into the toolConstructors object.`
+      );
+    else if (
+      toolsConstructors[currentToolName] &&
+      toolsConstructors[currentToolName].prototype instanceof BaseTool
+    ) {
+      return new toolsConstructors[currentToolName](
+        new InterfaceIntegration(new DatabaseService()),
+        currentRoute as string
+      ).resolve() as BaseTool;
+    } else
+      throw new Error(
+        `Either the BaseTool abstract class has not been extended to the class of ${currentToolName} or it is being implemented uncorrectly.`
+      );
   }
 }

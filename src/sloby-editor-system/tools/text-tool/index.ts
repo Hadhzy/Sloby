@@ -24,4 +24,8 @@ export default class TextCreationTool extends BaseTool {
       this.currentRoute
     );
   }
+
+  private handleInputState() {
+    
+  }
 }

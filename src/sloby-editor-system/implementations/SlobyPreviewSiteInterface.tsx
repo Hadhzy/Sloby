@@ -15,41 +15,18 @@ export default function SlobyPreviewSiteInterface() {
   const [currentSource, setCurrentSource] = useState('');
   const router = useRouter();
 
-  function mousedown(item: HTMLDivElement) {
-    item.addEventListener('mousemove', (e: MouseEvent) => mousemove(e, item));
-    item.addEventListener('mouseup', () => mouseup(item));
+  if (typeof window !== 'undefined') {
+    useEffect(() => {
+      // source.getSourceCodebyId(router.query.id as string, setCurrentSource);
+      if (localStorage.getItem('GLOBAL_SOURCE')) {
+        const source = new InterfaceIntegration(new DatabaseService());
+        const sourceCode = source.getProjectBasedSourceCode(
+          router.query.id as string
+        );
+        setCurrentSource(sourceCode);
+      } else return setCurrentSource('');
+    }, [localStorage.getItem('GLOBAL_SOURCE')]);
   }
-
-  function mouseup(item: HTMLDivElement) {
-    item.removeEventListener('mousemove', (e: MouseEvent) =>
-      mousemove(e, item)
-    );
-  }
-
-  function mousemove(e: MouseEvent, element: any) {
-    let x = e.clientX - 125 + 'px';
-    let y = e.clientY - 25 + 'px';
-    element.style.left = x;
-    element.style.top = y;
-  }
-
-  const textToolElements = document.querySelectorAll('text-element');
-
-  textToolElements.forEach((element: any) => {
-    console.log(element);
-    return element.addEventListener('mousedown', mousedown(element));
-  });
-
-  useEffect(() => {
-    // source.getSourceCodebyId(router.query.id as string, setCurrentSource);
-    if (localStorage.getItem('GLOBAL_SOURCE')) {
-      const source = new InterfaceIntegration(new DatabaseService());
-      const sourceCode = source.getProjectBasedSourceCode(
-        router.query.id as string
-      );
-      setCurrentSource(sourceCode);
-    } else return setCurrentSource('');
-  }, [localStorage.getItem('GLOBAL_SOURCE')]);
   return (
     <motion.div className="w-full bg-interface-bg">
       <motion.div
@@ -60,7 +37,7 @@ export default function SlobyPreviewSiteInterface() {
         <p className="flex justify-center mt-10 text-[50px] welcome-color">
           SlobyBuilder
         </p>
-        <div className="ml-2 mt-3">
+        <div className="ml-2 mt-3 flex flex-col gap-4">
           {currentSource !== undefined ? parse(currentSource) : ''}
         </div>
       </motion.div>
