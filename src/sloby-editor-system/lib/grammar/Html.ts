@@ -19,9 +19,7 @@ export default class Html {
         return `<div>
                 <div className='w-full text-element'>
                 <div className='${BaseClassNames.BASIC_DIV_PARENT}'>
-                <div className='${
-                  BaseClassNames.BASIC_DIV
-                } border border-blue-600 hover:decoration-2 duration-75  decoration-blue-400 hover:underline'>${''}</div>
+                <Input />
                 <div className='bg-blue-600 mt-1 px-2 py-1 rounded-lg text-[11px]'>93 x 64</div>
               </div>
               </div>

@@ -10,7 +10,8 @@ import JsxParser from 'react-jsx-parser';
 import SlobyInput from '../../components/SlobyInput';
 import JSXStyle from 'styled-jsx/style';
 import { DndProvider } from 'react-dnd';
-
+import HTMLReactParser from 'html-react-parser';
+import Input from './editor-components/text-tool/Input';
 export default function SlobyPreviewSiteInterface() {
   const [currentSource, setCurrentSource] = useState('');
   const router = useRouter();
@@ -38,7 +39,12 @@ export default function SlobyPreviewSiteInterface() {
           SlobyBuilder
         </p>
         <div className="ml-2 mt-3 flex flex-col gap-4">
-          {currentSource !== undefined ? parse(currentSource) : ''}
+          {currentSource !== undefined ? (
+            /**@ts-ignore */
+            <JsxParser jsx={currentSource} components={{ Input }} />
+          ) : (
+            ''
+          )}
         </div>
       </motion.div>
     </motion.div>
