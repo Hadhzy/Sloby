@@ -4,31 +4,27 @@ import { toolsConstructors } from '../utils/constants';
 import { useRouter } from 'next/router';
 import InterfaceIntegration from '../lib/handlers/InterfaceIntegration';
 import DatabaseService from '../lib/services/DatabaseService';
-import parse from 'html-react-parser';
 import ElementModifier from '../lib/modifiers/ElementModifier';
 import JsxParser from 'react-jsx-parser';
 import SlobyInput from '../../components/SlobyInput';
 import JSXStyle from 'styled-jsx/style';
-import { DndProvider } from 'react-dnd';
 
 import Input from './editor-components/text-tool/Input';
 export default function SlobyPreviewSiteInterface() {
   const [currentSource, setCurrentSource] = useState('');
-  const router = useRouter();
-  const [i, setI] = useState('');
-  if (typeof window !== 'undefined') {
-    const source = new InterfaceIntegration(new DatabaseService());
-    const sourceCode = useMemo(() => {
-      return source.getProjectBasedSourceCode(router.query.id as string);
-    }, [currentSource]);
 
-    useEffect(() => {
-      // source.getSourceCodebyId(router.query.id as string, setCurrentSource);
-      if (localStorage.getItem('GLOBAL_SOURCE')) {
-        setCurrentSource(sourceCode);
-      } else return setCurrentSource('');
-    }, [localStorage.getItem('GLOBAL_SOURCE')]);
-  }
+  // if (typeof window !== 'undefined') {
+  //   useEffect(() => {
+  //     const source = new InterfaceIntegration(new DatabaseService());
+  //     source.getProjectBasedSourceCode(router.query.id as string);
+  //     const sourceCode = source.getProjectBasedSourceCode(
+  //       router.query.id as string
+  //     );
+  //     if (localStorage.getItem('GLOBAL_SOURCE')) {
+  //       setCurrentSource(sourceCode);
+  //     } else return setCurrentSource('');
+  //   }, [localStorage.getItem('GLOBAL_SOURCE')]);
+  // }
 
   return (
     <motion.div className="w-full bg-interface-bg">
@@ -40,15 +36,7 @@ export default function SlobyPreviewSiteInterface() {
         <p className="flex justify-center mt-10 text-[50px] welcome-color">
           SlobyBuilder
         </p>
-        <div className="ml-2 mt-3 flex flex-col gap-4">
-          <JsxParser
-            bindings={{
-              foo: 'bar',
-            }}
-            components={{ Input }}
-            jsx={currentSource}
-          />
-        </div>
+        <div className="ml-2 mt-3 flex flex-col gap-4"></div>
       </motion.div>
     </motion.div>
   );

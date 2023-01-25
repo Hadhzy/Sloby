@@ -17,8 +17,6 @@ export default function DashboardHome({
 }) {
   const session = useSession();
   const { project_data, set_project_data } = useContext(ProjectsContext);
-  console.log(session?.user.user_metadata);
-  console.log('totalvists', totalVisits);
   return (
     <DashboardLayout>
       <DashboardUserDetails totalVisits={totalVisits} totalUsage={totalUsage} />

@@ -11,20 +11,24 @@ import Project from './Project';
 import { ProjectsContext } from '../../../utils/contexts/ProjectsContext';
 import { getProjects } from '../../../utils/api';
 import { ProjectServices } from '../../../api/project.api';
+import JsxParser from 'react-jsx-parser';
 
 export default function Projects() {
-
   const projectServices = new ProjectServices(useSupabaseClient());
   const [projects, setProjects] = React.useState([]);
-
 
   useEffect(() => {
     // getProjects(setProjects, supabase);
     projectServices.getProjects().then((data) => setProjects(data.data as any));
-  }, [supabase]);
+  }, [projects]);
 
   return (
-    <div className={'grid md:grid-cols-2 gap-y-5 lg:grid-cols-3 lg:gap-x-5 xl:grid-cols-4'}>
+    <div
+      className={
+        'grid md:grid-cols-2 gap-y-5 lg:grid-cols-3 lg:gap-x-5 xl:grid-cols-4'
+      }
+    >
+      <JsxParser jsx={"<input type='text'/>"} />
       {projects.map((project: TSlobyProject) => {
         return (
           <div key={project.id} className="flex flex-wrap gap-20 border-white">

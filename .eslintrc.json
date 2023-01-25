@@ -14,7 +14,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react"],
+  "plugins": ["react", "next"],
   "rules": {
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/dot-notation": "off"

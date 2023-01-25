@@ -9,8 +9,6 @@ import { getCurrentProject } from '../../utils/api';
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 import { ProjectsContext } from '../../utils/contexts/ProjectsContext';
 import { motion } from 'framer-motion';
-import { Audio } from 'react-loader-spinner';
-import WelcomePage from '../../components/dashboard/WelcomePage';
 import { ProjectServices } from '../../api/project.api';
 
 function SlobyEditor() {

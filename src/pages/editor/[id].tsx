@@ -1,13 +1,12 @@
-import React, { } from 'react';
+import React from 'react';
 import SlobyEditor from '../../sloby-editor-system/implementations/SlobyEditor';
 import { GetServerSideProps, NextPage } from 'next';
 import { createServerSupabaseClient } from '@supabase/auth-helpers-nextjs';
 import { ProjectServices } from '../../api/project.api';
 
-
 type Props = {
   success: boolean;
-}
+};
 const Editor: NextPage<Props> = ({ success }) => {
   // const session = useSession();
   // const [success, setSuccess] = useState(false);
@@ -39,10 +38,7 @@ const Editor: NextPage<Props> = ({ success }) => {
 
 export default Editor;
 
-
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-
-
   // Create authenticated Supabase Client
   const supabase = createServerSupabaseClient(ctx);
   // Check if we have a session
@@ -52,8 +48,9 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
   const projectServices = new ProjectServices(supabase);
 
-
-  const success = await projectServices.checkProjectPermission(ctx.query.id as string);
+  const success = await projectServices.checkProjectPermission(
+    ctx.query.id as string
+  );
 
   console.log(success, ctx.query.id);
   // checkUserProjectPerms(
@@ -74,7 +71,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     props: {
       // initialSession: session,
       // user: session.user,
-      success
+      success,
     },
-  }
-}
+  };
+};

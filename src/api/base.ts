@@ -1,11 +1,11 @@
-import { SupabaseClient } from "@supabase/supabase-js";
+import { SupabaseClient } from '@supabase/supabase-js';
 
 export abstract class BaseServices {
-    protected client: SupabaseClient;
-    public readonly tableName: string;
+  protected client: SupabaseClient;
+  public readonly tableName: string;
 
-    constructor(client: SupabaseClient, tableName: string) {
-        this.client = client;
-        this.tableName = tableName;
-    }
+  constructor(client: SupabaseClient, tableName: string) {
+    this.client = client;
+    this.tableName = tableName;
+  }
 }

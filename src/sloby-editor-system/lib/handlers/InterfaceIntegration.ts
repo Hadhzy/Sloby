@@ -11,8 +11,7 @@ export default class InterfaceIntegration {
   constructor(private databaseService: DatabaseService) {
     this.SOURCE_CODE_BASE = localStorage.getItem('GLOBAL_SOURCE')
       ? (JSON.parse(
-          //@ts-expect-error
-          localStorage.getItem(General.LOCAL_STORAGE_NAME)
+          localStorage?.getItem(General.LOCAL_STORAGE_NAME)!
         ) as TSourceCodeBase)
       : null;
     this.currentRoute = '';

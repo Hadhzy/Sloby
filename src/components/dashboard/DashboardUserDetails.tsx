@@ -21,8 +21,9 @@ export default function DashboardUserDetails({
   console.log(apiUser.user.user_metadata.avatar_url);
   return (
     <div
-      className={`flex h-screen overflow-scroll flex-col gap-10 p-8 ml-4 text-white transition-all duration-500 ${project_data.project_modal ? 'blur-sm' : ''
-        }`}
+      className={`flex h-screen overflow-scroll flex-col gap-10 p-8 ml-4 text-white transition-all duration-500 ${
+        project_data.project_modal ? 'blur-sm' : ''
+      }`}
     >
       <div className="text-4xl lg:text-7xl font-bold flex gap-36">
         Good Morning, <br />

@@ -25,7 +25,5 @@ export default class TextCreationTool extends BaseTool {
     );
   }
 
-  private handleInputState() {
-    
-  }
+  private handleInputState() {}
 }

@@ -3,7 +3,7 @@
     "paths": {
       "react": ["./node_modules/@types/react"]
     },
-    "target": "es5",
+    "target": "ES5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -27,8 +27,7 @@
     "**/*.tsx",
     "next.config.js",
     "tailwind.config.js",
-    "postcss.config.js",
-    "src/sloby-editor-system/implementations/SlobyPreviewSiteInterface.tsx"
+    "postcss.config.js"
   ],
   "exclude": ["node_modules"]
 }

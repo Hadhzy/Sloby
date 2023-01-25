@@ -44,14 +44,16 @@ function ProjectsManager() {
       <div className="flex gap-14 font-semibold text-dark-font-color ease-in-out duration-200">
         <div
           onClick={() => setClickedClass({ projects: true, shared: false })}
-          className={`p-2 ease-in-out duration-200 hover:scale-105  bg-dark-dark rounded-xl hover:bg-dark-border hover:text-white cursor-pointer ${clickedClass.projects ? 'bg-dark-border text-white scale-105' : ''
-            }`}
+          className={`p-2 ease-in-out duration-200 hover:scale-105  bg-dark-dark rounded-xl hover:bg-dark-border hover:text-white cursor-pointer ${
+            clickedClass.projects ? 'bg-dark-border text-white scale-105' : ''
+          }`}
         >
           <p>All Projects</p>
         </div>
         <div
-          className={`p-2 ease-in-out duration-200  bg-dark-dark rounded-xl hover:bg-dark-border hover:scale-105 hover:text-white cursor-pointer ${clickedClass.shared ? 'bg-dark-border text-white scale-105' : ''
-            }`}
+          className={`p-2 ease-in-out duration-200  bg-dark-dark rounded-xl hover:bg-dark-border hover:scale-105 hover:text-white cursor-pointer ${
+            clickedClass.shared ? 'bg-dark-border text-white scale-105' : ''
+          }`}
           onClick={() => setClickedClass({ projects: false, shared: true })}
         >
           <p>Shared Projects</p>

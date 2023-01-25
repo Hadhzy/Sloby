@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import DashboardHome from '../../../components/dashboard/DashboardHome';
 import { getRandomNumber } from '../../../components/dashboard/getRandomNumber';
 import Loading from '../../../components/loading';
+import JsxParser from 'react-jsx-parser';
 
 export async function getServerSideProps() {
   console.log('EXECUTE');
@@ -56,7 +57,9 @@ export default function Dashboard({
       {loading ? (
         <Loading />
       ) : (
-        <DashboardHome totalVisits={totalVisits} totalUsage={totalUsage} />
+        <>
+          <DashboardHome totalVisits={totalVisits} totalUsage={totalUsage} />
+        </>
       )}
     </div>
   );
