@@ -1,5 +1,5 @@
 import { ToolCategory } from '../../../utils/types';
-import SlobyService from '../../SlobyService';
+import SlobyService from '../../services/SlobyService';
 
 export default function RegisterTool(tool_category: ToolCategory) {
   const service = new SlobyService();
