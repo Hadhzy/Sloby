@@ -1,5 +1,5 @@
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext, useLayoutEffect, SetStateAction } from 'react';
 import { getTools } from '../../utils/api';
 import { TSlobyTool } from '../../utils/types';
 import { motion } from 'framer-motion';
@@ -10,7 +10,12 @@ import { ActionHandler } from '../lib/handlers/ActionHandler';
 import { useRouter } from 'next/router';
 import { ProjectServices } from '../../api/project.api';
 
-export default function SlobyTools() {
+type Props = {
+  setToolClicked: React.Dispatch<SetStateAction<boolean>>;
+  toolClicked: boolean;
+}
+
+export default function SlobyTools({ setToolClicked, toolClicked }: Props) {
   const supabase = useSupabaseClient();
   const projectServices = new ProjectServices(supabase);
   const { setTools, tools } = useContext(ProjectsContext);
@@ -20,6 +25,7 @@ export default function SlobyTools() {
     // getTools(setTools, supabase);
     projectServices.getTools().then(({ data }) => setTools(data as any));
   }, [supabase]);
+
 
   return (
     <div className="bg-tools-bg ">
@@ -37,6 +43,7 @@ export default function SlobyTools() {
               <div
                 id={tool.id}
                 onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+                  setToolClicked(!toolClicked);
                   new ActionHandler(
                     tools.find(
                       (tool: TSlobyTool) => tool.id === e.currentTarget.id

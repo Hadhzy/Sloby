@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from 'react';
+import React, { useEffect, useContext, useState, useLayoutEffect } from 'react';
 import SlobyEditorInformation from './SlobyEditorInformation';
 import SlobyBuildingSteps from './SlobyBuildingSteps';
 import SlobyTools from './SlobyTools';
@@ -18,6 +18,9 @@ function SlobyEditor() {
   const { setCurrentProject } = useContext(ProjectsContext);
   const [loading, setLoading] = useState(true);
 
+  const [toolClicked, setToolClicked] = useState(false);
+
+
   useEffect(() => {
     projectServices
       .getCurrentProject(router.query.id as string)
@@ -29,13 +32,18 @@ function SlobyEditor() {
     // currentProject.then((res) => setCurrentProject(res));
   }, []);
 
+  useLayoutEffect(() => {
+    console.log("HHHH")
+
+  }, [toolClicked])
+
   return (
     <>
       <div className="select-none">
         <div className="flex h-screen flex-col justify-end">
           <SlobyEditorInformation />
           <div className="flex h-full text-white">
-            <SlobyTools />
+            <SlobyTools setToolClicked={setToolClicked} toolClicked={toolClicked} />
             <SlobyPreviewSiteInterface />
             <SlobyModifier />
           </div>
@@ -46,3 +54,7 @@ function SlobyEditor() {
 }
 
 export default SlobyEditor;
+function useLayoutEffeca(arg0: () => void, arg1: boolean[]) {
+  throw new Error('Function not implemented.');
+}
+

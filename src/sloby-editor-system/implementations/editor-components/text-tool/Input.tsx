@@ -7,6 +7,7 @@ export default function Input() {
       placeholder="type your text here..."
       type="text"
       className={`border border-blue-600 hover:decoration-2 duration-75  decoration-blue-400 hover:underline ${BaseClassNames.BASIC_DIV} bg-transparent`}
+      onClick={() => console.log("CLICKED")}
     />
   );
 }

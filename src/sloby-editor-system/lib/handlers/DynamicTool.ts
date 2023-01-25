@@ -13,7 +13,7 @@ export class DynamicTool {
   ) {
     /**
      * @param {string} currentToolName => the name of the current tool which has been activated
-     * @param {any} args => the optional arguments that has been passed throught tool activation
+     * @param {any} args => the optional arguments that has been passed through tool activation
      * @returns {class} => It'll return the proper tool class based on what tool has been activated
      */
     if (!toolsConstructors[currentToolName])

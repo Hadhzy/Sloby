@@ -23,6 +23,7 @@ export default function SlobyPreviewSiteInterface() {
       );
       if (localStorage.getItem('GLOBAL_SOURCE')) {
         setCurrentSource(sourceCode);
+        console.log(sourceCode);
       } else return setCurrentSource('');
     }, [localStorage.getItem('GLOBAL_SOURCE')]);
   }
