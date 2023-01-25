@@ -28,7 +28,6 @@ export default function Projects() {
         'grid md:grid-cols-2 gap-y-5 lg:grid-cols-3 lg:gap-x-5 xl:grid-cols-4'
       }
     >
-      <JsxParser jsx={"<input type='text'/>"} />
       {projects.map((project: TSlobyProject) => {
         return (
           <div key={project.id} className="flex flex-wrap gap-20 border-white">

@@ -4,6 +4,8 @@ import { ProjectsContext } from '../../../utils/contexts/ProjectsContext';
 import { useRouter } from 'next/router';
 import Loading from '../../loading';
 
+
+
 export default function ProjectsHandler() {
   const { project_data, set_project_data } = useContext(ProjectsContext);
   const router = useRouter();
