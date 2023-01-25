@@ -33,8 +33,6 @@ function SlobyEditor() {
   }, []);
 
   useLayoutEffect(() => {
-    console.log("HHHH")
-
   }, [toolClicked])
 
   return (
