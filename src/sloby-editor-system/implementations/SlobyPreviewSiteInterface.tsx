@@ -12,19 +12,20 @@ import JSXStyle from 'styled-jsx/style';
 import Input from './editor-components/text-tool/Input';
 export default function SlobyPreviewSiteInterface() {
   const [currentSource, setCurrentSource] = useState('');
+  const router = useRouter();
 
-  // if (typeof window !== 'undefined') {
-  //   useEffect(() => {
-  //     const source = new InterfaceIntegration(new DatabaseService());
-  //     source.getProjectBasedSourceCode(router.query.id as string);
-  //     const sourceCode = source.getProjectBasedSourceCode(
-  //       router.query.id as string
-  //     );
-  //     if (localStorage.getItem('GLOBAL_SOURCE')) {
-  //       setCurrentSource(sourceCode);
-  //     } else return setCurrentSource('');
-  //   }, [localStorage.getItem('GLOBAL_SOURCE')]);
-  // }
+  if (typeof window !== 'undefined') {
+    useEffect(() => {
+      const source = new InterfaceIntegration(new DatabaseService());
+      source.getProjectBasedSourceCode(router.query.id as string);
+      const sourceCode = source.getProjectBasedSourceCode(
+        router.query.id as string
+      );
+      if (localStorage.getItem('GLOBAL_SOURCE')) {
+        setCurrentSource(sourceCode);
+      } else return setCurrentSource('');
+    }, [localStorage.getItem('GLOBAL_SOURCE')]);
+  }
 
   return (
     <motion.div className="w-full bg-interface-bg">
@@ -36,7 +37,9 @@ export default function SlobyPreviewSiteInterface() {
         <p className="flex justify-center mt-10 text-[50px] welcome-color">
           SlobyBuilder
         </p>
-        <div className="ml-2 mt-3 flex flex-col gap-4"></div>
+        <div className="ml-2 mt-3 flex flex-col gap-4">
+          <JsxParser jsx={currentSource} components={{ Input }} />
+        </div>
       </motion.div>
     </motion.div>
   );
