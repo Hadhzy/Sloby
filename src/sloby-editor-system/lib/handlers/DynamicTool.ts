@@ -1,6 +1,6 @@
-import { BaseTool } from '../../utils/abstracts';
-import { toolsConstructors } from '../../utils/constants';
-import { TCurrentRoute } from '../../utils/types';
+import { BaseTool } from '../../../utils/abstracts';
+import { toolsConstructors } from '../../../utils/constants';
+import { TCurrentRoute } from '../../../utils/types';
 import InterfaceIntegration from './InterfaceIntegration';
 import DatabaseService from '../services/DatabaseService';
 export class DynamicTool {

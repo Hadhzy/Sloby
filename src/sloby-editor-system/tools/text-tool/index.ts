@@ -2,9 +2,9 @@ import RegisterTool from '../../lib/decorators/common/RegisterTool';
 import { colors } from '../../lib/grammar/BaseClassNames';
 import HtmlTranslator from '../../lib/grammar/Html';
 import InterfaceIntegration from '../../lib/handlers/InterfaceIntegration';
-import { BaseTool } from '../../utils/abstracts';
-import { BaseToolTemplates, ToolCategories } from '../../utils/constants';
-import { TCurrentRoute } from '../../utils/types';
+import { BaseTool } from '../../../utils/abstracts';
+import { BaseToolTemplates, ToolCategories } from '../../../utils/constants';
+import { TCurrentRoute } from '../../../utils/types';
 
 export default class TextCreationTool extends BaseTool {
   constructor(

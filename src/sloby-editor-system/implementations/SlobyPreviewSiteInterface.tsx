@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { toolsConstructors } from '../utils/constants';
+import { General, toolsConstructors } from '../../utils/constants';
 import { useRouter } from 'next/router';
 import InterfaceIntegration from '../lib/handlers/InterfaceIntegration';
 import DatabaseService from '../lib/services/DatabaseService';
@@ -8,8 +8,9 @@ import ElementModifier from '../lib/modifiers/ElementModifier';
 import JsxParser from 'react-jsx-parser';
 import SlobyInput from '../../components/SlobyInput';
 import JSXStyle from 'styled-jsx/style';
-
 import Input from './editor-components/text-tool/Input';
+import Draggable from 'react-draggable';
+
 export default function SlobyPreviewSiteInterface() {
   const [currentSource, setCurrentSource] = useState('');
   const router = useRouter();
@@ -21,11 +22,11 @@ export default function SlobyPreviewSiteInterface() {
       const sourceCode = source.getProjectBasedSourceCode(
         router.query.id as string
       );
-      if (localStorage.getItem('GLOBAL_SOURCE')) {
+      if (localStorage.getItem(General.LOCAL_DB_NAME)) {
         setCurrentSource(sourceCode);
         console.log(sourceCode);
       } else return setCurrentSource('');
-    }, [localStorage.getItem('GLOBAL_SOURCE')]);
+    }, [localStorage.getItem(General.LOCAL_DB_NAME)]);
   }
 
   return (
@@ -39,7 +40,7 @@ export default function SlobyPreviewSiteInterface() {
           SlobyBuilder
         </p>
         <div className="ml-2 mt-3 flex flex-col gap-4">
-          <JsxParser jsx={currentSource} components={{ Input }} />
+          <JsxParser jsx={currentSource} components={{ Input, Draggable }} />
         </div>
       </motion.div>
     </motion.div>

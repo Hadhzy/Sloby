@@ -19,14 +19,14 @@ export default class Html {
      */
     switch (translate_to) {
       case 'div': {
-        return `<div>
+        return `<Draggable>
                 <div className='w-full text-element'>
                 <div className='${BaseClassNames.BASIC_DIV_PARENT}'>
                 <Input />
                 <div className='bg-blue-600 mt-1 px-2 py-1 rounded-lg text-[11px]'>93 x 64</div>
               </div>
               </div>
-        </div>`;
+        </Draggable>`;
       }
     }
   }

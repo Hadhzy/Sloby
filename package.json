@@ -21,6 +21,8 @@
     "@types/node": "18.11.17",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
+    "dexie": "^3.2.3",
+    "dexie-react-hooks": "^1.1.1",
     "dotenv": "^16.0.3",
     "eslint-config-next": "^13.1.0",
     "eslint-config-prettier": "^8.6.0",
@@ -29,7 +31,10 @@
     "react": "^18.2.0",
     "react-countup": "^6.4.0",
     "react-dom": "^18.2.0",
+    "react-draggable": "^4.4.5",
     "react-jsx-parser": "^1.29.0",
+    "rxjs": "^7.8.0",
+    "scoopabase": "^1.0.0",
     "uuid": "^9.0.0"
   },
   "devDependencies": {

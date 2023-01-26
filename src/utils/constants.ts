@@ -1,9 +1,9 @@
 import { ClassType } from 'react';
-import supabase from '../../../config/supabase';
-import TextCreationTool from '../../tools/text-tool/index';
-import { TSlobyTool } from '../../../utils/types';
+import supabase from '../config/supabase';
+import TextCreationTool from '../sloby-editor-system/tools/text-tool';
+import { TSlobyTool } from './types';
 import { PostgrestFilterBuilder } from '@supabase/postgrest-js';
-import Html from '../../lib/grammar/Html';
+import Html from '../sloby-editor-system/lib/grammar/Html';
 export enum ToolCategories {
   OBJECT = 'Object',
   UI_UX = 'UI/UX',
@@ -32,5 +32,6 @@ export enum BaseToolTemplates {
 }
 
 export enum General {
-  LOCAL_STORAGE_NAME = 'GLOBAL_SOURCE',
+  LOCAL_DB_NAME = 'GLOBAL_SOURCE',
+  LOCAL_DB_P_NAME = 'GLOBAL_PROPERTIES',
 }

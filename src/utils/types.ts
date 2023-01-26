@@ -1,3 +1,5 @@
+import { ToolCategories } from './constants';
+
 export type TProjectsParamater = {
   project_name: string;
   project_description: string;
@@ -27,3 +29,15 @@ export type TSlobyTool = {
   tool_p_name: string;
   tool_name: string;
 };
+
+export type ToolCategory = ToolCategories | undefined;
+
+export type TranslatedElement = 'div';
+
+export type TCurrentRoute = string;
+
+export interface TSourceCodeBase {
+  [key: string]: string | any;
+}
+
+export type TModifierElement = EventTarget;
