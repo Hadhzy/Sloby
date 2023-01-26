@@ -1,8 +1,5 @@
-import { createNoSubstitutionTemplateLiteral } from 'typescript';
-import { BaseToolTemplates, General } from '../../../../utils/constants';
+import { General } from '../../../../utils/constants';
 import { TCurrentRoute, TSourceCodeBase } from '../../../../utils/types';
-import DatabaseService from '../../services/DatabaseService';
-import { throws } from 'assert';
 import InterfaceIntegrator from './index';
 import { ScoopaBase } from 'scoopabase';
 import ProjectsPropsHandler from './ProjectsPropsHandler';
