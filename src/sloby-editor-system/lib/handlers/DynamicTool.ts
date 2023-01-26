@@ -1,8 +1,10 @@
 import { BaseTool } from '../../../utils/abstracts';
 import { toolsConstructors } from '../../../utils/constants';
 import { TCurrentRoute } from '../../../utils/types';
-import InterfaceIntegration from './InterfaceIntegration';
+import InterfaceIntegration from './InterfaceInjectors/index';
 import DatabaseService from '../services/DatabaseService';
+import ProjectsSourceHandler from './InterfaceInjectors/ProjectsSourceHandler';
+import ProjectsPropsHandler from './InterfaceInjectors/ProjectsPropsHandler';
 export class DynamicTool {
   /**A class which will be used to return the current activated tool class instance */
 
@@ -25,7 +27,7 @@ export class DynamicTool {
       toolsConstructors[currentToolName].prototype instanceof BaseTool
     ) {
       return new toolsConstructors[currentToolName](
-        new InterfaceIntegration(new DatabaseService()),
+        new InterfaceIntegration(new ProjectsSourceHandler(), new ProjectsPropsHandler()),
         currentRoute as string
       ).resolve() as BaseTool;
     } else

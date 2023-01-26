@@ -21,7 +21,6 @@
     "@types/node": "18.11.17",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
-    "dexie": "^3.2.3",
     "dexie-react-hooks": "^1.1.1",
     "dotenv": "^16.0.3",
     "eslint-config-next": "^13.1.0",

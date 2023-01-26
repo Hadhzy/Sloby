@@ -2,7 +2,7 @@ import React, { useEffect, useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { General, toolsConstructors } from '../../utils/constants';
 import { useRouter } from 'next/router';
-import InterfaceIntegration from '../lib/handlers/InterfaceIntegration';
+import InterfaceIntegration from '../lib/handlers/InterfaceInjectors/ProjectsSourceHandler';
 import DatabaseService from '../lib/services/DatabaseService';
 import ElementModifier from '../lib/modifiers/ElementModifier';
 import JsxParser from 'react-jsx-parser';
@@ -15,19 +15,19 @@ export default function SlobyPreviewSiteInterface() {
   const [currentSource, setCurrentSource] = useState('');
   const router = useRouter();
 
-  if (typeof window !== 'undefined') {
-    useEffect(() => {
-      const source = new InterfaceIntegration(new DatabaseService());
-      source.getProjectBasedSourceCode(router.query.id as string);
-      const sourceCode = source.getProjectBasedSourceCode(
-        router.query.id as string
-      );
-      if (localStorage.getItem(General.LOCAL_DB_NAME)) {
-        setCurrentSource(sourceCode);
-        console.log(sourceCode);
-      } else return setCurrentSource('');
-    }, [localStorage.getItem(General.LOCAL_DB_NAME)]);
-  }
+  // if (typeof window !== 'undefined') {
+  //   useEffect(() => {
+  //     const source = new InterfaceIntegration(new DatabaseService());
+  //     source.getProjectBasedSourceCode(router.query.id as string);
+  //     const sourceCode = source.getProjectBasedSourceCode(
+  //       router.query.id as string
+  //     );
+  //     if (localStorage.getItem(General.LOCAL_DB_NAME)) {
+  //       setCurrentSource(sourceCode);
+  //       console.log(sourceCode);
+  //     } else return setCurrentSource('');
+  //   }, [localStorage.getItem(General.LOCAL_DB_NAME)]);
+  // }
 
   return (
     <motion.div className="w-full bg-interface-bg">
