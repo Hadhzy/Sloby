@@ -2,7 +2,6 @@ import { General } from '../../../../utils/constants';
 import { TCurrentRoute, TSourceCodeBase } from '../../../../utils/types';
 import InterfaceIntegrator from './index';
 import { ScoopaBase } from 'scoopabase';
-import ProjectsPropsHandler from './ProjectsPropsHandler';
 
 export default class ProjectsSourceHandler {
   /**The class which will be responsible of integrating with the preview interface */
@@ -10,10 +9,6 @@ export default class ProjectsSourceHandler {
   currentRoute: TCurrentRoute;
   constructor() {
     this.currentRoute = '';
-    this.project_source_db = new InterfaceIntegrator(
-      this,
-      new ProjectsPropsHandler()
-    ).global_db;
   }
 
   addSourceCode(id: string, value: string, db: ScoopaBase) {

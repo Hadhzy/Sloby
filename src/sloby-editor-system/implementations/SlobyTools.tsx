@@ -8,11 +8,12 @@ import { ProjectsContext } from '../../utils/contexts/ProjectsContext';
 import { useRouter } from 'next/router';
 import { ProjectServices } from '../../api/project.api';
 import { ProjectLocalDb } from '../lib/indexDB/projectLocalDb';
+import { ActionHandler } from '../lib/handlers/ActionHandler';
 
 type Props = {
   setToolClicked: React.Dispatch<SetStateAction<boolean>>;
   toolClicked: boolean;
-}
+};
 
 export default function SlobyTools({ setToolClicked, toolClicked }: Props) {
   const supabase = useSupabaseClient();
@@ -24,7 +25,6 @@ export default function SlobyTools({ setToolClicked, toolClicked }: Props) {
     // getTools(setTools, supabase);
     projectServices.getTools().then(({ data }) => setTools(data as any));
   }, [supabase]);
-
 
   return (
     <div className="bg-tools-bg ">
@@ -41,12 +41,14 @@ export default function SlobyTools({ setToolClicked, toolClicked }: Props) {
             return (
               <div
                 id={tool.id}
-                onClick={async (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+                onClick={async (
+                  e: React.MouseEvent<HTMLDivElement, MouseEvent>
+                ) => {
                   setToolClicked(!toolClicked);
                   //* this how we will call the entity
                   const projectDB = new ProjectLocalDb();
 
-                  //* this is when adding single item and also retrieving it: 
+                  //* this is when adding single item and also retrieving it:
                   // -> await projectDB.add({ age: 44, id: '1', name: 'john doe' });
                   // -> const res = await projectDB.getSingle();
                   // -> console.log(res);
@@ -54,15 +56,14 @@ export default function SlobyTools({ setToolClicked, toolClicked }: Props) {
                   //* this is getting all elements in the collection
                   // -> projectDB.getAll().documents$.subscribe(data => console.log(data));
 
-
                   //* this is your implementation
                   //NOTE: this is creating also an indexedDB and i couldn't really figure out where that is happening so i commented it out
-                  // new ActionHandler(
-                  //   tools.find(
-                  //     (tool: TSlobyTool) => tool.id === e.currentTarget.id
-                  //   ),
-                  //   router.query.id as string
-                  // );
+                  new ActionHandler(
+                    tools.find(
+                      (tool: TSlobyTool) => tool.id === e.currentTarget.id
+                    ),
+                    router.query.id as string
+                  );
                 }}
                 key={tool.id}
                 className="w-20 h-20 bg-tool-bg flex ease-in-out duration-150  flex-wrap justify-center items-center rounded-xl mt-4 hover:scale-110 cursor-pointer hover:bg-tool-bg-hover"
