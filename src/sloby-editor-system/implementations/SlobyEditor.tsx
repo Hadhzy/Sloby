@@ -1,14 +1,11 @@
 import React, { useEffect, useContext, useState, useLayoutEffect } from 'react';
 import SlobyEditorInformation from './SlobyEditorInformation';
-import SlobyBuildingSteps from './SlobyBuildingSteps';
 import SlobyTools from './SlobyTools';
 import SlobyPreviewSiteInterface from './SlobyPreviewSiteInterface';
 import SlobyModifier from './SlobyModifier';
 import { useRouter } from 'next/router';
-import { getCurrentProject } from '../../utils/api';
-import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
+import { useSupabaseClient } from '@supabase/auth-helpers-react';
 import { ProjectsContext } from '../../utils/contexts/ProjectsContext';
-import { motion } from 'framer-motion';
 import { ProjectServices } from '../../api/project.api';
 
 function SlobyEditor() {
@@ -52,7 +49,10 @@ function SlobyEditor() {
 }
 
 export default SlobyEditor;
-function useLayoutEffeca(arg0: () => void, arg1: boolean[]) {
-  throw new Error('Function not implemented.');
-}
+
+//NOTE: i just commented this , i don't know what it's doing here.
+
+// function useLayoutEffeca(arg0: () => void, arg1: boolean[]) {
+//   throw new Error('Function not implemented.');
+// }
 

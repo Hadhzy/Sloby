@@ -1,5 +1,5 @@
 import supabase from '../../../config/supabase';
-import { BaseToolTemplates } from '../../utils/constants';
+import { BaseToolTemplates } from '../../../utils/constants';
 
 export default class DatabaseService {
   async insertCodeToDatabase(
