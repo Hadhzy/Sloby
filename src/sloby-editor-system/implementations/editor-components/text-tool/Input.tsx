@@ -7,6 +7,7 @@ import { handleClientScriptLoad } from 'next/script';
 
 export default function Input() {
   const { toolClicked, setToolClicked } = useContext(ToolClickedContext);
+  const [currentValue, setCurrentValue] = useState();
   const props = new InterfacePropsIntegrator();
 
   // useEffect(() => {
@@ -18,7 +19,11 @@ export default function Input() {
       placeholder="type your text here..."
       onClick={(e) => console.log(e.target)}
       type="text"
-      onChange={(e: any) => props.addInputValues(e.target.id, e.target.value)}
+      id={uuidv4()}
+      onChange={(e: any) => {
+        props.addInputValues(e.target.id, e.target.value);
+        setCurrentValue(e.target.value);
+      }}
       className={`border border-blue-600 hover:decoration-2 duration-75  decoration-blue-400 hover:underline ${BaseClassNames.BASIC_DIV} bg-transparent`}
     />
   );
