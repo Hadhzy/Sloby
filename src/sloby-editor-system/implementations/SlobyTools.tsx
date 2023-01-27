@@ -14,18 +14,14 @@ import { useRouter } from 'next/router';
 import { ProjectServices } from '../../api/project.api';
 import { ProjectLocalDb } from '../lib/indexDB/projectLocalDb';
 import { ActionHandler } from '../lib/handlers/ActionHandler';
+import { ToolClickedContext } from '../../utils/contexts/ToolClicked';
 
-type Props = {
-  setToolClicked: React.Dispatch<SetStateAction<boolean>>;
-  toolClicked: boolean;
-};
-
-export default function SlobyTools({ setToolClicked, toolClicked }: Props) {
+export default function SlobyTools() {
   const supabase = useSupabaseClient();
   const projectServices = new ProjectServices(supabase);
   const { setTools, tools } = useContext(ProjectsContext);
   const router = useRouter();
-
+  const { toolClicked, setToolClicked } = useContext(ToolClickedContext);
   useEffect(() => {
     // getTools(setTools, supabase);
     projectServices.getTools().then(({ data }) => setTools(data as any));

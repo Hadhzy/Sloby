@@ -13,6 +13,7 @@ import { LoadingContextProvider } from '../utils/contexts/Loading';
 import { useRouter } from 'next/router';
 import LoadingAnimation from '../components/loading';
 import { BaseServices } from '../api/base';
+import { ToolClickedContextProvider } from '../utils/contexts/ToolClicked';
 
 export default function App({ Component, pageProps }: AppProps) {
   const [supabaseClient] = useState(() => createBrowserSupabaseClient());

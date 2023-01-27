@@ -7,7 +7,11 @@ export default class InterfacePropsIntegrator extends DbManager<any> {
     super(InterfacePropsIntegrator.tableName, new ScoopaBase(DbManager.dbName));
   }
 
-  public async addBaseProperties() {
-    console.log('adding properties');
+  public async addInputValues(id: string, value: string) {
+    return await this.add(value, id);
+  }
+
+  public async handleInputIds(id: string) {
+    return '';
   }
 }

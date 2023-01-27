@@ -4,6 +4,7 @@ import React, {
   useMemo,
   useLayoutEffect,
   SetStateAction,
+  useContext,
 } from 'react';
 import { motion } from 'framer-motion';
 import { General, toolsConstructors } from '../../utils/constants';
@@ -16,17 +17,13 @@ import JSXStyle from 'styled-jsx/style';
 import Input from './editor-components/text-tool/Input';
 import interfaceIntegrator from '../lib/handlers/InteraceIntegrators/InterfaceSourceIntegrator';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { ToolClickedContext } from '../../utils/contexts/ToolClicked';
 
-export default function SlobyPreviewSiteInterface({
-  setToolClicked,
-  toolClicked,
-}: {
-  setToolClicked: React.Dispatch<SetStateAction<boolean>>;
-  toolClicked: boolean;
-}) {
+export default function SlobyPreviewSiteInterface() {
   const [currentSource, setCurrentSource] = useState<any>('');
   const router = useRouter();
   const source = new interfaceIntegrator();
+  const { toolClicked, setToolClicked } = useContext(ToolClickedContext);
 
   async function getCurrentSource() {
     return await source.getProjectBasedSourceCode(router.query.id as string);
