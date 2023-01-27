@@ -1,14 +1,13 @@
-import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
-import React, { useEffect, useState, useContext, useLayoutEffect, SetStateAction } from 'react';
-import { getTools } from '../../utils/api';
+import { useSupabaseClient } from '@supabase/auth-helpers-react';
+import React, { useEffect, useContext, SetStateAction } from 'react';
 import { TSlobyTool } from '../../utils/types';
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFont } from '@fortawesome/free-solid-svg-icons';
 import { ProjectsContext } from '../../utils/contexts/ProjectsContext';
-import { ActionHandler } from '../lib/handlers/ActionHandler';
 import { useRouter } from 'next/router';
 import { ProjectServices } from '../../api/project.api';
+import { ProjectLocalDb } from '../lib/indexDB/projectLocalDb';
 
 type Props = {
   setToolClicked: React.Dispatch<SetStateAction<boolean>>;
@@ -42,14 +41,28 @@ export default function SlobyTools({ setToolClicked, toolClicked }: Props) {
             return (
               <div
                 id={tool.id}
-                onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+                onClick={async (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
                   setToolClicked(!toolClicked);
-                  new ActionHandler(
-                    tools.find(
-                      (tool: TSlobyTool) => tool.id === e.currentTarget.id
-                    ),
-                    router.query.id as string
-                  );
+                  //* this how we will call the entity
+                  const projectDB = new ProjectLocalDb();
+
+                  //* this is when adding single item and also retrieving it: 
+                  // -> await projectDB.add({ age: 44, id: '1', name: 'john doe' });
+                  // -> const res = await projectDB.getSingle();
+                  // -> console.log(res);
+
+                  //* this is getting all elements in the collection
+                  // -> projectDB.getAll().documents$.subscribe(data => console.log(data));
+
+
+                  //* this is your implementation
+                  //NOTE: this is creating also an indexedDB and i couldn't really figure out where that is happening so i commented it out
+                  // new ActionHandler(
+                  //   tools.find(
+                  //     (tool: TSlobyTool) => tool.id === e.currentTarget.id
+                  //   ),
+                  //   router.query.id as string
+                  // );
                 }}
                 key={tool.id}
                 className="w-20 h-20 bg-tool-bg flex ease-in-out duration-150  flex-wrap justify-center items-center rounded-xl mt-4 hover:scale-110 cursor-pointer hover:bg-tool-bg-hover"

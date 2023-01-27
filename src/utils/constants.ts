@@ -1,8 +1,4 @@
-import { ClassType } from 'react';
-import supabase from '../config/supabase';
 import TextCreationTool from '../sloby-editor-system/tools/text-tool';
-import { TSlobyTool } from './types';
-import { PostgrestFilterBuilder } from '@supabase/postgrest-js';
 import Html from '../sloby-editor-system/lib/grammar/Html';
 export enum ToolCategories {
   OBJECT = 'Object',
