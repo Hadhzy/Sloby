@@ -1,5 +1,10 @@
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
-import React, { useEffect, useContext, SetStateAction } from 'react';
+import React, {
+  useEffect,
+  useContext,
+  SetStateAction,
+  useLayoutEffect,
+} from 'react';
 import { TSlobyTool } from '../../utils/types';
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -25,6 +30,10 @@ export default function SlobyTools({ setToolClicked, toolClicked }: Props) {
     // getTools(setTools, supabase);
     projectServices.getTools().then(({ data }) => setTools(data as any));
   }, [supabase]);
+
+  useLayoutEffect(() => {
+    console.log('Hello');
+  }, [toolClicked]);
 
   return (
     <div className="bg-tools-bg ">

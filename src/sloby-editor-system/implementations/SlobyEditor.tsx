@@ -17,7 +17,6 @@ function SlobyEditor() {
 
   const [toolClicked, setToolClicked] = useState(false);
 
-
   useEffect(() => {
     projectServices
       .getCurrentProject(router.query.id as string)
@@ -29,8 +28,7 @@ function SlobyEditor() {
     // currentProject.then((res) => setCurrentProject(res));
   }, []);
 
-  useLayoutEffect(() => {
-  }, [toolClicked])
+  useLayoutEffect(() => {}, [toolClicked]);
 
   return (
     <>
@@ -38,8 +36,14 @@ function SlobyEditor() {
         <div className="flex h-screen flex-col justify-end">
           <SlobyEditorInformation />
           <div className="flex h-full text-white">
-            <SlobyTools setToolClicked={setToolClicked} toolClicked={toolClicked} />
-            <SlobyPreviewSiteInterface />
+            <SlobyTools
+              setToolClicked={setToolClicked}
+              toolClicked={toolClicked}
+            />
+            <SlobyPreviewSiteInterface
+              setToolClicked={setToolClicked}
+              toolClicked={toolClicked}
+            />
             <SlobyModifier />
           </div>
         </div>
@@ -55,4 +59,3 @@ export default SlobyEditor;
 // function useLayoutEffeca(arg0: () => void, arg1: boolean[]) {
 //   throw new Error('Function not implemented.');
 // }
-

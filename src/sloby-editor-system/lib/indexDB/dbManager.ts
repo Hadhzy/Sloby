@@ -10,7 +10,7 @@ export class DbManager<T> {
     this.tableName = tableName;
   }
 
-  async add(object: T, key?: string) {
+  async add(object: any, key?: string) {
     await this.dbManager
       .collection(this.tableName)
       .add<T>(object, key || 'key');
