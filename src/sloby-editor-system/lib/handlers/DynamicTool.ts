@@ -1,9 +1,9 @@
 import { BaseTool } from '../../../utils/abstracts';
 import { toolsConstructors } from '../../../utils/constants';
 import { TCurrentRoute } from '../../../utils/types';
-import InterfaceIntegration from './InterfaceInjectors/index';
+import InterfaceIntegration from './InteraceIntegrators/InterfaceSourceIntegrator';
 import DatabaseService from '../services/DatabaseService';
-import ProjectsSourceHandler from './InterfaceInjectors/ProjectsSourceHandler';
+import ProjectsSourceHandler from './InteraceIntegrators/ProjectsSourceHandler';
 export class DynamicTool {
   /**A class which will be used to return the current activated tool class instance */
 

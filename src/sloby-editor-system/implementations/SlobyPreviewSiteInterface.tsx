@@ -8,15 +8,14 @@ import React, {
 import { motion } from 'framer-motion';
 import { General, toolsConstructors } from '../../utils/constants';
 import { useRouter } from 'next/router';
-import InterfaceIntegration from '../lib/handlers/InterfaceInjectors/ProjectsSourceHandler';
 import DatabaseService from '../lib/services/DatabaseService';
 import ElementModifier from '../lib/modifiers/ElementModifier';
 import JsxParser from 'react-jsx-parser';
 import SlobyInput from '../../components/SlobyInput';
 import JSXStyle from 'styled-jsx/style';
 import Input from './editor-components/text-tool/Input';
-import Draggable from 'react-draggable-fixed';
-import interfaceIntegrator from '../lib/handlers/InterfaceInjectors';
+import interfaceIntegrator from '../lib/handlers/InteraceIntegrators/InterfaceSourceIntegrator';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 export default function SlobyPreviewSiteInterface({
   setToolClicked,
@@ -43,8 +42,6 @@ export default function SlobyPreviewSiteInterface({
   }
 
   if (typeof window !== 'undefined') {
-    //@ts-ignore
-
     useEffect(() => {
       handleDataFetching();
     }, [toolClicked]);
@@ -75,10 +72,14 @@ export default function SlobyPreviewSiteInterface({
           SlobyBuilder
         </p>
 
-        <div className="ml-2 mt-3 flex flex-col gap-4">
+        <div
+          className="ml-2 mt-3 flex flex-col gap-4"
+          onClick={(e: any) => console.log(e.target)}
+        >
           <JsxParser jsx={currentSource} components={{ Input }} />
         </div>
       </motion.div>
+      ;
     </motion.div>
   );
 }

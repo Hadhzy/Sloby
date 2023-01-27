@@ -19,7 +19,7 @@ export default class Html {
      */
     switch (translate_to) {
       case 'div': {
-        return `<div>
+        return `<div id={'${uuidv4()}'}>
         <div className="w-full text-element">
           <div className="flex flex-col w-max justify-center items-center">
             <Input />

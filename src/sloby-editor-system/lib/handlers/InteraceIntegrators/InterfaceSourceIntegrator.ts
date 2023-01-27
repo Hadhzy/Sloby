@@ -4,13 +4,15 @@ import {
   TSourceCodeBase,
 } from '../../../../utils/types';
 import { DbManager } from '../../indexDB';
-import ProjectsSourceHandler from './ProjectsSourceHandler';
 import { ScoopaBase } from 'scoopabase';
 
-export default class interfaceIntegrator extends DbManager<TSourceCodeBase> {
-  private static readonly tableName = 'project_local_db';
+export default class interfaceSourceIntegrator extends DbManager<any> {
+  private static readonly tableName = 'project_sources_local_db';
   constructor() {
-    super(interfaceIntegrator.tableName, new ScoopaBase(DbManager.dbName));
+    super(
+      interfaceSourceIntegrator.tableName,
+      new ScoopaBase(DbManager.dbName)
+    );
   }
 
   public async injectBaseSourceCode(
