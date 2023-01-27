@@ -1,43 +1,37 @@
-import { ScoopaBase } from 'scoopabase';
+import { ScoopaBase } from "scoopabase";
 
 export class DbManager<T> {
-  private dbManager: ScoopaBase;
-  private readonly tableName;
-  public static readonly dbName = 'SlobyDB';
+    private dbManager: ScoopaBase;
+    private readonly tableName;
+    public static readonly dbName = 'SlobyDB';
 
-  constructor(tableName: string, dbManager: ScoopaBase) {
-    this.dbManager = dbManager;
-    this.tableName = tableName;
-  }
+    constructor(tableName: string, dbManager: ScoopaBase) {
+        this.dbManager = dbManager;
+        this.tableName = tableName;
+    }
 
-  async add(object: any, key?: string) {
-    await this.dbManager
-      .collection(this.tableName)
-      .add<T>(object, key || 'key');
-  }
+    async add(object: T) {
+        await this.dbManager.collection(this.tableName).add<T>(object, 'key') // i really don't understand the key thingy but i will look it up
+    }
 
-  public async getSingle(key: string): Promise<T> {
-    const res = await this.dbManager.collection<T>(this.tableName).get(key);
-    return res as T;
-  }
 
-  public async updateItem(key: string, updated_item: any) {
-    return await this.dbManager
-      .collection<T>(this.tableName)
-      .update(updated_item, key);
-  }
+    public async getSingle(): Promise<T> {
+        const res = await this.dbManager.collection<T>(this.tableName).get('key');
+        return res as T;
+    }
 
-  public getAll() {
-    return this.dbManager
-      .collection<T>(this.tableName)
-      .getAll()
-      .then((res: any) => res)
-      .catch((err) => err);
-    //here the data is printed successfully without any bugs
-  }
+    public getAll() {
+        return this.dbManager.collection<T>(this.tableName);
+        //here the data is printed successfully without any bugs
+    }
 
-  //removeOne
-  //removeRange
-  //custom funcs with filter(where, contains) ... etc
-  //... etc
+
+    //removeOne
+    //removeRange
+    //custom funcs with filter(where, contains) ... etc
+    //... etc
+
+
+
+
 }
