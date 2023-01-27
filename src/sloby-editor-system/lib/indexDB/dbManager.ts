@@ -33,7 +33,6 @@ export class DbManager<T> {
       .getAll()
       .then((res: any) => res)
       .catch((err) => err);
-    //here the data is printed successfully without any bugs
   }
 
   //removeOne
