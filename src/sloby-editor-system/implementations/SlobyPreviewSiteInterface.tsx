@@ -1,22 +1,13 @@
 import React, {
   useEffect,
   useState,
-  useMemo,
-  useLayoutEffect,
-  SetStateAction,
   useContext,
 } from 'react';
 import { motion } from 'framer-motion';
-import { General, toolsConstructors } from '../../utils/constants';
 import { useRouter } from 'next/router';
-import DatabaseService from '../lib/services/DatabaseService';
-import ElementModifier from '../lib/modifiers/ElementModifier';
 import JsxParser from 'react-jsx-parser';
-import SlobyInput from '../../components/SlobyInput';
-import JSXStyle from 'styled-jsx/style';
 import Input from './editor-components/text-tool/Input';
 import interfaceIntegrator from '../lib/handlers/InteraceIntegrators/InterfaceSourceIntegrator';
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { ToolClickedContext } from '../../utils/contexts/ToolClicked';
 
 export default function SlobyPreviewSiteInterface() {
