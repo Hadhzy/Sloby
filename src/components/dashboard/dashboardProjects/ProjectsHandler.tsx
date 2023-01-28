@@ -21,7 +21,7 @@ export default function ProjectsHandler() {
           : ''
       }`}
     >
-      <p className="lg:text-lg font-bold text-dark-font-color flex gap-36">
+      <p className="lg:text-lg mb-6 font-bold text-dark-font-color flex gap-36">
         Projects
       </p>
       <Projects />
