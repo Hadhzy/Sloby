@@ -204,16 +204,14 @@ export default function Login() {
                 </Link>
               </div>
               <div
-                className={`${
-                  errorMsg ? 'p-2 px-6' : ''
-                } bg-red-mid rounded-xl`}
+                className={`${errorMsg ? 'p-2 px-6' : ''
+                  } bg-red-mid rounded-xl`}
               >
                 {errorMsg}
               </div>
               <div
-                className={`${
-                  successMsg ? 'p-2 px-6' : ''
-                } bg-green-mid rounded-xl`}
+                className={`${successMsg ? 'p-2 px-6' : ''
+                  } bg-green-mid rounded-xl`}
               >
                 {successMsg}
               </div>
