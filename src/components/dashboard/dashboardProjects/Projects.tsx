@@ -9,7 +9,6 @@ import supabase from '../../../config/supabase';
 import { TSlobyProject } from '../../../utils/types';
 import Project from './Project';
 import { ProjectsContext } from '../../../utils/contexts/ProjectsContext';
-import { getProjects } from '../../../utils/api';
 import { ProjectServices } from '../../../api/project.api';
 import JsxParser from 'react-jsx-parser';
 
