@@ -19,10 +19,10 @@ export default class Html {
      */
     switch (translate_to) {
       case 'div': {
-        return `<div id={'${uuidv4()}'}>
+        return `<div >
         <div className="w-full text-element">
           <div className="flex flex-col w-max justify-center items-center">
-            <Input />
+            <Input id={'${uuidv4()}'}/>
             <div className="bg-blue-600 mt-1 px-2 py-1 rounded-lg text-[11px]">
               93 x 64
             </div>
