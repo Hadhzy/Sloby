@@ -59,7 +59,14 @@ export default function SlobyPreviewSiteInterface() {
   // }
 
   return (
-    <motion.div className="w-full bg-interface-bg">
+    <motion.div className="w-full bg-interface-bg border border-yellow-300"
+
+    // onDragOver={(e) => {
+    //   e.preventDefault();
+    //   console.log(e.dataTransfer.getData("test"));
+    //   console.log(e);
+    // }}
+    >
       <motion.div
         animate={{ opacity: [0, 1], y: [10, 0] }}
         transition={{ duration: 0.3, delay: 0.1 }}
@@ -70,10 +77,10 @@ export default function SlobyPreviewSiteInterface() {
         </p>
 
         <div
-          className="ml-2 mt-3 flex flex-col gap-4"
+          className="ml-2 mt-3 flex flex-col gap-4 "
           onClick={(e: any) => console.log(e.target)}
         >
-          <JsxParser jsx={currentSource} components={{ Input }} />
+          <JsxParser className='relative' jsx={currentSource} components={{ Input }} />
         </div>
       </motion.div>
       ;

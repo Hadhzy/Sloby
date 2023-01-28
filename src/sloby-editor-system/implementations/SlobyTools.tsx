@@ -51,7 +51,7 @@ export default function SlobyTools() {
                 ) => {
                   setToolClicked(!toolClicked);
                   //* this how we will call the entity
-                  const projectDB = new ProjectLocalDb();
+                  // const projectDB = new ProjectLocalDb();
 
                   //* this is when adding single item and also retrieving it:
                   // -> await projectDB.add({ age: 44, id: '1', name: 'john doe' });
