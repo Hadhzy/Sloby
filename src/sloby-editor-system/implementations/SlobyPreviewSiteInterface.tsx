@@ -65,7 +65,7 @@ export default function SlobyPreviewSiteInterface() {
         </p>
 
         <div
-          className="ml-2 mt-3 flex flex-col gap-4 "
+          className="ml-2 mt-3 flex flex-col gap-4 ease-in-out duration-150"
           onClick={(e: any) => console.log(e.target)}
         >
           <JsxParser
