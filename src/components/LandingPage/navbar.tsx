@@ -17,9 +17,8 @@ export default function Navbar({ className }: { className: string }) {
 
   return (
     <header
-      className={`${className} ${
-        scroll ? '' : 'bg-dark-dark'
-      } fixed w-full z-50 text-center backdrop-blur-md drop-shadow-2xl transition-colors`}
+      className={` z-10  ${className} ${scroll ? '' : 'bg-dark-dark'
+        }  w-full  text-center backdrop-blur-md drop-shadow-2xl transition-colors`}
     >
       <div className="mx-auto max-w-7xl">
         <nav className="w-full my-2 hidden md:inline-flex flex-row justify-content-center gap-6">

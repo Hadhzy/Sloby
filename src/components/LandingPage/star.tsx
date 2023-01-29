@@ -17,22 +17,25 @@ export function Star() {
         'translate(-' + x * multiplier + 'px, -' + y * multiplier + 'px)'
       );
     });
+
+    return () => window.removeEventListener('mousemove', () => { });
   }, []);
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 1, duration: 1.5, ease: 'easeInOut' }}
-    >
-      <Image
-        src="/images/Star.svg"
-        className="w-2 absolute top-0 left-0 -z-10"
-        style={{ top: top, left: left, transform: transform }}
-        alt="Star"
-        width={20}
-        height={20}
-      />
-    </motion.div>
+    // <motion.div
+    //   initial={{ opacity: 0 }}
+    //   animate={{ opacity: 1 }}
+    //   transition={{ delay: 1, duration: 1.5, ease: 'easeInOut' }}
+    //   className="w-2 absolute"
+    // >
+    <Image
+      src="/images/Star.svg"
+      className="w-2 absolute top-0 left-0"
+      style={{ top: top, left: left, transform: transform }}
+      alt="Star"
+      width={20}
+      height={20}
+    />
+    // </motion.div>
   );
 }
