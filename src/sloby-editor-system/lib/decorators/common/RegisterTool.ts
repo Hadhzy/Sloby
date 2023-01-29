@@ -12,4 +12,4 @@
 //     data[tool_category] = constructor.name;
 //   };
 // }
-export { }
+export {};

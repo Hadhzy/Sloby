@@ -28,29 +28,25 @@
   }
 }
 
-.sloby-logo:hover{
+.sloby-logo:hover {
   animation: shake 500ms ease-in-out both;
 }
 
-@keyframes shake{
-  0%, 100%
-  {
-    transform: rotate(0deg) translate3d(0, 0, 0)
+@keyframes shake {
+  0%,
+  100% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
   }
-  20%
-  {
-    transform: rotate(6deg) translate3d(0, 0, 0)
+  20% {
+    transform: rotate(6deg) translate3d(0, 0, 0);
   }
-  40%
-  {
-    transform: rotate(-6deg) translate3d(0, 0, 0)
+  40% {
+    transform: rotate(-6deg) translate3d(0, 0, 0);
   }
-  60%
-  {
-    transform: rotate(4deg) translate3d(0, 0, 0)
+  60% {
+    transform: rotate(4deg) translate3d(0, 0, 0);
   }
-  80%
-  {
-    transform: rotate(-4deg) translate3d(0, 0, 0)
+  80% {
+    transform: rotate(-4deg) translate3d(0, 0, 0);
   }
 }

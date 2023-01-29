@@ -1,6 +1,4 @@
-import {
-  useSupabaseClient,
-} from '@supabase/auth-helpers-react';
+import { useSupabaseClient } from '@supabase/auth-helpers-react';
 import React, { useEffect } from 'react';
 import { TSlobyProject } from '../../../utils/types';
 import Project from './Project';

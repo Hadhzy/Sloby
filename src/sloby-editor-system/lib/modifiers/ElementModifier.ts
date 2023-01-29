@@ -5,4 +5,4 @@
 //     console.log(this.element);
 //   }
 // }
-export { }
+export {};
