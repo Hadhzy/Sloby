@@ -8,6 +8,10 @@ import { useSupabaseClient } from '@supabase/auth-helpers-react';
 import { ProjectsContext } from '../../utils/contexts/ProjectsContext';
 import { ProjectServices } from '../../api/project.api';
 import { ToolClickedContextProvider } from '../../utils/contexts/ToolClicked';
+import {
+  SpecificToolClickedContext,
+  SpecificToolClickedProvider,
+} from '../../utils/contexts/SpecificToolClicked';
 
 function SlobyEditor() {
   const router = useRouter();
@@ -35,14 +39,16 @@ function SlobyEditor() {
     <>
       <div className="select-none">
         <ToolClickedContextProvider>
-          <div className="flex h-screen flex-col justify-end">
-            <SlobyEditorInformation />
-            <div className="flex h-full text-white">
-              <SlobyTools />
-              <SlobyPreviewSiteInterface />
-              <SlobyModifier />
+          <SpecificToolClickedProvider>
+            <div className="flex h-screen flex-col justify-end">
+              <SlobyEditorInformation />
+              <div className="flex h-full text-white">
+                <SlobyTools />
+                <SlobyPreviewSiteInterface />
+                <SlobyModifier />
+              </div>
             </div>
-          </div>
+          </SpecificToolClickedProvider>
         </ToolClickedContextProvider>
       </div>
     </>

@@ -87,7 +87,7 @@ export default function Input({ id, initialValue = '' }: Props) {
       placeholder="type your text here..."
       type="text"
       onChange={handleChange}
-      className={`border translate-x-0 translate-y-0 tool-drag-element border-blue-600 hover:decoration-2 duration-75  decoration-blue-400 hover:underline ${BaseClassNames.BASIC_DIV} bg-transparent`}
+      className={`border-none hover:cursor-pointer translate-x-0 translate-y-0 tool-drag-element hover:decoration-2 duration-75  decoration-blue-400 hover:underline ${BaseClassNames.BASIC_DIV} bg-transparent`}
     />
   );
 }

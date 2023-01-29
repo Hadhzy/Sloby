@@ -15,6 +15,7 @@ import { ProjectServices } from '../../api/project.api';
 import { ProjectLocalDb } from '../lib/indexDB/projectLocalDb';
 import { ActionHandler } from '../lib/handlers/ActionHandler';
 import { ToolClickedContext } from '../../utils/contexts/ToolClicked';
+import { SpecificToolClickedContext } from '../../utils/contexts/SpecificToolClicked';
 
 export default function SlobyTools() {
   const supabase = useSupabaseClient();
@@ -22,6 +23,9 @@ export default function SlobyTools() {
   const { setTools, tools } = useContext(ProjectsContext);
   const router = useRouter();
   const { toolClicked, setToolClicked } = useContext(ToolClickedContext);
+  const { specificToolClicked, handleToolClicked } = useContext(
+    SpecificToolClickedContext
+  );
   useEffect(() => {
     // getTools(setTools, supabase);
     projectServices.getTools().then(({ data }) => setTools(data as any));
@@ -50,6 +54,12 @@ export default function SlobyTools() {
                   e: React.MouseEvent<HTMLDivElement, MouseEvent>
                 ) => {
                   setToolClicked(!toolClicked);
+                  handleToolClicked(
+                    tools.find(
+                      (tool: TSlobyTool) => tool.id === e.currentTarget.id
+                    ) as TSlobyTool,
+                    true
+                  );
                   //* this how we will call the entity
                   // const projectDB = new ProjectLocalDb();
 
