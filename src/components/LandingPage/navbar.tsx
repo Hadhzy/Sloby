@@ -2,16 +2,18 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useCallback, useEffect, useState } from 'react';
 import Tabs from './tabs';
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export default function Navbar({ className }: { className: string }) {
   const [scroll, setScroll] = useState(false);
 
-  useEffect(() => {
-    window.addEventListener('scroll', () => {
-      setScroll(window.scrollY > 20);
-    });
-  }, []);
+  if (typeof window !== 'undefined') {
+    useEffect(() => {
+      window.addEventListener('scroll', () => {
+        setScroll(window.scrollY > 20);
+      });
+    }, []);
+  }
 
   return (
     <header
@@ -51,7 +53,7 @@ export default function Navbar({ className }: { className: string }) {
             </a>
           </div> */}
           <Wrapper className="flex my-auto select-none">
-            <Tabs/>
+            <Tabs />
           </Wrapper>
           <svg
             role="img"

@@ -8,11 +8,13 @@ import { ScoopaBase } from 'scoopabase';
 
 export default class interfaceSourceIntegrator extends DbManager<any> {
   private static readonly tableName = 'project_sources_local_db';
+  currentInputId: boolean;
   constructor() {
     super(
       interfaceSourceIntegrator.tableName,
       new ScoopaBase(DbManager.dbName)
     );
+    this.currentInputId = false;
   }
 
   public async injectBaseSourceCode(
@@ -25,6 +27,10 @@ export default class interfaceSourceIntegrator extends DbManager<any> {
     } else {
       return this.updateItem(currentRoute, data.concat(injected_code));
     }
+  }
+
+  public generateInputId() {
+    return;
   }
 
   public async getProjectBasedSourceCode(id: string) {

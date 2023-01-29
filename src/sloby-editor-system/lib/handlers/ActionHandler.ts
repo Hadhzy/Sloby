@@ -1,5 +1,4 @@
-import { TSlobyTool } from '../../../utils/types';
-import { TCurrentRoute } from '../../utils/types';
+import { TCurrentRoute, TSlobyTool } from '../../../utils/types';
 import { DynamicTool } from './DynamicTool';
 
 export class ActionHandler {

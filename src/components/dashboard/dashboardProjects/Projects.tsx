@@ -1,17 +1,8 @@
-import {
-  useSession,
-  useSupabaseClient,
-  useUser,
-} from '@supabase/auth-helpers-react';
-import { SupabaseClient } from '@supabase/supabase-js';
-import React, { useEffect, useContext } from 'react';
-import supabase from '../../../config/supabase';
+import { useSupabaseClient } from '@supabase/auth-helpers-react';
+import React, { useEffect } from 'react';
 import { TSlobyProject } from '../../../utils/types';
 import Project from './Project';
-import { ProjectsContext } from '../../../utils/contexts/ProjectsContext';
-import { getProjects } from '../../../utils/api';
 import { ProjectServices } from '../../../api/project.api';
-import JsxParser from 'react-jsx-parser';
 
 export default function Projects() {
   const projectServices = new ProjectServices(useSupabaseClient());

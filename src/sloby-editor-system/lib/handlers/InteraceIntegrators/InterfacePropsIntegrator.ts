@@ -10,7 +10,10 @@ export default class InterfacePropsIntegrator extends DbManager<any> {
     this.currentId = '';
   }
 
-  public async addInputValues(id: string, value: string) {}
+  public async handleInputId(id: string) {
+    this.currentId = id;
+    return this.add('', id);
+  }
 
   public async handleInputValues(id: string, value: string) {
     return await this.add(value, id);
