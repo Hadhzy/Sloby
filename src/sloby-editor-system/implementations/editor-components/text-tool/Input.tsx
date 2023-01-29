@@ -5,10 +5,10 @@ import InterfacePropsIntegrator from '../../../lib/handlers/InteraceIntegrators/
 import { ToolClickedContext } from '../../../../utils/contexts/ToolClicked';
 import { handleClientScriptLoad } from 'next/script';
 
-export default function Input({ id }: { id: string }) {
+// export default function Input({ id }: { id: string }) {
+export default function Input() {
   const { toolClicked, setToolClicked } = useContext(ToolClickedContext);
   const [currentValue, setCurrentValue] = useState();
-  const [t, setT] = useState(0);
   const props = new InterfacePropsIntegrator();
 
   useEffect(() => {
@@ -53,7 +53,7 @@ export default function Input({ id }: { id: string }) {
         // console.log(matrix);
       }}
       draggable
-      id={id}
+      id={(Math.random() * 4).toString()}
       placeholder="type your text here..."
       type="text"
       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
