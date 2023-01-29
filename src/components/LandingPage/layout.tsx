@@ -11,7 +11,7 @@ export default function Layout({ children }: { children: any }) {
         <Navbar className="" />
       </motion.div>
       <Navbar className="invisible !block !static" />
-      <main>{children}</main>
+      <main className=''>{children}</main>
     </div>
   );
 }
