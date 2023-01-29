@@ -36,11 +36,11 @@ export default function Home() {
           src="/images/Planet%204.svg"
           className="w-28 bottom-12 right-72"
         />
-        {Array.from({ length: 20 }, (_, i) => (
+        {Array.from({ length: 25 }, (_, i) => (
           <Star key={i} />
         ))}
         <motion.div
-          className="w-full flex-center flex-col gap-8 lg:p-40 z-20"
+          className="w-full flex-center flex-col gap-8 lg:p-40"
           initial={{ opacity: 0, y: 300 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ ease: 'easeInOut', duration: 1, delay: 0.5 }}
@@ -54,11 +54,11 @@ export default function Home() {
           </p>
           <div className="mt-4 flex-center gap-16 text-md z-50">
             <Link href={'/auth/login'}>
-              <div className="z-20 p-4 px-12 bg-dark-dark ring-offset-4 ring-offset-back ring-2 ring-red-mid rounded-2xl">
+              <div className="z-20 p-4 px-12 bg-dark-dark ring-offset-4 ring-offset-back ring-2 ring-red-mid rounded-2xl hover:bg-dark-dark-hover hover:scale-[1.025] hover:cursor-pointer hover:ring-offset-[5px] duration-200">
                 Get Started
               </div>
             </Link>
-            <a className="z-20 p-4 px-12 bg-dark-dark ring-offset-4 ring-offset-back ring-2 ring-dark-dark rounded-2xl">
+            <a className="z-20 p-4 px-12 bg-dark-dark ring-offset-4 ring-offset-back ring-2 ring-dark-dark rounded-2xl hover:bg-dark-dark-hover hover:scale-[1.025] hover:cursor-pointer hover:ring-offset-[5px] hover:ring-dark-border duration-200">
               Documentation
             </a>
           </div>
