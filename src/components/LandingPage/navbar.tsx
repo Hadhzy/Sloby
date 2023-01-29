@@ -23,7 +23,7 @@ export default function Navbar({ className }: { className: string }) {
             <Image
               alt="Sloby Logo"
               src="/images/Sloby Logo Dark.svg"
-              className="h-auto w-28 mr-3 select-none"
+              className="h-auto w-28 mr-3 select-none sloby-logo"
               width={20}
               height={20}
             />
@@ -50,7 +50,7 @@ export default function Navbar({ className }: { className: string }) {
           </div>
           <svg
             role="img"
-            className="ml-auto w-10 fill-white hover:fill-red-light transition-colors select-none"
+            className="flex ml-auto my-auto w-10 fill-white hover:fill-red-light transition-colors select-none cursor-pointer"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
           >

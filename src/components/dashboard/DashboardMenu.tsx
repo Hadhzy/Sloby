@@ -17,7 +17,7 @@ export default function DashboardMenu({ className }: { className?: string }) {
         <Link href="/editor/dashboard">
           <Image
             alt="Sloby Logo"
-            className="mt-[10px]"
+            className="mt-[10px] sloby-logo"
             src={'/images/Sloby Logo Dark.svg'}
             width={70}
             height={70}
