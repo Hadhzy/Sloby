@@ -26,15 +26,15 @@ const tabsData = [
 ];
 
 const Tabs = () => {
-  const [tabBoundingBox, setTabBoundingBox] = React.useState(null);
-  const [wrapperBoundingBox, setWrapperBoundingBox] = React.useState(null);
-  const [highlightedTab, setHighlightedTab] = React.useState(null);
-  const [isHoveredFromNull, setIsHoveredFromNull] = React.useState(true);
+  const [tabBoundingBox, setTabBoundingBox] = React.useState<any>(null);
+  const [wrapperBoundingBox, setWrapperBoundingBox] = React.useState<any>(null);
+  const [highlightedTab, setHighlightedTab] = React.useState<any>(null);
+  const [isHoveredFromNull, setIsHoveredFromNull] = React.useState<any>(true);
 
-  const highlightRef = React.useRef(null);
-  const wrapperRef = React.useRef(null);
+  const highlightRef = React.useRef<any>(null);
+  const wrapperRef = React.useRef<any>(null);
 
-  const repositionHighlight = (e, tab) => {
+  const repositionHighlight = (e:any, tab:any) => {
     setTabBoundingBox(e.target.getBoundingClientRect());
     setWrapperBoundingBox(wrapperRef.current.getBoundingClientRect());
     setIsHoveredFromNull(!highlightedTab);
@@ -61,40 +61,15 @@ const Tabs = () => {
   }
 
   return (
-    <TabsNav ref={wrapperRef} onMouseLeave={resetHighlight}>
-      <TabsHighlight ref={highlightRef} style={highlightStyles} />
+    <div ref={wrapperRef} onMouseLeave={resetHighlight} className="relative">
+      <div ref={highlightRef} style={highlightStyles} className="nav-highlight"></div>
       {tabsData.map((tab) => (
-        <Link href={tab.link}>
-          <Tab key={tab.value} onMouseOver={(ev) => repositionHighlight(ev, tab)} className="nav-button">
-            {tab.title}
-          </Tab>
+        <Link href={tab.link} key={tab.value} onMouseOver={(ev) => repositionHighlight(ev, tab)} className="nav-button">
+          {tab.title}
         </Link>
       ))}
-    </TabsNav>
+    </div>
   );
 };
-
-const TabsNav = styled.div`
-  position: relative;
-`;
-
-const Tab = styled.a`
-  padding: 16px 12px;
-  display: inline-block;
-  position: relative;
-  cursor: pointer;
-  transition: color 250ms;
-`;
-
-const TabsHighlight = styled.div`
-  background: rgba(50, 50, 50, 0.5);
-  position: absolute;
-  top: 10px;
-  left: 0;
-  border-radius: 4px;
-  height: 32px;
-  transition: 0.15s ease;
-  transition-property: width, transform, opacity;
-`;
 
 export default Tabs;
