@@ -15,22 +15,21 @@ export default function Input() {
   const integrator = new interfaceSourceIntegrator();
   const [currentInputId, setCurrentInputId] = useState<string>('');
 
-  async function currentInpuId() {
-    setCurrentInputId(
-      toolClicked
-        ? await props.handleInputId(uuidv4())
-        : await props.getInputId()
-    );
-  }
+  // async function currentInpuId() {
+  //   setCurrentInputId(
+  //     toolClicked
+  //       ? await props.handleInputId(uuidv4())
+  //       : await props.getInputId()
+  //   );
+  // }
 
   useEffect(() => {
-    currentInpuId();
     // async function handleInputs() {
     //   const value = await props.getSingle(id);
     //   setInputValues({ ...inputValues, [id]: value });
     // }
     // handleInputs();
-  }, [toolClicked]);
+  }, []);
 
   // useEffect(() => {
   //   new InterfacePropsIntegrator().addInputValues()
@@ -66,7 +65,7 @@ export default function Input() {
         // console.log(matrix);
       }}
       draggable
-      id={props.currentId}
+      id={''}
       placeholder="type your text here..."
       type="text"
       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>

@@ -1,42 +1,55 @@
-import Link from "next/link";
-import React from "react";
-import styled from "styled-components";
-
+import Link from 'next/link';
+import React, { useEffect } from 'react';
+import styled from 'styled-components';
+import { useRouter } from 'next/router';
 const tabsData = [
   {
-    title: "Quick Start",
-    value: "Quick Start",
-    link: "/quickstart"
+    title: 'Quick Start',
+    value: 'Quick Start',
+    link: '/quickstart',
   },
   {
-    title: "Documentation",
-    value: "Documentation",
-    link: "/documentation"
+    title: 'Documentation',
+    value: 'Documentation',
+    link: '/documentation',
   },
   {
-    title: "Templates",
-    value: "Templates",
-    link: "/templates"
+    title: 'Templates',
+    value: 'Templates',
+    link: '/templates',
   },
   {
-    title: "Blog",
-    value: "Blog",
-    link: "/blog"
-  }
+    title: 'Blog',
+    value: 'Blog',
+    link: '/blog',
+  },
 ];
 
 const Tabs = () => {
-  const [tabBoundingBox, setTabBoundingBox] = React.useState(null);
-  const [wrapperBoundingBox, setWrapperBoundingBox] = React.useState(null);
+  const [tabBoundingBox, setTabBoundingBox] = React.useState<{
+    width: string;
+    left: number;
+  }>({ width: '', left: 0 });
+  const [wrapperBoundingBox, setWrapperBoundingBox] = React.useState<{
+    left: number;
+  }>({ left: 0 });
   const [highlightedTab, setHighlightedTab] = React.useState(null);
   const [isHoveredFromNull, setIsHoveredFromNull] = React.useState(true);
 
   const highlightRef = React.useRef(null);
-  const wrapperRef = React.useRef(null);
+  const wrapperRef = React.useRef<any>(null);
 
-  const repositionHighlight = (e, tab) => {
-    setTabBoundingBox(e.target.getBoundingClientRect());
-    setWrapperBoundingBox(wrapperRef.current.getBoundingClientRect());
+  const repositionHighlight = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    tab: any
+  ) => {
+    const { width, left } = (
+      e.currentTarget! as HTMLElement
+    ).getBoundingClientRect();
+    setTabBoundingBox({ width: `${width}px`, left });
+    if (wrapperRef !== null) {
+      setWrapperBoundingBox(wrapperRef!.current!.getBoundingClientRect());
+    }
     setIsHoveredFromNull(!highlightedTab);
     setHighlightedTab(tab);
   };
@@ -48,24 +61,31 @@ const Tabs = () => {
     opacity: 0,
     width: '',
     transform: '',
-    left: ''
-}
+    left: '',
+  };
 
-  if (tabBoundingBox && wrapperBoundingBox) {
-    highlightStyles.transitionDuration = isHoveredFromNull ? "0ms" : "150ms";
-    highlightStyles.opacity = highlightedTab ? 1 : 0;
-    highlightStyles.width = `${tabBoundingBox.width}px`;
-    highlightStyles.transform = `translate(${
-      tabBoundingBox.left - wrapperBoundingBox.left
-    }px)`;
+  if (typeof window !== 'undefined') {
+    if (tabBoundingBox && wrapperBoundingBox) {
+      highlightStyles.transitionDuration = isHoveredFromNull ? '0ms' : '150ms';
+      highlightStyles.opacity = highlightedTab ? 1 : 0;
+      highlightStyles.width = `${tabBoundingBox.width}px`;
+      highlightStyles.transform = `translate(${
+        tabBoundingBox.left - wrapperBoundingBox.left
+      }px)`;
+    }
   }
-
   return (
     <TabsNav ref={wrapperRef} onMouseLeave={resetHighlight}>
       <TabsHighlight ref={highlightRef} style={highlightStyles} />
       {tabsData.map((tab) => (
         <Link href={tab.link}>
-          <Tab key={tab.value} onMouseOver={(ev) => repositionHighlight(ev, tab)} className="nav-button">
+          <Tab
+            key={tab.value}
+            onMouseOver={(
+              ev: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+            ) => repositionHighlight(ev, tab)}
+            className="nav-button"
+          >
             {tab.title}
           </Tab>
         </Link>
