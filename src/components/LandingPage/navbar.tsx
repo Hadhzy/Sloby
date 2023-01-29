@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useCallback, useEffect, useState } from 'react';
+import Tabs from './tabs';
+import styled from "styled-components";
 
 export default function Navbar({ className }: { className: string }) {
   const [scroll, setScroll] = useState(false);
@@ -28,7 +30,7 @@ export default function Navbar({ className }: { className: string }) {
               height={20}
             />
           </Link>
-          <div className="flex-center select-none">
+          {/* <div className="flex-center select-none">
             <a className="nav-button" href="/quickstart">
               Quick Start
             </a>
@@ -47,7 +49,10 @@ export default function Navbar({ className }: { className: string }) {
             <a className="nav-button" href="/blog">
               Blog
             </a>
-          </div>
+          </div> */}
+          <Wrapper className="flex my-auto select-none">
+            <Tabs/>
+          </Wrapper>
           <svg
             role="img"
             className="flex ml-auto my-auto w-10 fill-white hover:fill-red-light transition-colors select-none cursor-pointer"
@@ -62,3 +67,8 @@ export default function Navbar({ className }: { className: string }) {
     </header>
   );
 }
+
+const Wrapper = styled.div`
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui,
+    helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
+`;
