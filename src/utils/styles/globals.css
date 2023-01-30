@@ -73,3 +73,15 @@
     transform: rotate(-4deg) translate3d(0, 0, 0)
   }
 }
+<<<<<<< Updated upstream
+=======
+
+@media (max-width: 350px) {
+  .xs\:flex-col {
+    flex-direction: column;
+  }
+  .xs\:flex-row {
+    flex-direction: row;
+  }
+}
+>>>>>>> Stashed changes

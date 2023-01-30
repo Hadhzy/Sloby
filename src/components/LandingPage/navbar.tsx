@@ -52,9 +52,9 @@ export default function Navbar({ className }: { className: string }) {
               Blog
             </a>
           </div> */}
-          <Wrapper className="flex my-auto select-none">
+          <div className="flex my-auto select-none">
             <Tabs />
-          </Wrapper>
+          </div>
           <svg
             role="img"
             className="flex ml-auto my-auto w-10 fill-white hover:fill-red-light transition-colors select-none cursor-pointer"
@@ -69,8 +69,3 @@ export default function Navbar({ className }: { className: string }) {
     </header>
   );
 }
-
-const Wrapper = styled.div`
-  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui,
-    helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
-`;
