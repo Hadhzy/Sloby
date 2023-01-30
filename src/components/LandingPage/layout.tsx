@@ -2,7 +2,7 @@ import Navbar from './navbar';
 import { motion } from 'framer-motion';
 export default function Layout({ children }: { children: any }) {
   return (
-    <div className="bg-back min-h-screen text-white">
+    <div className="bg-black min-h-screen text-white">
       <motion.div
         initial={{ opacity: 0, y: -500, scale: 0 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -11,7 +11,7 @@ export default function Layout({ children }: { children: any }) {
         <Navbar className="" />
       </motion.div>
       <Navbar className="invisible !block !static" />
-      <main>{children}</main>
+      <main className=''>{children}</main>
     </div>
   );
 }
