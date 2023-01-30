@@ -5,8 +5,6 @@ import InterfacePropsIntegrator from '../../../lib/handlers/InteraceIntegrators/
 import { ToolClickedContext } from '../../../../utils/contexts/ToolClicked';
 import { handleClientScriptLoad } from 'next/script';
 import interfaceSourceIntegrator from '../../../lib/handlers/InteraceIntegrators/InterfaceSourceIntegrator';
-import router from 'next/router';
-import { CurrentIdContext } from '../../../../utils/contexts/CurrentId';
 
 interface Props {
   id: string;
@@ -22,8 +20,6 @@ export default function Input({ id, initialValue = '' }: Props) {
   const integrator = new interfaceSourceIntegrator();
   const [currentInputId, setCurrentInputId] = useState<string>('');
   const [value, setValue] = useState(initialValue);
-  const [currentSource, setCurrentSource] = useState();
-  const { currentId, setCurrentId } = useContext(CurrentIdContext);
 
   // async function currentInpuId() {
   //   setCurrentInputId(
@@ -35,7 +31,7 @@ export default function Input({ id, initialValue = '' }: Props) {
 
   useEffect(() => {
     async function handleInput() {
-      const storedValue: string = await props.getSingle(currentId);
+      const storedValue: string = await props.getSingle(id);
       if (storedValue) {
         setValue(storedValue);
       }
@@ -48,8 +44,11 @@ export default function Input({ id, initialValue = '' }: Props) {
   }, [id]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.id, e.target.value);
+    setValue(e.target.value);
+    props.add(e.target.value, id);
   };
+
+  console.log(props.getAll());
 
   // useEffect(() => {
   //   new InterfacePropsIntegrator().addInputValues()
