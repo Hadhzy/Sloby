@@ -54,12 +54,6 @@ export default function SlobyTools() {
                   e: React.MouseEvent<HTMLDivElement, MouseEvent>
                 ) => {
                   setToolClicked(!toolClicked);
-                  handleToolClicked(
-                    tools.find(
-                      (tool: TSlobyTool) => tool.id === e.currentTarget.id
-                    ) as TSlobyTool,
-                    true
-                  );
                   //* this how we will call the entity
                   // const projectDB = new ProjectLocalDb();
 
