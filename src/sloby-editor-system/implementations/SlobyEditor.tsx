@@ -40,7 +40,7 @@ function SlobyEditor() {
       <div className="select-none">
         <ToolClickedContextProvider>
           <CurrentIdContextProvider>
-            <div className="flex h-screen flex-col justify-end">
+            <div className="flex h-full flex-col justify-end">
               <SlobyEditorInformation />
               <div className="flex h-full text-white">
                 <SlobyTools />

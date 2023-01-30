@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 export default function SlobyModifier() {
   return (
-    <div className="w-1/4  bg-tools-bg text-white h-full">
+    <div className="w-1/4 bg-tools-bg text-white">
       <motion.div
         transition={{ delay: 1.2, duration: 0.3 }}
         animate={{ opacity: [0, 1], scale: [0, 1] }}
