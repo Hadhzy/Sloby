@@ -16,9 +16,9 @@ type TSpecificToolClicked = {
   handleToolClicked: (currentTool: TSlobyTool, value: boolean) => void
 }
 
-export const SpecificToolClickedContext = createContext<TSpecificToolClicked>(undefined!)
+export const CurrentIdContext = createContext<TSpecificToolClicked>(undefined!)
 
-export const SpecificToolClickedProvider = ({ children }: { children: any }) => {
+export const CurrentIdContextProvider = ({ children }: { children: any }) => {
   const [specificToolClicked, setSpecificToolClicked] = useState({
       TextCreationTool: false
     })
@@ -28,7 +28,7 @@ export const SpecificToolClickedProvider = ({ children }: { children: any }) => 
     }
 
     return (
-      <SpecificToolClickedContext.Provider
+      <CurrentIdContext.Provider
         value={{
           specificToolClicked,
           setSpecificToolClicked,
@@ -36,6 +36,6 @@ export const SpecificToolClickedProvider = ({ children }: { children: any }) => 
         }}
       >
         {children}
-      </SpecificToolClickedContext.Provider>
+      </CurrentIdContext.Provider>
     )
   }

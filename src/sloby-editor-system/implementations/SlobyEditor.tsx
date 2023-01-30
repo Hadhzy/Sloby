@@ -9,9 +9,9 @@ import { ProjectsContext } from '../../utils/contexts/ProjectsContext';
 import { ProjectServices } from '../../api/project.api';
 import { ToolClickedContextProvider } from '../../utils/contexts/ToolClicked';
 import {
-  SpecificToolClickedContext,
-  SpecificToolClickedProvider,
-} from '../../utils/contexts/SpecificToolClicked';
+  CurrentIdContext,
+  CurrentIdContextProvider,
+} from '../../utils/contexts/CurrentId';
 
 function SlobyEditor() {
   const router = useRouter();
@@ -39,7 +39,7 @@ function SlobyEditor() {
     <>
       <div className="select-none">
         <ToolClickedContextProvider>
-          <SpecificToolClickedProvider>
+          <CurrentIdContextProvider>
             <div className="flex h-screen flex-col justify-end">
               <SlobyEditorInformation />
               <div className="flex h-full text-white">
@@ -48,7 +48,7 @@ function SlobyEditor() {
                 <SlobyModifier />
               </div>
             </div>
-          </SpecificToolClickedProvider>
+          </CurrentIdContextProvider>
         </ToolClickedContextProvider>
       </div>
     </>

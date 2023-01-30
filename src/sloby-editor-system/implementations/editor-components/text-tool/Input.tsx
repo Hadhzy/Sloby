@@ -5,6 +5,7 @@ import InterfacePropsIntegrator from '../../../lib/handlers/InteraceIntegrators/
 import { ToolClickedContext } from '../../../../utils/contexts/ToolClicked';
 import { handleClientScriptLoad } from 'next/script';
 import interfaceSourceIntegrator from '../../../lib/handlers/InteraceIntegrators/InterfaceSourceIntegrator';
+import router from 'next/router';
 
 interface Props {
   id: string;
@@ -20,6 +21,7 @@ export default function Input({ id, initialValue = '' }: Props) {
   const integrator = new interfaceSourceIntegrator();
   const [currentInputId, setCurrentInputId] = useState<string>('');
   const [value, setValue] = useState(initialValue);
+  const [currentSource, setCurrentSource] = useState();
 
   // async function currentInpuId() {
   //   setCurrentInputId(
