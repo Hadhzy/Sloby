@@ -11,28 +11,22 @@ import { TSlobyTool } from '../types';
 import PreviousMap from 'postcss/lib/previous-map';
 
 type TSpecificToolClicked = {
-  specificToolClicked: { [key: string]: boolean },
-  setSpecificToolClicked: Dispatch<SetStateAction<{ TextCreationTool: boolean }>>,
-  handleToolClicked: (currentTool: TSlobyTool, value: boolean) => void
+  currentId: string
+  setCurrentId: (id: string) => void
 }
 
 export const CurrentIdContext = createContext<TSpecificToolClicked>(undefined!)
 
 export const CurrentIdContextProvider = ({ children }: { children: any }) => {
-  const [specificToolClicked, setSpecificToolClicked] = useState({
-      TextCreationTool: false
-    })
+ const [currentId, setCurrentId] = useState<string>('')
 
-    function handleToolClicked(currentTool: TSlobyTool, value: boolean) {
-      return setSpecificToolClicked({ ...specificToolClicked, [currentTool.tool_name]: value })
-    }
+    
 
     return (
       <CurrentIdContext.Provider
         value={{
-          specificToolClicked,
-          setSpecificToolClicked,
-          handleToolClicked
+          currentId,
+          setCurrentId
         }}
       >
         {children}
