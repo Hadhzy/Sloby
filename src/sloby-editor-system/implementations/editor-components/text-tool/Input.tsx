@@ -6,6 +6,7 @@ import { ToolClickedContext } from '../../../../utils/contexts/ToolClicked';
 import { handleClientScriptLoad } from 'next/script';
 import interfaceSourceIntegrator from '../../../lib/handlers/InteraceIntegrators/InterfaceSourceIntegrator';
 import router from 'next/router';
+import { CurrentIdContext } from '../../../../utils/contexts/CurrentId';
 
 interface Props {
   id: string;
@@ -22,6 +23,7 @@ export default function Input({ id, initialValue = '' }: Props) {
   const [currentInputId, setCurrentInputId] = useState<string>('');
   const [value, setValue] = useState(initialValue);
   const [currentSource, setCurrentSource] = useState();
+  const { currentId, setCurrentId } = useContext(CurrentIdContext);
 
   // async function currentInpuId() {
   //   setCurrentInputId(
@@ -33,7 +35,7 @@ export default function Input({ id, initialValue = '' }: Props) {
 
   useEffect(() => {
     async function handleInput() {
-      const storedValue: string = await props.getSingle(id);
+      const storedValue: string = await props.getSingle(currentId);
       if (storedValue) {
         setValue(storedValue);
       }
@@ -46,8 +48,7 @@ export default function Input({ id, initialValue = '' }: Props) {
   }, [id]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
-    props.add(e.target.value, id);
+    console.log(e.target.id, e.target.value);
   };
 
   // useEffect(() => {
