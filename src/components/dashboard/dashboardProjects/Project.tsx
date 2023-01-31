@@ -8,7 +8,14 @@ import { ProjectsContext } from '../../../utils/contexts/ProjectsContext';
 import { LoadingContext } from '../../../utils/contexts/Loading';
 import { useSession } from '@supabase/auth-helpers-react';
 import { useRouter } from 'next/router';
-export default function Project({ project }: { project: TSlobyProject }) {
+import { motion } from 'framer-motion';
+export default function Project({
+  project,
+  index,
+}: {
+  project: TSlobyProject;
+  index: number;
+}) {
   const { actionBar, setActionBar, setCurrentProject, currentProject } =
     useContext(ProjectsContext);
   const { loading, setLoading } = useContext(LoadingContext);
@@ -16,10 +23,16 @@ export default function Project({ project }: { project: TSlobyProject }) {
   const router = useRouter();
 
   return (
-    <div
+    <motion.div
       className="flex relative cursor-pointer flex-wrap w-72 ease-in-out duration-200 hover:scale-105 hover:translate-y-[-5px]"
       onClick={() => {
         router.push(`/editor/${project.id}`);
+      }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{
+        delay: index * 0.2,
       }}
     >
       <div className="w-full rounded-t-3xl flex justify-center bg-dark-darkest">
@@ -64,6 +77,6 @@ export default function Project({ project }: { project: TSlobyProject }) {
           Edited last day
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 }

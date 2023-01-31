@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { TSlobyProject } from '../../../utils/types';
 import Project from './Project';
 import { ProjectServices } from '../../../api/project.api';
+import { motion } from 'framer-motion';
 
 export default function Projects() {
   const projectServices = new ProjectServices(useSupabaseClient());
@@ -19,11 +20,14 @@ export default function Projects() {
         'grid md:grid-cols-2 gap-y-5 lg:grid-cols-3 lg:gap-x-5 xl:grid-cols-4'
       }
     >
-      {projects.map((project: TSlobyProject) => {
+      {projects.map((project: TSlobyProject, index: number) => {
         return (
-          <div key={project.id} className="flex flex-wrap gap-20 border-white">
-            <Project key={project.id} project={project} />
-          </div>
+          <motion.div
+            key={project.id}
+            className="flex flex-wrap gap-20 border-white"
+          >
+            <Project key={project.id} project={project} index={index} />
+          </motion.div>
         );
       })}
     </div>
