@@ -37,7 +37,11 @@ export default function Input({
 
   const { handleChange } = useContext(InputsContext);
 
-  const handleDelete = (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => {
+  const handleDelete = (
+    e:
+      | React.MouseEvent<SVGSVGElement, MouseEvent>
+      | React.KeyboardEvent<HTMLInputElement>
+  ) => {
     return setInputs(inputs.filter((item) => item.id !== e.currentTarget.id));
   };
 
@@ -49,7 +53,7 @@ export default function Input({
     if (inputRef) {
       inputRef.current.focus();
     }
-  }, [inputs]);
+  }, [toolClicked]);
 
   // useEffect(() => {
   //   async function handleInput() {
@@ -92,6 +96,11 @@ export default function Input({
           // console.log(matrix);
         }}
         ref={inputRef}
+        onKeyDown={(e) => {
+          if (e.key === 'Delete') {
+            return handleDelete(e);
+          }
+        }}
         draggable
         id={input.id}
         value={input.value}
