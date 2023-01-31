@@ -11,14 +11,4 @@ export default class InterfacePropsIntegrator extends DbManager<any> {
     super(InterfacePropsIntegrator.tableName, new ScoopaBase(DbManager.dbName));
     this.currentId = '';
   }
-
-  // public async addNewInput(currentRoute: TCurrentRoute) {
-  //   const previousItem = await this.getSingle(currentRoute);
-  //   if (previousItem) {
-  //     return await this.add(
-  //       [...previousItem, { value: '', id: uuidv4 }],
-  //       currentRoute
-  //     );
-  //   } else return await this.add([{ value: '', id: uuidv4() }], currentRoute);
-  // }
 }

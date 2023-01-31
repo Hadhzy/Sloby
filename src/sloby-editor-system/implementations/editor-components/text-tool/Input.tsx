@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 import { BaseClassNames } from '../../../lib/grammar/BaseClassNames';
 import { v4 as uuidv4 } from 'uuid';
 import InterfacePropsIntegrator from '../../../lib/handlers/InteraceIntegrators/InterfacePropsIntegrator';
@@ -10,7 +10,7 @@ import JsxParser from 'react-jsx-parser';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faEllipsisVertical,
-  faTrashCan,
+  faTrash,
   faFaceSmile,
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -32,12 +32,24 @@ export default function Input({
   const integrator = new interfaceSourceIntegrator();
   const [value, setValue] = useState('');
   const [optionsState, setOptionsState] = useState(false);
+  const { inputs, setInputs } = useContext(InputsContext);
+  const inputRef = useRef<any>();
 
   const { handleChange } = useContext(InputsContext);
+
+  const handleDelete = (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => {
+    return setInputs(inputs.filter((item) => item.id !== e.currentTarget.id));
+  };
 
   useEffect(() => {
     console.log('Adding new an input');
   }, [toolClicked]);
+
+  useEffect(() => {
+    if (inputRef) {
+      inputRef.current.focus();
+    }
+  }, [inputs]);
 
   // useEffect(() => {
   //   async function handleInput() {
@@ -61,7 +73,7 @@ export default function Input({
   };
 
   return (
-    <div className="max-w-fit relative group rounded hover:shadow-[0_0_2px_2px_rgba(255,255,255,0.9)] hover:shadow-white overflow-hidden">
+    <div className="max-w-fit relative group rounded overflow-hidden ease-in-out duration-150">
       <input
         // onDragStart={(e) => {
         // window.addEventListener('mouseover', (e) => {
@@ -79,13 +91,14 @@ export default function Input({
           // const matrix = new WebKitCSSMatrix(style.transform);
           // console.log(matrix);
         }}
+        ref={inputRef}
         draggable
         id={input.id}
         value={input.value}
         onChange={(e) => handleChange(e, index)}
         placeholder="type your text here..."
         type="text"
-        className={`border-none mt-0 hover:cursor-pointer translate-x-0 translate-y-0 tool-drag-element duration-75 ${BaseClassNames.BASIC_DIV} bg-transparent`}
+        className={` mt-0 hover:cursor-pointer border-transparent  translate-x-0 translate-y-0 tool-drag-element duration-75 ${BaseClassNames.BASIC_DIV} bg-transparent`}
       />
       <button
         onClick={optionsToggle}
@@ -99,16 +112,21 @@ export default function Input({
       <div
         className={`absolute top-0 right-0 ${
           optionsState ? 'translate-y-0' : '-translate-y-6'
-        } transition transition-all`}
+        } transition-all`}
       >
         <button>
-          <FontAwesomeIcon icon={faFaceSmile} className="text-lg p-1" />
+          <FontAwesomeIcon icon={faFaceSmile} className="p-1" />
         </button>
         <button>
-          <FontAwesomeIcon icon={faFaceSmile} className="text-lg p-1" />
+          <FontAwesomeIcon icon={faFaceSmile} className="p-1" />
         </button>
         <button onClick={optionsToggle}>
-          <FontAwesomeIcon icon={faTrashCan} className="text-lg p-1" />
+          <FontAwesomeIcon
+            icon={faTrash}
+            id={input.id}
+            onClick={(e) => handleDelete(e)}
+            className=" p-1 text-red-500 hover:scale-105 ease-in-out duration-100"
+          />
         </button>
       </div>
     </div>
