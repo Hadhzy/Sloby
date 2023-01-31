@@ -22,7 +22,7 @@ export default class Html {
         return `<div>
         <div className="w-full text-element">
           <div className="flex flex-col w-max justify-center items-center">
-            <Input id={'${uuidv4()}'}/>
+            <Input />
           </div>
         </div>
       </div>`;

@@ -12,6 +12,10 @@ import {
   CurrentIdContext,
   CurrentIdContextProvider,
 } from '../../utils/contexts/CurrentId';
+import {
+  InputsContext,
+  InputsContextProvider,
+} from '../../utils/contexts/Inputs';
 
 function SlobyEditor() {
   const router = useRouter();
@@ -40,14 +44,16 @@ function SlobyEditor() {
       <div className="select-none">
         <ToolClickedContextProvider>
           <CurrentIdContextProvider>
-            <div className="flex h-full flex-col justify-end">
-              <SlobyEditorInformation />
-              <div className="flex h-full text-white">
-                <SlobyTools />
-                <SlobyPreviewSiteInterface />
-                <SlobyModifier />
+            <InputsContextProvider>
+              <div className="flex h-full flex-col justify-end">
+                <SlobyEditorInformation />
+                <div className="flex h-full text-white">
+                  <SlobyTools />
+                  <SlobyPreviewSiteInterface />
+                  <SlobyModifier />
+                </div>
               </div>
-            </div>
+            </InputsContextProvider>
           </CurrentIdContextProvider>
         </ToolClickedContextProvider>
       </div>

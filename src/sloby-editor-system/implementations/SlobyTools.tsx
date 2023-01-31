@@ -18,6 +18,7 @@ import { ToolClickedContext } from '../../utils/contexts/ToolClicked';
 import { v4 as uuidv4 } from 'uuid';
 import { CurrentIdContext } from '../../utils/contexts/CurrentId';
 import { log } from 'console';
+import { InputsContext } from '../../utils/contexts/Inputs';
 
 export default function SlobyTools() {
   const supabase = useSupabaseClient();
@@ -26,6 +27,7 @@ export default function SlobyTools() {
   const router = useRouter();
   const { toolClicked, setToolClicked } = useContext(ToolClickedContext);
   const { currentId, setCurrentId } = useContext(CurrentIdContext);
+  const { addInput } = useContext(InputsContext);
 
   useEffect(() => {
     // getTools(setTools, supabase);
@@ -55,7 +57,7 @@ export default function SlobyTools() {
                   e: React.MouseEvent<HTMLDivElement, MouseEvent>
                 ) => {
                   setToolClicked(!toolClicked);
-                  setCurrentId(uuidv4());
+                  addInput();
                   //* this how we will call the entity
                   // const projectDB = new ProjectLocalDb();
 

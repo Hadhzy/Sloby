@@ -5,6 +5,8 @@ import InterfacePropsIntegrator from '../../../lib/handlers/InteraceIntegrators/
 import { ToolClickedContext } from '../../../../utils/contexts/ToolClicked';
 import { handleClientScriptLoad } from 'next/script';
 import interfaceSourceIntegrator from '../../../lib/handlers/InteraceIntegrators/InterfaceSourceIntegrator';
+import { InputsContext } from '../../../../utils/contexts/Inputs';
+import JsxParser from 'react-jsx-parser';
 
 interface Props {
   id: string;
@@ -12,58 +14,39 @@ interface Props {
 }
 
 // export default function Input({ id }: { id: string }) {
-export default function Input({ id, initialValue = '' }: Props) {
+export default function Input({
+  input,
+  index,
+}: {
+  input: { id: string; value: string };
+  index: number;
+}) {
   const { toolClicked, setToolClicked } = useContext(ToolClickedContext);
-  const [currentValue, setCurrentValue] = useState();
-  const [inputValues, setInputValues] = useState<{ [key: string]: string }>({});
   const props = new InterfacePropsIntegrator();
   const integrator = new interfaceSourceIntegrator();
-  const [currentInputId, setCurrentInputId] = useState<string>('');
-  const [value, setValue] = useState(initialValue);
+  const [value, setValue] = useState('');
 
-  // async function currentInpuId() {
-  //   setCurrentInputId(
-  //     toolClicked
-  //       ? await props.handleInputId(uuidv4())
-  //       : await props.getInputId()
-  //   );
-  // }
+  const { handleChange } = useContext(InputsContext);
 
   useEffect(() => {
-    async function handleInput() {
-      const storedValue: string = await props.getSingle(id);
-      if (storedValue) {
-        setValue(storedValue);
-      }
-    }
-    // async function handleInputs() {
-    //   const value = await props.getSingle(id);
-    //   setInputValues({ ...inputValues, [id]: value });
-    // }
-    handleInput();
-  }, [id]);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
-    props.add(e.target.value, id);
-  };
-
-  console.log(props.getAll());
+    console.log('Adding new an input');
+  }, [toolClicked]);
 
   // useEffect(() => {
-  //   new InterfacePropsIntegrator().addInputValues()
-  // }, [toolClicked]);
+  //   async function handleInput() {
+  //     const storedValue: string = await props.getSingle('');
+  //     if (storedValue) {
+  //       setValue(storedValue);
+  //     }
+  //   }
 
-  // useEffect(() => {
-  //   console.log("HERE");
-  //   document.addEventListener('mouseenter', (e) => {
+  //   handleInput();
+  // }, ['']);
 
-  //     console.log("X: " + e.clientX + " | " + "Y: " + e.clientY);
-  //     const item = document.querySelector('.tool-drag-element') as HTMLInputElement;
-  //     item.style.transform = `translate(${e.clientX}px,${e.clientY}px)`;
-  //   });
-  //   return () => window.removeEventListener('mouseover', () => { });
-  // }, [t])
+  // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   setValue(e.target.value);
+  //   props.add(e.target.value, '');
+  // };
 
   return (
     <input
@@ -84,11 +67,11 @@ export default function Input({ id, initialValue = '' }: Props) {
         // console.log(matrix);
       }}
       draggable
-      id={id}
-      value={value}
+      id={input.id}
+      value={input.value}
+      onChange={(e) => handleChange(e, index)}
       placeholder="type your text here..."
       type="text"
-      onChange={handleChange}
       className={`border-none hover:cursor-pointer translate-x-0 translate-y-0 tool-drag-element hover:decoration-2 duration-75  decoration-blue-400 hover:underline ${BaseClassNames.BASIC_DIV} bg-transparent`}
     />
   );
