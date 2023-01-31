@@ -24,7 +24,7 @@ export default function Input({
   input,
   index,
 }: {
-  input: { id: string; value: string };
+  input: { id: string; value: string; position: { x: number; y: number } };
   index: number;
 }) {
   const { toolClicked, setToolClicked } = useContext(ToolClickedContext);
@@ -43,6 +43,32 @@ export default function Input({
       | React.KeyboardEvent<HTMLInputElement>
   ) => {
     return setInputs(inputs.filter((item) => item.id !== e.currentTarget.id));
+  };
+
+  const handleMouseDown = (e: any) => {
+    inputRef.current.style.transition = 'none';
+    const mouseX = e.clientX;
+    const mouseY = e.clientY;
+    const { left, top } = inputRef.current.getBoundingClientRect();
+    const dx = mouseX - left;
+    const dy = mouseY - top;
+    const handleMouseMove = (e: any) => {
+      const x = e.clientX - dx;
+      const y = e.clientY - dy;
+      const currentInput = inputs.find(
+        (item) => item.id === e.currentTarget.id
+      );
+      if (currentInput) {
+        currentInput.position.x = x;
+        currentInput.position.y = y;
+        setInputs([...inputs, currentInput]);
+      }
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mouseup', () => {
+      inputRef.current.style.transition = 'all 0.2s ease-out';
+      window.removeEventListener('mousemove', handleMouseMove);
+    });
   };
 
   useEffect(() => {
@@ -77,7 +103,9 @@ export default function Input({
   };
 
   return (
-    <div className="max-w-fit relative group rounded overflow-hidden ease-in-out duration-150">
+    <div
+      className={`max-w-fit relative group rounded overflow-hidden ease-in-out duration-150`}
+    >
       <input
         // onDragStart={(e) => {
         // window.addEventListener('mouseover', (e) => {

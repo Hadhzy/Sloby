@@ -3,8 +3,8 @@ import {v4 as uuidv4} from 'uuid'
 
 
 type InputContext = {
-  inputs: Array<{ value: string, id: string }>,
-  setInputs: Dispatch<SetStateAction<{ value: string, id: string }[]>>
+  inputs: Array<{ value: string, id: string, position: {x: number, y: number} }>,
+  setInputs: Dispatch<SetStateAction<{ value: string, id: string, position: {x: number, y: number} }[]>>
   handleChange: (e: any, index: number) => void,
   addInput: () => void
 }
@@ -12,8 +12,8 @@ type InputContext = {
 export const InputsContext = createContext<InputContext>(undefined!)
 
 export const InputsContextProvider = ({ children }: { children: any }) => {
-  const [inputs, setInputs] = useState<Array<{ value: string, id: string }>>([
-    { value: '', id: uuidv4()}
+  const [inputs, setInputs] = useState<Array<{ value: string, id: string, position: {x: number, y: number} }>>([
+    { value: '', id: uuidv4(), position: {x: 0, y: 0} },
   ])
 
   const handleChange = (e: any, index: number) => {
@@ -23,7 +23,7 @@ export const InputsContextProvider = ({ children }: { children: any }) => {
   };
   
   const addInput = () => {
-    setInputs([...inputs, { value: '', id: uuidv4() }]);
+    setInputs([...inputs, { value: '', id: uuidv4(), position: {x: 0, y: 0} }]);
   }
 
 
