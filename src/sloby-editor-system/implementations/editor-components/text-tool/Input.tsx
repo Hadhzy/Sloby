@@ -7,6 +7,12 @@ import { handleClientScriptLoad } from 'next/script';
 import interfaceSourceIntegrator from '../../../lib/handlers/InteraceIntegrators/InterfaceSourceIntegrator';
 import { InputsContext } from '../../../../utils/contexts/Inputs';
 import JsxParser from 'react-jsx-parser';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faEllipsisVertical,
+  faTrashCan,
+  faFaceSmile,
+} from '@fortawesome/free-solid-svg-icons';
 
 interface Props {
   id: string;
@@ -25,6 +31,7 @@ export default function Input({
   const props = new InterfacePropsIntegrator();
   const integrator = new interfaceSourceIntegrator();
   const [value, setValue] = useState('');
+  const [optionsState, setOptionsState] = useState(false);
 
   const { handleChange } = useContext(InputsContext);
 
@@ -48,31 +55,62 @@ export default function Input({
   //   props.add(e.target.value, '');
   // };
 
+  const optionsToggle = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
+    setOptionsState(!optionsState);
+  };
+
   return (
-    <input
-      // onDragStart={(e) => {
-      // window.addEventListener('mouseover', (e) => {
-      // console.log("X: " + e.clientX + " | " + "Y: " + e.clientY);
-      // })
-      // }}
-      onDragEnd={(e) => {
-        // console.log("X: " + e.screenX + " | " + "Y: " + e.screenY);
-        const item = document.querySelector(
-          '.tool-drag-element'
-        ) as HTMLInputElement;
-        item.style.transform = `translate(${e.clientX}px,${e.clientY}px)`;
-        // console.log(window.getComputedStyle(item).getPropertyValue("transform"));
-        // const style = window.getComputedStyle(item);
-        // const matrix = new WebKitCSSMatrix(style.transform);
-        // console.log(matrix);
-      }}
-      draggable
-      id={input.id}
-      value={input.value}
-      onChange={(e) => handleChange(e, index)}
-      placeholder="type your text here..."
-      type="text"
-      className={`border-none hover:cursor-pointer translate-x-0 translate-y-0 tool-drag-element hover:decoration-2 duration-75  decoration-blue-400 hover:underline ${BaseClassNames.BASIC_DIV} bg-transparent`}
-    />
+    <div className="max-w-fit relative group rounded hover:shadow-[0_0_2px_2px_rgba(255,255,255,0.9)] hover:shadow-white overflow-hidden">
+      <input
+        // onDragStart={(e) => {
+        // window.addEventListener('mouseover', (e) => {
+        // console.log("X: " + e.clientX + " | " + "Y: " + e.clientY);
+        // })
+        // }}
+        onDragEnd={(e) => {
+          // console.log("X: " + e.screenX + " | " + "Y: " + e.screenY);
+          const item = document.querySelector(
+            '.tool-drag-element'
+          ) as HTMLInputElement;
+          item.style.transform = `translate(${e.clientX}px,${e.clientY}px)`;
+          // console.log(window.getComputedStyle(item).getPropertyValue("transform"));
+          // const style = window.getComputedStyle(item);
+          // const matrix = new WebKitCSSMatrix(style.transform);
+          // console.log(matrix);
+        }}
+        draggable
+        id={input.id}
+        value={input.value}
+        onChange={(e) => handleChange(e, index)}
+        placeholder="type your text here..."
+        type="text"
+        className={`border-none mt-0 hover:cursor-pointer translate-x-0 translate-y-0 tool-drag-element duration-75 ${BaseClassNames.BASIC_DIV} bg-transparent`}
+      />
+      <button
+        onClick={optionsToggle}
+        className={`absolute top-0 right-0 invisible group-hover:visible py-1 px-2 hover:scale-110  duration-150 ease-in-out ${
+          optionsState ? 'hidden' : 'visible'
+        } `}
+      >
+        <FontAwesomeIcon icon={faEllipsisVertical} className="text-lg" />
+      </button>
+
+      <div
+        className={`absolute top-0 right-0 ${
+          optionsState ? 'translate-y-0' : '-translate-y-6'
+        } transition transition-all`}
+      >
+        <button>
+          <FontAwesomeIcon icon={faFaceSmile} className="text-lg p-1" />
+        </button>
+        <button>
+          <FontAwesomeIcon icon={faFaceSmile} className="text-lg p-1" />
+        </button>
+        <button onClick={optionsToggle}>
+          <FontAwesomeIcon icon={faTrashCan} className="text-lg p-1" />
+        </button>
+      </div>
+    </div>
   );
 }
