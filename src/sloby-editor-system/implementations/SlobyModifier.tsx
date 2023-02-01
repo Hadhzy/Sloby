@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import Color from './editor-components/text-tool/Color';
+
 export default function SlobyModifier() {
   return (
     <div className="w-1/4 bg-tools-bg text-white">
@@ -11,7 +13,9 @@ export default function SlobyModifier() {
         <div className="border-b border-editor-border-color items-center w-full flex justify-center h-14">
           <p className="text-lg font-semibold">Sloby Modifier</p>
         </div>
-        <div className="ml-4 mt-4 font-semibold text-lg">Color:</div>
+        <div className="ml-4 mt-4 font-semibold text-lg">
+          <Color />
+        </div>
       </motion.div>
     </div>
   );
