@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+  --nav-sloby-h: 100px;
+}
+
 @layer components {
   .flex-center {
     @apply flex items-center justify-center;
@@ -28,7 +32,11 @@
   }
 }
 
-.nav-button {
+.nav-sloby{
+  height: var(--nav-sloby-h);
+}
+
+.nav-button{
   padding: 16px 12px;
   display: inline-block;
   position: relative;
@@ -47,7 +55,11 @@
   transition-property: width, transform, opacity;
 }
 
-.sloby-logo:hover {
+.hs-custom{
+  height: calc(100vh - var(--nav-sloby-h));
+}
+
+.sloby-logo:hover{
   animation: shake 500ms ease-in-out both;
 }
 
@@ -67,5 +79,22 @@
   }
   80% {
     transform: rotate(-4deg) translate3d(0, 0, 0);
+  }
+}
+
+@media (min-width: 1200px) {
+  .xsl\:max-w-7xl {
+    max-width: 80rem/* 1280px */;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+@media (max-width: 350px) {
+  .xs\:flex-col {
+    flex-direction: column;
+  }
+  .xs\:flex-row {
+    flex-direction: row;
   }
 }
