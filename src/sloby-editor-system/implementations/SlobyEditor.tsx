@@ -17,10 +17,6 @@ import {
   InputsContextProvider,
 } from '../../utils/contexts/Inputs';
 
-function year() {
-  return new Date().getFullYear()
-}
-
 function SlobyEditor() {
   const router = useRouter();
   const supabase = useSupabaseClient();
@@ -47,17 +43,18 @@ function SlobyEditor() {
     <>
       <div className="select-none">
         <ToolClickedContextProvider>
-          <div className="flex min-h-[100vh] h-fit flex-col justify-end">
-            <SlobyEditorInformation />
-            <div className="flex h-full text-white">
-              <SlobyTools />
-              <SlobyPreviewSiteInterface />
-              <SlobyModifier />
-            </div>
-            <div className="flex-center w-full h-full bg-tools-bg py-10">
-              <p className="text-gray-600 text-xl">FlurryGlo - {year()} © All rights Reserved</p>
-            </div>
-          </div>
+          <CurrentIdContextProvider>
+            <InputsContextProvider>
+              <div className="flex h-full flex-col justify-end">
+                <SlobyEditorInformation />
+                <div className="flex h-full text-white">
+                  <SlobyTools />
+                  <SlobyPreviewSiteInterface />
+                  <SlobyModifier />
+                </div>
+              </div>
+            </InputsContextProvider>
+          </CurrentIdContextProvider>
         </ToolClickedContextProvider>
       </div>
     </>
