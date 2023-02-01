@@ -46,35 +46,37 @@ export default function SlobyPreviewSiteInterface() {
   // }
 
   return (
-    <motion.div
-      className="w-full bg-interface-bg"
-
-      // onDragOver={(e) => {
-      //   e.preventDefault();
-      //   console.log(e.dataTransfer.getData("test"));
-      //   console.log(e);
-      // }}
-    >
+    <div className="w-full bg-tools-bg">
       <motion.div
-        animate={{ opacity: [0, 1], y: [10, 0] }}
-        transition={{ duration: 0.3, delay: 0.1 }}
-        className="h-[95%]"
-      >
-        <p className="flex justify-center mt-10 text-[50px] welcome-color">
-          SlobyBuilder
-        </p>
+        className="bg-interface-bg"
 
-        <div
-          className="ml-2 mt-3 flex flex-col gap-4 ease-in-out duration-150"
-          onClick={(e: any) => console.log(e.target)}
+        // onDragOver={(e) => {
+        //   e.preventDefault();
+        //   console.log(e.dataTransfer.getData("test"));
+        //   console.log(e);
+        // }}
+      >
+        <motion.div
+          animate={{ opacity: [0, 1], y: [10, 0] }}
+          transition={{ duration: 0.3, delay: 0.1 }}
+          className="min-h-[95%] h-fit pb-10"
         >
-          <JsxParser
-            components={{ Input }}
-            className="relative"
-            jsx={currentSource}
-          />
-        </div>
+          <p className="flex justify-center text-[50px] welcome-color">
+            SlobyBuilder
+          </p>
+
+          <div
+            className="ml-2 mt-3 flex flex-col gap-4 ease-in-out duration-150"
+            onClick={(e: any) => console.log(e.target)}
+          >
+            <JsxParser
+              components={{ Input }}
+              className="relative"
+              jsx={currentSource}
+            />
+          </div>
+        </motion.div>
       </motion.div>
-    </motion.div>
+    </div>
   );
 }
