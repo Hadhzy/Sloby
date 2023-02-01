@@ -28,7 +28,7 @@
   }
 }
 
-.nav-button{
+.nav-button {
   padding: 16px 12px;
   display: inline-block;
   position: relative;
@@ -36,7 +36,7 @@
   transition: color 250ms;
 }
 
-.nav-highlight{
+.nav-highlight {
   background: rgba(50, 50, 50, 0.5);
   position: absolute;
   top: 10px;
@@ -47,30 +47,26 @@
   transition-property: width, transform, opacity;
 }
 
-.sloby-logo:hover{
+.sloby-logo:hover {
   animation: shake 500ms ease-in-out both;
 }
 
-@keyframes shake{
-  0%, 100%
-  {
-    transform: rotate(0deg) translate3d(0, 0, 0)
+@keyframes shake {
+  0%,
+  100% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
   }
-  20%
-  {
-    transform: rotate(6deg) translate3d(0, 0, 0)
+  20% {
+    transform: rotate(6deg) translate3d(0, 0, 0);
   }
-  40%
-  {
-    transform: rotate(-6deg) translate3d(0, 0, 0)
+  40% {
+    transform: rotate(-6deg) translate3d(0, 0, 0);
   }
-  60%
-  {
-    transform: rotate(4deg) translate3d(0, 0, 0)
+  60% {
+    transform: rotate(4deg) translate3d(0, 0, 0);
   }
-  80%
-  {
-    transform: rotate(-4deg) translate3d(0, 0, 0)
+  80% {
+    transform: rotate(-4deg) translate3d(0, 0, 0);
   }
 }
 

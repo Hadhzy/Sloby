@@ -1,3 +1,4 @@
+import { faPersonCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import {
   TCurrentRoute,
   TSlobyProject,
@@ -5,6 +6,7 @@ import {
 } from '../../../../utils/types';
 import { DbManager } from '../../indexDB';
 import { ScoopaBase } from 'scoopabase';
+import { v4 as uuidv4 } from 'uuid';
 
 export default class interfaceSourceIntegrator extends DbManager<any> {
   private static readonly tableName = 'project_sources_local_db';
@@ -28,6 +30,8 @@ export default class interfaceSourceIntegrator extends DbManager<any> {
       return this.updateItem(currentRoute, data.concat(injected_code));
     }
   }
+
+  
 
   public generateInputId() {
     return;

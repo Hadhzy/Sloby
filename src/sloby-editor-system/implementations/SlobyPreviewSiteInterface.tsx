@@ -5,12 +5,16 @@ import JsxParser from 'react-jsx-parser';
 import Input from './editor-components/text-tool/Input';
 import interfaceIntegrator from '../lib/handlers/InteraceIntegrators/InterfaceSourceIntegrator';
 import { ToolClickedContext } from '../../utils/contexts/ToolClicked';
+import InterfacePropsIntegrator from '../lib/handlers/InteraceIntegrators/InterfacePropsIntegrator';
+import { InputsContext } from '../../utils/contexts/Inputs';
 
 export default function SlobyPreviewSiteInterface() {
   const [currentSource, setCurrentSource] = useState<any>('');
   const router = useRouter();
   const source = new interfaceIntegrator();
   const { toolClicked, setToolClicked } = useContext(ToolClickedContext);
+  const props = new InterfacePropsIntegrator();
+  const { inputs, setInputs } = useContext(InputsContext);
 
   async function getCurrentSource() {
     return await source.getProjectBasedSourceCode(router.query.id as string);
@@ -24,6 +28,21 @@ export default function SlobyPreviewSiteInterface() {
       return setCurrentSource(sourceCode);
     }
   }
+
+  useEffect(() => {
+    props.add(inputs, router.query.id as string);
+  }, [inputs]);
+
+  useEffect(() => {
+    async function getStoredInputs() {
+      const storedValues = await props.getSingle(router.query.id as string);
+      if (storedValues) {
+        setInputs(storedValues);
+      }
+    }
+
+    getStoredInputs();
+  }, []);
 
   if (typeof window !== 'undefined') {
     useEffect(() => {
@@ -76,6 +95,10 @@ export default function SlobyPreviewSiteInterface() {
             />
           </div>
         </motion.div>
+          {inputs.map((input: { value: string; id: string }, index: number) => {
+            return <Input input={input} index={index} />;
+          })}
+        </div>
       </motion.div>
     </div>
   );

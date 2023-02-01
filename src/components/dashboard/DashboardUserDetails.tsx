@@ -7,7 +7,7 @@ import ProjectsManager from './dashboardProjects/ProjectsManager';
 import { getRandomNumber } from './getRandomNumber';
 import { ProjectsContext } from '../../utils/contexts/ProjectsContext';
 import { ApiUser } from '../../api/user.api';
-
+import { motion } from 'framer-motion';
 export default function DashboardUserDetails({
   totalVisits,
   totalUsage,
@@ -21,7 +21,7 @@ export default function DashboardUserDetails({
   console.log(apiUser.user.user_metadata.avatar_url);
   return (
     <div
-      className={`flex h-screen overflow-scroll flex-col gap-10 p-8 ml-4 text-white transition-all duration-500 ${
+      className={`flex h-screen  flex-col gap-10 p-8 ml-4 text-white transition-all duration-500 ${
         project_data.project_modal ? 'blur-sm' : ''
       }`}
     >
@@ -31,7 +31,11 @@ export default function DashboardUserDetails({
         {/* { session?.user.user_metadata.name} */}
       </div>
       <div className={'w-1/2 h-1 bg-dark-border rounded-lg'}></div>
-      <div className={'flex gap-20 flex-wrap'}>
+      <motion.div
+        className={'flex gap-20 flex-wrap'}
+        animate={{ scale: [0, 1], opacity: [0, 1] }}
+        transition={{ delay: 0.2, duration: 0.4 }}
+      >
         <div>
           <DashboardStats
             title={'Total visits'}
@@ -72,7 +76,7 @@ export default function DashboardUserDetails({
             Upgrade
           </button>
         </div>
-      </div>
+      </motion.div>
       <p
         className={
           'text-5xl font-bold flex gap-36 underline decoration-dark-border underline-offset-8'
@@ -80,7 +84,11 @@ export default function DashboardUserDetails({
       >
         Recent Projects
       </p>
-      <div className={'flex gap-20 flex-wrap'}>
+      <motion.div
+        className={'flex gap-20 flex-wrap'}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+      >
         <DashboardProjectPreview
           previewImage={'/images/preview1.webp'}
           title={'My Project 1'}
@@ -93,7 +101,7 @@ export default function DashboardUserDetails({
           previewImage={'/images/preview3.webp'}
           title={'My Project 3'}
         />
-      </div>
+      </motion.div>
     </div>
   );
 }

@@ -7,7 +7,7 @@ export default function ProjectsSection() {
 
   return (
     <div
-      className={` overflow-scroll h-screen  relative ${
+      className={` h-screen  relative ${
         project_data.project_modal && 'bg-[rgba(0, 0, 0,)]'
       }`}
     >

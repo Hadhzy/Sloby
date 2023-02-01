@@ -8,6 +8,14 @@ import { useSupabaseClient } from '@supabase/auth-helpers-react';
 import { ProjectsContext } from '../../utils/contexts/ProjectsContext';
 import { ProjectServices } from '../../api/project.api';
 import { ToolClickedContextProvider } from '../../utils/contexts/ToolClicked';
+import {
+  CurrentIdContext,
+  CurrentIdContextProvider,
+} from '../../utils/contexts/CurrentId';
+import {
+  InputsContext,
+  InputsContextProvider,
+} from '../../utils/contexts/Inputs';
 
 function year() {
   return new Date().getFullYear()
