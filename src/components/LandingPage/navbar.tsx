@@ -17,11 +17,12 @@ export default function Navbar({ className }: { className: string }) {
 
   return (
     <header
-      className={` z-10  ${className} ${scroll ? '' : 'bg-dark-dark'
-        }  w-full  text-center backdrop-blur-md drop-shadow-2xl transition-colors`}
+      className={`${className} ${
+        scroll ? '' : 'bg-dark-dark'
+      } nav-sloby fixed w-full z-50 text-center backdrop-blur-md drop-shadow-2xl transition-colors`}
     >
-      <div className="mx-auto max-w-7xl">
-        <nav className="w-full my-2 hidden md:inline-flex flex-row justify-content-center gap-6">
+      <div className="mx-2 py-2 sm:mx-4 md:mx-6 lg:mx-8 xl:mx-auto xsl:max-w-7xl ease-in-out">
+        <nav className="w-full my-2 mt-0 flex md:inline-flex flex-row justify-content-center gap-6">
           <Link href="/">
             <Image
               alt="Sloby Logo"
@@ -31,32 +32,12 @@ export default function Navbar({ className }: { className: string }) {
               height={20}
             />
           </Link>
-          {/* <div className="flex-center select-none">
-            <a className="nav-button" href="/quickstart">
-              Quick Start
-            </a>
+          <div className="hidden md:flex my-auto select-none">
+            <Tabs/>
           </div>
-          <div className="flex-center select-none">
-            <a className="nav-button" href="/documentation">
-              Documentation
-            </a>
-          </div>
-          <div className="flex-center select-none">
-            <a className="nav-button" href="/templates">
-              Templates
-            </a>
-          </div>
-          <div className="flex-center select-none">
-            <a className="nav-button" href="/blog">
-              Blog
-            </a>
-          </div> */}
-          <Wrapper className="flex my-auto select-none">
-            <Tabs />
-          </Wrapper>
           <svg
             role="img"
-            className="flex ml-auto my-auto w-10 fill-white hover:fill-red-light transition-colors select-none cursor-pointer"
+            className="hidden md:flex ml-auto my-auto w-10 fill-white hover:fill-red-light transition-colors select-none cursor-pointer"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -68,8 +49,3 @@ export default function Navbar({ className }: { className: string }) {
     </header>
   );
 }
-
-const Wrapper = styled.div`
-  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui,
-    helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
-`;

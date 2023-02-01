@@ -25,7 +25,7 @@ export function Planet({ src, className }: { src: string; className: string }) {
       <Image
         alt="Planet"
         src={src}
-        className={`${className} hidden lg:block absolute z-10`}
+        className={`${className} block absolute z-10`}
         style={{ transform: transform }}
         width={200}
         height={200}
