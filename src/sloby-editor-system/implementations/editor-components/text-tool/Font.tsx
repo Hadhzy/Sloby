@@ -61,6 +61,7 @@ export default function Font() {
             <div
               onClick={() => changeFont(e.name)}
               className={`${font[e.name]} p-2`}
+              key={e.name}
             >
               Whereas recognition of the inherent dignity.
             </div>
