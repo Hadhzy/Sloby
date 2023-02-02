@@ -61,13 +61,13 @@ export default function Color() {
 
   return (
     <div className="flex flex-col bg-tool-bg rounded lg p-3">
-      <div className="flex justify-between px-4">
+      <div onClick={collapseToggle} className="flex justify-between px-4">
         <h6>Color:</h6>
         <div className={`w-8 h-8 rounded-full ${color[selectedColor]}`}></div>
-        <button onClick={collapseToggle}>
+        <button>
           <FontAwesomeIcon
             icon={faChevronUp}
-            className={`${rotateState} transition-all h-6 duration-300 linear`}
+            className={`${rotateState} transition-all h-6 duration-300 linear hover:scale-110`}
           />
         </button>
       </div>
