@@ -81,6 +81,11 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
+        aboreto: ['Aboreto', 'cursive'],
+        itim: ['Itim', 'cursive'],
+        montserrat: ['Montserrat', 'sans-serif'],
+        raleway: ['Raleway', 'sans-serif'],
+        roboto: ['Roboto', 'sans-serif'],
       },
     },
     backgroundSize: {
