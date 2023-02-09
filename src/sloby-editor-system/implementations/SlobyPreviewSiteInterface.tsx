@@ -87,7 +87,7 @@ export default function SlobyPreviewSiteInterface() {
           className="ml-2 mt-3 flex flex-col gap-4 ease-in-out duration-150"
           onClick={(e: any) => setLastClicked(e.target.id)}
         >
-          {inputs.map((input: { value: string; id: string }, index: number) => {
+          {inputs.map((input, index: number) => {
             return <Input input={input} index={index} />;
           })}
         </div>
