@@ -27,6 +27,7 @@ export default function Input({
   input: { id: string; value: string; position: { x: number; y: number } };
   index: number;
 }) {
+  console.log("INPUT: ", input);
   const { toolClicked, setToolClicked } = useContext(ToolClickedContext);
   const props = new InterfacePropsIntegrator();
   const integrator = new interfaceSourceIntegrator();
@@ -35,11 +36,11 @@ export default function Input({
   const { inputs, setInputs } = useContext(InputsContext);
 
   //for dragging
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [position, setPosition] = useState({ x: 10, y: 10 });
   const inputRef = useRef<HTMLInputElement>(null);
 
 
-  const { handleChange } = useContext(InputsContext);
+  const { handleChange, handlePositionChange } = useContext(InputsContext);
 
   const handleDelete = (
     e:
@@ -49,7 +50,7 @@ export default function Input({
     return setInputs(inputs.filter((item) => item.id !== e.currentTarget.id));
   };
 
-  const handleMouseDown = (event: React.MouseEvent<HTMLInputElement>) => {
+  const handleMouseDown = (event: React.MouseEvent<HTMLInputElement>, id: string) => {
     const input = inputRef.current;
     if (!input) return;
 
@@ -57,11 +58,14 @@ export default function Input({
     const initialY = event.clientY - position.y;
 
     const handleMouseMove = (moveEvent: MouseEvent) => {
-      console.log("moving");
       setPosition({
         x: moveEvent.clientX - initialX,
         y: moveEvent.clientY - initialY,
       });
+      handlePositionChange({
+        x: moveEvent.clientX - initialX,
+        y: moveEvent.clientY - initialY,
+      }, id);
     };
 
     document.addEventListener("mousemove", handleMouseMove);
@@ -70,14 +74,25 @@ export default function Input({
       document.removeEventListener("mousemove", handleMouseMove);
     });
   };
+  // useEffect(() => {
+  //   const inputR = inputRef.current;
+  //   if (!inputR) return;
+
+  //   inputR.style.left = `${input.position.x}px`;
+  //   inputR.style.top = `${input.position.y}px`;
+
+
+  // }, [input])
 
   useEffect(() => {
-    const input = inputRef.current;
-    if (!input) return;
+    const inputR = inputRef.current;
+    if (!inputR) return;
 
-    input.style.left = `${position.x}px`;
-    input.style.top = `${position.y}px`;
-  }, [position]);
+    inputR.style.left = `${input.position.x}px`;
+    inputR.style.top = `${input.position.y}px`;
+
+  }, [position, input]);
+
 
   // useEffect(() => {
   //   if (inputRef) {
@@ -113,7 +128,7 @@ export default function Input({
     >
 
       <input
-        onMouseDown={handleMouseDown}
+        onMouseDown={(e) => handleMouseDown(e, input.id)}
         onKeyDown={(e) => {
           if (e.key === 'Delete') {
             return handleDelete(e);
