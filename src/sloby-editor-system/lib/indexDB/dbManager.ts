@@ -21,6 +21,10 @@ export class DbManager<T> {
     return res as T;
   }
 
+  public async deleteItem(key: string) {
+    return await this.dbManager.collection<T>(this.tableName).delete(key);
+  }
+
   public async updateItem(key: string, updated_item: any) {
     return await this.dbManager
       .collection<T>(this.tableName)

@@ -3,15 +3,19 @@ import { Tag, TSlobyProject } from '../../../utils/types';
 import ProjectsHandler from './ProjectsHandler';
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
 import { ProjectServices } from '../../../api/project.api';
-import Image from 'next/image';
+import interfaceSourceIntegrator from '../../../sloby-editor-system/lib/handlers/InteraceIntegrators/InterfaceSourceIntegrator';
+import InterfacePropsIntegrator from '../../../sloby-editor-system/lib/handlers/InteraceIntegrators/InterfacePropsIntegrator';
 import {
   faEllipsisVertical,
   faFaceSmile,
   faTrash,
+  faPencil,
 } from '@fortawesome/free-solid-svg-icons';
+import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ProjectsContext } from '../../../utils/contexts/ProjectsContext';
 import { LoadingContext } from '../../../utils/contexts/Loading';
+
 import { useSession } from '@supabase/auth-helpers-react';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
@@ -22,11 +26,19 @@ export default function Project({
   project: TSlobyProject;
   index: number;
 }) {
-  const { actionBar, setActionBar, setCurrentProject, currentProject } =
-    useContext(ProjectsContext);
+  const {
+    project_data,
+    set_project_data,
+    actionBar,
+    setActionBar,
+    setCurrentProject,
+    currentProject,
+  } = useContext(ProjectsContext);
   const { loading, setLoading } = useContext(LoadingContext);
   const [optionsState, setOptionsState] = useState(false);
   const projectServices = new ProjectServices(useSupabaseClient());
+  const sourceIntegrator = new interfaceSourceIntegrator();
+  const propsIntegrator = new InterfacePropsIntegrator();
   const session = useSession();
   const router = useRouter();
 
@@ -36,6 +48,13 @@ export default function Project({
   };
   async function deleteProject(project_id: string) {
     const res = await projectServices.deleteProjectById(project_id);
+    await sourceIntegrator.deleteItem(project_id);
+    await propsIntegrator.deleteItem(project_id);
+  }
+
+  // not working
+  function updateProject() {
+    set_project_data({ ...project_data, project_modal: true });
   }
 
   return (
@@ -69,8 +88,8 @@ export default function Project({
               optionsState ? 'translate-y-0' : '-translate-y-8'
             } transition-all`}
           >
-            <button onClick={optionsToggle}>
-              <FontAwesomeIcon icon={faFaceSmile} className="p-1" />
+            <button onClick={updateProject}>
+              <FontAwesomeIcon icon={faPencil} className="p-1" />
             </button>
             <button onClick={optionsToggle}>
               <FontAwesomeIcon icon={faFaceSmile} className="p-1" />

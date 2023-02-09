@@ -24,7 +24,12 @@ export default function Input({
   input,
   index,
 }: {
-  input: { id: string; value: string; position: { x: number; y: number } };
+  input: {
+    id: string;
+    value: string;
+    position: { x: number; y: number };
+    style: any;
+  };
   index: number;
 }) {
   const { toolClicked, setToolClicked } = useContext(ToolClickedContext);
@@ -37,7 +42,6 @@ export default function Input({
   //for dragging
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const inputRef = useRef<HTMLInputElement>(null);
-
 
   const { handleChange } = useContext(InputsContext);
 
@@ -57,17 +61,17 @@ export default function Input({
     const initialY = event.clientY - position.y;
 
     const handleMouseMove = (moveEvent: MouseEvent) => {
-      console.log("moving");
+      console.log('moving');
       setPosition({
         x: moveEvent.clientX - initialX,
         y: moveEvent.clientY - initialY,
       });
     };
 
-    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener('mousemove', handleMouseMove);
 
-    document.addEventListener("mouseup", () => {
-      document.removeEventListener("mousemove", handleMouseMove);
+    document.addEventListener('mouseup', () => {
+      document.removeEventListener('mousemove', handleMouseMove);
     });
   };
 
@@ -111,7 +115,6 @@ export default function Input({
       ref={inputRef}
       className={`max-w-fit relative group rounded overflow-hidden ease-in-out duration-150`}
     >
-
       <input
         onMouseDown={handleMouseDown}
         onKeyDown={(e) => {
@@ -121,6 +124,7 @@ export default function Input({
         }}
         id={input.id}
         value={input.value}
+        style={input.style}
         onChange={(e) => handleChange(e, index)}
         placeholder="type your text here..."
         type="text"
@@ -128,15 +132,17 @@ export default function Input({
       />
       <button
         onClick={optionsToggle}
-        className={`absolute top-0 right-0 invisible group-hover:visible py-1 px-2 hover:scale-110  duration-150 ease-in-out ${optionsState ? 'hidden' : 'visible'
-          } `}
+        className={`absolute top-0 right-0 invisible group-hover:visible py-1 px-2 hover:scale-110  duration-150 ease-in-out ${
+          optionsState ? 'hidden' : 'visible'
+        } `}
       >
         <FontAwesomeIcon icon={faEllipsisVertical} className="text-lg" />
       </button>
 
       <div
-        className={`absolute top-0 right-0 ${optionsState ? 'translate-y-0' : '-translate-y-6'
-          } transition-all`}
+        className={`absolute top-0 right-0 ${
+          optionsState ? 'translate-y-0' : '-translate-y-6'
+        } transition-all`}
       >
         <button>
           <FontAwesomeIcon icon={faFaceSmile} className="p-1" />

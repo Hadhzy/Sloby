@@ -12,7 +12,7 @@ export default function Projects() {
   useEffect(() => {
     // getProjects(setProjects, supabase);
     projectServices.getProjects().then((data) => setProjects(data.data as any));
-  }, [projects]);
+  }, []);
 
   return (
     <div

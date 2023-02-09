@@ -12,9 +12,9 @@ export default function SlobyPreviewSiteInterface() {
   const [currentSource, setCurrentSource] = useState<any>('');
   const router = useRouter();
   const source = new interfaceIntegrator();
-  const { toolClicked, setToolClicked } = useContext(ToolClickedContext);
   const props = new InterfacePropsIntegrator();
-  const { inputs, setInputs } = useContext(InputsContext);
+  const { toolClicked, setToolClicked } = useContext(ToolClickedContext);
+  const { inputs, setInputs, setLastClicked } = useContext(InputsContext);
 
   async function getCurrentSource() {
     return await source.getProjectBasedSourceCode(router.query.id as string);
@@ -68,11 +68,11 @@ export default function SlobyPreviewSiteInterface() {
     <motion.div
       className="w-full bg-interface-bg"
 
-    // onDragOver={(e) => {
-    //   e.preventDefault();
-    //   console.log(e.dataTransfer.getData("test"));
-    //   console.log(e);
-    // }}
+      // onDragOver={(e) => {
+      //   e.preventDefault();
+      //   console.log(e.dataTransfer.getData("test"));
+      //   console.log(e);
+      // }}
     >
       <motion.div
         animate={{ opacity: [0, 1], y: [10, 0] }}
@@ -85,7 +85,7 @@ export default function SlobyPreviewSiteInterface() {
 
         <div
           className="ml-2 mt-3 flex flex-col gap-4 ease-in-out duration-150"
-          onClick={(e: any) => console.log(e.target)}
+          onClick={(e: any) => setLastClicked(e.target.id)}
         >
           {inputs.map((input: { value: string; id: string }, index: number) => {
             return <Input input={input} index={index} />;
