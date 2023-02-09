@@ -29,7 +29,7 @@ export default function ProjectModal() {
   const supabase = useSupabaseClient();
   const session = useSession();
 
-  console.log(current_tags);
+  console.log(project_data);
 
   useEffect(() => {
     function handleResize() {

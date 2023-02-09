@@ -7,6 +7,7 @@ import { ProjectsContext } from '../../../utils/contexts/ProjectsContext';
 
 export default function DashboardLayout({ children }: { children: any }) {
   const { project_data, set_project_data } = useContext(ProjectsContext);
+
   return (
     <>
       <DashboardMenu />

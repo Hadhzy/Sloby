@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useContext, useRef } from 'react';
 import { BaseClassNames } from '../../../lib/grammar/BaseClassNames';
 import { v4 as uuidv4 } from 'uuid';
@@ -24,10 +25,14 @@ export default function Input({
   input,
   index,
 }: {
-  input: { id: string; value: string; position: { x: number; y: number } };
+  input: {
+    id: string;
+    value: string;
+    position: { x: number; y: number };
+    style: any;
+  };
   index: number;
 }) {
-  console.log("INPUT: ", input);
   const { toolClicked, setToolClicked } = useContext(ToolClickedContext);
   const props = new InterfacePropsIntegrator();
   const integrator = new interfaceSourceIntegrator();
@@ -36,11 +41,10 @@ export default function Input({
   const { inputs, setInputs } = useContext(InputsContext);
 
   //for dragging
-  const [position, setPosition] = useState({ x: 10, y: 10 });
+  const [position, setPosition] = useState({ x: 0, y: 0 });
   const inputRef = useRef<HTMLInputElement>(null);
 
-
-  const { handleChange, handlePositionChange } = useContext(InputsContext);
+  const { handleChange } = useContext(InputsContext);
 
   const handleDelete = (
     e:
@@ -50,7 +54,7 @@ export default function Input({
     return setInputs(inputs.filter((item) => item.id !== e.currentTarget.id));
   };
 
-  const handleMouseDown = (event: React.MouseEvent<HTMLInputElement>, id: string) => {
+  const handleMouseDown = (event: React.MouseEvent<HTMLInputElement>) => {
     const input = inputRef.current;
     if (!input) return;
 
@@ -58,41 +62,27 @@ export default function Input({
     const initialY = event.clientY - position.y;
 
     const handleMouseMove = (moveEvent: MouseEvent) => {
+      console.log('moving');
       setPosition({
         x: moveEvent.clientX - initialX,
         y: moveEvent.clientY - initialY,
       });
-      handlePositionChange({
-        x: moveEvent.clientX - initialX,
-        y: moveEvent.clientY - initialY,
-      }, id);
     };
 
-    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener('mousemove', handleMouseMove);
 
-    document.addEventListener("mouseup", () => {
-      document.removeEventListener("mousemove", handleMouseMove);
+    document.addEventListener('mouseup', () => {
+      document.removeEventListener('mousemove', handleMouseMove);
     });
   };
-  // useEffect(() => {
-  //   const inputR = inputRef.current;
-  //   if (!inputR) return;
-
-  //   inputR.style.left = `${input.position.x}px`;
-  //   inputR.style.top = `${input.position.y}px`;
-
-
-  // }, [input])
 
   useEffect(() => {
-    const inputR = inputRef.current;
-    if (!inputR) return;
+    const input = inputRef.current;
+    if (!input) return;
 
-    inputR.style.left = `${input.position.x}px`;
-    inputR.style.top = `${input.position.y}px`;
-
-  }, [position, input]);
-
+    input.style.left = `${position.x}px`;
+    input.style.top = `${position.y}px`;
+  }, [position]);
 
   // useEffect(() => {
   //   if (inputRef) {
@@ -126,9 +116,8 @@ export default function Input({
       ref={inputRef}
       className={`max-w-fit relative group rounded overflow-hidden ease-in-out duration-150`}
     >
-
       <input
-        onMouseDown={(e) => handleMouseDown(e, input.id)}
+        onMouseDown={handleMouseDown}
         onKeyDown={(e) => {
           if (e.key === 'Delete') {
             return handleDelete(e);
@@ -136,6 +125,7 @@ export default function Input({
         }}
         id={input.id}
         value={input.value}
+        style={input.style}
         onChange={(e) => handleChange(e, index)}
         placeholder="type your text here..."
         type="text"
@@ -143,15 +133,17 @@ export default function Input({
       />
       <button
         onClick={optionsToggle}
-        className={`absolute top-0 right-0 invisible group-hover:visible py-1 px-2 hover:scale-110  duration-150 ease-in-out ${optionsState ? 'hidden' : 'visible'
-          } `}
+        className={`absolute top-0 right-0 invisible group-hover:visible py-1 px-2 hover:scale-110  duration-150 ease-in-out ${
+          optionsState ? 'hidden' : 'visible'
+        } `}
       >
         <FontAwesomeIcon icon={faEllipsisVertical} className="text-lg" />
       </button>
 
       <div
-        className={`absolute top-0 right-0 ${optionsState ? 'translate-y-0' : '-translate-y-6'
-          } transition-all`}
+        className={`absolute top-0 right-0 ${
+          optionsState ? 'translate-y-0' : '-translate-y-6'
+        } transition-all`}
       >
         <button>
           <FontAwesomeIcon icon={faFaceSmile} className="p-1" />
