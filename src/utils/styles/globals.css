@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root{
+:root {
   --nav-sloby-h: 100px;
 }
 
@@ -28,11 +28,11 @@
   }
 }
 
-.nav-sloby{
+.nav-sloby {
   height: var(--nav-sloby-h);
 }
 
-.hs-custom{
+.hs-custom {
   height: calc(100vh - var(--nav-sloby-h));
 }
 
@@ -80,7 +80,7 @@
 
 @media (min-width: 1200px) {
   .xsl\:max-w-7xl {
-    max-width: 80rem/* 1280px */;
+    max-width: 80rem /* 1280px */;
     margin-left: auto !important;
     margin-right: auto !important;
   }

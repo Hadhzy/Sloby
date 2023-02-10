@@ -66,7 +66,7 @@ export default function SlobyPreviewSiteInterface() {
 
   return (
     <motion.div
-      className="w-full bg-interface-bg"
+      className="w-full h-screen h-full bg-interface-bg"
 
       // onDragOver={(e) => {
       //   e.preventDefault();

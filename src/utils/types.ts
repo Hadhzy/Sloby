@@ -41,3 +41,9 @@ export interface TSourceCodeBase {
 }
 
 export type TModifierElement = EventTarget;
+
+export type TInputProps = {
+  styleChange: (style_change: any, id: string, type: string) => void;
+  styles: { [key: string]: any };
+  lastClicked: string;
+};

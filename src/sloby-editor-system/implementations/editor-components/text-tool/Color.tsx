@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 
-import { HuePicker } from 'react-color';
+import { ColorResult, HuePicker } from 'react-color';
 import { v4 as uuidv4 } from 'uuid';
+import { TInputProps } from '../../../../utils/types';
 
 const pallets = [
   {
@@ -18,7 +19,7 @@ const pallets = [
   },
 ];
 
-export default function Color(props: any) {
+export default function Color(props: TInputProps) {
   const [popUpState, setPopUpState] = useState<string>('hidden');
   const [recentlyUsed, setRecentlyUsed] = useState<string[]>([]);
   const [selectedColor, setSelectedColor] = useState<string>('#fff');
@@ -43,9 +44,7 @@ export default function Color(props: any) {
   }
 
   useEffect(() => {
-    if (recentlyUsed.includes(selectedColor)) {
-      return;
-    }
+    if (recentlyUsed.includes(selectedColor)) return;
     let temp = recentlyUsed;
     if (temp.length == 6) {
       temp.unshift(selectedColor);
@@ -57,7 +56,7 @@ export default function Color(props: any) {
     }
   }, [selectedColor]);
 
-  function palleteHandler(e: any) {
+  function palleteHandler(e: React.ChangeEvent<HTMLSelectElement>) {
     for (let i = 0; i < pallets.length; i++) {
       if (pallets[i].name == e.target.value) {
         setRecentlyUsed(pallets[i].colors);
@@ -78,7 +77,7 @@ export default function Color(props: any) {
         className={`${popUpState} py-3 px-2 w-full  rounded-lg mt-12 absolute left-0 bot-0  bg-tool-bg z-10`}
       >
         <div className="flex gap-1 justify-center p-3">
-          {recentlyUsed.map((e: any, i) => {
+          {recentlyUsed.map((e: string, i) => {
             return (
               <div
                 key={uuidv4()}
@@ -92,7 +91,9 @@ export default function Color(props: any) {
         <div className="flex flex-col gap-3 items-center p-3">
           <label className="text-md">Palette</label>
           <select
-            onChange={palleteHandler}
+            onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+              palleteHandler(e)
+            }
             className="bg-tool-bg text-md w-full h-8 p-1"
           >
             {pallets.map((e) => {
@@ -107,7 +108,7 @@ export default function Color(props: any) {
         <div className="">
           <HuePicker
             color={selectedColor}
-            onChangeComplete={(e: any) => changeColor(e.hex)}
+            onChangeComplete={(e: ColorResult) => changeColor(e.hex)}
             width={'200'}
           />
         </div>

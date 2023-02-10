@@ -1,6 +1,7 @@
+import React from 'react';
 import { useState, useEffect } from 'react';
 import { Checkboard } from 'react-color';
-
+import { TInputProps } from '../../../../utils/types';
 const fontNames: { name: string }[] = [
   { name: 'aboreto' },
   { name: 'itim' },
@@ -9,7 +10,7 @@ const fontNames: { name: string }[] = [
   { name: 'roboto' },
 ];
 
-const font: any = {
+const font: { [key: string]: string } = {
   aboreto: 'font-aboreto',
   itim: 'font-itim',
   montserrat: 'font-montserrat',
@@ -17,7 +18,7 @@ const font: any = {
   roboto: 'font-roboto',
 };
 
-export default function Font(props: any) {
+export default function Font(props: TInputProps) {
   const [popUpState, setPopUpState] = useState<string>('hidden');
   const [selectedFont, setSelectedFont] = useState('');
   const [selectedSize, setSelectedSize] = useState('');
@@ -44,16 +45,16 @@ export default function Font(props: any) {
     props.styleChange(font, props.lastClicked, 'fontFamily');
   }
 
-  function changeSize(e: any) {
+  function changeSize(e: React.ChangeEvent<HTMLSelectElement>) {
     setSelectedSize(e.target.value);
     props.styleChange(e.target.value, props.lastClicked, 'fontSize');
   }
 
-  function changeWeight(e: any) {
+  function changeWeight(e: React.ChangeEvent<HTMLSelectElement>) {
     setSelectedWeight(e.target.value);
     props.styleChange(e.target.value, props.lastClicked, 'fontWeight');
   }
-  function changeItalic(e: any) {
+  function changeItalic(e: React.ChangeEvent<HTMLInputElement>) {
     if (!italic) {
       props.styleChange('italic', props.lastClicked, 'fontStyle');
     } else {
@@ -77,7 +78,9 @@ export default function Font(props: any) {
             <select
               value={selectedSize}
               className="bg-tool-bg px-3 py-1 text-sm "
-              onChange={changeSize}
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+                changeSize(e)
+              }
             >
               <option value={'8px'}>very small</option>
               <option value={'12px'}>small</option>
@@ -91,7 +94,9 @@ export default function Font(props: any) {
             <select
               value={selectedWeight}
               className="bg-tool-bg px-3 py-1 text-sm "
-              onChange={changeWeight}
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+                changeWeight(e)
+              }
             >
               <option value={'200'}>slim</option>
               <option value={'500'}>standard</option>
@@ -104,15 +109,17 @@ export default function Font(props: any) {
           <input
             type="checkbox"
             checked={italic}
-            onChange={changeItalic}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              changeItalic(e)
+            }
           ></input>
         </div>
-        {fontNames.map((e: any) => {
+        {fontNames.map((fontName: { name: string }) => {
           return (
             <div
-              onClick={() => changeFont(e.name)}
-              className={`${font[e.name]} p-2`}
-              key={e.name}
+              onClick={() => changeFont(fontName.name)}
+              className={`${font[fontName.name]} p-2`}
+              key={fontName.name}
             >
               Whereas recognition of the inherent dignity.
             </div>
