@@ -88,7 +88,7 @@ export default function SlobyPreviewSiteInterface() {
           onClick={(e: any) => setLastClicked(e.target.id)}
         >
           {inputs.map((input, index: number) => {
-            return <Input input={input} index={index} />;
+            return <Input key={input.id} input={input} index={index} />;
           })}
         </div>
       </motion.div>

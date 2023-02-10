@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useContext, useRef } from 'react';
 import { BaseClassNames } from '../../../lib/grammar/BaseClassNames';
 import { v4 as uuidv4 } from 'uuid';
@@ -42,7 +41,7 @@ export default function Input({
 
   //for dragging
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<any>();
 
   const { handleChange } = useContext(InputsContext);
 
@@ -84,27 +83,9 @@ export default function Input({
     input.style.top = `${position.y}px`;
   }, [position]);
 
-  // useEffect(() => {
-  //   if (inputRef) {
-  //     inputRef.current.focus();
-  //   }
-  // }, [toolClicked]);
-
-  // useEffect(() => {
-  //   async function handleInput() {
-  //     const storedValue: string = await props.getSingle('');
-  //     if (storedValue) {
-  //       setValue(storedValue);
-  //     }
-  //   }
-
-  //   handleInput();
-  // }, ['']);
-
-  // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   setValue(e.target.value);
-  //   props.add(e.target.value, '');
-  // };
+  useEffect(() => {
+    return inputRef.current.focus();
+  }, [toolClicked]);
 
   const optionsToggle = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
@@ -113,10 +94,10 @@ export default function Input({
 
   return (
     <div
-      ref={inputRef}
       className={`max-w-fit relative group rounded overflow-hidden ease-in-out duration-150`}
     >
       <input
+        ref={inputRef}
         onMouseDown={handleMouseDown}
         onKeyDown={(e) => {
           if (e.key === 'Delete') {
