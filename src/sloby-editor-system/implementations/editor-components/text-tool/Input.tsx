@@ -110,11 +110,11 @@ export default function Input({
         onChange={(e) => handleChange(e, index)}
         placeholder="type your text here..."
         type="text"
-        className={`mt-0 hover:cursor-pointer border-transparent  translate-x-0 translate-y-0 tool-drag-element duration-75 ${BaseClassNames.BASIC_DIV} bg-transparent`}
+        className={`mt-0  hover:cursor-pointer border-transparent  translate-x-0 translate-y-0 tool-drag-element duration-75 ${BaseClassNames.BASIC_DIV} bg-transparent`}
       />
       <button
         onClick={optionsToggle}
-        className={`absolute top-0 right-0 invisible group-hover:visible py-1 px-2 hover:scale-110  duration-150 ease-in-out ${
+        className={`absolute top-[10px] right-0 invisible group-hover:visible py-1 px-2 hover:scale-110  duration-150 ease-in-out ${
           optionsState ? 'hidden' : 'visible'
         } `}
       >
