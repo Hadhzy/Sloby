@@ -13,6 +13,7 @@ import {
   faTrash,
   faFaceSmile,
 } from '@fortawesome/free-solid-svg-icons';
+import { TInputContextProps } from '../../../../utils/types';
 
 interface Props {
   id: string;
@@ -24,12 +25,7 @@ export default function Input({
   input,
   index,
 }: {
-  input: {
-    id: string;
-    value: string;
-    position: { x: number; y: number };
-    style: any;
-  };
+  input: TInputContextProps;
   index: number;
 }) {
   const { toolClicked, setToolClicked } = useContext(ToolClickedContext);
@@ -92,13 +88,40 @@ export default function Input({
     setOptionsState(!optionsState);
   };
 
+  useEffect(() => {
+    console.log(input);
+  }, [input]);
+
+  // const handleFocus = (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
+  //   const focusedInput = inputs.find(
+  //     (input: TInputContextProps) => input.id === e.currentTarget.id
+  //   );
+  //   if (focusedInput?.states.isFocused === false) {
+  //     focusedInput.states.isFocused = true;
+  //     focusedInput.states.isSelected = false;
+  //     setInputs([...inputs, focusedInput]);
+  //   } else return;
+  // };
+
+  // const handleSelection = () => {
+  //   const selectedInput = inputs.find(
+  //     (item: TInputContextProps) => item.id === input.id
+  //   );
+  //   if (selectedInput?.states.isSelected === false) {
+  //     selectedInput.states.isSelected = true;
+  //     setInputs([...inputs, selectedInput]);
+  //   } else return;
+  // };
+
+  const [styles, setStyles] = useState('');
+
   return (
     <div
       className={`max-w-fit relative group rounded overflow-hidden ease-in-out duration-150`}
     >
       <input
         ref={inputRef}
-        onMouseDown={handleMouseDown}
+        // onMouseDown={handleMouseDown}
         onKeyDown={(e) => {
           if (e.key === 'Delete') {
             return handleDelete(e);
@@ -110,7 +133,38 @@ export default function Input({
         onChange={(e) => handleChange(e, index)}
         placeholder="type your text here..."
         type="text"
-        className={`mt-0  hover:cursor-pointer border-transparent  translate-x-0 translate-y-0 tool-drag-element duration-75 ${BaseClassNames.BASIC_DIV} bg-transparent`}
+        onBlur={() => {
+          let index = inputs.findIndex(
+            (value: TInputContextProps) => value.id === input.id
+          );
+
+          if (index !== -1 && index < inputs.length) {
+            setInputs((prev) => [
+              ...prev.slice(0, index),
+              { ...prev[index], states: { isReadonly: true } },
+              ...prev.slice(index + 1),
+            ]);
+            inputs[index] = { ...inputs[index], states: { isReadonly: false } };
+          } else return;
+        }}
+        onDoubleClick={() => {
+          let index = inputs.findIndex(
+            (value: TInputContextProps) => value.id === input.id
+          );
+
+          if (index !== -1 && index < inputs.length) {
+            setInputs((prev) => [
+              ...prev.slice(0, index),
+              { ...prev[index], states: { isReadonly: false } },
+              ...prev.slice(index + 1),
+            ]);
+            inputs[index] = { ...inputs[index], states: { isReadonly: false } };
+          } else return;
+        }}
+        onClick={() => setStyles('border-blue-600')}
+        readOnly={input.states.isReadonly}
+        className={`mt-0  hover:cursor-pointer 
+        border-transparent translate-x-0 translate-y-0 tool-drag-element duration-75 ${BaseClassNames.BASIC_DIV} bg-transparent`}
       />
       <button
         onClick={optionsToggle}

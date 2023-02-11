@@ -26,8 +26,9 @@ export default function Color(props: TInputProps) {
 
   useEffect(() => {
     console.log(props);
-
-    setSelectedColor(props.styles.color);
+    if (props?.styles?.color !== undefined) {
+      setSelectedColor(props.styles.color);
+    } else return;
   }, [props.styles]);
 
   function collapseToggle() {

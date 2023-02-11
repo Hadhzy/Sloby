@@ -8,7 +8,7 @@ import { useContext, useState, useEffect } from 'react';
 
 export default function SlobyModifier() {
   const { styleChange, lastClicked, getStyles } = useContext(InputsContext);
-  const [styles, setStyles] = useState<any>({});
+  const [styles, setStyles] = useState<{ [key: string]: any }>({});
 
   useEffect(() => {
     // check needed for inital load where lastClicked is empty string

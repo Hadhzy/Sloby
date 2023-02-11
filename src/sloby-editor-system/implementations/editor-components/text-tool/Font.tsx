@@ -34,10 +34,17 @@ export default function Font(props: TInputProps) {
   }
 
   useEffect(() => {
-    setSelectedFont(props.styles.fontFamily);
-    setSelectedSize(props.styles.fontSize);
-    setSelectedWeight(props.styles.fontWeight);
-    setItalic(props.styles.fontStyle);
+    if (
+      props?.styles.fontFamily &&
+      props?.styles.fontSize &&
+      props?.styles.fontWeight &&
+      props.styles.fontStyle
+    ) {
+      setSelectedFont(props.styles.fontFamily);
+      setSelectedSize(props.styles.fontSize);
+      setSelectedWeight(props.styles.fontWeight);
+      setItalic(props.styles.fontStyle);
+    }
   }, [props.styles]);
 
   function changeFont(font: string) {
