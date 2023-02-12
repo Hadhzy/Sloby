@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { ColorResult, HuePicker } from 'react-color';
 import { v4 as uuidv4 } from 'uuid';
 import { TInputProps } from '../../../../utils/types';
-
+import { motion } from 'framer-motion';
 const pallets = [
   {
     name: 'Tropical Paradise',
@@ -66,16 +66,18 @@ export default function Color(props: TInputProps) {
   }
 
   return (
-    <div className="flex relative flex-col bg-tool-bg rounded p-3">
+    <div className="flex ease-in-out rounded-md duration-150 bg-tool-bg p-3">
       <div onClick={collapseToggle} className="flex gap-6 justify-center px-4">
         <h6>Color:</h6>
         <div
           style={{ backgroundColor: selectedColor }}
-          className={`w-8 h-8 rounded-full`}
+          className={`w-5 ease-in-out duration-150 h-5 rounded-full ring-offset-1 hover:cursor-pointer ring-offset-back hover:ring-dark-dark-mid ring-bl hover:ring-2`}
         ></div>
       </div>
-      <div
-        className={`${popUpState} py-3 px-2 w-full  rounded-lg mt-12 absolute left-0 bot-0  bg-tool-bg z-10`}
+      <motion.div
+        animate={{ x: [500, 0], opacity: [0, 1] }}
+        transition={{ duration: 0.3 }}
+        className={`${popUpState} py-3 px-2 w-full ease-in-out duration-150  rounded-lg mt-12 absolute left-0 bot-0  bg-tool-bg z-10`}
       >
         <div className="flex gap-1 justify-center p-3">
           {recentlyUsed.map((e: string, i) => {
@@ -113,7 +115,7 @@ export default function Color(props: TInputProps) {
             width={'200'}
           />
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

@@ -27,7 +27,7 @@ export default function SlobyModifier() {
         <div className="border-b border-editor-border-color items-center w-full flex justify-center h-14">
           <p className="text-lg font-semibold">Sloby Modifier</p>
         </div>
-        <div className="ml-4 mt-4 font-semibold text-lg">
+        <div className="ml-2 mt-4 mr-2 font-semibold flex flex-col justify-center text-sm">
           <Color
             styleChange={styleChange}
             styles={styles}
