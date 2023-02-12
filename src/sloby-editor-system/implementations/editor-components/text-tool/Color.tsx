@@ -20,9 +20,10 @@ const pallets = [
 ];
 
 export default function Color(props: TInputProps) {
-  const [popUpState, setPopUpState] = useState<string>('hidden');
+  const [popUpState, setPopUpState] = useState<boolean>(false);
   const [recentlyUsed, setRecentlyUsed] = useState<string[]>([]);
   const [selectedColor, setSelectedColor] = useState<string>('#fff');
+  const [rotate, setRotate] = useState(['rotate-0']);
 
   useEffect(() => {
     console.log(props);
@@ -30,14 +31,6 @@ export default function Color(props: TInputProps) {
       setSelectedColor(props.styles.color);
     } else return;
   }, [props.styles]);
-
-  function collapseToggle() {
-    if (popUpState == 'hidden') {
-      setPopUpState('block');
-    } else {
-      setPopUpState('hidden');
-    }
-  }
 
   function changeColor(color: string) {
     setSelectedColor(color);
@@ -66,56 +59,64 @@ export default function Color(props: TInputProps) {
   }
 
   return (
-    <div className="flex ease-in-out rounded-md duration-150 bg-tool-bg p-3">
-      <div onClick={collapseToggle} className="flex gap-6 justify-center px-4">
+    <div className="flex ease-in-out flex-col rounded-md duration-150 hover:bg-dark-border cursor-pointer w-full  bg-tool-bg p-3">
+      <div
+        onClick={() => setPopUpState(!popUpState)}
+        className="flex gap-6 text-sm justify-start px-4"
+      >
         <h6>Color:</h6>
         <div
           style={{ backgroundColor: selectedColor }}
-          className={`w-5 ease-in-out duration-150 h-5 rounded-full ring-offset-1 hover:cursor-pointer ring-offset-back hover:ring-dark-dark-mid ring-bl hover:ring-2`}
+          className={`w-5 ease-in-out duration-150 h-5 rounded-full hover:scale-105  ring-offset-1 hover:cursor-pointer ring-offset-back hover:dark-font-color ring-bl hover:ring-2`}
         ></div>
       </div>
-      <motion.div
-        animate={{ x: [500, 0], opacity: [0, 1] }}
-        transition={{ duration: 0.3 }}
-        className={`${popUpState} py-3 px-2 w-full ease-in-out duration-150  rounded-lg mt-12 absolute left-0 bot-0  bg-tool-bg z-10`}
-      >
-        <div className="flex gap-1 justify-center p-3">
-          {recentlyUsed.map((e: string, i) => {
-            return (
-              <div
-                key={uuidv4()}
-                style={{ backgroundColor: e }}
-                className={`w-6 h-6 rounded-full`}
-                onClick={() => changeColor(e)}
-              ></div>
-            );
-          })}
-        </div>
-        <div className="flex flex-col gap-3 items-center p-3">
-          <label className="text-md">Palette</label>
-          <select
-            onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-              palleteHandler(e)
-            }
-            className="bg-tool-bg text-md w-full h-8 p-1"
-          >
-            {pallets.map((e) => {
+      {popUpState ? (
+        <motion.div
+          animate={{ opacity: [0, 1] }}
+          transition={{ duration: 0.3, delay: 0.1 }}
+          className={`${popUpState} py-3 px-2 w-full H-ease-in-out duration-150  rounded-lg mt-8 bg-tool-bg z-10`}
+        >
+          <div className="flex gap-1 justify-center p-3">
+            {recentlyUsed.map((e: string, i) => {
               return (
-                <option key={e.name} value={e.name}>
-                  {e.name}
-                </option>
+                <div
+                  key={uuidv4()}
+                  style={{ backgroundColor: e }}
+                  className={`w-6 h-6 rounded-full ease-in-out duration-150 hover:scale-105 ring-offset-1 hover:cursor-pointer ring-offset-back hover:dark-font-color ring-bl hover:ring-2`}
+                  onClick={() => changeColor(e)}
+                ></div>
               );
             })}
-          </select>
-        </div>
-        <div className="">
-          <HuePicker
-            color={selectedColor}
-            onChangeComplete={(e: ColorResult) => changeColor(e.hex)}
-            width={'200'}
-          />
-        </div>
-      </motion.div>
+          </div>
+          <div className="flex flex-col gap-3 items-center p-3">
+            <label className="text-xs">Palette</label>
+            <select
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+                palleteHandler(e)
+              }
+              className="bg-tool-bg text-xs w-full h-8 p-1"
+            >
+              {pallets.map((e) => {
+                return (
+                  <option key={e.name} value={e.name}>
+                    {e.name}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+          <div className="">
+            <HuePicker
+              color={selectedColor}
+              onChangeComplete={(e: ColorResult) => changeColor(e.hex)}
+              width={'200'}
+              className="ease-in-out duration-150"
+            />
+          </div>
+        </motion.div>
+      ) : (
+        ''
+      )}
     </div>
   );
 }
