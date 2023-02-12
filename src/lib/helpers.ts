@@ -19,7 +19,7 @@ export async function loggedIn(
 }
 
 export const getURL = () => {
-  let url = `${process?.env?.SLOBY_URL}/editor/dashboard`;
+  let url = `https://sloby-nextjs--eclectic-cranachan-d53843.netlify.app/editor/dashboard`;
   // Make sure to include `https://` when not localhost.
   url = url.includes('http') ? url : `https://${url}`;
   // Make sure to including trailing `/`.
