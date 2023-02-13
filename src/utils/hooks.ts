@@ -19,13 +19,13 @@ export const useClickOutside = (ref: any, handler: CallableFunction) => {
   }, [handler, ref]);
 };
 
-// export function getWindowDimensions() {
-//   const { innerWidth: width, innerHeight: height } = window;
-//   return {
-//     width,
-//     height,
-//   };
-// }
+export function getWindowDimensions() {
+  const { innerWidth: width, innerHeight: height } = window;
+  return {
+    width,
+    height,
+  };
+}
 
 // export default function useWindowDimensions() {
 //   const hasWindow = typeof window !== 'undefined';

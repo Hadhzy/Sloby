@@ -57,7 +57,7 @@ export default function Input({
   // console.log(windowDimensions);
 
   //for dragging
-  const [position, setPosition] = useState({ x: 0.001, y: 0 });
+  const [position, setPosition] = useState(getPosition(input.id));
   const [dimensions, setDimensions] = useState({ x: 0, y: 0 });
   const inputRef = useRef<any>();
   const [ratio, setRatio] = useState<number>();
@@ -74,30 +74,34 @@ export default function Input({
   useEffect(() => {
     const temp = getPosition(input.id);
     const temp2 = getDimensions(input.id);
+    console.log('temp: ', temp);
+    console.log('width: ', width);
     if (temp) {
       setPosition(temp);
+      setRatio(temp.x / width);
     }
     if (temp2) {
       setDimensions(temp2);
     }
   }, []);
-  console.log(position);
 
   useEffect(() => {
-    if (!ratio && position.x != 0) {
+    console.log('ratio: ', ratio);
+    console.log('position.x: ', position!.x);
+    if (!ratio && position!.x != 0) {
       // console.log('width: ', width);
       // console.log('position.x: ', position.x);
-      setRatio(position.x / width);
+      setRatio(position!.x / width);
       setLastWidth(width);
       return;
     }
     // console.log('ratio: ', ratio);
-    if (ratio && position.x != 0) {
+    if (ratio && position!.x != 0) {
       // console.log('LW: ', lastWidth);
       // console.log('W: ', width);
       setPosition({
-        x: position.x + (width - lastWidth) * ratio,
-        y: position.y,
+        x: position!.x + (width - lastWidth) * ratio,
+        y: position!.y,
       });
       setLastWidth(width);
     }
@@ -112,9 +116,9 @@ export default function Input({
     setOptionsState(!optionsState);
   };
 
-  useEffect(() => {
-    console.log(input);
-  }, [input]);
+  // useEffect(() => {
+  //   console.log(input);
+  // }, [input]);
 
   // const handleFocus = (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
   //   const focusedInput = inputs.find(
@@ -176,15 +180,15 @@ export default function Input({
       dragMomentum={false}
       dragElastic={0.075}
       dragConstraints={{
-        top: -position.y,
-        left: -position.x,
-        right: width - position.x - dimensions.x,
-        bottom: 890 - position.y - dimensions.y,
+        top: -position!.y,
+        left: -position!.x,
+        right: width - position!.x - dimensions.x,
+        bottom: 890 - position!.y - dimensions.y,
       }}
       style={{
         position: 'absolute',
-        top: position.y,
-        left: position.x,
+        top: position!.y,
+        left: position!.x,
       }}
       onClick={(e) => console.log(e)}
     >

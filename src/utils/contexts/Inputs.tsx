@@ -5,9 +5,7 @@ import { TInputContextProps } from '../types';
 type InputContext = {
   inputs: Array<TInputContextProps>;
   lastClicked: string;
-  setInputs: Dispatch<
-    SetStateAction<TInputContextProps[]>
-  >;
+  setInputs: Dispatch<SetStateAction<TInputContextProps[]>>;
   setLastClicked: Dispatch<SetStateAction<string>>;
   handleChange: (e: any, index: number) => void;
   addInput: () => void;
@@ -22,17 +20,15 @@ type InputContext = {
 export const InputsContext = createContext<InputContext>(undefined!);
 
 export const InputsContextProvider = ({ children }: { children: any }) => {
-  const [inputs, setInputs] = useState<
-    Array<TInputContextProps>
-  >([
+  const [inputs, setInputs] = useState<Array<TInputContextProps>>([
     {
       value: '',
       id: uuidv4(),
-      position: { x: 0, y: 0 },
+      position: { x: 1, y: 0 },
       style: {},
       states: {
-        isReadonly: false, 
-      }
+        isReadonly: false,
+      },
       dimensions: { x: 0, y: 0 },
     },
   ]);
@@ -73,7 +69,7 @@ export const InputsContextProvider = ({ children }: { children: any }) => {
   };
 
   const handlePositionChange = (e: any, id: string) => {
-    console.log('positionChange: ', e.x);
+    // console.log('positionChange: ', e.x);
     const newInputs = [...inputs];
     for (let i = 0; i < newInputs.length; i++) {
       if (id == newInputs[i].id) {
@@ -105,8 +101,14 @@ export const InputsContextProvider = ({ children }: { children: any }) => {
       {
         value: '',
         id: uuidv4(),
-        position: { x: 0, y: 0 },
-        style: {}, states: {isReadonly: false},
+        position: { x: 1, y: 0 },
+        style: {
+          color: '#fff',
+          fontSize: '16px',
+          fontWheight: '500',
+          fontFamily: 'montserrat',
+        },
+        states: { isReadonly: false },
         dimensions: { x: 0, y: 0 },
       },
     ]);
