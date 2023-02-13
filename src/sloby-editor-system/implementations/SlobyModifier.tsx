@@ -8,7 +8,7 @@ import { useContext, useState, useEffect } from 'react';
 
 export default function SlobyModifier() {
   const { styleChange, lastClicked, getStyles } = useContext(InputsContext);
-  const [styles, setStyles] = useState<any>({});
+  const [styles, setStyles] = useState<{ [key: string]: any }>({});
   const [position, setPosition] = useState<any>({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -28,7 +28,7 @@ export default function SlobyModifier() {
         <div className="border-b border-editor-border-color items-center w-full flex justify-center h-14">
           <p className="text-lg font-semibold">Sloby Modifier</p>
         </div>
-        <div className="ml-4 mt-4 font-semibold text-lg">
+        <div className="ml-2 mt-4 mr-2 font-semibold flex flex-col justify-center text-sm">
           <Color
             styleChange={styleChange}
             styles={styles}

@@ -1,25 +1,12 @@
 import { Dispatch, SetStateAction, createContext, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { TInputContextProps } from '../types';
 
 type InputContext = {
-  inputs: Array<{
-    value: string;
-    id: string;
-    position: { x: number; y: number };
-    dimensions: { x: number; y: number };
-    style: any;
-  }>;
+  inputs: Array<TInputContextProps>;
   lastClicked: string;
   setInputs: Dispatch<
-    SetStateAction<
-      {
-        value: string;
-        id: string;
-        position: { x: number; y: number };
-        style: any;
-        dimensions: { x: number; y: number };
-      }[]
-    >
+    SetStateAction<TInputContextProps[]>
   >;
   setLastClicked: Dispatch<SetStateAction<string>>;
   handleChange: (e: any, index: number) => void;
@@ -36,19 +23,16 @@ export const InputsContext = createContext<InputContext>(undefined!);
 
 export const InputsContextProvider = ({ children }: { children: any }) => {
   const [inputs, setInputs] = useState<
-    Array<{
-      value: string;
-      id: string;
-      position: { x: number; y: number };
-      style: any;
-      dimensions: { x: number; y: number };
-    }>
+    Array<TInputContextProps>
   >([
     {
       value: '',
       id: uuidv4(),
       position: { x: 0, y: 0 },
       style: {},
+      states: {
+        isReadonly: false, 
+      }
       dimensions: { x: 0, y: 0 },
     },
   ]);
@@ -122,7 +106,7 @@ export const InputsContextProvider = ({ children }: { children: any }) => {
         value: '',
         id: uuidv4(),
         position: { x: 0, y: 0 },
-        style: {},
+        style: {}, states: {isReadonly: false},
         dimensions: { x: 0, y: 0 },
       },
     ]);

@@ -19,25 +19,24 @@ const font: { [key: string]: string } = {
 };
 
 export default function Font(props: TInputProps) {
-  const [popUpState, setPopUpState] = useState<string>('hidden');
+  const [popUpState, setPopUpState] = useState<boolean>(false);
   const [selectedFont, setSelectedFont] = useState('');
   const [selectedSize, setSelectedSize] = useState('');
   const [selectedWeight, setSelectedWeight] = useState('');
   const [italic, setItalic] = useState(false);
 
-  function collapseToggle() {
-    if (popUpState == 'hidden') {
-      setPopUpState('block');
-    } else {
-      setPopUpState('hidden');
-    }
-  }
-
   useEffect(() => {
-    setSelectedFont(props.styles.fontFamily);
-    setSelectedSize(props.styles.fontSize);
-    setSelectedWeight(props.styles.fontWeight);
-    setItalic(props.styles.fontStyle);
+    if (
+      props?.styles.fontFamily &&
+      props?.styles.fontSize &&
+      props?.styles.fontWeight &&
+      props.styles.fontStyle
+    ) {
+      setSelectedFont(props.styles.fontFamily);
+      setSelectedSize(props.styles.fontSize);
+      setSelectedWeight(props.styles.fontWeight);
+      setItalic(props.styles.fontStyle);
+    }
   }, [props.styles]);
 
   function changeFont(font: string) {
@@ -64,67 +63,78 @@ export default function Font(props: TInputProps) {
   }
 
   return (
-    <div className="flex flex-col relative bg-tool-bg rounded lg p-3 mt-3">
-      <div onClick={collapseToggle} className="flex justify-between px-4">
-        <h6>Font:</h6>
-        <div className={`${font[selectedFont]} capitalize`}>{selectedFont}</div>
-      </div>
-      <div
-        className={`${popUpState} absolute left-0 bot-0 bg-tool-bg py-3 px-2 w-full  mt-12`}
-      >
-        <div>
-          <div className="flex gap-4">
-            <label>Size</label>
-            <select
-              value={selectedSize}
-              className="bg-tool-bg px-3 py-1 text-sm "
-              onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-                changeSize(e)
-              }
-            >
-              <option value={'8px'}>very small</option>
-              <option value={'12px'}>small</option>
-              <option value={'16px'}>standard</option>
-              <option value={'22px'}>big</option>
-              <option value={'30px'}>very big</option>
-            </select>
-          </div>
-          <div className="flex gap-4 mt-3">
-            <label>weight</label>
-            <select
-              value={selectedWeight}
-              className="bg-tool-bg px-3 py-1 text-sm "
-              onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-                changeWeight(e)
-              }
-            >
-              <option value={'200'}>slim</option>
-              <option value={'500'}>standard</option>
-              <option value={'800'}>bold</option>
-            </select>
+    <div>
+      <div className="flex flex-col relative bg-tool-bg  rounded-lg p-2 mt-3">
+        <div
+          onClick={() => setPopUpState(!popUpState)}
+          className="flex justify-between   px-4"
+        >
+          <h6>Font:</h6>
+          <div className={`${font[selectedFont]} capitalize`}>
+            {selectedFont}
           </div>
         </div>
-        <div className="flex gap-4 mt-3">
-          <div>Italic:</div>
-          <input
-            type="checkbox"
-            checked={italic}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              changeItalic(e)
-            }
-          ></input>
-        </div>
-        {fontNames.map((fontName: { name: string }) => {
-          return (
-            <div
-              onClick={() => changeFont(fontName.name)}
-              className={`${font[fontName.name]} p-2`}
-              key={fontName.name}
-            >
-              Whereas recognition of the inherent dignity.
+        {popUpState ? (
+          <div
+            className={`absolute  left-0 bot-0 bg-[#181818] py-3 px-2 w-full  mt-6 rounded-b-lg`}
+          >
+            <div>
+              <div className="flex mt-4 gap-4 ">
+                <label>Size</label>
+                <select
+                  value={selectedSize}
+                  className="bg-tool-bg px-3 py-1 text-sm"
+                  onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+                    changeSize(e)
+                  }
+                >
+                  <option value={'8px'}>very small</option>
+                  <option value={'12px'}>small</option>
+                  <option value={'16px'}>standard</option>
+                  <option value={'22px'}>big</option>
+                  <option value={'30px'}>very big</option>
+                </select>
+              </div>
+              <div className="flex gap-4 mt-3">
+                <label>weight</label>
+                <select
+                  value={selectedWeight}
+                  className="bg-tool-bg px-3 py-1 text-sm "
+                  onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+                    changeWeight(e)
+                  }
+                >
+                  <option value={'200'}>slim</option>
+                  <option value={'500'}>standard</option>
+                  <option value={'800'}>bold</option>
+                </select>
+              </div>
             </div>
-          );
-        })}
+            <div className="flex gap-4 mt-3">
+              <div>Italic:</div>
+              <input
+                type="checkbox"
+                checked={italic}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  changeItalic(e)
+                }
+              ></input>
+            </div>
+            {fontNames.map((fontName: { name: string }) => {
+              return (
+                <div
+                  onClick={() => changeFont(fontName.name)}
+                  className={`${font[fontName.name]} p-2`}
+                  key={fontName.name}
+                >
+                  Whereas recognition of the inherent dignity.
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          ''
+        )}
       </div>
     </div>
   );

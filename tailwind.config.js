@@ -56,7 +56,7 @@ module.exports = {
         'dark-dark': '#111111',
         'dark-font-mid': '#707070',
         'dark-action-bg': '#090909',
-        'dark-dark-mid': '#121212',
+        'dark-dark-mid': '#131313',
         'dark-border': '#202020',
         'dark-mid': '#373737',
         'dark-font-color': '#505050',

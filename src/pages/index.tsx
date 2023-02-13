@@ -6,10 +6,11 @@ import { Star } from '../components/LandingPage/star';
 import { useSession } from '@supabase/auth-helpers-react';
 import { motion } from 'framer-motion';
 import JsxParser from 'react-jsx-parser';
+import { getURL } from '../lib/helpers';
 
 export default function Home() {
   const session = useSession();
-  console.log(session?.user);
+  console.log(getURL());
 
   return (
     <>
@@ -51,8 +52,8 @@ export default function Home() {
               The Next-Gen Website Builder.
             </p>
             <p className="z-20 text-sm sm:text-base mb-4 md:text-xl">
-              Rapid web development re-imagined in one simple, coherent tool that
-              can satisfy your every need through its myriad of features.
+              Rapid web development re-imagined in one simple, coherent tool
+              that can satisfy your every need through its myriad of features.
             </p>
             <div className="flex-center xs:flex-col gap-8 sm:mt-4 sm:flex-row sm:gap-16 text-md z-50">
               <Link href={'/auth/login'}>

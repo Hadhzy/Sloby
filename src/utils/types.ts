@@ -47,3 +47,13 @@ export type TInputProps = {
   styles: { [key: string]: any };
   lastClicked: string;
 };
+
+export type TInputContextProps = {
+  value: string;
+  id: string;
+  position: { x: number; y: number };
+  style: any;
+  states: {
+    isReadonly: boolean;
+  };
+};
