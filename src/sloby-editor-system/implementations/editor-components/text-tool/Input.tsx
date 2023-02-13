@@ -1,4 +1,11 @@
-import React, { useState, useEffect, useContext, useRef } from 'react';
+import React, {
+  useState,
+  useEffect,
+  useContext,
+  useRef,
+  Dispatch,
+  SetStateAction,
+} from 'react';
 import { BaseClassNames } from '../../../lib/grammar/BaseClassNames';
 import { v4 as uuidv4 } from 'uuid';
 import InterfacePropsIntegrator from '../../../lib/handlers/InteraceIntegrators/InterfacePropsIntegrator';
@@ -7,12 +14,14 @@ import { handleClientScriptLoad } from 'next/script';
 import interfaceSourceIntegrator from '../../../lib/handlers/InteraceIntegrators/InterfaceSourceIntegrator';
 import { InputsContext } from '../../../../utils/contexts/Inputs';
 import JsxParser from 'react-jsx-parser';
+// import { useWindowDimensions } from '../../../../utils/hooks';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faEllipsisVertical,
   faTrash,
   faFaceSmile,
 } from '@fortawesome/free-solid-svg-icons';
+import { motion } from 'framer-motion';
 
 interface Props {
   id: string;
@@ -23,6 +32,7 @@ interface Props {
 export default function Input({
   input,
   index,
+  width,
 }: {
   input: {
     id: string;
@@ -31,19 +41,31 @@ export default function Input({
     style: any;
   };
   index: number;
+  width: number;
 }) {
   const { toolClicked, setToolClicked } = useContext(ToolClickedContext);
   const props = new InterfacePropsIntegrator();
   const integrator = new interfaceSourceIntegrator();
   const [value, setValue] = useState('');
   const [optionsState, setOptionsState] = useState(false);
-  const { inputs, setInputs } = useContext(InputsContext);
+  const {
+    inputs,
+    setInputs,
+    getPosition,
+    handleChange,
+    handlePositionChange,
+    getDimensions,
+  } = useContext(InputsContext);
+  // const windowDimensions = useWindowDimensions();
+
+  // console.log(windowDimensions);
 
   //for dragging
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [position, setPosition] = useState({ x: 0.001, y: 0 });
+  const [dimensions, setDimensions] = useState({ x: 0, y: 0 });
   const inputRef = useRef<any>();
-
-  const { handleChange } = useContext(InputsContext);
+  const [ratio, setRatio] = useState<number>();
+  const [lastWidth, setLastWidth] = useState<number>(width);
 
   const handleDelete = (
     e:
@@ -53,35 +75,37 @@ export default function Input({
     return setInputs(inputs.filter((item) => item.id !== e.currentTarget.id));
   };
 
-  const handleMouseDown = (event: React.MouseEvent<HTMLInputElement>) => {
-    const input = inputRef.current;
-    if (!input) return;
-
-    const initialX = event.clientX - position.x;
-    const initialY = event.clientY - position.y;
-
-    const handleMouseMove = (moveEvent: MouseEvent) => {
-      console.log('moving');
-      setPosition({
-        x: moveEvent.clientX - initialX,
-        y: moveEvent.clientY - initialY,
-      });
-    };
-
-    document.addEventListener('mousemove', handleMouseMove);
-
-    document.addEventListener('mouseup', () => {
-      document.removeEventListener('mousemove', handleMouseMove);
-    });
-  };
+  useEffect(() => {
+    const temp = getPosition(input.id);
+    const temp2 = getDimensions(input.id);
+    if (temp) {
+      setPosition(temp);
+    }
+    if (temp2) {
+      setDimensions(temp2);
+    }
+  }, []);
+  console.log(position);
 
   useEffect(() => {
-    const input = inputRef.current;
-    if (!input) return;
-
-    input.style.left = `${position.x}px`;
-    input.style.top = `${position.y}px`;
-  }, [position]);
+    if (!ratio && position.x != 0) {
+      // console.log('width: ', width);
+      // console.log('position.x: ', position.x);
+      setRatio(position.x / width);
+      setLastWidth(width);
+      return;
+    }
+    // console.log('ratio: ', ratio);
+    if (ratio && position.x != 0) {
+      // console.log('LW: ', lastWidth);
+      // console.log('W: ', width);
+      setPosition({
+        x: position.x + (width - lastWidth) * ratio,
+        y: position.y,
+      });
+      setLastWidth(width);
+    }
+  }, [width]);
 
   useEffect(() => {
     return inputRef.current.focus();
@@ -92,55 +116,104 @@ export default function Input({
     setOptionsState(!optionsState);
   };
 
-  return (
-    <div
-      className={`max-w-fit relative group rounded overflow-hidden ease-in-out duration-150`}
-    >
-      <input
-        ref={inputRef}
-        onMouseDown={handleMouseDown}
-        onKeyDown={(e) => {
-          if (e.key === 'Delete') {
-            return handleDelete(e);
-          }
-        }}
-        id={input.id}
-        value={input.value}
-        style={input.style}
-        onChange={(e) => handleChange(e, index)}
-        placeholder="type your text here..."
-        type="text"
-        className={`mt-0  hover:cursor-pointer border-transparent  translate-x-0 translate-y-0 tool-drag-element duration-75 ${BaseClassNames.BASIC_DIV} bg-transparent`}
-      />
-      <button
-        onClick={optionsToggle}
-        className={`absolute top-[10px] right-0 invisible group-hover:visible py-1 px-2 hover:scale-110  duration-150 ease-in-out ${
-          optionsState ? 'hidden' : 'visible'
-        } `}
-      >
-        <FontAwesomeIcon icon={faEllipsisVertical} className="text-lg" />
-      </button>
+  function relativeCoords(event: any) {
+    const bounds = event.target.getBoundingClientRect();
 
+    // workaround for getting error on MouseUp outside of the relative div where inputs should be placed
+    // need for better solution
+    if (
+      event.target.offsetParent == null ||
+      event.target.offsetParent.offsetParent == null
+    ) {
+      return;
+    }
+
+    handlePositionChange(
+      {
+        x:
+          bounds.left -
+          event.target.offsetParent.offsetParent.offsetParent.offsetLeft,
+        y:
+          bounds.top -
+          event.target.offsetParent.offsetParent.offsetParent.offsetTop,
+      },
+      input.id
+    );
+    setRatio(
+      (bounds.left -
+        event.target.offsetParent.offsetParent.offsetParent.offsetLeft) /
+        width
+    );
+  }
+
+  return (
+    <motion.div
+      drag
+      onDragEnd={(e: any) => relativeCoords(e)}
+      dragMomentum={false}
+      dragElastic={0.075}
+      dragConstraints={{
+        top: -position.y,
+        left: -position.x,
+        right: width - position.x - dimensions.x,
+        bottom: 890 - position.y - dimensions.y,
+      }}
+      style={{
+        position: 'absolute',
+        top: position.y,
+        left: position.x,
+      }}
+      onClick={(e) => console.log(e)}
+    >
       <div
-        className={`absolute top-0 right-0 ${
-          optionsState ? 'translate-y-0' : '-translate-y-6'
-        } transition-all`}
+        className={`max-w-fit relative group rounded overflow-hidden ease-in-out duration-150`}
       >
-        <button>
-          <FontAwesomeIcon icon={faFaceSmile} className="p-1" />
+        <input
+          ref={inputRef}
+          // onMouseDown={handleMouseDown}
+          onKeyDown={(e) => {
+            if (e.key === 'Delete') {
+              return handleDelete(e);
+            }
+          }}
+          id={input.id}
+          value={input.value}
+          style={input.style}
+          onChange={(e) => handleChange(e, index)}
+          placeholder="type your text here..."
+          type="text"
+          className={`hover:cursor-pointer border-transparent  translate-x-0 translate-y-0 tool-drag-element duration-75 bg-transparent`}
+        />
+        <button
+          onClick={optionsToggle}
+          className={`absolute top-[10px] right-0 invisible group-hover:visible py-1 px-2 hover:scale-110  duration-150 ease-in-out ${
+            optionsState ? 'hidden' : 'visible'
+          } `}
+        >
+          <FontAwesomeIcon icon={faEllipsisVertical} className="text-lg" />
         </button>
-        <button>
-          <FontAwesomeIcon icon={faFaceSmile} className="p-1" />
-        </button>
-        <button onClick={optionsToggle}>
-          <FontAwesomeIcon
-            icon={faTrash}
-            id={input.id}
-            onClick={(e) => handleDelete(e)}
-            className=" p-1 text-red-500 hover:scale-105 ease-in-out duration-100"
-          />
-        </button>
+
+        <div
+          className={`absolute top-0 right-0 ${
+            optionsState ? 'translate-y-0' : '-translate-y-6'
+          } transition-all`}
+        >
+          <button>
+            <FontAwesomeIcon icon={faFaceSmile} className="p-1" />
+          </button>
+          <button>
+            <FontAwesomeIcon icon={faFaceSmile} className="p-1" />
+          </button>
+          <button onClick={optionsToggle}>
+            <FontAwesomeIcon
+              icon={faTrash}
+              id={input.id}
+              onClick={(e) => handleDelete(e)}
+              className=" p-1 text-red-500 hover:scale-105 ease-in-out duration-100"
+            />
+          </button>
+        </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
