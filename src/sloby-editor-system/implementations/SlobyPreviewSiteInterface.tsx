@@ -1,4 +1,10 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, {
+  useEffect,
+  useState,
+  useContext,
+  useRef,
+  MutableRefObject,
+} from 'react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import JsxParser from 'react-jsx-parser';
@@ -14,7 +20,30 @@ export default function SlobyPreviewSiteInterface() {
   const source = new interfaceIntegrator();
   const props = new InterfacePropsIntegrator();
   const { toolClicked, setToolClicked } = useContext(ToolClickedContext);
-  const { inputs, setInputs, setLastClicked } = useContext(InputsContext);
+  const { inputs, setInputs, setLastClicked, saveDimensions } =
+    useContext(InputsContext);
+  const containerSizeRef = useRef<HTMLDivElement>(null);
+
+  const [width, setWidth] = useState<number>(0);
+  // const [height, setHeight] = useState();
+
+  // console.log(width);
+
+  const getListSize = () => {
+    if (containerSizeRef.current == undefined) {
+      return;
+    }
+    const newWidth = containerSizeRef.current.clientWidth;
+    setWidth(newWidth);
+
+    // const newHeight = containerSizeRef.current.clientHeight;
+    // setHeight(newHeight);
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', getListSize);
+    getListSize();
+  }, []);
 
   async function getCurrentSource() {
     return await source.getProjectBasedSourceCode(router.query.id as string);
@@ -77,18 +106,27 @@ export default function SlobyPreviewSiteInterface() {
       <motion.div
         animate={{ opacity: [0, 1], y: [10, 0] }}
         transition={{ duration: 0.3, delay: 0.1 }}
-        className="h-[95%]"
+        className="h-[95%] "
       >
         <p className="flex justify-center mt-10 text-[50px] welcome-color">
           SlobyBuilder
         </p>
 
         <div
-          className="ml-2 mt-3 flex flex-col gap-4 ease-in-out duration-150"
-          onClick={(e: any) => setLastClicked(e.target.id)}
+          className=" flex flex-col gap-4 ease-in-out duration-150 relative "
+          ref={containerSizeRef}
+          onMouseDown={(e: any) => {
+            setLastClicked(e.target.id),
+              saveDimensions(
+                { x: e.target.offsetWidth, y: e.target.offsetHeight },
+                e.target.id
+              );
+          }}
         >
           {inputs.map((input, index: number) => {
-            return <Input key={input.id} input={input} index={index} />;
+            return (
+              <Input key={input.id} input={input} index={index} width={width} />
+            );
           })}
         </div>
       </motion.div>

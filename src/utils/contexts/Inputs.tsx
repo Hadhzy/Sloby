@@ -5,34 +5,46 @@ import { TInputContextProps } from '../types';
 type InputContext = {
   inputs: Array<TInputContextProps>;
   lastClicked: string;
-  setInputs: Dispatch<
-    SetStateAction<TInputContextProps[]>
-  >;
+  setInputs: Dispatch<SetStateAction<TInputContextProps[]>>;
   setLastClicked: Dispatch<SetStateAction<string>>;
   handleChange: (e: any, index: number) => void;
   addInput: () => void;
   styleChange: (e: any, id: string, type: string) => void;
   getStyles: (id: string) => [];
+  handlePositionChange: (e: any, id: string) => void;
+  saveDimensions: (dimensions: { x: number; y: number }, id: string) => void;
+  getPosition: (id: string) => { x: number; y: number } | undefined;
+  getDimensions: (id: string) => { x: number; y: number } | undefined;
 };
 
 export const InputsContext = createContext<InputContext>(undefined!);
 
 export const InputsContextProvider = ({ children }: { children: any }) => {
-  const [inputs, setInputs] = useState<
-    Array<TInputContextProps>
-  >([
+  const [inputs, setInputs] = useState<Array<TInputContextProps>>([
     {
       value: '',
       id: uuidv4(),
-      position: { x: 0, y: 0 },
+      position: { x: 1, y: 0 },
       style: {},
       states: {
-        isReadonly: false, 
-      }
+        isReadonly: false,
+      },
+      dimensions: { x: 0, y: 0 },
     },
   ]);
 
   const [lastClicked, setLastClicked] = useState('');
+
+  const saveDimensions = (dimensions: { x: number; y: number }, id: string) => {
+    // console.log('dimensionChange: ', dimensions);
+    const newInputs = [...inputs];
+    for (let i = 0; i < newInputs.length; i++) {
+      if (id == newInputs[i].id) {
+        newInputs[i].dimensions = { x: dimensions.x, y: dimensions.y };
+      }
+    }
+    setInputs(newInputs);
+  };
 
   const getStyles = (id: string) => {
     for (let i = 0; i < inputs.length; i++) {
@@ -40,6 +52,31 @@ export const InputsContextProvider = ({ children }: { children: any }) => {
         return inputs[i].style;
       }
     }
+  };
+  const getPosition = (id: string) => {
+    for (let i = 0; i < inputs.length; i++) {
+      if (id == inputs[i].id) {
+        return inputs[i].position;
+      }
+    }
+  };
+  const getDimensions = (id: string) => {
+    for (let i = 0; i < inputs.length; i++) {
+      if (id == inputs[i].id) {
+        return inputs[i].dimensions;
+      }
+    }
+  };
+
+  const handlePositionChange = (e: any, id: string) => {
+    // console.log('positionChange: ', e.x);
+    const newInputs = [...inputs];
+    for (let i = 0; i < newInputs.length; i++) {
+      if (id == newInputs[i].id) {
+        newInputs[i].position = { x: e.x, y: e.y };
+      }
+    }
+    setInputs(newInputs);
   };
 
   const handleChange = (e: any, index: number) => {
@@ -58,12 +95,22 @@ export const InputsContextProvider = ({ children }: { children: any }) => {
     setInputs(newInputs);
   };
 
-
-
   const addInput = () => {
     setInputs([
       ...inputs,
-      { value: '', id: uuidv4(), position: { x: 0, y: 0 }, style: {}, states: {isReadonly: false} },
+      {
+        value: '',
+        id: uuidv4(),
+        position: { x: 1, y: 0 },
+        style: {
+          color: '#fff',
+          fontSize: '16px',
+          fontWheight: '500',
+          fontFamily: 'montserrat',
+        },
+        states: { isReadonly: false },
+        dimensions: { x: 0, y: 0 },
+      },
     ]);
   };
 
@@ -72,6 +119,10 @@ export const InputsContextProvider = ({ children }: { children: any }) => {
       value={{
         inputs,
         lastClicked,
+        saveDimensions,
+        handlePositionChange,
+        getPosition,
+        getDimensions,
         setLastClicked,
         setInputs,
         handleChange,

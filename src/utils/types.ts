@@ -53,6 +53,7 @@ export type TInputContextProps = {
   id: string;
   position: { x: number; y: number };
   style: any;
+  dimensions: { x: number; y: number };
   states: {
     isReadonly: boolean;
   };
