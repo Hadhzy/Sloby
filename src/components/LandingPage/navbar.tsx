@@ -2,7 +2,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useCallback, useEffect, useState } from 'react';
 import Tabs from './tabs';
-import styled from 'styled-components';
 
 export default function Navbar({ className }: { className: string }) {
   const [scroll, setScroll] = useState(false);
