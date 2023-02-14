@@ -18,8 +18,7 @@
     "jsx": "preserve",
     "experimentalDecorators": true,
     "incremental": true,
-    "emitDecoratorMetadata": true,
-    "noImplicitAny": false
+    "emitDecoratorMetadata": true
   },
 
   "include": [
