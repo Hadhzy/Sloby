@@ -8,7 +8,6 @@ import {
 import { toolsConstructors } from '../constants';
 import { ProjectsContext } from './ProjectsContext';
 import { TSlobyTool } from '../types';
-import PreviousMap from 'postcss/lib/previous-map';
 
 type TSpecificToolClicked = {
   currentId: string
