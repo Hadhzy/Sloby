@@ -9,7 +9,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { TSlobyProject } from '../../../utils/types';
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 import { v4 as uuidv4 } from 'uuid';
-import Projects from './Projects';
 export default function ProjectModal() {
   const {
     project_data,
