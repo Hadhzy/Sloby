@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { ColorResult, HuePicker } from 'react-color';
+import { HuePicker } from 'react-color';
 import { v4 as uuidv4 } from 'uuid';
 import { TInputProps } from '../../../../utils/types';
 import { motion } from 'framer-motion';
@@ -108,7 +108,7 @@ export default function Color(props: TInputProps) {
           <div className="">
             <HuePicker
               color={selectedColor}
-              onChangeComplete={(e: ColorResult) => changeColor(e.hex)}
+              onChangeComplete={(e: any) => changeColor(e.hex)}
               width={'200'}
               className="ease-in-out duration-150"
             />
