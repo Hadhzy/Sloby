@@ -32,7 +32,7 @@ export default function Navbar({ className }: { className: string }) {
             />
           </Link>
           <div className="hidden md:flex my-auto select-none">
-            <Tabs/>
+            <Tabs />
           </div>
           <svg
             role="img"
