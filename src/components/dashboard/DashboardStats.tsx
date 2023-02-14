@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import CountUp from 'react-countup';
-import { getEveryNth } from './getEveryNth';
 import { getRandomNumber } from './getRandomNumber';
 
 export default function DashboardStats({
