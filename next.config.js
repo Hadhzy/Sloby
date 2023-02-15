@@ -24,6 +24,7 @@ const nextConfig = {
       {
         source: '/api/websocket',
         destination: '/api/websocket.ts',
+        permanent: true,
       },
     ];
   },
