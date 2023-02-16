@@ -1,35 +1,36 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextApiRequest, NextApiResponse } from 'next';
 import { WebSocketServer } from 'ws';
 
-const SocketHandler = async (req: any, res: any) => {
-  if (res.socket.server.wss) {
-    console.log('Socket is already running');
-  } else {
-    console.log('Socket is initializing');
-    const server = res.socket.server;
-    const wss = new WebSocketServer({ noServer: true });
-    res.socket.server.wss = wss;
+const SocketHandler = async (req: NextApiRequest, res: NextApiResponse) => {
+  const wss: any = new WebSocketServer({ noServer: true });
 
-    server.on('upgrade', (req: any, socket: any, head: any) => {
-      console.log('upgrade', req.url);
+  // Set up the WebSocket server
+  wss.on('connection', (ws: any) => {
+    console.log('Client connected');
 
-      if (!req.url.includes('/_next/webpack-hmr')) {
-        wss.handleUpgrade(req, socket, head, (ws) => {
-          wss.emit('connection', ws, req);
-        });
-      }
+    // Listen for messages from the client
+    ws.on('message', (message: any) => {
+      console.log(`Received message: ${message}`);
+
+      // Send a response back to the client
+      ws.send(`You said: ${message}`);
     });
 
-    wss.on('connection', (ws) => {
-      console.log('connection', ws);
-      ws.on('message', (data) => {
-        console.log('received: %s', data);
-      });
-
-      ws.send('something');
+    // Listen for the socket to close
+    ws.on('close', () => {
+      console.log('Client disconnected');
     });
+  });
+
+  // Upgrade the incoming request to a WebSocket request
+  if (!wss.handleUpgrade(req, res.socket, Buffer.from([]), onUpgrade)) {
+    res.status(400).end('Invalid WebSocket request');
+    return;
   }
-  res.end();
+
+  function onUpgrade(ws: any) {
+    wss.emit('connection', ws, req);
+  }
 };
 
 export default SocketHandler;
