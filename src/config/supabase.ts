@@ -7,4 +7,4 @@ const supabase: SupabaseClient<any, 'public', any> = createClient(
   supabaseUrl,
   supabaseKey
 );
-export default supabase as SupabaseClient<any, 'public', any>;
+export default supabase as SupabaseClient<any, 'public', any> | any;
