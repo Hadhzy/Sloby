@@ -1,10 +1,5 @@
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
-import React, {
-  useEffect,
-  useContext,
-  SetStateAction,
-  useLayoutEffect,
-} from 'react';
+import React, { useEffect, useContext, SetStateAction } from 'react';
 import { TSlobyTool } from '../../utils/types';
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -30,13 +25,8 @@ export default function SlobyTools() {
   const { addInput } = useContext(InputsContext);
 
   useEffect(() => {
-    // getTools(setTools, supabase);
     projectServices.getTools().then(({ data }) => setTools(data as any));
   }, [supabase]);
-
-  useLayoutEffect(() => {
-    console.log('Hello');
-  }, [toolClicked]);
 
   return (
     <div className="bg-tools-bg ">
@@ -71,12 +61,6 @@ export default function SlobyTools() {
 
                   //* this is your implementation
                   //NOTE: this is creating also an indexedDB and i couldn't really figure out where that is happening so i commented it out
-                  new ActionHandler(
-                    tools.find(
-                      (tool: TSlobyTool) => tool.id === e.currentTarget.id
-                    ),
-                    router.query.id as string
-                  );
                 }}
                 key={tool.id}
                 className="w-20 h-20 bg-tool-bg flex ease-in-out duration-150  flex-wrap justify-center items-center rounded-xl mt-4 hover:scale-110 cursor-pointer hover:bg-tool-bg-hover"

@@ -37,7 +37,6 @@ function SlobyEditor() {
     // currentProject.then((res) => setCurrentProject(res));
   }, []);
 
-  useLayoutEffect(() => {}, [toolClicked]);
 
   return (
     <>
