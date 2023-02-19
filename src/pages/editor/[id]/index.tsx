@@ -1,8 +1,8 @@
 import React from 'react';
-import SlobyEditor from '../../sloby-editor-system/implementations/SlobyEditor';
+import SlobyEditor from '../../../sloby-editor-system/implementations/SlobyEditor';
 import { GetServerSideProps, NextPage } from 'next';
 import { createServerSupabaseClient } from '@supabase/auth-helpers-nextjs';
-import { ProjectServices } from '../../api/project.api';
+import { ProjectServices } from '../../../api/project.api';
 
 type Props = {
   success: boolean;
@@ -21,7 +21,7 @@ const Editor: NextPage<Props> = ({ success }) => {
   //     supabase,
   //     setSuccess
   //   );
-  // });
+  // })
 
   return (
     <div>

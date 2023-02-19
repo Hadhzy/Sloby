@@ -17,7 +17,6 @@ export type TSlobyProject = {
   created_at: Date;
   project_name: string;
   project_description: string;
-  shared_with: string | null;
   creator: string | undefined;
   public: boolean;
   tags: Tag[];

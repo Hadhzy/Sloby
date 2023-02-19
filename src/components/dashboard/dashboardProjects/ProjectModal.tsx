@@ -53,30 +53,35 @@ export default function ProjectModal() {
       created_at: new Date(),
       project_name: name,
       project_description: description,
-      shared_with: null,
       creator: session?.user.id,
       public: checked,
       tags: stringed,
     });
     const { data, error } = await supabase
       .from('projects')
-      .insert<TSlobyProject>([
+      .insert([
         {
           id: id,
           created_at: new Date(),
           project_name: name,
           project_description: description,
-          shared_with: null,
           creator: session?.user.id,
           public: checked,
           tags: current_tags,
           interface_source: [],
         },
       ])
-      .select();
-    sendCurrentTags();
+      // Add reference inside users_projects join table
+      const { data: data2, error: error2 } = await supabase
+      .from('users_projects')
+      .insert({ user_id: session?.user.id, project_id: id});
+    sendCurrentTags()
     if (error) {
       console.log(error);
+    }
+
+    if (error2) {
+      console.log(error2);
     }
 
     if (data) {

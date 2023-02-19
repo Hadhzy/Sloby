@@ -2,7 +2,6 @@ import { SupabaseClient } from '@supabase/supabase-js';
 import { match } from 'assert';
 import { TSlobyProject } from '../utils/types';
 import { BaseServices } from './base';
-import supabase from '../config/supabase';
 
 export class ProjectServices extends BaseServices {
   constructor(supabase: SupabaseClient) {

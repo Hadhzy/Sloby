@@ -20,15 +20,15 @@ export default function Test() {
         project_id: otherProject,
       });
 
-      //   const { data, error } = await supabase.from('users_projects').insert({
-      //     user_id: user.id,
-      //     project_id: myProject,
-      //   });
+        // const { data, error } = await supabase.from('users_projects').insert({
+        //   user_id: user.id,
+        //   project_id: myProject,
+        // });
 
-      //   const { data, error } = await supabase.from('users_projects').insert({
-      //     user_id: otherUser,
-      //     project_id: myProject,
-      //   });
+        // const { data, error } = await supabase.from('users_projects').insert({
+        //   user_id: otherUser,
+        //   project_id: myProject,
+        // });
 
       if (error) {
         console.error(error);
