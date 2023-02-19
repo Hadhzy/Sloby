@@ -13,15 +13,21 @@ export default function SlobyPreviewSiteInterface() {
   const containerSizeRef = useRef<HTMLDivElement>(null);
   const supabase: any = useSupabaseClient();
   const [width, setWidth] = useState<number>(0);
+  const [initialFinished, setInitialFinished] = useState<boolean>(false);
 
   useEffect(() => {
     // Fetching the initial data
     console.log('fetch initial');
-    getInitialProjectData();
+    getInitialProjectData().then((data) => {
+      console.log(data);
+      setInputs(data);
+      setInitialFinished(true);
+    });
   }, []);
 
   // When the inputs change, update the project
   useEffect(() => {
+    if (!initialFinished) return;
     updateProject();
   }, [inputs]);
 
@@ -45,15 +51,14 @@ export default function SlobyPreviewSiteInterface() {
     const { data, error } = await supabase
       .from('projects')
       .select('*')
-      .eq('id', router.query.id);
+      .eq('id', router.query.id as string);
 
     if (error) {
-      return console.log(error);
+      console.error(error);
+      return [];
     }
 
-    console.log(data);
-    setInputs(data[0].interface_source);
-    return data;
+    return data[0].interface_source;
   }
 
   //on project update this function will log out the recieved payload
@@ -67,7 +72,7 @@ export default function SlobyPreviewSiteInterface() {
     await supabase
       .from('projects')
       .update({ interface_source: inputs })
-      .eq('id', router.query.id as string);
+      .match({ id: router.query.id as string });
   }
 
   //getting the list size, setting the width to be the new width
