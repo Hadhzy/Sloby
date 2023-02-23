@@ -1,4 +1,10 @@
-import { Dispatch, SetStateAction, createContext, useEffect, useState } from 'react';
+import {
+  Dispatch,
+  SetStateAction,
+  createContext,
+  useEffect,
+  useState,
+} from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { TInputContextProps } from '../types';
 import { useRouter } from 'next/router';
@@ -21,9 +27,8 @@ type InputContext = {
 export const InputsContext = createContext<InputContext>(undefined!);
 
 export const InputsContextProvider = ({ children }: { children: any }) => {
-  const router = useRouter()
+  const router = useRouter();
   const [inputs, setInputs] = useState<Array<TInputContextProps>>([]);
-
 
   const [lastClicked, setLastClicked] = useState('');
 
@@ -97,7 +102,7 @@ export const InputsContextProvider = ({ children }: { children: any }) => {
         style: {
           color: '#fff',
           fontSize: '16px',
-          fontWheight: '500',
+          fontWeight: '500',
           fontFamily: 'montserrat',
         },
         states: { isReadonly: false },
