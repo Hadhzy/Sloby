@@ -5,8 +5,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGear, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import {useRouter} from "next/router";
+
 export default function SlobyEditorInformation() {
   const { currentProject } = useContext(ProjectsContext);
+  const router = useRouter();
+
+  const redirect_user = () => {
+      {router.push(`/editor/preview/${router.query.id}`)}
+  }
+
   return (
     <div className="p-3 w-full border-b-1 border-editor-border-color bg-dark-info flex items-center">
       <motion.div
@@ -47,7 +55,7 @@ export default function SlobyEditorInformation() {
             <button className="font-[Inter] w-20 flex justify-center items-center duration-150 ease-in-out rounded-4 bg-blue-dark px-4 py-1 rounded-lg text-white font-semibold hover:translate-y-[-2px] hover:scale-105 hover:bg-blue-600">
               Share
             </button>
-            <button className="font-[Inter] w-25 flex justify-around items-center duration-150 ease-in-out rounded-4 bg-dark-preview px-4 py-1 rounded-lg text-white font-semibold hover:translate-y-[-2px] hover:scale-105 hover:bg-dark-preview-hover">
+            <button onClick={redirect_user} className="font-[Inter] w-25 flex justify-around items-center duration-150 ease-in-out rounded-4 bg-dark-preview px-4 py-1 rounded-lg text-white font-semibold hover:translate-y-[-2px] hover:scale-105 hover:bg-dark-preview-hover">
               Preview
               <FontAwesomeIcon icon={faChevronDown} className="ml-2" />
             </button>
