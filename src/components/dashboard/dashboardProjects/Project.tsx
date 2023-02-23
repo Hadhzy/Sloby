@@ -52,7 +52,7 @@ export default function Project({
     await propsIntegrator.deleteItem(project_id);
   }
 
-  // not working
+
   function updateProject() {
     set_project_data({ ...project_data, project_modal: true });
   }

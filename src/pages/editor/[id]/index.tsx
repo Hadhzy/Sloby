@@ -21,7 +21,8 @@ const Editor: NextPage<Props> = ({ success }) => {
   //     supabase,
   //     setSuccess
   //   );
-  // })
+  // });
+
 
   return (
     <div>
