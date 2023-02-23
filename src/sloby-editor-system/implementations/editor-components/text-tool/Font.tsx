@@ -26,7 +26,8 @@ export default function Font(props: TInputProps) {
   const [italic, setItalic] = useState(false);
 
   useEffect(() => {
-    if (props?.styles.fontStyle) {
+    console.log('font', props);
+    if (props?.styles?.fontStyle) {
       setItalic(props.styles.fontStyle);
     }
     if (props?.styles.fontFamily) {

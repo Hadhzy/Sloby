@@ -1,108 +1,101 @@
-import React, {
-  useEffect,
-  useState,
-  useContext,
-  useRef,
-  MutableRefObject,
-} from 'react';
+import React, { useEffect, useState, useContext, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
-import JsxParser from 'react-jsx-parser';
 import Input from './editor-components/text-tool/Input';
-import interfaceIntegrator from '../lib/handlers/InteraceIntegrators/InterfaceSourceIntegrator';
-import { ToolClickedContext } from '../../utils/contexts/ToolClicked';
-import InterfacePropsIntegrator from '../lib/handlers/InteraceIntegrators/InterfacePropsIntegrator';
 import { InputsContext } from '../../utils/contexts/Inputs';
+import { useSupabaseClient } from '@supabase/auth-helpers-react';
+// import { supabase } from '../../config/supabase';
 
 export default function SlobyPreviewSiteInterface() {
-  const [currentSource, setCurrentSource] = useState<any>('');
   const router = useRouter();
-  const source = new interfaceIntegrator();
-  const props = new InterfacePropsIntegrator();
-  const { toolClicked, setToolClicked } = useContext(ToolClickedContext);
   const { inputs, setInputs, setLastClicked, saveDimensions } =
     useContext(InputsContext);
   const containerSizeRef = useRef<HTMLDivElement>(null);
-
+  const supabase: any = useSupabaseClient();
   const [width, setWidth] = useState<number>(0);
-  // const [height, setHeight] = useState();
+  const [initialFinished, setInitialFinished] = useState<boolean>(false);
 
-  // console.log(width);
+  useEffect(() => {
+    // Fetching the initial data
+    console.log('fetch initial');
+    getInitialProjectData().then((data) => {
+      console.log(data);
+      setInputs(data);
+      setInitialFinished(true);
+    });
+  }, []);
 
+  // When the inputs change, update the project
+  useEffect(() => {
+    if (!initialFinished) return;
+    updateProject();
+  }, [inputs]);
+
+  // Subscribing to changes on the project
+  // This does not provide the initial data and must be requested separately
+  supabase
+    .channel('projects_table_change')
+    .on(
+      'postgres_changes',
+      {
+        event: 'UPDATE',
+        schema: 'public',
+        table: 'projects',
+        filter: `id=${router.query.id}`,
+      },
+      onProjectUpdate
+    )
+    .subscribe();
+
+  async function getInitialProjectData() {
+    const { data, error } = await supabase
+      .from('projects')
+      .select('*')
+      .eq('id', router.query.id as string);
+
+    if (error) {
+      console.error(error);
+      return [];
+    }
+
+    return data[0].interface_source;
+  }
+
+  //on project update this function will log out the recieved payload
+  function onProjectUpdate(payload: any) {
+    console.log('Change received!', payload);
+  }
+
+  //UPDATING the project with the new interface_source
+  async function updateProject() {
+    console.log('update');
+    await supabase
+      .from('projects')
+      .update({ interface_source: inputs })
+      .match({ id: router.query.id as string });
+  }
+
+  //getting the list size, setting the width to be the new width
   const getListSize = () => {
     if (containerSizeRef.current == undefined) {
       return;
     }
     const newWidth = containerSizeRef.current.clientWidth;
     setWidth(newWidth);
-
-    // const newHeight = containerSizeRef.current.clientHeight;
-    // setHeight(newHeight);
   };
 
+  //Listening for resizing even from the browser and then getting the list size
+  //cleanup afterwards
   useEffect(() => {
     window.addEventListener('resize', getListSize);
     getListSize();
+    return () => {
+      window.removeEventListener('resize', getListSize);
+    };
   }, []);
-
-  async function getCurrentSource() {
-    return await source.getProjectBasedSourceCode(router.query.id as string);
-  }
-
-  async function handleDataFetching() {
-    if ((await source.getSingle(router.query.id as string)) === null) {
-      return await source.add('', router.query.id as string);
-    } else {
-      const sourceCode = await getCurrentSource();
-      return setCurrentSource(sourceCode);
-    }
-  }
-
-  useEffect(() => {
-    props.add(inputs, router.query.id as string);
-  }, [inputs]);
-
-  useEffect(() => {
-    async function getStoredInputs() {
-      const storedValues = await props.getSingle(router.query.id as string);
-      if (storedValues) {
-        setInputs(storedValues);
-      }
-    }
-
-    getStoredInputs();
-  }, []);
-
-  if (typeof window !== 'undefined') {
-    useEffect(() => {
-      handleDataFetching();
-    }, [toolClicked]);
-  }
-
-  // if (typeof window !== 'undefined') {
-  //   useEffect(() => {
-  //     const source = new InterfaceIntegration(new DatabaseService());
-  //     source.getProjectBasedSourceCode(router.query.id as string);
-  //     const sourceCode = source.getProjectBasedSourceCode(
-  //       router.query.id as string
-  //     );
-  //     if (localStorage.getItem(General.LOCAL_DB_NAME)) {
-  //       setCurrentSource(sourceCode);
-  //       console.log(sourceCode);
-  //     } else return setCurrentSource('');
-  //   }, [localStorage.getItem(General.LOCAL_DB_NAME)]);
-  // }
 
   return (
-    <motion.div
-      className="w-full h-screen h-full bg-interface-bg"
-
-      // onDragOver={(e) => {
-      //   e.preventDefault();
-      //   console.log(e.dataTransfer.getData("test"));
-      //   console.log(e);
-      // }}
-    >
+    <motion.div className="w-full h-screen h-full bg-interface-bg">
       <motion.div
         animate={{ opacity: [0, 1], y: [10, 0] }}
         transition={{ duration: 0.3, delay: 0.1 }}
@@ -111,7 +104,6 @@ export default function SlobyPreviewSiteInterface() {
         <p className="flex justify-center mt-10 text-[50px] welcome-color">
           SlobyBuilder
         </p>
-
         <div
           className=" flex flex-col gap-4 ease-in-out duration-150 relative "
           ref={containerSizeRef}
