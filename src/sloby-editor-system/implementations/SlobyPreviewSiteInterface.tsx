@@ -115,11 +115,15 @@ export default function SlobyPreviewSiteInterface() {
               );
           }}
         >
-          {inputs.map((input, index: number) => {
+          {
+            inputs ? (
+                inputs.map((input, index: number) => {
             return (
               <Input key={input.id} input={input} index={index} width={width} />
             );
-          })}
+          })
+            ) : ""
+          }
         </div>
       </motion.div>
     </motion.div>
