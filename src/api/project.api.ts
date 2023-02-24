@@ -32,6 +32,14 @@ export class ProjectServices extends BaseServices {
     return this.client.from('sloby_tools').select('*');
   }
 
+  public async getProjectsSource(project_id: string) {
+    return await this.client
+      .from('projects')
+      .select('*')
+      .eq('id', project_id)
+      .single();
+  }
+
   public async checkProjectPermission(project_id: string) {
     //TODO: this need to fix the typing
     const res = (await this.getProjectById(project_id)).data![0]; //=> Fix typing
