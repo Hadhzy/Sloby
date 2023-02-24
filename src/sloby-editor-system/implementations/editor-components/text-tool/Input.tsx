@@ -6,15 +6,10 @@ import React, {
   Dispatch,
   SetStateAction,
 } from 'react';
-import { BaseClassNames } from '../../../lib/grammar/BaseClassNames';
-import { v4 as uuidv4 } from 'uuid';
 import InterfacePropsIntegrator from '../../../lib/handlers/InteraceIntegrators/InterfacePropsIntegrator';
 import { ToolClickedContext } from '../../../../utils/contexts/ToolClicked';
-import { handleClientScriptLoad } from 'next/script';
 import interfaceSourceIntegrator from '../../../lib/handlers/InteraceIntegrators/InterfaceSourceIntegrator';
 import { InputsContext } from '../../../../utils/contexts/Inputs';
-import JsxParser from 'react-jsx-parser';
-// import { useWindowDimensions } from '../../../../utils/hooks';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faEllipsisVertical,
@@ -29,7 +24,6 @@ interface Props {
   initialValue: string;
 }
 
-// export default function Input({ id }: { id: string }) {
 export default function Input({
   input,
   index,
@@ -52,11 +46,7 @@ export default function Input({
     handlePositionChange,
     getDimensions,
   } = useContext(InputsContext);
-  // const windowDimensions = useWindowDimensions();
 
-  // console.log(windowDimensions);
-
-  //for dragging
   const [position, setPosition] = useState(getPosition(input.id));
   const [dimensions, setDimensions] = useState({ x: 0, y: 0 });
   const inputRef = useRef<any>();
@@ -87,21 +77,21 @@ export default function Input({
 
   useEffect(() => {
     console.log('ratio: ', ratio);
-    console.log('position.x: ', position!.x);
-    if (!ratio && position!.x != 0) {
+    console.log('position.x: ', position!?.x);
+    if (!ratio && position!?.x != 0) {
       // console.log('width: ', width);
       // console.log('position.x: ', position.x);
-      setRatio(position!.x / width);
+      setRatio(position!?.x / width);
       setLastWidth(width);
       return;
     }
     // console.log('ratio: ', ratio);
-    if (ratio && position!.x != 0) {
+    if (ratio && position!?.x != 0) {
       // console.log('LW: ', lastWidth);
       // console.log('W: ', width);
       setPosition({
-        x: position!.x + (width - lastWidth) * ratio,
-        y: position!.y,
+        x: position!?.x + (width - lastWidth) * ratio,
+        y: position!?.y,
       });
       setLastWidth(width);
     }
@@ -115,31 +105,6 @@ export default function Input({
     e.preventDefault();
     setOptionsState(!optionsState);
   };
-
-  // useEffect(() => {
-  //   console.log(input);
-  // }, [input]);
-
-  // const handleFocus = (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
-  //   const focusedInput = inputs.find(
-  //     (input: TInputContextProps) => input.id === e.currentTarget.id
-  //   );
-  //   if (focusedInput?.states.isFocused === false) {
-  //     focusedInput.states.isFocused = true;
-  //     focusedInput.states.isSelected = false;
-  //     setInputs([...inputs, focusedInput]);
-  //   } else return;
-  // };
-
-  // const handleSelection = () => {
-  //   const selectedInput = inputs.find(
-  //     (item: TInputContextProps) => item.id === input.id
-  //   );
-  //   if (selectedInput?.states.isSelected === false) {
-  //     selectedInput.states.isSelected = true;
-  //     setInputs([...inputs, selectedInput]);
-  //   } else return;
-  // };
 
   const [styles, setStyles] = useState('');
 
@@ -180,15 +145,15 @@ export default function Input({
       dragMomentum={false}
       dragElastic={0.075}
       dragConstraints={{
-        top: -position!.y,
-        left: -position!.x,
-        right: width - position!.x - dimensions.x,
-        bottom: 890 - position!.y - dimensions.y,
+        top: -position!?.y,
+        left: -position!?.x,
+        right: width - position!?.x - dimensions?.x,
+        bottom: 890 - position!?.y - dimensions?.y,
       }}
       style={{
         position: 'absolute',
-        top: position!.y,
-        left: position!.x,
+        top: position!?.y,
+        left: position!?.x,
       }}
       onClick={(e) => console.log(e)}
     >
@@ -244,7 +209,7 @@ export default function Input({
             } else return;
           }}
           onClick={() => setStyles('border-blue-600')}
-          readOnly={input.states.isReadonly}
+          readOnly={input?.states?.isReadonly}
           className={`hover:cursor-pointer 
         border-transparent translate-x-0 translate-y-0 tool-drag-element duration-75 bg-transparent`}
         />
