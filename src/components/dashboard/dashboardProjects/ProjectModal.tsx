@@ -1,28 +1,29 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { ProjectsContext } from '../../../utils/contexts/ProjectsContext';
-import { AnimatePresence, motion } from 'framer-motion';
-import SlobyInput from '../../SlobyInput';
-import { getWindowDimensions } from '../../../utils/hooks';
-import ProjectTags from './ProjectTags';
-import { faCircleExclamation } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { TSlobyProject } from '../../../utils/types';
-import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
-import { v4 as uuidv4 } from 'uuid';
+import React, { useContext, useEffect, useState } from "react";
+import { ProjectsContext } from "../../../utils/contexts/ProjectsContext";
+import { AnimatePresence, motion } from "framer-motion";
+import SlobyInput from "../../SlobyInput";
+import { getWindowDimensions } from "../../../utils/hooks";
+import ProjectTags from "./ProjectTags";
+import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { TSlobyProject } from "../../../utils/types";
+import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
+import { v4 as uuidv4 } from "uuid";
+
 export default function ProjectModal() {
   const {
     project_data,
     current_tags,
     set_project_data,
     current_project_id,
-    set_current_project_id,
+    set_current_project_id
   } = useContext(ProjectsContext);
   const [windowDimensions, setWindowDimensions] = useState(
     getWindowDimensions()
   );
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
-  const [error, setError] = useState('');
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [error, setError] = useState("");
   const [tags, setTags] = useState();
   const [checked, setChecked] = useState(false);
   const supabase = useSupabaseClient();
@@ -35,72 +36,66 @@ export default function ProjectModal() {
       setWindowDimensions(getWindowDimensions());
     }
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const sendCurrentTags = async () => {
-    const { data, error } = await supabase.from('tag').insert([]);
+    const { data, error } = await supabase.from("tag").insert([]);
     if (error) console.log(error);
   };
 
   const sendRequest = async () => {
-    let id = uuidv4();
     const stringed = JSON.stringify(current_tags);
     const parsed = JSON.parse(stringed);
-    console.log({
-      id: id,
-      created_at: new Date(),
-      project_name: name,
-      project_description: description,
-      creator: session?.user.id,
-      public: checked,
-      tags: stringed,
-    });
     const { data, error } = await supabase
-      .from('projects')
+      .from("projects")
       .insert([
         {
-          id: id,
           created_at: new Date(),
           project_name: name,
           project_description: description,
           creator: session?.user.id,
           public: checked,
           tags: current_tags,
-          interface_source: [],
-        },
+          interface_source: []
+        }
       ])
-      // Add reference inside users_projects join table
-      const { data: data2, error: error2 } = await supabase
-      .from('users_projects')
-      .insert({ user_id: session?.user.id, project_id: id});
-    sendCurrentTags()
+      .select();
+
     if (error) {
       console.log(error);
-    }
+    } else {
+      console.log("found data", data)
+      // Add reference inside users_projects join table
+      // @ts-ignore
+      const { data: data2, error: error2 } = await supabase
+        .from("users_projects")
+        .insert({ user_id: session?.user.id, project_id: data[0].id });
 
-    if (error2) {
-      console.log(error2);
+      if (error2) {
+        console.log(error2);
+      }
     }
+    await sendCurrentTags();
 
     if (data) {
       console.log(data);
-      setError('');
+      setError("");
     }
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Submittung the form');
-    if (!name) return setError('Please fill the fields properly');
+    console.log("Submittung the form");
+    if (!name) return setError("Please fill the fields properly");
     else if (name.length < 4)
       return setError(
-        'Please provide your project with at least 4 characters long name'
+        "Please provide your project with at least 4 characters long name"
       );
     sendRequest();
 
-    setError('');
+    setError("");
     console.log(name, description);
     set_project_data({ ...project_data, project_modal: false });
   };
@@ -158,7 +153,7 @@ export default function ProjectModal() {
               </label>
             </div>
             <AnimatePresence>
-              {error !== '' && (
+              {error !== "" && (
                 <motion.div
                   exit={{ opacity: 0, y: 400 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
