@@ -49,8 +49,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const projectServices = new ProjectServices(supabase);
 
   const success = true;
-
-  console.log(success, ctx.query.id);
   // checkUserProjectPerms(
   //   router.query.id as string,
   //   session,

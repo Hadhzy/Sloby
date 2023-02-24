@@ -57,7 +57,6 @@
     "react-dom": "^18.2.0",
     "react-draggable": "^4.4.5",
     "react-draggable-fixed": "^4.4.42",
-    "react-html-parser": "^2.0.2",
     "react-jsx-parser": "^1.29.0",
     "rxjs": "^7.8.0",
     "scoopabase": "^1.0.0",

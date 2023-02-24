@@ -5,7 +5,6 @@ import { Planet } from '../components/LandingPage/planet';
 import { Star } from '../components/LandingPage/star';
 import { useSession } from '@supabase/auth-helpers-react';
 import { motion } from 'framer-motion';
-import JsxParser from 'react-jsx-parser';
 import { getURL } from '../lib/helpers';
 
 export default function Home() {
