@@ -6,7 +6,7 @@ class BaseBluePrint extends React.Component {
        * This component is used to be the blueprint page on the editor/blueprint route.
        -------------------------------
        */
-      constructor(props: any) {
+      constructor(props: any = "") {
         super(props);
       }
 

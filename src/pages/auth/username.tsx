@@ -1,12 +1,9 @@
 import Layout from '../../components/LandingPage/layout';
 import Head from 'next/head';
-import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import { Star } from '../../components/LandingPage/star';
-import Link from 'next/link';
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 import { useRouter } from 'next/router';
-import { getURL, githubLogin, googleLogin, loggedIn } from '../../lib/helpers';
 
 const isEmail = (email: string) => {
   return /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);

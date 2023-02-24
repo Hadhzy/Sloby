@@ -41,20 +41,6 @@ export class ProjectServices extends BaseServices {
     return this.client.from('sloby_tools').select('*');
   }
 
-  public async checkProjectPermission(project_id: string) {
-    //TODO: this need to fix the typing
-    const res = (await this.getProjectById(project_id)).data![0]; //=> Fix typing
-    const user = await this.client.auth.getUser();
-    if (
-      res.creator === user.data.user?.id ||
-      res.shared_with?.includes(user.data.user?.id ?? '')
-    ) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   // async addElement(type: string, id: string) {
   //   switch (type) {
   //     case 'text-element':
