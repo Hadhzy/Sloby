@@ -13,6 +13,7 @@ import { loadGetInitialProps } from 'next/dist/shared/lib/utils';
 export default function PreViewSite() {
   const [site, setSite] = React.useState<Array<TSlobyProject>>([]);
   const [sourceCode, setSourceCode] = React.useState<string>('');
+  const [isLoading, setIsLoading] = React.useState<boolean>(true); // add loading state
   const supabase = useSupabaseClient();
   const router = useRouter();
   const transformator = new ElementModifier();
@@ -44,11 +45,16 @@ export default function PreViewSite() {
           let source = transformator.inputToParagraph(item);
           setSourceCode((prev: string) => prev + source);
         });
+        setIsLoading(false); // set loading state to false after data is fetched
       }
     }
 
     fetchData();
   }, [router.query.id]);
+
+  if (isLoading) {
+    return <div>Loading...</div>; // render loading state
+  }
 
   return (
     <div className="bg-interface-bg w-screen h-screen">
