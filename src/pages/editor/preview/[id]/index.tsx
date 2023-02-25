@@ -14,6 +14,8 @@ export default function PreViewSite() {
   const router = useRouter();
   const transformator = new ElementModifier();
 
+  console.log(router.query.id);
+
   const options = {
     decodeEntities: true,
     ignoreTags: ['script', 'style'],
@@ -37,6 +39,21 @@ export default function PreViewSite() {
   };
 
   useEffect(() => {
+    supabase
+      .channel('projects_table_change')
+      .on(
+        'postgres_changes',
+        {
+          event: 'UPDATE',
+          schema: 'public',
+          table: 'projects',
+          filter: `id=${router.query.id}`,
+        },
+
+        (payload: any) => console.log(payload)
+      )
+      .subscribe();
+
     async function fetchData() {
       //getting the data based on the project id
       const projectsServices = new ProjectServices(supabase);

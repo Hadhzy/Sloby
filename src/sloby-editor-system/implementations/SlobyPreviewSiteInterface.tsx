@@ -16,7 +16,7 @@ export default function SlobyPreviewSiteInterface() {
   const [initialFinished, setInitialFinished] = useState<boolean>(false);
 
   useEffect(() => {
-    // Fetching the initial data
+    // Fetching the initial data 
     console.log('fetch initial');
     getInitialProjectData().then((data) => {
       console.log(data);
