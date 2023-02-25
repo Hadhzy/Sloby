@@ -1,7 +1,7 @@
 import React from "react";
 import BluePrintObject from "./blueprint_block";
 import {BluePrintContext} from "../../utils/contexts/BluePrint";
-
+import Pre_Rendered_Base_block from "./pre_rendered";
 
 function BluePrintMenu(){
     const {setElements, addBluePrintElement } = React.useContext(BluePrintContext);
@@ -55,9 +55,10 @@ class BaseBluePrint extends React.Component {
   render() {
       const { elements } = React.useContext(BluePrintContext);
     return (
-        <div>
+        <div className={"bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 "}>
             <BluePrintMenu />
-            <div className=" bg-gray-900 bg-gradient-to-t from-gray-700 to-gray-900 bg-no-repeat bg-cover">
+            <Pre_Rendered_Base_block/>
+            <div className="">
                 {elements.map((element: any) => {
                     return(
                         <BluePrintObject name={element.name} color={element.color} output={element.output} />
