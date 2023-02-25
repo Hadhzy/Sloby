@@ -5,10 +5,6 @@ import ElementModifier from '../../../../sloby-editor-system/implementations/htm
 import { ProjectServices } from '../../../../api/project.api';
 import ReactHtmlParser from 'react-html-parser';
 import { TSlobyProject } from '../../../../utils/types';
-import Link from 'next/link';
-import { InputsContext } from '../../../../utils/contexts/Inputs';
-import styleParser from 'style-parser';
-import { loadGetInitialProps } from 'next/dist/shared/lib/utils';
 
 export default function PreViewSite() {
   const [site, setSite] = React.useState<Array<TSlobyProject>>([]);
@@ -22,27 +18,37 @@ export default function PreViewSite() {
     decodeEntities: true,
     ignoreTags: ['script', 'style'],
     transform: (node: any, index: number) => {
-      if (node.type === 'tag' && node.name === 'p') {
-        const parsedStyle = JSON.parse(`${node.attribs.style}`);
+      if (node.type === 'tag') {
+        if (node.name === 'p') {
+          const parsedStyle = JSON.parse(`${node.attribs.style}`);
 
-        return (
-          <p style={parsedStyle} key={index}>
-            {node.children[0].data}
-          </p>
-        );
+          return (
+            <p style={parsedStyle} key={index}>
+              {node.children[0].data}
+            </p>
+          );
+        }
+        if (node.name === 'div') {
+          const parsedStyle = JSON.parse(`${node.attribs.style}`);
+          // return <div style={parsedStyle}>{node.children}</div>;
+        }
       }
     },
   };
 
   useEffect(() => {
     async function fetchData() {
+      //getting the data based on the project id
       const projectsServices = new ProjectServices(supabase);
       let data = await projectsServices.getProjectsSource(
         router.query.id as string
       );
+
       if (data) {
+        //mapping through the data and transforming it to html using the transformator instance
         data.data?.interface_source.map((item: any) => {
           let source = transformator.inputToParagraph(item);
+          console.log(source);
           setSourceCode((prev: string) => prev + source);
         });
         setIsLoading(false); // set loading state to false after data is fetched

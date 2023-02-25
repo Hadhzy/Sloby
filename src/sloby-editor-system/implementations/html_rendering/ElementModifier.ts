@@ -1,7 +1,7 @@
 type TElement = {
   value: string;
   id: string;
-  position: { x: number; 184: number };
+  position: { x: number; y: number };
   states: { isReadonly: boolean };
   style: {
     color: string;
@@ -14,11 +14,19 @@ type TElement = {
 
 export default class ElementModifier {
   inputToParagraph(element: TElement) {
+    let positionObject = {
+      position: 'absolute',
+      top: element.position!?.y,
+      left: element.position!?.x,
+    };
+
     return `
-      <p style=
-      ${JSON.stringify(element.style)}>
-        ${element.value}
+      <div style=${JSON.stringify(positionObject)}>
+        <p style=
+        ${JSON.stringify(element.style)}>
+          ${element.value}
       </p>
+      </div>
     `;
   }
 }
