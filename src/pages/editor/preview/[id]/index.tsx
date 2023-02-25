@@ -8,6 +8,7 @@ import { TSlobyProject } from '../../../../utils/types';
 import Link from 'next/link';
 import { InputsContext } from '../../../../utils/contexts/Inputs';
 import styleParser from 'style-parser';
+import { loadGetInitialProps } from 'next/dist/shared/lib/utils';
 
 export default function PreViewSite() {
   const [site, setSite] = React.useState<Array<TSlobyProject>>([]);
@@ -19,17 +20,17 @@ export default function PreViewSite() {
   const options = {
     decodeEntities: true,
     ignoreTags: ['script', 'style'],
-    // transform: (node: any, index: number) => {
-    //   if (node.type === 'tag' && node.name === 'p') {
-    //     const parsedStyle = styleParser(node.attribs.style);
+    transform: (node: any, index: number) => {
+      if (node.type === 'tag' && node.name === 'p') {
+        const parsedStyle = JSON.parse(`${node.attribs.style}`);
 
-    //     return (
-    //       <p style={parsedStyle} key={index}>
-    //         {node.children[0].data}
-    //       </p>
-    //     );
-    //   }
-    // },
+        return (
+          <p style={parsedStyle} key={index}>
+            {node.children[0].data}
+          </p>
+        );
+      }
+    },
   };
 
   useEffect(() => {

@@ -15,7 +15,8 @@ type TElement = {
 export default class ElementModifier {
   inputToParagraph(element: TElement) {
     return `
-      <p>
+      <p style=
+      ${JSON.stringify(element.style)}>
         ${element.value}
       </p>
     `;
