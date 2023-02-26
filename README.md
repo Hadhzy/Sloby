@@ -24,7 +24,6 @@ On the other hand, [Slobypy](https://github.com/FlurryGlo/slobypy) is a powerful
 
 Sloby and [Slobypy](https://github.com/FlurryGlo/slobypy) together form a complete website creation and management solution that offers users an exceptional level of flexibility and customization. However, it's important to note that Sloby can work independently as a website creation and management platform, and Slobypy is mostly recommended for developers who require the additional customization and control features that it provides. Whether you're a business or an individual looking to establish a strong online presence, Sloby provides an intuitive platform for website creation and management with full customization, efficiency, and quality in mind.
 
-
 </br>
 </br>
 If you wanna be the part of this process, and excited to be the part of an important purpose then check this out: 

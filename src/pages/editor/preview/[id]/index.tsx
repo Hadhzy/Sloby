@@ -3,7 +3,9 @@
 import React, { useEffect, useState } from 'react';
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
 import { useRouter } from 'next/router';
-import ElementModifier from '../../../../sloby-editor-system/implementations/html_rendering/ElementModifier';
+import ElementModifier, {
+  TElement,
+} from '../../../../sloby-editor-system/implementations/html_rendering/ElementModifier';
 import { ProjectServices } from '../../../../api/project.api';
 import ReactHtmlParser from 'react-html-parser';
 
@@ -34,6 +36,7 @@ export default function PreViewSite() {
 
   function onProjectUpdate(payload: any) {
     // trigger when the db is updated
+    console.log('Change recieved:', payload.new);
     setUpdate(true);
   }
 
@@ -102,30 +105,40 @@ export default function PreViewSite() {
     },
   };
 
-  useEffect(() => {
-    async function fetchData() {
-      //getting the data based on the project id
+  async function fetchData() {
+    console.log('In fetch data');
+    //getting the data based on the project id
 
-      const projectsServices = new ProjectServices(supabase);
+    const projectsServices = new ProjectServices(supabase);
 
-      let data = await projectsServices.getProjectsSource( // get the source code of the project
-        router.query.id as string
-      );
+    let data = await projectsServices.getProjectsSource(
+      // get the source code of the project
+      router.query.id as string
+    );
 
-      if (data) {
-        //mapping through the data and transforming it to html using the transformator.inputToParagraph method
+    if (data) {
+      console.log('In data');
+      console.log('projectsServices: ', data);
 
-        data.data?.interface_source.map((item: any) => {
-          // don't update the whole source_code, just add the new one
+      //mapping through the data and transforming it to html using the transformator.inputToParagraph method
 
-          transformator.scanner(item);
-          setSourceCode((prev: string) => prev + transformator.source_code); // '<p><p/>'
-        });
-      }
+      data?.interface_source.map((item: any) => {
+        // don't update the whole source_code, just add the new one
+        transformator.scanner(item);
+        setSourceCode((prev: string) => prev + transformator.source_code); // '<p><p/>'
+      });
     }
+  }
 
-    setIsLoading(false); // set loading state to false after data is fetched
+  useEffect(() => {
+    // call the fetchData after
+    fetchData();
+    console.log('fast', 'sourceCode: ', sourceCode);
+  }, []);
+
+  useEffect(() => {
     fetchData(); // call the fetchData
+    setIsLoading(false); // set loading state to false after data is fetched
     setUpdate(false);
     setSourceCode('');
   }, [update]);

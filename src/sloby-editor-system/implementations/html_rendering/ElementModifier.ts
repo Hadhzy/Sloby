@@ -1,6 +1,6 @@
 // convert the code into html
 
-type TElement = {
+export type TElement = {
   type: string; // html tag name div | p | h | etc.
   value: string;
   id: string;

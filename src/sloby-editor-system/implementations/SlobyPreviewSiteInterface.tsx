@@ -22,6 +22,7 @@ export default function SlobyPreviewSiteInterface() {
       console.log(data);
       setInputs(data);
       setInitialFinished(true);
+      updateProject();
     });
   }, []);
 

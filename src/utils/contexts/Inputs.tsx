@@ -93,7 +93,8 @@ export const InputsContextProvider = ({ children }: { children: any }) => {
   };
 
   const addInput = (tag_type: string) => {
-    setInputs([
+    if (uuidv4) {
+      setInputs([
       ...inputs,
       {
         type: tag_type,
@@ -110,6 +111,7 @@ export const InputsContextProvider = ({ children }: { children: any }) => {
         dimensions: { x: 0, y: 0 },
       },
     ]);
+    }
   };
 
   return (

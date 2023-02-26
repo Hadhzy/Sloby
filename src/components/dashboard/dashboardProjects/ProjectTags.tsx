@@ -48,17 +48,19 @@ export default function ProjectTags({ setTags }: { setTags: Function }) {
           setError(`Tag '${currentValue.trim()}' already applied`);
         } else {
           if (currentValue.trim().length <= 20) {
-            setAppliedTag([
-              ...appliedTag,
-              {
-                id: uuidv4(),
-                tag: currentValue.trim(),
-                color: selectedColor,
-                project_id: current_project_id as string,
-              },
-            ]);
-            e.target.value = '';
-            setError('');
+            if (uuidv4) {
+              setAppliedTag([
+                ...appliedTag,
+                {
+                  id: uuidv4(),
+                  tag: currentValue.trim(),
+                  color: selectedColor,
+                  project_id: current_project_id as string,
+                },
+              ]);
+              e.target.value = '';
+              setError('');
+            }
           } else {
             setError('Tag must be less than or equal to 20 characters');
           }

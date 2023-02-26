@@ -10,7 +10,6 @@ import { ProjectServices } from '../../api/project.api';
 import { ProjectLocalDb } from '../lib/indexDB/projectLocalDb';
 import { ActionHandler } from '../lib/handlers/ActionHandler';
 import { ToolClickedContext } from '../../utils/contexts/ToolClicked';
-import { v4 as uuidv4 } from 'uuid';
 import { CurrentIdContext } from '../../utils/contexts/CurrentId';
 import { log } from 'console';
 import { InputsContext } from '../../utils/contexts/Inputs';
