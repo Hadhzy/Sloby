@@ -1,6 +1,6 @@
 import { ToolCategories } from './constants';
 
-export type TProjectsParamater = {
+export type TProjectsParameter = {
   project_name: string;
   project_description: string;
   project_modal: boolean;
