@@ -7,9 +7,9 @@ import {
   faCircleXmark,
 } from '@fortawesome/free-solid-svg-icons';
 import { AnimatePresence, Variants, motion } from 'framer-motion';
-import supabase from '../../../config/supabase';
 import { ProjectsContext } from '../../../utils/contexts/ProjectsContext';
 import { v4 as uuidv4 } from 'uuid';
+import { useSupabaseClient } from '@supabase/auth-helpers-react';
 
 export default function ProjectTags({ setTags }: { setTags: Function }) {
   const [popupDisplay, setPopupDisplay] = useState(false);
@@ -17,6 +17,7 @@ export default function ProjectTags({ setTags }: { setTags: Function }) {
   const [appliedTag, setAppliedTag] = useState<
     { tag: string; color: string; id: string; project_id: string }[]
   >([]);
+  const supabase = useSupabaseClient();
   const [error, setError] = useState('');
   const [colorSelect, setColorSelect] = useState(false);
   const [selectedColor, setSelectedColor] = useState('gray-700');

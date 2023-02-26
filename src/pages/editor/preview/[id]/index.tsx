@@ -1,6 +1,6 @@
 // the preview site(render the html based on the provided code thru editor)
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
 import { useRouter } from 'next/router';
 import ElementModifier from '../../../../sloby-editor-system/implementations/html_rendering/ElementModifier';
@@ -13,6 +13,29 @@ export default function PreViewSite() {
   const supabase = useSupabaseClient(); // supabase client
   const router = useRouter(); // because of the query id
   const transformator = new ElementModifier(); // create a modifier instance
+
+  const [update, setUpdate] = React.useState<boolean>(false); // represent a new project update
+
+  if (router.query.id) {
+    supabase
+      .channel('projects_table_change')
+      .on(
+        'postgres_changes',
+        {
+          event: 'UPDATE',
+          schema: 'public',
+          table: 'projects',
+          filter: `id=eq.${router.query.id}`,
+        },
+        onProjectUpdate
+      )
+      .subscribe();
+  }
+
+  function onProjectUpdate(payload: any) {
+    // trigger when the db is updated
+    setUpdate(true);
+  }
 
   // Options for rendering the parser
   const options: any = {
@@ -82,9 +105,10 @@ export default function PreViewSite() {
   useEffect(() => {
     async function fetchData() {
       //getting the data based on the project id
+
       const projectsServices = new ProjectServices(supabase);
 
-      let data = await projectsServices.getProjectsSource(
+      let data = await projectsServices.getProjectsSource( // get the source code of the project
         router.query.id as string
       );
 
@@ -92,16 +116,19 @@ export default function PreViewSite() {
         //mapping through the data and transforming it to html using the transformator.inputToParagraph method
 
         data.data?.interface_source.map((item: any) => {
+          // don't update the whole source_code, just add the new one
+
           transformator.scanner(item);
           setSourceCode((prev: string) => prev + transformator.source_code); // '<p><p/>'
         });
-
-        setIsLoading(false); // set loading state to false after data is fetched
       }
     }
 
+    setIsLoading(false); // set loading state to false after data is fetched
     fetchData(); // call the fetchData
-  }, [router.query.id]);
+    setUpdate(false);
+    setSourceCode('');
+  }, [update]);
 
   if (isLoading) {
     return <div>Loading...</div>; // render loading state

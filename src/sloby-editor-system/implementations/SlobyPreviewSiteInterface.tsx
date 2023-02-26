@@ -16,7 +16,7 @@ export default function SlobyPreviewSiteInterface() {
   const [initialFinished, setInitialFinished] = useState<boolean>(false);
 
   useEffect(() => {
-    // Fetching the initial data 
+    // Fetching the initial data
     console.log('fetch initial');
     getInitialProjectData().then((data) => {
       console.log(data);
@@ -33,7 +33,6 @@ export default function SlobyPreviewSiteInterface() {
 
   // Subscribing to changes on the project
   // This does not provide the initial data and must be requested separately
-  
 
   async function getInitialProjectData() {
     const { data, error } = await supabase
@@ -50,7 +49,6 @@ export default function SlobyPreviewSiteInterface() {
   }
 
   //on project update this function will log out the recieved payload
-  
 
   //UPDATING the project with the new interface_source
   async function updateProject() {
@@ -101,15 +99,18 @@ export default function SlobyPreviewSiteInterface() {
               );
           }}
         >
-          {
-            inputs ? (
-                inputs.map((input, index: number) => {
-            return (
-              <Input key={input.id} input={input} index={index} width={width} />
-            );
-          })
-            ) : ""
-          }
+          {inputs
+            ? inputs.map((input, index: number) => {
+                return (
+                  <Input
+                    key={input.id}
+                    input={input}
+                    index={index}
+                    width={width}
+                  />
+                );
+              })
+            : ''}
         </div>
       </motion.div>
     </motion.div>
