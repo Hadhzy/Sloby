@@ -33,19 +33,7 @@ export default function SlobyPreviewSiteInterface() {
 
   // Subscribing to changes on the project
   // This does not provide the initial data and must be requested separately
-  supabase
-    .channel('projects_table_change')
-    .on(
-      'postgres_changes',
-      {
-        event: 'UPDATE',
-        schema: 'public',
-        table: 'projects',
-        filter: `id=${router.query.id}`,
-      },
-      onProjectUpdate
-    )
-    .subscribe();
+  
 
   async function getInitialProjectData() {
     const { data, error } = await supabase
@@ -62,9 +50,7 @@ export default function SlobyPreviewSiteInterface() {
   }
 
   //on project update this function will log out the recieved payload
-  function onProjectUpdate(payload: any) {
-    console.log('Change received!', payload);
-  }
+  
 
   //UPDATING the project with the new interface_source
   async function updateProject() {

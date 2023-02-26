@@ -1,3 +1,5 @@
+// convert the code into html 
+
 type TElement = {
   value: string;
   id: string;
@@ -13,6 +15,9 @@ type TElement = {
 };
 
 export default class ElementModifier {
+
+  
+
   inputToParagraph(element: TElement) {
     let positionObject = {
       position: 'absolute',
@@ -21,12 +26,11 @@ export default class ElementModifier {
     };
 
     return `
-      <div style=${JSON.stringify(positionObject)}>
-        <p style=
-        ${JSON.stringify(element.style)}>
-          ${element.value}
-      </p>
-      </div>
-    `;
+  <div style=${JSON.stringify(positionObject)}>
+    <p style=${JSON.stringify(element.style)}>
+      ${element.value}
+    </p>
+  </div>
+`;
   }
 }
