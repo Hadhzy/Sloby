@@ -92,8 +92,8 @@ export default function PreViewSite() {
         //mapping through the data and transforming it to html using the transformator.inputToParagraph method
 
         data.data?.interface_source.map((item: any) => {
-          let source = transformator.inputToParagraph(item);
-          setSourceCode((prev: string) => prev + source); // '<p><p/>'
+          transformator.scanner(item);
+          setSourceCode((prev: string) => prev + transformator.source_code); // '<p><p/>'
         });
 
         setIsLoading(false); // set loading state to false after data is fetched

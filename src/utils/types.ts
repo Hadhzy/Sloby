@@ -27,6 +27,7 @@ export type TSlobyTool = {
   id: string;
   tool_p_name: string;
   tool_name: string;
+  html_tag: string;
 };
 
 export type ToolCategory = ToolCategories | undefined;
@@ -48,6 +49,7 @@ export type TInputProps = {
 };
 
 export type TInputContextProps = {
+  type: string;
   value: string;
   id: string;
   position: { x: number; y: number };

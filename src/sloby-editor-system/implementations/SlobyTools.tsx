@@ -24,6 +24,8 @@ export default function SlobyTools() {
   const { currentId, setCurrentId } = useContext(CurrentIdContext);
   const { addInput } = useContext(InputsContext);
 
+  console.log(tools);
+
   useEffect(() => {
     projectServices.getTools().then(({ data }) => setTools(data as any));
   }, [supabase]);
@@ -47,7 +49,7 @@ export default function SlobyTools() {
                   e: React.MouseEvent<HTMLDivElement, MouseEvent>
                 ) => {
                   setToolClicked(!toolClicked);
-                  addInput();
+                  addInput(tool.html_tag);
                   //* this how we will call the entity
                   // const projectDB = new ProjectLocalDb();
 
