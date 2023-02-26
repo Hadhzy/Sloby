@@ -12,11 +12,19 @@ export class ProjectServices extends BaseServices {
   }
 
   public async getProjectsSource(project_id: string) {
-    return await this.client
+    const { data, error } = await this.client
       .from('projects')
       .select('interface_source')
       .eq('id', project_id)
       .single();
+
+    if (data) {
+      return data;
+    }
+
+    if (error) {
+      console.log(error);
+    }
   }
 
   public async getCurrentProject(project_id: string) {

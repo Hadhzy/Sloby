@@ -70,7 +70,7 @@ export default function Register() {
 
   useEffect(() => {
     loggedIn(router, '/editor/dashboard', supabase);
-  });
+  }, []);
 
   return (
     <Layout>

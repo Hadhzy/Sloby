@@ -77,16 +77,18 @@ export default function Color(props: TInputProps) {
           className={`${popUpState} py-3 px-2 w-full H-ease-in-out duration-150  rounded-lg mt-8 bg-tool-bg z-10`}
         >
           <div className="flex gap-1 justify-center p-3">
-            {recentlyUsed.map((e: string, i) => {
-              return (
-                <div
-                  key={uuidv4()}
-                  style={{ backgroundColor: e }}
-                  className={`w-6 h-6 rounded-full ease-in-out duration-150 hover:scale-105 ring-offset-1 hover:cursor-pointer ring-offset-back hover:dark-font-color ring-bl hover:ring-2`}
-                  onClick={() => changeColor(e)}
-                ></div>
-              );
-            })}
+            {uuidv4
+              ? recentlyUsed.map((e: string, i) => {
+                  return (
+                    <div
+                      key={uuidv4()}
+                      style={{ backgroundColor: e }}
+                      className={`w-6 h-6 rounded-full ease-in-out duration-150 hover:scale-105 ring-offset-1 hover:cursor-pointer ring-offset-back hover:dark-font-color ring-bl hover:ring-2`}
+                      onClick={() => changeColor(e)}
+                    ></div>
+                  );
+                })
+              : ''}
           </div>
           <div className="flex flex-col gap-3 items-center p-3">
             <label className="text-xs">Palette</label>

@@ -31,8 +31,6 @@ export default class interfaceSourceIntegrator extends DbManager<any> {
     }
   }
 
-  
-
   public generateInputId() {
     return;
   }

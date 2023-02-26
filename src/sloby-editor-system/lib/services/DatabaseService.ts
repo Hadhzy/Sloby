@@ -1,4 +1,4 @@
-import supabase from '../../../config/supabase';
+import { supabase } from '../../../config/supabase';
 import { BaseToolTemplates } from '../../../utils/constants';
 
 export default class DatabaseService {

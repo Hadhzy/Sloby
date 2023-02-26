@@ -56,7 +56,7 @@ export default function Login() {
 
   useEffect(() => {
     checkUsername();
-  });
+  }, []);
 
   if (loading) {
     return <div>Loading...</div>;

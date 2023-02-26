@@ -10,7 +10,6 @@ import { ProjectServices } from '../../api/project.api';
 import { ProjectLocalDb } from '../lib/indexDB/projectLocalDb';
 import { ActionHandler } from '../lib/handlers/ActionHandler';
 import { ToolClickedContext } from '../../utils/contexts/ToolClicked';
-import { v4 as uuidv4 } from 'uuid';
 import { CurrentIdContext } from '../../utils/contexts/CurrentId';
 import { log } from 'console';
 import { InputsContext } from '../../utils/contexts/Inputs';
@@ -23,6 +22,8 @@ export default function SlobyTools() {
   const { toolClicked, setToolClicked } = useContext(ToolClickedContext);
   const { currentId, setCurrentId } = useContext(CurrentIdContext);
   const { addInput } = useContext(InputsContext);
+
+  console.log(tools);
 
   useEffect(() => {
     projectServices.getTools().then(({ data }) => setTools(data as any));
@@ -47,7 +48,7 @@ export default function SlobyTools() {
                   e: React.MouseEvent<HTMLDivElement, MouseEvent>
                 ) => {
                   setToolClicked(!toolClicked);
-                  addInput();
+                  addInput(tool.html_tag);
                   //* this how we will call the entity
                   // const projectDB = new ProjectLocalDb();
 

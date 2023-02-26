@@ -15,7 +15,7 @@ type InputContext = {
   setInputs: Dispatch<SetStateAction<TInputContextProps[]>>;
   setLastClicked: Dispatch<SetStateAction<string>>;
   handleChange: (e: any, index: number) => void;
-  addInput: () => void;
+  addInput: (tag_type: string) => void;
   styleChange: (e: any, id: string, type: string) => void;
   getStyles: (id: string) => [];
   handlePositionChange: (e: any, id: string) => void;
@@ -92,10 +92,12 @@ export const InputsContextProvider = ({ children }: { children: any }) => {
     setInputs(newInputs);
   };
 
-  const addInput = () => {
-    setInputs([
+  const addInput = (tag_type: string) => {
+    if (uuidv4) {
+      setInputs([
       ...inputs,
       {
+        type: tag_type,
         value: '',
         id: uuidv4(),
         position: { x: 1, y: 0 },
@@ -109,6 +111,7 @@ export const InputsContextProvider = ({ children }: { children: any }) => {
         dimensions: { x: 0, y: 0 },
       },
     ]);
+    }
   };
 
   return (

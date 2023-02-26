@@ -8,9 +8,7 @@ export default function Test() {
   useEffect(() => {
     async function test() {
       // Get all projects
-      const { data, error } = await supabase
-        .from('projects')
-        .select('*')
+      const { data, error } = await supabase.from('projects').select('*');
 
       if (error) {
         console.error(error);
@@ -20,5 +18,5 @@ export default function Test() {
       console.log(data);
     }
     test();
-  });
+  }, []);
 }

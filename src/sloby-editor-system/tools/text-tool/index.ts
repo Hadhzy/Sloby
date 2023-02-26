@@ -2,7 +2,6 @@ import InterfaceIntegration from '../../lib/handlers/InteraceIntegrators/Interfa
 import { BaseTool } from '../../../utils/abstracts';
 import { BaseToolTemplates } from '../../../utils/constants';
 import { TCurrentRoute } from '../../../utils/types';
-import { v4 as uuidv4 } from 'uuid';
 
 export default class TextCreationTool extends BaseTool {
   constructor(

@@ -1,6 +1,5 @@
 import React from 'react';
 import { BaseClassNames, colors } from './BaseClassNames';
-import { v4 as uuidv4 } from 'uuid';
 import SlobyInput from '../../../components/SlobyInput';
 import JsxParser from 'react-jsx-parser';
 import { TranslatedElement } from '../../../utils/types';

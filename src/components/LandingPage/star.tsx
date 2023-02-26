@@ -18,7 +18,7 @@ export function Star() {
       );
     });
 
-    return () => window.removeEventListener('mousemove', () => { });
+    return () => window.removeEventListener('mousemove', () => {});
   }, []);
 
   return (
