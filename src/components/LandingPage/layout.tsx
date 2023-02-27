@@ -2,7 +2,7 @@ import Navbar from './navbar';
 import { motion } from 'framer-motion';
 export default function Layout({ children }: { children: any }) {
   return (
-    <div className="bg-black text-white">
+    <div className="bg-black text-white overflow-hidden">
       <motion.div
         initial={{ opacity: 0, y: -500, scale: 0 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
