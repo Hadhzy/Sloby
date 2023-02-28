@@ -36,7 +36,6 @@ export default function PreViewSite() {
 
   function onProjectUpdate(payload: any) {
     // trigger when the db is updated
-    console.log('Change recieved:', payload.new);
     setUpdate(true);
   }
 
@@ -106,7 +105,6 @@ export default function PreViewSite() {
   };
 
   async function fetchData() {
-    console.log('In fetch data');
     //getting the data based on the project id
 
     const projectsServices = new ProjectServices(supabase);
@@ -115,13 +113,9 @@ export default function PreViewSite() {
       // get the source code of the project
       router.query.id as string
     );
-
     if (data) {
-      console.log('In data');
-      console.log('projectsServices: ', data);
 
       //mapping through the data and transforming it to html using the transformator.inputToParagraph method
-
       data?.interface_source.map((item: any) => {
         // don't update the whole source_code, just add the new one
         transformator.scanner(item);
@@ -130,11 +124,10 @@ export default function PreViewSite() {
     }
   }
 
-  useEffect(() => {
+    useEffect(() => {
     // call the fetchData after
-    fetchData();
-    console.log('fast', 'sourceCode: ', sourceCode);
-  }, []);
+    fetchData(); // call the featchData at the first render
+  }, [router.query.id]);
 
   useEffect(() => {
     fetchData(); // call the fetchData
