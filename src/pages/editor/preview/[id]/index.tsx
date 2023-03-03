@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react';
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
 import { useRouter } from 'next/router';
 import ElementModifier, {
-  TElement,
 } from '../../../../sloby-editor-system/implementations/html_rendering/ElementModifier';
 import { ProjectServices } from '../../../../api/project.api';
 import ReactHtmlParser from 'react-html-parser';
@@ -34,10 +33,13 @@ export default function PreViewSite() {
       .subscribe();
   }
 
+
   function onProjectUpdate(payload: any) {
     // trigger when the db is updated
+    
     setUpdate(true);
   }
+
 
   // Options for rendering the parser
   const options: any = {

@@ -1,3 +1,5 @@
+// Description: Input component for text tool
+
 import React, {
   useState,
   useEffect,
@@ -38,6 +40,7 @@ export default function Input({
   const integrator = new interfaceSourceIntegrator();
   const [value, setValue] = useState('');
   const [optionsState, setOptionsState] = useState(false);
+  const [readonly, setReadonly] = useState<Array<{id: string, state: boolean}>>([])
   const {
     inputs,
     setInputs,
@@ -62,6 +65,17 @@ export default function Input({
   ) => {
     return setInputs(inputs.filter((item) => item.id !== e.currentTarget.id));
   };
+
+  useEffect(() => {
+    localStorage.setItem('readonly_text_elements', JSON.stringify(readonly))
+  }, [readonly])
+
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem('readonly_text_elements')!)
+    if (data) {
+      setReadonly(data)
+    }
+  }, [])
 
   useEffect(() => {
     const temp = getPosition(input.id);
@@ -194,10 +208,12 @@ export default function Input({
             } else return;
           }}
           onDoubleClick={() => {
+            // getting the correct index from the inputs
             let index = inputs.findIndex(
               (value: TInputContextProps) => value.id === input.id
             );
 
+            // Check if the index is correct and update the state
             if (index !== -1 && index < inputs.length) {
               setInputs((prev) => [
                 ...prev.slice(0, index),
