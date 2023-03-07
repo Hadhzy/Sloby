@@ -1,5 +1,5 @@
 // This API file is for handling project related supabase requests.
-// It has multiple methods for getting data and filtering it. 
+// It has multiple methods for getting data and filtering it.
 
 import { SupabaseClient } from '@supabase/supabase-js';
 import { TSlobyProject } from '../utils/types';
@@ -27,11 +27,10 @@ export class ProjectServices extends BaseServices {
     if (data) {
       console.log(data);
       return data;
-      
     }
 
     if (error) {
-      console.log("from-error", data)
+      console.log('from-error', data);
       console.log(error);
     }
   }

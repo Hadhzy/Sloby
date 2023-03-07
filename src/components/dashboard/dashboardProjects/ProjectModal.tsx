@@ -6,18 +6,12 @@ import { getWindowDimensions } from '../../../utils/hooks';
 import ProjectTags from './ProjectTags';
 import { faCircleExclamation } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { TSlobyProject } from '../../../utils/types';
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 import { v4 as uuidv4 } from 'uuid';
 
 export default function ProjectModal() {
-  const {
-    project_data,
-    current_tags,
-    set_project_data,
-    current_project_id,
-    set_current_project_id,
-  } = useContext(ProjectsContext);
+  const { project_data, current_tags, set_project_data } =
+    useContext(ProjectsContext);
   const [windowDimensions, setWindowDimensions] = useState(
     getWindowDimensions()
   );

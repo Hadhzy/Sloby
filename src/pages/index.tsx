@@ -3,14 +3,17 @@ import Link from 'next/link';
 import Layout from '../components/LandingPage/layout';
 import { Planet } from '../components/LandingPage/planet';
 import { Star } from '../components/LandingPage/star';
-import { useSession } from '@supabase/auth-helpers-react';
 import { motion } from 'framer-motion';
-import JsxParser from 'react-jsx-parser';
 import { getURL } from '../lib/helpers';
+import { useEffect } from 'react';
 
 export default function Home() {
-  const session = useSession();
   console.log(getURL());
+
+  const user_state_check = () => {};
+  useEffect(() => {
+    console.log('Checking');
+  }, []);
 
   return (
     <div>

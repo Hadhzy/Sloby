@@ -36,7 +36,9 @@ export default function Input({
   const { toolClicked, setToolClicked } = useContext(ToolClickedContext);
   const [value, setValue] = useState('');
   const [optionsState, setOptionsState] = useState(false);
-  const [readonly, setReadonly] = useState<Array<{id: string, state: boolean}>>([])
+  const [readonly, setReadonly] = useState<
+    Array<{ id: string; state: boolean }>
+  >([]);
   const {
     inputs,
     setInputs,
@@ -63,15 +65,15 @@ export default function Input({
   };
 
   useEffect(() => {
-    localStorage.setItem('readonly_text_elements', JSON.stringify(readonly))
-  }, [readonly])
+    localStorage.setItem('readonly_text_elements', JSON.stringify(readonly));
+  }, [readonly]);
 
   useEffect(() => {
-    const data = JSON.parse(localStorage.getItem('readonly_text_elements')!)
+    const data = JSON.parse(localStorage.getItem('readonly_text_elements')!);
     if (data) {
-      setReadonly(data)
+      setReadonly(data);
     }
-  }, [])
+  }, []);
 
   useEffect(() => {
     const temp = getPosition(input.id);

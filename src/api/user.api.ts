@@ -8,7 +8,7 @@ export class ApiUser {
   constructor(session: Session | null) {
     this.session = session;
     this.user = session?.user ?? null;
-  } 
+  }
 
   // anything related to user will go here..
 

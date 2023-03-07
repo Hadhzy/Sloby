@@ -43,11 +43,10 @@ export const ProjectsContextProvider = ({ children }: { children: any }) => {
     created_at: new Date(),
     project_name: '',
     project_description: '',
-    shared_with: '',
     creator: '',
     public: false,
     tags: [{ id: 1, color: '', tag: '' }],
-    preview_source: '',
+    interface_source: [],
   });
 
   return (

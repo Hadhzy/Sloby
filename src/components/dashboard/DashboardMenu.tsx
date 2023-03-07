@@ -11,7 +11,7 @@ export default function DashboardMenu({ className }: { className?: string }) {
   const { setLoading } = useContext(LoadingContext);
   return (
     <div
-      className={`${className} fixed bg-dark-darker h-screen w-[90px] border-dark-border border-r flex flex-col justify-between`}
+      className={`${className} border fixed bg-dark-darker h-screen w-[90px] border-dark-border border-r flex flex-col justify-between`}
     >
       <div className="flex flex-col items-center">
         <Link href="/editor/dashboard">

@@ -10,25 +10,23 @@ import { ProjectsContext } from './ProjectsContext';
 import { TSlobyTool } from '../types';
 
 type TSpecificToolClicked = {
-  currentId: string
-  setCurrentId: (id: string) => void
-}
+  currentId: string;
+  setCurrentId: (id: string) => void;
+};
 
-export const CurrentIdContext = createContext<TSpecificToolClicked>(undefined!)
+export const CurrentIdContext = createContext<TSpecificToolClicked>(undefined!);
 
 export const CurrentIdContextProvider = ({ children }: { children: any }) => {
- const [currentId, setCurrentId] = useState<string>('')
+  const [currentId, setCurrentId] = useState<string>('');
 
-    
-
-    return (
-      <CurrentIdContext.Provider
-        value={{
-          currentId,
-          setCurrentId
-        }}
-      >
-        {children}
-      </CurrentIdContext.Provider>
-    )
-  }
+  return (
+    <CurrentIdContext.Provider
+      value={{
+        currentId,
+        setCurrentId,
+      }}
+    >
+      {children}
+    </CurrentIdContext.Provider>
+  );
+};

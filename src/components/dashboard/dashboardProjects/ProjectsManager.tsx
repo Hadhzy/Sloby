@@ -1,4 +1,4 @@
-// The navbar in the dashboard 
+// The navbar in the dashboard
 
 import React, { useContext, useState } from 'react';
 import Image from 'next/image';
@@ -37,7 +37,7 @@ function ProjectsManager() {
     if (!session) return; // add null check here
     const { error } = await ApiUser.signOut(supabase);
     await router.push('/auth/login');
-}
+  }
 
   return (
     <div className="z-50 sticky bg-dark-dark w-full p-8 h-14 border-b border-dark-border flex justify-between items-center ease-in-out duration-200">

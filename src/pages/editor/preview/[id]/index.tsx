@@ -1,13 +1,12 @@
 // the preview site(render the html based on the provided code thru editor)
 
-import React, { useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
 import { useRouter } from 'next/router';
-import ElementModifier, {
-} from '../../../../sloby-editor-system/implementations/html_rendering/ElementModifier';
+import ElementModifier from '../../../../sloby-editor-system/implementations/html_rendering/ElementModifier';
 import { ProjectServices } from '../../../../api/project.api';
 import ReactHtmlParser from 'react-html-parser';
-import { motion } from 'framer-motion'
+import { motion } from 'framer-motion';
 export default function PreViewSite() {
   const [sourceCode, setSourceCode] = React.useState<string>(''); // This is the source code of the preview site but in a version of strings
   const [isLoading, setIsLoading] = React.useState<boolean>(true); // Determines that whether the fetch has succeeded and the data is ready to be rendered
@@ -32,13 +31,10 @@ export default function PreViewSite() {
       .subscribe();
   }
 
-
   function onProjectUpdate(payload: any) {
     // trigger when the db is updated
     setUpdate(true);
   }
-
-
 
   // Options for rendering the parser
   const options: any = {
@@ -82,7 +78,6 @@ export default function PreViewSite() {
                   `${childNode.attribs.style}`
                 );
                 console.log(parsedChildStyle);
-                
 
                 return (
                   <p style={parsedChildStyle} key={childIndex}>
@@ -99,9 +94,14 @@ export default function PreViewSite() {
 
           //rendering the paragraph using the SAME logic as before
           return (
-            <motion.div animate={{ opacity: [0,1] }} transition={{ duration: 0.2 }} style={styleWithPixelValues} key={index}>
-              {children} 
-            </motion.div> // add fade effect 
+            <motion.div
+              animate={{ opacity: [0, 1] }}
+              transition={{ duration: 0.2 }}
+              style={styleWithPixelValues}
+              key={index}
+            >
+              {children}
+            </motion.div> // add fade effect
           );
         }
       }
@@ -118,7 +118,6 @@ export default function PreViewSite() {
       router.query.id as string
     );
     if (data) {
-
       //mapping through the data and transforming it to html using the transformator.inputToParagraph method
       data?.interface_source.map((item: any) => {
         // don't update the whole source_code, just add the new one
@@ -128,7 +127,7 @@ export default function PreViewSite() {
     }
   }
 
-    useEffect(() => {
+  useEffect(() => {
     // call the fetchData after
     fetchData(); // call the featchData at the first render
   }, [router.query.id]);

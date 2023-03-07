@@ -1,5 +1,4 @@
-// Used to define sloby types 
-
+// Used to define sloby types
 
 export type TProjectsParameter = {
   project_name: string;
@@ -30,7 +29,6 @@ export type TSlobyTool = {
   tool_name: string;
   html_tag: string;
 };
-
 
 export type TranslatedElement = 'div';
 

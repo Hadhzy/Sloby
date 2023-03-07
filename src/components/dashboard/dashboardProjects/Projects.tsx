@@ -1,7 +1,7 @@
 // Render the project card in the dashboard
 
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
-import React, { useEffect,useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { TSlobyProject } from '../../../utils/types';
 import Project from './Project';
 import { ProjectServices } from '../../../api/project.api';
@@ -11,39 +11,36 @@ import { useRouter } from 'next/router';
 export default function Projects() {
   const projectServices = new ProjectServices(useSupabaseClient());
   const [projects, setProjects] = React.useState([]);
-  const supabase = useSupabaseClient()
-  const router = useRouter()
-  const [shouldProjectUpdate, setShouldProjectUpdate] = useState(false)
+  const supabase = useSupabaseClient();
+  const router = useRouter();
+  const [shouldProjectUpdate, setShouldProjectUpdate] = useState(false);
 
-  const updateProject = () => { 
-    
-    projectServices
-      .getProjects()
-      .then((data) => setProjects(data.data as any));
-  }
-  
+  const updateProject = () => {
+    projectServices.getProjects().then((data) => setProjects(data.data as any));
+  };
+
   useEffect(() => {
     // getProjects(setProjects, supabase);
-    updateProject()
+    updateProject();
   }, []);
-  
+
   const onProjectUpdate = (payload: any) => {
-    updateProject()
+    updateProject();
   };
-  // realtime update 
+  // realtime update
   supabase
-      .channel('projects_table_change')
-      .on(
-        'postgres_changes',
-        {
-          event: '*',
-          schema: 'public',
-          table: 'projects',
-        },
-        onProjectUpdate
-  )
-    
-      .subscribe();
+    .channel('projects_table_change')
+    .on(
+      'postgres_changes',
+      {
+        event: '*',
+        schema: 'public',
+        table: 'projects',
+      },
+      onProjectUpdate
+    )
+
+    .subscribe();
 
   return (
     <div

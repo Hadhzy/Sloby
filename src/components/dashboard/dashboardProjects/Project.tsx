@@ -1,4 +1,4 @@
-// Used to contains the project cards
+// One project card
 
 import React, { useState, useContext, useEffect } from 'react';
 import { Tag, TSlobyProject } from '../../../utils/types';
@@ -25,12 +25,8 @@ export default function Project({
   project: TSlobyProject;
   index: number;
 }) {
-  const {
-    project_data,
-    set_project_data,
-    setActionBar,
-    setCurrentProject,
-  } = useContext(ProjectsContext);
+  const { project_data, set_project_data, setActionBar } =
+    useContext(ProjectsContext);
   const { loading, setLoading } = useContext(LoadingContext);
   const [optionsState, setOptionsState] = useState(false);
   const router = useRouter();
@@ -43,38 +39,39 @@ export default function Project({
   };
 
   async function deleteUsersProject(project_id: string) {
-    // Used to delete the project from the 'users_projects' table'   
+    // Used to delete the project from the 'users_projects' table'
     try {
-    const {data, error} = await supabase
-      .from('users_projects')
-      .delete()
-      .match({ project_id: project_id });
-    console.log('Record deleted successfully users_projects table');
+      const { data, error } = await supabase
+        .from('users_projects')
+        .delete()
+        .match({ project_id: project_id });
+      console.log('Record deleted successfully users_projects table');
     } catch (error: any) {
-    console.error('Error deleting record:', error.message);
-  }
+      console.error('Error deleting record:', error.message);
+    }
   }
 
   async function deleteProject(project_id: string) {
-  // Used to delete the project from the 'projects' table
-    
-    deleteUsersProject(project_id) // delete the users project first 
-    
-    try {
-    const {data, error} = await supabase
-      .from('projects')
-      .delete()
-      .match({ id: project_id });
-    console.log('Record deleted successfully');
-  } catch (error: any) {
-    console.error('Error deleting record:', error.message);
-  }
-}
+    // Used to delete the project from the 'projects' table
 
+    deleteUsersProject(project_id); // delete the users project first
+
+    try {
+      const { data, error } = await supabase
+        .from('projects')
+        .delete()
+        .match({ id: project_id });
+      console.log('Record deleted successfully');
+    } catch (error: any) {
+      console.error('Error deleting record:', error.message);
+    }
+  }
 
   function updateProject() {
-    // Used to update the modal visibility (new-project-creating modal)
+    console.log('Updating the project of: ', project);
+    console.log('Before update:', project_data);
     set_project_data({ ...project_data, project_modal: true });
+    console.log('After update:', project_data);
   }
 
   return (

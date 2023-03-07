@@ -95,22 +95,22 @@ export const InputsContextProvider = ({ children }: { children: any }) => {
   const addInput = (tag_type: string) => {
     if (uuidv4) {
       setInputs([
-      ...inputs,
-      {
-        type: tag_type,
-        value: '',
-        id: uuidv4(),
-        position: { x: 1, y: 0 },
-        style: {
-          color: '#FFFFFF',
-          fontSize: '16px',
-          fontWeight: '500',
-          fontFamily: 'montserrat',
+        ...inputs,
+        {
+          type: tag_type,
+          value: '',
+          id: uuidv4(),
+          position: { x: 1, y: 0 },
+          style: {
+            color: '#FFFFFF',
+            fontSize: '16px',
+            fontWeight: '500',
+            fontFamily: 'montserrat',
+          },
+          states: { isReadonly: false },
+          dimensions: { x: 0, y: 0 },
         },
-        states: { isReadonly: false },
-        dimensions: { x: 0, y: 0 },
-      },
-    ]);
+      ]);
     }
   };
 

@@ -17,8 +17,6 @@ export const ToolClickedContext = createContext<TToolClickedContext>(
 );
 
 export const ToolClickedContextProvider = ({ children }: { children: any }) => {
-
-
   const [toolClicked, setToolClicked] = useState<boolean>(false);
 
   return (
