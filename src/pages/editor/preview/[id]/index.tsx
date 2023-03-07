@@ -5,7 +5,7 @@ import { useSupabaseClient } from '@supabase/auth-helpers-react';
 import { useRouter } from 'next/router';
 import ElementModifier from '../../../../sloby-editor-system/implementations/html_rendering/ElementModifier';
 import { ProjectServices } from '../../../../api/project.api';
-import ReactHtmlParser from 'react-html-parser';
+import ReactHtmlParser from '@hedgedoc/html-to-react';
 import { motion } from 'framer-motion';
 export default function PreViewSite() {
   const [sourceCode, setSourceCode] = React.useState<string>(''); // This is the source code of the preview site but in a version of strings
