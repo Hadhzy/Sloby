@@ -5,7 +5,6 @@ import {
   useContext,
   useState,
 } from 'react';
-import { toolsConstructors } from '../constants';
 import { ProjectsContext } from './ProjectsContext';
 import { TSlobyTool } from '../types';
 type TToolClickedContext = {
@@ -20,7 +19,6 @@ export const ToolClickedContext = createContext<TToolClickedContext>(
 export const ToolClickedContextProvider = ({ children }: { children: any }) => {
 
 
-  const { tools, setTools } = useContext(ProjectsContext);
   const [toolClicked, setToolClicked] = useState<boolean>(false);
 
   return (

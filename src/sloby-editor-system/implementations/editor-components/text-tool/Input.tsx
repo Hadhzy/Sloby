@@ -8,9 +8,7 @@ import React, {
   Dispatch,
   SetStateAction,
 } from 'react';
-import InterfacePropsIntegrator from '../../../lib/handlers/InteraceIntegrators/InterfacePropsIntegrator';
 import { ToolClickedContext } from '../../../../utils/contexts/ToolClicked';
-import interfaceSourceIntegrator from '../../../lib/handlers/InteraceIntegrators/InterfaceSourceIntegrator';
 import { InputsContext } from '../../../../utils/contexts/Inputs';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -36,8 +34,6 @@ export default function Input({
   width: number;
 }) {
   const { toolClicked, setToolClicked } = useContext(ToolClickedContext);
-  const props = new InterfacePropsIntegrator();
-  const integrator = new interfaceSourceIntegrator();
   const [value, setValue] = useState('');
   const [optionsState, setOptionsState] = useState(false);
   const [readonly, setReadonly] = useState<Array<{id: string, state: boolean}>>([])

@@ -1,4 +1,5 @@
-import { AuthError, Session, SupabaseClient } from '@supabase/supabase-js';
+// Represents a user in the db
+import { Session, SupabaseClient } from '@supabase/supabase-js';
 
 export class ApiUser {
   public readonly session: Session | null;

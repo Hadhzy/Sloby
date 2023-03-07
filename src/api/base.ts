@@ -1,3 +1,4 @@
+// Base class for all supabase services
 import { SupabaseClient } from '@supabase/supabase-js';
 
 export abstract class BaseServices {

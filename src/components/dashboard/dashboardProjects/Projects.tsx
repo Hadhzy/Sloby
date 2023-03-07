@@ -1,3 +1,5 @@
+// Render the project card in the dashboard
+
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
 import React, { useEffect,useState } from 'react';
 import { TSlobyProject } from '../../../utils/types';
@@ -39,7 +41,8 @@ export default function Projects() {
           table: 'projects',
         },
         onProjectUpdate
-      )
+  )
+    
       .subscribe();
 
   return (

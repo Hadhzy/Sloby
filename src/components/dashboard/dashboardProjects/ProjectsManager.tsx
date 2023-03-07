@@ -1,5 +1,6 @@
+// The navbar in the dashboard 
+
 import React, { useContext, useState } from 'react';
-import ProjectModal from './ProjectModal';
 import Image from 'next/image';
 import { useSession } from '@supabase/auth-helpers-react';
 import { createBrowserSupabaseClient } from '@supabase/auth-helpers-nextjs';
@@ -16,7 +17,6 @@ function ProjectsManager() {
   });
   const [profileDropdown, setProfileDropdown] = useState(false);
   const profileRef = React.useRef<HTMLInputElement>(null);
-  const [projectModal, setProjectModal] = useState(false);
   const { project_data, set_project_data } = useContext(ProjectsContext);
   const session = useSession();
   const [supabase] = useState(() => createBrowserSupabaseClient());

@@ -1,10 +1,10 @@
+// Used to contains the project cards
+
 import React, { useState, useContext, useEffect } from 'react';
 import { Tag, TSlobyProject } from '../../../utils/types';
 import ProjectsHandler from './ProjectsHandler';
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
 import { ProjectServices } from '../../../api/project.api';
-import interfaceSourceIntegrator from '../../../sloby-editor-system/lib/handlers/InteraceIntegrators/InterfaceSourceIntegrator';
-import InterfacePropsIntegrator from '../../../sloby-editor-system/lib/handlers/InteraceIntegrators/InterfacePropsIntegrator';
 import {
   faEllipsisVertical,
   faFaceSmile,
@@ -16,7 +16,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ProjectsContext } from '../../../utils/contexts/ProjectsContext';
 import { LoadingContext } from '../../../utils/contexts/Loading';
 
-import { useSession } from '@supabase/auth-helpers-react';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 export default function Project({
@@ -29,30 +28,52 @@ export default function Project({
   const {
     project_data,
     set_project_data,
-    actionBar,
     setActionBar,
     setCurrentProject,
-    currentProject,
   } = useContext(ProjectsContext);
   const { loading, setLoading } = useContext(LoadingContext);
   const [optionsState, setOptionsState] = useState(false);
-  const projectServices = new ProjectServices(useSupabaseClient());
-  const sourceIntegrator = new interfaceSourceIntegrator();
-  const propsIntegrator = new InterfacePropsIntegrator();
-  const session = useSession();
   const router = useRouter();
+  const supabase = useSupabaseClient();
 
   const optionsToggle = (e: React.MouseEvent<HTMLElement>) => {
+    // Used to toggle the options menu(edit, smile, delete)
     e.preventDefault();
     setOptionsState(!optionsState);
   };
-  async function deleteProject(project_id: string) {
-    const res = await projectServices.deleteProjectById(project_id);
-    await sourceIntegrator.deleteItem(project_id);
-    await propsIntegrator.deleteItem(project_id);
+
+  async function deleteUsersProject(project_id: string) {
+    // Used to delete the project from the 'users_projects' table'   
+    try {
+    const {data, error} = await supabase
+      .from('users_projects')
+      .delete()
+      .match({ project_id: project_id });
+    console.log('Record deleted successfully users_projects table');
+    } catch (error: any) {
+    console.error('Error deleting record:', error.message);
+  }
   }
 
+  async function deleteProject(project_id: string) {
+  // Used to delete the project from the 'projects' table
+    
+    deleteUsersProject(project_id) // delete the users project first 
+    
+    try {
+    const {data, error} = await supabase
+      .from('projects')
+      .delete()
+      .match({ id: project_id });
+    console.log('Record deleted successfully');
+  } catch (error: any) {
+    console.error('Error deleting record:', error.message);
+  }
+}
+
+
   function updateProject() {
+    // Used to update the modal visibility (new-project-creating modal)
     set_project_data({ ...project_data, project_modal: true });
   }
 
@@ -104,7 +125,7 @@ export default function Project({
         </div>
         <Image
           alt="Sloby Logo"
-          className="mt-[10px]"
+          className="mt-[10px] select-none"
           src={'/images/Sloby Logo Dark.svg'}
           width={150}
           height={70}

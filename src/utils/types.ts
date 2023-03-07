@@ -1,4 +1,5 @@
-import { ToolCategories } from './constants';
+// Used to define sloby types 
+
 
 export type TProjectsParameter = {
   project_name: string;
@@ -30,7 +31,6 @@ export type TSlobyTool = {
   html_tag: string;
 };
 
-export type ToolCategory = ToolCategories | undefined;
 
 export type TranslatedElement = 'div';
 

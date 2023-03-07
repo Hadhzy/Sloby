@@ -102,7 +102,7 @@ export const InputsContextProvider = ({ children }: { children: any }) => {
         id: uuidv4(),
         position: { x: 1, y: 0 },
         style: {
-          color: '#fff',
+          color: '#FFFFFF',
           fontSize: '16px',
           fontWeight: '500',
           fontFamily: 'montserrat',

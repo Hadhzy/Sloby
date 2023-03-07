@@ -1,16 +1,22 @@
+// This API file is for handling project related supabase requests.
+// It has multiple methods for getting data and filtering it. 
+
 import { SupabaseClient } from '@supabase/supabase-js';
-import { match } from 'assert';
 import { TSlobyProject } from '../utils/types';
 import { BaseServices } from './base';
 
 export class ProjectServices extends BaseServices {
+  // API methods for projects
   constructor(supabase: SupabaseClient) {
     super(supabase, 'projects');
   }
+
+  // Getting all of the projects
   public getProjects() {
     return this.client.from(this.tableName).select('*');
   }
 
+  // Getting a single project source
   public async getProjectsSource(project_id: string) {
     const { data, error } = await this.client
       .from('projects')
@@ -19,10 +25,13 @@ export class ProjectServices extends BaseServices {
       .single();
 
     if (data) {
+      console.log(data);
       return data;
+      
     }
 
     if (error) {
+      console.log("from-error", data)
       console.log(error);
     }
   }
@@ -48,38 +57,4 @@ export class ProjectServices extends BaseServices {
   public getTools() {
     return this.client.from('sloby_tools').select('*');
   }
-
-  // async addElement(type: string, id: string) {
-  //   switch (type) {
-  //     case 'text-element':
-  //       const { data: project, error } = await this.client
-  //         .from('projects')
-  //         .select('interface_source')
-  //         .eq('id', id)
-  //         .single();
-
-  //       if (error) {
-  //         console.error('Error fetching project:', error);
-  //         return;
-  //       }
-
-  //       const interfaceSource = project?.interface_source ?? [];
-
-  //       // Update the database in real-time
-  //       const { error: updateError } = await supabase
-  //         .from('projects')
-  //         .update({ interface_source: interfaceSource })
-  //         .eq('id', id);
-
-  //       if (updateError) {
-  //         console.error('Error updating project:', updateError);
-  //         return;
-  //       }
-
-  //       break;
-  //     default:
-  //       // handle other element types
-  //       break;
-  //   }
-  // }
 }
