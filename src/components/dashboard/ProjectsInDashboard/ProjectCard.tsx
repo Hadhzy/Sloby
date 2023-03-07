@@ -1,8 +1,8 @@
-// One project card
+// Each project card(single)
 
 import React, { useState, useContext, useEffect } from 'react';
 import { Tag, TSlobyProject } from '../../../utils/types';
-import ProjectsHandler from './ProjectsHandler';
+import ProjectsHandler from './ProjectsBlurContainer';
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
 import { ProjectServices } from '../../../api/project.api';
 import {
@@ -18,16 +18,15 @@ import { LoadingContext } from '../../../utils/contexts/Loading';
 
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
-export default function Project({
+export default function ProjectCard({
   project,
   index,
 }: {
   project: TSlobyProject;
   index: number;
 }) {
-  const { project_data, set_project_data, setActionBar } =
-    useContext(ProjectsContext);
-  const { loading, setLoading } = useContext(LoadingContext);
+  const { project_data, set_project_data, setActionBar } = useContext(ProjectsContext);
+  const { loading, setLoading, } = useContext(LoadingContext);
   const [optionsState, setOptionsState] = useState(false);
   const router = useRouter();
   const supabase = useSupabaseClient();
@@ -67,11 +66,13 @@ export default function Project({
     }
   }
 
+  useEffect(() => {
+    console.log('project_modal', project_data.project_modal);
+  }, [project_data])
+
   function updateProject() {
-    console.log('Updating the project of: ', project);
-    console.log('Before update:', project_data);
-    set_project_data({ ...project_data, project_modal: true });
-    console.log('After update:', project_data);
+    console.log('Called')
+    set_project_data({ ...project_data, project_modal: true })
   }
 
   return (
@@ -83,7 +84,7 @@ export default function Project({
       transition={{
         delay: index * 0.2,
       }}
-    >
+      >
       <div className="w-full overflow-hidden relative rounded-t-3xl flex justify-center bg-dark-darkest">
         <div
           onClick={() => setActionBar((prev) => !prev)}
@@ -103,10 +104,11 @@ export default function Project({
           <div
             className={`flex absolute top-0 right-0 ${
               optionsState ? 'translate-y-0' : '-translate-y-8'
-            } transition-all`}
+              } transition-all`}
+  
           >
             <button onClick={updateProject}>
-              <FontAwesomeIcon icon={faPencil} className="p-1" />
+              <FontAwesomeIcon  icon={faPencil} className="p-1" />
             </button>
             <button onClick={optionsToggle}>
               <FontAwesomeIcon icon={faFaceSmile} className="p-1" />

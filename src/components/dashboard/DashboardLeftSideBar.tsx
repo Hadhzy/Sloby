@@ -1,3 +1,5 @@
+//left-handside sidebar in the dashboard
+
 import React, { useState, useContext } from 'react';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

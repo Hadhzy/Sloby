@@ -1,14 +1,15 @@
+// The base DashboardHomePage
 import { useSession } from '@supabase/auth-helpers-react';
 import React, { useContext } from 'react';
 import DashboardUserDetails from './DashboardUserDetails';
 import DashboardLayout from '../layouts/dashboard/DashboardLayout';
-import ProjectsManager from './dashboardProjects/ProjectsManager';
+import ProjectsManager from './ProjectsInDashboard/DashboardNavbar';
 import { getRandomNumber } from './getRandomNumber';
 import { AnimatePresence } from 'framer-motion';
-import ProjectModal from './dashboardProjects/ProjectModal';
+import ProjectModal from './ProjectsInDashboard/ProjectModal';
 import { ProjectsContext } from '../../utils/contexts/ProjectsContext';
 
-export default function DashboardHome({
+export default function DashboardHomePage({
   totalVisits,
   totalUsage,
 }: {

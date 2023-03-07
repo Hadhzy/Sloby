@@ -1,21 +1,18 @@
 import React, { useContext } from 'react';
-import Projects from './Projects';
+import Projects from './ProjectsList';
 import { ProjectsContext } from '../../../utils/contexts/ProjectsContext';
 import { useRouter } from 'next/router';
 import Loading from '../../loading';
 
-export default function ProjectsHandler() {
+export default function ProjectsBlurContainer() {
   const { project_data, set_project_data } = useContext(ProjectsContext);
   const router = useRouter();
   return (
     <div
-      onClick={() =>
-        set_project_data({ ...project_data, project_modal: false })
-      }
       className={`text-white h-[90vh] w-full p-16 ${
         project_data.project_modal &&
-        router.pathname === '/editor/dashboard/projects'
-          ? 'blur-sm'
+        router.pathname === '/editor/dashboard/projects' 
+          ? 'blur-sm' // add blur-sm style to the div
           : ''
       }`}
     >

@@ -1,6 +1,6 @@
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
 import { useEffect, useState } from 'react';
-import DashboardHome from '../../../components/dashboard/DashboardHome';
+import DashboardHome from '../../../components/dashboard/DashboardHomePage';
 import { getRandomNumber } from '../../../components/dashboard/getRandomNumber';
 import Loading from '../../../components/loading';
 

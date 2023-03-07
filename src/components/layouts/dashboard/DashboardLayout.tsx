@@ -1,9 +1,9 @@
 // The left sidebar(logo, projects, settings) and the top menu section(all-projects, shared-projects, new-projects,
 // user - logo) in the dashboard.
-import DashboardMenu from '../../dashboard/DashboardMenu';
+import DashboardMenu from '../../dashboard/DashboardLeftSideBar';
 import { AnimatePresence } from 'framer-motion';
-import ProjectModal from '../../dashboard/dashboardProjects/ProjectModal';
-import ProjectsManager from '../../dashboard/dashboardProjects/ProjectsManager';
+import ProjectModal from '../../dashboard/ProjectsInDashboard/ProjectModal';
+import ProjectsManager from '../../dashboard/ProjectsInDashboard/DashboardNavbar';
 import { useContext } from 'react';
 import { ProjectsContext } from '../../../utils/contexts/ProjectsContext';
 

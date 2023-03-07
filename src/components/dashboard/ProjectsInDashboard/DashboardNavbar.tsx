@@ -1,4 +1,4 @@
-// The navbar in the dashboard
+// The top navbar in the dashboard
 
 import React, { useContext, useState } from 'react';
 import Image from 'next/image';
@@ -10,7 +10,7 @@ import { ProjectsContext } from '../../../utils/contexts/ProjectsContext';
 import { AnimatePresence, motion, Variants } from 'framer-motion';
 import { ApiUser } from '../../../api/user.api';
 
-function ProjectsManager() {
+function DashboardNavbar() {
   const [clickedClass, setClickedClass] = useState({
     projects: true,
     shared: false,
@@ -153,4 +153,4 @@ function ProjectsManager() {
   );
 }
 
-export default ProjectsManager;
+export default DashboardNavbar;

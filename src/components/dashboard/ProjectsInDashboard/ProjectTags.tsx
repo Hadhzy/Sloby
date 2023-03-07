@@ -1,3 +1,5 @@
+//Included in the ProjectModal component used for allowing the user to create associated tags to the created Project
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext, useEffect, useState } from 'react';
 import {

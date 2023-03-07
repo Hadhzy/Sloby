@@ -1,3 +1,4 @@
+// Pop-up window(project creation/modification) in the dashboard.
 import React, { useContext, useEffect, useState } from 'react';
 import { ProjectsContext } from '../../../utils/contexts/ProjectsContext';
 import { AnimatePresence, motion } from 'framer-motion';

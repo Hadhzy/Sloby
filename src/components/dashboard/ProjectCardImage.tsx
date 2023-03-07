@@ -1,6 +1,8 @@
+//The projectCard preview image
+
 import Image from 'next/image';
 
-export default function DashboardProjectPreview({
+export default function  ProjectCardImage ({
   previewImage,
   title,
 }: {
