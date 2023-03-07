@@ -13,7 +13,13 @@ import { ProjectsContext } from '../../../utils/contexts/ProjectsContext';
 import { v4 as uuidv4 } from 'uuid';
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
 
-export default function ProjectTags({ setTags }: { setTags: Function }) {
+export default function ProjectTags({
+  setTags,
+  tags,
+}: {
+  setTags: Function;
+  tags: any;
+}) {
   const [popupDisplay, setPopupDisplay] = useState(false);
   const [tagDisplay, setTagDisplay] = useState(false);
   const [appliedTag, setAppliedTag] = useState<
@@ -23,12 +29,17 @@ export default function ProjectTags({ setTags }: { setTags: Function }) {
   const [error, setError] = useState('');
   const [colorSelect, setColorSelect] = useState(false);
   const [selectedColor, setSelectedColor] = useState('gray-700');
-  const { set_current_tags, current_tags, current_project_id } =
-    useContext(ProjectsContext);
+  const {
+    set_current_tags,
+    current_tags,
+    current_updated_project,
+    current_project_id,
+  } = useContext(ProjectsContext);
 
   useEffect(() => {
     set_current_tags(appliedTag);
   }, [appliedTag]);
+
   async function getData() {
     const { data: projects } = await supabase.from('projects').select('*');
     console.log(projects);

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 import CountUp from 'react-countup';
 import { getRandomNumber } from './getRandomNumber';
 

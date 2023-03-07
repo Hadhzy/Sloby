@@ -15,7 +15,7 @@ import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ProjectsContext } from '../../../utils/contexts/ProjectsContext';
 import { LoadingContext } from '../../../utils/contexts/Loading';
-
+import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 export default function ProjectCard({
@@ -25,8 +25,14 @@ export default function ProjectCard({
   project: TSlobyProject;
   index: number;
 }) {
-  const { project_data, set_project_data, setActionBar } = useContext(ProjectsContext);
-  const { loading, setLoading, } = useContext(LoadingContext);
+  const {
+    project_data,
+    set_project_data,
+    setActionBar,
+    setIsProjectUpdating,
+    set_current_updated_project,
+  } = useContext(ProjectsContext);
+  const { loading, setLoading } = useContext(LoadingContext);
   const [optionsState, setOptionsState] = useState(false);
   const router = useRouter();
   const supabase = useSupabaseClient();
@@ -53,14 +59,12 @@ export default function ProjectCard({
   async function deleteProject(project_id: string) {
     // Used to delete the project from the 'projects' table
 
-    deleteUsersProject(project_id); // delete the users project first
+    await deleteUsersProject(project_id); // delete the users project first
 
     try {
-      const { data, error } = await supabase
-        .from('projects')
-        .delete()
-        .match({ id: project_id });
+      await supabase.from('projects').delete().match({ id: project_id });
       console.log('Record deleted successfully');
+      toast.success('Project deleted successfully');
     } catch (error: any) {
       console.error('Error deleting record:', error.message);
     }
@@ -68,11 +72,15 @@ export default function ProjectCard({
 
   useEffect(() => {
     console.log('project_modal', project_data.project_modal);
-  }, [project_data])
+  }, [project_data]);
 
   function updateProject() {
-    console.log('Called')
-    set_project_data({ ...project_data, project_modal: true })
+    console.log('Updating the project of: ', project);
+    //Setting the modal visibility to true
+    set_project_data({ ...project_data, project_modal: true });
+    setIsProjectUpdating(true);
+    //setting the current_updated project to the project that we are trying to edit.
+    set_current_updated_project(project);
   }
 
   return (
@@ -84,7 +92,7 @@ export default function ProjectCard({
       transition={{
         delay: index * 0.2,
       }}
-      >
+    >
       <div className="w-full overflow-hidden relative rounded-t-3xl flex justify-center bg-dark-darkest">
         <div
           onClick={() => setActionBar((prev) => !prev)}
@@ -104,22 +112,23 @@ export default function ProjectCard({
           <div
             className={`flex absolute top-0 right-0 ${
               optionsState ? 'translate-y-0' : '-translate-y-8'
-              } transition-all`}
-  
+            } transition-all`}
           >
             <button onClick={updateProject}>
-              <FontAwesomeIcon  icon={faPencil} className="p-1" />
+              <FontAwesomeIcon icon={faPencil} className="p-1" />
             </button>
             <button onClick={optionsToggle}>
               <FontAwesomeIcon icon={faFaceSmile} className="p-1" />
             </button>
-            <button onClick={() => deleteProject(project.id)}>
-              <FontAwesomeIcon
-                icon={faTrash}
-                onClick={(e) => {}}
-                className=" p-1 text-red-500 hover:scale-105 ease-in-out duration-100"
-              />
-            </button>
+            <div onClick={() => deleteProject(project.id)}>
+              <button>
+                <FontAwesomeIcon
+                  icon={faTrash}
+                  onClick={(e) => {}}
+                  className=" p-1 text-red-500 hover:scale-105 ease-in-out duration-100"
+                />
+              </button>
+            </div>
           </div>
         </div>
         <Image
