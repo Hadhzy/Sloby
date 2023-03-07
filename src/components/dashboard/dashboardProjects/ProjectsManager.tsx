@@ -34,10 +34,10 @@ function ProjectsManager() {
   useClickOutside(profileRef, () => setProfileDropdown(false));
 
   async function signOut() {
+    if (!session) return; // add null check here
     const { error } = await ApiUser.signOut(supabase);
-    // const { error } = await supabase.auth.signOut();
     await router.push('/auth/login');
-  }
+}
 
   return (
     <div className="z-50 sticky bg-dark-dark w-full p-8 h-14 border-b border-dark-border flex justify-between items-center ease-in-out duration-200">
@@ -74,7 +74,7 @@ function ProjectsManager() {
           ref={profileRef}
         >
           <Image
-            src={session?.user.user_metadata.avatar_url}
+            src={session?.user?.user_metadata?.avatar_url}
             alt="Your profile picture"
             className="rounded-full cursor-pointer"
             width={40}

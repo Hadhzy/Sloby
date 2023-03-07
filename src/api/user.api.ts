@@ -3,12 +3,12 @@ import { Session, SupabaseClient } from '@supabase/supabase-js';
 
 export class ApiUser {
   public readonly session: Session | null;
-  public readonly user: Session['user'];
+  public readonly user: Session['user'] | null;
 
   constructor(session: Session | null) {
     this.session = session;
-    this.user = session!.user;
-  }
+    this.user = session?.user ?? null;
+  } 
 
   // anything related to user will go here..
 
