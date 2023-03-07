@@ -1,20 +1,19 @@
 // the preview site(render the html based on the provided code thru editor)
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect} from 'react';
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
 import { useRouter } from 'next/router';
 import ElementModifier, {
 } from '../../../../sloby-editor-system/implementations/html_rendering/ElementModifier';
 import { ProjectServices } from '../../../../api/project.api';
 import ReactHtmlParser from 'react-html-parser';
-
+import { motion } from 'framer-motion'
 export default function PreViewSite() {
   const [sourceCode, setSourceCode] = React.useState<string>(''); // This is the source code of the preview site but in a version of strings
   const [isLoading, setIsLoading] = React.useState<boolean>(true); // Determines that whether the fetch has succeeded and the data is ready to be rendered
   const supabase = useSupabaseClient(); // supabase client
   const router = useRouter(); // because of the query id
   const transformator = new ElementModifier(); // create a modifier instance
-
   const [update, setUpdate] = React.useState<boolean>(false); // represent a new project update
 
   if (router.query.id) {
@@ -36,9 +35,9 @@ export default function PreViewSite() {
 
   function onProjectUpdate(payload: any) {
     // trigger when the db is updated
-    
     setUpdate(true);
   }
+
 
 
   // Options for rendering the parser
@@ -82,6 +81,9 @@ export default function PreViewSite() {
                 const parsedChildStyle = JSON.parse(
                   `${childNode.attribs.style}`
                 );
+                console.log(parsedChildStyle);
+                
+
                 return (
                   <p style={parsedChildStyle} key={childIndex}>
                     {childNode.children[0].data}
@@ -97,9 +99,9 @@ export default function PreViewSite() {
 
           //rendering the paragraph using the SAME logic as before
           return (
-            <div style={styleWithPixelValues} key={index}>
-              {children}
-            </div>
+            <motion.div animate={{ opacity: [0,1] }} transition={{ duration: 0.2 }} style={styleWithPixelValues} key={index}>
+              {children} 
+            </motion.div> // add fade effect 
           );
         }
       }

@@ -33,6 +33,13 @@ export async function middleware(req: NextRequest) {
       redirectUrl.pathname = '/editor/dashboard';
       return NextResponse.redirect(redirectUrl);
     }
+
+    // You can take this functionality out whenever modifying the landing page
+    // Redirect 'authenticated' users from home page to dashboard 
+    if (req.nextUrl.pathname === '/') {
+      redirectUrl.pathname = '/editor/dashboard';
+      return NextResponse.redirect(redirectUrl);
+    }
     return res;
   }
 
