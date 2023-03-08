@@ -1,5 +1,5 @@
 import React from 'react';
-import BluePrintObject from './blueprint_block';
+import BluePrintObject from './blueprint_block_component';
 
 class BaseBluePrint extends React.Component {
   /**

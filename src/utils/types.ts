@@ -7,7 +7,13 @@ export type TProjectsParameter = {
 };
 
 export type TToastTheme = 'dark' | 'light';
-export type TToastPosition = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'top-center' | 'bottom-center';
+export type TToastPosition =
+  | 'top-right'
+  | 'top-left'
+  | 'bottom-right'
+  | 'bottom-left'
+  | 'top-center'
+  | 'bottom-center';
 export type Tag = {
   id: number;
   tag: string;
