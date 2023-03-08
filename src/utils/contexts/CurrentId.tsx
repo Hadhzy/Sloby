@@ -5,7 +5,6 @@ import {
   useContext,
   useState,
 } from 'react';
-import { toolsConstructors } from '../constants';
 import { ProjectsContext } from './ProjectsContext';
 import { TSlobyTool } from '../types';
 

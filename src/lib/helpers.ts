@@ -1,5 +1,5 @@
 import { NextRouter } from 'next/router';
-import supabase from '../config/supabase';
+import { supabase } from '../config/supabase';
 import { SupabaseClient } from '@supabase/supabase-js';
 
 export async function loggedIn(
