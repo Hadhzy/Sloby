@@ -124,7 +124,7 @@ export default function ProjectModal() {
     e.preventDefault();
     //If the states were not updated than throw an error because there is no point updating them then.
     if (
-      updatedName === current_updated_project?.project_name ||
+      updatedName === current_updated_project?.project_name &&
       updatedDescription === current_updated_project?.project_description
     ) {
       // Calling the popup
