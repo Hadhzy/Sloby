@@ -1,28 +1,28 @@
 {
-  "plugins": ["next"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "react", "react-hooks", "next"],
+
   "settings": {
     "import/resolver": {
       "node": {
-        "moduleDirectory": ["node_modules", "."]
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
     }
   },
   "extends": [
     "plugin:react/recommended",
-    "standard-with-typescript",
+    "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/recommended",
-    "prettier"
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:next/recommended",
+    "next"
   ],
   "rules": {
     "react/react-in-jsx-scope": "off",
-    "@typescript-eslint/dot-notation": "off"
-  },
-  "overrides": [
-    {
-      "files": ["**/*.js", "**/*.jsx"],
-      "rules": {
-        "next/no-html-link-for-pages": "off"
-      }
-    }
-  ]
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-unsafe-assignment": "off",
+    "@typescript-eslint/no-unsafe-call": "off",
+    "@typescript-eslint/no-unsafe-member-access": "off",
+    "@typescript-eslint/no-unsafe-return": "off"
+  }
 }
