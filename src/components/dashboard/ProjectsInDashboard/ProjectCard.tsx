@@ -124,7 +124,6 @@ export default function ProjectCard({
               <button>
                 <FontAwesomeIcon
                   icon={faTrash}
-                  onClick={(e) => {}}
                   className=" p-1 text-red-500 hover:scale-105 ease-in-out duration-100"
                 />
               </button>

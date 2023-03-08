@@ -11,7 +11,7 @@ export default function ProjectsBlurContainer() {
     <div
       className={`text-white h-[90vh] w-full p-16 ${
         project_data.project_modal &&
-        router.pathname === '/editor/dashboard/projects' 
+        router.pathname === '/editor/dashboard/projects'
           ? 'blur-sm' // add blur-sm style to the div
           : ''
       }`}

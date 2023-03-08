@@ -77,7 +77,6 @@ export default function ProjectModal() {
     } else {
       console.log('found data', data);
       // Add reference inside users_projects join table
-      // @ts-ignore
       const { data: data2, error: error2 } = await supabase
         .from('users_projects')
         .insert({ user_id: session?.user.id, project_id: data[0].id });

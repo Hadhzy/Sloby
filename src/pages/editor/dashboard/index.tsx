@@ -33,15 +33,15 @@ export default function Dashboard({
       data: { session },
     } = await supabase?.auth?.getSession();
 
-    let { data: profile, error } = await supabase
+    const { data: profile, error } = await supabase
       .from('profiles')
       .select('username')
       .eq('id', session?.user?.id);
 
     console.log(session?.user);
-
-    //@ts-ignore
-    return setUsername(profile[0].username);
+    if (profile !== null) {
+      return setUsername(profile[0].username);
+    }
   }
 
   useEffect(() => {

@@ -17,8 +17,6 @@ export function Star() {
         'translate(-' + x * multiplier + 'px, -' + y * multiplier + 'px)'
       );
     });
-
-    return () => window.removeEventListener('mousemove', () => {});
   }, []);
 
   return (

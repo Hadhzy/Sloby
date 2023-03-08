@@ -39,7 +39,7 @@ export default function Color(props: TInputProps) {
 
   useEffect(() => {
     if (recentlyUsed.includes(selectedColor)) return;
-    let temp = recentlyUsed;
+    const temp = recentlyUsed;
     if (temp.length == 6) {
       temp.unshift(selectedColor);
       temp.pop();

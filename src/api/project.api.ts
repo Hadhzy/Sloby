@@ -46,7 +46,6 @@ export class ProjectServices extends BaseServices {
         id: project_id,
       });
   }
-  public updateProjectById(project_id: string) {}
   public deleteProjectById(project_id: string) {
     return this.client
       .from<string, TSlobyProject>(this.tableName)

@@ -15,7 +15,7 @@ export class BluePrint {
   private _blocks: Tblock = [];
   private _project_source: any;
 
-  static _project_id: string = "";
+  static _project_id = "";
   
   // Singleton pattern
   private static _instance: BluePrint;

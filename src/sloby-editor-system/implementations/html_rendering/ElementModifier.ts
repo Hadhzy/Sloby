@@ -48,10 +48,10 @@ export default class ElementModifier {
 
   private inputToParagraph(element: TElement) {
     // convert the input element to a paragraph element
-    let positionObject = {
+    const positionObject = {
       position: 'absolute',
-      top: element.position!?.y,
-      left: element.position!?.x,
+      top: element.position?.y,
+      left: element.position?.x,
     };
 
     //returns the actual source code as a string

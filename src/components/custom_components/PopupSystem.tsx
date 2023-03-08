@@ -15,7 +15,13 @@ function PopupSystem({
   toast(msg, {
     position,
   });
-  return <>{state && <ToastContainer position={position} theme={theme} autoClose={5000} />}</>;
+  return (
+    <>
+      {state && (
+        <ToastContainer position={position} theme={theme} autoClose={5000} />
+      )}
+    </>
+  );
 }
 
 export default PopupSystem;

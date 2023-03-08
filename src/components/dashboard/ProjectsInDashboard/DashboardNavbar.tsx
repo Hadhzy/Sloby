@@ -17,7 +17,8 @@ function DashboardNavbar() {
   });
   const [profileDropdown, setProfileDropdown] = useState(false);
   const profileRef = React.useRef<HTMLInputElement>(null);
-  const { project_data, set_project_data, set_current_updated_project } = useContext(ProjectsContext);
+  const { project_data, set_project_data, set_current_updated_project } =
+    useContext(ProjectsContext);
   const session = useSession();
   const [supabase] = useState(() => createBrowserSupabaseClient());
   const router = useRouter();
@@ -62,12 +63,10 @@ function DashboardNavbar() {
       <div className={'flex-center gap-12 text-white'}>
         <div
           className="ease-in-out duration-200 btn bg-blue-dark origin-top hover:translate-y-[-2px] hover:scale-105 hover:bg-blue-600"
-          onClick={() =>
-          {
-            set_project_data({ ...project_data, project_modal: true })
-            set_current_updated_project(null)
-          }
-          }
+          onClick={() => {
+            set_project_data({ ...project_data, project_modal: true });
+            set_current_updated_project(null);
+          }}
         >
           <button>New Project</button>
         </div>
