@@ -25,7 +25,7 @@ export default function Login() {
   const emailRef = React.useRef<HTMLInputElement>(null);
   const supabase = useSupabaseClient();
 
-  let router = useRouter();
+  const router = useRouter();
 
   function onHidePassword() {
     setHidePassword(!hidePassword);

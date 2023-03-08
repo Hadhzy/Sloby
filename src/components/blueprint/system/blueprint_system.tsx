@@ -11,8 +11,6 @@ export class BluePrint {
     this._start = true; // Blueprint is starte
   }
 
-  private setup() {}
-
   get blocks(): Tblock {
     return this._blocks;
   }

@@ -17,7 +17,7 @@ export default function ProjectTags({
   setTags,
   tags,
 }: {
-  setTags: Function;
+  setTags: (tags: any) => void;
   tags: any;
 }) {
   const [popupDisplay, setPopupDisplay] = useState(false);
@@ -54,7 +54,7 @@ export default function ProjectTags({
   };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTags(appliedTag);
-    let currentValue = e.target.value;
+    const currentValue = e.target.value;
     if (currentValue.endsWith(' ')) {
       if (appliedTag.length < 3) {
         if (appliedTag.some((e) => e.tag === currentValue.trim())) {

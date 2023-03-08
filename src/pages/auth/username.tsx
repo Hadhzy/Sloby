@@ -16,7 +16,7 @@ export default function Login() {
   const supabase = useSupabaseClient();
   const session = useSession();
 
-  let router = useRouter();
+  const router = useRouter();
 
   async function onSubmit(event: any) {
     event.preventDefault();

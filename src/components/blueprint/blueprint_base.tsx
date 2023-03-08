@@ -14,7 +14,7 @@ class BaseBluePrint extends React.Component {
     return (
       <div className=" bg-gray-900 bg-gradient-to-t from-gray-700 to-gray-900 bg-no-repeat bg-cover">
         {Array.from({ length: 1 }, (_, i) => (
-          <BluePrintObject name={'1'} color={'red'} output={false} />
+          <BluePrintObject key={i} name={'1'} color={'red'} output={false} />
         ))}
       </div>
     );

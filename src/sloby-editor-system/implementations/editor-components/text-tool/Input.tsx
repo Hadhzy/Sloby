@@ -91,21 +91,21 @@ export default function Input({
 
   useEffect(() => {
     console.log('ratio: ', ratio);
-    console.log('position.x: ', position!?.x);
-    if (!ratio && position!?.x != 0) {
+    console.log('position.x: ', position?.x);
+    if (!ratio && position?.x != 0) {
       // console.log('width: ', width);
       // console.log('position.x: ', position.x);
-      setRatio(position!?.x / width);
+      setRatio(position!.x / width);
       setLastWidth(width);
       return;
     }
     // console.log('ratio: ', ratio);
-    if (ratio && position!?.x != 0) {
+    if (ratio && position?.x != 0) {
       // console.log('LW: ', lastWidth);
       // console.log('W: ', width);
       setPosition({
-        x: position!?.x + (width - lastWidth) * ratio,
-        y: position!?.y,
+        x: position!.x + (width - lastWidth) * ratio,
+        y: position!.y,
       });
       setLastWidth(width);
     }
@@ -159,15 +159,15 @@ export default function Input({
       dragMomentum={false}
       dragElastic={0.075}
       dragConstraints={{
-        top: -position!?.y,
-        left: -position!?.x,
-        right: width - position!?.x - dimensions?.x,
-        bottom: 890 - position!?.y - dimensions?.y,
+        top: -position!.y,
+        left: -position!.x,
+        right: width - position!.x - dimensions?.x,
+        bottom: 890 - position!.y - dimensions?.y,
       }}
       style={{
         position: 'absolute',
-        top: position!?.y,
-        left: position!?.x,
+        top: position?.y,
+        left: position?.x,
       }}
       onClick={(e) => console.log(e)}
     >
@@ -189,7 +189,7 @@ export default function Input({
           placeholder="type your text here..."
           type="text"
           onBlur={() => {
-            let index = inputs.findIndex(
+            const index = inputs.findIndex(
               (value: TInputContextProps) => value.id === input.id
             );
 
@@ -207,7 +207,7 @@ export default function Input({
           }}
           onDoubleClick={() => {
             // getting the correct index from the inputs
-            let index = inputs.findIndex(
+            const index = inputs.findIndex(
               (value: TInputContextProps) => value.id === input.id
             );
 

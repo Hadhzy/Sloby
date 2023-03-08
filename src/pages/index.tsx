@@ -10,7 +10,6 @@ import { useEffect } from 'react';
 export default function Home() {
   console.log(getURL());
 
-  const user_state_check = () => {};
   useEffect(() => {
     console.log('Checking');
   }, []);

@@ -113,7 +113,7 @@ export default function PreViewSite() {
 
     const projectsServices = new ProjectServices(supabase);
 
-    let data = await projectsServices.getProjectsSource(
+    const data = await projectsServices.getProjectsSource(
       // get the source code of the project
       router.query.id as string
     );

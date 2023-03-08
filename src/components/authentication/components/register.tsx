@@ -34,7 +34,7 @@ export default function Register() {
   const emailRef = React.useRef<HTMLInputElement>(null);
   const usernameRef = React.useRef<HTMLInputElement>(null);
 
-  let router = useRouter();
+  const router = useRouter();
 
   function onHidePassword() {
     setHidePassword(!hidePassword);

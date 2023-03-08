@@ -21,7 +21,6 @@ export const ToolClickedContextProvider = ({ children }: { children: any }) => {
 
   return (
     <ToolClickedContext.Provider
-      //@ts-ignore
       value={{
         toolClicked,
         setToolClicked,
