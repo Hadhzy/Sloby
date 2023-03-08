@@ -19,11 +19,11 @@
   },
   "overrides": [
     {
-      "files": ["**/*.js"],
+      "files": ["**/*.js", "**/*.jsx"],
       "rules": {
         "next/no-html-link-for-pages": "off"
       }
     }
   ],
-  "processor": "next.js"
+  "processor": "node_modules/next/dist/compiled/postcss-flexbugs-fixes/index.js"
 }
