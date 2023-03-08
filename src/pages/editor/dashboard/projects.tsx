@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import DashboardLayout from '../../../components/layouts/dashboard/DashboardLayout';
-import Projects from '../../../components/dashboard/dashboardProjects/ProjectsSection';
+import Projects from '../../../components/dashboard/ProjectsInDashboard/ProjectsPage';
 import { LoadingContext } from '../../../utils/contexts/Loading';
 import Loading from '../../../components/loading';
 import { useSession } from '@supabase/auth-helpers-react';

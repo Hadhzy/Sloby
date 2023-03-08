@@ -12,11 +12,13 @@ import {
   CurrentIdContext,
   CurrentIdContextProvider,
 } from '../../utils/contexts/CurrentId';
+import 'react-toastify/dist/ReactToastify.css';
+
 import {
   InputsContext,
   InputsContextProvider,
 } from '../../utils/contexts/Inputs';
-
+import { ToastContainer, toast } from 'react-toastify';
 function SlobyEditor() {
   const router = useRouter();
   const supabase = useSupabaseClient();
@@ -40,6 +42,18 @@ function SlobyEditor() {
   return (
     <>
       <div className="select-none">
+        <ToastContainer
+          position="top-center"
+          autoClose={1000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
         <ToolClickedContextProvider>
           <CurrentIdContextProvider>
             <InputsContextProvider>

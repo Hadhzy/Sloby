@@ -11,7 +11,7 @@ export default function SlobyInput({
   placeholder: string;
   type: string;
   value: string;
-  setValue: Function;
+  setValue: (value: string) => void;
   error: string;
 }) {
   const [focus, setFocus] = useState(false);

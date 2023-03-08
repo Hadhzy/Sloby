@@ -1,3 +1,5 @@
+// Description: Input component for text tool
+
 import React, {
   useState,
   useEffect,
@@ -6,9 +8,7 @@ import React, {
   Dispatch,
   SetStateAction,
 } from 'react';
-import InterfacePropsIntegrator from '../../../lib/handlers/InteraceIntegrators/InterfacePropsIntegrator';
 import { ToolClickedContext } from '../../../../utils/contexts/ToolClicked';
-import interfaceSourceIntegrator from '../../../lib/handlers/InteraceIntegrators/InterfaceSourceIntegrator';
 import { InputsContext } from '../../../../utils/contexts/Inputs';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -34,10 +34,11 @@ export default function Input({
   width: number;
 }) {
   const { toolClicked, setToolClicked } = useContext(ToolClickedContext);
-  const props = new InterfacePropsIntegrator();
-  const integrator = new interfaceSourceIntegrator();
   const [value, setValue] = useState('');
   const [optionsState, setOptionsState] = useState(false);
+  const [readonly, setReadonly] = useState<
+    Array<{ id: string; state: boolean }>
+  >([]);
   const {
     inputs,
     setInputs,
@@ -64,6 +65,17 @@ export default function Input({
   };
 
   useEffect(() => {
+    localStorage.setItem('readonly_text_elements', JSON.stringify(readonly));
+  }, [readonly]);
+
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem('readonly_text_elements')!);
+    if (data) {
+      setReadonly(data);
+    }
+  }, []);
+
+  useEffect(() => {
     const temp = getPosition(input.id);
     const temp2 = getDimensions(input.id);
     console.log('temp: ', temp);
@@ -79,21 +91,21 @@ export default function Input({
 
   useEffect(() => {
     console.log('ratio: ', ratio);
-    console.log('position.x: ', position!?.x);
-    if (!ratio && position!?.x != 0) {
+    console.log('position.x: ', position?.x);
+    if (!ratio && position?.x != 0) {
       // console.log('width: ', width);
       // console.log('position.x: ', position.x);
-      setRatio(position!?.x / width);
+      setRatio(position!.x / width);
       setLastWidth(width);
       return;
     }
     // console.log('ratio: ', ratio);
-    if (ratio && position!?.x != 0) {
+    if (ratio && position?.x != 0) {
       // console.log('LW: ', lastWidth);
       // console.log('W: ', width);
       setPosition({
-        x: position!?.x + (width - lastWidth) * ratio,
-        y: position!?.y,
+        x: position!.x + (width - lastWidth) * ratio,
+        y: position!.y,
       });
       setLastWidth(width);
     }
@@ -147,15 +159,15 @@ export default function Input({
       dragMomentum={false}
       dragElastic={0.075}
       dragConstraints={{
-        top: -position!?.y,
-        left: -position!?.x,
-        right: width - position!?.x - dimensions?.x,
-        bottom: 890 - position!?.y - dimensions?.y,
+        top: -position!.y,
+        left: -position!.x,
+        right: width - position!.x - dimensions?.x,
+        bottom: 890 - position!.y - dimensions?.y,
       }}
       style={{
         position: 'absolute',
-        top: position!?.y,
-        left: position!?.x,
+        top: position?.y,
+        left: position?.x,
       }}
       onClick={(e) => console.log(e)}
     >
@@ -177,7 +189,7 @@ export default function Input({
           placeholder="type your text here..."
           type="text"
           onBlur={() => {
-            let index = inputs.findIndex(
+            const index = inputs.findIndex(
               (value: TInputContextProps) => value.id === input.id
             );
 
@@ -194,10 +206,12 @@ export default function Input({
             } else return;
           }}
           onDoubleClick={() => {
-            let index = inputs.findIndex(
+            // getting the correct index from the inputs
+            const index = inputs.findIndex(
               (value: TInputContextProps) => value.id === input.id
             );
 
+            // Check if the index is correct and update the state
             if (index !== -1 && index < inputs.length) {
               setInputs((prev) => [
                 ...prev.slice(0, index),

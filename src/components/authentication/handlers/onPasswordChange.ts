@@ -1,7 +1,7 @@
 export function onPasswordChange(
   event: React.ChangeEvent<HTMLInputElement>,
-  setStrength: Function,
-  setStrengthStyles: Function,
+  setStrength: (strength: number) => void,
+  setStrengthStyles: (strengthStyles: string[]) => void,
   strength: number
 ) {
   // Check password length

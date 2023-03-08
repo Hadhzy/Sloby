@@ -7,8 +7,7 @@ import { faFont } from '@fortawesome/free-solid-svg-icons';
 import { ProjectsContext } from '../../utils/contexts/ProjectsContext';
 import { useRouter } from 'next/router';
 import { ProjectServices } from '../../api/project.api';
-import { ProjectLocalDb } from '../lib/indexDB/projectLocalDb';
-import { ActionHandler } from '../lib/handlers/ActionHandler';
+
 import { ToolClickedContext } from '../../utils/contexts/ToolClicked';
 import { CurrentIdContext } from '../../utils/contexts/CurrentId';
 import { log } from 'console';

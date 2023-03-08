@@ -1,21 +1,18 @@
 // the preview site(render the html based on the provided code thru editor)
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
 import { useRouter } from 'next/router';
-import ElementModifier, {
-  TElement,
-} from '../../../../sloby-editor-system/implementations/html_rendering/ElementModifier';
+import ElementModifier from '../../../../sloby-editor-system/implementations/html_rendering/ElementModifier';
 import { ProjectServices } from '../../../../api/project.api';
-import ReactHtmlParser from 'react-html-parser';
-
+import ReactHtmlParser from '@hedgedoc/html-to-react';
+import { motion } from 'framer-motion';
 export default function PreViewSite() {
   const [sourceCode, setSourceCode] = React.useState<string>(''); // This is the source code of the preview site but in a version of strings
   const [isLoading, setIsLoading] = React.useState<boolean>(true); // Determines that whether the fetch has succeeded and the data is ready to be rendered
   const supabase = useSupabaseClient(); // supabase client
   const router = useRouter(); // because of the query id
   const transformator = new ElementModifier(); // create a modifier instance
-
   const [update, setUpdate] = React.useState<boolean>(false); // represent a new project update
 
   if (router.query.id) {
@@ -36,7 +33,6 @@ export default function PreViewSite() {
 
   function onProjectUpdate(payload: any) {
     // trigger when the db is updated
-    console.log('Change recieved:', payload.new);
     setUpdate(true);
   }
 
@@ -81,6 +77,8 @@ export default function PreViewSite() {
                 const parsedChildStyle = JSON.parse(
                   `${childNode.attribs.style}`
                 );
+                console.log(parsedChildStyle);
+
                 return (
                   <p style={parsedChildStyle} key={childIndex}>
                     {childNode.children[0].data}
@@ -96,9 +94,14 @@ export default function PreViewSite() {
 
           //rendering the paragraph using the SAME logic as before
           return (
-            <div style={styleWithPixelValues} key={index}>
+            <motion.div
+              animate={{ opacity: [0, 1] }}
+              transition={{ duration: 0.2 }}
+              style={styleWithPixelValues}
+              key={index}
+            >
               {children}
-            </div>
+            </motion.div> // add fade effect
           );
         }
       }
@@ -106,22 +109,16 @@ export default function PreViewSite() {
   };
 
   async function fetchData() {
-    console.log('In fetch data');
     //getting the data based on the project id
 
     const projectsServices = new ProjectServices(supabase);
 
-    let data = await projectsServices.getProjectsSource(
+    const data = await projectsServices.getProjectsSource(
       // get the source code of the project
       router.query.id as string
     );
-
     if (data) {
-      console.log('In data');
-      console.log('projectsServices: ', data);
-
       //mapping through the data and transforming it to html using the transformator.inputToParagraph method
-
       data?.interface_source.map((item: any) => {
         // don't update the whole source_code, just add the new one
         transformator.scanner(item);
@@ -132,9 +129,8 @@ export default function PreViewSite() {
 
   useEffect(() => {
     // call the fetchData after
-    fetchData();
-    console.log('fast', 'sourceCode: ', sourceCode);
-  }, []);
+    fetchData(); // call the featchData at the first render
+  }, [router.query.id]);
 
   useEffect(() => {
     fetchData(); // call the fetchData

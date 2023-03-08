@@ -1,5 +1,5 @@
 import { NextRouter } from 'next/router';
-import supabase from '../config/supabase';
+import { supabase } from '../config/supabase';
 import { SupabaseClient } from '@supabase/supabase-js';
 
 export async function loggedIn(
@@ -20,8 +20,8 @@ export async function loggedIn(
 
 export const getURL = () => {
   const isProduction = process.env.NODE_ENV === 'production';
-  let url = isProduction
-    ? 'https://sloby-nextjs--eclectic-cranachan-d53843.netlify.app/editor/dashboard'
+  const url = isProduction
+    ? 'https://sloby.netlify.app/editor/dashboard'
     : 'http://localhost:3000/editor/dashboard';
   // Make sure to including trailing `/`.
   // url = url.charAt(url.length - 1) === '/' ? url : `${url}/`;

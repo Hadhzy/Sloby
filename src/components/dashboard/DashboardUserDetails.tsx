@@ -2,8 +2,8 @@ import { useSession } from '@supabase/auth-helpers-react';
 import React, { useContext } from 'react';
 import DashboardStats from './DashboardStats';
 import Image from 'next/image';
-import DashboardProjectPreview from './DashboardProjectPreview';
-import ProjectsManager from './dashboardProjects/ProjectsManager';
+import DashboardProjectPreview from './ProjectCardImage';
+import ProjectsManager from './ProjectsInDashboard/DashboardNavbar';
 import { getRandomNumber } from './getRandomNumber';
 import { ProjectsContext } from '../../utils/contexts/ProjectsContext';
 import { ApiUser } from '../../api/user.api';
@@ -18,7 +18,6 @@ export default function DashboardUserDetails({
   const apiUser = new ApiUser(useSession());
   const { project_data, set_project_data } = useContext(ProjectsContext);
   // console.log(session?.user.user_metadata.avatar_url);
-  console.log(apiUser.user.user_metadata.avatar_url);
   return (
     <div
       className={`flex h-screen  flex-col gap-10 p-8 ml-4 text-white transition-all duration-500 ${
@@ -27,7 +26,7 @@ export default function DashboardUserDetails({
     >
       <div className="text-4xl lg:text-7xl font-bold flex gap-36">
         Good Morning, <br />
-        {apiUser.user.user_metadata.name}
+        {apiUser?.user ? apiUser.user.user_metadata.name : ''}
         {/* { session?.user.user_metadata.name} */}
       </div>
       <div className={'w-1/2 h-1 bg-dark-border rounded-lg'}></div>
