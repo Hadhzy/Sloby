@@ -16,5 +16,14 @@
   "rules": {
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/dot-notation": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["**/*.js"],
+      "rules": {
+        "next/no-html-link-for-pages": "off"
+      }
+    }
+  ],
+  "processor": "next.js"
 }
