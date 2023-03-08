@@ -21,7 +21,7 @@ export async function loggedIn(
 export const getURL = () => {
   const isProduction = process.env.NODE_ENV === 'production';
   const url = isProduction
-    ? 'https://sloby-nextjs--eclectic-cranachan-d53843.netlify.app/editor/dashboard'
+    ? 'https://slolby-builder.netlify.app//editor/dashboard'
     : 'http://localhost:3000/editor/dashboard';
   // Make sure to including trailing `/`.
   // url = url.charAt(url.length - 1) === '/' ? url : `${url}/`;
