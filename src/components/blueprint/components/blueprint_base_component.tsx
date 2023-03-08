@@ -1,13 +1,20 @@
+// This is the BaseBluePrint component on the blueprint route.
+
 import React from 'react';
-import BluePrintObject from './blueprint_block';
+import BluePrintObject from './blueprint_block_component';
+import BluePrint from '../system/blueprint_system';
 
 class BaseBluePrint extends React.Component {
   /**
        * This component is used to be the blueprint page on the editor/blueprint route.
        -------------------------------
        */
+
+  BluePrintSystem: any;
+
   constructor(props: any = '') {
     super(props);
+    this.BluePrintSystem = BluePrint('project_id'); // create a bluePrint system
   }
 
   render() {

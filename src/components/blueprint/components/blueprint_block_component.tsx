@@ -1,3 +1,5 @@
+// Used to refer to a BluePrintObject COMPONENT, this is the actual html code. 
+
 import { motion, useDragControls } from 'framer-motion';
 
 // attributes from the BlueprintObject
