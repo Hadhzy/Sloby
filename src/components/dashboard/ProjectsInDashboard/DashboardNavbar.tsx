@@ -35,9 +35,9 @@ function DashboardNavbar() {
   useClickOutside(profileRef, () => setProfileDropdown(false));
 
   async function signOut() {
-    await router.push('/auth/login');
     if (!session) return; // add null check here
     const { error } = await ApiUser.signOut(supabase);
+    router.push('/auth/login');
   }
 
   return (
