@@ -1,15 +1,14 @@
-// Each project card(single)
+// Each project card(single) in the dashboard.
 
 import React, { useState, useContext, useEffect } from 'react';
 import { Tag, TSlobyProject } from '../../../utils/types';
-import ProjectsHandler from './ProjectsBlurContainer';
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
-import { ProjectServices } from '../../../api/project.api';
 import {
   faEllipsisVertical,
   faFaceSmile,
   faTrash,
   faPencil,
+  faClose,
 } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -32,14 +31,12 @@ export default function ProjectCard({
     setIsProjectUpdating,
     set_current_updated_project,
   } = useContext(ProjectsContext);
-  const { loading, setLoading } = useContext(LoadingContext);
   const [optionsState, setOptionsState] = useState(false);
   const router = useRouter();
   const supabase = useSupabaseClient();
 
-  const optionsToggle = (e: React.MouseEvent<HTMLElement>) => {
+  const optionsToggle = () => {
     // Used to toggle the options menu(edit, smile, delete)
-    e.preventDefault();
     setOptionsState(!optionsState);
   };
 
@@ -50,7 +47,6 @@ export default function ProjectCard({
         .from('users_projects')
         .delete()
         .match({ project_id: project_id });
-      console.log('Record deleted successfully users_projects table');
     } catch (error: any) {
       console.error('Error deleting record:', error.message);
     }
@@ -63,18 +59,14 @@ export default function ProjectCard({
 
     try {
       await supabase.from('projects').delete().match({ id: project_id });
-      console.log('Record deleted successfully');
       toast.success('Project deleted successfully');
     } catch (error: any) {
       console.error('Error deleting record:', error.message);
     }
   }
 
-  useEffect(() => {
-    console.log('project_modal', project_data.project_modal);
-  }, [project_data]);
-
   function updateProject() {
+    optionsToggle();
     console.log('Updating the project of: ', project);
     //Setting the modal visibility to true
     set_project_data({ ...project_data, project_modal: true });
@@ -114,11 +106,17 @@ export default function ProjectCard({
               optionsState ? 'translate-y-0' : '-translate-y-8'
             } transition-all`}
           >
-            <button onClick={updateProject}>
-              <FontAwesomeIcon icon={faPencil} className="p-1" />
-            </button>
             <button onClick={optionsToggle}>
-              <FontAwesomeIcon icon={faFaceSmile} className="p-1" />
+              <FontAwesomeIcon
+                icon={faClose}
+                className="p-1 hover:scale-105 ease-in-out duration-100"
+              />
+            </button>
+            <button onClick={updateProject}>
+              <FontAwesomeIcon
+                icon={faPencil}
+                className="p-1 hover:scale-105 ease-in-out duration-100"
+              />
             </button>
             <div onClick={() => deleteProject(project.id)}>
               <button>

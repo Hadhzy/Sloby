@@ -5,10 +5,8 @@ import { getRandomNumber } from '../../../components/dashboard/getRandomNumber';
 import Loading from '../../../components/loading';
 
 export async function getServerSideProps() {
-  console.log('EXECUTE');
   const totalVisits = Array.from({ length: 14 }, () => getRandomNumber(0, 100));
   const totalUsage = Array.from({ length: 7 }, () => getRandomNumber(0, 100));
-  console.log('totalVisits', totalVisits);
   return {
     props: {
       totalVisits,

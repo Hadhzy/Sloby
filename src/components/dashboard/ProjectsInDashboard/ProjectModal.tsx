@@ -75,7 +75,6 @@ export default function ProjectModal() {
     if (error) {
       console.log(error);
     } else {
-      console.log('found data', data);
       // Add reference inside users_projects join table
       const { data: data2, error: error2 } = await supabase
         .from('users_projects')
@@ -88,14 +87,12 @@ export default function ProjectModal() {
     await sendCurrentTags();
 
     if (data) {
-      console.log(data);
       setError('');
     }
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Submittung the form');
     if (!name) return setError('Please fill the fields properly');
     else if (name.length < 4)
       return setError(
@@ -104,7 +101,6 @@ export default function ProjectModal() {
     sendRequest();
 
     setError('');
-    console.log(name, description);
     set_project_data({ ...project_data, project_modal: false });
     toast.success('Project created successfully');
   };
@@ -141,12 +137,10 @@ export default function ProjectModal() {
   useEffect(() => {
     //If we are updating something meaning that the isProjectUpdating is true then we are setting the states to the current project data
     if (current_updated_project !== null && isProjectUpdating) {
-      console.log(current_updated_project);
       if (
         current_updated_project?.project_name &&
         current_updated_project?.project_description
       ) {
-        console.log('True');
         setUpdatedName(current_updated_project?.project_name);
         setupdatedDescription(current_updated_project?.project_description);
         setupdatedTags(current_updated_project.tags);

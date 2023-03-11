@@ -1,3 +1,4 @@
+//Stores the project related data such as modal activation
 import { Dispatch, SetStateAction, createContext, useState } from 'react';
 import { TSlobyProject, TSlobyTool, Tag } from '../types';
 
@@ -57,6 +58,10 @@ export const ProjectsContextProvider = ({ children }: { children: any }) => {
   const [tools, setTools] = useState<any>([]);
   const [isProjectUpdating, setIsProjectUpdating] = useState(false);
   const [popup, setPopup] = useState();
+
+  
+  // represent the current project data
+  //-------------------------------------
   const [currentProject, setCurrentProject] = useState<TSlobyProject>({
     id: '',
     created_at: new Date(),
@@ -67,6 +72,7 @@ export const ProjectsContextProvider = ({ children }: { children: any }) => {
     tags: [{ id: 1, color: '', tag: '' }],
     interface_source: [],
   });
+  //-------------------------------------
 
   return (
     <ProjectsContext.Provider

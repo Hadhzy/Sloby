@@ -69,7 +69,7 @@ export default function PreViewSite() {
             left: `${parsedStyleDiv.left}px`, // extend the style with postion
           };
 
-          // mapping through the children of the div node and using the SAME logic to render the paragraph
+          // mapping through the chilqdren of the div node and using the SAME logic to render the paragraph
           const children = node.children.map(
             (childNode: any, childIndex: number) => {
               // represent a child and act just as SAME as before

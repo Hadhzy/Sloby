@@ -8,11 +8,9 @@ import { getURL } from '../lib/helpers';
 import { useEffect } from 'react';
 
 export default function Home() {
-  console.log(getURL());
 
-  useEffect(() => {
-    console.log('Checking');
-  }, []);
+
+  
 
   return (
     <div>

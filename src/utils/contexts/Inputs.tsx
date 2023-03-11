@@ -33,7 +33,6 @@ export const InputsContextProvider = ({ children }: { children: any }) => {
   const [lastClicked, setLastClicked] = useState('');
 
   const saveDimensions = (dimensions: { x: number; y: number }, id: string) => {
-    // console.log('dimensionChange: ', dimensions);
     const newInputs = [...inputs];
     for (let i = 0; i < newInputs.length; i++) {
       if (id == newInputs[i].id) {
@@ -82,7 +81,6 @@ export const InputsContextProvider = ({ children }: { children: any }) => {
     setInputs(newInputs);
   };
   const styleChange = (style: any, id: string, type: string) => {
-    console.log('styleChange: ', style, id, type);
     const newInputs = [...inputs];
     for (let i = 0; i < newInputs.length; i++) {
       if (id == newInputs[i].id) {

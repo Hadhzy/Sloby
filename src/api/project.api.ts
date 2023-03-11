@@ -25,12 +25,10 @@ export class ProjectServices extends BaseServices {
       .single();
 
     if (data) {
-      console.log(data);
       return data;
     }
 
     if (error) {
-      console.log('from-error', data);
       console.log(error);
     }
   }

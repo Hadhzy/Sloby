@@ -4,6 +4,7 @@ import { HuePicker } from 'react-color';
 import { v4 as uuidv4 } from 'uuid';
 import { TInputProps } from '../../../../utils/types';
 import { motion } from 'framer-motion';
+
 const pallets = [
   {
     name: 'Tropical Paradise',
@@ -26,7 +27,6 @@ export default function Color(props: TInputProps) {
   const [rotate, setRotate] = useState(['rotate-0']);
 
   useEffect(() => {
-    console.log(props);
     if (props?.styles?.color !== undefined) {
       setSelectedColor(props.styles.color);
     } else return;
