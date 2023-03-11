@@ -162,7 +162,11 @@ export default function ProjectCard({
           <p>{project.project_description}</p>
         </div>
         <p className="justify-self mt-auto text-sm text-dark-font-light font-bold">
-          Edited last day
+          {project.edited_at === null ? (
+            <div>This project has not been edited yet.</div>
+          ) : (
+            <div>Test</div>
+          )}
         </p>
       </div>
     </motion.div>

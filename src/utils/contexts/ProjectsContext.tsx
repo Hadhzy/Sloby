@@ -59,12 +59,12 @@ export const ProjectsContextProvider = ({ children }: { children: any }) => {
   const [isProjectUpdating, setIsProjectUpdating] = useState(false);
   const [popup, setPopup] = useState();
 
-  
   // represent the current project data
   //-------------------------------------
   const [currentProject, setCurrentProject] = useState<TSlobyProject>({
     id: '',
     created_at: new Date(),
+    edited_at: new Date(),
     project_name: '',
     project_description: '',
     creator: '',

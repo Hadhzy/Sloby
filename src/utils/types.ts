@@ -23,6 +23,7 @@ export type Tag = {
 export type TSlobyProject = {
   id: string;
   created_at: Date;
+  edited_at: Date; 
   project_name: string;
   project_description: string;
   creator: string | undefined;
