@@ -7,6 +7,7 @@ import ElementModifier from '../../../../sloby-editor-system/implementations/htm
 import { ProjectServices } from '../../../../api/project.api';
 import ReactHtmlParser from '@hedgedoc/html-to-react';
 import { motion } from 'framer-motion';
+import SlobyParser from '../../../../sloby-editor-system/implementations/parser/SlobyParser';
 export default function PreViewSite() {
   const [sourceCode, setSourceCode] = React.useState<string>(''); // This is the source code of the preview site but in a version of strings
   const [isLoading, setIsLoading] = React.useState<boolean>(true); // Determines that whether the fetch has succeeded and the data is ready to be rendered
@@ -124,8 +125,14 @@ export default function PreViewSite() {
         transformator.scanner(item);
         setSourceCode((prev: string) => prev + transformator.source_code); // '<p><p/>'
       });
+
+      
     }
   }
+
+  useEffect(() => {
+    new SlobyParser(sourceCode);
+  }, [sourceCode])
 
   useEffect(() => {
     // call the fetchData after

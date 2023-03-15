@@ -11,6 +11,7 @@ import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 import { v4 as uuidv4 } from 'uuid';
 import { ToastContainer, toast } from 'react-toastify';
 import PopupSystem from '../../custom_components/PopupSystem';
+import { Tag } from '../../../utils/types';
 
 export default function ProjectModal() {
   const {
@@ -29,15 +30,16 @@ export default function ProjectModal() {
   const [updatedName, setUpdatedName] = useState('');
   const [description, setDescription] = useState('');
   const [updatedDescription, setupdatedDescription] = useState('');
-  const [error, setError] = useState('');
-  const [tags, setTags] = useState<any>();
-  const [updatedTags, setupdatedTags] = useState<any>();
+  const [error, setError] = useState<boolean>(false);
+  const [tags, setTags] = useState<Tag[]>();
+  const [updatedTags, setupdatedTags] = useState<Tag[]>();
   const [checked, setChecked] = useState(false);
   const [updatedChecked, setupdatedChecked] = useState(false);
   const supabase = useSupabaseClient();
   const session = useSession();
   const [msg, setMsg] = useState('asdasd');
   const [popup, setPopup] = useState(true);
+  const [cancelation, setCancelation] = useState(false);
 
   useEffect(() => {
     function handleResize() {
@@ -87,20 +89,19 @@ export default function ProjectModal() {
     await sendCurrentTags();
 
     if (data) {
-      setError('');
+      setError(false);
     }
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!name) return setError('Please fill the fields properly');
-    else if (name.length < 4)
-      return setError(
+    if (cancelation) return;
+    if (name.length < 4)
+      return toast.error(
         'Please provide your project with at least 4 characters long name'
       );
     sendRequest();
 
-    setError('');
     set_project_data({ ...project_data, project_modal: false });
     toast.success('Project created successfully');
   };
@@ -112,6 +113,7 @@ export default function ProjectModal() {
       .update({
         project_name: updatedName,
         project_description: updatedDescription,
+        tags: updatedTags,
       })
       .eq('id', current_updated_project?.id);
   }
@@ -139,7 +141,8 @@ export default function ProjectModal() {
     if (current_updated_project !== null && isProjectUpdating) {
       if (
         current_updated_project?.project_name &&
-        current_updated_project?.project_description
+        current_updated_project?.project_description &&
+        current_updated_project?.tags
       ) {
         setUpdatedName(current_updated_project?.project_name);
         setupdatedDescription(current_updated_project?.project_description);
@@ -183,7 +186,7 @@ export default function ProjectModal() {
               <p className="text-dark-font-color font-bold">
                 Add some tags to your project
               </p>
-              <ProjectTags setTags={setTags} tags={tags !== null ? tags : ''} />
+              <ProjectTags setTags={setupdatedTags} tags={updatedTags} />
               <p className="text-dark-font-color font-bold mt-10">
                 You can share your project by selecting the checkbox
               </p>
@@ -202,22 +205,6 @@ export default function ProjectModal() {
                   Publish my project
                 </label>
               </div>
-              <AnimatePresence>
-                {error !== '' && (
-                  <motion.div
-                    exit={{ opacity: 0, y: 400 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                    animate={{ opacity: [0, 1], y: [400, 0] }}
-                    className="flex justify-between p-2 px-6 bg-red-mid rounded-xl w-[85%] items-center "
-                  >
-                    {error}
-                    <FontAwesomeIcon
-                      icon={faCircleExclamation}
-                      className="text-lg"
-                    />
-                  </motion.div>
-                )}
-              </AnimatePresence>
             </div>
           </div>
 
@@ -235,7 +222,7 @@ export default function ProjectModal() {
               }}
               className="flex justify-center w-24 ease-in-out duration-200 btn bg-dark-dark-mid origin-top hover:translate-y-[-2px] hover:scale-105 hover:bg-dark-mid"
             >
-              <button>Cancel</button>
+              <button onClick={() => setCancelation(true)}>Cancel</button>
             </div>
           </div>
         </form>
@@ -283,22 +270,6 @@ export default function ProjectModal() {
                   Publish my project
                 </label>
               </div>
-              <AnimatePresence>
-                {error !== '' && (
-                  <motion.div
-                    exit={{ opacity: 0, y: 400 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                    animate={{ opacity: [0, 1], y: [400, 0] }}
-                    className="flex justify-between p-2 px-6 bg-red-mid rounded-xl w-[85%] items-center "
-                  >
-                    {error}
-                    <FontAwesomeIcon
-                      icon={faCircleExclamation}
-                      className="text-lg"
-                    />
-                  </motion.div>
-                )}
-              </AnimatePresence>
             </div>
           </div>
 
@@ -316,7 +287,7 @@ export default function ProjectModal() {
               }}
               className="flex justify-center w-24 ease-in-out duration-200 btn bg-dark-dark-mid origin-top hover:translate-y-[-2px] hover:scale-105 hover:bg-dark-mid"
             >
-              <button>Cancel</button>
+              <button onClick={() => setCancelation(true)} >Cancel</button>
             </div>
           </div>
         </form>

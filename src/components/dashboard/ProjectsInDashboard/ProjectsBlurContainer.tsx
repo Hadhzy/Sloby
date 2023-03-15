@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import Projects from './ProjectsList';
+import ProjectsList from './ProjectsList';
 import { ProjectsContext } from '../../../utils/contexts/ProjectsContext';
 import { useRouter } from 'next/router';
 import Loading from '../../loading';
@@ -19,7 +19,7 @@ export default function ProjectsBlurContainer() {
       <p className="lg:text-lg mb-6 font-bold text-dark-font-color flex gap-36">
         Projects
       </p>
-      <Projects />
+      <ProjectsList />
     </div>
   );
 }

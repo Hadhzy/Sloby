@@ -1,7 +1,7 @@
 // The whole projects page, containts the projects(ProjectsHandler), its like a container.
 
 import React, { useContext } from 'react';
-import ProjectsHandler from './ProjectsBlurContainer';
+import ProjectsBlurContainer from './ProjectsBlurContainer';
 import { ProjectsContext } from '../../../utils/contexts/ProjectsContext';
 import { ToastContainer, toast } from 'react-toastify';
 
@@ -25,7 +25,7 @@ export default function ProjectsPage() {
         pauseOnHover
         theme="dark"
       />
-      <ProjectsHandler />
+      <ProjectsBlurContainer />
     </div>
   );
 }
