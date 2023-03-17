@@ -9,17 +9,18 @@ class legend {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -30,17 +31,18 @@ class li {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -51,17 +53,18 @@ class link {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -72,17 +75,18 @@ class main {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -93,17 +97,18 @@ class map {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -114,17 +119,18 @@ class mark {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -135,17 +141,18 @@ class menu {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -156,17 +163,18 @@ class meta {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -177,17 +185,18 @@ class meter {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -198,17 +207,18 @@ class nav {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -219,17 +229,18 @@ class noscript {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -240,17 +251,18 @@ class ol {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -261,17 +273,18 @@ class optgroup {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -282,17 +295,18 @@ class option {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -303,17 +317,18 @@ class output {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -324,17 +339,18 @@ class p {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -345,17 +361,18 @@ class param {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -366,17 +383,18 @@ class picture {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -387,17 +405,18 @@ class pre {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -408,17 +427,18 @@ class progress {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -429,17 +449,18 @@ class q {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -450,17 +471,18 @@ class rp {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -471,17 +493,18 @@ class rt {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -492,17 +515,18 @@ class ruby {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -513,17 +537,18 @@ class s {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -534,17 +559,18 @@ class samp {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -555,17 +581,18 @@ class script {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -576,17 +603,18 @@ class section {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -597,17 +625,18 @@ class select {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -618,17 +647,18 @@ class small {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -639,17 +669,18 @@ class source {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -660,17 +691,18 @@ class span {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -681,17 +713,18 @@ class strong {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -702,17 +735,18 @@ class style {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -723,17 +757,18 @@ class sub {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -744,17 +779,18 @@ class summary {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -765,17 +801,18 @@ class sup {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -786,17 +823,18 @@ class svg {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -807,17 +845,18 @@ class table {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -828,17 +867,18 @@ class tbody {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -849,17 +889,18 @@ class td {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -870,17 +911,18 @@ class template {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -891,17 +933,18 @@ class textarea {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -912,17 +955,18 @@ class tfoot {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -933,17 +977,18 @@ class th {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -954,17 +999,18 @@ class thead {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -975,17 +1021,18 @@ class time {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -996,17 +1043,18 @@ class title {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -1017,17 +1065,18 @@ class tr {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -1038,17 +1087,18 @@ class track {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -1059,17 +1109,18 @@ class u {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -1080,17 +1131,18 @@ class ul {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -1101,17 +1153,18 @@ class wbr {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -1122,17 +1175,18 @@ class a {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -1143,17 +1197,18 @@ class body {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -1164,17 +1219,18 @@ class button {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -1185,17 +1241,18 @@ class div {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -1206,17 +1263,18 @@ class embed {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -1227,17 +1285,18 @@ class br {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -1248,17 +1307,18 @@ class footer {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -1269,17 +1329,18 @@ class form {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -1290,17 +1351,18 @@ class h1 {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -1311,17 +1373,18 @@ class h2 {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -1332,17 +1395,18 @@ class h3 {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -1353,17 +1417,18 @@ class h4 {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -1374,17 +1439,18 @@ class h5 {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -1395,17 +1461,18 @@ class h6 {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -1416,17 +1483,18 @@ class head {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -1437,17 +1505,18 @@ class header {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -1458,17 +1527,41 @@ class html {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
+  }
+}
+
+class input {
+  tag = 'input'; // html tag
+  startTag = '<input>';
+  endTag = '</input>';
+  child: null | any = null; // chaining
+  content: any; // body of the current tag
+  lastOne = false; // if this tag is the last one in the row
+  props: any = {}; // props object like {style: color: 'red'}
+
+  render() {
+    const CustomTag = this.tag as keyof JSX.IntrinsicElements;
+    if (this.child !== null) {
+      // If there is a child
+      return (
+        <CustomTag {...this.props}>
+          {this.content}
+          {this.child.render()}
+        </CustomTag>
+      ); // Render the content and also the child
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
@@ -1479,43 +1572,22 @@ class img {
   child: null | any = null; // chaining
   content: any; // chaining
   lastOne = false; // if this tag is the last one in the row
+  props: any = {}; //props object like {style: {color: 'red'}}
   render() {
     const CustomTag = this.tag as keyof JSX.IntrinsicElements;
     if (this.child !== null) {
       // If there is a child
       return (
-        <CustomTag>
+        <CustomTag {...this.props}>
           {this.content}
           {this.child.render()}
         </CustomTag>
       ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
+    } else return <CustomTag {...this.props}>{this.content}</CustomTag>; // if there is no child then just render its own content
   }
 }
 
 // <input> sdfsdf  <p>sdfsdfsd <><p></input >
-class input {
-  tag = 'input'; // html tag
-  startTag = '<input>';
-  endTag = '</input>';
-  child: null | any = null; // chaining
-  content: any; // body of the current tag
-  lastOne = false; // if this tag is the last one in the row
-
-  render() {
-    const CustomTag = this.tag as keyof JSX.IntrinsicElements;
-    if (this.child !== null) {
-      // If there is a child
-      return (
-        <CustomTag>
-          {this.content}
-          {this.child.render()}
-        </CustomTag>
-      ); // Render the content and also the child
-    } else return <CustomTag>{this.content}</CustomTag>; // if there is no child then just render its own content
-  }
-  
-}
 
 export const tagMap: { [key: string]: any } = {
   a: a,

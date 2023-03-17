@@ -21,7 +21,6 @@ export default function SlobyTools() {
   const { toolClicked, setToolClicked } = useContext(ToolClickedContext);
   const { addInput } = useContext(InputsContext);
 
-
   useEffect(() => {
     projectServices.getTools().then(({ data }) => setTools(data as any));
   }, [supabase]);
@@ -44,7 +43,7 @@ export default function SlobyTools() {
                 onClick={async (
                   e: React.MouseEvent<HTMLDivElement, MouseEvent>
                 ) => {
-                  setToolClicked(!toolClicked); // active the tool 
+                  setToolClicked(!toolClicked); // active the tool
                   addInput(tool.html_tag); // activate the tool
 
                   //* this how we will call the entity
@@ -53,7 +52,6 @@ export default function SlobyTools() {
                   //* this is when adding single item and also retrieving it:
                   // -> await projectDB.add({ age: 44, id: '1', name: 'john doe' });
                   // -> const res = await projectDB.getSingle();
-
 
                   //* this is getting all elements in the collection
                   // -> projectDB.getAll().documents$.subscribe(data => console.log(data));

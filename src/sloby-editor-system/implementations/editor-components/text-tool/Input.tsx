@@ -54,7 +54,6 @@ export default function Input({
   const [ratio, setRatio] = useState<number>();
   const [lastWidth, setLastWidth] = useState<number>(width);
 
-
   const handleDelete = (
     e:
       | React.MouseEvent<SVGSVGElement, MouseEvent>
