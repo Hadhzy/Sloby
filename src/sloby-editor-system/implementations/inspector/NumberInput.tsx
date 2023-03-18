@@ -11,22 +11,28 @@ export default function NumberInput({ children, startingNumber, callback }: Numb
   return (
     <div className={"flex-center gap-2"}>
       {children}
-      <div className={"flex-center"}>
+      <div className={"flex-center h-10"}>
         <input
           ref={inputRef}
           type="number"
-          className="w-full bg-dark-preview border-none text-white rounded-l-md p-1"
+          className="w-full h-full bg-dark-preview border-none text-white rounded-l-md p-2 text-md"
           style={{ appearance: "textfield" }}
           value={startingNumber}
           onChange={(e) => callback(Number(e.target.value))}
         />
         {/* Custom up and down buttons */}
-        <div className="flex flex-col">
+        <div className="flex flex-col h-full">
           <button
-            className="bg-dark-preview border-none text-white rounded-r-md p-1"
+            className="bg-dark-preview border-none text-white rounded-tr-md p-1"
+            onClick={() => {
+              if (inputRef.current) {
+                inputRef.current.stepUp();
+                callback(Number(inputRef.current.value));
+              }
+            }}
           >
             <svg
-              className="h-full"
+              className="h-3"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -41,7 +47,13 @@ export default function NumberInput({ children, startingNumber, callback }: Numb
             </svg>
           </button>
           <button
-            className="bg-dark-preview border-none text-white rounded-r-md p-1"
+            className="bg-dark-preview border-none text-white rounded-br-md p-1"
+            onClick={() => {
+              if (inputRef.current) {
+                inputRef.current.stepDown();
+                callback(Number(inputRef.current.value));
+              }
+            }}
           >
             <svg
               className="h-full"

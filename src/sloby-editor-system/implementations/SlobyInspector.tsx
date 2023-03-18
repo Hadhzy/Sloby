@@ -17,16 +17,16 @@ export default function SlobyInspector() {
     <div className="w-1/4 bg-tools-bg h-full">
       {itemData && (
         <div className="flex flex-col divide-y divide-dark-darker">
-          <div className="flex flex-col p-4">
+          <div className="flex flex-col p-4 gap-4">
             <p className={"text-sm font-bold"}>Positioning</p>
-            <div className={"grid grid-cols-2 gap-2"}>
+            <div className={"grid grid-cols-2 gap-8"}>
               <NumberInput startingNumber={itemData.position.x} callback={(value: number) => {
                 setItemData((prev: any) => {
                   prev.position.x = value;
                   return { ...prev };
                 });
               }}>
-                <p className={"text-xs"}>X</p>
+                <p className={"text-xs pr-2"}>X</p>
               </NumberInput>
               <NumberInput startingNumber={itemData.position.y} callback={(value: number) => {
                 setItemData((prev: any) => {
@@ -34,7 +34,7 @@ export default function SlobyInspector() {
                   return { ...prev };
                 });
               }}>
-                <p className={"text-xs"}>Y</p>
+                <p className={"text-xs pr-2"}>Y</p>
               </NumberInput>
             </div>
           </div>

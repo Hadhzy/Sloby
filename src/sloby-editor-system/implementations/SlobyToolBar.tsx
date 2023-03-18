@@ -40,6 +40,7 @@ export default function SlobyToolBar(boundingBox: any) {
 
                   setData((prev: any) => {
                     return [...prev, {
+                      "type": "text",
                       "position": position,
                       "text": ""
                     }];
