@@ -1,30 +1,21 @@
-import React, { useEffect, useContext, useState, useLayoutEffect } from 'react';
-import SlobyEditorInformation from './SlobyEditorInformation';
-import SlobyTools from './SlobyTools';
-import SlobyPreviewSiteInterface from './SlobyPreviewSiteInterface';
-import SlobyModifier from './SlobyModifier';
-import { useRouter } from 'next/router';
-import { useSupabaseClient } from '@supabase/auth-helpers-react';
-import { ProjectsContext } from '../../utils/contexts/ProjectsContext';
-import { ProjectServices } from '../../api/project.api';
-import { ToolClickedContextProvider } from '../../utils/contexts/ToolClicked';
-import {
-  CurrentIdContext,
-  CurrentIdContextProvider,
-} from '../../utils/contexts/CurrentId';
-import 'react-toastify/dist/ReactToastify.css';
+import React, { useEffect, useContext, useState, useRef } from "react";
+import SlobyToolBar from "./SlobyToolBar";
+import { useRouter } from "next/router";
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
+import { ProjectsContext } from "../../utils/contexts/ProjectsContext";
+import { ProjectServices } from "../../api/project.api";
+import { EditorContextProvider } from "./contexts/Editor";
+import SlobyPreview from "./SlobyPreview";
+import SlobyListener from "./SlobyListener";
+import SlobyInspector from "./SlobyInspector";
 
-import {
-  InputsContext,
-  InputsContextProvider,
-} from '../../utils/contexts/Inputs';
-import { ToastContainer, toast } from 'react-toastify';
 function SlobyEditor() {
   const router = useRouter();
   const supabase = useSupabaseClient();
   const projectServices = new ProjectServices(supabase);
   const { setCurrentProject } = useContext(ProjectsContext);
   const [loading, setLoading] = useState(true);
+  const boundingBox = useRef<HTMLDivElement>(null);
 
   const [toolClicked, setToolClicked] = useState(false);
 
@@ -42,41 +33,19 @@ function SlobyEditor() {
   return (
     <>
       <div className="select-none">
-        <ToastContainer
-          position="top-center"
-          autoClose={1000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="dark"
-        />
-        <ToolClickedContextProvider>
-          <CurrentIdContextProvider>
-            <InputsContextProvider>
-              <div className="flex h-full flex-col justify-end">
-                <SlobyEditorInformation />
-                <div className="flex h-full text-white">
-                  <SlobyTools />
-                  <SlobyPreviewSiteInterface />
-                  <SlobyModifier />
-                </div>
-              </div>
-            </InputsContextProvider>
-          </CurrentIdContextProvider>
-        </ToolClickedContextProvider>
+        <EditorContextProvider>
+          <div className="flex h-screen flex-col justify-end">
+            <SlobyListener />
+            <SlobyToolBar boundingBox={boundingBox} />
+            <div className="flex flex-row w-full h-full text-white relative bg-dark-darker">
+              <SlobyPreview boundingBox={boundingBox}/>
+              <SlobyInspector />
+            </div>
+          </div>
+        </EditorContextProvider>
       </div>
     </>
   );
 }
 
 export default SlobyEditor;
-
-//NOTE: i just commented this , i don't know what it's doing here.
-
-// function useLayoutEffeca(arg0: () => void, arg1: boolean[]) {
-//   throw new Error('Function not implemented.');
-// }
