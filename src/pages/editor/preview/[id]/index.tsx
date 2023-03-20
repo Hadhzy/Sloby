@@ -12,21 +12,19 @@ export default function PreViewSite() {
   const router = useRouter(); // because of the query id
   const [update, setUpdate] = React.useState<boolean>(false); // represent a new project update
 
-  if (router.query.id) {
-    supabase
-      .channel('projects_table_change')
-      .on(
-        'postgres_changes',
-        {
-          event: 'UPDATE',
-          schema: 'public',
-          table: 'projects',
-          filter: `id=eq.${router.query.id}`,
-        },
-        onProjectUpdate
-      )
-      .subscribe();
-  }
+  supabase
+    .channel('projects_table_change')
+    .on(
+      'postgres_changes',
+      {
+        event: 'UPDATE',
+        schema: 'public',
+        table: 'projects',
+        filter: `id=eq.${router.query.id}`,
+      },
+      onProjectUpdate
+    )
+    .subscribe();
 
   function onProjectUpdate(payload: any) {
     // trigger when the db is updated
@@ -36,13 +34,19 @@ export default function PreViewSite() {
   async function fetchData() {
     //getting the data based on the project id
 
-    const projectsServices = new ProjectServices(supabase);
+    const { data, error } = await supabase
+      .from('projects')
+      .select('interface_source')
+      .eq('id', router.query.id)
+      .single();
 
-    const data = await projectsServices.getProjectsSource(
-      // get the source code of the project
-      router.query.id as string
-    );
-    setSourceCode(data?.interface_source);
+    if (data) {
+      setSourceCode(data?.interface_source);
+    }
+
+    if (error) {
+      console.log(error);
+    }
   }
 
   useEffect(() => {
@@ -68,7 +72,9 @@ export default function PreViewSite() {
   return (
     // render the html(actual preview)
     <div className="bg-interface-bg w-screen h-screen relative">
-      <div className="w-full h-full">{sourceCode ? SlobyParser(sourceCode) : ''}</div>
+      <div className="w-full h-full">
+        {sourceCode ? SlobyParser(sourceCode) : ''}
+      </div>
     </div>
   );
 }
