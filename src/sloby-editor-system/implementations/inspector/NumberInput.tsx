@@ -1,22 +1,30 @@
-import React from "react";
-
+import React from 'react';
+import { motion } from 'framer-motion';
 interface NumberInputProps {
   children: any;
   startingNumber: number;
   callback: (value: number) => void;
 }
 
-export default function NumberInput({ children, startingNumber, callback }: NumberInputProps) {
+export default function NumberInput({
+  children,
+  startingNumber,
+  callback,
+}: NumberInputProps) {
   const inputRef = React.useRef<HTMLInputElement>(null);
   return (
-    <div className={"flex-center gap-2"}>
+    <motion.div
+      className={'flex-center gap-2'}
+      animate={{ opacity: [0, 1], scale: [0, 1] }}
+      transition={{ delay: 0, duration: 0.2 }}
+    >
       {children}
-      <div className={"flex-center h-10"}>
+      <div className={'flex-center h-10'}>
         <input
           ref={inputRef}
           type="number"
           className="w-full h-full bg-dark-preview border-none text-white rounded-l-md p-2 text-md"
-          style={{ appearance: "textfield" }}
+          style={{ appearance: 'textfield' }}
           value={startingNumber}
           onChange={(e) => callback(Number(e.target.value))}
         />
@@ -72,6 +80,6 @@ export default function NumberInput({ children, startingNumber, callback }: Numb
           </button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
