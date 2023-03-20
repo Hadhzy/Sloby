@@ -19,6 +19,7 @@ import {
   InputsContextProvider,
 } from '../../utils/contexts/Inputs';
 import { ToastContainer, toast } from 'react-toastify';
+
 function SlobyEditor() {
   const router = useRouter();
   const supabase = useSupabaseClient();
@@ -44,7 +45,7 @@ function SlobyEditor() {
       <div className="select-none">
         <ToastContainer
           position="top-center"
-          autoClose={1000}
+          autoClose={2000}
           hideProgressBar={false}
           newestOnTop={false}
           closeOnClick

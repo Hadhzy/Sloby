@@ -54,8 +54,6 @@ export default function Input({
   const [ratio, setRatio] = useState<number>();
   const [lastWidth, setLastWidth] = useState<number>(width);
 
-  console.log(inputs);
-
   const handleDelete = (
     e:
       | React.MouseEvent<SVGSVGElement, MouseEvent>
@@ -78,8 +76,6 @@ export default function Input({
   useEffect(() => {
     const temp = getPosition(input.id);
     const temp2 = getDimensions(input.id);
-    console.log('temp: ', temp);
-    console.log('width: ', width);
     if (temp) {
       setPosition(temp);
       setRatio(temp.x / width);
@@ -90,19 +86,12 @@ export default function Input({
   }, []);
 
   useEffect(() => {
-    console.log('ratio: ', ratio);
-    console.log('position.x: ', position?.x);
     if (!ratio && position?.x != 0) {
-      // console.log('width: ', width);
-      // console.log('position.x: ', position.x);
       setRatio(position!.x / width);
       setLastWidth(width);
       return;
     }
-    // console.log('ratio: ', ratio);
     if (ratio && position?.x != 0) {
-      // console.log('LW: ', lastWidth);
-      // console.log('W: ', width);
       setPosition({
         x: position!.x + (width - lastWidth) * ratio,
         y: position!.y,

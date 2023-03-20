@@ -41,7 +41,6 @@ export default class ElementModifier {
   }
 
   private identify_element(element: TElement): string {
-    console.log(element);
     // Used to identify and return the element type(tag) div | p | h | etc.
     return element.type;
   }

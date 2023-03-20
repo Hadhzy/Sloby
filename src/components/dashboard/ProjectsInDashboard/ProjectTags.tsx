@@ -42,7 +42,7 @@ export default function ProjectTags({
 
   async function getData() {
     const { data: projects } = await supabase.from('projects').select('*');
-    console.log(projects);
+    
   }
   const optionsVariants: Variants = {
     open: {

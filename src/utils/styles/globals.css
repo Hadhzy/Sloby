@@ -94,3 +94,16 @@
     flex-direction: row;
   }
 }
+
+::-webkit-scrollbar {
+  width: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #1e1e1e;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(59, 59, 59);
+  border-radius: 100px;
+}

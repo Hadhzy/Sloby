@@ -17,7 +17,8 @@ export default function DashboardUserDetails({
 }) {
   const apiUser = new ApiUser(useSession());
   const { project_data, set_project_data } = useContext(ProjectsContext);
-  // console.log(session?.user.user_metadata.avatar_url);
+
+  
   return (
     <div
       className={`flex h-screen  flex-col gap-10 p-8 ml-4 text-white transition-all duration-500 ${

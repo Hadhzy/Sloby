@@ -15,7 +15,6 @@ export default function Test() {
         return;
       }
 
-      console.log(data);
     }
     test();
   }, []);

@@ -1,3 +1,4 @@
+//In the editor left-side bar which displays all of the tools
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
 import React, { useEffect, useContext, SetStateAction } from 'react';
 import { TSlobyTool } from '../../utils/types';
@@ -17,12 +18,8 @@ export default function SlobyTools() {
   const supabase = useSupabaseClient();
   const projectServices = new ProjectServices(supabase);
   const { setTools, tools } = useContext(ProjectsContext);
-  const router = useRouter();
   const { toolClicked, setToolClicked } = useContext(ToolClickedContext);
-  const { currentId, setCurrentId } = useContext(CurrentIdContext);
   const { addInput } = useContext(InputsContext);
-
-  console.log(tools);
 
   useEffect(() => {
     projectServices.getTools().then(({ data }) => setTools(data as any));
@@ -46,15 +43,15 @@ export default function SlobyTools() {
                 onClick={async (
                   e: React.MouseEvent<HTMLDivElement, MouseEvent>
                 ) => {
-                  setToolClicked(!toolClicked);
-                  addInput(tool.html_tag);
+                  setToolClicked(!toolClicked); // active the tool
+                  addInput(tool.html_tag); // activate the tool
+
                   //* this how we will call the entity
                   // const projectDB = new ProjectLocalDb();
 
                   //* this is when adding single item and also retrieving it:
                   // -> await projectDB.add({ age: 44, id: '1', name: 'john doe' });
                   // -> const res = await projectDB.getSingle();
-                  // -> console.log(res);
 
                   //* this is getting all elements in the collection
                   // -> projectDB.getAll().documents$.subscribe(data => console.log(data));

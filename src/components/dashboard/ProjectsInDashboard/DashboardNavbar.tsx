@@ -37,7 +37,7 @@ function DashboardNavbar() {
   async function signOut() {
     if (!session) return; // add null check here
     const { error } = await ApiUser.signOut(supabase);
-    router.push('/auth/login');
+    await router.push('/auth/login');
   }
 
   return (

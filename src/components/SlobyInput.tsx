@@ -12,7 +12,7 @@ export default function SlobyInput({
   type: string;
   value: string;
   setValue: (value: string) => void;
-  error: string;
+  error: boolean;
 }) {
   const [focus, setFocus] = useState(false);
   return (
@@ -21,7 +21,7 @@ export default function SlobyInput({
         <input
           type="text"
           className={`px-6 m-10 mt-24 ease-linear duration-300 border-2 ${
-            error !== '' ? 'border-2 border-red-600' : 'border-dark-dark-mid'
+            error ? 'border-2 border-red-600' : 'border-dark-dark-mid'
           }  outline-none  block w-[80%] rounded-md bg-dark-dark-mid placeholder:text-dark-font-color placeholder:font-bold`}
           placeholder={`${focus ? '' : placeholder}`}
           value={value}
@@ -34,7 +34,7 @@ export default function SlobyInput({
           cols={10}
           rows={20}
           className={`px-6 m-10   ease-linear duration-300 border-2 outline-none static  block w-[80%] h-[20%] ${
-            error !== '' ? 'border-2 border-red-600' : 'border-dark-dark-mid'
+            error ? 'border-2 border-red-600' : 'border-dark-dark-mid'
           } rounded-md bg-dark-dark-mid placeholder:text-dark-font-color placeholder:font-bold`}
           placeholder={`${focus ? '' : placeholder}`}
           value={value}
