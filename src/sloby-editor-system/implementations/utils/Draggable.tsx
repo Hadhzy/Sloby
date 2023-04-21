@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 
 interface DraggableProps {
   initialPosition: Array<number>;
@@ -7,8 +7,13 @@ interface DraggableProps {
   callback: any;
 }
 
-export default function Draggable({ initialPosition, boundingBox, children, callback }: DraggableProps) {
-  const mainRef = React.useRef<HTMLDivElement>(null);
+export default function Draggable({
+  initialPosition,
+  boundingBox,
+  children,
+  callback,
+}: DraggableProps) {
+  const mainRef = React.useRef<HTMLDivElement>();
   const [dragging, setDragging] = React.useState(false);
   const [mouseOffset, setMouseOffset] = React.useState({ x: 0, y: 0 });
 
@@ -16,27 +21,35 @@ export default function Draggable({ initialPosition, boundingBox, children, call
     //   Use mouse position listener to move the element with the mouse
     if (dragging) {
       // Get current left and top of element as a float
-      let left = parseFloat(mainRef.current.style.left);
-      let top = parseFloat(mainRef.current.style.top);
-      let used = false;
+      const left = parseFloat(mainRef.current.style.left);
+      const top = parseFloat(mainRef.current.style.top);
+      const used = false;
       const handleMouseMove = (e: any) => {
         const bounds = mainRef.current.getBoundingClientRect();
         const boundingBoxBounds = boundingBox.current.getBoundingClientRect();
 
-        let x = left + (((e.clientX - mouseOffset.x) / (boundingBoxBounds.width)) * 100);
-        let y = top + (((e.clientY - mouseOffset.y) / boundingBoxBounds.height) * 100);
+        let x =
+          left + ((e.clientX - mouseOffset.x) / boundingBoxBounds.width) * 100;
+        let y =
+          top + ((e.clientY - mouseOffset.y) / boundingBoxBounds.height) * 100;
 
         if (x < 0) {
           x = 0.01;
         }
-        if (x > 100 - (bounds.width / boundingBoxBounds.width * 100)) {
-          x = (boundingBoxBounds.width - bounds.width) / boundingBoxBounds.width * 100;
+        if (x > 100 - (bounds.width / boundingBoxBounds.width) * 100) {
+          x =
+            ((boundingBoxBounds.width - bounds.width) /
+              boundingBoxBounds.width) *
+            100;
         }
         if (y < 0) {
           y = 0.01;
         }
-        if (y > 100 - (bounds.height / boundingBoxBounds.height * 100)) {
-          y = (boundingBoxBounds.height - bounds.height) / boundingBoxBounds.height * 100;
+        if (y > 100 - (bounds.height / boundingBoxBounds.height) * 100) {
+          y =
+            ((boundingBoxBounds.height - bounds.height) /
+              boundingBoxBounds.height) *
+            100;
         }
 
         // Set the position of the element
@@ -46,10 +59,10 @@ export default function Draggable({ initialPosition, boundingBox, children, call
         callback(x, y);
       };
 
-      document.addEventListener("mousemove", handleMouseMove);
+      document.addEventListener('mousemove', handleMouseMove);
 
       return () => {
-        document.removeEventListener("mousemove", handleMouseMove);
+        document.removeEventListener('mousemove', handleMouseMove);
       };
     }
   }, [dragging]);
@@ -64,26 +77,37 @@ export default function Draggable({ initialPosition, boundingBox, children, call
       const boundingBoxBounds = boundingBox.current.getBoundingClientRect();
       const bounds = mainRef.current.getBoundingClientRect();
 
-    //   Calculate the left percentage of the element without the element's width
-      let left = parseFloat(mainRef.current.style.left);
-      let top = parseFloat(mainRef.current.style.top);
-      let percentage_element_width = bounds.width / oldWidth * 100;
-      let percentage_element_height = bounds.height / oldHeight * 100;
+      //   Calculate the left percentage of the element without the element's width
+      const left = parseFloat(mainRef.current.style.left);
+      const top = parseFloat(mainRef.current.style.top);
+      const percentage_element_width = (bounds.width / oldWidth) * 100;
+      const percentage_element_height = (bounds.height / oldHeight) * 100;
 
-      let x = (left + percentage_element_width) - bounds.width / boundingBoxBounds.width * 100
-      let y = (top + percentage_element_height) - bounds.height / boundingBoxBounds.height * 100
+      let x =
+        left +
+        percentage_element_width -
+        (bounds.width / boundingBoxBounds.width) * 100;
+      let y =
+        top +
+        percentage_element_height -
+        (bounds.height / boundingBoxBounds.height) * 100;
 
       if (x < 0) {
         x = 0.01;
       }
-      if (x > 100 - (bounds.width / boundingBoxBounds.width * 100)) {
-        x = (boundingBoxBounds.width - bounds.width) / boundingBoxBounds.width * 100;
+      if (x > 100 - (bounds.width / boundingBoxBounds.width) * 100) {
+        x =
+          ((boundingBoxBounds.width - bounds.width) / boundingBoxBounds.width) *
+          100;
       }
       if (y < 0) {
         y = 0.01;
       }
-      if (y > 100 - (bounds.height / boundingBoxBounds.height * 100)) {
-        y = (boundingBoxBounds.height - bounds.height) / boundingBoxBounds.height * 100;
+      if (y > 100 - (bounds.height / boundingBoxBounds.height) * 100) {
+        y =
+          ((boundingBoxBounds.height - bounds.height) /
+            boundingBoxBounds.height) *
+          100;
       }
 
       mainRef.current.style.top = `${y}%`;
@@ -91,15 +115,14 @@ export default function Draggable({ initialPosition, boundingBox, children, call
 
       oldWidth = boundingBoxBounds.width;
       oldHeight = boundingBoxBounds.height;
-    }
+    };
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
 
     return () => {
-      window.removeEventListener("resize", handleResize);
-    }
-
-  }, [])
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
     <div
@@ -116,7 +139,7 @@ export default function Draggable({ initialPosition, boundingBox, children, call
       className="absolute"
       style={{
         top: `${initialPosition[1]}%`,
-        left: `${initialPosition[0]}%`
+        left: `${initialPosition[0]}%`,
       }}
     >
       {children}

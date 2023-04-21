@@ -27,8 +27,7 @@
     "**/*.tsx",
     "next.config.js",
     "tailwind.config.js",
-    "postcss.config.js",
-    "src/sloby-editor-system/implementations/SlobyPreviewSiteInterface.tsx"
+    "postcss.config.js"
   ],
   "exclude": ["node_modules"]
 }

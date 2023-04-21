@@ -3,6 +3,8 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 export async function middleware(req: NextRequest) {
+  console.log('Inside of middleware');
+
   const res = NextResponse.next();
   const redirectUrl = req.nextUrl.clone();
   const supabase = createMiddlewareSupabaseClient({ req, res });

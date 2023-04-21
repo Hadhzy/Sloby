@@ -1,4 +1,3 @@
-import { initScriptLoader } from 'next/script';
 import React, { useState } from 'react';
 
 export default function SlobyInput({

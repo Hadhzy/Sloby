@@ -1,24 +1,32 @@
 // Description: Input component for text tool
 
-import React, { useContext, useState } from "react";
-import { motion } from "framer-motion";
-import Draggable from "../utils/Draggable";
-import { EditorContext } from "../contexts/Editor";
+import React, { useContext, useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import Draggable from '../utils/Draggable';
+import { EditorContext } from '../contexts/Editor';
 
 interface TextProps {
-  boundingBox: { boundingBox: React.RefObject<HTMLDivElement> },
-  components: Array<any>,
-  initialLocation: Array<number>,
-  dataIndex: any,
-  data: any,
-  setData: any
+  boundingBox: { boundingBox: React.RefObject<HTMLDivElement> };
+  components: Array<any>;
+  initialLocation: Array<number>;
+  dataIndex: any;
+  data: any;
+  setData: any;
 }
 
-export default function Text({ boundingBox, components, dataIndex, data, setData }: TextProps) {
+export default function Text({
+  boundingBox,
+  components,
+  dataIndex,
+  data,
+  setData,
+}: TextProps) {
   const [snapped, setSnapped] = useState(true);
   const [readOnly, setReadOnly] = useState(true);
-  const [styles, setStyles] = useState("border-transparent");
-  const {currentlySelected, setCurrentlySelected} = useContext(EditorContext);
+  const [styles, setStyles] = useState('border-transparent');
+  const { currentlySelected, setCurrentlySelected } = useContext(EditorContext);
+
+  console.log('data', data);
 
   const handleDrag = (x: number, y: number) => {
     setData((prev: any) => {
@@ -28,7 +36,11 @@ export default function Text({ boundingBox, components, dataIndex, data, setData
   };
 
   const handleChange = (e: any) => {
-    console.log(e);
+    console.log(e.target.id);
+    console.log(
+      'data updated',
+      data.find((element: any) => element.id === e.target.id)
+    );
   };
 
   return (
@@ -48,7 +60,7 @@ export default function Text({ boundingBox, components, dataIndex, data, setData
         onClick={(e) => {
           e.stopPropagation();
           setCurrentlySelected(dataIndex);
-          setStyles("border-blue-600");
+          setStyles('border-blue-600');
         }}
         readOnly={readOnly}
         className={`rounded hover:cursor-pointer

@@ -1,16 +1,24 @@
-import React, { useContext, useRef, useState } from "react";
-import { ProjectsContext } from "../../utils/contexts/ProjectsContext";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGear, faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import Text from "./tools/Text";
-import { EditorContext } from "./contexts/Editor";
+import React, { useContext, useRef, useState } from 'react';
+import { ProjectsContext } from '../../utils/contexts/ProjectsContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGear, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import Text from './tools/Text';
+import { EditorContext } from './contexts/Editor';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function SlobyToolBar(boundingBox: any) {
   const { currentProject } = useContext(ProjectsContext);
-  const { toolClicked, setToolClicked, components, setComponents, data, setData } = useContext(EditorContext);
+  const {
+    toolClicked,
+    setToolClicked,
+    components,
+    setComponents,
+    data,
+    setData,
+  } = useContext(EditorContext);
   const router = useRouter();
 
   return (
@@ -23,8 +31,7 @@ export default function SlobyToolBar(boundingBox: any) {
         <div>
           <div className="flex divide-x divide-dark-darker w-48">
             {/* This icon is carrying the height of the whole toolbar */}
-            <div
-              className="p-4 bg-dark-preview cursor-pointer text-white ease-in-out duration-150 hover:bg-dark-preview-hover">
+            <div className="p-4 bg-dark-preview cursor-pointer text-white ease-in-out duration-150 hover:bg-dark-preview-hover">
               <FontAwesomeIcon icon={faGear} className="text-center text-lg" />
             </div>
             <div
@@ -35,33 +42,42 @@ export default function SlobyToolBar(boundingBox: any) {
                 setToolClicked(!toolClicked);
                 setComponents((prev: any) => {
                   // Get len of data
-                  let len = data.length;
-                  let position = [0, 0];
+                  const len = data.length;
+                  const position = [0, 0];
 
                   setData((prev: any) => {
-                    return [...prev, {
-                      "type": "text",
-                      "position": position,
-                      "text": ""
-                    }];
+                    return [
+                      ...prev,
+                      {
+                        id: uuidv4(),
+                        type: 'text',
+                        position: position,
+                        text: '',
+                      },
+                    ];
                   });
 
                   return [
                     ...prev,
                     <Text
+                      key={uuidv4()}
                       boundingBox={boundingBox}
                       components={components}
                       initialLocation={position}
                       dataIndex={len}
                       data={data}
                       setData={setData}
-                    />
+                    />,
                   ];
                 });
-                console.log(components);
-              }
-              }>
-              <p style={{ fontFamily: "Noto Serif Lao" }} className={"text-3xl"}>T</p>
+              }}
+            >
+              <p
+                style={{ fontFamily: 'Noto Serif Lao' }}
+                className={'text-3xl'}
+              >
+                T
+              </p>
             </div>
           </div>
         </div>
@@ -83,8 +99,7 @@ export default function SlobyToolBar(boundingBox: any) {
             </div>
           </div>
           <div className="flex">
-            <button
-              className="h-full duration-150 ease-in-out bg-blue-dark px-4 py-1 text-white font-semibold hover:bg-blue-600">
+            <button className="h-full duration-150 ease-in-out bg-blue-dark px-4 py-1 text-white font-semibold hover:bg-blue-600">
               Share
             </button>
             <Link
@@ -92,8 +107,7 @@ export default function SlobyToolBar(boundingBox: any) {
               target="_blank"
               prefetch
             >
-              <button
-                className="h-full flex-center duration-150 ease-in-out bg-dark-preview px-4 py-1 text-white font-semibold hover:bg-dark-preview-hover">
+              <button className="h-full flex-center duration-150 ease-in-out bg-dark-preview px-4 py-1 text-white font-semibold hover:bg-dark-preview-hover">
                 Preview
                 <FontAwesomeIcon icon={faChevronDown} className="ml-2" />
               </button>
